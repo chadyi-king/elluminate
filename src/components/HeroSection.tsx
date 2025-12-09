@@ -8,17 +8,17 @@ import {
   Sparkles, 
   Building, 
   Heart, 
-  Tent 
+  Plane 
 } from "lucide-react";
 
 const servicePillars = [
-  { icon: Music, label: "Dinner & Dance" },
-  { icon: Users, label: "Corporate Team Building" },
-  { icon: Trophy, label: "Awards Ceremonies" },
-  { icon: Sparkles, label: "Brand Activations" },
-  { icon: Building, label: "Town Halls" },
-  { icon: Heart, label: "Family Fun Days" },
-  { icon: Tent, label: "Carnivals" },
+  { icon: Music, labelTop: "Dinner", labelBottom: "& Dance" },
+  { icon: Users, labelTop: "Team", labelBottom: "Building" },
+  { icon: Trophy, labelTop: "Awards", labelBottom: "Ceremonies" },
+  { icon: Sparkles, labelTop: "Brand", labelBottom: "Activations" },
+  { icon: Building, labelTop: "Town", labelBottom: "Halls" },
+  { icon: Heart, labelTop: "Family", labelBottom: "Fun Days" },
+  { icon: Plane, labelTop: "Overseas", labelBottom: "Retreats" },
 ];
 
 const letterAnimation = {
@@ -84,18 +84,18 @@ export const HeroSection = () => {
 
       <div className="container mx-auto px-6 relative z-10 pt-32 pb-20">
         <div className="flex flex-col items-center text-center">
-          {/* TEAM text */}
+          {/* TEAM text - Bigger and closer to ELEVATE */}
           <motion.span
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-primary/70 text-sm md:text-lg tracking-[0.6em] uppercase font-sans mb-4"
+            className="text-primary font-display text-2xl md:text-4xl lg:text-5xl tracking-[0.4em] uppercase font-black mb-2"
           >
             TEAM
           </motion.span>
 
           {/* ELEVATE letters - Trophy style with plates */}
-          <div className="flex items-end justify-center gap-1 sm:gap-2 md:gap-3 mb-8">
+          <div className="flex items-end justify-center gap-1 sm:gap-2 md:gap-3 mb-6">
             {elevateLetters.map((letter, i) => (
               <motion.div
                 key={i}
@@ -115,9 +115,8 @@ export const HeroSection = () => {
                   />
                   
                   {/* Trophy body - the letter */}
-                  <span className="relative block text-transparent bg-clip-text bg-gradient-to-b from-primary-soft via-primary to-primary-deep font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wide drop-shadow-2xl"
+                  <span className="relative block text-transparent bg-clip-text bg-gradient-to-b from-primary-soft via-primary to-primary-deep font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-wide drop-shadow-2xl"
                     style={{
-                      fontFamily: "'Arial Black', 'Helvetica Neue', sans-serif",
                       WebkitTextStroke: '1px hsl(43, 65%, 45%)',
                     }}
                   >
@@ -138,7 +137,7 @@ export const HeroSection = () => {
                   <div className="absolute inset-0 bg-primary/30 rounded blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Plate body */}
-                  <div className="relative w-14 sm:w-16 md:w-20 lg:w-24 bg-gradient-to-b from-primary/40 via-primary/25 to-primary/15 border border-primary/50 rounded-sm py-1.5 sm:py-2 px-1 flex flex-col items-center gap-0.5 group-hover:border-primary/80 group-hover:shadow-gold transition-all duration-300">
+                  <div className="relative w-12 sm:w-14 md:w-16 lg:w-20 bg-gradient-to-b from-primary/40 via-primary/25 to-primary/15 border border-primary/50 rounded-sm py-1 sm:py-1.5 px-1 flex flex-col items-center gap-0.5 group-hover:border-primary/80 group-hover:shadow-gold transition-all duration-300">
                     {/* Top shine line */}
                     <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-primary-soft/80 to-transparent" />
                     
@@ -147,9 +146,12 @@ export const HeroSection = () => {
                       const IconComponent = servicePillars[i].icon;
                       return (
                         <>
-                          <IconComponent className="w-3 h-3 sm:w-4 sm:h-4 text-primary group-hover:text-primary-ember transition-colors" />
-                          <span className="text-[6px] sm:text-[7px] md:text-[8px] text-primary-soft/80 group-hover:text-primary-soft tracking-wider uppercase text-center leading-tight transition-colors">
-                            {servicePillars[i].label}
+                          <IconComponent className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-primary group-hover:text-primary-ember transition-colors" />
+                          <span className="text-[5px] sm:text-[6px] md:text-[7px] text-primary-soft/80 group-hover:text-primary-soft tracking-wide uppercase text-center leading-tight transition-colors font-display font-bold">
+                            {servicePillars[i].labelTop}
+                          </span>
+                          <span className="text-[5px] sm:text-[6px] md:text-[7px] text-primary-soft/60 group-hover:text-primary-soft/80 tracking-wide uppercase text-center leading-tight transition-colors font-display -mt-0.5">
+                            {servicePillars[i].labelBottom}
                           </span>
                         </>
                       );
@@ -168,7 +170,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.8, duration: 0.8 }}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-soft/80 font-sans font-medium tracking-wide mb-2 max-w-3xl"
+            className="text-lg sm:text-xl md:text-2xl text-primary-soft/80 font-display font-bold tracking-wide mb-1 max-w-3xl"
           >
             Where Moments Become
           </motion.h1>
@@ -177,9 +179,9 @@ export const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 2, duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-metallic-gold font-serif font-bold tracking-wide mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-metallic-gold font-display font-black tracking-wide mb-4"
           >
-            Masterpieces
+            MASTERPIECES
           </motion.span>
 
           {/* Secondary Tagline H2 */}
@@ -187,7 +189,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.2, duration: 0.8 }}
-            className="text-sm md:text-lg lg:text-xl text-muted-foreground font-sans font-light tracking-wide mb-10 max-w-2xl"
+            className="text-sm md:text-lg lg:text-xl text-muted-foreground font-display font-medium tracking-wide mb-10 max-w-2xl"
           >
             Singapore's Premier Corporate Event Specialists
           </motion.h2>
@@ -199,7 +201,7 @@ export const HeroSection = () => {
             transition={{ delay: 2.4, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-center gap-4"
           >
-            <Button variant="hero" size="xl" className="group">
+            <Button variant="hero" size="xl" className="group font-display font-bold">
               <span>Start Planning Your Event</span>
               <motion.span
                 className="inline-block ml-2"
@@ -209,7 +211,7 @@ export const HeroSection = () => {
                 →
               </motion.span>
             </Button>
-            <Button variant="gold-outline" size="lg">
+            <Button variant="gold-outline" size="lg" className="font-display font-bold">
               View Our Portfolio
             </Button>
           </motion.div>

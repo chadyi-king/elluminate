@@ -1,38 +1,55 @@
 import { motion } from "framer-motion";
-import { Lightbulb, Target, Heart, Layers, Award } from "lucide-react";
+import { Lightbulb, Heart, Clock, Star, Infinity, Sparkles } from "lucide-react";
 
 const pillars = [
   {
+    letter: "C",
     icon: Lightbulb,
-    title: "Creative Excellence",
+    title: "Creative",
     description: "Cinematic, memorable concepts that captivate audiences and create lasting impressions.",
+    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400",
   },
   {
-    icon: Target,
-    title: "Precision Execution",
-    description: "Flawless event operations with meticulous attention to every detail.",
-  },
-  {
+    letter: "A",
     icon: Heart,
-    title: "Human-Centered Engagement",
-    description: "Experiences designed to genuinely connect and inspire people.",
+    title: "Authentic",
+    description: "Genuine experiences that truly reflect your brand values and company culture.",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400",
   },
   {
-    icon: Layers,
-    title: "End-to-End Event Mastery",
-    description: "From concept to design, production to execution — complete event solutions.",
+    letter: "L",
+    icon: Clock,
+    title: "Lasting",
+    description: "Events that create memories people talk about for years to come.",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400",
   },
   {
-    icon: Award,
-    title: "Trusted by Top Brands",
-    description: "Partnering with leaders across finance, tech, healthcare & more in Singapore.",
+    letter: "E",
+    icon: Star,
+    title: "Exceptional",
+    description: "Flawless execution with meticulous attention to every single detail.",
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400",
+  },
+  {
+    letter: "B",
+    icon: Infinity,
+    title: "Boundless",
+    description: "Whatever you can dream of, we bring to life. No limits to creativity.",
+    image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=400",
+  },
+  {
+    letter: "E",
+    icon: Sparkles,
+    title: "Eccentric",
+    description: "A splash of creative fun and uniqueness that sets your event apart.",
+    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400",
   },
 ];
 
 export const WhyUsSection = () => {
   return (
-    <section id="why-us" className="py-24 bg-background-deep relative overflow-hidden">
-      {/* Background elements - fixed to prevent cutting */}
+    <section id="why-us" className="py-24 bg-background relative overflow-hidden">
+      {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(43,65%,52%,0.03)_0%,_transparent_70%)]" />
@@ -47,18 +64,21 @@ export const WhyUsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-sans mb-4 block">
+          <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-bold mb-4 block">
             Our Promise
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-metallic-gold">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-4">
             Why Team Elevate
           </h2>
+          <p className="text-muted-foreground text-lg font-display max-w-2xl mx-auto">
+            The C.A.L.E.B.E. standard — our commitment to delivering extraordinary experiences.
+          </p>
         </motion.div>
 
-        {/* Pillars - 5 columns on desktop */}
+        {/* Pillars - 6 columns on desktop */}
         <div className="relative max-w-7xl mx-auto">
           {/* Connecting line - behind cards */}
-          <div className="absolute top-32 left-0 right-0 hidden lg:block -z-0">
+          <div className="absolute top-40 left-0 right-0 hidden lg:block -z-0">
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -68,45 +88,61 @@ export const WhyUsSection = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-3 relative z-10">
             {pillars.map((pillar, index) => (
               <motion.div
                 key={pillar.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.15 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="relative group"
               >
                 {/* Pillar card */}
-                <div className="relative bg-card border border-border-gold/30 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-500 group-hover:shadow-gold-soft h-full">
-                  {/* Top glow line on hover */}
-                  <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative bg-card border border-border-gold/30 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-500 group-hover:shadow-gold-soft h-full">
+                  {/* Image */}
+                  <div className="relative h-32 overflow-hidden">
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                      style={{ backgroundImage: `url(${pillar.image})` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                    
+                    {/* Letter badge */}
+                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-background-deep font-display font-black text-lg">{pillar.letter}</span>
+                    </div>
+                  </div>
                   
-                  {/* Icon */}
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="w-16 h-16 mx-auto mb-5 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center group-hover:border-primary/60 group-hover:shadow-gold transition-all duration-300"
-                  >
-                    <pillar.icon className="w-7 h-7 text-primary group-hover:text-primary-ember transition-colors" />
-                  </motion.div>
+                  <div className="p-4 text-center">
+                    {/* Top glow line on hover */}
+                    <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Icon */}
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      className="w-12 h-12 mx-auto mb-3 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center group-hover:border-primary/60 group-hover:shadow-gold transition-all duration-300"
+                    >
+                      <pillar.icon className="w-5 h-5 text-primary group-hover:text-primary-ember transition-colors" />
+                    </motion.div>
 
-                  {/* Title */}
-                  <h3 className="text-lg font-serif text-primary-soft mb-3 group-hover:text-metallic-gold transition-colors duration-300">
-                    {pillar.title}
-                  </h3>
+                    {/* Title */}
+                    <h3 className="text-base font-display font-black text-primary-soft mb-2 group-hover:text-metallic-gold transition-colors duration-300">
+                      {pillar.title}
+                    </h3>
 
-                  {/* Description */}
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {pillar.description}
-                  </p>
+                    {/* Description */}
+                    <p className="text-muted-foreground text-xs leading-relaxed font-display">
+                      {pillar.description}
+                    </p>
+                  </div>
 
                   {/* Bottom accent */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
-                {/* Connector dot for desktop - positioned relative to icon */}
-                <div className="hidden lg:block absolute top-[4.5rem] left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full shadow-gold z-20" />
+                {/* Connector dot for desktop */}
+                <div className="hidden lg:block absolute top-[10.5rem] left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full shadow-gold z-20" />
               </motion.div>
             ))}
           </div>

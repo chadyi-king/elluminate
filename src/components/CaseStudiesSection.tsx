@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Quote, MapPin, Users, Calendar } from "lucide-react";
+import { Quote, MapPin, Users, CheckCircle } from "lucide-react";
 
 const caseStudies = [
   {
@@ -8,8 +8,14 @@ const caseStudies = [
     location: "Bintan, Indonesia",
     participants: "220",
     keyElements: ["Amazing Race", "Leadership Sessions", "Beachfront D&D"],
-    quote: "Team Elevate transformed our annual retreat into an unforgettable experience. The team building activities were perfectly aligned with our leadership development goals.",
-    image: "/placeholder.svg",
+    highlights: [
+      "3-day immersive leadership development program",
+      "Custom Amazing Race across Bintan landmarks",
+      "Gala dinner with live entertainment",
+      "Team bonding activities and water sports",
+    ],
+    quote: "Team Elevate transformed our annual retreat into an unforgettable experience. The team building activities were perfectly aligned with our leadership development goals. Our people are still talking about it months later.",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
     gradient: "from-primary/30 via-transparent to-transparent",
   },
   {
@@ -18,8 +24,14 @@ const caseStudies = [
     location: "Resorts World Ballroom",
     participants: "500",
     keyElements: ["Trophy Procession", "Stage Lighting", "Gold Theme"],
-    quote: "The level of detail and creativity exceeded our expectations. Our employees still talk about the magical atmosphere created that night.",
-    image: "/placeholder.svg",
+    highlights: [
+      "Full ballroom transformation with gold theme",
+      "Custom trophy design and procession",
+      "Celebrity entertainment and live band",
+      "Red carpet experience with photo ops",
+    ],
+    quote: "The level of detail and creativity exceeded our expectations. Our employees still talk about the magical atmosphere created that night. Truly a world-class production.",
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800",
     gradient: "from-transparent via-primary/30 to-transparent",
   },
   {
@@ -28,9 +40,31 @@ const caseStudies = [
     location: "West Coast Park",
     participants: "3,000",
     keyElements: ["Carnival Booths", "Live Performances", "Photo Ops"],
-    quote: "Managing 3,000 participants seamlessly while ensuring everyone had an amazing time - that's the Team Elevate difference.",
-    image: "/placeholder.svg",
+    highlights: [
+      "20+ interactive carnival game booths",
+      "Live stage performances throughout the day",
+      "Themed photo opportunities for families",
+      "Food villages with diverse options",
+    ],
+    quote: "Managing 3,000 participants seamlessly while ensuring everyone had an amazing time - that's the Team Elevate difference. A truly family-friendly event that exceeded all expectations.",
+    image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800",
     gradient: "from-transparent via-transparent to-primary/30",
+  },
+  {
+    id: 4,
+    title: "Google Singapore Town Hall 2023",
+    location: "Google APAC HQ",
+    participants: "800",
+    keyElements: ["Hybrid Format", "Interactive Q&A", "Tech Integration"],
+    highlights: [
+      "Seamless hybrid event with global streaming",
+      "Interactive polling and Q&A technology",
+      "Custom stage design matching brand guidelines",
+      "Multi-camera professional production",
+    ],
+    quote: "The hybrid format was executed flawlessly. Our teams across APAC felt connected and engaged. The technical execution was on par with our global standards.",
+    image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800",
+    gradient: "from-primary/20 via-transparent to-primary/20",
   },
 ];
 
@@ -49,32 +83,32 @@ export const CaseStudiesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-sans mb-4 block">
+          <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-bold mb-4 block">
             Our Work
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-metallic-gold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-6">
             Case Studies
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-display">
             Real results from Singapore's leading organizations. See how we elevate corporate events.
           </p>
         </motion.div>
 
-        {/* Case Study Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Case Study Cards - 2x2 Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {caseStudies.map((study, i) => (
             <motion.div
               key={study.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.2 }}
+              transition={{ duration: 0.8, delay: i * 0.15 }}
               className="group relative"
             >
               {/* Card */}
               <div className="relative bg-card/50 border border-border-gold/20 rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-500 group-hover:shadow-gold-soft h-full flex flex-col">
                 {/* Image */}
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[16/9] overflow-hidden">
                   <div 
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-110"
                     style={{ backgroundImage: `url(${study.image})` }}
@@ -94,38 +128,48 @@ export const CaseStudiesSection = () => {
 
                 {/* Content */}
                 <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl md:text-2xl font-serif text-primary-soft mb-4 group-hover:text-metallic-gold transition-colors">
+                  <h3 className="text-xl md:text-2xl font-display font-black text-primary-soft mb-4 group-hover:text-metallic-gold transition-colors">
                     {study.title}
                   </h3>
 
                   {/* Meta info */}
                   <div className="flex flex-wrap gap-4 mb-4 text-sm">
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                    <div className="flex items-center gap-2 text-muted-foreground font-display">
                       <MapPin className="w-4 h-4 text-primary/60" />
                       {study.location}
                     </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                    <div className="flex items-center gap-2 text-muted-foreground font-display">
                       <Users className="w-4 h-4 text-primary/60" />
                       {study.participants} participants
                     </div>
                   </div>
 
                   {/* Key Elements */}
-                  <div className="flex flex-wrap gap-2 mb-5">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {study.keyElements.map((element) => (
                       <span
                         key={element}
-                        className="px-3 py-1 text-xs bg-primary/10 border border-primary/20 rounded-full text-primary-soft"
+                        className="px-3 py-1 text-xs bg-primary/10 border border-primary/20 rounded-full text-primary-soft font-display font-bold"
                       >
                         {element}
                       </span>
                     ))}
                   </div>
 
+                  {/* Highlights */}
+                  <div className="mb-4 space-y-2">
+                    {study.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-muted-foreground text-sm font-display">{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+
                   {/* Quote */}
                   <div className="relative mt-auto pt-4 border-t border-border-gold/10">
                     <Quote className="w-6 h-6 text-primary/30 mb-2" />
-                    <p className="text-muted-foreground text-sm italic leading-relaxed">
+                    <p className="text-muted-foreground text-sm italic leading-relaxed font-display">
                       "{study.quote}"
                     </p>
                   </div>
