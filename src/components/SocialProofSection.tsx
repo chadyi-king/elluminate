@@ -59,7 +59,7 @@ export const SocialProofSection = () => {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h3 className="text-center text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-bold mb-10">
+          <h3 className="text-center text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-semibold mb-10">
             Trusted By Leading Brands
           </h3>
 

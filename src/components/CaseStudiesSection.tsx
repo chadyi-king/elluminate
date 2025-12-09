@@ -83,13 +83,13 @@ export const CaseStudiesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-bold mb-4 block">
+          <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
             Our Work
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-6">
             Case Studies
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-display">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-sans">
             Real results from Singapore's leading organizations. See how we elevate corporate events.
           </p>
         </motion.div>

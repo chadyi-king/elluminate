@@ -3,42 +3,36 @@ import { Lightbulb, Heart, Clock, Star, Infinity, Sparkles } from "lucide-react"
 
 const pillars = [
   {
-    letter: "C",
     icon: Lightbulb,
     title: "Creative",
     description: "Cinematic, memorable concepts that captivate audiences and create lasting impressions.",
     image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400",
   },
   {
-    letter: "A",
     icon: Heart,
     title: "Authentic",
     description: "Genuine experiences that truly reflect your brand values and company culture.",
     image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400",
   },
   {
-    letter: "L",
     icon: Clock,
     title: "Lasting",
     description: "Events that create memories people talk about for years to come.",
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400",
   },
   {
-    letter: "E",
     icon: Star,
     title: "Exceptional",
     description: "Flawless execution with meticulous attention to every single detail.",
     image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400",
   },
   {
-    letter: "B",
     icon: Infinity,
     title: "Boundless",
     description: "Whatever you can dream of, we bring to life. No limits to creativity.",
     image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=400",
   },
   {
-    letter: "E",
     icon: Sparkles,
     title: "Eccentric",
     description: "A splash of creative fun and uniqueness that sets your event apart.",
@@ -48,11 +42,10 @@ const pillars = [
 
 export const WhyUsSection = () => {
   return (
-    <section id="why-us" className="py-24 bg-background relative overflow-hidden">
+    <section id="why-us" className="py-24 bg-gradient-to-b from-[hsl(43,20%,8%)] via-background to-background relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(43,65%,52%,0.03)_0%,_transparent_70%)]" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -64,14 +57,14 @@ export const WhyUsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-bold mb-4 block">
+          <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
             Our Promise
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-4">
             Why Team Elevate
           </h2>
-          <p className="text-muted-foreground text-lg font-display max-w-2xl mx-auto">
-            The C.A.L.E.B.E. standard — our commitment to delivering extraordinary experiences.
+          <p className="text-muted-foreground text-lg font-sans max-w-2xl mx-auto">
+            Our commitment to delivering extraordinary experiences that exceed expectations.
           </p>
         </motion.div>
 
@@ -106,12 +99,7 @@ export const WhyUsSection = () => {
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                       style={{ backgroundImage: `url(${pillar.image})` }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
-                    
-                    {/* Letter badge */}
-                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                      <span className="text-background-deep font-display font-black text-lg">{pillar.letter}</span>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/70 to-card/30" />
                   </div>
                   
                   <div className="p-4 text-center">
@@ -132,7 +120,7 @@ export const WhyUsSection = () => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-muted-foreground text-xs leading-relaxed font-display">
+                    <p className="text-muted-foreground text-xs leading-relaxed font-sans">
                       {pillar.description}
                     </p>
                   </div>

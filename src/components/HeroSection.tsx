@@ -40,15 +40,26 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background-deep">
-      {/* Background Elements */}
+      {/* Background with multiple event photos */}
       <div className="absolute inset-0">
-        {/* Hero background image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{ backgroundImage: `url(${heroBg})` }}
-        />
+        {/* Main background image collage effect */}
+        <div className="absolute inset-0 grid grid-cols-3 gap-1 opacity-30">
+          <div 
+            className="bg-cover bg-center"
+            style={{ backgroundImage: `url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800)` }}
+          />
+          <div 
+            className="bg-cover bg-center"
+            style={{ backgroundImage: `url(https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800)` }}
+          />
+          <div 
+            className="bg-cover bg-center"
+            style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800)` }}
+          />
+        </div>
+        
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background-deep/90 via-background/70 to-background-deep" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background-deep/95 via-background/85 to-background-deep" />
         
         {/* Spotlight effect from below */}
         <motion.div
@@ -82,20 +93,20 @@ export const HeroSection = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 pt-32 pb-20">
+      <div className="container mx-auto px-6 relative z-10 pt-24 pb-16">
         <div className="flex flex-col items-center text-center">
           {/* TEAM text - Bigger and closer to ELEVATE */}
           <motion.span
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-primary font-display text-2xl md:text-4xl lg:text-5xl tracking-[0.4em] uppercase font-black mb-2"
+            className="text-primary font-display text-xl md:text-2xl lg:text-3xl tracking-[0.4em] uppercase font-black mb-1"
           >
             TEAM
           </motion.span>
 
-          {/* ELEVATE letters - Trophy style with plates */}
-          <div className="flex items-end justify-center gap-1 sm:gap-2 md:gap-3 mb-6">
+          {/* ELEVATE letters - Trophy style with plates - Smaller */}
+          <div className="flex items-end justify-center gap-0.5 sm:gap-1 md:gap-2 mb-4">
             {elevateLetters.map((letter, i) => (
               <motion.div
                 key={i}
@@ -109,13 +120,13 @@ export const HeroSection = () => {
                 <div className="relative">
                   {/* Trophy glow */}
                   <motion.div
-                    className="absolute -inset-2 bg-primary/20 rounded-lg blur-xl"
+                    className="absolute -inset-1 bg-primary/20 rounded-lg blur-lg"
                     animate={{ opacity: [0.3, 0.6, 0.3] }}
                     transition={{ duration: 2, delay: i * 0.15, repeat: Infinity }}
                   />
                   
                   {/* Trophy body - the letter */}
-                  <span className="relative block text-transparent bg-clip-text bg-gradient-to-b from-primary-soft via-primary to-primary-deep font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-wide drop-shadow-2xl"
+                  <span className="relative block text-transparent bg-clip-text bg-gradient-to-b from-primary-soft via-primary to-primary-deep font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-wide drop-shadow-2xl"
                     style={{
                       WebkitTextStroke: '1px hsl(43, 65%, 45%)',
                     }}
@@ -132,12 +143,12 @@ export const HeroSection = () => {
                 </div>
 
                 {/* Trophy Plate/Pedestal */}
-                <div className="relative mt-1 group cursor-pointer">
+                <div className="relative mt-0.5 group cursor-pointer">
                   {/* Plate glow on hover */}
                   <div className="absolute inset-0 bg-primary/30 rounded blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Plate body */}
-                  <div className="relative w-12 sm:w-14 md:w-16 lg:w-20 bg-gradient-to-b from-primary/40 via-primary/25 to-primary/15 border border-primary/50 rounded-sm py-1 sm:py-1.5 px-1 flex flex-col items-center gap-0.5 group-hover:border-primary/80 group-hover:shadow-gold transition-all duration-300">
+                  <div className="relative w-8 sm:w-10 md:w-12 lg:w-14 bg-gradient-to-b from-primary/40 via-primary/25 to-primary/15 border border-primary/50 rounded-sm py-0.5 sm:py-1 px-0.5 flex flex-col items-center gap-0 group-hover:border-primary/80 group-hover:shadow-gold transition-all duration-300">
                     {/* Top shine line */}
                     <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-primary-soft/80 to-transparent" />
                     
@@ -146,11 +157,11 @@ export const HeroSection = () => {
                       const IconComponent = servicePillars[i].icon;
                       return (
                         <>
-                          <IconComponent className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-primary group-hover:text-primary-ember transition-colors" />
-                          <span className="text-[5px] sm:text-[6px] md:text-[7px] text-primary-soft/80 group-hover:text-primary-soft tracking-wide uppercase text-center leading-tight transition-colors font-display font-bold">
+                          <IconComponent className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-primary group-hover:text-primary-ember transition-colors" />
+                          <span className="text-[4px] sm:text-[5px] md:text-[6px] text-primary-soft/80 group-hover:text-primary-soft tracking-wide uppercase text-center leading-tight transition-colors font-display font-bold">
                             {servicePillars[i].labelTop}
                           </span>
-                          <span className="text-[5px] sm:text-[6px] md:text-[7px] text-primary-soft/60 group-hover:text-primary-soft/80 tracking-wide uppercase text-center leading-tight transition-colors font-display -mt-0.5">
+                          <span className="text-[4px] sm:text-[5px] md:text-[6px] text-primary-soft/60 group-hover:text-primary-soft/80 tracking-wide uppercase text-center leading-tight transition-colors font-display -mt-0.5">
                             {servicePillars[i].labelBottom}
                           </span>
                         </>
@@ -159,7 +170,7 @@ export const HeroSection = () => {
                   </div>
                   
                   {/* Plate base shadow */}
-                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[90%] h-1 bg-primary/20 rounded-full blur-sm" />
+                  <div className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-[90%] h-0.5 bg-primary/20 rounded-full blur-sm" />
                 </div>
               </motion.div>
             ))}
@@ -170,7 +181,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.8, duration: 0.8 }}
-            className="text-lg sm:text-xl md:text-2xl text-primary-soft/80 font-display font-bold tracking-wide mb-1 max-w-3xl"
+            className="text-base sm:text-lg md:text-xl text-primary-soft/80 font-display font-semibold tracking-wide mb-0 max-w-3xl"
           >
             Where Moments Become
           </motion.h1>
@@ -179,7 +190,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 2, duration: 0.8 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-metallic-gold font-display font-black tracking-wide mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-metallic-gold font-display font-black tracking-wide mb-3"
           >
             MASTERPIECES
           </motion.span>
@@ -189,7 +200,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.2, duration: 0.8 }}
-            className="text-sm md:text-lg lg:text-xl text-muted-foreground font-display font-medium tracking-wide mb-10 max-w-2xl"
+            className="text-xs md:text-sm lg:text-base text-muted-foreground font-display font-medium tracking-wide mb-8 max-w-2xl"
           >
             Singapore's Premier Corporate Event Specialists
           </motion.h2>
@@ -201,7 +212,7 @@ export const HeroSection = () => {
             transition={{ delay: 2.4, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-center gap-4"
           >
-            <Button variant="hero" size="xl" className="group font-display font-bold">
+            <Button variant="hero" size="lg" className="group font-display font-bold">
               <span>Start Planning Your Event</span>
               <motion.span
                 className="inline-block ml-2"
@@ -211,7 +222,7 @@ export const HeroSection = () => {
                 →
               </motion.span>
             </Button>
-            <Button variant="gold-outline" size="lg" className="font-display font-bold">
+            <Button variant="gold-outline" size="default" className="font-display font-semibold">
               View Our Portfolio
             </Button>
           </motion.div>
@@ -221,17 +232,17 @@ export const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.8, duration: 0.8 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+            className="absolute bottom-6 left-1/2 -translate-x-1/2"
           >
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 rounded-full border-2 border-primary/30 flex items-start justify-center p-2"
+              className="w-5 h-8 rounded-full border-2 border-primary/30 flex items-start justify-center p-1.5"
             >
               <motion.div
-                animate={{ height: [8, 16, 8] }}
+                animate={{ height: [6, 12, 6] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="w-1 bg-primary/50 rounded-full"
+                className="w-0.5 bg-primary/50 rounded-full"
               />
             </motion.div>
           </motion.div>
