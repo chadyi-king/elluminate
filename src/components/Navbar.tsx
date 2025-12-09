@@ -26,13 +26,11 @@ const immersiveServices = [
   { name: "Emcee / Photo / Video", slug: "emcee-services" },
 ];
 
-const funServices = [
+const experienceServices = [
   { name: "Family Fun Days", slug: "family-fun-days" },
   { name: "Corporate Carnivals", slug: "corporate-carnivals" },
-];
-
-const luxuryServices = [
   { name: "VIP Gala Experiences", slug: "vip-gala" },
+  { name: "Company Retreats", slug: "company-retreats" },
 ];
 
 interface DropdownProps {
@@ -49,7 +47,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
       <button
         onClick={onToggle}
         onMouseEnter={onToggle}
-        className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-sans py-2"
+        className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-display font-bold py-2"
       >
         {label}
         <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -71,7 +69,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
                   key={item.slug}
                   to={`/services/${item.slug}`}
                   onClick={onClose}
-                  className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
+                  className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors font-display"
                 >
                   {item.name}
                 </Link>
@@ -109,13 +107,13 @@ export const Navbar = () => {
           <div className="hidden lg:flex items-center gap-6">
             <a
               href="/"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-sans"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-display font-bold"
             >
               Home
             </a>
             <a
               href="/#why-us"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-sans"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-display font-bold"
             >
               About
             </a>
@@ -136,11 +134,11 @@ export const Navbar = () => {
           </div>
 
           {/* Center Logo */}
-          <Link to="/" className="flex flex-col items-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-            <span className="text-primary/70 text-[10px] tracking-[0.4em] uppercase font-sans">
+          <Link to="/" className="flex flex-col items-center absolute left-1/2 -translate-x-1/2">
+            <span className="text-primary/70 text-xs tracking-[0.4em] uppercase font-display font-bold">
               Team
             </span>
-            <span className="text-metallic-gold font-serif text-xl tracking-[0.3em] font-bold -mt-1">
+            <span className="text-metallic-gold font-display text-2xl tracking-[0.2em] font-black -mt-1">
               ELEVATE
             </span>
           </Link>
@@ -148,26 +146,19 @@ export const Navbar = () => {
           {/* Right Navigation */}
           <div className="hidden lg:flex items-center gap-6">
             <NavDropdown
-              label="Fun"
-              items={funServices}
-              isOpen={openDropdown === 'fun'}
-              onToggle={() => handleDropdownToggle('fun')}
-              onClose={handleDropdownClose}
-            />
-            <NavDropdown
-              label="Luxury"
-              items={luxuryServices}
-              isOpen={openDropdown === 'luxury'}
-              onToggle={() => handleDropdownToggle('luxury')}
+              label="Experience"
+              items={experienceServices}
+              isOpen={openDropdown === 'experience'}
+              onToggle={() => handleDropdownToggle('experience')}
               onClose={handleDropdownClose}
             />
             <a
               href="/#portfolio"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-sans"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-display font-bold"
             >
-              Gallery
+              Portfolio
             </a>
-            <Button variant="gold-outline" size="sm">
+            <Button variant="gold-outline" size="sm" className="font-display font-bold">
               Get Started
             </Button>
           </div>
@@ -175,7 +166,7 @@ export const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-primary"
+            className="lg:hidden text-primary ml-auto"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -195,27 +186,27 @@ export const Navbar = () => {
               <a
                 href="/"
                 onClick={() => setIsOpen(false)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-sans py-2"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-display font-bold py-2"
               >
                 Home
               </a>
               <a
                 href="/#why-us"
                 onClick={() => setIsOpen(false)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-sans py-2"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-display font-bold py-2"
               >
                 About
               </a>
               
               {/* Corporate Dropdown */}
               <div className="border-t border-border-gold/20 pt-4">
-                <span className="text-primary text-xs tracking-wider uppercase font-sans mb-2 block">Corporate</span>
+                <span className="text-primary text-xs tracking-wider uppercase font-display font-bold mb-2 block">Corporate</span>
                 {corporateServices.map((item) => (
                   <Link
                     key={item.slug}
                     to={`/services/${item.slug}`}
                     onClick={() => setIsOpen(false)}
-                    className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-sm py-1.5 pl-4"
+                    className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
                   >
                     {item.name}
                   </Link>
@@ -224,43 +215,28 @@ export const Navbar = () => {
 
               {/* Immersive Dropdown */}
               <div className="border-t border-border-gold/20 pt-4">
-                <span className="text-primary text-xs tracking-wider uppercase font-sans mb-2 block">Immersive</span>
+                <span className="text-primary text-xs tracking-wider uppercase font-display font-bold mb-2 block">Immersive</span>
                 {immersiveServices.map((item) => (
                   <Link
                     key={item.slug}
                     to={`/services/${item.slug}`}
                     onClick={() => setIsOpen(false)}
-                    className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-sm py-1.5 pl-4"
+                    className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
                   >
                     {item.name}
                   </Link>
                 ))}
               </div>
 
-              {/* Fun Dropdown */}
+              {/* Experience Dropdown */}
               <div className="border-t border-border-gold/20 pt-4">
-                <span className="text-primary text-xs tracking-wider uppercase font-sans mb-2 block">Fun</span>
-                {funServices.map((item) => (
+                <span className="text-primary text-xs tracking-wider uppercase font-display font-bold mb-2 block">Experience</span>
+                {experienceServices.map((item) => (
                   <Link
                     key={item.slug}
                     to={`/services/${item.slug}`}
                     onClick={() => setIsOpen(false)}
-                    className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-sm py-1.5 pl-4"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Luxury Dropdown */}
-              <div className="border-t border-border-gold/20 pt-4">
-                <span className="text-primary text-xs tracking-wider uppercase font-sans mb-2 block">Luxury</span>
-                {luxuryServices.map((item) => (
-                  <Link
-                    key={item.slug}
-                    to={`/services/${item.slug}`}
-                    onClick={() => setIsOpen(false)}
-                    className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-sm py-1.5 pl-4"
+                    className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
                   >
                     {item.name}
                   </Link>
@@ -270,12 +246,12 @@ export const Navbar = () => {
               <a
                 href="/#portfolio"
                 onClick={() => setIsOpen(false)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-sans py-2 border-t border-border-gold/20 pt-4"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-display font-bold py-2 border-t border-border-gold/20 pt-4"
               >
-                Gallery
+                Portfolio
               </a>
               
-              <Button variant="gold-outline" className="mt-4">
+              <Button variant="gold-outline" className="mt-4 font-display font-bold">
                 Get Started
               </Button>
             </div>
