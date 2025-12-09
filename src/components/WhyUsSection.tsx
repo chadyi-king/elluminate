@@ -42,11 +42,15 @@ const pillars = [
 
 export const WhyUsSection = () => {
   return (
-    <section id="why-us" className="py-24 bg-gradient-to-b from-[hsl(43,20%,8%)] via-background to-background relative overflow-hidden">
+    <section id="why-us" className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 20%, 8%) 0%, hsl(43, 28%, 14%) 50%, hsl(43, 18%, 6%) 100%)' }}>
       {/* Background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       </div>
+      
+      {/* Gold accent lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}

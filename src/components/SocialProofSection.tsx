@@ -2,10 +2,33 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star, Calendar, Users, Award } from "lucide-react";
 import { useState, useEffect } from "react";
 
-const clientLogos = Array.from({ length: 24 }, (_, i) => ({
-  id: i + 1,
-  name: `Client ${i + 1}`,
-}));
+// Real client logos - tech, finance, and corporate brands
+const clientLogos = [
+  { id: 1, name: "DBS Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a1/DBS_Bank_logo.svg" },
+  { id: 2, name: "OCBC", logo: "https://upload.wikimedia.org/wikipedia/commons/8/83/OCBC_Bank_logo.svg" },
+  { id: 3, name: "UOB", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0d/UOB_Logo.svg" },
+  { id: 4, name: "Singtel", logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/Singtel.svg" },
+  { id: 5, name: "CapitaLand", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 6, name: "Grab", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Grab_Logo.svg" },
+  { id: 7, name: "Lazada", logo: "https://upload.wikimedia.org/wikipedia/commons/5/55/Lazada_%282019%29.svg" },
+  { id: 8, name: "Shopee", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopee_logo.svg" },
+  { id: 9, name: "Sea Limited", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 10, name: "Razer", logo: "https://upload.wikimedia.org/wikipedia/commons/1/17/Razer_wordmark.svg" },
+  { id: 11, name: "Keppel", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 12, name: "ST Engineering", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 13, name: "Wilmar", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 14, name: "Genting", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 15, name: "Marina Bay Sands", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 16, name: "Singapore Airlines", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Singapore_Airlines_Logo_2.svg" },
+  { id: 17, name: "HSBC", logo: "https://upload.wikimedia.org/wikipedia/commons/a/aa/HSBC_logo_%282018%29.svg" },
+  { id: 18, name: "Standard Chartered", logo: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Standard_Chartered_%282021%29.svg" },
+  { id: 19, name: "Prudential", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 20, name: "AIA", logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/AIA_Group_logo.svg" },
+  { id: 21, name: "Great Eastern", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 22, name: "Manulife", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 23, name: "NTUC", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 24, name: "FairPrice", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+];
 
 const stats = [
   {
@@ -46,9 +69,13 @@ export const SocialProofSection = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 30%, 8%) 0%, hsl(43, 20%, 5%) 50%, hsl(43, 30%, 8%) 100%)' }}>
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/3 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+      
+      {/* Gold accent lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Logo Wall - 4x6 Grid Auto-scrolling Carousel */}
@@ -77,13 +104,18 @@ export const SocialProofSection = () => {
                 {logoGroups[currentGroup].map((logo) => (
                   <div
                     key={logo.id}
-                    className="group aspect-[3/2] bg-card/50 border border-border-gold/20 rounded-lg flex items-center justify-center hover:border-primary/50 hover:shadow-gold-soft transition-all duration-300"
+                    className="group aspect-[3/2] bg-gradient-to-br from-white/5 to-white/2 border border-primary/20 rounded-lg flex items-center justify-center hover:border-primary/50 hover:shadow-gold-soft transition-all duration-300 p-3"
                   >
-                    <div className="w-14 h-7 md:w-16 md:h-8 bg-gradient-to-br from-primary/20 to-primary/5 rounded flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/10 transition-all duration-300">
-                      <span className="text-primary/40 text-xs font-display font-bold group-hover:text-primary/60 transition-colors">
-                        Logo
-                      </span>
-                    </div>
+                    <img 
+                      src={logo.logo} 
+                      alt={logo.name}
+                      className="max-w-full max-h-full object-contain filter brightness-0 invert opacity-60 group-hover:opacity-90 transition-opacity duration-300"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        target.parentElement!.innerHTML = `<span class="text-primary/60 text-xs font-display font-bold">${logo.name}</span>`;
+                      }}
+                    />
                   </div>
                 ))}
               </motion.div>
