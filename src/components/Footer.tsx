@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin, Facebook, Mail, Phone } from "lucide-react";
+import { 
+  Instagram, 
+  Linkedin, 
+  Facebook, 
+  Mail, 
+  Phone, 
+  MapPin,
+  MessageCircle
+} from "lucide-react";
 
 const footerLinks = {
   services: [
@@ -9,11 +17,12 @@ const footerLinks = {
     { name: "Awards Ceremonies", path: "/services/awards-ceremonies" },
     { name: "Brand Activations", path: "/services/brand-activations" },
     { name: "VIP Gala", path: "/services/vip-gala" },
+    { name: "Family Fun Days", path: "/services/family-fun-days" },
   ],
   company: [
     { name: "About Us", path: "/about" },
     { name: "Portfolio", path: "/#portfolio" },
-    { name: "Process", path: "/#journey" },
+    { name: "Case Studies", path: "/#case-studies" },
     { name: "Contact", path: "/#contact" },
   ],
 };
@@ -40,7 +49,7 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Transforming visions into extraordinary experiences. Where moments become masterpieces.
+              Singapore's premier corporate event specialists. Transforming visions into extraordinary experiences since 2017.
             </p>
             
             {/* Social Links */}
@@ -60,7 +69,10 @@ export const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-primary-soft font-serif text-lg mb-6">Services</h4>
+            <h4 className="text-primary-soft font-serif text-lg mb-6 relative">
+              Services
+              <span className="absolute -bottom-2 left-0 w-8 h-px bg-primary/50" />
+            </h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.path}>
@@ -77,7 +89,10 @@ export const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="text-primary-soft font-serif text-lg mb-6">Company</h4>
+            <h4 className="text-primary-soft font-serif text-lg mb-6 relative">
+              Company
+              <span className="absolute -bottom-2 left-0 w-8 h-px bg-primary/50" />
+            </h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.path}>
@@ -94,25 +109,56 @@ export const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="text-primary-soft font-serif text-lg mb-6">Contact</h4>
+            <h4 className="text-primary-soft font-serif text-lg mb-6 relative">
+              Contact Us
+              <span className="absolute -bottom-2 left-0 w-8 h-px bg-primary/50" />
+            </h4>
             <ul className="space-y-4">
-              <li>
-                <a
-                  href="mailto:hello@teamelevate.com"
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary text-sm transition-colors duration-300"
-                >
-                  <Mail className="w-4 h-4 text-primary/60" />
-                  hello@teamelevate.com
-                </a>
-              </li>
               <li>
                 <a
                   href="tel:+6512345678"
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary text-sm transition-colors duration-300"
                 >
-                  <Phone className="w-4 h-4 text-primary/60" />
+                  <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center">
+                    <Phone className="w-3.5 h-3.5 text-primary/60" />
+                  </div>
                   +65 1234 5678
                 </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:hello@teamelevate.sg"
+                  className="flex items-center gap-3 text-muted-foreground hover:text-primary text-sm transition-colors duration-300"
+                >
+                  <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center">
+                    <Mail className="w-3.5 h-3.5 text-primary/60" />
+                  </div>
+                  hello@teamelevate.sg
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/6512345678"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-muted-foreground hover:text-primary text-sm transition-colors duration-300"
+                >
+                  <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center">
+                    <MessageCircle className="w-3.5 h-3.5 text-primary/60" />
+                  </div>
+                  WhatsApp
+                </a>
+              </li>
+              <li>
+                <div className="flex items-start gap-3 text-muted-foreground text-sm">
+                  <div className="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <MapPin className="w-3.5 h-3.5 text-primary/60" />
+                  </div>
+                  <span>
+                    123 Event Street, #01-01<br />
+                    Singapore 123456
+                  </span>
+                </div>
               </li>
             </ul>
           </div>
@@ -125,7 +171,7 @@ export const Footer = () => {
               © {new Date().getFullYear()} Team Elevate. All rights reserved.
             </p>
             <p className="text-muted-foreground/40 text-xs">
-              Crafting extraordinary experiences since 2015
+              8 Years of Excellence — Since 2017
             </p>
           </div>
         </div>
