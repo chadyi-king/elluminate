@@ -94,8 +94,8 @@ export const HeroSection = () => {
             TEAM
           </motion.span>
 
-          {/* ELEVATE letters - Trophy style */}
-          <div className="flex items-end justify-center gap-2 md:gap-4 mb-10">
+          {/* ELEVATE letters - Trophy style with plates */}
+          <div className="flex items-end justify-center gap-1 sm:gap-2 md:gap-3 mb-8">
             {elevateLetters.map((letter, i) => (
               <motion.div
                 key={i}
@@ -103,81 +103,91 @@ export const HeroSection = () => {
                 initial="hidden"
                 animate="visible"
                 variants={letterAnimation}
-                className="relative"
+                className="relative flex flex-col items-center"
               >
-                {/* Trophy base glow */}
-                <motion.div
-                  className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 md:w-12 h-2 bg-primary/40 rounded-full blur-sm"
-                  animate={{ opacity: [0.4, 0.8, 0.4], scale: [0.9, 1.1, 0.9] }}
-                  transition={{ duration: 2, delay: i * 0.15, repeat: Infinity }}
-                />
-                <span className="text-trophy-gold font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-[0.08em] drop-shadow-2xl relative">
-                  {letter}
+                {/* Trophy Letter */}
+                <div className="relative">
+                  {/* Trophy glow */}
+                  <motion.div
+                    className="absolute -inset-2 bg-primary/20 rounded-lg blur-xl"
+                    animate={{ opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ duration: 2, delay: i * 0.15, repeat: Infinity }}
+                  />
+                  
+                  {/* Trophy body - the letter */}
+                  <span className="relative block text-transparent bg-clip-text bg-gradient-to-b from-primary-soft via-primary to-primary-deep font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wide drop-shadow-2xl"
+                    style={{
+                      fontFamily: "'Arial Black', 'Helvetica Neue', sans-serif",
+                      WebkitTextStroke: '1px hsl(43, 65%, 45%)',
+                    }}
+                  >
+                    {letter}
+                  </span>
+                  
                   {/* Shine highlight */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary-soft/20 to-transparent"
-                    animate={{ opacity: [0, 0.5, 0] }}
+                    className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary-soft/30 to-transparent"
+                    animate={{ opacity: [0, 0.6, 0] }}
                     transition={{ duration: 3, delay: i * 0.2, repeat: Infinity }}
                   />
-                </span>
+                </div>
+
+                {/* Trophy Plate/Pedestal */}
+                <div className="relative mt-1 group cursor-pointer">
+                  {/* Plate glow on hover */}
+                  <div className="absolute inset-0 bg-primary/30 rounded blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Plate body */}
+                  <div className="relative w-14 sm:w-16 md:w-20 lg:w-24 bg-gradient-to-b from-primary/40 via-primary/25 to-primary/15 border border-primary/50 rounded-sm py-1.5 sm:py-2 px-1 flex flex-col items-center gap-0.5 group-hover:border-primary/80 group-hover:shadow-gold transition-all duration-300">
+                    {/* Top shine line */}
+                    <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-primary-soft/80 to-transparent" />
+                    
+                    {/* Icon */}
+                    {servicePillars[i] && (() => {
+                      const IconComponent = servicePillars[i].icon;
+                      return (
+                        <>
+                          <IconComponent className="w-3 h-3 sm:w-4 sm:h-4 text-primary group-hover:text-primary-ember transition-colors" />
+                          <span className="text-[6px] sm:text-[7px] md:text-[8px] text-primary-soft/80 group-hover:text-primary-soft tracking-wider uppercase text-center leading-tight transition-colors">
+                            {servicePillars[i].label}
+                          </span>
+                        </>
+                      );
+                    })()}
+                  </div>
+                  
+                  {/* Plate base shadow */}
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[90%] h-1 bg-primary/20 rounded-full blur-sm" />
+                </div>
               </motion.div>
             ))}
           </div>
-
-          {/* Service Pillars - Pedestals */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
-            className="flex flex-wrap items-start justify-center gap-3 md:gap-6 mb-14"
-          >
-            {servicePillars.map((pillar, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ delay: 1.7 + i * 0.1, duration: 0.5 }}
-                className="flex flex-col items-center gap-2 group cursor-pointer"
-              >
-                {/* Pedestal with icon */}
-                <div className="relative">
-                  {/* Pedestal glow */}
-                  <div className="absolute inset-0 bg-primary/30 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {/* Pedestal box */}
-                  <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-lg bg-gradient-to-b from-primary/25 to-primary/10 border border-primary/40 flex items-center justify-center group-hover:border-primary/70 group-hover:shadow-gold transition-all duration-300">
-                    {/* Top shine line */}
-                    <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-primary-soft/60 to-transparent" />
-                    <pillar.icon className="w-6 h-6 md:w-7 md:h-7 text-primary group-hover:text-primary-ember transition-colors" />
-                  </div>
-                  
-                  {/* Pedestal base */}
-                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[110%] h-2 bg-gradient-to-b from-primary/30 to-transparent rounded-b-sm" />
-                </div>
-                
-                <span className="text-[9px] md:text-[10px] text-muted-foreground group-hover:text-primary-soft tracking-wider uppercase transition-colors text-center max-w-[80px] leading-tight">
-                  {pillar.label}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
 
           {/* Main Tagline H1 */}
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.2, duration: 0.8 }}
-            className="text-2xl md:text-4xl lg:text-5xl text-metallic-gold font-serif font-semibold tracking-wide mb-4 max-w-3xl"
+            transition={{ delay: 1.8, duration: 0.8 }}
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-soft/80 font-sans font-medium tracking-wide mb-2 max-w-3xl"
           >
-            Where Moments Become Masterpieces
+            Where Moments Become
           </motion.h1>
+          
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 2, duration: 0.8 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-metallic-gold font-serif font-bold tracking-wide mb-4"
+          >
+            Masterpieces
+          </motion.span>
 
           {/* Secondary Tagline H2 */}
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.4, duration: 0.8 }}
-            className="text-base md:text-xl lg:text-2xl text-primary-soft/70 font-sans font-light tracking-wide mb-12 max-w-2xl"
+            transition={{ delay: 2.2, duration: 0.8 }}
+            className="text-sm md:text-lg lg:text-xl text-muted-foreground font-sans font-light tracking-wide mb-10 max-w-2xl"
           >
             Singapore's Premier Corporate Event Specialists
           </motion.h2>
@@ -186,7 +196,7 @@ export const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.6, duration: 0.8 }}
+            transition={{ delay: 2.4, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-center gap-4"
           >
             <Button variant="hero" size="xl" className="group">
@@ -208,7 +218,7 @@ export const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 3, duration: 0.8 }}
+            transition={{ delay: 2.8, duration: 0.8 }}
             className="absolute bottom-8 left-1/2 -translate-x-1/2"
           >
             <motion.div

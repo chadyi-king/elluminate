@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import {
   Users,
   Plane,
@@ -22,67 +23,31 @@ import {
   Tent,
 } from "lucide-react";
 
-const serviceCategories = [
-  {
-    title: "Corporate / Company Events",
-    services: [
-      { name: "Corporate Team Building", icon: Users, slug: "team-building" },
-      { name: "Company Retreats", icon: Plane, slug: "company-retreats" },
-      { name: "Dinner & Dance", icon: Music, slug: "dinner-and-dance" },
-      { name: "Awards Ceremonies", icon: Trophy, slug: "awards-ceremonies" },
-      { name: "Corporate Anniversaries", icon: PartyPopper, slug: "corporate-anniversaries" },
-      { name: "Leadership Offsites", icon: Compass, slug: "leadership-offsites" },
-      { name: "Product Launch Events", icon: Rocket, slug: "product-launch" },
-      { name: "Brand Activations", icon: Sparkles, slug: "brand-activations" },
-      { name: "Client Appreciation", icon: Heart, slug: "client-appreciation" },
-      { name: "Town Halls", icon: Building, slug: "town-halls" },
-    ],
-  },
-  {
-    title: "Immersive & Culture",
-    services: [
-      { name: "Immersive Experiences", icon: Palette, slug: "immersive-experiences" },
-      { name: "Wellness Events", icon: Leaf, slug: "wellness-events" },
-    ],
-  },
-  {
-    title: "Creative & Production",
-    services: [
-      { name: "Event Concept Development", icon: Lightbulb, slug: "event-concept" },
-      { name: "Stage & AV Production", icon: Monitor, slug: "stage-production" },
-      { name: "Custom Theme Creation", icon: Brush, slug: "custom-themes" },
-      { name: "Emcee / Photo / Video", icon: Mic, slug: "emcee-services" },
-    ],
-  },
-  {
-    title: "Luxury",
-    services: [
-      { name: "VIP Gala Experiences", icon: Crown, slug: "vip-gala" },
-    ],
-  },
-  {
-    title: "Family & Community",
-    services: [
-      { name: "Family Fun Days", icon: Baby, slug: "family-fun-days" },
-      { name: "Corporate Carnivals", icon: Tent, slug: "corporate-carnivals" },
-    ],
-  },
+const allServices = [
+  { name: "Corporate Team Building", icon: Users, slug: "team-building", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600" },
+  { name: "Company Retreats", icon: Plane, slug: "company-retreats", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600" },
+  { name: "Dinner & Dance", icon: Music, slug: "dinner-and-dance", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600" },
+  { name: "Awards Ceremonies", icon: Trophy, slug: "awards-ceremonies", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600" },
+  { name: "Corporate Anniversaries", icon: PartyPopper, slug: "corporate-anniversaries", image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600" },
+  { name: "Leadership Offsites", icon: Compass, slug: "leadership-offsites", image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600" },
+  { name: "Product Launch Events", icon: Rocket, slug: "product-launch", image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600" },
+  { name: "Brand Activations", icon: Sparkles, slug: "brand-activations", image: "https://images.unsplash.com/photo-1561489413-985b06da5bee?w=600" },
+  { name: "Client Appreciation", icon: Heart, slug: "client-appreciation", image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600" },
+  { name: "Town Halls", icon: Building, slug: "town-halls", image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600" },
+  { name: "Immersive Experiences", icon: Palette, slug: "immersive-experiences", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600" },
+  { name: "Wellness Events", icon: Leaf, slug: "wellness-events", image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600" },
+  { name: "Event Concept Development", icon: Lightbulb, slug: "event-concept", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600" },
+  { name: "Stage & AV Production", icon: Monitor, slug: "stage-production", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600" },
+  { name: "Custom Theme Creation", icon: Brush, slug: "custom-themes", image: "https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600" },
+  { name: "Emcee / Photo / Video", icon: Mic, slug: "emcee-services", image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600" },
+  { name: "VIP Gala Experiences", icon: Crown, slug: "vip-gala", image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600" },
+  { name: "Family Fun Days", icon: Baby, slug: "family-fun-days", image: "https://images.unsplash.com/photo-1472653431158-6364773b2a56?w=600" },
+  { name: "Corporate Carnivals", icon: Tent, slug: "corporate-carnivals", image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600" },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 export const ServicesSection = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section id="services" className="py-24 bg-background relative overflow-hidden">
       {/* Background glow */}
@@ -108,52 +73,90 @@ export const ServicesSection = () => {
           </p>
         </motion.div>
 
-        {/* Service Categories */}
-        <div className="space-y-16">
-          {serviceCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-            >
-              <h3 className="text-xl md:text-2xl font-serif text-primary-soft mb-8 border-b border-border-gold/30 pb-4">
-                {category.title}
-              </h3>
-
+        {/* Expanding Cards Carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative"
+        >
+          <div className="flex gap-2 overflow-x-auto pb-4 scrollbar-hide">
+            {allServices.map((service, index) => (
               <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+                key={service.slug}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                animate={{
+                  width: hoveredIndex === index ? 320 : 60,
+                }}
+                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                className="relative h-80 flex-shrink-0 rounded-xl overflow-hidden cursor-pointer group"
               >
-                {category.services.map((service) => (
-                  <motion.div key={service.slug} variants={itemVariants}>
-                    <Link
-                      to={`/services/${service.slug}`}
-                      className="group block p-6 bg-card/50 border border-border-gold/20 rounded-lg hover:border-primary/50 hover:bg-card transition-all duration-300 relative overflow-hidden"
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${service.image})` }}
+                />
+                
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background-deep via-background-deep/60 to-transparent" />
+                
+                {/* Gold edge gradient */}
+                <div className="absolute inset-0 border border-primary/30 rounded-xl group-hover:border-primary/60 transition-colors duration-300" />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Content - Collapsed state (vertical text) */}
+                <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${hoveredIndex === index ? 'opacity-0' : 'opacity-100'}`}>
+                  <div className="flex flex-col items-center gap-3">
+                    <service.icon className="w-5 h-5 text-primary" />
+                    <span 
+                      className="text-primary-soft text-xs tracking-wider uppercase whitespace-nowrap"
+                      style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
                     >
-                      {/* Hover glow effect */}
-                      <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      
-                      <div className="relative z-10 flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:border-primary/40 group-hover:shadow-gold-soft transition-all duration-300">
-                          <service.icon className="w-5 h-5 text-primary group-hover:text-primary-ember transition-colors" />
-                        </div>
-                        <span className="text-foreground group-hover:text-primary-soft font-medium transition-colors">
-                          {service.name}
-                        </span>
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
+                      {service.name}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content - Expanded state */}
+                <div className={`absolute inset-0 flex flex-col justify-end p-6 transition-opacity duration-300 ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center">
+                      <service.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-serif text-primary-soft">
+                      {service.name}
+                    </h3>
+                  </div>
+                  
+                  <Link
+                    to={`/services/${service.slug}`}
+                    className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary-ember transition-colors group/link"
+                  >
+                    <span>Learn More</span>
+                    <motion.span
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      →
+                    </motion.span>
+                  </Link>
+                </div>
+
+                {/* Hover glow */}
+                <motion.div
+                  className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                />
               </motion.div>
-            </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
+
+          {/* Scroll hint */}
+          <div className="flex justify-center mt-6 gap-2">
+            <span className="text-muted-foreground text-sm">← Scroll to explore →</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
