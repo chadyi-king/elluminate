@@ -81,9 +81,7 @@ export const ServicesSection = () => {
               
               {/* Content */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-3">
-                <service.icon className="w-5 h-5 text-primary mb-2" />
-                
-                {/* Collapsed: Vertical text */}
+                {/* Collapsed: Vertical text only - no icon */}
                 <span 
                   className={`text-primary-soft text-xs tracking-wider uppercase text-center font-display font-bold transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
                   style={{ writingMode: isHovered ? 'horizontal-tb' : 'vertical-rl', textOrientation: 'mixed' }}
@@ -103,7 +101,7 @@ export const ServicesSection = () => {
                   <div className="w-12 h-12 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center mb-3">
                     <service.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-lg font-display font-bold text-primary-soft mb-2 text-center">
+                  <h3 className="text-lg font-display font-bold text-primary-soft mb-2 text-center uppercase">
                     {service.name}
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4 text-center font-sans leading-relaxed max-w-xs">
@@ -145,8 +143,8 @@ export const ServicesSection = () => {
           <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
             Our Expertise
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-6">
-            What We Do
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-6 uppercase tracking-wide">
+            WHAT WE DO
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-sans">
             From intimate gatherings to grand celebrations, we craft extraordinary experiences that leave lasting impressions.

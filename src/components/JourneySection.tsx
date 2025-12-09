@@ -13,7 +13,7 @@ const steps = [
       "Budget assessment and timeline planning",
       "Venue recommendations and site visits",
     ],
-    example: "Example: For DBS, we conducted 3 discovery sessions with stakeholders to align on the retreat's leadership development goals.",
+    example: "In the finance industry, Standard Chartered engaged us to understand their 500-person regional team's needs for a transformative leadership summit.",
     image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600",
   },
   {
@@ -26,7 +26,7 @@ const steps = [
       "Activity programming and scheduling",
       "Vendor coordination and logistics planning",
     ],
-    example: "Example: For Shopee's Awards Gala, we designed a custom 'Golden Era' theme with 3D stage visuals and trophy procession choreography.",
+    example: "For a global tech company, we designed a futuristic 'Innovation Galaxy' theme with holographic stage elements and interactive installations.",
     image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600",
   },
   {
@@ -39,7 +39,7 @@ const steps = [
       "Real-time problem solving and adaptability",
       "Quality control at every touchpoint",
     ],
-    example: "Example: At NUH Family Fun Day, our 25-person crew managed 20+ booths and 3,000 participants seamlessly.",
+    example: "In the healthcare sector, our 30-person crew managed a 2,500-participant wellness carnival across 25 activity stations flawlessly.",
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600",
   },
   {
@@ -52,14 +52,14 @@ const steps = [
       "Feedback collection and analysis",
       "Future event recommendations",
     ],
-    example: "Example: Our post-event surveys consistently show 95%+ satisfaction rates across all our corporate clients.",
+    example: "A leading insurance company reported 98% attendee satisfaction and immediate rebooking for their next annual awards gala.",
     image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600",
   },
 ];
 
 export const JourneySection = () => {
   return (
-    <section className="py-24 bg-background-deep relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-background-deep via-[hsl(43,20%,8%)] to-background-deep relative overflow-hidden">
       {/* Subtle pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -84,8 +84,8 @@ export const JourneySection = () => {
           <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-bold mb-4 block">
             Our Process
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold">
-            The Journey
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold uppercase tracking-wide">
+            THE JOURNEY
           </h2>
         </motion.div>
 
@@ -171,7 +171,7 @@ export const JourneySection = () => {
                     </motion.div>
 
                     {/* Title */}
-                    <h3 className="text-2xl md:text-3xl font-display font-black text-metallic-gold mb-3">
+                    <h3 className="text-2xl md:text-3xl font-display font-black text-metallic-gold mb-3 uppercase tracking-wide">
                       {step.title}
                     </h3>
 

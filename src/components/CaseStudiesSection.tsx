@@ -70,7 +70,7 @@ const caseStudies = [
 
 export const CaseStudiesSection = () => {
   return (
-    <section className="py-24 bg-background-deep relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-[hsl(43,30%,12%)] via-background-deep to-background-deep relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
 
@@ -86,8 +86,8 @@ export const CaseStudiesSection = () => {
           <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
             Our Work
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-6">
-            Case Studies
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-6 uppercase tracking-wide">
+            CASE STUDIES
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-sans">
             Real results from Singapore's leading organizations. See how we elevate corporate events.
