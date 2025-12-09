@@ -34,8 +34,8 @@ const pillars = [
   },
   {
     icon: Sparkles,
-    title: "Eccentric",
-    description: "A splash of creative fun and uniqueness that sets your event apart.",
+    title: "A Splash of Crazy Fun",
+    description: "Uniqueness and creative energy that sets your event apart from the rest.",
     image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400",
   },
 ];
@@ -60,8 +60,8 @@ export const WhyUsSection = () => {
           <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
             Our Promise
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-4">
-            Why Team Elevate
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-4 uppercase tracking-wide">
+            WHY TEAM ELEVATE
           </h2>
           <p className="text-muted-foreground text-lg font-sans max-w-2xl mx-auto">
             Our commitment to delivering extraordinary experiences that exceed expectations.

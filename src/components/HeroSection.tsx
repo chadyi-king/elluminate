@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
+import corporateMan from "@/assets/corporate-man-cutout.png";
+import corporateWoman from "@/assets/corporate-woman-cutout.png";
 import {
   Music, 
   Users, 
@@ -43,7 +45,7 @@ export const HeroSection = () => {
       {/* Background with multiple event photos */}
       <div className="absolute inset-0">
         {/* Main background image collage effect */}
-        <div className="absolute inset-0 grid grid-cols-3 gap-1 opacity-30">
+        <div className="absolute inset-0 grid grid-cols-3 gap-1 opacity-40">
           <div 
             className="bg-cover bg-center"
             style={{ backgroundImage: `url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800)` }}
@@ -59,7 +61,7 @@ export const HeroSection = () => {
         </div>
         
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background-deep/95 via-background/85 to-background-deep" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background-deep/90 via-background/80 to-background-deep" />
         
         {/* Spotlight effect from below */}
         <motion.div
@@ -92,6 +94,24 @@ export const HeroSection = () => {
           />
         ))}
       </div>
+
+      {/* Cutout people on sides */}
+      <motion.img
+        src={corporateMan}
+        alt="Excited corporate man"
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 1.5 }}
+        className="absolute bottom-0 left-4 md:left-12 lg:left-20 h-[40vh] md:h-[50vh] lg:h-[60vh] object-contain z-20 drop-shadow-2xl"
+      />
+      <motion.img
+        src={corporateWoman}
+        alt="Excited corporate woman"
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 1.7 }}
+        className="absolute bottom-0 right-4 md:right-12 lg:right-20 h-[40vh] md:h-[50vh] lg:h-[60vh] object-contain z-20 drop-shadow-2xl"
+      />
 
       <div className="container mx-auto px-6 relative z-10 pt-24 pb-16">
         <div className="flex flex-col items-center text-center">

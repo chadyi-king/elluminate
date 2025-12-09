@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export const CTASection = () => {
   return (
-    <section id="contact" className="py-32 bg-background-deep relative overflow-hidden">
+    <section id="contact" className="py-32 bg-gradient-to-b from-background-deep via-[hsl(43,25%,10%)] to-background-deep relative overflow-hidden">
       {/* Spotlight effect */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full"
@@ -55,9 +55,9 @@ export const CTASection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif text-metallic-gold mb-8"
+            className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-8 uppercase tracking-wide"
           >
-            Ready to Elevate Your Experience?
+            READY TO ELEVATE YOUR EXPERIENCE?
           </motion.h2>
 
           <motion.div
@@ -67,7 +67,7 @@ export const CTASection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
           >
-            <Button variant="hero" size="xl" className="group">
+            <Button variant="hero" size="xl" className="group font-display font-bold">
               <span>Start Planning Now</span>
               <motion.span
                 className="inline-block ml-2"
@@ -77,7 +77,7 @@ export const CTASection = () => {
                 →
               </motion.span>
             </Button>
-            <Button variant="gold-outline" size="lg">
+            <Button variant="gold-outline" size="lg" className="font-display font-bold">
               Book a Consultation
             </Button>
           </motion.div>
@@ -87,7 +87,7 @@ export const CTASection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-muted-foreground/70 text-sm"
+            className="text-muted-foreground/70 text-sm font-display"
           >
             Our strategists respond within 24 hours.
           </motion.p>

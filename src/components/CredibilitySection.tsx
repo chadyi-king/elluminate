@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export const CredibilitySection = () => {
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-b from-background-deep via-[hsl(43,18%,10%)] to-background relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
 
@@ -57,7 +57,11 @@ export const CredibilitySection = () => {
                   ))}
                 </ul>
                 
-                <Button variant="gold" size="lg" className="group/btn font-display font-bold">
+                <Button 
+                  variant="gold" 
+                  size="lg" 
+                  className="group/btn font-display font-bold bg-primary hover:bg-primary-ember text-background-deep border-none"
+                >
                   <Download className="w-5 h-5 mr-2 group-hover/btn:animate-bounce" />
                   Download PDF
                 </Button>
@@ -117,10 +121,10 @@ export const VideoSection = () => {
               </motion.div>
             </div>
             
-            {/* Title overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-background-deep/95 to-transparent">
-              <h3 className="text-2xl md:text-3xl font-display font-black text-primary-soft group-hover:text-metallic-gold transition-colors text-center">
-                Watch How We Elevate Experiences
+            {/* Title overlay - now above the video */}
+            <div className="absolute top-0 left-0 right-0 p-8 bg-gradient-to-b from-background-deep/95 to-transparent">
+              <h3 className="text-2xl md:text-3xl font-display font-black text-primary-soft group-hover:text-metallic-gold transition-colors text-center uppercase tracking-wide">
+                WATCH HOW WE ELEVATE EXPERIENCES
               </h3>
             </div>
 
