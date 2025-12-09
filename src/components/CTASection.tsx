@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export const CTASection = () => {
   return (
-    <section id="contact" className="py-32 bg-gradient-to-b from-background-deep via-[hsl(43,25%,10%)] to-background-deep relative overflow-hidden">
+    <section id="contact" className="py-32 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 25%, 10%) 0%, hsl(43, 30%, 15%) 50%, hsl(43, 20%, 8%) 100%)' }}>
       {/* Spotlight effect */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full"

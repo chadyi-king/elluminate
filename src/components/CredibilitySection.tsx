@@ -4,9 +4,13 @@ import { Button } from "@/components/ui/button";
 
 export const CredibilitySection = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-background-deep via-[hsl(43,18%,10%)] to-background relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 20%, 8%) 0%, hsl(43, 25%, 12%) 50%, hsl(43, 20%, 6%) 100%)' }}>
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/8 rounded-full blur-3xl" />
+      
+      {/* Gold accent lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Downloadable PDF */}
@@ -79,7 +83,22 @@ export const CredibilitySection = () => {
 
 export const VideoSection = () => {
   return (
-    <section className="py-16 bg-background-deep relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 15%, 5%) 0%, hsl(43, 20%, 10%) 50%, hsl(43, 15%, 5%) 100%)' }}>
+      {/* Gold particles effect in background */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(30)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-primary/40 rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 3}s`,
+            }}
+          />
+        ))}
+      </div>
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

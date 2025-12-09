@@ -70,9 +70,12 @@ const caseStudies = [
 
 export const CaseStudiesSection = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-[hsl(43,30%,12%)] via-background-deep to-background-deep relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 30%, 12%) 0%, hsl(43, 22%, 8%) 50%, hsl(43, 18%, 6%) 100%)' }}>
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] bg-primary/8 rounded-full blur-3xl" />
+      
+      {/* Gold accent lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}

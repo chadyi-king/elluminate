@@ -127,9 +127,12 @@ export const ServicesSection = () => {
   );
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-background via-background to-[hsl(43,20%,8%)] relative overflow-hidden">
+    <section id="services" className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 25%, 10%) 0%, hsl(43, 20%, 6%) 40%, hsl(43, 30%, 12%) 100%)' }}>
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/8 rounded-full blur-3xl" />
+      
+      {/* Gold accent lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}

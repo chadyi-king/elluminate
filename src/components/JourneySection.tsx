@@ -59,7 +59,7 @@ const steps = [
 
 export const JourneySection = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-background-deep via-[hsl(43,20%,8%)] to-background-deep relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 18%, 6%) 0%, hsl(43, 25%, 12%) 50%, hsl(43, 20%, 8%) 100%)' }}>
       {/* Subtle pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -71,6 +71,10 @@ export const JourneySection = () => {
           <rect width="100%" height="100%" fill="url(#journey-grid)" />
         </svg>
       </div>
+      
+      {/* Gold accent lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
