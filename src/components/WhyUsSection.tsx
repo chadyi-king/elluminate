@@ -1,21 +1,31 @@
 import { motion } from "framer-motion";
-import { Lightbulb, Target, Award } from "lucide-react";
+import { Lightbulb, Target, Heart, Layers, Award } from "lucide-react";
 
 const pillars = [
   {
     icon: Lightbulb,
-    title: "Creativity",
-    description: "We transform visions into breathtaking realities with innovative concepts that captivate and inspire.",
+    title: "Creative Excellence",
+    description: "Cinematic, memorable concepts that captivate audiences and create lasting impressions.",
   },
   {
     icon: Target,
-    title: "Precision",
-    description: "Every detail is meticulously planned and flawlessly executed to ensure perfection in every moment.",
+    title: "Precision Execution",
+    description: "Flawless event operations with meticulous attention to every detail.",
+  },
+  {
+    icon: Heart,
+    title: "Human-Centered Engagement",
+    description: "Experiences designed to genuinely connect and inspire people.",
+  },
+  {
+    icon: Layers,
+    title: "End-to-End Event Mastery",
+    description: "From concept to design, production to execution — complete event solutions.",
   },
   {
     icon: Award,
-    title: "Experience",
-    description: "Decades of expertise crafting extraordinary events that leave lasting impressions on every guest.",
+    title: "Trusted by Top Brands",
+    description: "Partnering with leaders across finance, tech, healthcare & more in Singapore.",
   },
 ];
 
@@ -43,8 +53,8 @@ export const WhyUsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Pillars */}
-        <div className="relative max-w-5xl mx-auto">
+        {/* Pillars - 5 columns on desktop */}
+        <div className="relative max-w-7xl mx-auto">
           {/* Connecting lines */}
           <div className="absolute top-1/2 left-0 right-0 hidden lg:block">
             <motion.div
@@ -56,36 +66,36 @@ export const WhyUsSection = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
             {pillars.map((pillar, index) => (
               <motion.div
                 key={pillar.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.8, delay: index * 0.15 }}
                 className="relative group"
               >
                 {/* Pillar card */}
-                <div className="relative bg-card/50 border border-border-gold/20 rounded-xl p-8 text-center hover:border-primary/40 transition-all duration-500 group-hover:shadow-gold-soft">
+                <div className="relative bg-card/50 border border-border-gold/20 rounded-xl p-6 text-center hover:border-primary/40 transition-all duration-500 group-hover:shadow-gold-soft h-full">
                   {/* Top glow line on hover */}
                   <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Icon */}
                   <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:border-primary/50 group-hover:shadow-gold transition-all duration-300"
+                    whileHover={{ scale: 1.1 }}
+                    className="w-16 h-16 mx-auto mb-5 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:border-primary/50 group-hover:shadow-gold transition-all duration-300"
                   >
-                    <pillar.icon className="w-8 h-8 text-primary group-hover:text-primary-ember transition-colors" />
+                    <pillar.icon className="w-7 h-7 text-primary group-hover:text-primary-ember transition-colors" />
                   </motion.div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-serif text-primary-soft mb-4 group-hover:text-metallic-gold transition-colors duration-300">
+                  <h3 className="text-lg font-serif text-primary-soft mb-3 group-hover:text-metallic-gold transition-colors duration-300">
                     {pillar.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {pillar.description}
                   </p>
 
