@@ -15,8 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
-        display: ['Cormorant Garamond', 'serif'],
+        display: ['Montserrat', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -27,6 +26,8 @@ export default {
           DEFAULT: "hsl(var(--background))",
           deep: "hsl(var(--background-deep))",
           card: "hsl(var(--background-card))",
+          light: "hsl(var(--background-light))",
+          "gold-soft": "hsl(var(--background-gold-soft))",
         },
         foreground: "hsl(var(--foreground))",
         primary: {
