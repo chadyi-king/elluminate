@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useContactModal } from "@/contexts/ContactModalContext";
 import {
   Dialog,
   DialogContent,
@@ -96,6 +97,7 @@ export const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [showComingSoon, setShowComingSoon] = useState(false);
   const location = useLocation();
+  const { openContactModal } = useContactModal();
 
   const handleDropdownToggle = (dropdown: string) => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown);
@@ -186,7 +188,12 @@ export const Navbar = () => {
               >
                 Enhance
               </button>
-              <Button variant="gold" size="sm" className="font-display font-semibold text-[9px] tracking-[0.15em] uppercase">
+              <Button 
+                variant="gold" 
+                size="sm" 
+                className="font-display font-semibold text-[9px] tracking-[0.15em] uppercase"
+                onClick={openContactModal}
+              >
                 GET STARTED
               </Button>
             </div>
@@ -289,7 +296,14 @@ export const Navbar = () => {
                   Enhancing Events
                 </button>
                 
-                <Button variant="gold-outline" className="mt-4 font-display font-semibold">
+                <Button 
+                  variant="gold-outline" 
+                  className="mt-4 font-display font-semibold"
+                  onClick={() => {
+                    setIsOpen(false);
+                    openContactModal();
+                  }}
+                >
                   Get Started
                 </Button>
               </div>

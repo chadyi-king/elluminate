@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "lucide-react";
 
 const videos = [
-  { id: 1, title: "2024 Showreel", thumbnail: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800", isMain: true },
-  { id: 2, title: "Tech Summit 2024", thumbnail: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800", isMain: false },
-  { id: 3, title: "Annual Gala Night", thumbnail: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800", isMain: false },
-  { id: 4, title: "Team Building Retreat", thumbnail: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800", isMain: false },
-  { id: 5, title: "Product Launch Event", thumbnail: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800", isMain: false },
-  { id: 6, title: "Awards Ceremony", thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800", isMain: false },
-  { id: 7, title: "Festival Experience", thumbnail: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800", isMain: false },
+  { id: 1, title: "2024 Showreel", thumbnail: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80", isMain: true, videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+  { id: 2, title: "Tech Summit 2024", thumbnail: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80", isMain: false, videoUrl: "" },
+  { id: 3, title: "Annual Gala Night", thumbnail: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80", isMain: false, videoUrl: "" },
+  { id: 4, title: "Team Building Retreat", thumbnail: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80", isMain: false, videoUrl: "" },
+  { id: 5, title: "Product Launch Event", thumbnail: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80", isMain: false, videoUrl: "" },
+  { id: 6, title: "Awards Ceremony", thumbnail: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80", isMain: false, videoUrl: "" },
+  { id: 7, title: "Festival Experience", thumbnail: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80", isMain: false, videoUrl: "" },
 ];
 
 export const VideoHighlights = () => {
@@ -143,17 +143,27 @@ export const VideoHighlights = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="max-w-4xl w-full aspect-video bg-black rounded-lg flex items-center justify-center"
+              className="max-w-4xl w-full aspect-video bg-black rounded-lg overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Placeholder for actual video player */}
-              <div className="text-center">
-                <Play className="w-16 h-16 text-primary mx-auto mb-4" />
-                <p className="text-white/70">Video player placeholder</p>
-                <p className="text-primary text-sm mt-2">
-                  {videos.find((v) => v.id === selectedVideo)?.title}
-                </p>
-              </div>
+              {videos.find((v) => v.id === selectedVideo)?.videoUrl ? (
+                <iframe
+                  src={videos.find((v) => v.id === selectedVideo)?.videoUrl}
+                  className="w-full h-full"
+                  allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <Play className="w-16 h-16 text-primary mx-auto mb-4" />
+                    <p className="text-white/70">Video coming soon</p>
+                    <p className="text-primary text-sm mt-2">
+                      {videos.find((v) => v.id === selectedVideo)?.title}
+                    </p>
+                  </div>
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}

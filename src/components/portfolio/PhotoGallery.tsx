@@ -3,18 +3,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
-  { id: 1, src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800", title: "Gala Night", category: "Dinner & Dance" },
-  { id: 2, src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800", title: "Team Challenge", category: "Team Building" },
-  { id: 3, src: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800", title: "Product Reveal", category: "Product Launches" },
-  { id: 4, src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800", title: "Awards Night", category: "Awards Ceremonies" },
-  { id: 5, src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800", title: "Festival Vibes", category: "Immersive Experiences" },
-  { id: 6, src: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800", title: "Concert Setup", category: "AV, Stage & Production" },
-  { id: 7, src: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800", title: "Conference", category: "Team Building" },
-  { id: 8, src: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800", title: "VIP Launch", category: "Product Launches" },
-  { id: 9, src: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800", title: "Team Bonding", category: "Overseas Retreats" },
-  { id: 10, src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800", title: "Workshop", category: "Team Building" },
-  { id: 11, src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800", title: "Celebration", category: "Awards Ceremonies" },
-  { id: 12, src: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=800", title: "Networking", category: "Brand Activations" },
+  { id: 1, src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80", title: "Gala Night", category: "Dinner & Dance" },
+  { id: 2, src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80", title: "Team Challenge", category: "Team Building" },
+  { id: 3, src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80", title: "Product Reveal", category: "Product Launches" },
+  { id: 4, src: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80", title: "Awards Night", category: "Awards Ceremonies" },
+  { id: 5, src: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80", title: "Festival Vibes", category: "Immersive Experiences" },
+  { id: 6, src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80", title: "Concert Setup", category: "AV, Stage & Production" },
+  { id: 7, src: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80", title: "Conference", category: "Team Building" },
+  { id: 8, src: "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=800&q=80", title: "VIP Launch", category: "Product Launches" },
+  { id: 9, src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80", title: "Team Bonding", category: "Overseas Retreats" },
+  { id: 10, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80", title: "Workshop", category: "Team Building" },
+  { id: 11, src: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=800&q=80", title: "Celebration", category: "Awards Ceremonies" },
+  { id: 12, src: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80", title: "Networking", category: "Brand Activations" },
 ];
 
 interface PhotoGalleryProps {
@@ -54,7 +54,7 @@ export const PhotoGallery = ({ filter }: PhotoGalleryProps) => {
       <div className="absolute inset-0 bg-black">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-[0.05]"
-          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920)` }}
+          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920)` }}
         />
       </div>
 
