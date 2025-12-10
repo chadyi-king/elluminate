@@ -3,17 +3,15 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GoldParticles } from "@/components/GoldParticles";
-import { ServiceHero } from "@/components/service-page/ServiceHero";
-import { ServiceOverview } from "@/components/service-page/ServiceOverview";
-import { ServiceFeatures } from "@/components/service-page/ServiceFeatures";
-import { ServiceBenefits } from "@/components/service-page/ServiceBenefits";
-import { ServiceTimeline } from "@/components/service-page/ServiceTimeline";
-import { ServiceThemes } from "@/components/service-page/ServiceThemes";
-import { ServiceMoments } from "@/components/service-page/ServiceMoments";
-import { ServiceBehindScenes } from "@/components/service-page/ServiceBehindScenes";
-import { ServiceTestimonial } from "@/components/service-page/ServiceTestimonial";
-import { ServiceGallery } from "@/components/service-page/ServiceGallery";
-import { ServiceCTA } from "@/components/service-page/ServiceCTA";
+import { ServiceHeroSplit } from "@/components/service-page/ServiceHeroSplit";
+import { ServiceOverviewNew } from "@/components/service-page/ServiceOverviewNew";
+import { ServiceFeaturesNew } from "@/components/service-page/ServiceFeaturesNew";
+import { ServiceAlternatingSection } from "@/components/service-page/ServiceAlternatingSection";
+import { ServiceCTANew } from "@/components/service-page/ServiceCTANew";
+import { ServiceTestimonialNew } from "@/components/service-page/ServiceTestimonialNew";
+import { ServiceFAQ } from "@/components/service-page/ServiceFAQ";
+import { ServiceGalleryNew } from "@/components/service-page/ServiceGalleryNew";
+import { ServiceFinalCTA } from "@/components/service-page/ServiceFinalCTA";
 import { servicesData } from "@/data/servicesData";
 
 const ServicePage = () => {
@@ -38,53 +36,52 @@ const ServicePage = () => {
       <GoldParticles />
       <Navbar />
 
-      <ServiceHero
+      <ServiceHeroSplit
         title={service.hero.title}
         subtitle={service.hero.subtitle}
         tagline={service.hero.tagline}
         backgroundImage={service.hero.backgroundImage}
+        accentColor={service.accentColor}
       />
 
-      <ServiceOverview
+      <ServiceOverviewNew
         description={service.overview.description}
-        backgroundImage={service.overview.backgroundImage}
+        accentColor={service.accentColor}
       />
 
-      <ServiceFeatures features={service.features} />
+      <ServiceFeaturesNew 
+        features={service.features} 
+        accentColor={service.accentColor}
+        image={service.gallery[0]}
+      />
 
-      <ServiceBenefits benefits={service.benefits} />
+      <ServiceAlternatingSection
+        sections={service.alternatingSections}
+        accentColor={service.accentColor}
+      />
 
-      {service.timeline && (
-        <ServiceTimeline
-          title={service.timeline.title}
-          steps={service.timeline.steps}
-        />
-      )}
-
-      {service.themes && <ServiceThemes themes={service.themes} />}
-
-      {service.moments && (
-        <ServiceMoments
-          title={service.moments.title}
-          moments={service.moments.items}
-        />
-      )}
-
-      {service.behindScenes && (
-        <ServiceBehindScenes
-          content={service.behindScenes.content}
-          backgroundImage={service.behindScenes.backgroundImage}
-        />
-      )}
-
-      <ServiceGallery images={service.gallery} />
-
-      <ServiceTestimonial testimonials={service.testimonials} />
-
-      <ServiceCTA
+      <ServiceCTANew
         headline={service.cta.headline}
         subtext={service.cta.subtext}
+        accentColor={service.accentColor}
       />
+
+      <ServiceTestimonialNew 
+        testimonials={service.testimonials} 
+        accentColor={service.accentColor}
+      />
+
+      <ServiceFAQ
+        faqs={service.faqs}
+        accentColor={service.accentColor}
+      />
+
+      <ServiceGalleryNew 
+        images={service.gallery} 
+        accentColor={service.accentColor}
+      />
+
+      <ServiceFinalCTA accentColor={service.accentColor} />
 
       <Footer />
     </div>
