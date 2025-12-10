@@ -36,6 +36,10 @@ const experienceServices = [
   { name: "Corporate Carnivals", slug: "corporate-carnivals" },
   { name: "VIP Gala Experiences", slug: "vip-gala" },
   { name: "Overseas Retreats", slug: "company-retreats" },
+  { name: "Grand Opening", slug: "grand-opening" },
+  { name: "Summits", slug: "summits" },
+  { name: "Government Events", slug: "government-events" },
+  { name: "Private Events", slug: "private-events" },
 ];
 
 interface DropdownProps {
@@ -122,7 +126,7 @@ export const Navbar = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16">
             {/* Left Navigation */}
-            <div className="hidden lg:flex items-center gap-6 flex-1 max-w-[35%]">
+            <div className="hidden lg:flex items-center gap-4 flex-1">
               <a
                 href="/"
                 className={navLinkClass('/')}
@@ -165,7 +169,7 @@ export const Navbar = () => {
             </Link>
 
             {/* Right Navigation */}
-            <div className="hidden lg:flex items-center gap-6 flex-1 max-w-[35%] justify-end">
+            <div className="hidden lg:flex items-center gap-4 flex-1 justify-end">
               <NavDropdown
                 label="Experience"
                 items={experienceServices}
@@ -183,9 +187,9 @@ export const Navbar = () => {
                 onClick={() => setShowComingSoon(true)}
                 className="text-primary hover:text-white transition-colors duration-300 text-[10px] tracking-[0.1em] uppercase font-display font-semibold"
               >
-                Enhancing Events
+                Enhance
               </button>
-              <Button variant="gold-outline" size="sm" className="font-display font-semibold text-[10px] tracking-[0.1em]">
+              <Button variant="gold" size="sm" className="font-display font-semibold text-[10px] tracking-[0.1em] hover:bg-background hover:text-primary hover:border-primary border border-transparent">
                 Get Started
               </Button>
             </div>
