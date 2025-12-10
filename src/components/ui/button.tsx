@@ -9,18 +9,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground hover:bg-black hover:border-2 hover:border-primary hover:text-white",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Luxury gold variants
-        gold: "bg-gradient-to-r from-primary via-primary-ember to-primary-deep text-primary-foreground font-semibold shadow-gold hover:shadow-gold-intense hover:scale-105 active:scale-100",
-        "gold-outline": "border-2 border-primary bg-transparent text-primary hover:bg-primary/10 hover:shadow-gold transition-all duration-300 font-semibold tracking-wide",
-        "gold-ghost": "text-primary hover:text-primary-glow hover:bg-primary/5 transition-all duration-300",
-        hero: "border-2 border-primary bg-transparent text-primary px-8 py-6 text-lg font-semibold tracking-widest uppercase hover:bg-primary hover:text-primary-foreground hover:shadow-gold-intense transition-all duration-500",
-        luxury: "bg-primary/10 border border-primary/30 text-primary-soft hover:bg-primary/20 hover:border-primary/50 hover:shadow-gold-soft backdrop-blur-sm",
+        // Luxury gold variants - gold default, black with gold outline + white text on hover
+        gold: "bg-gradient-to-r from-primary via-primary-ember to-primary-deep text-primary-foreground font-semibold shadow-gold hover:bg-black hover:from-black hover:via-black hover:to-black hover:border-2 hover:border-primary hover:text-white hover:shadow-gold-intense active:scale-100",
+        "gold-outline": "border-2 border-primary bg-primary text-primary-foreground hover:bg-black hover:text-white hover:shadow-gold transition-all duration-300 font-semibold tracking-wide",
+        "gold-ghost": "text-primary hover:text-white hover:bg-black hover:border hover:border-primary transition-all duration-300",
+        hero: "bg-primary text-primary-foreground px-8 py-6 text-lg font-semibold tracking-widest uppercase hover:bg-black hover:border-2 hover:border-primary hover:text-white hover:shadow-gold-intense transition-all duration-500",
+        luxury: "bg-primary border border-primary/30 text-primary-foreground hover:bg-black hover:border-primary hover:text-white hover:shadow-gold-soft backdrop-blur-sm",
       },
       size: {
         default: "h-10 px-4 py-2",
