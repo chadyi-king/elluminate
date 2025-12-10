@@ -15,7 +15,15 @@ interface ServiceFeaturesNewProps {
 
 export const ServiceFeaturesNew = ({ features, accentColor, image }: ServiceFeaturesNewProps) => {
   return (
-    <section className="py-24 bg-background-deep relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
+      {/* Dark background with dim image */}
+      <div className="absolute inset-0 bg-background-deep">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-10"
+          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920)` }}
+        />
+      </div>
+      
       {/* Background glow with accent color */}
       <motion.div
         className="absolute top-1/2 left-0 w-[500px] h-[400px] rounded-full blur-[120px]"

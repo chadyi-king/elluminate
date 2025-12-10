@@ -18,7 +18,15 @@ interface ServiceFAQProps {
 
 export const ServiceFAQ = ({ faqs, accentColor }: ServiceFAQProps) => {
   return (
-    <section className="py-24 bg-background-deep relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
+      {/* Dark background with dim image */}
+      <div className="absolute inset-0 bg-background-deep">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-8"
+          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920)` }}
+        />
+      </div>
+      
       {/* Background pattern with accent color */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
