@@ -34,7 +34,7 @@ const pillars = [
   },
   {
     icon: Sparkles,
-    title: "A Splash of Crazy Fun",
+    title: "Eccentric",
     description: "Uniqueness and creative energy that sets your event apart from the rest.",
     image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400",
   },
