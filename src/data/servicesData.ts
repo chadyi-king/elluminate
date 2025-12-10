@@ -34,6 +34,10 @@ export interface ServiceData {
     title: string;
     description: string;
   }[];
+  activities?: {
+    sectionTitle?: string;
+    items: string[];
+  };
   alternatingSections: AlternatingSection[];
   timeline?: {
     title: string;
@@ -99,6 +103,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Heart, title: "Stronger Relationships", description: "Create lasting bonds beyond the workplace." },
       { icon: Lightbulb, title: "Creative Thinking", description: "Unlock innovative problem-solving skills." }
     ],
+    activities: {
+      sectionTitle: "ACTIVITY TYPES",
+      items: ["Amazing Race", "CSI: Bones", "Cultural Race", "Laser Tag", "Archery Tag", "Escape Room Challenge", "Masterchef Challenge", "Drumming Circle"]
+    },
     alternatingSections: [
       {
         title: "Key Highlights",
