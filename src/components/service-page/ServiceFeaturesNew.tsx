@@ -19,7 +19,7 @@ export const ServiceFeaturesNew = ({ features, accentColor, image }: ServiceFeat
       {/* Dark background with dim image */}
       <div className="absolute inset-0 bg-background-deep">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-[0.03]"
+          className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920)` }}
         />
       </div>

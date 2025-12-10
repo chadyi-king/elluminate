@@ -18,7 +18,7 @@ export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlte
       {/* Dark background with dim image */}
       <div className="absolute inset-0 bg-background">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-[0.03]"
+          className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920)` }}
         />
       </div>

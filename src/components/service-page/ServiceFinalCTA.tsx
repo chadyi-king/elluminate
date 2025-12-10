@@ -11,7 +11,7 @@ export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
       {/* Dark background with dim image */}
       <div className="absolute inset-0 bg-background">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-[0.03]"
+          className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920)` }}
         />
       </div>

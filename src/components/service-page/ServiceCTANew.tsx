@@ -13,7 +13,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
       {/* Dark background with dim image */}
       <div className="absolute inset-0 bg-background-deep">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-[0.03]"
+          className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1920)` }}
         />
       </div>
