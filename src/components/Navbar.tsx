@@ -119,10 +119,10 @@ export const Navbar = () => {
         transition={{ duration: 0.8 }}
         className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border-gold/20"
       >
-        <div className="container mx-auto px-8 lg:px-16">
+        <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-16">
             {/* Left Navigation */}
-            <div className="hidden lg:flex items-center gap-8 flex-1">
+            <div className="hidden lg:flex items-center gap-6 flex-1 max-w-[35%]">
               <a
                 href="/"
                 className={navLinkClass('/')}
@@ -152,7 +152,7 @@ export const Navbar = () => {
             </div>
 
             {/* Center Logo */}
-            <Link to="/" className="flex flex-col items-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+            <Link to="/" className="flex flex-col items-center flex-shrink-0 mx-4">
               <span className="text-primary/80 text-[8px] tracking-[0.35em] uppercase font-display font-bold">
                 Team
               </span>
@@ -165,7 +165,7 @@ export const Navbar = () => {
             </Link>
 
             {/* Right Navigation */}
-            <div className="hidden lg:flex items-center gap-8 flex-1 justify-end">
+            <div className="hidden lg:flex items-center gap-6 flex-1 max-w-[35%] justify-end">
               <NavDropdown
                 label="Experience"
                 items={experienceServices}
