@@ -105,7 +105,7 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     activities: {
       sectionTitle: "ACTIVITY TYPES",
-      items: ["Amazing Race", "CSI: Bones", "Cultural Race", "Laser Tag", "Archery Tag", "Escape Room Challenge", "Masterchef Challenge", "Drumming Circle"]
+      items: ["Amazing Race", "CSI: Bones", "Cultural Race", "Laser Tag", "Archery Tag", "Escape Room Challenge", "Masterchef Challenge", "Drumming Circle", "Dragon Boat Racing", "Bubble Soccer", "Treasure Hunt", "Survivor Challenge"]
     },
     alternatingSections: [
       {
@@ -290,6 +290,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Star, title: "High-Impact Moments", description: "Grand entrances, big reveals, spotlight celebrations." },
       { icon: Heart, title: "Designed for Celebration", description: "Perfect for appreciation nights, awards, and milestones." }
     ],
+    activities: {
+      sectionTitle: "THEME OPTIONS",
+      items: ["Great Gatsby Glamour", "Hollywood Black & Gold", "Masquerade Royale", "Futuristic Neon", "Retro Disco Fever", "White & Gold Elegance", "Casino Royale", "Hawaiian Luau", "Space Odyssey", "Enchanted Forest", "Red Carpet Premiere", "Carnival Fiesta"]
+    },
     alternatingSections: [
       {
         title: "A Night to Remember",

@@ -257,4 +257,54 @@
       height: 200px;
     }
   }
+
+  /* Custom Scrollbar - Gold & Black */
+  .scrollbar-gold {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(43, 65%, 52%) hsl(240, 10%, 8%);
+  }
+
+  .scrollbar-gold::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-gold::-webkit-scrollbar-track {
+    background: hsl(240, 10%, 8%);
+    border-radius: 4px;
+  }
+
+  .scrollbar-gold::-webkit-scrollbar-thumb {
+    background: hsl(43, 65%, 52%);
+    border-radius: 4px;
+  }
+
+  .scrollbar-gold::-webkit-scrollbar-thumb:hover {
+    background: hsl(43, 70%, 60%);
+  }
+}
+
+/* Global scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(240, 10%, 6%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(43, 65%, 40%);
+  border-radius: 5px;
+  border: 2px solid hsl(240, 10%, 6%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(43, 65%, 52%);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(43, 65%, 40%) hsl(240, 10%, 6%);
 }

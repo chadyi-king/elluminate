@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GoldParticles } from "@/components/GoldParticles";
+import { OurTeam } from "@/components/OurTeam";
 import { 
   Target, Eye, Heart, Sparkles, Award, Zap, 
   Users, Lightbulb, Palette, Mic, Film, Star,
@@ -406,6 +407,12 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Gold Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+      {/* OUR TEAM SECTION */}
+      <OurTeam />
 
       {/* Gold Divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
