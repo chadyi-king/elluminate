@@ -22,7 +22,7 @@ export const ServiceFAQ = ({ faqs, accentColor }: ServiceFAQProps) => {
       {/* Dark background with dim image */}
       <div className="absolute inset-0 bg-background-deep">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-8"
+          className="absolute inset-0 bg-cover bg-center opacity-[0.03]"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920)` }}
         />
       </div>

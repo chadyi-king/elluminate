@@ -18,7 +18,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
       {/* Dark background with dim image */}
       <div className="absolute inset-0 bg-background">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-8"
+          className="absolute inset-0 bg-cover bg-center opacity-[0.03]"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920)` }}
         />
       </div>

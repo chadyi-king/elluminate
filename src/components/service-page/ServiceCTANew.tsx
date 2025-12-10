@@ -13,13 +13,13 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
       {/* Dark background with dim image */}
       <div className="absolute inset-0 bg-background-deep">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-10"
+          className="absolute inset-0 bg-cover bg-center opacity-[0.03]"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1920)` }}
         />
       </div>
       
       {/* Dark background panel */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background-deep/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 to-background-deep/95" />
       
       {/* Accent spotlight behind text */}
       <motion.div
