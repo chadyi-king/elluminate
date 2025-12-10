@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ServiceHeroSplitProps {
@@ -83,21 +81,6 @@ export const ServiceHeroSplit = ({
         />
 
         <div className="relative z-10 px-8 lg:px-16 py-24 lg:py-0 w-full">
-          {/* Back link */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <Link
-              to="/#services"
-              className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span className="text-sm tracking-wider">Back to Services</span>
-            </Link>
-          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}

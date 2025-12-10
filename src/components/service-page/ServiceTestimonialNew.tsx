@@ -14,7 +14,15 @@ interface ServiceTestimonialNewProps {
 
 export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTestimonialNewProps) => {
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
+      {/* Dark background with dim image */}
+      <div className="absolute inset-0 bg-background">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-8"
+          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920)` }}
+        />
+      </div>
+      
       {/* Background glow with accent color */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[100px]"

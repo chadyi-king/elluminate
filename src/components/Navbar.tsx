@@ -56,7 +56,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
       <button
         onClick={onToggle}
         onMouseEnter={onToggle}
-        className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium py-2"
+        className="flex items-center gap-1.5 text-metallic-gold/70 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium py-2"
       >
         {label}
         <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -112,7 +112,7 @@ export const Navbar = () => {
 
   const navLinkClass = (path: string) => 
     `transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium ${
-      isActive(path) ? 'text-white' : 'text-white/90 hover:text-white'
+      isActive(path) ? 'text-white' : 'text-metallic-gold/70 hover:text-white'
     }`;
 
   return (
@@ -157,10 +157,10 @@ export const Navbar = () => {
 
             {/* Center Logo */}
             <Link to="/" className="flex flex-col items-center flex-shrink-0 mx-12">
-              <span className="text-white font-display text-base tracking-[0.2em] font-bold">
+              <span className="text-metallic-gold font-display text-base tracking-[0.2em] font-bold">
                 TEAM ELEVATE
               </span>
-              <span className="text-white/50 text-[7px] tracking-[0.25em] uppercase font-display font-normal -mt-0.5">
+              <span className="text-metallic-gold/50 text-[7px] tracking-[0.25em] uppercase font-display font-normal -mt-0.5">
                 Masterpiece Experiences
               </span>
             </Link>
@@ -182,7 +182,7 @@ export const Navbar = () => {
               </a>
               <button
                 onClick={() => setShowComingSoon(true)}
-                className="text-white/90 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium"
+                className="text-metallic-gold/70 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium"
               >
                 Enhance
               </button>

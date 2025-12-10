@@ -7,7 +7,15 @@ interface ServiceFinalCTAProps {
 
 export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden">
+      {/* Dark background with dim image */}
+      <div className="absolute inset-0 bg-background">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-10"
+          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920)` }}
+        />
+      </div>
+      
       {/* Accent gradient spotlight */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] rounded-full blur-[150px]"

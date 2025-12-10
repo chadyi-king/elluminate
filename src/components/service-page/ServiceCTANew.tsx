@@ -9,9 +9,17 @@ interface ServiceCTANewProps {
 
 export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewProps) => {
   return (
-    <section className="py-24 relative overflow-hidden bg-background-deep">
+    <section className="py-24 relative overflow-hidden">
+      {/* Dark background with dim image */}
+      <div className="absolute inset-0 bg-background-deep">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-10"
+          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1920)` }}
+        />
+      </div>
+      
       {/* Dark background panel */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background to-background-deep" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background-deep/90" />
       
       {/* Accent spotlight behind text */}
       <motion.div

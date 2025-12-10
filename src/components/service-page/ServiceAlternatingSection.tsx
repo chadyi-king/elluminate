@@ -14,7 +14,14 @@ interface ServiceAlternatingSectionProps {
 
 export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlternatingSectionProps) => {
   return (
-    <section className="py-16 bg-background relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden">
+      {/* Dark background with dim image */}
+      <div className="absolute inset-0 bg-background">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-8"
+          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920)` }}
+        />
+      </div>
       <div className="container mx-auto px-6 relative z-10">
         {sections.map((section, index) => {
           const isReversed = index % 2 === 1;
