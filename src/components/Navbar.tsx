@@ -21,6 +21,9 @@ const corporateServices = [
   { name: "Brand Activations", slug: "brand-activations" },
   { name: "Client Appreciation", slug: "client-appreciation" },
   { name: "Town Halls", slug: "town-halls" },
+  { name: "Summits", slug: "summits" },
+  { name: "Government Events", slug: "government-events" },
+  { name: "Private Events", slug: "private-events" },
 ];
 
 const immersiveServices = [
@@ -37,10 +40,7 @@ const experienceServices = [
   { name: "Family Fun Days", slug: "family-fun-days" },
   { name: "Corporate Carnivals", slug: "corporate-carnivals" },
   { name: "VIP Gala Experiences", slug: "vip-gala" },
-  { name: "Grand Opening", slug: "grand-opening" },
-  { name: "Summits", slug: "summits" },
-  { name: "Government Events", slug: "government-events" },
-  { name: "Private Events", slug: "private-events" },
+  { name: "Grand Openings", slug: "grand-opening" },
 ];
 
 interface DropdownProps {

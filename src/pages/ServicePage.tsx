@@ -6,6 +6,7 @@ import { GoldParticles } from "@/components/GoldParticles";
 import { ServiceHeroSplit } from "@/components/service-page/ServiceHeroSplit";
 import { ServiceOverviewNew } from "@/components/service-page/ServiceOverviewNew";
 import { ServiceFeaturesNew } from "@/components/service-page/ServiceFeaturesNew";
+import { ServiceActivities } from "@/components/service-page/ServiceActivities";
 import { ServiceAlternatingSection } from "@/components/service-page/ServiceAlternatingSection";
 import { ServiceCTANew } from "@/components/service-page/ServiceCTANew";
 import { ServiceTestimonialNew } from "@/components/service-page/ServiceTestimonialNew";
@@ -54,6 +55,14 @@ const ServicePage = () => {
         accentColor={service.accentColor}
         image={service.gallery[0]}
       />
+
+      {service.activities && (
+        <ServiceActivities
+          activities={service.activities.items}
+          accentColor={service.accentColor}
+          sectionTitle={service.activities.sectionTitle}
+        />
+      )}
 
       <ServiceAlternatingSection
         sections={service.alternatingSections}

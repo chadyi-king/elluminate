@@ -15,8 +15,8 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Luxury gold variants - gold default, black with gold outline + white text on hover
-        gold: "bg-gradient-to-r from-primary via-primary-ember to-primary-deep text-primary-foreground font-semibold shadow-gold hover:bg-black hover:from-black hover:via-black hover:to-black hover:border-2 hover:border-primary hover:text-white hover:shadow-gold-intense active:scale-100",
+        // Luxury gold variants - solid gold, black with gold outline + white text on hover
+        gold: "bg-primary text-primary-foreground font-semibold shadow-gold hover:bg-black hover:border-2 hover:border-primary hover:text-white hover:shadow-gold-intense active:scale-100",
         "gold-outline": "border-2 border-primary bg-primary text-primary-foreground hover:bg-black hover:text-white hover:shadow-gold transition-all duration-300 font-semibold tracking-wide",
         "gold-ghost": "text-primary hover:text-white hover:bg-black hover:border hover:border-primary transition-all duration-300",
         hero: "bg-primary text-primary-foreground px-8 py-6 text-lg font-semibold tracking-widest uppercase hover:bg-black hover:border-2 hover:border-primary hover:text-white hover:shadow-gold-intense transition-all duration-500",

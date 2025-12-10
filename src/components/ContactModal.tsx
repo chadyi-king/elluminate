@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Mail } from "lucide-react";
+import { X, Send, Mail, CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { useContactModal } from "@/contexts/ContactModalContext";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 const eventCategories = [
   "Physical Team Bonding",
@@ -60,12 +64,12 @@ const addOnServices = [
 export const ContactModal = () => {
   const { isOpen, closeContactModal } = useContactModal();
   const { toast } = useToast();
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     eventCategory: "",
-    expectedDate: "",
     organisation: "",
     organisationType: "",
     expectedAttendees: "",
@@ -96,7 +100,6 @@ export const ContactModal = () => {
       email: "",
       phone: "",
       eventCategory: "",
-      expectedDate: "",
       organisation: "",
       organisationType: "",
       expectedAttendees: "",
@@ -106,6 +109,7 @@ export const ContactModal = () => {
       additionalDetails: "",
       privacyConsent: false,
     });
+    setSelectedDate(undefined);
   };
 
   const toggleAddOnService = (service: string) => {
@@ -212,15 +216,33 @@ export const ContactModal = () => {
                 </select>
               </div>
 
-              {/* Expected Date */}
+              {/* Expected Date with Calendar Picker */}
               <div>
                 <label className="block text-white/70 text-sm mb-1">Expected Date of Event</label>
-                <Input
-                  type="date"
-                  value={formData.expectedDate}
-                  onChange={(e) => setFormData({ ...formData, expectedDate: e.target.value })}
-                  className="bg-background border-primary/20 focus:border-primary"
-                />
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn(
+                        "w-full justify-start text-left font-normal bg-background border-primary/20 hover:bg-background hover:border-primary",
+                        !selectedDate && "text-white/50"
+                      )}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4 text-primary" />
+                      {selectedDate ? format(selectedDate, "PPP") : <span>Pick a date</span>}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0 bg-background-card border-primary/30" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={selectedDate}
+                      onSelect={setSelectedDate}
+                      initialFocus
+                      className="p-3 pointer-events-auto"
+                      disabled={(date) => date < new Date()}
+                    />
+                  </PopoverContent>
+                </Popover>
               </div>
 
               {/* Organisation */}
