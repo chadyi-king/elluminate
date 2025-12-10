@@ -174,12 +174,12 @@ export const Navbar = () => {
                 onToggle={() => handleDropdownToggle('experience')}
                 onClose={handleDropdownClose}
               />
-              <a
-                href="/#portfolio"
-                className={navLinkClass('/#portfolio')}
+              <Link
+                to="/portfolio"
+                className={navLinkClass('/portfolio')}
               >
                 Portfolio
-              </a>
+              </Link>
               <button
                 onClick={() => setShowComingSoon(true)}
                 className="text-metallic-gold/70 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium"
@@ -271,13 +271,13 @@ export const Navbar = () => {
                   ))}
                 </div>
 
-                <a
-                  href="/#portfolio"
+                <Link
+                  to="/portfolio"
                   onClick={() => setIsOpen(false)}
                   className="text-primary hover:text-white transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2 border-t border-border-gold/20 pt-4"
                 >
                   Portfolio
-                </a>
+                </Link>
 
                 <button
                   onClick={() => {
