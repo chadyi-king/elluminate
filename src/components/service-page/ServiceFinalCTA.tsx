@@ -1,0 +1,47 @@
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+
+interface ServiceFinalCTAProps {
+  accentColor: string;
+}
+
+export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
+  return (
+    <section className="py-20 bg-background relative overflow-hidden">
+      {/* Gold gradient spotlight */}
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] rounded-full blur-[150px]"
+        style={{ backgroundColor: `${accentColor}08` }}
+        animate={{ opacity: [0.2, 0.4, 0.2] }}
+        transition={{ duration: 5, repeat: Infinity }}
+      />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-metallic-gold mb-8">
+            Ready to Create Something Extraordinary?
+          </h2>
+          
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Button 
+              variant="hero" 
+              size="xl"
+              className="text-lg"
+            >
+              Start Planning With Us
+            </Button>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
