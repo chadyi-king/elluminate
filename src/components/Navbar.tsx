@@ -156,15 +156,12 @@ export const Navbar = () => {
             </div>
 
             {/* Center Logo */}
-            <Link to="/" className="flex flex-col items-center flex-shrink-0 mx-4">
-              <span className="text-primary/80 text-[8px] tracking-[0.35em] uppercase font-display font-bold">
-                Team
+            <Link to="/" className="flex flex-col items-center flex-shrink-0 mx-8">
+              <span className="text-metallic-gold font-display text-lg tracking-[0.15em] font-black">
+                TEAM ELEVATE
               </span>
-              <span className="text-metallic-gold font-display text-lg tracking-[0.12em] font-black -mt-0.5">
-                ELEVATE
-              </span>
-              <span className="text-primary/60 text-[7px] tracking-[0.25em] uppercase font-display font-medium -mt-0.5">
-                Experience
+              <span className="text-primary/70 text-[7px] tracking-[0.2em] uppercase font-display font-medium -mt-0.5">
+                Masterpiece Experiences
               </span>
             </Link>
 
@@ -189,8 +186,8 @@ export const Navbar = () => {
               >
                 Enhance
               </button>
-              <Button variant="gold" size="sm" className="font-display font-semibold text-[10px] tracking-[0.1em] hover:bg-background hover:text-primary hover:border-primary border border-transparent">
-                Get Started
+              <Button variant="gold" size="sm" className="font-display font-semibold text-[10px] tracking-[0.1em] uppercase hover:bg-background hover:text-primary hover:border-primary border border-transparent">
+                GET STARTED
               </Button>
             </div>
 
