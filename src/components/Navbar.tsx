@@ -1,8 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const corporateServices = [
   { name: "Corporate Team Building", slug: "team-building" },
@@ -46,7 +52,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
       <button
         onClick={onToggle}
         onMouseEnter={onToggle}
-        className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors duration-300 text-xs tracking-wider uppercase font-display font-semibold py-2"
+        className="flex items-center gap-1 text-primary hover:text-white transition-colors duration-300 text-xs tracking-wider uppercase font-display font-semibold py-2"
       >
         {label}
         <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -68,7 +74,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
                   key={item.slug}
                   to={`/services/${item.slug}`}
                   onClick={onClose}
-                  className="block px-4 py-2 text-xs text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors font-display"
+                  className="block px-4 py-2 text-xs text-primary hover:text-white hover:bg-primary/10 transition-colors font-display"
                 >
                   {item.name}
                 </Link>
@@ -84,6 +90,8 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [showComingSoon, setShowComingSoon] = useState(false);
+  const location = useLocation();
 
   const handleDropdownToggle = (dropdown: string) => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown);
@@ -93,170 +101,217 @@ export const Navbar = () => {
     setOpenDropdown(null);
   };
 
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path) || location.hash === path;
+  };
+
+  const navLinkClass = (path: string) => 
+    `transition-colors duration-300 text-xs tracking-wider uppercase font-display font-semibold ${
+      isActive(path) ? 'text-white' : 'text-primary hover:text-white'
+    }`;
+
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border-gold/20"
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Left Navigation */}
-          <div className="hidden lg:flex items-center gap-5 flex-1">
-            <a
-              href="/"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-xs tracking-wider uppercase font-display font-semibold"
-            >
-              Home
-            </a>
-            <a
-              href="/#why-us"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-xs tracking-wider uppercase font-display font-semibold"
-            >
-              About
-            </a>
-            <NavDropdown
-              label="Corporate"
-              items={corporateServices}
-              isOpen={openDropdown === 'corporate'}
-              onToggle={() => handleDropdownToggle('corporate')}
-              onClose={handleDropdownClose}
-            />
-            <NavDropdown
-              label="Immersive"
-              items={immersiveServices}
-              isOpen={openDropdown === 'immersive'}
-              onToggle={() => handleDropdownToggle('immersive')}
-              onClose={handleDropdownClose}
-            />
-          </div>
-
-          {/* Center Logo */}
-          <Link to="/" className="flex flex-col items-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-            <span className="text-primary/80 text-[10px] tracking-[0.3em] uppercase font-display font-bold">
-              Team
-            </span>
-            <span className="text-metallic-gold font-display text-xl tracking-[0.15em] font-black -mt-0.5">
-              ELEVATE
-            </span>
-          </Link>
-
-          {/* Right Navigation */}
-          <div className="hidden lg:flex items-center gap-5 flex-1 justify-end">
-            <NavDropdown
-              label="Experience"
-              items={experienceServices}
-              isOpen={openDropdown === 'experience'}
-              onToggle={() => handleDropdownToggle('experience')}
-              onClose={handleDropdownClose}
-            />
-            <a
-              href="/#portfolio"
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-xs tracking-wider uppercase font-display font-semibold"
-            >
-              Portfolio
-            </a>
-            <Button variant="gold-outline" size="sm" className="font-display font-semibold text-xs">
-              Get Started
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-primary ml-auto"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background-deep border-t border-border-gold/20 overflow-hidden"
-          >
-            <div className="container mx-auto px-6 py-6 flex flex-col gap-4 max-h-[70vh] overflow-y-auto">
+    <>
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border-gold/20"
+      >
+        <div className="container mx-auto px-8 lg:px-16">
+          <div className="flex items-center justify-between h-16">
+            {/* Left Navigation */}
+            <div className="hidden lg:flex items-center gap-8 flex-1">
               <a
                 href="/"
-                onClick={() => setIsOpen(false)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2"
+                className={navLinkClass('/')}
               >
                 Home
               </a>
               <a
                 href="/#why-us"
-                onClick={() => setIsOpen(false)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2"
+                className={navLinkClass('/#why-us')}
               >
                 About
               </a>
-              
-              {/* Corporate Dropdown */}
-              <div className="border-t border-border-gold/20 pt-4">
-                <span className="text-primary text-xs tracking-wider uppercase font-display font-semibold mb-2 block">Corporate</span>
-                {corporateServices.map((item) => (
-                  <Link
-                    key={item.slug}
-                    to={`/services/${item.slug}`}
-                    onClick={() => setIsOpen(false)}
-                    className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
+              <NavDropdown
+                label="Corporate"
+                items={corporateServices}
+                isOpen={openDropdown === 'corporate'}
+                onToggle={() => handleDropdownToggle('corporate')}
+                onClose={handleDropdownClose}
+              />
+              <NavDropdown
+                label="Immersive"
+                items={immersiveServices}
+                isOpen={openDropdown === 'immersive'}
+                onToggle={() => handleDropdownToggle('immersive')}
+                onClose={handleDropdownClose}
+              />
+            </div>
 
-              {/* Immersive Dropdown */}
-              <div className="border-t border-border-gold/20 pt-4">
-                <span className="text-primary text-xs tracking-wider uppercase font-display font-semibold mb-2 block">Immersive</span>
-                {immersiveServices.map((item) => (
-                  <Link
-                    key={item.slug}
-                    to={`/services/${item.slug}`}
-                    onClick={() => setIsOpen(false)}
-                    className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
+            {/* Center Logo */}
+            <Link to="/" className="flex flex-col items-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+              <span className="text-primary/80 text-[10px] tracking-[0.3em] uppercase font-display font-bold">
+                Team
+              </span>
+              <span className="text-metallic-gold font-display text-xl tracking-[0.15em] font-black -mt-0.5">
+                ELEVATE
+              </span>
+            </Link>
 
-              {/* Experience Dropdown */}
-              <div className="border-t border-border-gold/20 pt-4">
-                <span className="text-primary text-xs tracking-wider uppercase font-display font-semibold mb-2 block">Experience</span>
-                {experienceServices.map((item) => (
-                  <Link
-                    key={item.slug}
-                    to={`/services/${item.slug}`}
-                    onClick={() => setIsOpen(false)}
-                    className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-
+            {/* Right Navigation */}
+            <div className="hidden lg:flex items-center gap-8 flex-1 justify-end">
+              <NavDropdown
+                label="Experience"
+                items={experienceServices}
+                isOpen={openDropdown === 'experience'}
+                onToggle={() => handleDropdownToggle('experience')}
+                onClose={handleDropdownClose}
+              />
               <a
                 href="/#portfolio"
-                onClick={() => setIsOpen(false)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2 border-t border-border-gold/20 pt-4"
+                className={navLinkClass('/#portfolio')}
               >
                 Portfolio
               </a>
-              
-              <Button variant="gold-outline" className="mt-4 font-display font-semibold">
+              <button
+                onClick={() => setShowComingSoon(true)}
+                className="text-primary hover:text-white transition-colors duration-300 text-xs tracking-wider uppercase font-display font-semibold"
+              >
+                Enhancing Events
+              </button>
+              <Button variant="gold-outline" size="sm" className="font-display font-semibold text-xs">
                 Get Started
               </Button>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden text-primary ml-auto"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden bg-background-deep border-t border-border-gold/20 overflow-hidden"
+            >
+              <div className="container mx-auto px-6 py-6 flex flex-col gap-4 max-h-[70vh] overflow-y-auto">
+                <a
+                  href="/"
+                  onClick={() => setIsOpen(false)}
+                  className="text-primary hover:text-white transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2"
+                >
+                  Home
+                </a>
+                <a
+                  href="/#why-us"
+                  onClick={() => setIsOpen(false)}
+                  className="text-primary hover:text-white transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2"
+                >
+                  About
+                </a>
+                
+                {/* Corporate Dropdown */}
+                <div className="border-t border-border-gold/20 pt-4">
+                  <span className="text-white text-xs tracking-wider uppercase font-display font-semibold mb-2 block">Corporate</span>
+                  {corporateServices.map((item) => (
+                    <Link
+                      key={item.slug}
+                      to={`/services/${item.slug}`}
+                      onClick={() => setIsOpen(false)}
+                      className="block text-primary hover:text-white transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Immersive Dropdown */}
+                <div className="border-t border-border-gold/20 pt-4">
+                  <span className="text-white text-xs tracking-wider uppercase font-display font-semibold mb-2 block">Immersive</span>
+                  {immersiveServices.map((item) => (
+                    <Link
+                      key={item.slug}
+                      to={`/services/${item.slug}`}
+                      onClick={() => setIsOpen(false)}
+                      className="block text-primary hover:text-white transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Experience Dropdown */}
+                <div className="border-t border-border-gold/20 pt-4">
+                  <span className="text-white text-xs tracking-wider uppercase font-display font-semibold mb-2 block">Experience</span>
+                  {experienceServices.map((item) => (
+                    <Link
+                      key={item.slug}
+                      to={`/services/${item.slug}`}
+                      onClick={() => setIsOpen(false)}
+                      className="block text-primary hover:text-white transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+
+                <a
+                  href="/#portfolio"
+                  onClick={() => setIsOpen(false)}
+                  className="text-primary hover:text-white transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2 border-t border-border-gold/20 pt-4"
+                >
+                  Portfolio
+                </a>
+
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    setShowComingSoon(true);
+                  }}
+                  className="text-primary hover:text-white transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2 text-left"
+                >
+                  Enhancing Events
+                </button>
+                
+                <Button variant="gold-outline" className="mt-4 font-display font-semibold">
+                  Get Started
+                </Button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.nav>
+
+      {/* Coming Soon Dialog */}
+      <Dialog open={showComingSoon} onOpenChange={setShowComingSoon}>
+        <DialogContent className="bg-background-deep border-border-gold/30 max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-display font-bold text-metallic-gold text-center">
+              Coming Soon
+            </DialogTitle>
+          </DialogHeader>
+          <div className="text-center py-6">
+            <p className="text-muted-foreground font-display">
+              Our blog <span className="text-primary font-semibold">Enhancing Events</span> is currently under development.
+            </p>
+            <p className="text-muted-foreground/80 font-display mt-2 text-sm">
+              Stay tuned for insights, tips, and behind-the-scenes content!
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
