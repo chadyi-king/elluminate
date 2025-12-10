@@ -52,7 +52,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
       <button
         onClick={onToggle}
         onMouseEnter={onToggle}
-        className="flex items-center gap-1 text-primary hover:text-white transition-colors duration-300 text-xs tracking-wider uppercase font-display font-semibold py-2"
+        className="flex items-center gap-1 text-primary hover:text-white transition-colors duration-300 text-[10px] tracking-[0.1em] uppercase font-display font-semibold py-2"
       >
         {label}
         <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -74,7 +74,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
                   key={item.slug}
                   to={`/services/${item.slug}`}
                   onClick={onClose}
-                  className="block px-4 py-2 text-xs text-primary hover:text-white hover:bg-primary/10 transition-colors font-display"
+                  className="block px-4 py-2 text-[10px] tracking-[0.05em] text-primary hover:text-white hover:bg-primary/10 transition-colors font-display"
                 >
                   {item.name}
                 </Link>
@@ -107,7 +107,7 @@ export const Navbar = () => {
   };
 
   const navLinkClass = (path: string) => 
-    `transition-colors duration-300 text-xs tracking-wider uppercase font-display font-semibold ${
+    `transition-colors duration-300 text-[10px] tracking-[0.1em] uppercase font-display font-semibold ${
       isActive(path) ? 'text-white' : 'text-primary hover:text-white'
     }`;
 
@@ -129,12 +129,12 @@ export const Navbar = () => {
               >
                 Home
               </a>
-              <a
-                href="/#why-us"
-                className={navLinkClass('/#why-us')}
+              <Link
+                to="/about"
+                className={navLinkClass('/about')}
               >
                 About
-              </a>
+              </Link>
               <NavDropdown
                 label="Corporate"
                 items={corporateServices}
@@ -153,11 +153,14 @@ export const Navbar = () => {
 
             {/* Center Logo */}
             <Link to="/" className="flex flex-col items-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-              <span className="text-primary/80 text-[10px] tracking-[0.3em] uppercase font-display font-bold">
+              <span className="text-primary/80 text-[8px] tracking-[0.35em] uppercase font-display font-bold">
                 Team
               </span>
-              <span className="text-metallic-gold font-display text-xl tracking-[0.15em] font-black -mt-0.5">
+              <span className="text-metallic-gold font-display text-lg tracking-[0.12em] font-black -mt-0.5">
                 ELEVATE
+              </span>
+              <span className="text-primary/60 text-[7px] tracking-[0.25em] uppercase font-display font-medium -mt-0.5">
+                Experience
               </span>
             </Link>
 
@@ -178,11 +181,11 @@ export const Navbar = () => {
               </a>
               <button
                 onClick={() => setShowComingSoon(true)}
-                className="text-primary hover:text-white transition-colors duration-300 text-xs tracking-wider uppercase font-display font-semibold"
+                className="text-primary hover:text-white transition-colors duration-300 text-[10px] tracking-[0.1em] uppercase font-display font-semibold"
               >
                 Enhancing Events
               </button>
-              <Button variant="gold-outline" size="sm" className="font-display font-semibold text-xs">
+              <Button variant="gold-outline" size="sm" className="font-display font-semibold text-[10px] tracking-[0.1em]">
                 Get Started
               </Button>
             </div>
