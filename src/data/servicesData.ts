@@ -198,6 +198,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Zap, title: "Renewed Energy", description: "Return refreshed and motivated." },
       { icon: Users, title: "Cultural Growth", description: "Expand horizons together as a team." }
     ],
+    activities: {
+      sectionTitle: "DESTINATION OPTIONS",
+      items: ["Bali, Indonesia", "Phuket, Thailand", "Niseko, Japan", "Da Nang, Vietnam", "Langkawi, Malaysia", "Bintan, Indonesia", "Krabi, Thailand", "Jeju Island, Korea", "Cebu, Philippines", "Chiang Mai, Thailand", "Hokkaido, Japan", "Batam, Indonesia"]
+    },
     alternatingSections: [
       {
         title: "Popular Destinations",
@@ -419,6 +423,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Sparkles, title: "Memorable Moments", description: "Unforgettable experiences for honorees." },
       { icon: Camera, title: "Documentation", description: "Professional capture of milestone moments." }
     ],
+    activities: {
+      sectionTitle: "AWARD CATEGORIES",
+      items: ["Employee of the Year", "Team Excellence Award", "Innovation Champion", "Customer Service Star", "Leadership Excellence", "Rising Star Award", "Long Service Recognition", "Best Department", "Sales Champion", "Cultural Ambassador", "Safety Champion", "Mentorship Award"]
+    },
     alternatingSections: [
       {
         title: "The Red Carpet Experience",
@@ -511,6 +519,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Trophy, title: "Employee Pride", description: "Boost loyalty through shared celebration." },
       { icon: Megaphone, title: "PR Opportunities", description: "Generate positive media coverage." }
     ],
+    activities: {
+      sectionTitle: "CELEBRATION ELEMENTS",
+      items: ["Historical Timeline Display", "Founder Tribute Video", "Pioneer Recognition Ceremony", "Time Capsule Unveiling", "Legacy Wall Installation", "Memory Lane Photo Exhibition", "Anniversary Gala Dinner", "Employee Journey Stories", "Milestone Achievement Awards", "Commemorative Merchandise", "Company Song Performance", "Future Vision Reveal"]
+    },
     alternatingSections: [
       {
         title: "Celebrating Your Legacy",
@@ -603,6 +615,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Heart, title: "Executive Wellness", description: "Recharge while strategizing." },
       { icon: Lightbulb, title: "Fresh Perspectives", description: "New environment sparks new ideas." }
     ],
+    activities: {
+      sectionTitle: "SESSION FORMATS",
+      items: ["Strategic Planning Workshop", "Vision & Mission Alignment", "Team Performance Review", "Innovation Brainstorm", "Leadership Development", "Scenario Planning", "Goal Setting Session", "Executive Coaching", "Change Management Workshop", "Culture & Values Workshop", "Succession Planning", "Business Model Canvas"]
+    },
     alternatingSections: [
       {
         title: "Strategic Session Design",
@@ -695,6 +711,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Gem, title: "Brand Differentiation", description: "Stand out from the competition." },
       { icon: Zap, title: "Sales Momentum", description: "Build excitement that drives conversions." }
     ],
+    activities: {
+      sectionTitle: "LAUNCH FORMATS",
+      items: ["Grand Unveiling Ceremony", "Live Demo Experience", "VIP Preview Night", "Media Launch Event", "Interactive Exhibition", "Roadshow Activation", "Digital Launch Broadcast", "Influencer Showcase", "Customer Experience Day", "Pop-Up Launch Store", "Virtual Reality Preview", "Celebrity Endorsement Event"]
+    },
     alternatingSections: [
       {
         title: "The Big Reveal",
@@ -787,6 +807,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Target, title: "Data Insights", description: "Valuable consumer behavior data." },
       { icon: Heart, title: "Brand Loyalty", description: "Emotional connections that last." }
     ],
+    activities: {
+      sectionTitle: "ACTIVATION TYPES",
+      items: ["Pop-Up Experience", "Mall Activation", "Roadshow Campaign", "Festival Booth", "Sampling Station", "Interactive Installation", "Brand Mascot Experience", "Gamification Zone", "Photo Opportunity Setup", "Virtual Reality Experience", "Social Media Challenge", "Community Event Sponsorship"]
+    },
     alternatingSections: [
       {
         title: "Experiential Installations",
@@ -879,6 +903,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Gem, title: "Brand Loyalty", description: "Emotional investment in your brand." },
       { icon: Handshake, title: "Exclusive Networking", description: "Connect clients with each other." }
     ],
+    activities: {
+      sectionTitle: "EXPERIENCE OPTIONS",
+      items: ["Private Dining Experience", "Yacht Charter Event", "Wine Tasting Evening", "Golf Tournament Day", "Spa & Wellness Retreat", "Art Gallery Preview", "Concert VIP Experience", "Exclusive Workshop", "Behind-the-Scenes Tour", "Gourmet Cooking Class", "Luxury Brand Experience", "Cultural Immersion Tour"]
+    },
     alternatingSections: [
       {
         title: "VIP Treatment",
@@ -971,6 +999,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Target, title: "Feedback Opportunities", description: "Two-way communication that matters." },
       { icon: Zap, title: "Energy & Motivation", description: "Inspire action and commitment." }
     ],
+    activities: {
+      sectionTitle: "EVENT FORMATS",
+      items: ["All-Hands Meeting", "Annual General Meeting", "Quarterly Business Review", "Strategy Announcement", "Leadership Address", "Company-Wide Town Hall", "Regional Conference", "Sales Kick-Off", "Change Communication", "Policy Update Briefing", "Financial Results Presentation", "Vision & Mission Launch"]
+    },
     alternatingSections: [
       {
         title: "Engaging Presentation Design",
@@ -1063,6 +1095,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Gem, title: "Brand Differentiation", description: "Stand out from ordinary events." },
       { icon: Sparkles, title: "Lasting Impressions", description: "Experiences they'll talk about for years." }
     ],
+    activities: {
+      sectionTitle: "EXPERIENCE THEMES",
+      items: ["Murder Mystery Night", "Escape Room Adventure", "Circus Spectacular", "Jungle Safari", "Under the Sea", "Space Station Mission", "Medieval Kingdom", "Superhero Universe", "Detective Investigation", "Time Travel Journey", "Fantasy Realm Quest", "Secret Agent Mission"]
+    },
     alternatingSections: [
       {
         title: "Complete World Building",
@@ -1163,6 +1199,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Star, title: "Employee Appreciation", description: "Show you care about their wellbeing." },
       { icon: Target, title: "Productivity Boost", description: "Healthier employees perform better." }
     ],
+    activities: {
+      sectionTitle: "WELLNESS ACTIVITIES",
+      items: ["Corporate Yoga Session", "Guided Meditation", "Mindfulness Workshop", "Fitness Bootcamp", "Nutrition Workshop", "Stress Management Class", "Sound Healing", "Nature Walk Therapy", "Pilates Session", "Breathwork Experience", "Wellness Cooking Class", "Sleep Optimization Talk"]
+    },
     alternatingSections: [
       {
         title: "Physical Wellness",
@@ -1255,6 +1295,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Clock, title: "Efficient Execution", description: "Detailed plans prevent last-minute surprises." },
       { icon: Heart, title: "Memorable Experiences", description: "Concepts designed for impact." }
     ],
+    activities: {
+      sectionTitle: "CONCEPT SERVICES",
+      items: ["Theme Development", "Narrative Design", "3D Renderings", "Mood Board Creation", "Experience Flow Mapping", "Stakeholder Workshops", "Venue Scouting", "Vendor Coordination", "Budget Planning", "Timeline Development", "Risk Assessment", "Creative Direction"]
+    },
     alternatingSections: [
       {
         title: "Discovery & Ideation",
@@ -1347,6 +1391,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Heart, title: "Emotional Moments", description: "Technology that enhances storytelling." },
       { icon: Sparkles, title: "Memorable Experiences", description: "Production that elevates every moment." }
     ],
+    activities: {
+      sectionTitle: "PRODUCTION SERVICES",
+      items: ["Custom Stage Design", "LED Wall Setup", "Projection Mapping", "Intelligent Lighting", "Professional Sound System", "Live Streaming", "Confetti & Pyrotechnics", "Fog & Haze Effects", "Moving Head Lights", "Truss & Rigging", "Video Playback", "Technical Direction"]
+    },
     alternatingSections: [
       {
         title: "Stage Design & Construction",
@@ -1439,6 +1487,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Gem, title: "Brand Alignment", description: "Themes that reflect your identity." },
       { icon: Sparkles, title: "Lasting Memories", description: "Events they'll never forget." }
     ],
+    activities: {
+      sectionTitle: "POPULAR THEMES",
+      items: ["Great Gatsby Art Deco", "Tropical Paradise", "Casino Royale", "Enchanted Garden", "Hollywood Glamour", "Futuristic Neon", "Rustic Charm", "Winter Wonderland", "Arabian Nights", "Carnival Fiesta", "Black & Gold Luxury", "Retro 80s"]
+    },
     alternatingSections: [
       {
         title: "Theme Development",
@@ -1531,6 +1583,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Zap, title: "Fast Delivery", description: "Quick turnaround times." },
       { icon: Users, title: "Extended Reach", description: "Share with those who couldn't attend." }
     ],
+    activities: {
+      sectionTitle: "SERVICE OPTIONS",
+      items: ["Event Emcee", "Wedding Emcee", "Bilingual Host", "Event Photography", "Corporate Headshots", "Photo Booth", "Same-Day Edit Video", "Highlight Reel", "Full Event Coverage", "Live Streaming", "Drone Videography", "Interview Videos"]
+    },
     alternatingSections: [
       {
         title: "Professional Emcees",
