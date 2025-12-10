@@ -57,7 +57,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
       <button
         onClick={onToggle}
         onMouseEnter={onToggle}
-        className="flex items-center gap-1.5 text-metallic-gold/70 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium py-2"
+        className="flex items-center gap-1.5 text-[#D2B450]/80 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium py-2"
       >
         {label}
         <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -73,7 +73,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
             onMouseLeave={onClose}
             className="absolute top-full left-0 mt-2 w-56 bg-background-deep border border-border-gold/30 rounded-lg shadow-xl overflow-hidden z-50"
           >
-            <div className="py-2 max-h-80 overflow-y-auto">
+            <div className="py-2 max-h-80 overflow-y-auto scrollbar-gold">
               {items.map((item) => (
                 <Link
                   key={item.slug}
@@ -114,7 +114,7 @@ export const Navbar = () => {
 
   const navLinkClass = (path: string) => 
     `transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium ${
-      isActive(path) ? 'text-white' : 'text-metallic-gold/70 hover:text-white'
+      isActive(path) ? 'text-white' : 'text-[#D2B450]/80 hover:text-white'
     }`;
 
   return (
@@ -126,9 +126,9 @@ export const Navbar = () => {
         className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border-gold/20"
       >
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-center h-16">
             {/* Left Navigation */}
-            <div className="hidden lg:flex items-center gap-4 flex-1">
+            <div className="hidden lg:flex items-center justify-end gap-6 flex-1">
               <a
                 href="/"
                 className={navLinkClass('/')}
@@ -158,17 +158,17 @@ export const Navbar = () => {
             </div>
 
             {/* Center Logo */}
-            <Link to="/" className="flex flex-col items-center flex-shrink-0 mx-12">
-              <span className="text-metallic-gold font-display text-base tracking-[0.2em] font-bold">
+            <Link to="/" className="flex flex-col items-center flex-shrink-0 mx-8">
+              <span className="text-[#D2B450] font-display text-base tracking-[0.2em] font-bold">
                 TEAM ELEVATE
               </span>
-              <span className="text-metallic-gold/50 text-[7px] tracking-[0.25em] uppercase font-display font-normal -mt-0.5">
+              <span className="text-[#D2B450]/50 text-[7px] tracking-[0.25em] uppercase font-display font-normal -mt-0.5">
                 Masterpiece Experiences
               </span>
             </Link>
 
             {/* Right Navigation */}
-            <div className="hidden lg:flex items-center gap-4 flex-1 justify-end">
+            <div className="hidden lg:flex items-center justify-start gap-6 flex-1">
               <NavDropdown
                 label="Experience"
                 items={experienceServices}
@@ -184,7 +184,7 @@ export const Navbar = () => {
               </Link>
               <button
                 onClick={() => setShowComingSoon(true)}
-                className="text-metallic-gold/70 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium"
+                className="text-[#D2B450]/80 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium"
               >
                 Enhance
               </button>

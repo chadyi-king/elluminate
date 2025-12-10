@@ -30,33 +30,33 @@ import {
 
 const allServices = [
   // Row 1
-  { name: "Corporate Team Building", icon: Users, slug: "team-building", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600", description: "Build stronger teams through engaging activities and collaborative experiences." },
-  { name: "Overseas Retreats", icon: Plane, slug: "overseas-retreats", image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600", description: "Transform your team with memorable retreat experiences in stunning destinations." },
-  { name: "Dinner & Dance", icon: Music, slug: "dinner-and-dance", image: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=600", description: "Spectacular evening celebrations with stunning themes and entertainment." },
-  { name: "Awards Ceremonies", icon: Trophy, slug: "awards-ceremonies", image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600", description: "Celebrate achievements with elegance and unforgettable presentations." },
-  { name: "Corporate Anniversaries", icon: PartyPopper, slug: "corporate-anniversaries", image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600", description: "Mark milestones with celebrations that honor your company's journey." },
-  { name: "Leadership Offsites", icon: Compass, slug: "leadership-offsites", image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600", description: "Strategic retreats for leadership alignment and team growth." },
+  { name: "Corporate Team Building", icon: Users, slug: "team-building", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600", description: "Build stronger teams through engaging activities and collaborative experiences.", eventCount: 500, clients: ["Google", "Meta", "Shopee"] },
+  { name: "Overseas Retreats", icon: Plane, slug: "overseas-retreats", image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600", description: "Transform your team with memorable retreat experiences in stunning destinations.", eventCount: 85, clients: ["Deloitte", "KPMG", "EY"] },
+  { name: "Dinner & Dance", icon: Music, slug: "dinner-and-dance", image: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=600", description: "Spectacular evening celebrations with stunning themes and entertainment.", eventCount: 45, clients: ["DBS", "Singtel", "OCBC"] },
+  { name: "Awards Ceremonies", icon: Trophy, slug: "awards-ceremonies", image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600", description: "Celebrate achievements with elegance and unforgettable presentations.", eventCount: 25, clients: ["CapitaLand", "Keppel", "ST Engineering"] },
+  { name: "Corporate Anniversaries", icon: PartyPopper, slug: "corporate-anniversaries", image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600", description: "Mark milestones with celebrations that honor your company's journey.", eventCount: 30, clients: ["Sembcorp", "SIA", "ComfortDelGro"] },
+  { name: "Leadership Offsites", icon: Compass, slug: "leadership-offsites", image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600", description: "Strategic retreats for leadership alignment and team growth.", eventCount: 40, clients: ["McKinsey", "BCG", "Bain"] },
   // Row 2
-  { name: "Product Launch Events", icon: Rocket, slug: "product-launch", image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600", description: "Create buzz and excitement for your new products and innovations." },
-  { name: "Brand Activations", icon: Sparkles, slug: "brand-activations", image: "https://images.unsplash.com/photo-1561489413-985b06da5bee?w=600", description: "Immersive brand experiences that connect with your target audience." },
-  { name: "Client Appreciation", icon: Heart, slug: "client-appreciation", image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600", description: "Show gratitude to valued clients with thoughtful events." },
-  { name: "Town Halls", icon: Building, slug: "town-halls", image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600", description: "Engage your organization with impactful meetings and announcements." },
-  { name: "Immersive Experiences", icon: Palette, slug: "immersive-experiences", image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600", description: "Transport attendees to extraordinary themed environments." },
-  { name: "Wellness Events", icon: Leaf, slug: "wellness-events", image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600", description: "Promote well-being through mindfulness and wellness activities." },
+  { name: "Product Launch Events", icon: Rocket, slug: "product-launch", image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600", description: "Create buzz and excitement for your new products and innovations.", eventCount: 35, clients: ["Apple", "Samsung", "Dyson"] },
+  { name: "Brand Activations", icon: Sparkles, slug: "brand-activations", image: "https://images.unsplash.com/photo-1561489413-985b06da5bee?w=600", description: "Immersive brand experiences that connect with your target audience.", eventCount: 60, clients: ["Nike", "Adidas", "Unilever"] },
+  { name: "Client Appreciation", icon: Heart, slug: "client-appreciation", image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600", description: "Show gratitude to valued clients with thoughtful events.", eventCount: 25, clients: ["HSBC", "Citi", "UBS"] },
+  { name: "Town Halls", icon: Building, slug: "town-halls", image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600", description: "Engage your organization with impactful meetings and announcements.", eventCount: 80, clients: ["GovTech", "MOE", "MOM"] },
+  { name: "Immersive Experiences", icon: Palette, slug: "immersive-experiences", image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600", description: "Transport attendees to extraordinary themed environments.", eventCount: 55, clients: ["MBS", "RWS", "Sentosa"] },
+  { name: "Wellness Events", icon: Leaf, slug: "wellness-events", image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600", description: "Promote well-being through mindfulness and wellness activities.", eventCount: 35, clients: ["Prudential", "AIA", "Great Eastern"] },
   // Row 3
-  { name: "Event Concept Development", icon: Lightbulb, slug: "event-concept", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600", description: "Creative concept development for unique, memorable events." },
-  { name: "Stage & AV Production", icon: Monitor, slug: "stage-production", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600", description: "Professional stage design, lighting, and audiovisual production." },
-  { name: "Custom Theme Creation", icon: Brush, slug: "custom-themes", image: "https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600", description: "Bespoke themes that bring your creative vision to life." },
-  { name: "Emcee / Photo / Video", icon: Mic, slug: "emcee-media", image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600", description: "Professional emcees, photographers, and videographers." },
-  { name: "Family Fun Days", icon: Gift, slug: "family-fun-days", image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600", description: "Engaging family-friendly events for all ages to enjoy together." },
-  { name: "Corporate Carnivals", icon: Star, slug: "corporate-carnivals", image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600", description: "Fun-filled carnival experiences for your corporate celebrations." },
+  { name: "Event Concept Development", icon: Lightbulb, slug: "event-concept", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600", description: "Creative concept development for unique, memorable events.", eventCount: 120, clients: ["Various MNCs", "SMEs", "Startups"] },
+  { name: "Stage & AV Production", icon: Monitor, slug: "stage-production", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600", description: "Professional stage design, lighting, and audiovisual production.", eventCount: 200, clients: ["Esplanade", "Suntec", "MBS"] },
+  { name: "Custom Theme Creation", icon: Brush, slug: "custom-themes", image: "https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600", description: "Bespoke themes that bring your creative vision to life.", eventCount: 75, clients: ["Luxury Brands", "Tech Giants", "Banks"] },
+  { name: "Emcee / Photo / Video", icon: Mic, slug: "emcee-media", image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600", description: "Professional emcees, photographers, and videographers.", eventCount: 300, clients: ["All Industries", "Corporate", "Government"] },
+  { name: "Family Fun Days", icon: Gift, slug: "family-fun-days", image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600", description: "Engaging family-friendly events for all ages to enjoy together.", eventCount: 45, clients: ["P&G", "Nestle", "J&J"] },
+  { name: "Corporate Carnivals", icon: Star, slug: "corporate-carnivals", image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600", description: "Fun-filled carnival experiences for your corporate celebrations.", eventCount: 30, clients: ["Shell", "ExxonMobil", "BP"] },
   // Row 4
-  { name: "VIP Gala Experiences", icon: Crown, slug: "vip-gala", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600", description: "Exclusive luxury gala events for distinguished occasions." },
-  { name: "Grand Openings", icon: Flag, slug: "grand-opening", image: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600", description: "Make a grand statement with spectacular opening ceremonies." },
-  { name: "Summits", icon: Globe, slug: "summits", image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600", description: "High-level summits and conferences for industry leaders." },
-  { name: "Government Events", icon: GraduationCap, slug: "government-events", image: "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=600", description: "Professional events for government and statutory boards." },
-  { name: "Private Events", icon: Lock, slug: "private-events", image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600", description: "Exclusive private gatherings tailored to your needs." },
-  { name: "Corporate Conferences", icon: Briefcase, slug: "corporate-conferences", image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600", description: "Professional conferences that inspire and inform." },
+  { name: "VIP Gala Experiences", icon: Crown, slug: "vip-gala", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600", description: "Exclusive luxury gala events for distinguished occasions.", eventCount: 20, clients: ["Luxury Hotels", "Private Banks", "Family Offices"] },
+  { name: "Grand Openings", icon: Flag, slug: "grand-opening", image: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600", description: "Make a grand statement with spectacular opening ceremonies.", eventCount: 40, clients: ["Retail Brands", "F&B", "Real Estate"] },
+  { name: "Summits", icon: Globe, slug: "summits", image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600", description: "High-level summits and conferences for industry leaders.", eventCount: 35, clients: ["EDB", "STB", "ESG"] },
+  { name: "Government Events", icon: GraduationCap, slug: "government-events", image: "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=600", description: "Professional events for government and statutory boards.", eventCount: 150, clients: ["Various Ministries", "Stat Boards", "Agencies"] },
+  { name: "Private Events", icon: Lock, slug: "private-events", image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600", description: "Exclusive private gatherings tailored to your needs.", eventCount: 80, clients: ["HNWIs", "Executives", "Families"] },
+  { name: "Corporate Conferences", icon: Briefcase, slug: "corporate-conferences", image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600", description: "Professional conferences that inspire and inform.", eventCount: 65, clients: ["Tech", "Finance", "Healthcare"] },
 ];
 
 // Split into 4 rows of 6 each
@@ -140,9 +140,24 @@ export const ServicesSection = () => {
                   <h3 className="text-base font-display font-bold text-primary-soft mb-1 text-center uppercase leading-tight">
                     {service.name}
                   </h3>
-                  <p className="text-muted-foreground text-xs mb-3 text-center font-sans leading-relaxed max-w-xs">
+                  <p className="text-muted-foreground text-xs mb-2 text-center font-sans leading-relaxed max-w-xs">
                     {service.description}
                   </p>
+                  
+                  {/* Client logos */}
+                  <div className="flex items-center gap-1 mb-1">
+                    {service.clients.slice(0, 3).map((client, idx) => (
+                      <span key={idx} className="text-[8px] text-white/50 bg-white/10 px-1.5 py-0.5 rounded">
+                        {client}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  {/* Event count */}
+                  <p className="text-primary text-[10px] font-display font-semibold mb-2">
+                    {service.eventCount}+ Events Delivered
+                  </p>
+                  
                   <Link
                     to={`/services/${service.slug}`}
                     className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary-ember transition-colors font-display font-bold"

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Mail, CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -61,11 +61,32 @@ const addOnServices = [
   "None",
 ];
 
-export const ContactModal = () => {
-  const { isOpen, closeContactModal } = useContactModal();
-  const { toast } = useToast();
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
-  const [formData, setFormData] = useState({
+const STORAGE_KEY = "contact_form_draft";
+
+const getInitialFormData = () => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      return {
+        name: parsed.name || "",
+        email: parsed.email || "",
+        phone: parsed.phone || "",
+        eventCategory: parsed.eventCategory || "",
+        organisation: parsed.organisation || "",
+        organisationType: parsed.organisationType || "",
+        expectedAttendees: parsed.expectedAttendees || "",
+        additionalCustomisation: parsed.additionalCustomisation || "",
+        gameCustomisation: parsed.gameCustomisation || "",
+        addOnServices: parsed.addOnServices || [],
+        additionalDetails: parsed.additionalDetails || "",
+        privacyConsent: false,
+      };
+    }
+  } catch (e) {
+    console.error("Error loading form data from localStorage:", e);
+  }
+  return {
     name: "",
     email: "",
     phone: "",
@@ -78,7 +99,38 @@ export const ContactModal = () => {
     addOnServices: [] as string[],
     additionalDetails: "",
     privacyConsent: false,
-  });
+  };
+};
+
+const getInitialDate = () => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed.expectedDate) {
+        return new Date(parsed.expectedDate);
+      }
+    }
+  } catch (e) {
+    console.error("Error loading date from localStorage:", e);
+  }
+  return undefined;
+};
+
+export const ContactModal = () => {
+  const { isOpen, closeContactModal } = useContactModal();
+  const { toast } = useToast();
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(getInitialDate);
+  const [formData, setFormData] = useState(getInitialFormData);
+
+  // Save to localStorage whenever form data changes
+  useEffect(() => {
+    const dataToSave = {
+      ...formData,
+      expectedDate: selectedDate?.toISOString(),
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
+  }, [formData, selectedDate]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -147,13 +199,13 @@ export const ContactModal = () => {
                 <X className="w-6 h-6" />
               </button>
               <h2 className="text-2xl font-display font-bold text-metallic-gold">
-                Time to Elevate the Team!
+                Let Our Team Elevate Your Experience
               </h2>
               <p className="text-white/60 mt-1">Let's create something extraordinary together</p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="p-6 space-y-5 overflow-y-auto flex-1">
+            <form onSubmit={handleSubmit} className="p-6 space-y-5 overflow-y-auto flex-1 scrollbar-gold">
               {/* Name & Email */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ContactModalProvider } from "@/contexts/ContactModalContext";
 import { ContactModal } from "@/components/ContactModal";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import ServicePage from "./pages/ServicePage";
 import AboutPage from "./pages/AboutPage";
@@ -30,6 +31,7 @@ const App = () => (
           </Routes>
         </BrowserRouter>
         <ContactModal />
+        <ScrollToTop />
       </ContactModalProvider>
     </TooltipProvider>
   </QueryClientProvider>
