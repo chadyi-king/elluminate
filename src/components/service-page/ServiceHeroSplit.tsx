@@ -20,32 +20,39 @@ export const ServiceHeroSplit = ({
 }: ServiceHeroSplitProps) => {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background">
-      {/* Left side - Background Image */}
-      <div className="absolute lg:relative w-full lg:w-1/2 h-full">
+      {/* Full background image with dark overlay */}
+      <div className="absolute inset-0">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
-        {/* Overlay for mobile */}
-        <div className="absolute inset-0 bg-background/80 lg:bg-gradient-to-r lg:from-transparent lg:via-background/50 lg:to-background" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-background/85" />
         
-        {/* Accent color overlay */}
+        {/* Accent color tinted overlay */}
         <div 
-          className="absolute inset-0 opacity-20"
-          style={{ background: `linear-gradient(135deg, ${accentColor}40 0%, transparent 70%)` }}
+          className="absolute inset-0 opacity-10"
+          style={{ background: `linear-gradient(135deg, ${accentColor}30 0%, transparent 50%)` }}
         />
+      </div>
+
+      {/* Left side - Decorative Image Area */}
+      <div className="hidden lg:block absolute left-0 top-0 w-1/2 h-full">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+          style={{ backgroundImage: `url(${backgroundImage})` }}
+        />
+        {/* Gradient fade to right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/70 to-background" />
         
         {/* Vignette effect */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)]" />
       </div>
 
       {/* Right side - Content */}
-      <div className="relative lg:absolute lg:right-0 w-full lg:w-1/2 h-full flex items-center">
-        {/* Background for right side */}
-        <div className="absolute inset-0 bg-background" />
-        
-        {/* Gold dust particles */}
-        {[...Array(15)].map((_, i) => (
+      <div className="relative w-full lg:w-1/2 lg:ml-auto h-full flex items-center">
+        {/* Floating particles with accent color */}
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 rounded-full"
@@ -55,8 +62,8 @@ export const ServiceHeroSplit = ({
               backgroundColor: accentColor,
             }}
             animate={{
-              y: [0, -50, 0],
-              opacity: [0, 0.8, 0],
+              y: [0, -40, 0],
+              opacity: [0, 0.6, 0],
               scale: [0, 1, 0],
             }}
             transition={{
@@ -67,11 +74,11 @@ export const ServiceHeroSplit = ({
           />
         ))}
 
-        {/* Spotlight glow */}
+        {/* Spotlight glow with accent color */}
         <motion.div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full blur-[120px]"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full blur-[120px]"
           style={{ backgroundColor: `${accentColor}15` }}
-          animate={{ opacity: [0.3, 0.5, 0.3] }}
+          animate={{ opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 5, repeat: Infinity }}
         />
 
@@ -85,7 +92,7 @@ export const ServiceHeroSplit = ({
           >
             <Link
               to="/#services"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+              className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               <span className="text-sm tracking-wider">Back to Services</span>
@@ -97,9 +104,9 @@ export const ServiceHeroSplit = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Welcome text */}
+            {/* Welcome text with accent color */}
             <motion.p
-              className="text-sm tracking-[0.3em] uppercase font-display mb-4"
+              className="text-xs tracking-[0.3em] uppercase font-display mb-4 font-medium"
               style={{ color: accentColor }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -108,8 +115,8 @@ export const ServiceHeroSplit = ({
               Welcome To
             </motion.p>
             
-            {/* Main title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-6 leading-tight">
+            {/* Main title - white */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white mb-6 leading-tight">
               {title}
             </h1>
             
@@ -121,7 +128,7 @@ export const ServiceHeroSplit = ({
               "{tagline}"
             </p>
 
-            {/* Shimmer effect divider */}
+            {/* Shimmer effect divider with accent color */}
             <motion.div 
               className="w-24 h-0.5 mb-10"
               style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
@@ -136,9 +143,13 @@ export const ServiceHeroSplit = ({
               className="flex flex-wrap gap-4"
             >
               <Button 
-                variant="hero" 
                 size="xl"
-                className="group relative overflow-hidden"
+                className="group relative overflow-hidden font-display font-semibold tracking-wide"
+                style={{ 
+                  backgroundColor: accentColor, 
+                  color: '#000',
+                  borderColor: accentColor 
+                }}
               >
                 <span className="relative z-10">Plan Your {subtitle} →</span>
               </Button>

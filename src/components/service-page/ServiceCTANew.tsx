@@ -13,7 +13,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
       {/* Dark background panel */}
       <div className="absolute inset-0 bg-gradient-to-b from-background to-background-deep" />
       
-      {/* Gold spotlight behind text */}
+      {/* Accent spotlight behind text */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-[150px]"
         style={{ backgroundColor: `${accentColor}12` }}
@@ -21,7 +21,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
         transition={{ duration: 6, repeat: Infinity }}
       />
 
-      {/* Floating particles */}
+      {/* Floating particles with accent color */}
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
@@ -51,11 +51,11 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-metallic-gold mb-6 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">
             {headline}
           </h2>
           
-          <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-white/60 mb-10 max-w-2xl mx-auto">
             {subtext}
           </p>
           
@@ -65,18 +65,15 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
               whileTap={{ scale: 0.98 }}
             >
               <Button 
-                variant="hero" 
                 size="xl"
-                className="relative overflow-hidden group"
+                className="relative overflow-hidden group font-display font-semibold"
+                style={{ 
+                  backgroundColor: accentColor, 
+                  color: '#000',
+                  borderColor: accentColor 
+                }}
               >
                 <span className="relative z-10">Book This Experience</span>
-                <motion.div
-                  className="absolute inset-0"
-                  style={{ backgroundColor: accentColor }}
-                  initial={{ x: '-100%' }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
               </Button>
             </motion.div>
             
@@ -85,17 +82,20 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
               whileTap={{ scale: 0.98 }}
             >
               <Button 
-                variant="gold-outline" 
+                variant="outline"
                 size="xl"
-                className="border-2"
-                style={{ borderColor: accentColor, color: accentColor }}
+                className="border-2 font-display font-semibold bg-transparent"
+                style={{ 
+                  borderColor: accentColor, 
+                  color: accentColor 
+                }}
               >
                 Request a Custom Quote
               </Button>
             </motion.div>
           </div>
           
-          <p className="mt-8 text-sm text-muted-foreground italic">
+          <p className="mt-8 text-sm text-white/40 italic">
             "Let's create a memorable experience together."
           </p>
         </motion.div>

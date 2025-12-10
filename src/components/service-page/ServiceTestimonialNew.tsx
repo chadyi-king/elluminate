@@ -15,7 +15,7 @@ interface ServiceTestimonialNewProps {
 export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTestimonialNewProps) => {
   return (
     <section className="py-24 bg-background relative overflow-hidden">
-      {/* Background glow */}
+      {/* Background glow with accent color */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[100px]"
         style={{ backgroundColor: `${accentColor}08` }}
@@ -31,12 +31,15 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-metallic-gold mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             What Our Clients Say
           </h2>
           
-          {/* Google rating badge */}
-          <div className="inline-flex items-center gap-2 bg-card border border-border-gold/20 rounded-full px-6 py-2 mt-4">
+          {/* Google rating badge with accent color */}
+          <div 
+            className="inline-flex items-center gap-2 rounded-full px-6 py-2 mt-4 border"
+            style={{ borderColor: `${accentColor}40`, backgroundColor: `${accentColor}10` }}
+          >
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
                 <Star 
@@ -46,7 +49,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
                 />
               ))}
             </div>
-            <span className="text-sm text-muted-foreground">
+            <span className="text-sm text-white/70">
               4.8 / 600+ Verified Reviews
             </span>
           </div>
@@ -60,7 +63,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative bg-card border rounded-xl p-6 group hover:border-opacity-40 transition-all duration-300"
+              className="relative bg-card border rounded-xl p-6 group hover:border-opacity-60 transition-all duration-300"
               style={{ borderColor: `${accentColor}30` }}
             >
               {/* Quote icon */}
@@ -69,7 +72,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
                 style={{ color: accentColor }}
               />
               
-              {/* Stars */}
+              {/* Stars with accent color */}
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star 
@@ -80,7 +83,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
                 ))}
               </div>
               
-              <p className="text-foreground/90 mb-6 italic leading-relaxed text-sm">
+              <p className="text-white/80 mb-6 italic leading-relaxed text-sm">
                 "{testimonial.quote}"
               </p>
               
@@ -88,10 +91,10 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
                 className="border-t pt-4"
                 style={{ borderColor: `${accentColor}20` }}
               >
-                <p className="font-display font-bold text-foreground text-sm">
+                <p className="font-display font-bold text-white text-sm">
                   {testimonial.author}
                 </p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-white/50">
                   {testimonial.company}
                 </p>
               </div>
