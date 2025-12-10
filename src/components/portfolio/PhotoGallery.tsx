@@ -1,0 +1,171 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+
+const galleryImages = [
+  { id: 1, src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800", title: "Gala Night", category: "Dinner & Dance" },
+  { id: 2, src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800", title: "Team Challenge", category: "Team Building" },
+  { id: 3, src: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800", title: "Product Reveal", category: "Product Launches" },
+  { id: 4, src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800", title: "Awards Night", category: "Awards Ceremonies" },
+  { id: 5, src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800", title: "Festival Vibes", category: "Immersive Experiences" },
+  { id: 6, src: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800", title: "Concert Setup", category: "AV, Stage & Production" },
+  { id: 7, src: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800", title: "Conference", category: "Team Building" },
+  { id: 8, src: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800", title: "VIP Launch", category: "Product Launches" },
+  { id: 9, src: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800", title: "Team Bonding", category: "Overseas Retreats" },
+  { id: 10, src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800", title: "Workshop", category: "Team Building" },
+  { id: 11, src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800", title: "Celebration", category: "Awards Ceremonies" },
+  { id: 12, src: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=800", title: "Networking", category: "Brand Activations" },
+];
+
+interface PhotoGalleryProps {
+  filter: string | null;
+}
+
+export const PhotoGallery = ({ filter }: PhotoGalleryProps) => {
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+  const filteredImages = filter
+    ? galleryImages.filter((img) => img.category === filter)
+    : galleryImages;
+
+  const handlePrev = () => {
+    if (selectedImage !== null) {
+      const currentIndex = filteredImages.findIndex((img) => img.id === selectedImage);
+      const prevIndex = currentIndex === 0 ? filteredImages.length - 1 : currentIndex - 1;
+      setSelectedImage(filteredImages[prevIndex].id);
+    }
+  };
+
+  const handleNext = () => {
+    if (selectedImage !== null) {
+      const currentIndex = filteredImages.findIndex((img) => img.id === selectedImage);
+      const nextIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1;
+      setSelectedImage(filteredImages[nextIndex].id);
+    }
+  };
+
+  const selectedImageData = selectedImage
+    ? filteredImages.find((img) => img.id === selectedImage)
+    : null;
+
+  return (
+    <section className="py-20 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-black">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-[0.05]"
+          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920)` }}
+        />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-metallic-gold mb-4">
+            Photo Gallery
+          </h2>
+          <motion.div 
+            className="w-24 h-0.5 mx-auto"
+            style={{ background: "linear-gradient(90deg, transparent, hsl(43 65% 52%), transparent)" }}
+          />
+        </motion.div>
+
+        {/* Mosaic Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {filteredImages.map((image, index) => (
+            <motion.div
+              key={image.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              onClick={() => setSelectedImage(image.id)}
+              className={`relative cursor-pointer group overflow-hidden rounded-lg ${
+                index === 0 || index === 5 ? "row-span-2" : ""
+              } ${index === 2 ? "col-span-2" : ""}`}
+              style={{ aspectRatio: index === 0 || index === 5 ? "3/4" : index === 2 ? "2/1" : "1/1" }}
+            >
+              <img
+                src={image.src}
+                alt={image.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-center">
+                  <h3 className="text-white font-display font-bold text-lg">{image.title}</h3>
+                  <span className="text-primary text-sm">{image.category}</span>
+                </div>
+              </div>
+
+              {/* Gold glow on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{ boxShadow: "inset 0 0 30px hsl(43 65% 52% / 0.3)" }}
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Modal Viewer */}
+      <AnimatePresence>
+        {selectedImage !== null && selectedImageData && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 p-2 text-white hover:text-primary transition-colors"
+            >
+              <X className="w-8 h-8" />
+            </button>
+
+            {/* Navigation */}
+            <button
+              onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+              className="absolute left-4 p-2 text-white hover:text-primary transition-colors"
+            >
+              <ChevronLeft className="w-10 h-10" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); handleNext(); }}
+              className="absolute right-4 p-2 text-white hover:text-primary transition-colors"
+            >
+              <ChevronRight className="w-10 h-10" />
+            </button>
+
+            {/* Image */}
+            <motion.div
+              key={selectedImage}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="max-w-5xl max-h-[80vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImageData.src}
+                alt={selectedImageData.title}
+                className="max-w-full max-h-[70vh] object-contain rounded-lg"
+              />
+              <div className="text-center mt-4">
+                <h3 className="text-white font-display font-bold text-xl">{selectedImageData.title}</h3>
+                <span className="text-primary">{selectedImageData.category}</span>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+};
