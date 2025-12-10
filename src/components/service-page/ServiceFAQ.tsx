@@ -19,7 +19,7 @@ interface ServiceFAQProps {
 export const ServiceFAQ = ({ faqs, accentColor }: ServiceFAQProps) => {
   return (
     <section className="py-24 bg-background-deep relative overflow-hidden">
-      {/* Background pattern */}
+      {/* Background pattern with accent color */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, ${accentColor} 1px, transparent 0)`,
@@ -35,9 +35,13 @@ export const ServiceFAQ = ({ faqs, accentColor }: ServiceFAQProps) => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-metallic-gold">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white">
             Frequently Asked Questions
           </h2>
+          <motion.div 
+            className="w-24 h-0.5 mx-auto mt-4"
+            style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
+          />
         </motion.div>
 
         <motion.div
@@ -56,8 +60,7 @@ export const ServiceFAQ = ({ faqs, accentColor }: ServiceFAQProps) => {
                 style={{ borderColor: `${accentColor}20` }}
               >
                 <AccordionTrigger 
-                  className="text-left font-display font-semibold hover:no-underline py-5"
-                  style={{ color: 'inherit' }}
+                  className="text-left font-display font-semibold hover:no-underline py-5 text-white"
                 >
                   <span className="flex items-center gap-3">
                     <span 
@@ -67,7 +70,7 @@ export const ServiceFAQ = ({ faqs, accentColor }: ServiceFAQProps) => {
                     {faq.question}
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5 pl-5">
+                <AccordionContent className="text-white/60 pb-5 pl-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

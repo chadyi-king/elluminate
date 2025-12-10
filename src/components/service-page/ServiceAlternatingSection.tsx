@@ -1,14 +1,10 @@
 import { motion } from "framer-motion";
-import { LucideIcon } from "lucide-react";
 
 interface AlternatingSection {
   title: string;
   description: string;
   image: string;
-  points?: {
-    icon?: LucideIcon;
-    text: string;
-  }[];
+  points?: { text: string }[];
 }
 
 interface ServiceAlternatingSectionProps {
@@ -31,7 +27,7 @@ export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlte
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className={`flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 py-16 ${
-                index < sections.length - 1 ? 'border-b border-border-gold/10' : ''
+                index < sections.length - 1 ? 'border-b border-white/10' : ''
               }`}
             >
               {/* Image */}
@@ -39,7 +35,7 @@ export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlte
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
-                  className="relative rounded-2xl overflow-hidden aspect-[16/10]"
+                  className="relative rounded-2xl overflow-hidden aspect-[16/10] shadow-2xl"
                 >
                   <img 
                     src={section.image} 
@@ -54,7 +50,7 @@ export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlte
                   {/* Vignette */}
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.5)_100%)]" />
                   
-                  {/* Gold bokeh effect */}
+                  {/* Accent bokeh effect */}
                   <motion.div
                     className="absolute top-4 right-4 w-20 h-20 rounded-full blur-xl"
                     style={{ backgroundColor: `${accentColor}30` }}
@@ -71,7 +67,8 @@ export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlte
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-2xl md:text-3xl font-display font-bold text-metallic-gold mb-6"
+                  className="text-2xl md:text-3xl font-display font-bold mb-6"
+                  style={{ color: accentColor }}
                 >
                   {section.title}
                 </motion.h3>
@@ -81,7 +78,7 @@ export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlte
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="text-muted-foreground leading-relaxed mb-6"
+                  className="text-white/70 leading-relaxed mb-6"
                 >
                   {section.description}
                 </motion.p>
@@ -101,7 +98,7 @@ export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlte
                           className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                           style={{ backgroundColor: accentColor }}
                         />
-                        <span className="text-foreground/80">{point.text}</span>
+                        <span className="text-white/80">{point.text}</span>
                       </motion.li>
                     ))}
                   </ul>

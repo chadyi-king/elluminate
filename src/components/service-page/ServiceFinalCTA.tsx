@@ -8,7 +8,7 @@ interface ServiceFinalCTAProps {
 export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
   return (
     <section className="py-20 bg-background relative overflow-hidden">
-      {/* Gold gradient spotlight */}
+      {/* Accent gradient spotlight */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] rounded-full blur-[150px]"
         style={{ backgroundColor: `${accentColor}08` }}
@@ -24,7 +24,7 @@ export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-metallic-gold mb-8">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-8">
             Ready to Create Something Extraordinary?
           </h2>
           
@@ -33,9 +33,13 @@ export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
             whileTap={{ scale: 0.98 }}
           >
             <Button 
-              variant="hero" 
               size="xl"
-              className="text-lg"
+              className="text-lg font-display font-semibold"
+              style={{ 
+                backgroundColor: accentColor, 
+                color: '#000',
+                borderColor: accentColor 
+              }}
             >
               Start Planning With Us
             </Button>

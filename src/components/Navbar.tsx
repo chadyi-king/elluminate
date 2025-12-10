@@ -28,14 +28,14 @@ const immersiveServices = [
   { name: "Event Concept Development", slug: "event-concept" },
   { name: "Stage & AV Production", slug: "stage-production" },
   { name: "Custom Theme Creation", slug: "custom-themes" },
-  { name: "Emcee / Photo / Video", slug: "emcee-services" },
+  { name: "Emcee / Photo / Video", slug: "emcee-media" },
 ];
 
 const experienceServices = [
+  { name: "Overseas Retreats", slug: "overseas-retreats" },
   { name: "Family Fun Days", slug: "family-fun-days" },
   { name: "Corporate Carnivals", slug: "corporate-carnivals" },
   { name: "VIP Gala Experiences", slug: "vip-gala" },
-  { name: "Overseas Retreats", slug: "company-retreats" },
   { name: "Grand Opening", slug: "grand-opening" },
   { name: "Summits", slug: "summits" },
   { name: "Government Events", slug: "government-events" },
@@ -56,7 +56,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
       <button
         onClick={onToggle}
         onMouseEnter={onToggle}
-        className="flex items-center gap-1 text-primary hover:text-white transition-colors duration-300 text-[10px] tracking-[0.1em] uppercase font-display font-semibold py-2"
+        className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium py-2"
       >
         {label}
         <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -78,7 +78,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
                   key={item.slug}
                   to={`/services/${item.slug}`}
                   onClick={onClose}
-                  className="block px-4 py-2 text-[10px] tracking-[0.05em] text-primary hover:text-white hover:bg-primary/10 transition-colors font-display"
+                  className="block px-4 py-2 text-[10px] tracking-[0.05em] text-white/70 hover:text-white hover:bg-primary/10 transition-colors font-display"
                 >
                   {item.name}
                 </Link>
@@ -111,8 +111,8 @@ export const Navbar = () => {
   };
 
   const navLinkClass = (path: string) => 
-    `transition-colors duration-300 text-[10px] tracking-[0.1em] uppercase font-display font-semibold ${
-      isActive(path) ? 'text-white' : 'text-primary hover:text-white'
+    `transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium ${
+      isActive(path) ? 'text-white' : 'text-white/90 hover:text-white'
     }`;
 
   return (
@@ -156,11 +156,11 @@ export const Navbar = () => {
             </div>
 
             {/* Center Logo */}
-            <Link to="/" className="flex flex-col items-center flex-shrink-0 mx-8">
-              <span className="text-metallic-gold font-display text-lg tracking-[0.15em] font-black">
+            <Link to="/" className="flex flex-col items-center flex-shrink-0 mx-12">
+              <span className="text-white font-display text-base tracking-[0.2em] font-bold">
                 TEAM ELEVATE
               </span>
-              <span className="text-primary/70 text-[7px] tracking-[0.2em] uppercase font-display font-medium -mt-0.5">
+              <span className="text-white/50 text-[7px] tracking-[0.25em] uppercase font-display font-normal -mt-0.5">
                 Masterpiece Experiences
               </span>
             </Link>
@@ -182,11 +182,11 @@ export const Navbar = () => {
               </a>
               <button
                 onClick={() => setShowComingSoon(true)}
-                className="text-primary hover:text-white transition-colors duration-300 text-[10px] tracking-[0.1em] uppercase font-display font-semibold"
+                className="text-white/90 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium"
               >
                 Enhance
               </button>
-              <Button variant="gold" size="sm" className="font-display font-semibold text-[10px] tracking-[0.1em] uppercase hover:bg-background hover:text-primary hover:border-primary border border-transparent">
+              <Button variant="gold" size="sm" className="font-display font-semibold text-[9px] tracking-[0.15em] uppercase">
                 GET STARTED
               </Button>
             </div>

@@ -8,7 +8,7 @@ interface ServiceOverviewNewProps {
 export const ServiceOverviewNew = ({ description, accentColor }: ServiceOverviewNewProps) => {
   return (
     <section className="py-24 bg-background relative overflow-hidden">
-      {/* Background pattern */}
+      {/* Background pattern with accent color */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, ${accentColor} 1px, transparent 0)`,
@@ -32,11 +32,14 @@ export const ServiceOverviewNew = ({ description, accentColor }: ServiceOverview
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-metallic-gold mb-6">
-            About This Experience
+          <h2 
+            className="text-3xl md:text-4xl font-display font-bold mb-6"
+            style={{ color: accentColor }}
+          >
+            What's Inside
           </h2>
           
-          {/* Decorative gold underline */}
+          {/* Decorative underline with accent color */}
           <motion.div 
             className="w-32 h-0.5 mx-auto mb-10"
             style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
@@ -46,7 +49,7 @@ export const ServiceOverviewNew = ({ description, accentColor }: ServiceOverview
             transition={{ duration: 1, delay: 0.3 }}
           />
           
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+          <p className="text-lg md:text-xl text-white/80 leading-relaxed">
             {description}
           </p>
         </motion.div>

@@ -8,7 +8,7 @@ interface ServiceGalleryNewProps {
 export const ServiceGalleryNew = ({ images, accentColor }: ServiceGalleryNewProps) => {
   return (
     <section className="py-24 bg-background-deep relative overflow-hidden">
-      {/* Background glow */}
+      {/* Background glow with accent color */}
       <motion.div
         className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full blur-[120px]"
         style={{ backgroundColor: `${accentColor}08` }}
@@ -24,10 +24,14 @@ export const ServiceGalleryNew = ({ images, accentColor }: ServiceGalleryNewProp
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-metallic-gold mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Experience Gallery
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <motion.div 
+            className="w-24 h-0.5 mx-auto"
+            style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
+          />
+          <p className="text-white/50 max-w-2xl mx-auto mt-4">
             A glimpse into the extraordinary experiences we create
           </p>
         </motion.div>
