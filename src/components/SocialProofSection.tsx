@@ -104,16 +104,24 @@ export const SocialProofSection = () => {
                 {logoGroups[currentGroup].map((logo) => (
                   <div
                     key={logo.id}
-                    className="group aspect-[3/2] bg-gradient-to-br from-white/5 to-white/2 border border-primary/20 rounded-lg flex items-center justify-center hover:border-primary/50 hover:shadow-gold-soft transition-all duration-300 p-3"
+                    className="group aspect-[3/2] bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/30 rounded-lg flex items-center justify-center hover:border-primary/60 hover:shadow-gold transition-all duration-300 p-3 relative overflow-hidden"
                   >
+                    {/* Gold shine overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 opacity-60" />
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+                    />
                     <img 
                       src={logo.logo} 
                       alt={logo.name}
-                      className="max-w-full max-h-full object-contain filter brightness-0 invert opacity-60 group-hover:opacity-90 transition-opacity duration-300"
+                      className="max-w-full max-h-full object-contain relative z-10"
+                      style={{
+                        filter: 'sepia(100%) saturate(300%) brightness(0.9) hue-rotate(10deg)',
+                      }}
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
-                        target.parentElement!.innerHTML = `<span class="text-primary/60 text-xs font-display font-bold">${logo.name}</span>`;
+                        target.parentElement!.innerHTML = `<span class="text-primary text-xs font-display font-bold relative z-10">${logo.name}</span>`;
                       }}
                     />
                   </div>
