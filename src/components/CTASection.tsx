@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 export const CTASection = () => {
+  const { openContactModal } = useContactModal();
   return (
     <section id="contact" className="py-32 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 25%, 10%) 0%, hsl(43, 30%, 15%) 50%, hsl(43, 20%, 8%) 100%)' }}>
       {/* Spotlight effect */}
@@ -67,7 +69,7 @@ export const CTASection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
           >
-            <Button variant="hero" size="xl" className="group font-display font-bold">
+            <Button variant="hero" size="xl" className="group font-display font-bold" onClick={openContactModal}>
               <span>Start Planning Now</span>
               <motion.span
                 className="inline-block ml-2"
@@ -77,7 +79,7 @@ export const CTASection = () => {
                 →
               </motion.span>
             </Button>
-            <Button variant="gold-outline" size="lg" className="font-display font-bold">
+            <Button variant="gold-outline" size="lg" className="font-display font-bold" onClick={openContactModal}>
               Book a Consultation
             </Button>
           </motion.div>

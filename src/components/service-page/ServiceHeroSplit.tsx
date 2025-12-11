@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 interface ServiceHeroSplitProps {
   title: string;
@@ -16,6 +17,8 @@ export const ServiceHeroSplit = ({
   backgroundImage,
   accentColor 
 }: ServiceHeroSplitProps) => {
+  const { openContactModal } = useContactModal();
+  
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background">
       {/* Full background image with dark overlay */}
@@ -133,6 +136,7 @@ export const ServiceHeroSplit = ({
                   color: '#000',
                   borderColor: accentColor 
                 }}
+                onClick={openContactModal}
               >
                 <span className="relative z-10">Plan Your {subtitle} →</span>
               </Button>

@@ -1,5 +1,30 @@
 import { LucideIcon, Mic, Palette, Monitor, Gamepad2, Trophy, Music, Camera, Sparkles, Users, Heart, Star, Zap, PartyPopper, Wine, Lightbulb, Target, Clock, Gift, Crown, MapPin, Gem, Rocket, Building, Award, CalendarDays, Plane, Flag, Lock, Home, Theater, Dumbbell, Video, PenTool, Volume2, Megaphone, Handshake, GraduationCap, Globe, Briefcase } from "lucide-react";
 
+// Service hero images
+import teamBuildingHero from "@/assets/services/team-building-hero.jpg";
+import dinnerDanceHero from "@/assets/services/dinner-dance-hero.jpg";
+import awardsCeremonyHero from "@/assets/services/awards-ceremony-hero.jpg";
+import overseasRetreatHero from "@/assets/services/overseas-retreat-hero.jpg";
+import productLaunchHero from "@/assets/services/product-launch-hero.jpg";
+import townHallHero from "@/assets/services/town-hall-hero.jpg";
+import immersiveExperienceHero from "@/assets/services/immersive-experience-hero.jpg";
+import brandActivationHero from "@/assets/services/brand-activation-hero.jpg";
+import wellnessEventHero from "@/assets/services/wellness-event-hero.jpg";
+import clientAppreciationHero from "@/assets/services/client-appreciation-hero.jpg";
+import familyFunDayHero from "@/assets/services/family-fun-day-hero.jpg";
+import leadershipOffsiteHero from "@/assets/services/leadership-offsite-hero.jpg";
+import corporateAnniversaryHero from "@/assets/services/corporate-anniversary-hero.jpg";
+import stageProductionHero from "@/assets/services/stage-production-hero.jpg";
+import customThemesHero from "@/assets/services/custom-themes-hero.jpg";
+import emceeMediaHero from "@/assets/services/emcee-media-hero.jpg";
+import eventConceptHero from "@/assets/services/event-concept-hero.jpg";
+import grandOpeningHero from "@/assets/services/grand-opening-hero.jpg";
+import summitsHero from "@/assets/services/summits-hero.jpg";
+import vipGalaHero from "@/assets/services/vip-gala-hero.jpg";
+import corporateCarnivalHero from "@/assets/services/corporate-carnival-hero.jpg";
+import governmentEventHero from "@/assets/services/government-event-hero.jpg";
+import privateEventHero from "@/assets/services/private-event-hero.jpg";
+
 export interface AlternatingSection {
   title: string;
   description: string;
@@ -82,11 +107,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Corporate Team Building",
       subtitle: "Team Building",
       tagline: "Where collaboration becomes an adventure and teams discover their true potential.",
-      backgroundImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920"
+      backgroundImage: teamBuildingHero
     },
     overview: {
       description: "Transform your team dynamics with our expertly crafted team building experiences. We design engaging activities that foster collaboration, communication, and trust among team members, creating lasting connections that enhance workplace productivity and morale. From outdoor adventures to creative challenges, every activity is designed to bring out the best in your people.",
-      backgroundImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920"
+      backgroundImage: teamBuildingHero
     },
     features: [
       { icon: Users, title: "Custom Team Activities", description: "Tailored experiences designed specifically for your team's dynamics and goals." },
@@ -177,11 +202,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Overseas Retreats",
       subtitle: "Retreat",
       tagline: "Escape the ordinary. Discover extraordinary destinations that inspire and unite.",
-      backgroundImage: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920"
+      backgroundImage: overseasRetreatHero
     },
     overview: {
       description: "Take your team beyond borders for transformative retreat experiences in stunning international destinations. We handle every detail from flights to activities, ensuring your team enjoys a seamless, unforgettable journey that combines work, play, and cultural exploration.",
-      backgroundImage: "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=1920"
+      backgroundImage: overseasRetreatHero
     },
     features: [
       { icon: Plane, title: "Full Travel Management", description: "Flights, transfers, and logistics handled end-to-end." },
@@ -273,11 +298,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Dinner & Dance",
       subtitle: "D&D",
       tagline: "Tonight, the spotlight belongs to you. Dress sharp, shine bright — the stage is yours.",
-      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+      backgroundImage: dinnerDanceHero
     },
     overview: {
       description: "A premium, fully hosted Dinner & Dance experience crafted to celebrate your people with elegance, laughter, and unforgettable moments. Whether you're hosting a formal awards gala, a high-energy dance party, or a themed extravaganza, Team Elevate brings cinematic production value, professional hosting, and crowd-driven engagement to make your night legendary.",
-      backgroundImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920"
+      backgroundImage: dinnerDanceHero
     },
     features: [
       { icon: Mic, title: "Professional Emcee & Show Host", description: "Charismatic hosts who command the room and keep the energy high throughout the night." },
@@ -402,11 +427,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Awards Ceremonies",
       subtitle: "Awards",
       tagline: "Where achievements shine and excellence takes center stage.",
-      backgroundImage: "https://images.unsplash.com/photo-1607892378846-1e3d9fde6ed5?w=1920"
+      backgroundImage: awardsCeremonyHero
     },
     overview: {
       description: "Honor your achievers with prestigious award ceremonies that leave lasting impressions. We design and execute ceremonies that spotlight excellence, inspire teams, and create moments of genuine recognition and pride. From intimate appreciation events to grand galas, we make every award moment unforgettable.",
-      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+      backgroundImage: awardsCeremonyHero
     },
     features: [
       { icon: Trophy, title: "Award Category Development", description: "Strategic categories that recognize diverse achievements." },
@@ -498,11 +523,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Corporate Anniversaries",
       subtitle: "Anniversary",
       tagline: "Honoring your journey, celebrating your legacy, inspiring your future.",
-      backgroundImage: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920"
+      backgroundImage: corporateAnniversaryHero
     },
     overview: {
       description: "Mark your company's journey with anniversary celebrations that honor your history while looking toward the future. We create meaningful events that bring together employees, clients, and stakeholders in celebration of your success. Every milestone deserves a celebration that reflects your company's unique story.",
-      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+      backgroundImage: corporateAnniversaryHero
     },
     features: [
       { icon: CalendarDays, title: "Historical Storytelling", description: "Showcase your company's journey through compelling narratives." },
@@ -594,11 +619,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Leadership Offsites",
       subtitle: "Offsite",
       tagline: "Where vision meets strategy in inspiring settings.",
-      backgroundImage: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1920"
+      backgroundImage: leadershipOffsiteHero
     },
     overview: {
       description: "Empower your leadership team with focused offsite experiences designed for strategic thinking and team alignment. Our executive retreats combine productive sessions with premium hospitality for maximum impact. Step away from the office to gain fresh perspectives and align on your organization's future.",
-      backgroundImage: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920"
+      backgroundImage: leadershipOffsiteHero
     },
     features: [
       { icon: MapPin, title: "Exclusive Venue Selection", description: "Premium locations that inspire strategic thinking." },
