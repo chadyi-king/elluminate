@@ -134,6 +134,7 @@ export default {
         "gradient-blue-radial": "radial-gradient(ellipse at center, hsl(214, 100%, 56%, 0.2) 0%, transparent 70%)",
         "gradient-light": "linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(220, 20%, 97%) 100%)",
         "shimmer-blue": "linear-gradient(90deg, transparent 0%, hsl(214, 100%, 56%, 0.1) 25%, hsl(214, 100%, 56%, 0.2) 50%, hsl(214, 100%, 56%, 0.1) 75%, transparent 100%)",
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
       boxShadow: {
         "blue": "0 4px 30px hsl(214, 100%, 56%, 0.15)",

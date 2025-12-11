@@ -17,11 +17,13 @@ import {
   Users,
   Sparkles,
   Brain,
-  Compass,
   Plane,
   MapPin,
   Map,
 } from "lucide-react";
+import { TiltCard } from "./TiltCard";
+import { WaveDivider } from "./WaveDivider";
+import { FloatingBlobs } from "./FloatingBlobs";
 
 // Activity accent colors matching brand guidelines
 const activityColors = {
@@ -68,24 +70,29 @@ interface ServiceCategory {
   title: string;
   subtitle: string;
   services: typeof physicalActivities;
-  bgColor: string;
+  accentColor: string;
 }
 
 const categories: ServiceCategory[] = [
-  { title: "Physical Team Building", subtitle: "Hands-on activities that energize your team", services: physicalActivities, bgColor: "from-primary/5 to-sky-100/50" },
-  { title: "Virtual Team Building", subtitle: "Connect remote teams anywhere in the world", services: virtualActivities, bgColor: "from-green-50/50 to-emerald-100/30" },
-  { title: "Training Programs", subtitle: "Develop skills and unlock potential", services: trainingPrograms, bgColor: "from-purple-50/50 to-violet-100/30" },
-  { title: "Retreats", subtitle: "Getaways that strengthen team bonds", services: retreatServices, bgColor: "from-orange-50/50 to-amber-100/30" },
+  { title: "Physical Team Building", subtitle: "Hands-on activities that energize your team", services: physicalActivities, accentColor: "#2A8DFF" },
+  { title: "Virtual Team Building", subtitle: "Connect remote teams anywhere in the world", services: virtualActivities, accentColor: "#26D07C" },
+  { title: "Training Programs", subtitle: "Develop skills and unlock potential", services: trainingPrograms, accentColor: "#A768FF" },
+  { title: "Retreats", subtitle: "Getaways that strengthen team bonds", services: retreatServices, accentColor: "#FF8A3D" },
 ];
 
 export const ServicesSection = () => {
   const [hoveredService, setHoveredService] = useState<string | null>(null);
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden bg-gradient-to-b from-background via-secondary/30 to-background">
-      {/* Background decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-sky-200/30 rounded-full blur-3xl" />
+    <section id="services" className="py-24 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-animated-gradient" />
+      
+      {/* Floating blobs */}
+      <FloatingBlobs opacity={0.08} />
+
+      {/* Wave divider at top */}
+      <WaveDivider variant="top" className="z-10" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -94,13 +101,19 @@ export const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <span className="text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
+          <motion.span 
+            className="text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block"
+            initial={{ opacity: 0, letterSpacing: "0.1em" }}
+            whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
             What We Do
-          </span>
+          </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-6">
-            Our Activities
+            <span className="text-rainbow-gradient">Our Activities</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             From high-energy outdoor adventures to virtual team experiences, we have activities for every team.
@@ -108,71 +121,116 @@ export const ServicesSection = () => {
         </motion.div>
 
         {/* Categories */}
-        <div className="space-y-16">
+        <div className="space-y-24">
           {categories.map((category, catIndex) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: catIndex * 0.1 }}
             >
               {/* Category Header */}
-              <div className="mb-8">
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-2">
-                  {category.title}
-                </h3>
-                <p className="text-muted-foreground">{category.subtitle}</p>
+              <div className="mb-10 flex items-center gap-4">
+                <motion.div
+                  className="w-2 h-12 rounded-full"
+                  style={{ backgroundColor: category.accentColor }}
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                />
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+                    {category.title}
+                  </h3>
+                  <p className="text-muted-foreground">{category.subtitle}</p>
+                </div>
               </div>
 
               {/* Activity Cards Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {category.services.map((service, index) => (
                   <motion.div
                     key={service.slug}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    transition={{ duration: 0.5, delay: index * 0.08 }}
                     onMouseEnter={() => setHoveredService(service.slug)}
                     onMouseLeave={() => setHoveredService(null)}
                     className="group cursor-pointer"
                   >
                     <Link to={`/services/${service.slug}`}>
-                      <div 
-                        className="relative h-48 rounded-2xl overflow-hidden border-2 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-                        style={{ 
-                          borderColor: hoveredService === service.slug ? service.color : 'transparent',
-                          backgroundColor: service.color,
-                        }}
+                      <TiltCard 
+                        glareColor={service.color + "40"}
+                        tiltAmount={12}
                       >
-                        {/* Full color overlay */}
                         <div 
-                          className="absolute inset-0 transition-opacity duration-300"
-                          style={{ backgroundColor: service.color }}
-                        />
-                        
-                        {/* Content */}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-                          {/* Icon */}
-                          <div className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                            <service.icon className="w-7 h-7 text-white" />
+                          className="relative h-52 rounded-2xl overflow-hidden transition-all duration-500 border-2"
+                          style={{ 
+                            borderColor: hoveredService === service.slug ? service.color : 'transparent',
+                            backgroundColor: service.color,
+                            boxShadow: hoveredService === service.slug 
+                              ? `0 20px 40px ${service.color}40, 0 0 0 2px ${service.color}`
+                              : '0 4px 20px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          {/* Animated gradient overlay */}
+                          <motion.div 
+                            className="absolute inset-0"
+                            style={{ 
+                              background: `linear-gradient(135deg, ${service.color} 0%, ${service.color}dd 100%)` 
+                            }}
+                            animate={{
+                              background: hoveredService === service.slug
+                                ? [`linear-gradient(135deg, ${service.color} 0%, ${service.color}dd 100%)`,
+                                   `linear-gradient(225deg, ${service.color} 0%, ${service.color}dd 100%)`]
+                                : `linear-gradient(135deg, ${service.color} 0%, ${service.color}dd 100%)`
+                            }}
+                            transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+                          />
+                          
+                          {/* Content */}
+                          <div className="absolute inset-0 flex flex-col items-center justify-center p-5 text-center">
+                            {/* Icon with bounce animation */}
+                            <motion.div 
+                              className="w-16 h-16 rounded-2xl bg-white/25 backdrop-blur-sm flex items-center justify-center mb-4 shadow-lg"
+                              whileHover={{ scale: 1.15, rotate: 5 }}
+                              transition={{ type: "spring", stiffness: 400 }}
+                            >
+                              <service.icon className="w-8 h-8 text-white drop-shadow-md" />
+                            </motion.div>
+                            
+                            {/* Name */}
+                            <h4 className="text-white font-display font-bold text-lg leading-tight mb-2 drop-shadow-md">
+                              {service.name}
+                            </h4>
+                            
+                            {/* Description - shows on hover */}
+                            <motion.p 
+                              className="text-white/90 text-sm line-clamp-2"
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ 
+                                opacity: hoveredService === service.slug ? 1 : 0,
+                                y: hoveredService === service.slug ? 0 : 10
+                              }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              {service.description}
+                            </motion.p>
                           </div>
-                          
-                          {/* Name */}
-                          <h4 className="text-white font-display font-bold text-lg leading-tight mb-2">
-                            {service.name}
-                          </h4>
-                          
-                          {/* Description - shows on hover */}
-                          <p className="text-white/80 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
-                            {service.description}
-                          </p>
-                        </div>
 
-                        {/* Hover brightness effect */}
-                        <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
+                          {/* Shine effect on hover */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full"
+                            animate={{
+                              translateX: hoveredService === service.slug ? "200%" : "-100%"
+                            }}
+                            transition={{ duration: 0.6 }}
+                          />
+                        </div>
+                      </TiltCard>
                     </Link>
                   </motion.div>
                 ))}
@@ -181,6 +239,9 @@ export const ServicesSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Wave divider at bottom */}
+      <WaveDivider variant="bottom" className="z-10" />
     </section>
   );
 };
