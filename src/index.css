@@ -121,6 +121,54 @@
     background-clip: text;
   }
 
+  /* Rainbow gradient text animation */
+  .text-rainbow-gradient {
+    background: linear-gradient(
+      90deg,
+      #FFC400 0%,
+      #26D07C 20%,
+      #2A8DFF 40%,
+      #A768FF 60%,
+      #FF4F4F 80%,
+      #FFC400 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbow-shift 4s linear infinite;
+  }
+
+  @keyframes rainbow-shift {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* Animated gradient background */
+  .bg-animated-gradient {
+    background: linear-gradient(
+      -45deg,
+      hsl(214, 100%, 96%) 0%,
+      hsl(208, 100%, 94%) 25%,
+      hsl(45, 100%, 95%) 50%,
+      hsl(140, 60%, 94%) 75%,
+      hsl(214, 100%, 96%) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradient-flow 15s ease infinite;
+  }
+
+  @keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Radial gradient for cursor */
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
   /* Blue Glow Effect */
   .glow-blue {
     box-shadow: var(--shadow-blue);
@@ -128,6 +176,20 @@
 
   .glow-blue-intense {
     box-shadow: var(--shadow-blue-intense);
+  }
+
+  /* Animated border gradient */
+  .border-gradient-animated {
+    position: relative;
+    background: linear-gradient(var(--background), var(--background)) padding-box,
+                linear-gradient(90deg, #FFC400, #26D07C, #2A8DFF, #A768FF, #FF4F4F, #FFC400) border-box;
+    background-size: 100% 100%, 300% 100%;
+    animation: border-gradient-rotate 4s linear infinite;
+  }
+
+  @keyframes border-gradient-rotate {
+    0% { background-position: 100% 100%, 0% center; }
+    100% { background-position: 100% 100%, 300% center; }
   }
 
   /* Border Gradient */
@@ -174,21 +236,23 @@
     50%, 100% { left: 100%; }
   }
 
-  /* Lightbulb glow cursor effect */
-  .cursor-glow {
-    position: relative;
+  /* Magnetic button hover */
+  .magnetic-button {
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .cursor-glow::before {
-    content: '';
-    position: fixed;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: radial-gradient(circle, hsl(214, 100%, 56%, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 0;
+  /* Pulse glow animation */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(214, 100%, 56%, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(214, 100%, 56%, 0.6), 0 0 60px hsl(45, 100%, 60%, 0.3);
+    }
   }
 
   /* Scroll fade-up animation */
@@ -207,6 +271,19 @@
     animation: fade-up 0.6s ease-out forwards;
   }
 
+  /* Staggered fade animation */
+  .stagger-fade-up > * {
+    opacity: 0;
+    animation: fade-up 0.6s ease-out forwards;
+  }
+
+  .stagger-fade-up > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-fade-up > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-fade-up > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-fade-up > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-fade-up > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-fade-up > *:nth-child(6) { animation-delay: 0.6s; }
+
   /* Float animation */
   @keyframes float-particle {
     0%, 100% {
@@ -223,6 +300,22 @@
       transform: translateY(-100vh) translateX(20px) scale(0.5);
       opacity: 0;
     }
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(2deg); }
+    75% { transform: translateY(5px) rotate(-2deg); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 2s;
   }
 
   /* Glow pulse animation */
@@ -253,6 +346,16 @@
     animation: rise 0.8s ease-out forwards;
   }
 
+  /* Icon bounce */
+  @keyframes icon-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  .group:hover .group-hover-bounce {
+    animation: icon-bounce 0.4s ease-in-out;
+  }
+
   /* Hover brightness effect */
   .hover-bright {
     transition: filter 0.3s ease, transform 0.3s ease;
@@ -279,6 +382,31 @@
 
   .activity-card-overlay:hover::after {
     opacity: 0.8;
+  }
+
+  /* Color splash effect */
+  .color-splash {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .color-splash::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.3;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+  }
+
+  .color-splash:hover::before {
+    width: 300%;
+    height: 300%;
   }
 
   /* Custom Scrollbar - Blue theme */
