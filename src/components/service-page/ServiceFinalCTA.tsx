@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 interface ServiceFinalCTAProps {
   accentColor: string;
 }
 
 export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
+  const { openContactModal } = useContactModal();
+  
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Dark background with dim image */}
@@ -48,6 +51,7 @@ export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
                 color: '#000',
                 borderColor: accentColor 
               }}
+              onClick={openContactModal}
             >
               Start Planning With Us
             </Button>

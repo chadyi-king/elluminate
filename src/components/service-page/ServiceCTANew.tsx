@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 interface ServiceCTANewProps {
   headline: string;
@@ -8,6 +9,8 @@ interface ServiceCTANewProps {
 }
 
 export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewProps) => {
+  const { openContactModal } = useContactModal();
+  
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Dark background with dim image */}
@@ -80,6 +83,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
                   color: '#000',
                   borderColor: accentColor 
                 }}
+                onClick={openContactModal}
               >
                 <span className="relative z-10">Book This Experience</span>
               </Button>
@@ -97,6 +101,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
                   borderColor: accentColor, 
                   color: accentColor 
                 }}
+                onClick={openContactModal}
               >
                 Request a Custom Quote
               </Button>

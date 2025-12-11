@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Search, Palette, Play, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -202,9 +203,11 @@ export const JourneySection = () => {
                     {/* CTA for last step */}
                     {isLast && (
                       <div className={`mt-4 ${isEven ? 'md:text-left' : 'md:text-right'}`}>
-                        <Button variant="gold-outline" className="font-display font-bold">
-                          View Our Gallery →
-                        </Button>
+                        <Link to="/portfolio">
+                          <Button variant="gold-outline" className="font-display font-bold">
+                            View Our Portfolio →
+                          </Button>
+                        </Link>
                       </div>
                     )}
                   </div>
