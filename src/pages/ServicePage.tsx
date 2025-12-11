@@ -14,6 +14,7 @@ import { ServiceFAQ } from "@/components/service-page/ServiceFAQ";
 import { ServiceGalleryNew } from "@/components/service-page/ServiceGalleryNew";
 import { ServiceFinalCTA } from "@/components/service-page/ServiceFinalCTA";
 import { servicesData } from "@/data/servicesData";
+import { SEO } from "@/components/SEO";
 
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -32,8 +33,33 @@ const ServicePage = () => {
     );
   }
 
+  const serviceKeywords: Record<string, string> = {
+    "team-building": "team building Singapore, corporate team building, team bonding activities",
+    "dinner-and-dance": "dinner and dance Singapore, D&D event, corporate gala dinner",
+    "awards-ceremonies": "awards ceremony Singapore, corporate awards event, recognition ceremony",
+    "overseas-retreats": "overseas retreat Singapore, corporate retreat, company trip planning",
+    "corporate-anniversaries": "corporate anniversary event, company milestone celebration",
+    "leadership-offsites": "leadership offsite Singapore, executive retreat, strategic planning event",
+    "product-launch": "product launch event Singapore, brand launch, new product reveal",
+    "brand-activations": "brand activation Singapore, experiential marketing, consumer engagement",
+    "client-appreciation": "client appreciation event, VIP event Singapore, customer appreciation",
+    "town-halls": "town hall event Singapore, corporate conference, company meeting",
+    "immersive-experiences": "immersive event Singapore, themed experience, interactive event",
+    "wellness-events": "corporate wellness event, team wellness day, employee wellbeing",
+    "event-concept": "event concept development, creative event design, event planning",
+    "stage-production": "stage production Singapore, AV production, event lighting and sound",
+    "custom-themes": "custom theme event, themed party, venue transformation",
+    "emcee-media": "event emcee Singapore, event photography, corporate videography"
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={`${service.hero.title} | Team Elevate`}
+        description={service.overview.description.slice(0, 155) + "..."}
+        keywords={serviceKeywords[slug || ""] || "corporate events Singapore, event planning"}
+        canonical={`https://teamelevate.sg/services/${slug}`}
+      />
       <GoldParticles />
       <Navbar />
 
