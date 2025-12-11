@@ -715,11 +715,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Product Launch Events",
       subtitle: "Launch",
       tagline: "Where products become experiences and launches become legends.",
-      backgroundImage: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920"
+      backgroundImage: productLaunchHero
     },
     overview: {
       description: "Launch your products with the fanfare they deserve. We create immersive launch experiences that generate buzz, engage your audience, and position your brand for maximum market impact. From intimate reveals to grand spectacles, every launch is designed to make your product unforgettable.",
-      backgroundImage: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1920"
+      backgroundImage: productLaunchHero
     },
     features: [
       { icon: Rocket, title: "Concept & Creative Direction", description: "Innovative ideas that showcase your product's uniqueness." },
@@ -811,11 +811,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Brand Activations",
       subtitle: "Activation",
       tagline: "Where brands come alive and connections become lasting.",
-      backgroundImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920"
+      backgroundImage: brandActivationHero
     },
     overview: {
       description: "Bring your brand to life through immersive activation experiences that connect with your audience on a deeper level. We design interactive touchpoints that create memorable brand encounters and lasting impressions. Transform passive consumers into active brand advocates.",
-      backgroundImage: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920"
+      backgroundImage: brandActivationHero
     },
     features: [
       { icon: Palette, title: "Experiential Concept Development", description: "Creative strategies that bring your brand story to life." },
@@ -907,11 +907,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Client Appreciation",
       subtitle: "Appreciation",
       tagline: "Because your valued clients deserve experiences as exceptional as they are.",
-      backgroundImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920"
+      backgroundImage: clientAppreciationHero
     },
     overview: {
       description: "Show your valued clients the appreciation they deserve with exclusive events designed to strengthen relationships and demonstrate your commitment to partnership excellence. Every detail is crafted to make your clients feel valued, special, and connected to your brand.",
-      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+      backgroundImage: clientAppreciationHero
     },
     features: [
       { icon: Crown, title: "VIP Experience Curation", description: "Exclusive experiences that make clients feel special." },
@@ -1003,11 +1003,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Town Halls & Conferences",
       subtitle: "Town Hall",
       tagline: "Where leadership connects with teams and vision becomes shared purpose.",
-      backgroundImage: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1920"
+      backgroundImage: townHallHero
     },
     overview: {
       description: "Communicate effectively with your entire organization through professionally executed town halls and conferences. We ensure your message lands with impact while creating engaging experiences for all attendees. From in-person gatherings to hybrid events, we make corporate communication compelling.",
-      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+      backgroundImage: townHallHero
     },
     features: [
       { icon: Monitor, title: "Technical Production", description: "Flawless AV and staging for maximum impact." },
@@ -1099,11 +1099,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Immersive Experiences",
       subtitle: "Immersive",
       tagline: "Step into worlds where imagination becomes reality.",
-      backgroundImage: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920"
+      backgroundImage: immersiveExperienceHero
     },
     overview: {
       description: "Transport your guests into extraordinary worlds with fully immersive themed experiences. We create multisensory environments that captivate, engage, and leave lasting impressions on every attendee. From fantasy realms to futuristic visions, we make the impossible possible.",
-      backgroundImage: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920"
+      backgroundImage: immersiveExperienceHero
     },
     features: [
       { icon: Theater, title: "World-Building & Storytelling", description: "Complete narratives that transport guests." },
@@ -1203,11 +1203,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Wellness Events",
       subtitle: "Wellness",
       tagline: "Nurturing wellbeing, inspiring balance, elevating your team.",
-      backgroundImage: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1920"
+      backgroundImage: wellnessEventHero
     },
     overview: {
       description: "Promote employee wellbeing with thoughtfully designed wellness events that nurture mind, body, and spirit. From meditation sessions to fitness challenges, we create experiences that support holistic health and demonstrate your commitment to your team's wellness.",
-      backgroundImage: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1920"
+      backgroundImage: wellnessEventHero
     },
     features: [
       { icon: Dumbbell, title: "Wellness Activity Curation", description: "Diverse activities for all fitness levels." },
@@ -1299,11 +1299,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Event Concept Development",
       subtitle: "Concept",
       tagline: "Where vision transforms into extraordinary experiences.",
-      backgroundImage: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1920"
+      backgroundImage: eventConceptHero
     },
     overview: {
       description: "Turn your event vision into reality with our comprehensive concept development services. We work closely with you to craft unique event narratives, design immersive experiences, and create detailed execution plans that bring your ideas to life with precision and creativity.",
-      backgroundImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920"
+      backgroundImage: eventConceptHero
     },
     features: [
       { icon: Lightbulb, title: "Creative Ideation", description: "Brainstorming sessions that spark innovative concepts." },
@@ -1395,11 +1395,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Stage & AV Production",
       subtitle: "Production",
       tagline: "Where technology meets artistry to create unforgettable moments.",
-      backgroundImage: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920"
+      backgroundImage: stageProductionHero
     },
     overview: {
       description: "Elevate your events with professional stage design and audio-visual production that creates immersive, impactful experiences. Our technical team brings together cutting-edge technology with creative artistry to deliver flawless productions that captivate audiences.",
-      backgroundImage: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1920"
+      backgroundImage: stageProductionHero
     },
     features: [
       { icon: Monitor, title: "Stage Design", description: "Custom stage constructions that wow audiences." },
@@ -1491,11 +1491,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Custom Theme Creation",
       subtitle: "Theme",
       tagline: "Where imagination takes form and events become works of art.",
-      backgroundImage: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920"
+      backgroundImage: customThemesHero
     },
     overview: {
       description: "Transform ordinary venues into extraordinary themed environments with our custom theme creation services. From elegant galas to wild fantasy worlds, we design and execute cohesive themes that immerse guests in unforgettable experiences.",
-      backgroundImage: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920"
+      backgroundImage: customThemesHero
     },
     features: [
       { icon: Palette, title: "Theme Conceptualization", description: "Original themes tailored to your vision." },
@@ -1587,11 +1587,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Emcee, Photo & Video",
       subtitle: "Media",
       tagline: "Capturing moments, commanding stages, creating memories.",
-      backgroundImage: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1920"
+      backgroundImage: emceeMediaHero
     },
     overview: {
       description: "Complete your event with professional hosting and comprehensive media coverage. Our experienced emcees energize any event, while our photography and videography teams capture every precious moment with cinematic quality.",
-      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+      backgroundImage: emceeMediaHero
     },
     features: [
       { icon: Mic, title: "Professional Emcees", description: "Charismatic hosts for any event type." },
@@ -1683,11 +1683,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Corporate Summits",
       subtitle: "Summit",
       tagline: "Bring your industry leaders together for impactful discussions and strategic alignment.",
-      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+      backgroundImage: summitsHero
     },
     overview: {
       description: "Host world-class summits that position your organization as an industry leader. From intimate executive roundtables to large-scale industry conferences, we manage every detail to ensure your summit delivers maximum impact and engagement.",
-      backgroundImage: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920"
+      backgroundImage: summitsHero
     },
     features: [
       { icon: Users, title: "Speaker Management", description: "End-to-end coordination of keynote speakers and panelists." },
@@ -1779,11 +1779,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Government Events",
       subtitle: "Government",
       tagline: "Delivering excellence in public sector events with precision and professionalism.",
-      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+      backgroundImage: governmentEventHero
     },
     overview: {
       description: "Partner with us for government events that meet the highest standards of professionalism, security, and impact. From ministry conferences to national celebrations, we bring expertise in protocol, stakeholder management, and seamless execution.",
-      backgroundImage: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920"
+      backgroundImage: governmentEventHero
     },
     features: [
       { icon: Award, title: "Protocol Excellence", description: "Adherence to government protocols and VIP requirements." },
@@ -1875,11 +1875,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Private Events",
       subtitle: "Private",
       tagline: "Intimate celebrations and exclusive gatherings crafted with personal attention.",
-      backgroundImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920"
+      backgroundImage: privateEventHero
     },
     overview: {
       description: "Create unforgettable private events for your most important occasions. From executive dinners to milestone celebrations, we bring the same level of excellence to intimate gatherings as we do to large-scale events.",
-      backgroundImage: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920"
+      backgroundImage: privateEventHero
     },
     features: [
       { icon: Heart, title: "Personal Touch", description: "Every detail tailored to your preferences and style." },
@@ -1971,11 +1971,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Family Fun Days",
       subtitle: "Family Day",
       tagline: "Bring families together for a day of joy, laughter, and unforgettable memories.",
-      backgroundImage: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1920"
+      backgroundImage: familyFunDayHero
     },
     overview: {
       description: "Create magical family fun days that bring your employees and their loved ones together. Our comprehensive family events include activities for all ages, ensuring everyone from toddlers to grandparents has an amazing time.",
-      backgroundImage: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920"
+      backgroundImage: familyFunDayHero
     },
     features: [
       { icon: Users, title: "All-Ages Activities", description: "Engaging programs for every generation." },
@@ -2067,11 +2067,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Corporate Carnivals",
       subtitle: "Carnival",
       tagline: "Transform your corporate event into a spectacular carnival celebration.",
-      backgroundImage: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1920"
+      backgroundImage: corporateCarnivalHero
     },
     overview: {
       description: "Bring the excitement of a carnival to your corporate celebration. Our carnival events feature thrilling games, vibrant entertainment, and festive atmospheres that create unforgettable experiences for your team.",
-      backgroundImage: "https://images.unsplash.com/photo-1492684223066-81342ee5ff32?w=1920"
+      backgroundImage: corporateCarnivalHero
     },
     features: [
       { icon: PartyPopper, title: "Carnival Games", description: "Classic and modern carnival game stations." },
@@ -2163,11 +2163,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "VIP Gala Experiences",
       subtitle: "VIP Gala",
       tagline: "Exclusive, luxurious gatherings for your most distinguished guests.",
-      backgroundImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920"
+      backgroundImage: vipGalaHero
     },
     overview: {
       description: "Host spectacular VIP galas that leave lasting impressions on your most important guests. Our luxury event expertise ensures every detail reflects sophistication, exclusivity, and world-class hospitality.",
-      backgroundImage: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920"
+      backgroundImage: vipGalaHero
     },
     features: [
       { icon: Crown, title: "Premium Venues", description: "Access to Singapore's most exclusive venues." },
@@ -2259,11 +2259,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Grand Openings",
       subtitle: "Grand Opening",
       tagline: "Make your debut unforgettable with a spectacular grand opening celebration.",
-      backgroundImage: "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=1920"
+      backgroundImage: grandOpeningHero
     },
     overview: {
       description: "Launch your new venture with impact. Our grand opening events combine ceremony, celebration, and strategic communications to create memorable debuts that generate buzz and establish your brand presence.",
-      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+      backgroundImage: grandOpeningHero
     },
     features: [
       { icon: Rocket, title: "Launch Ceremonies", description: "Ribbon-cutting and ceremonial moments." },
