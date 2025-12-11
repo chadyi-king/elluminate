@@ -2,8 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useContactModal } from "@/contexts/ContactModalContext";
-import { Lightbulb, Users, Zap, Target, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
-import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { Lightbulb, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { ConfettiBurst } from "./ConfettiBurst";
 
@@ -17,27 +16,23 @@ import heroAdventureChallenge from "@/assets/hero/adventure-challenge.jpg";
 import heroTeamCelebration from "@/assets/hero/team-celebration.jpg";
 import heroCulturalRace from "@/assets/hero/cultural-race.jpg";
 
-const heroImages = [
-  heroAmazingRace,
-  heroOverseasRetreat,
-  heroCreativeWorkshop,
-  heroCsiInvestigation,
-  heroWellnessActivity,
-  heroAdventureChallenge,
-  heroTeamCelebration,
-  heroCulturalRace,
+// Group images into sets of 3
+const imageGroups = [
+  [heroAmazingRace, heroOverseasRetreat, heroCreativeWorkshop],
+  [heroCsiInvestigation, heroWellnessActivity, heroAdventureChallenge],
+  [heroTeamCelebration, heroCulturalRace, heroAmazingRace],
 ];
 
 export const HeroSection = () => {
   const { openContactModal } = useContactModal();
   const [showConfetti, setShowConfetti] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
 
-  // Auto-rotate images
+  // Auto-rotate image groups
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
+      setCurrentGroupIndex((prev) => (prev + 1) % imageGroups.length);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -46,64 +41,78 @@ export const HeroSection = () => {
     setTimeout(() => openContactModal(), 300);
   };
 
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+  const nextGroup = () => {
+    setCurrentGroupIndex((prev) => (prev + 1) % imageGroups.length);
   };
 
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  const prevGroup = () => {
+    setCurrentGroupIndex((prev) => (prev - 1 + imageGroups.length) % imageGroups.length);
   };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Background Images with crossfade */}
+      {/* 3-Photo Grid Background */}
       <div className="absolute inset-0">
         <AnimatePresence mode="sync">
-          <motion.img
-            key={currentImageIndex}
-            src={heroImages[currentImageIndex]}
-            alt="Team building activity"
-            className="absolute inset-0 w-full h-full object-cover"
-            initial={{ opacity: 0, scale: 1.1 }}
+          <motion.div
+            key={currentGroupIndex}
+            className="absolute inset-0 grid grid-cols-3 gap-1"
+            initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          />
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          >
+            {imageGroups[currentGroupIndex].map((image, idx) => (
+              <motion.div
+                key={idx}
+                className="relative overflow-hidden"
+                initial={{ y: idx % 2 === 0 ? -20 : 20 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1, delay: idx * 0.1 }}
+              >
+                <img
+                  src={image}
+                  alt={`Team building activity ${idx + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            ))}
+          </motion.div>
         </AnimatePresence>
         
         {/* Overlay gradients */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-transparent" />
       </div>
 
       {/* Image navigation arrows */}
       <button
-        onClick={prevImage}
+        onClick={prevGroup}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-        aria-label="Previous image"
+        aria-label="Previous images"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
-        onClick={nextImage}
+        onClick={nextGroup}
         className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-        aria-label="Next image"
+        aria-label="Next images"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
 
       {/* Image dots indicator */}
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        {heroImages.map((_, index) => (
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {imageGroups.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentImageIndex(index)}
+            onClick={() => setCurrentGroupIndex(index)}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentImageIndex
+              index === currentGroupIndex
                 ? "w-8 bg-primary"
                 : "bg-white/50 hover:bg-white/80"
             }`}
-            aria-label={`Go to image ${index + 1}`}
+            aria-label={`Go to image set ${index + 1}`}
           />
         ))}
       </div>
@@ -126,7 +135,7 @@ export const HeroSection = () => {
             >
               <Lightbulb className="w-5 h-5 text-yellow-500" />
             </motion.div>
-            <span className="text-sm font-semibold text-primary tracking-wide">Corporate Team Building Specialists</span>
+            <span className="text-sm font-semibold text-primary tracking-wide">1,000+ Events Delivered</span>
             <Sparkles className="w-4 h-4 text-yellow-500" />
           </motion.div>
 
@@ -200,7 +209,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.4 }}
-            className="flex flex-col sm:flex-row items-center gap-5 mb-16"
+            className="flex flex-col sm:flex-row items-center gap-5"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -236,37 +245,6 @@ export const HeroSection = () => {
               </Button>
             </motion.div>
           </motion.div>
-
-          {/* Animated Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.6 }}
-            className="flex flex-wrap justify-center gap-6 md:gap-10"
-          >
-            {[
-              { icon: Users, value: 1000, suffix: "+", label: "Events Delivered" },
-              { icon: Target, value: 100, suffix: "%", label: "Client Satisfaction" },
-              { icon: Zap, value: 8, suffix: "+", label: "Years Experience" },
-            ].map((item, index) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.8 + index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="flex flex-col items-center gap-2 px-6 py-4 rounded-2xl bg-white/95 border-2 border-transparent hover:border-primary/30 shadow-lg transition-all duration-300"
-              >
-                <item.icon className="w-6 h-6 text-primary mb-1" />
-                <AnimatedCounter 
-                  value={item.value} 
-                  suffix={item.suffix}
-                  className="text-3xl font-display font-black text-foreground"
-                />
-                <span className="text-sm font-medium text-muted-foreground">{item.label}</span>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </div>
 
@@ -275,7 +253,7 @@ export const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-20 left-1/2 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 12, 0] }}
