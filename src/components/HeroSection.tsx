@@ -1,48 +1,112 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useContactModal } from "@/contexts/ContactModalContext";
-import { Lightbulb, Users, Zap, Target, Sparkles } from "lucide-react";
-import { FloatingBlobs } from "@/components/FloatingBlobs";
+import { Lightbulb, Users, Zap, Target, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
-import heroBg from "@/assets/hero-elluminate.jpg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ConfettiBurst } from "./ConfettiBurst";
+
+// Import hero images
+import heroAmazingRace from "@/assets/hero/amazing-race.jpg";
+import heroOverseasRetreat from "@/assets/hero/overseas-retreat.jpg";
+import heroCreativeWorkshop from "@/assets/hero/creative-workshop.jpg";
+import heroCsiInvestigation from "@/assets/hero/csi-investigation.jpg";
+import heroWellnessActivity from "@/assets/hero/wellness-activity.jpg";
+import heroAdventureChallenge from "@/assets/hero/adventure-challenge.jpg";
+import heroTeamCelebration from "@/assets/hero/team-celebration.jpg";
+import heroCulturalRace from "@/assets/hero/cultural-race.jpg";
+
+const heroImages = [
+  heroAmazingRace,
+  heroOverseasRetreat,
+  heroCreativeWorkshop,
+  heroCsiInvestigation,
+  heroWellnessActivity,
+  heroAdventureChallenge,
+  heroTeamCelebration,
+  heroCulturalRace,
+];
 
 export const HeroSection = () => {
   const { openContactModal } = useContactModal();
   const [showConfetti, setShowConfetti] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Auto-rotate images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleCTAClick = () => {
     setShowConfetti(true);
     setTimeout(() => openContactModal(), 300);
   };
 
-  // Text reveal animation for headline
-  const headlineWords = ["Ignite", "the", "Spark"];
-  const sublineWords = ["in", "Your", "Teams"];
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-animated-gradient">
-      {/* Floating blobs background */}
-      <FloatingBlobs opacity={0.12} />
-      
-      {/* Background Image with parallax */}
-      <motion.div 
-        className="absolute inset-0"
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Background Images with crossfade */}
+      <div className="absolute inset-0">
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={currentImageIndex}
+            src={heroImages[currentImageIndex]}
+            alt="Team building activity"
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          />
+        </AnimatePresence>
+        
+        {/* Overlay gradients */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-transparent" />
+      </div>
+
+      {/* Image navigation arrows */}
+      <button
+        onClick={prevImage}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+        aria-label="Previous image"
       >
-        <img 
-          src={heroBg} 
-          alt="Team building activity" 
-          className="w-full h-full object-cover"
-        />
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-yellow-500/10" />
-      </motion.div>
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button
+        onClick={nextImage}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+        aria-label="Next image"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
+      {/* Image dots indicator */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {heroImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImageIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentImageIndex
+                ? "w-8 bg-primary"
+                : "bg-white/50 hover:bg-white/80"
+            }`}
+            aria-label={`Go to image ${index + 1}`}
+          />
+        ))}
+      </div>
 
       {/* Confetti */}
       <ConfettiBurst trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
@@ -54,7 +118,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: -20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, type: "spring" }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/95 border-2 border-primary/30 mb-8 shadow-lg pulse-glow"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/95 border-2 border-primary/30 mb-8 shadow-lg"
           >
             <motion.div
               animate={{ rotate: [0, 10, -10, 0] }}
@@ -66,53 +130,66 @@ export const HeroSection = () => {
             <Sparkles className="w-4 h-4 text-yellow-500" />
           </motion.div>
 
-          {/* Main Headline with word-by-word animation */}
+          {/* Main Headline */}
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-black mb-6 leading-tight"
           >
-            <span className="block">
-              {headlineWords.map((word, index) => (
-                <motion.span
-                  key={word}
-                  initial={{ opacity: 0, y: 50, rotateX: -90 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: 0.3 + index * 0.15,
-                    type: "spring",
-                    stiffness: 100
-                  }}
-                  className={`inline-block mr-2 md:mr-4 ${word === "Ignite" ? "text-rainbow-gradient" : "text-primary"}`}
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </span>
-            <span className="block mt-2">
-              {sublineWords.map((word, index) => (
-                <motion.span
-                  key={word}
-                  initial={{ opacity: 0, y: 50, rotateX: -90 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: 0.6 + index * 0.15,
-                    type: "spring",
-                    stiffness: 100
-                  }}
-                  className="inline-block mr-2 md:mr-4 text-foreground"
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </span>
+            <motion.span
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="inline-block mr-3 md:mr-5 bg-gradient-to-r from-yellow-400 via-orange-500 to-orange-600 bg-clip-text text-transparent"
+            >
+              Ignite
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.45 }}
+              className="inline-block mr-3 md:mr-5 text-primary"
+            >
+              the
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="inline-block text-primary"
+            >
+              Spark
+            </motion.span>
+            <br />
+            <motion.span
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.75 }}
+              className="inline-block mr-3 md:mr-5 text-foreground"
+            >
+              in
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="inline-block mr-3 md:mr-5 text-foreground"
+            >
+              Your
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.05 }}
+              className="inline-block text-foreground"
+            >
+              Teams
+            </motion.span>
           </motion.h1>
 
           {/* Subtitle with glassmorphism */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
             className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mb-12 font-sans bg-white/80 backdrop-blur-md px-8 py-5 rounded-2xl border border-white/50 shadow-lg"
           >
             Transform your workforce with <span className="text-primary font-semibold">engaging team building</span> experiences that inspire collaboration, boost morale, and create lasting connections.
@@ -122,7 +199,7 @@ export const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
             className="flex flex-col sm:flex-row items-center gap-5 mb-16"
           >
             <motion.div
@@ -133,7 +210,7 @@ export const HeroSection = () => {
                 variant="hero" 
                 size="lg" 
                 onClick={handleCTAClick}
-                className="group shadow-xl text-lg px-8 py-6 pulse-glow"
+                className="group shadow-xl text-lg px-8 py-6"
               >
                 <span>Plan My Event</span>
                 <motion.span
@@ -164,11 +241,11 @@ export const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
+            transition={{ duration: 0.8, delay: 1.6 }}
             className="flex flex-wrap justify-center gap-6 md:gap-10"
           >
             {[
-              { icon: Users, value: 500, suffix: "+", label: "Events Delivered" },
+              { icon: Users, value: 1000, suffix: "+", label: "Events Delivered" },
               { icon: Target, value: 100, suffix: "%", label: "Client Satisfaction" },
               { icon: Zap, value: 8, suffix: "+", label: "Years Experience" },
             ].map((item, index) => (
@@ -176,7 +253,7 @@ export const HeroSection = () => {
                 key={item.label}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.6 + index * 0.1 }}
+                transition={{ delay: 1.8 + index * 0.1 }}
                 whileHover={{ y: -5, scale: 1.02 }}
                 className="flex flex-col items-center gap-2 px-6 py-4 rounded-2xl bg-white/95 border-2 border-transparent hover:border-primary/30 shadow-lg transition-all duration-300"
               >
