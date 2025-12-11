@@ -3,43 +3,23 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import { Lightbulb, Users, Zap, Target } from "lucide-react";
+import heroBg from "@/assets/hero-elluminate.jpg";
 
 export const HeroSection = () => {
   const { openContactModal } = useContactModal();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-background-deep">
-      {/* Background gradient effects */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
       <div className="absolute inset-0">
-        {/* Sky gradient blob */}
-        <motion.div
-          className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-primary-soft/30 via-primary/10 to-transparent rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3] 
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
+        <img 
+          src={heroBg} 
+          alt="Team building activity" 
+          className="w-full h-full object-cover"
         />
-        <motion.div
-          className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-primary-glow/20 via-primary/5 to-transparent rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.15, 1],
-            opacity: [0.2, 0.4, 0.2] 
-          }}
-          transition={{ duration: 6, repeat: Infinity, delay: 1 }}
-        />
-        
-        {/* Grid pattern overlay */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `
-              linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
-              linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px'
-          }}
-        />
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-primary/10" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10 pt-24 pb-16">
@@ -49,7 +29,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-primary/20 mb-8 shadow-lg"
           >
             <Lightbulb className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">Corporate Team Building Specialists</span>
@@ -62,9 +42,9 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground mb-6 leading-tight"
           >
-            <span className="text-brand-gradient">Illuminate</span>
+            <span className="text-primary">Ignite the Spark</span>
             <br />
-            Your Teams
+            in Your Teams
           </motion.h1>
 
           {/* Subtitle */}
@@ -72,7 +52,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 font-sans"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 font-sans bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl"
           >
             Transform your workforce with engaging team building experiences that inspire collaboration, boost morale, and create lasting connections.
           </motion.p>
@@ -88,7 +68,7 @@ export const HeroSection = () => {
               variant="hero" 
               size="lg" 
               onClick={openContactModal}
-              className="group"
+              className="group shadow-xl"
             >
               <span>Plan My Event</span>
               <motion.span
@@ -100,9 +80,10 @@ export const HeroSection = () => {
               </motion.span>
             </Button>
             <Button 
-              variant="primary-outline" 
+              variant="outline" 
               size="lg"
               asChild
+              className="bg-white/90 hover:bg-white border-border"
             >
               <Link to="/portfolio">View Our Work</Link>
             </Button>
@@ -122,7 +103,7 @@ export const HeroSection = () => {
             ].map((item, index) => (
               <div
                 key={item.label}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-background border border-border shadow-soft"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/95 border border-border shadow-lg"
               >
                 <item.icon className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-foreground">{item.label}</span>
@@ -142,12 +123,12 @@ export const HeroSection = () => {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-primary/30 flex items-start justify-center p-2"
+          className="w-6 h-10 rounded-full border-2 border-white/50 flex items-start justify-center p-2 bg-white/20 backdrop-blur-sm"
         >
           <motion.div
             animate={{ height: [6, 14, 6] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 bg-primary/50 rounded-full"
+            className="w-1 bg-white/80 rounded-full"
           />
         </motion.div>
       </motion.div>

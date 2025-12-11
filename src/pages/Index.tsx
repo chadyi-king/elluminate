@@ -22,10 +22,10 @@ const Index = () => {
       <main>
         <HeroSection />
         <SocialProofSection />
-        <ServicesSection />
         <WhyUsSection />
-        <CaseStudiesSection />
+        <ServicesSection />
         <JourneySection />
+        <CaseStudiesSection />
         <CTASection />
       </main>
       <Footer />

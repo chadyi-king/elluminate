@@ -4,13 +4,9 @@ import { Button } from "@/components/ui/button";
 
 export const CredibilitySection = () => {
   return (
-    <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 20%, 8%) 0%, hsl(43, 25%, 12%) 50%, hsl(43, 20%, 6%) 100%)' }}>
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/8 rounded-full blur-3xl" />
-      
-      {/* Gold accent lines */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-secondary/30 via-background to-secondary/50">
+      {/* Background decorative elements */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Downloadable PDF */}
@@ -21,38 +17,35 @@ export const CredibilitySection = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="relative bg-gradient-to-br from-primary/20 via-primary/10 to-primary/20 border-2 border-primary/50 rounded-2xl p-8 md:p-12 hover:border-primary/70 transition-all duration-500 group">
-            {/* Gold corner accents */}
-            <div className="absolute top-0 left-0 w-12 h-12 border-l-3 border-t-3 border-primary rounded-tl-2xl" />
-            <div className="absolute top-0 right-0 w-12 h-12 border-r-3 border-t-3 border-primary rounded-tr-2xl" />
-            <div className="absolute bottom-0 left-0 w-12 h-12 border-l-3 border-b-3 border-primary rounded-bl-2xl" />
-            <div className="absolute bottom-0 right-0 w-12 h-12 border-r-3 border-b-3 border-primary rounded-br-2xl" />
+          <div className="relative bg-white border border-border rounded-2xl p-8 md:p-12 hover:shadow-xl transition-all duration-500 group">
+            {/* Accent bar */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-sky-400 to-primary rounded-t-2xl" />
 
             {/* Content */}
             <div className="flex flex-col md:flex-row items-start gap-8">
               <div className="flex-shrink-0">
-                <div className="w-20 h-20 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center group-hover:shadow-gold transition-all duration-300">
+                <div className="w-20 h-20 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
                   <FileText className="w-10 h-10 text-primary" />
                 </div>
               </div>
               
               <div className="flex-1">
-                <h3 className="text-2xl md:text-3xl font-display font-black text-metallic-gold mb-4">
-                  Team Elevate Event Solutions Pack 2026
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-4">
+                  Elluminate Activity Catalog 2026
                 </h3>
                 
                 <p className="text-muted-foreground mb-6 leading-relaxed font-display">
-                  Explore our complete range of services, past event showcases, and pricing guidelines in our comprehensive solutions pack. This document includes:
+                  Explore our complete range of team building activities, training programs, and retreat options in our comprehensive catalog:
                 </p>
                 
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                   {[
-                    "Full service catalog with descriptions",
-                    "Portfolio of past events and case studies",
+                    "Full activity catalog with descriptions",
+                    "Training programs and workshops",
+                    "Retreat packages and destinations",
+                    "Client testimonials and success stories",
                     "Pricing guidelines and packages",
-                    "Client testimonials and reviews",
-                    "Team profiles and credentials",
-                    "Terms and booking process",
+                    "Booking process and FAQs",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground font-display">
                       <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
@@ -62,18 +55,15 @@ export const CredibilitySection = () => {
                 </ul>
                 
                 <Button 
-                  variant="gold" 
+                  variant="hero" 
                   size="lg" 
-                  className="group/btn font-display font-bold bg-primary hover:bg-primary-ember text-background-deep border-none"
+                  className="group/btn font-display font-bold"
                 >
                   <Download className="w-5 h-5 mr-2 group-hover/btn:animate-bounce" />
-                  Download PDF
+                  Download Catalog
                 </Button>
               </div>
             </div>
-
-            {/* Hover glow */}
-            <div className="absolute inset-0 bg-primary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
           </div>
         </motion.div>
       </div>
@@ -83,22 +73,7 @@ export const CredibilitySection = () => {
 
 export const VideoSection = () => {
   return (
-    <section className="py-16 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 15%, 5%) 0%, hsl(43, 20%, 10%) 50%, hsl(43, 15%, 5%) 100%)' }}>
-      {/* Gold particles effect in background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-primary/40 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
-            }}
-          />
-        ))}
-      </div>
+    <section className="py-16 relative overflow-hidden bg-gradient-to-b from-background to-secondary/30">
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -107,18 +82,22 @@ export const VideoSection = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="relative aspect-video rounded-2xl overflow-hidden border border-border-gold/20 hover:border-primary/40 transition-all duration-500 cursor-pointer group">
+          {/* Section title */}
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+              See Elluminate in Action
+            </h3>
+          </div>
+          
+          <div className="relative aspect-video rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-all duration-500 cursor-pointer group">
             {/* Thumbnail placeholder */}
-            <div className="absolute inset-0 bg-gradient-to-br from-background-deep to-card" />
             <div 
-              className="absolute inset-0 bg-cover bg-center opacity-50"
-              style={{ backgroundImage: "url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200)" }}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: "url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200)" }}
             />
             
-            {/* Gold glow overlay */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-primary/10 opacity-60 group-hover:opacity-80 transition-opacity duration-500"
-            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-foreground/30 group-hover:bg-foreground/40 transition-colors duration-300" />
             
             {/* Play button */}
             <div className="absolute inset-0 flex items-center justify-center">
@@ -127,30 +106,11 @@ export const VideoSection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="relative"
               >
-                {/* Glow ring */}
-                <motion.div
-                  className="absolute inset-0 -m-6 rounded-full bg-primary/30 blur-xl"
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-                
-                <div className="relative w-24 h-24 rounded-full bg-primary/90 border-2 border-primary-soft/50 flex items-center justify-center group-hover:shadow-gold transition-all duration-300">
-                  <Play className="w-10 h-10 text-background-deep fill-background-deep ml-1" />
+                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:bg-primary transition-colors duration-300">
+                  <Play className="w-8 h-8 text-primary group-hover:text-white fill-current ml-1 transition-colors duration-300" />
                 </div>
               </motion.div>
             </div>
-            
-            {/* Title overlay - now above the video */}
-            <div className="absolute top-0 left-0 right-0 p-8 bg-gradient-to-b from-background-deep/95 to-transparent">
-              <h3 className="text-2xl md:text-3xl font-display font-black text-primary-soft group-hover:text-metallic-gold transition-colors text-center uppercase tracking-wide">
-                WATCH HOW WE ELEVATE EXPERIENCES
-              </h3>
-            </div>
-
-            {/* Border glow on hover */}
-            <motion.div
-              className="absolute inset-0 rounded-2xl border border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            />
           </div>
         </motion.div>
       </div>

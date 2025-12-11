@@ -2,188 +2,90 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import {
-  Users,
-  Plane,
-  Music,
-  Trophy,
-  PartyPopper,
-  Compass,
-  Rocket,
-  Sparkles,
-  Heart,
-  Building,
+  Flag,
+  Search,
+  Globe,
+  Target,
+  Crosshair,
   Palette,
   Leaf,
-  Lightbulb,
+  Mountain,
   Monitor,
-  Brush,
+  Gamepad2,
   Mic,
-  Flag,
-  Crown,
-  Briefcase,
-  Lock,
-  GraduationCap,
-  Globe,
-  Star,
-  Gift,
+  BookOpen,
+  Users,
+  Sparkles,
+  Brain,
+  Compass,
+  Plane,
+  MapPin,
+  Map,
 } from "lucide-react";
 
-const allServices = [
-  // Row 1
-  { name: "Corporate Team Building", icon: Users, slug: "team-building", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600", description: "Build stronger teams through engaging activities and collaborative experiences.", eventCount: 500, clients: ["Google", "Meta", "Shopee"] },
-  { name: "Overseas Retreats", icon: Plane, slug: "overseas-retreats", image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600", description: "Transform your team with memorable retreat experiences in stunning destinations.", eventCount: 85, clients: ["Deloitte", "KPMG", "EY"] },
-  { name: "Dinner & Dance", icon: Music, slug: "dinner-and-dance", image: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=600", description: "Spectacular evening celebrations with stunning themes and entertainment.", eventCount: 45, clients: ["DBS", "Singtel", "OCBC"] },
-  { name: "Awards Ceremonies", icon: Trophy, slug: "awards-ceremonies", image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=600", description: "Celebrate achievements with elegance and unforgettable presentations.", eventCount: 25, clients: ["CapitaLand", "Keppel", "ST Engineering"] },
-  { name: "Corporate Anniversaries", icon: PartyPopper, slug: "corporate-anniversaries", image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600", description: "Mark milestones with celebrations that honor your company's journey.", eventCount: 30, clients: ["Sembcorp", "SIA", "ComfortDelGro"] },
-  { name: "Leadership Offsites", icon: Compass, slug: "leadership-offsites", image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600", description: "Strategic retreats for leadership alignment and team growth.", eventCount: 40, clients: ["McKinsey", "BCG", "Bain"] },
-  // Row 2
-  { name: "Product Launch Events", icon: Rocket, slug: "product-launch", image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600", description: "Create buzz and excitement for your new products and innovations.", eventCount: 35, clients: ["Apple", "Samsung", "Dyson"] },
-  { name: "Brand Activations", icon: Sparkles, slug: "brand-activations", image: "https://images.unsplash.com/photo-1561489413-985b06da5bee?w=600", description: "Immersive brand experiences that connect with your target audience.", eventCount: 60, clients: ["Nike", "Adidas", "Unilever"] },
-  { name: "Client Appreciation", icon: Heart, slug: "client-appreciation", image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600", description: "Show gratitude to valued clients with thoughtful events.", eventCount: 25, clients: ["HSBC", "Citi", "UBS"] },
-  { name: "Town Halls", icon: Building, slug: "town-halls", image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600", description: "Engage your organization with impactful meetings and announcements.", eventCount: 80, clients: ["GovTech", "MOE", "MOM"] },
-  { name: "Immersive Experiences", icon: Palette, slug: "immersive-experiences", image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600", description: "Transport attendees to extraordinary themed environments.", eventCount: 55, clients: ["MBS", "RWS", "Sentosa"] },
-  { name: "Wellness Events", icon: Leaf, slug: "wellness-events", image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600", description: "Promote well-being through mindfulness and wellness activities.", eventCount: 35, clients: ["Prudential", "AIA", "Great Eastern"] },
-  // Row 3
-  { name: "Event Concept Development", icon: Lightbulb, slug: "event-concept", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600", description: "Creative concept development for unique, memorable events.", eventCount: 120, clients: ["Various MNCs", "SMEs", "Startups"] },
-  { name: "Stage & AV Production", icon: Monitor, slug: "stage-production", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600", description: "Professional stage design, lighting, and audiovisual production.", eventCount: 200, clients: ["Esplanade", "Suntec", "MBS"] },
-  { name: "Custom Theme Creation", icon: Brush, slug: "custom-themes", image: "https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600", description: "Bespoke themes that bring your creative vision to life.", eventCount: 75, clients: ["Luxury Brands", "Tech Giants", "Banks"] },
-  { name: "Emcee / Photo / Video", icon: Mic, slug: "emcee-media", image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600", description: "Professional emcees, photographers, and videographers.", eventCount: 300, clients: ["All Industries", "Corporate", "Government"] },
-  { name: "Family Fun Days", icon: Gift, slug: "family-fun-days", image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600", description: "Engaging family-friendly events for all ages to enjoy together.", eventCount: 45, clients: ["P&G", "Nestle", "J&J"] },
-  { name: "Corporate Carnivals", icon: Star, slug: "corporate-carnivals", image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600", description: "Fun-filled carnival experiences for your corporate celebrations.", eventCount: 30, clients: ["Shell", "ExxonMobil", "BP"] },
-  // Row 4
-  { name: "VIP Gala Experiences", icon: Crown, slug: "vip-gala", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600", description: "Exclusive luxury gala events for distinguished occasions.", eventCount: 20, clients: ["Luxury Hotels", "Private Banks", "Family Offices"] },
-  { name: "Grand Openings", icon: Flag, slug: "grand-opening", image: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600", description: "Make a grand statement with spectacular opening ceremonies.", eventCount: 40, clients: ["Retail Brands", "F&B", "Real Estate"] },
-  { name: "Summits", icon: Globe, slug: "summits", image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600", description: "High-level summits and conferences for industry leaders.", eventCount: 35, clients: ["EDB", "STB", "ESG"] },
-  { name: "Government Events", icon: GraduationCap, slug: "government-events", image: "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=600", description: "Professional events for government and statutory boards.", eventCount: 150, clients: ["Various Ministries", "Stat Boards", "Agencies"] },
-  { name: "Private Events", icon: Lock, slug: "private-events", image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600", description: "Exclusive private gatherings tailored to your needs.", eventCount: 80, clients: ["HNWIs", "Executives", "Families"] },
-  { name: "Corporate Conferences", icon: Briefcase, slug: "corporate-conferences", image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600", description: "Professional conferences that inspire and inform.", eventCount: 65, clients: ["Tech", "Finance", "Healthcare"] },
+// Activity accent colors matching brand guidelines
+const activityColors = {
+  amazingRace: "#FFC400",
+  csiInvestigation: "#26D07C",
+  culturalRace: "#FF4F4F",
+  archeryLaserTag: "#2A8DFF",
+  creativeWorkshops: "#A768FF",
+  wellness: "#62E2C4",
+  adventureRaces: "#FF8A3D",
+};
+
+const physicalActivities = [
+  { name: "Amazing Race", icon: Flag, slug: "amazing-race", color: activityColors.amazingRace, description: "Exciting city-wide treasure hunts with challenges and puzzles." },
+  { name: "CSI Investigation", icon: Search, slug: "csi-investigation", color: activityColors.csiInvestigation, description: "Thrilling detective experiences solving mysteries together." },
+  { name: "Cultural Race", icon: Globe, slug: "cultural-race", color: activityColors.culturalRace, description: "Explore heritage and culture through interactive challenges." },
+  { name: "Archery Tag", icon: Target, slug: "archery-tag", color: activityColors.archeryLaserTag, description: "Action-packed archery battles that build team strategy." },
+  { name: "Laser Tag", icon: Crosshair, slug: "laser-tag", color: activityColors.archeryLaserTag, description: "High-energy tactical games for competitive teams." },
+  { name: "Creative Workshops", icon: Palette, slug: "creative-workshops", color: activityColors.creativeWorkshops, description: "Hands-on art and craft sessions that spark creativity." },
+  { name: "Wellness Activities", icon: Leaf, slug: "wellness", color: activityColors.wellness, description: "Mindfulness and wellness programs for team wellbeing." },
+  { name: "Adventure Challenges", icon: Mountain, slug: "adventure-challenges", color: activityColors.adventureRaces, description: "Outdoor adventures that push boundaries together." },
 ];
 
-// Split into 4 rows of 6 each
-const rows = [
-  allServices.slice(0, 6),
-  allServices.slice(6, 12),
-  allServices.slice(12, 18),
-  allServices.slice(18, 24),
+const virtualActivities = [
+  { name: "Virtual Amazing Race", icon: Monitor, slug: "virtual-amazing-race", color: activityColors.amazingRace, description: "Online treasure hunts connecting remote teams globally." },
+  { name: "Online Escape Room", icon: Gamepad2, slug: "online-escape-room", color: activityColors.csiInvestigation, description: "Digital puzzles and challenges for virtual team bonding." },
+];
+
+const trainingPrograms = [
+  { name: "Mass Talks", icon: Mic, slug: "mass-talks", color: activityColors.archeryLaserTag, description: "Engaging keynotes for large audiences." },
+  { name: "Workshops", icon: BookOpen, slug: "workshops", color: activityColors.creativeWorkshops, description: "Interactive learning sessions for skill development." },
+  { name: "Youth Camps", icon: Users, slug: "youth-camps", color: activityColors.amazingRace, description: "Leadership programs for young professionals." },
+  { name: "Corporate Days", icon: Sparkles, slug: "corporate-days", color: activityColors.adventureRaces, description: "Full-day engagement programs for companies." },
+  { name: "MBTI / DISC / OCEAN", icon: Brain, slug: "personality-assessments", color: activityColors.wellness, description: "Personality profiling for team dynamics." },
+];
+
+const retreatServices = [
+  { name: "Overseas Retreats", icon: Plane, slug: "overseas-retreats", color: activityColors.archeryLaserTag, description: "Memorable team getaways to exciting destinations." },
+  { name: "Local Retreats", icon: MapPin, slug: "local-retreats", color: activityColors.csiInvestigation, description: "Staycation retreats within Singapore." },
+  { name: "Travel Planning", icon: Map, slug: "travel-planning", color: activityColors.amazingRace, description: "End-to-end logistics for corporate travel." },
+];
+
+interface ServiceCategory {
+  title: string;
+  subtitle: string;
+  services: typeof physicalActivities;
+  bgColor: string;
+}
+
+const categories: ServiceCategory[] = [
+  { title: "Physical Team Building", subtitle: "Hands-on activities that energize your team", services: physicalActivities, bgColor: "from-primary/5 to-sky-100/50" },
+  { title: "Virtual Team Building", subtitle: "Connect remote teams anywhere in the world", services: virtualActivities, bgColor: "from-green-50/50 to-emerald-100/30" },
+  { title: "Training Programs", subtitle: "Develop skills and unlock potential", services: trainingPrograms, bgColor: "from-purple-50/50 to-violet-100/30" },
+  { title: "Retreats", subtitle: "Getaways that strengthen team bonds", services: retreatServices, bgColor: "from-orange-50/50 to-amber-100/30" },
 ];
 
 export const ServicesSection = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<{ row: number; index: number } | null>(null);
-
-  const renderServiceRow = (services: typeof allServices, rowIndex: number) => (
-    <div className="flex gap-2 mb-3 min-h-[240px]">
-      {services.map((service, index) => {
-        const isHovered = hoveredIndex?.row === rowIndex && hoveredIndex?.index === index;
-        const isOtherHovered = hoveredIndex !== null && hoveredIndex.row === rowIndex && hoveredIndex.index !== index;
-        
-        // Split name into lines
-        const nameParts = service.name.split(" ");
-        const midPoint = Math.ceil(nameParts.length / 2);
-        const line1 = nameParts.slice(0, midPoint).join(" ");
-        const line2 = nameParts.slice(midPoint).join(" ");
-        
-        return (
-          <motion.div
-            key={service.slug}
-            onMouseEnter={() => setHoveredIndex({ row: rowIndex, index })}
-            onMouseLeave={() => setHoveredIndex(null)}
-            animate={{
-              flex: isHovered ? 3 : isOtherHovered ? 0.6 : 1,
-            }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="relative cursor-pointer group min-w-0"
-          >
-            {/* Card Container */}
-            <div 
-              className={`relative h-56 rounded-xl overflow-hidden border transition-all duration-300 ${isHovered ? 'border-primary/60' : 'border-primary/30'}`}
-            >
-              {/* Background Image with darker overlay */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundImage: `url(${service.image})` }}
-              />
-              
-              {/* Darker gradient overlay for better text contrast */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/50" />
-              
-              {/* Gold edge gradient */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              {/* Content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
-                {/* Collapsed: Horizontal text stacked */}
-                <div 
-                  className={`flex flex-col items-center justify-center text-center transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
-                >
-                  <span className="text-primary-soft text-[10px] tracking-wider uppercase font-display font-bold leading-tight">
-                    {line1}
-                  </span>
-                  {line2 && (
-                    <span className="text-primary-soft text-[10px] tracking-wider uppercase font-display font-bold leading-tight">
-                      {line2}
-                    </span>
-                  )}
-                </div>
-
-                {/* Expanded: Full content */}
-                <motion.div
-                  initial={false}
-                  animate={{
-                    opacity: isHovered ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className={`absolute inset-0 flex flex-col items-center justify-center p-3 ${isHovered ? 'pointer-events-auto' : 'pointer-events-none'}`}
-                >
-                  <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center mb-2">
-                    <service.icon className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <h3 className="text-base font-display font-bold text-primary-soft mb-1 text-center uppercase leading-tight">
-                    {service.name}
-                  </h3>
-                  <p className="text-muted-foreground text-xs mb-2 text-center font-sans leading-relaxed max-w-xs">
-                    {service.description}
-                  </p>
-                  
-                  {/* Client logos */}
-                  <div className="flex items-center gap-1 mb-1">
-                    {service.clients.slice(0, 3).map((client, idx) => (
-                      <span key={idx} className="text-[8px] text-white/50 bg-white/10 px-1.5 py-0.5 rounded">
-                        {client}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  {/* Event count */}
-                  <p className="text-primary text-[10px] font-display font-semibold mb-2">
-                    {service.eventCount}+ Events Delivered
-                  </p>
-                  
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary-ember transition-colors font-display font-bold"
-                  >
-                    <span>Learn More</span>
-                    <span>→</span>
-                  </Link>
-                </motion.div>
-              </div>
-
-              {/* Hover glow */}
-              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-            </div>
-          </motion.div>
-        );
-      })}
-    </div>
-  );
+  const [hoveredService, setHoveredService] = useState<string | null>(null);
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 25%, 10%) 0%, hsl(43, 20%, 6%) 40%, hsl(43, 30%, 12%) 100%)' }}>
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/8 rounded-full blur-3xl" />
-      
-      {/* Gold accent lines */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+    <section id="services" className="py-24 relative overflow-hidden bg-gradient-to-b from-background via-secondary/30 to-background">
+      {/* Background decorative elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-sky-200/30 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -194,31 +96,90 @@ export const ServicesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
-            Our Expertise
+          <span className="text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
+            What We Do
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold mb-6 uppercase tracking-wide">
-            WHAT WE DO
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-6">
+            Our Activities
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-sans">
-            From intimate gatherings to grand celebrations, we craft extraordinary experiences that leave lasting impressions.
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            From high-energy outdoor adventures to virtual team experiences, we have activities for every team.
           </p>
         </motion.div>
 
-        {/* Services Grid - 4 rows of 6 */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
-        >
-          {rows.map((row, rowIndex) => (
-            <div key={rowIndex}>
-              {renderServiceRow(row, rowIndex)}
-            </div>
+        {/* Categories */}
+        <div className="space-y-16">
+          {categories.map((category, catIndex) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: catIndex * 0.1 }}
+            >
+              {/* Category Header */}
+              <div className="mb-8">
+                <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-2">
+                  {category.title}
+                </h3>
+                <p className="text-muted-foreground">{category.subtitle}</p>
+              </div>
+
+              {/* Activity Cards Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {category.services.map((service, index) => (
+                  <motion.div
+                    key={service.slug}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    onMouseEnter={() => setHoveredService(service.slug)}
+                    onMouseLeave={() => setHoveredService(null)}
+                    className="group cursor-pointer"
+                  >
+                    <Link to={`/services/${service.slug}`}>
+                      <div 
+                        className="relative h-48 rounded-2xl overflow-hidden border-2 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                        style={{ 
+                          borderColor: hoveredService === service.slug ? service.color : 'transparent',
+                          backgroundColor: service.color,
+                        }}
+                      >
+                        {/* Full color overlay */}
+                        <div 
+                          className="absolute inset-0 transition-opacity duration-300"
+                          style={{ backgroundColor: service.color }}
+                        />
+                        
+                        {/* Content */}
+                        <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+                          {/* Icon */}
+                          <div className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                            <service.icon className="w-7 h-7 text-white" />
+                          </div>
+                          
+                          {/* Name */}
+                          <h4 className="text-white font-display font-bold text-lg leading-tight mb-2">
+                            {service.name}
+                          </h4>
+                          
+                          {/* Description - shows on hover */}
+                          <p className="text-white/80 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
+                            {service.description}
+                          </p>
+                        </div>
+
+                        {/* Hover brightness effect */}
+                        <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

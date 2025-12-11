@@ -54,7 +54,7 @@ const stats = [
 // Split logos into groups of 24 (4 rows x 6 columns) for carousel
 const logoGroups = [
   clientLogos.slice(0, 24),
-  clientLogos.slice(0, 24), // Duplicate for demo - in real use, add more logos
+  clientLogos.slice(0, 24),
   clientLogos.slice(0, 24),
 ];
 
@@ -69,13 +69,9 @@ export const SocialProofSection = () => {
   }, []);
 
   return (
-    <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(43, 30%, 8%) 0%, hsl(43, 20%, 5%) 50%, hsl(43, 30%, 8%) 100%)' }}>
-      {/* Background glow */}
+    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-secondary/50 via-background to-secondary/30">
+      {/* Background decorative elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-      
-      {/* Gold accent lines */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Logo Wall - 4x6 Grid Auto-scrolling Carousel */}
@@ -86,7 +82,7 @@ export const SocialProofSection = () => {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <h3 className="text-center text-primary/60 text-sm tracking-[0.3em] uppercase font-display font-semibold mb-10">
+          <h3 className="text-center text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-10">
             Trusted By Leading Brands
           </h3>
 
@@ -104,24 +100,19 @@ export const SocialProofSection = () => {
                 {logoGroups[currentGroup].map((logo) => (
                   <div
                     key={logo.id}
-                    className="group aspect-[3/2] bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/30 rounded-lg flex items-center justify-center hover:border-primary/60 hover:shadow-gold transition-all duration-300 p-3 relative overflow-hidden"
+                    className="group aspect-[3/2] bg-white border border-border rounded-xl flex items-center justify-center hover:border-primary/40 hover:shadow-lg transition-all duration-300 p-3 relative overflow-hidden"
                   >
-                    {/* Gold shine overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 opacity-60" />
                     <motion.div 
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
                     />
                     <img 
                       src={logo.logo} 
                       alt={logo.name}
-                      className="max-w-full max-h-full object-contain relative z-10"
-                      style={{
-                        filter: 'sepia(100%) saturate(300%) brightness(0.9) hue-rotate(10deg)',
-                      }}
+                      className="max-w-full max-h-full object-contain relative z-10 grayscale group-hover:grayscale-0 transition-all duration-300"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
-                        target.parentElement!.innerHTML = `<span class="text-primary text-xs font-display font-bold relative z-10">${logo.name}</span>`;
+                        target.parentElement!.innerHTML = `<span class="text-foreground text-xs font-display font-bold relative z-10">${logo.name}</span>`;
                       }}
                     />
                   </div>
@@ -154,17 +145,7 @@ export const SocialProofSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-16"
         >
-          <div className="relative bg-gradient-to-r from-primary/10 via-primary/15 to-primary/10 border border-primary/30 rounded-xl px-8 py-8 overflow-hidden max-w-xl mx-auto">
-            {/* Glow overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
-            
-            {/* Shine effect */}
-            <motion.div
-              className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent"
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-
+          <div className="relative bg-white border border-border rounded-2xl px-8 py-8 overflow-hidden max-w-xl mx-auto shadow-lg">
             <div className="relative z-10 flex flex-col items-center text-center">
               {/* Stars on top */}
               <div className="flex items-center gap-1 mb-4">
@@ -177,10 +158,7 @@ export const SocialProofSection = () => {
                     transition={{ delay: 0.3 + i * 0.1, duration: 0.3 }}
                   >
                     <Star
-                      className="w-10 h-10 text-primary fill-primary"
-                      style={{
-                        filter: "drop-shadow(0 0 12px hsl(43, 65%, 52%, 0.8))",
-                      }}
+                      className="w-10 h-10 text-yellow-400 fill-yellow-400"
                     />
                   </motion.div>
                 ))}
@@ -188,13 +166,13 @@ export const SocialProofSection = () => {
 
               {/* Rating text below stars */}
               <div className="mb-2">
-                <span className="text-4xl md:text-5xl font-display font-black text-metallic-gold">
+                <span className="text-4xl md:text-5xl font-display font-black text-foreground">
                   4.8 / 5.0
                 </span>
               </div>
               
               <p className="text-muted-foreground font-display">
-                Based on <span className="text-primary-soft font-bold">600+</span> Google Reviews
+                Based on <span className="text-primary font-bold">600+</span> Google Reviews
               </p>
               
               <p className="text-muted-foreground/80 text-sm font-display">
@@ -223,21 +201,17 @@ export const SocialProofSection = () => {
               >
                 {/* Icon */}
                 <div className="flex justify-center mb-4">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:shadow-gold transition-all duration-300">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
                     <stat.icon className="w-6 h-6 text-primary" />
                   </div>
                 </div>
                 
                 <div className="relative inline-block mb-3">
-                  <span className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-metallic-gold">
+                  <span className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-primary">
                     {stat.number}
                   </span>
-                  {/* Glow effect */}
-                  <motion.div
-                    className="absolute -inset-4 bg-primary/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  />
                 </div>
-                <h4 className="text-lg md:text-xl font-display font-bold text-primary-soft mb-2">
+                <h4 className="text-lg md:text-xl font-display font-bold text-foreground mb-2">
                   {stat.label}
                 </h4>
                 <p className="text-muted-foreground text-sm font-display">{stat.description}</p>
