@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GoldParticles } from "@/components/GoldParticles";
 import { OurTeam } from "@/components/OurTeam";
+import { SEO } from "@/components/SEO";
 import { 
   Target, Eye, Heart, Sparkles, Award, Zap, 
   Users, Lightbulb, Palette, Mic, Film, Star,
@@ -164,6 +165,12 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="About Us | Team Elevate"
+        description="Learn about Team Elevate - Singapore's premier corporate event specialists. Since 2019, we've executed 1000+ events for 100,000+ participants with our Creative, Authentic, Lasting, Exceptional, Boundless, and Eccentric approach."
+        keywords="about Team Elevate, Singapore event company, corporate event planners, event specialists Singapore"
+        canonical="https://teamelevate.sg/about"
+      />
       <Navbar />
       
       {/* SECTION 1 - HERO BANNER - Elegant with smaller text */}

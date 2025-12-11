@@ -10,10 +10,18 @@ import { CTASection } from "@/components/CTASection";
 import { CredibilitySection } from "@/components/CredibilitySection";
 import { Footer } from "@/components/Footer";
 import { GoldParticles } from "@/components/GoldParticles";
+import { SEO } from "@/components/SEO";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Team Elevate | Singapore's Premier Corporate Event Specialists"
+        description="Where Moments Become Masterpieces. Premium corporate events, galas, team building, dinner & dance, and brand activations in Singapore. 1000+ events executed."
+        keywords="corporate events Singapore, team building Singapore, dinner and dance, awards ceremony, brand activation, event planner Singapore"
+        canonical="https://teamelevate.sg"
+      />
+      <GoldParticles />
       <GoldParticles />
       <Navbar />
       <main>
