@@ -11,6 +11,11 @@ import {
   Plane 
 } from "lucide-react";
 
+// Import generated event photos
+import teamCelebration from "@/assets/events/team-celebration-1.jpg";
+import dinnerDance from "@/assets/events/dinner-dance-1.jpg";
+import awardsCeremony from "@/assets/events/awards-ceremony-1.jpg";
+
 const servicePillars = [
   { icon: Music, labelTop: "Dinner", labelBottom: "& Dance" },
   { icon: Users, labelTop: "Team", labelBottom: "Building" },
@@ -46,15 +51,15 @@ export const HeroSection = () => {
         <div className="absolute inset-0 grid grid-cols-3 gap-1 opacity-40">
           <div 
             className="bg-cover bg-center"
-            style={{ backgroundImage: `url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800)` }}
+            style={{ backgroundImage: `url(${teamCelebration})` }}
           />
           <div 
             className="bg-cover bg-center"
-            style={{ backgroundImage: `url(https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800)` }}
+            style={{ backgroundImage: `url(${dinnerDance})` }}
           />
           <div 
             className="bg-cover bg-center"
-            style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800)` }}
+            style={{ backgroundImage: `url(${awardsCeremony})` }}
           />
         </div>
         

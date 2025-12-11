@@ -11,6 +11,12 @@ import {
   Quote, Rocket, Globe
 } from "lucide-react";
 
+// Import generated event photos
+import teamCelebration from "@/assets/events/team-celebration-1.jpg";
+import dinnerDance from "@/assets/events/dinner-dance-1.jpg";
+import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
+import overseasRetreat from "@/assets/events/overseas-retreat-1.jpg";
+
 // Counter animation hook
 const useCountUp = (end: number, duration: number = 2000, startOnView: boolean = true) => {
   const [count, setCount] = useState(0);
@@ -178,7 +184,7 @@ const AboutPage = () => {
         {/* Background Image - Asian corporate event setting */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=1920&h=1080&fit=crop"
+            src={teamCelebration}
             alt="Corporate Event"
             className="w-full h-full object-cover"
           />
@@ -249,7 +255,7 @@ const AboutPage = () => {
         {/* Background Image - Asian corporate setting */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&h=1080&fit=crop"
+            src={overseasRetreat}
             alt="Asian Corporate Team"
             className="w-full h-full object-cover"
           />
@@ -293,7 +299,7 @@ const AboutPage = () => {
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-border-gold/30">
                 <img
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=600&fit=crop"
+                  src={teamBuildingOutdoor}
                   alt="Asian Team Celebration"
                   className="w-full h-full object-cover"
                 />
@@ -313,7 +319,7 @@ const AboutPage = () => {
         {/* Background */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1920&h=1080&fit=crop"
+            src={dinnerDance}
             alt="Event Background"
             className="w-full h-full object-cover"
           />

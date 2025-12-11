@@ -1,45 +1,56 @@
 import { motion } from "framer-motion";
 
+// Import team member photos
+import marcusTan from "@/assets/team/marcus-tan.jpg";
+import rachelLim from "@/assets/team/rachel-lim.jpg";
+import danielWong from "@/assets/team/daniel-wong.jpg";
+import priyaSharma from "@/assets/team/priya-sharma.jpg";
+import kevinLee from "@/assets/team/kevin-lee.jpg";
+import michelleChen from "@/assets/team/michelle-chen.jpg";
+import jasonNg from "@/assets/team/jason-ng.jpg";
+import sarahGoh from "@/assets/team/sarah-goh.jpg";
+import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
+
 const teamMembers = [
   {
     name: "Marcus Tan",
     title: "Founder & Creative Director",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+    image: marcusTan
   },
   {
     name: "Rachel Lim",
     title: "Head of Operations",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face"
+    image: rachelLim
   },
   {
     name: "Daniel Wong",
     title: "Lead Event Producer",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
+    image: danielWong
   },
   {
     name: "Priya Sharma",
     title: "Senior Experience Designer",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face"
+    image: priyaSharma
   },
   {
     name: "Kevin Lee",
     title: "Technical Director",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face"
+    image: kevinLee
   },
   {
     name: "Michelle Chen",
     title: "Client Relations Manager",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face"
+    image: michelleChen
   },
   {
     name: "Jason Ng",
     title: "Lead Facilitator",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face"
+    image: jasonNg
   },
   {
     name: "Sarah Goh",
     title: "Creative Producer",
-    image: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=400&fit=crop&crop=face"
+    image: sarahGoh
   }
 ];
 
@@ -49,7 +60,7 @@ export const OurTeam = () => {
       {/* Background */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop"
+          src={teamBuildingOutdoor}
           alt="Team Background"
           className="w-full h-full object-cover"
         />
