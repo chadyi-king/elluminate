@@ -1,27 +1,27 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Palette, Rocket } from "lucide-react";
+import { MessageCircle, Lightbulb, Sparkles } from "lucide-react";
 
 const steps = [
   {
     icon: MessageCircle,
     number: "01",
     title: "Share Your Vision",
-    description: "Tell us about your team, goals, and what kind of experience you're looking for. We'll listen and understand your unique needs.",
+    description: "Tell us about your team and goals. We listen and understand what spark you want to ignite.",
     color: "#FFC400",
   },
   {
-    icon: Palette,
+    icon: Lightbulb,
     number: "02",
-    title: "We Design & Plan",
-    description: "Our team crafts a customized activity experience tailored to your objectives, team size, and preferences.",
-    color: "#26D07C",
+    title: "We Illuminate the Path",
+    description: "Our team crafts a customized experience designed to brighten your team's dynamics.",
+    color: "#1F7CFF",
   },
   {
-    icon: Rocket,
+    icon: Sparkles,
     number: "03",
-    title: "Experience the Magic",
-    description: "Sit back and watch your team connect, collaborate, and create memories that last. We handle everything.",
-    color: "#1F7CFF",
+    title: "Watch Your Team Shine",
+    description: "Experience the transformation as your team connects, collaborates, and lights up together.",
+    color: "#26D07C",
   },
 ];
 
@@ -45,10 +45,10 @@ export const JourneySection = () => {
             Simple Process
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-4">
-            How It Works
+            How We <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Ignite</span> Your Team
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Getting started with Elluminate is easy. Here's how we create amazing experiences for your team.
+            Getting started with Elluminate is easy. Here's how we illuminate your team's potential.
           </p>
         </motion.div>
 
@@ -56,7 +56,7 @@ export const JourneySection = () => {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             {/* Connecting line for desktop */}
-            <div className="hidden md:block absolute top-24 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-yellow-400 via-green-400 to-blue-400" />
+            <div className="hidden md:block absolute top-24 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-yellow-400 via-primary to-green-400" />
             
             {steps.map((step, index) => (
               <motion.div

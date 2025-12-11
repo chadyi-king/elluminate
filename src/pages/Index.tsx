@@ -9,14 +9,13 @@ import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { LightbulbCursor } from "@/components/LightbulbCursor";
-import { MarqueeBanner } from "@/components/MarqueeBanner";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
         title="Elluminate | Ignite the Spark in Your Teams | Corporate Team Building Singapore"
-        description="Transform your workforce with engaging team building experiences. Physical & virtual activities, retreats, and training programs. 500+ events delivered in Singapore."
+        description="Transform your workforce with engaging team building experiences. Physical & virtual activities, retreats, and training programs. 1,000+ events delivered in Singapore."
         keywords="team building Singapore, corporate team building, virtual team building, amazing race, company retreats, corporate training"
         canonical="https://elluminate.sg"
       />
@@ -27,7 +26,6 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <MarqueeBanner />
         <SocialProofSection />
         <WhyUsSection />
         <ServicesSection />
