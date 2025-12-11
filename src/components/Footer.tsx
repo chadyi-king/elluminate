@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { 
   Instagram, 
@@ -7,15 +6,16 @@ import {
   Mail, 
   Phone, 
   MapPin,
-  MessageCircle
+  MessageCircle,
+  Lightbulb
 } from "lucide-react";
 
 const quickLinks = [
-  { name: "About Us", path: "/#why-us" },
-  { name: "Blog", path: "/blog" },
-  { name: "Online Team Building", path: "/services/team-building" },
-  { name: "Company Retreats", path: "/services/company-retreats" },
-  { name: "Amazing Race Virtual", path: "/services/team-building" },
+  { name: "About Us", path: "/about" },
+  { name: "Team Building", path: "/services/amazing-race" },
+  { name: "Retreats", path: "/services/overseas-retreats" },
+  { name: "Training", path: "/services/workshops" },
+  { name: "Portfolio", path: "/portfolio" },
 ];
 
 const socialLinks = [
@@ -26,66 +26,51 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-background-deep border-t border-border-gold/20">
-      <div className="container mx-auto px-6 py-12">
-        {/* Main footer content - single row layout */}
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-4">
-          {/* Brand - Left side, smaller */}
-          <div className="flex-shrink-0">
-            <Link to="/" className="inline-block mb-3">
-              <div className="flex flex-col items-center">
-                <div className="w-14 h-14 bg-primary/20 border-2 border-primary rounded-lg flex items-center justify-center mb-1">
-                  <span className="text-primary font-display font-black text-xl">TE</span>
-                </div>
-                <span className="text-primary font-display text-xs tracking-wider font-bold">
-                  TEAM
-                </span>
-                <span className="text-metallic-gold font-display text-base tracking-[0.15em] font-black">
-                  ELEVATE
-                </span>
-                <span className="text-primary/60 text-[8px] tracking-wider font-display">
-                  BUILD . INSPIRE . RAISE
-                </span>
+    <footer className="bg-foreground text-background">
+      <div className="container mx-auto px-6 py-16">
+        {/* Main footer content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand */}
+          <div>
+            <Link to="/" className="flex items-center gap-2 mb-6">
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                <Lightbulb className="w-6 h-6 text-primary-foreground" />
               </div>
+              <span className="text-2xl font-display font-bold text-background">
+                <span className="text-primary">E</span>lluminate
+              </span>
             </Link>
             
-            <p className="text-muted-foreground text-xs leading-relaxed mb-2 font-sans">
-              We are the Corporate Events arm of
-            </p>
-            <p className="text-primary font-display font-bold text-sm mb-0.5">
-              EXSTATIC PTE LTD
-            </p>
-            <p className="text-primary/70 text-xs font-sans mb-4">
-              [UEN No. 202243915R]
+            <p className="text-background/70 text-sm leading-relaxed mb-6">
+              Illuminate Your Teams with engaging team building experiences that inspire collaboration and create lasting connections.
             </p>
             
             {/* Social Links */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
-                  className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-background-deep hover:bg-primary-ember transition-all duration-300"
+                  className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center text-background hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-4 h-4" />
+                  <social.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links - Center */}
-          <div className="flex-shrink-0">
-            <h4 className="text-foreground font-display font-bold text-sm mb-4 relative">
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-background font-display font-semibold text-lg mb-6">
               Quick Links
-              <span className="absolute -bottom-1 left-0 w-8 h-px bg-primary" />
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-muted-foreground hover:text-primary text-xs transition-colors duration-300 font-sans"
+                    className="text-background/70 hover:text-primary text-sm transition-colors duration-300"
                   >
                     {link.name}
                   </Link>
@@ -95,38 +80,37 @@ export const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="flex-shrink-0">
-            <h4 className="text-foreground font-display font-bold text-sm mb-4 relative">
-              Contact Information
-              <span className="absolute -bottom-1 left-0 w-8 h-px bg-primary" />
+          <div>
+            <h4 className="text-background font-display font-semibold text-lg mb-6">
+              Contact Us
             </h4>
             
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li>
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-muted-foreground text-xs font-sans">
-                    165 BUKIT MERAH CENTRAL #05-3667,<br />
-                    SINGAPORE 150165
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span className="text-background/70 text-sm">
+                    165 Bukit Merah Central #05-3667,<br />
+                    Singapore 150165
                   </span>
                 </div>
               </li>
               <li>
                 <a
                   href="tel:+6588062446"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary text-xs transition-colors duration-300 font-sans"
+                  className="flex items-center gap-3 text-background/70 hover:text-primary text-sm transition-colors duration-300"
                 >
-                  <Phone className="w-4 h-4 text-primary" />
+                  <Phone className="w-5 h-5 text-primary" />
                   +65 8806 2446
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@teamelevate.sg"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary text-xs transition-colors duration-300 font-sans"
+                  href="mailto:hello@elluminate.sg"
+                  className="flex items-center gap-3 text-background/70 hover:text-primary text-sm transition-colors duration-300"
                 >
-                  <Mail className="w-4 h-4 text-primary" />
-                  info@teamelevate.sg
+                  <Mail className="w-5 h-5 text-primary" />
+                  hello@elluminate.sg
                 </a>
               </li>
               <li>
@@ -134,9 +118,9 @@ export const Footer = () => {
                   href="https://wa.me/6588062446"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary text-xs transition-colors duration-300 font-sans"
+                  className="flex items-center gap-3 text-background/70 hover:text-primary text-sm transition-colors duration-300"
                 >
-                  <MessageCircle className="w-4 h-4 text-primary" />
+                  <MessageCircle className="w-5 h-5 text-primary" />
                   WhatsApp Us
                 </a>
               </li>
@@ -144,8 +128,11 @@ export const Footer = () => {
           </div>
 
           {/* Map */}
-          <div className="flex-shrink-0 w-full lg:w-64">
-            <div className="relative rounded-lg overflow-hidden border border-border-gold/30 bg-card/50 h-40">
+          <div>
+            <h4 className="text-background font-display font-semibold text-lg mb-6">
+              Find Us
+            </h4>
+            <div className="relative rounded-xl overflow-hidden border border-background/10 h-48">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8186833089384!2d103.8168!3d1.2878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19756d49ca91%3A0x8b98bd0e4f8f5c3d!2s165%20Bukit%20Merah%20Central%2C%20Singapore%20150165!5e0!3m2!1sen!2ssg!4v1699000000000!5m2!1sen!2ssg"
                 width="100%"
@@ -154,19 +141,19 @@ export const Footer = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Team Elevate Location"
+                title="Elluminate Location"
               />
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="mt-10 pt-6 border-t border-border-gold/20">
+        <div className="mt-12 pt-8 border-t border-background/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-muted-foreground/60 text-xs font-sans">
-              © {new Date().getFullYear()} Team Elevate. All rights reserved.
+            <p className="text-background/50 text-sm">
+              © {new Date().getFullYear()} Elluminate. All rights reserved.
             </p>
-            <p className="text-muted-foreground/40 text-xs font-sans">
+            <p className="text-background/40 text-sm">
               8 Years of Excellence — Since 2017
             </p>
           </div>

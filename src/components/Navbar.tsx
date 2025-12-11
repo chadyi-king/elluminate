@@ -1,46 +1,46 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 
-const corporateServices = [
-  { name: "Corporate Team Building", slug: "team-building" },
-  { name: "Dinner & Dance", slug: "dinner-and-dance" },
-  { name: "Awards Ceremonies", slug: "awards-ceremonies" },
-  { name: "Corporate Anniversaries", slug: "corporate-anniversaries" },
-  { name: "Leadership Offsites", slug: "leadership-offsites" },
-  { name: "Product Launch Events", slug: "product-launch" },
-  { name: "Brand Activations", slug: "brand-activations" },
-  { name: "Client Appreciation", slug: "client-appreciation" },
-  { name: "Town Halls", slug: "town-halls" },
-  { name: "Summits", slug: "summits" },
-  { name: "Government Events", slug: "government-events" },
-  { name: "Private Events", slug: "private-events" },
+// Physical Team Building Activities
+const physicalActivities = [
+  { name: "Amazing Race", slug: "amazing-race" },
+  { name: "CSI Investigation", slug: "csi-investigation" },
+  { name: "Cultural Race", slug: "cultural-race" },
+  { name: "Archery Tag", slug: "archery-tag" },
+  { name: "Laser Tag", slug: "laser-tag" },
+  { name: "Creative Workshops", slug: "creative-workshops" },
+  { name: "Wellness Activities", slug: "wellness-activities" },
+  { name: "Adventure Challenges", slug: "adventure-challenges" },
 ];
 
-const immersiveServices = [
-  { name: "Immersive Experiences", slug: "immersive-experiences" },
-  { name: "Wellness Events", slug: "wellness-events" },
-  { name: "Event Concept Development", slug: "event-concept" },
-  { name: "Stage & AV Production", slug: "stage-production" },
-  { name: "Custom Theme Creation", slug: "custom-themes" },
-  { name: "Emcee / Photo / Video", slug: "emcee-media" },
+// Virtual Team Building Activities
+const virtualActivities = [
+  { name: "Virtual Amazing Race", slug: "virtual-amazing-race" },
+  { name: "Online Escape Room", slug: "online-escape-room" },
+  { name: "Virtual Team Games", slug: "virtual-team-games" },
+  { name: "Remote Wellness", slug: "remote-wellness" },
 ];
 
-const experienceServices = [
+// Retreats
+const retreatServices = [
   { name: "Overseas Retreats", slug: "overseas-retreats" },
-  { name: "Family Fun Days", slug: "family-fun-days" },
-  { name: "Corporate Carnivals", slug: "corporate-carnivals" },
-  { name: "VIP Gala Experiences", slug: "vip-gala" },
-  { name: "Grand Openings", slug: "grand-opening" },
+  { name: "Local Retreats", slug: "local-retreats" },
+  { name: "Travel Planning", slug: "travel-planning" },
+];
+
+// Training
+const trainingServices = [
+  { name: "Mass Talks", slug: "mass-talks" },
+  { name: "Workshops", slug: "workshops" },
+  { name: "Youth Camps", slug: "youth-camps" },
+  { name: "Corporate Days", slug: "corporate-days" },
+  { name: "MBTI Training", slug: "mbti-training" },
+  { name: "DISC Assessment", slug: "disc-assessment" },
+  { name: "OCEAN Profiling", slug: "ocean-profiling" },
 ];
 
 interface DropdownProps {
@@ -49,18 +49,19 @@ interface DropdownProps {
   isOpen: boolean;
   onToggle: () => void;
   onClose: () => void;
+  subGroups?: { title: string; items: { name: string; slug: string }[] }[];
 }
 
-const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps) => {
+const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: DropdownProps) => {
   return (
     <div className="relative group">
       <button
         onClick={onToggle}
         onMouseEnter={onToggle}
-        className="flex items-center gap-1.5 text-[#D2B450]/80 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium py-2"
+        className="flex items-center gap-1.5 text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium py-2"
       >
         {label}
-        <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       
       <AnimatePresence>
@@ -71,20 +72,45 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
             onMouseLeave={onClose}
-            className="absolute top-full left-0 mt-2 w-56 bg-background-deep border border-border-gold/30 rounded-lg shadow-xl overflow-hidden z-50"
+            className="absolute top-full left-0 mt-2 w-64 bg-background border border-border rounded-xl shadow-card overflow-hidden z-50"
           >
-            <div className="py-2 max-h-80 overflow-y-auto scrollbar-gold">
-              {items.map((item) => (
-                <Link
-                  key={item.slug}
-                  to={`/services/${item.slug}`}
-                  onClick={onClose}
-                  className="block px-4 py-2 text-[10px] tracking-[0.05em] text-white/70 hover:text-white hover:bg-primary/10 transition-colors font-display"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+            {subGroups ? (
+              <div className="py-2">
+                {subGroups.map((group, idx) => (
+                  <div key={group.title}>
+                    <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                      {group.title}
+                    </div>
+                    {group.items.map((item) => (
+                      <Link
+                        key={item.slug}
+                        to={`/services/${item.slug}`}
+                        onClick={onClose}
+                        className="block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                    {idx < subGroups.length - 1 && (
+                      <div className="my-2 border-t border-border" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="py-2 max-h-80 overflow-y-auto scrollbar-blue">
+                {items.map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={`/services/${item.slug}`}
+                    onClick={onClose}
+                    className="block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -95,7 +121,6 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose }: DropdownProps)
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [showComingSoon, setShowComingSoon] = useState(false);
   const location = useLocation();
   const { openContactModal } = useContactModal();
 
@@ -109,227 +134,187 @@ export const Navbar = () => {
 
   const isActive = (path: string) => {
     if (path === '/') return location.pathname === '/';
-    return location.pathname.startsWith(path) || location.hash === path;
+    return location.pathname.startsWith(path);
   };
 
   const navLinkClass = (path: string) => 
-    `transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium ${
-      isActive(path) ? 'text-white' : 'text-[#D2B450]/80 hover:text-white'
+    `transition-colors duration-300 text-sm font-medium ${
+      isActive(path) ? 'text-primary' : 'text-foreground/70 hover:text-primary'
     }`;
 
   return (
-    <>
-      <motion.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border-gold/20"
-      >
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-center h-16">
-            {/* Left Navigation */}
-            <div className="hidden lg:flex items-center justify-end gap-6 flex-1">
-              <a
-                href="/"
-                className={navLinkClass('/')}
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-b border-border"
+    >
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="flex items-center justify-between h-16">
+          {/* Left Navigation */}
+          <div className="hidden lg:flex items-center gap-6">
+            <Link to="/" className={navLinkClass('/')}>
+              Home
+            </Link>
+            <Link to="/about" className={navLinkClass('/about')}>
+              About
+            </Link>
+            <NavDropdown
+              label="Team Building"
+              items={[]}
+              isOpen={openDropdown === 'team-building'}
+              onToggle={() => handleDropdownToggle('team-building')}
+              onClose={handleDropdownClose}
+              subGroups={[
+                { title: "Physical", items: physicalActivities },
+                { title: "Virtual", items: virtualActivities },
+              ]}
+            />
+          </div>
+
+          {/* Center Logo */}
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center group-hover:shadow-blue transition-shadow">
+              <Lightbulb className="w-5 h-5 text-primary-foreground" />
+            </div>
+            <span className="text-xl font-display font-bold text-foreground">
+              <span className="text-primary">E</span>lluminate
+            </span>
+          </Link>
+
+          {/* Right Navigation */}
+          <div className="hidden lg:flex items-center gap-6">
+            <NavDropdown
+              label="Retreats"
+              items={retreatServices}
+              isOpen={openDropdown === 'retreats'}
+              onToggle={() => handleDropdownToggle('retreats')}
+              onClose={handleDropdownClose}
+            />
+            <NavDropdown
+              label="Training"
+              items={trainingServices}
+              isOpen={openDropdown === 'training'}
+              onToggle={() => handleDropdownToggle('training')}
+              onClose={handleDropdownClose}
+            />
+            <Button 
+              variant="primary" 
+              size="sm"
+              onClick={openContactModal}
+            >
+              Plan My Event
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden text-foreground"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-background border-t border-border overflow-hidden"
+          >
+            <div className="container mx-auto px-6 py-6 flex flex-col gap-4 max-h-[80vh] overflow-y-auto">
+              <Link
+                to="/"
+                onClick={() => setIsOpen(false)}
+                className="text-foreground hover:text-primary transition-colors py-2 font-medium"
               >
                 Home
-              </a>
+              </Link>
               <Link
                 to="/about"
-                className={navLinkClass('/about')}
+                onClick={() => setIsOpen(false)}
+                className="text-foreground hover:text-primary transition-colors py-2 font-medium"
               >
                 About
               </Link>
-              <NavDropdown
-                label="Corporate"
-                items={corporateServices}
-                isOpen={openDropdown === 'corporate'}
-                onToggle={() => handleDropdownToggle('corporate')}
-                onClose={handleDropdownClose}
-              />
-              <NavDropdown
-                label="Immersive"
-                items={immersiveServices}
-                isOpen={openDropdown === 'immersive'}
-                onToggle={() => handleDropdownToggle('immersive')}
-                onClose={handleDropdownClose}
-              />
-            </div>
+              
+              {/* Team Building Section */}
+              <div className="border-t border-border pt-4">
+                <span className="text-primary text-sm font-semibold mb-2 block">Team Building - Physical</span>
+                {physicalActivities.map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={`/services/${item.slug}`}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-foreground/70 hover:text-primary py-1.5 pl-4 text-sm"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
 
-            {/* Center Logo */}
-            <Link to="/" className="flex flex-col items-center flex-shrink-0 mx-8">
-              <span className="text-[#D2B450] font-display text-base tracking-[0.2em] font-bold">
-                TEAM ELEVATE
-              </span>
-              <span className="text-[#D2B450]/50 text-[7px] tracking-[0.25em] uppercase font-display font-normal -mt-0.5">
-                Masterpiece Experiences
-              </span>
-            </Link>
+              <div className="border-t border-border pt-4">
+                <span className="text-primary text-sm font-semibold mb-2 block">Team Building - Virtual</span>
+                {virtualActivities.map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={`/services/${item.slug}`}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-foreground/70 hover:text-primary py-1.5 pl-4 text-sm"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
 
-            {/* Right Navigation */}
-            <div className="hidden lg:flex items-center justify-start gap-6 flex-1">
-              <NavDropdown
-                label="Experience"
-                items={experienceServices}
-                isOpen={openDropdown === 'experience'}
-                onToggle={() => handleDropdownToggle('experience')}
-                onClose={handleDropdownClose}
-              />
-              <Link
-                to="/portfolio"
-                className={navLinkClass('/portfolio')}
-              >
-                Portfolio
-              </Link>
-              <button
-                onClick={() => setShowComingSoon(true)}
-                className="text-[#D2B450]/80 hover:text-white transition-colors duration-300 text-[9px] tracking-[0.15em] uppercase font-display font-medium"
-              >
-                Enhance
-              </button>
+              {/* Retreats Section */}
+              <div className="border-t border-border pt-4">
+                <span className="text-primary text-sm font-semibold mb-2 block">Retreats</span>
+                {retreatServices.map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={`/services/${item.slug}`}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-foreground/70 hover:text-primary py-1.5 pl-4 text-sm"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Training Section */}
+              <div className="border-t border-border pt-4">
+                <span className="text-primary text-sm font-semibold mb-2 block">Training</span>
+                {trainingServices.map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={`/services/${item.slug}`}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-foreground/70 hover:text-primary py-1.5 pl-4 text-sm"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+              
               <Button 
-                variant="gold" 
-                size="sm" 
-                className="font-display font-semibold text-[9px] tracking-[0.15em] uppercase"
-                onClick={openContactModal}
+                variant="primary" 
+                className="mt-4"
+                onClick={() => {
+                  setIsOpen(false);
+                  openContactModal();
+                }}
               >
-                GET STARTED
+                Plan My Event
               </Button>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden text-primary ml-auto"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-background-deep border-t border-border-gold/20 overflow-hidden"
-            >
-              <div className="container mx-auto px-6 py-6 flex flex-col gap-4 max-h-[70vh] overflow-y-auto">
-                <a
-                  href="/"
-                  onClick={() => setIsOpen(false)}
-                  className="text-primary hover:text-white transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2"
-                >
-                  Home
-                </a>
-                <a
-                  href="/#why-us"
-                  onClick={() => setIsOpen(false)}
-                  className="text-primary hover:text-white transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2"
-                >
-                  About
-                </a>
-                
-                {/* Corporate Dropdown */}
-                <div className="border-t border-border-gold/20 pt-4">
-                  <span className="text-white text-xs tracking-wider uppercase font-display font-semibold mb-2 block">Corporate</span>
-                  {corporateServices.map((item) => (
-                    <Link
-                      key={item.slug}
-                      to={`/services/${item.slug}`}
-                      onClick={() => setIsOpen(false)}
-                      className="block text-primary hover:text-white transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-
-                {/* Immersive Dropdown */}
-                <div className="border-t border-border-gold/20 pt-4">
-                  <span className="text-white text-xs tracking-wider uppercase font-display font-semibold mb-2 block">Immersive</span>
-                  {immersiveServices.map((item) => (
-                    <Link
-                      key={item.slug}
-                      to={`/services/${item.slug}`}
-                      onClick={() => setIsOpen(false)}
-                      className="block text-primary hover:text-white transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-
-                {/* Experience Dropdown */}
-                <div className="border-t border-border-gold/20 pt-4">
-                  <span className="text-white text-xs tracking-wider uppercase font-display font-semibold mb-2 block">Experience</span>
-                  {experienceServices.map((item) => (
-                    <Link
-                      key={item.slug}
-                      to={`/services/${item.slug}`}
-                      onClick={() => setIsOpen(false)}
-                      className="block text-primary hover:text-white transition-colors duration-300 text-sm py-1.5 pl-4 font-display"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-
-                <Link
-                  to="/portfolio"
-                  onClick={() => setIsOpen(false)}
-                  className="text-primary hover:text-white transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2 border-t border-border-gold/20 pt-4"
-                >
-                  Portfolio
-                </Link>
-
-                <button
-                  onClick={() => {
-                    setIsOpen(false);
-                    setShowComingSoon(true);
-                  }}
-                  className="text-primary hover:text-white transition-colors duration-300 text-sm tracking-wider uppercase font-display font-semibold py-2 text-left"
-                >
-                  Enhancing Events
-                </button>
-                
-                <Button 
-                  variant="gold-outline" 
-                  className="mt-4 font-display font-semibold"
-                  onClick={() => {
-                    setIsOpen(false);
-                    openContactModal();
-                  }}
-                >
-                  Get Started
-                </Button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.nav>
-
-      {/* Coming Soon Dialog */}
-      <Dialog open={showComingSoon} onOpenChange={setShowComingSoon}>
-        <DialogContent className="bg-background-deep border-border-gold/30 max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-display font-bold text-metallic-gold text-center">
-              Coming Soon
-            </DialogTitle>
-          </DialogHeader>
-          <div className="text-center py-6">
-            <p className="text-muted-foreground font-display">
-              Our blog <span className="text-primary font-semibold">Enhancing Events</span> is currently under development.
-            </p>
-            <p className="text-muted-foreground/80 font-display mt-2 text-sm">
-              Stay tuned for insights, tips, and behind-the-scenes content!
-            </p>
-          </div>
-        </DialogContent>
-      </Dialog>
-    </>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };

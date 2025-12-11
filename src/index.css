@@ -2,74 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
-    /* Deep Dark Background Colors */
-    --background: 240 10% 4%;
-    --background-deep: 240 12% 3%;
-    --background-card: 240 8% 6%;
-    --foreground: 45 20% 95%;
+    /* Light Background Colors - Clean White */
+    --background: 0 0% 100%;
+    --background-deep: 220 20% 97%;
+    --background-card: 220 20% 98%;
+    --foreground: 220 20% 10%;
 
-    /* Light/Gold Accent Background */
-    --background-light: 45 30% 95%;
-    --background-gold-soft: 43 40% 92%;
+    /* Secondary Background */
+    --background-light: 220 20% 97%;
+    --background-secondary: 220 25% 97%;
 
     /* Card & Surface Colors */
-    --card: 240 8% 7%;
-    --card-foreground: 45 20% 95%;
-    --popover: 240 8% 6%;
-    --popover-foreground: 45 20% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
 
-    /* Gold Primary Colors */
-    --primary: 43 65% 52%;
-    --primary-foreground: 240 10% 4%;
-    --primary-glow: 43 70% 60%;
-    --primary-deep: 43 60% 46%;
-    --primary-soft: 45 50% 80%;
-    --primary-ember: 40 100% 71%;
+    /* Primary Blue Colors */
+    --primary: 214 100% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 208 100% 74%;
+    --primary-deep: 214 100% 45%;
+    --primary-soft: 208 100% 85%;
 
     /* Secondary & Muted */
-    --secondary: 240 6% 12%;
-    --secondary-foreground: 45 20% 90%;
-    --muted: 240 6% 15%;
-    --muted-foreground: 45 10% 55%;
+    --secondary: 220 20% 97%;
+    --secondary-foreground: 220 20% 20%;
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
 
-    /* Accent Gold */
-    --accent: 43 65% 52%;
-    --accent-foreground: 240 10% 4%;
+    /* Accent Blue */
+    --accent: 214 100% 56%;
+    --accent-foreground: 0 0% 100%;
 
     /* UI Elements */
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 43 30% 20%;
-    --border-gold: 43 50% 35%;
-    --input: 240 6% 12%;
-    --ring: 43 65% 52%;
-    --radius: 0.5rem;
+    --border: 220 15% 85%;
+    --border-accent: 214 60% 70%;
+    --input: 220 15% 92%;
+    --ring: 214 100% 56%;
+    --radius: 0.75rem;
 
-    /* Sidebar */
-    --sidebar-background: 240 10% 5%;
-    --sidebar-foreground: 45 20% 90%;
-    --sidebar-primary: 43 65% 52%;
-    --sidebar-primary-foreground: 240 10% 4%;
-    --sidebar-accent: 240 6% 12%;
-    --sidebar-accent-foreground: 45 20% 90%;
-    --sidebar-border: 43 30% 15%;
-    --sidebar-ring: 43 65% 52%;
+    /* Sidebar - Light theme */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 20%;
+    --sidebar-primary: 214 100% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 97%;
+    --sidebar-accent-foreground: 220 20% 20%;
+    --sidebar-border: 220 15% 90%;
+    --sidebar-ring: 214 100% 56%;
 
-    /* Custom Gold Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(43, 65%, 52%) 0%, hsl(40, 100%, 71%) 50%, hsl(43, 60%, 46%) 100%);
-    --gradient-gold-text: linear-gradient(180deg, hsl(45, 50%, 80%) 0%, hsl(43, 65%, 52%) 50%, hsl(43, 60%, 46%) 100%);
-    --gradient-gold-shine: linear-gradient(90deg, transparent 0%, hsl(43, 65%, 52%, 0.4) 50%, transparent 100%);
-    --gradient-gold-glow: radial-gradient(ellipse at center, hsl(43, 65%, 52%, 0.3) 0%, transparent 70%);
-    --gradient-spotlight: radial-gradient(ellipse at center bottom, hsl(43, 65%, 52%, 0.15) 0%, transparent 60%);
+    /* Custom Blue Gradients */
+    --gradient-sky: linear-gradient(180deg, hsl(208, 100%, 74%) 0%, hsl(214, 100%, 56%) 100%);
+    --gradient-blue-radial: radial-gradient(ellipse at center, hsl(214, 100%, 56%, 0.2) 0%, transparent 70%);
+    --gradient-light: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(220, 20%, 97%) 100%);
     
     /* Shadows */
-    --shadow-gold: 0 0 40px hsl(43, 65%, 52%, 0.3);
-    --shadow-gold-intense: 0 0 80px hsl(43, 65%, 52%, 0.4);
-    --shadow-gold-glow: 0 4px 30px hsl(43, 65%, 52%, 0.25);
+    --shadow-blue: 0 4px 30px hsl(214, 100%, 56%, 0.15);
+    --shadow-blue-intense: 0 8px 50px hsl(214, 100%, 56%, 0.25);
+    --shadow-soft: 0 2px 20px hsl(220, 20%, 10%, 0.08);
   }
 }
 
@@ -84,12 +81,12 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
   }
 
   .font-display {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   .font-sans {
@@ -97,82 +94,62 @@
   }
 
   ::selection {
-    background: hsl(var(--primary) / 0.3);
+    background: hsl(var(--primary) / 0.2);
     color: hsl(var(--foreground));
   }
 }
 
 @layer utilities {
-  /* Gold Text Gradient */
-  .text-gold-gradient {
-    background: var(--gradient-gold-text);
+  /* Blue Text Gradient */
+  .text-blue-gradient {
+    background: var(--gradient-sky);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Metallic Gold Text */
-  .text-metallic-gold {
+  /* Brand Gradient Text */
+  .text-brand-gradient {
     background: linear-gradient(
-      180deg,
-      hsl(45, 50%, 85%) 0%,
-      hsl(43, 65%, 60%) 25%,
-      hsl(43, 65%, 52%) 50%,
-      hsl(43, 60%, 40%) 75%,
-      hsl(43, 65%, 55%) 100%
+      135deg,
+      hsl(214, 100%, 56%) 0%,
+      hsl(208, 100%, 74%) 50%,
+      hsl(214, 100%, 56%) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 2px 4px hsl(43, 65%, 52%, 0.3));
   }
 
-  /* Trophy Gold Effect */
-  .text-trophy-gold {
-    background: linear-gradient(
-      180deg,
-      hsl(45, 60%, 90%) 0%,
-      hsl(43, 70%, 65%) 20%,
-      hsl(43, 65%, 52%) 40%,
-      hsl(43, 55%, 35%) 60%,
-      hsl(43, 65%, 52%) 80%,
-      hsl(45, 60%, 75%) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 4px 8px hsl(43, 65%, 52%, 0.4));
+  /* Blue Glow Effect */
+  .glow-blue {
+    box-shadow: var(--shadow-blue);
   }
 
-  /* Gold Glow Effect */
-  .glow-gold {
-    box-shadow: var(--shadow-gold);
+  .glow-blue-intense {
+    box-shadow: var(--shadow-blue-intense);
   }
 
-  .glow-gold-intense {
-    box-shadow: var(--shadow-gold-intense);
-  }
-
-  /* Gold Border Gradient */
-  .border-gold-gradient {
+  /* Border Gradient */
+  .border-gradient {
     border: 1px solid transparent;
     background: linear-gradient(var(--background), var(--background)) padding-box,
-                var(--gradient-gold) border-box;
+                var(--gradient-sky) border-box;
   }
 
   /* Spotlight Background */
   .bg-spotlight {
-    background: var(--gradient-spotlight);
+    background: var(--gradient-blue-radial);
   }
 
   /* Light section background */
   .bg-section-light {
-    background: linear-gradient(180deg, hsl(45, 30%, 95%) 0%, hsl(45, 25%, 92%) 100%);
+    background: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(220, 20%, 97%) 100%);
   }
 
-  /* Gold tinted section */
-  .bg-section-gold {
-    background: linear-gradient(180deg, hsl(43, 30%, 10%) 0%, hsl(43, 25%, 8%) 100%);
+  /* Secondary section */
+  .bg-section-secondary {
+    background: hsl(220, 25%, 97%);
   }
 
   /* Animated shine effect */
@@ -188,7 +165,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: var(--gradient-gold-shine);
+    background: linear-gradient(90deg, transparent 0%, hsl(214, 100%, 56%, 0.1) 25%, hsl(214, 100%, 56%, 0.2) 50%, hsl(214, 100%, 56%, 0.1) 75%, transparent 100%);
     animation: shine 3s infinite;
   }
 
@@ -197,7 +174,40 @@
     50%, 100% { left: 100%; }
   }
 
-  /* Particle float animation */
+  /* Lightbulb glow cursor effect */
+  .cursor-glow {
+    position: relative;
+  }
+
+  .cursor-glow::before {
+    content: '';
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsl(214, 100%, 56%, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+
+  /* Scroll fade-up animation */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
+  }
+
+  /* Float animation */
   @keyframes float-particle {
     0%, 100% {
       transform: translateY(0) translateX(0) scale(1);
@@ -243,44 +253,57 @@
     animation: rise 0.8s ease-out forwards;
   }
 
-  /* Beam animation */
-  @keyframes beam {
-    0% {
-      opacity: 0;
-      height: 0;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 0;
-      height: 200px;
-    }
+  /* Hover brightness effect */
+  .hover-bright {
+    transition: filter 0.3s ease, transform 0.3s ease;
   }
 
-  /* Custom Scrollbar - Gold & Black */
-  .scrollbar-gold {
+  .hover-bright:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
+
+  /* Activity card full-color overlay */
+  .activity-card-overlay {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .activity-card-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+    transition: opacity 0.3s ease;
+  }
+
+  .activity-card-overlay:hover::after {
+    opacity: 0.8;
+  }
+
+  /* Custom Scrollbar - Blue theme */
+  .scrollbar-blue {
     scrollbar-width: thin;
-    scrollbar-color: hsl(43, 65%, 52%) hsl(240, 10%, 8%);
+    scrollbar-color: hsl(214, 100%, 56%) hsl(220, 20%, 95%);
   }
 
-  .scrollbar-gold::-webkit-scrollbar {
+  .scrollbar-blue::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
-  .scrollbar-gold::-webkit-scrollbar-track {
-    background: hsl(240, 10%, 8%);
+  .scrollbar-blue::-webkit-scrollbar-track {
+    background: hsl(220, 20%, 95%);
     border-radius: 4px;
   }
 
-  .scrollbar-gold::-webkit-scrollbar-thumb {
-    background: hsl(43, 65%, 52%);
+  .scrollbar-blue::-webkit-scrollbar-thumb {
+    background: hsl(214, 100%, 56%);
     border-radius: 4px;
   }
 
-  .scrollbar-gold::-webkit-scrollbar-thumb:hover {
-    background: hsl(43, 70%, 60%);
+  .scrollbar-blue::-webkit-scrollbar-thumb:hover {
+    background: hsl(214, 100%, 45%);
   }
 }
 
@@ -291,20 +314,20 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(240, 10%, 6%);
+  background: hsl(220, 20%, 95%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(43, 65%, 40%);
+  background: hsl(214, 100%, 56%);
   border-radius: 5px;
-  border: 2px solid hsl(240, 10%, 6%);
+  border: 2px solid hsl(220, 20%, 95%);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(43, 65%, 52%);
+  background: hsl(214, 100%, 45%);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: hsl(43, 65%, 40%) hsl(240, 10%, 6%);
+  scrollbar-color: hsl(214, 100%, 56%) hsl(220, 20%, 95%);
 }
