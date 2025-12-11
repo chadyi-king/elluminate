@@ -1651,5 +1651,677 @@ export const servicesData: Record<string, ServiceData> = {
       headline: "Ready to Capture Your Event?",
       subtext: "Let's bring professional hosting and media coverage to your next event."
     }
+  },
+  "summits": {
+    accentColor: "#6366F1",
+    hero: {
+      title: "Corporate Summits",
+      subtitle: "Summit",
+      tagline: "Bring your industry leaders together for impactful discussions and strategic alignment.",
+      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+    },
+    overview: {
+      description: "Host world-class summits that position your organization as an industry leader. From intimate executive roundtables to large-scale industry conferences, we manage every detail to ensure your summit delivers maximum impact and engagement.",
+      backgroundImage: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920"
+    },
+    features: [
+      { icon: Users, title: "Speaker Management", description: "End-to-end coordination of keynote speakers and panelists." },
+      { icon: Monitor, title: "Hybrid Capabilities", description: "Seamless integration of in-person and virtual attendees." },
+      { icon: Mic, title: "Panel Moderation", description: "Professional moderators for engaging discussions." },
+      { icon: Target, title: "Strategic Sessions", description: "Workshops designed to drive actionable outcomes." },
+      { icon: Camera, title: "Content Capture", description: "Professional recording for post-event distribution." },
+      { icon: Sparkles, title: "VIP Experiences", description: "Exclusive networking sessions for key stakeholders." }
+    ],
+    benefits: [
+      { icon: Globe, title: "Thought Leadership", description: "Position your brand at the forefront of industry discourse." },
+      { icon: Users, title: "Network Building", description: "Connect stakeholders and build lasting relationships." },
+      { icon: Target, title: "Strategic Alignment", description: "Align teams around shared vision and goals." },
+      { icon: Star, title: "Brand Visibility", description: "Elevate your organization's market presence." },
+      { icon: Lightbulb, title: "Knowledge Exchange", description: "Facilitate valuable insights and best practices." }
+    ],
+    activities: {
+      sectionTitle: "SUMMIT FORMATS",
+      items: ["Industry Conference", "Executive Roundtable", "Innovation Summit", "Leadership Forum", "Annual General Meeting", "Strategic Planning Summit", "Partner Conference", "Technology Summit", "Sustainability Forum", "Regional Summit", "Global Leadership Summit", "Customer Summit"]
+    },
+    alternatingSections: [
+      {
+        title: "Summit Excellence",
+        description: "Our summits bring together the right people, content, and experiences to drive meaningful outcomes.",
+        image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920",
+        points: [
+          { text: "Comprehensive speaker and content management" },
+          { text: "Interactive session designs" },
+          { text: "Networking facilitation" },
+          { text: "Post-event content packaging" }
+        ]
+      },
+      {
+        title: "Why Our Summits Stand Out",
+        description: "We combine strategic thinking with flawless execution to create summits that matter.",
+        image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920",
+        points: [
+          { text: "Curated attendee experiences" },
+          { text: "Thought-provoking content" },
+          { text: "Premium production quality" },
+          { text: "Measurable business outcomes" }
+        ]
+      },
+      {
+        title: "Perfect For",
+        description: "Whether launching a new initiative or celebrating milestones, our summits deliver impact.",
+        image: "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=1920",
+        points: [
+          { text: "Annual industry conferences" },
+          { text: "Leadership alignment sessions" },
+          { text: "Partner and customer events" },
+          { text: "Strategic planning gatherings" }
+        ]
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800",
+      "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=800",
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800",
+      "https://images.unsplash.com/photo-1560439514-4e9645039924?w=800",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800"
+    ],
+    testimonials: [
+      { quote: "The summit exceeded all expectations. Attendees left inspired and aligned.", author: "James Tan", company: "Leading Bank" },
+      { quote: "Professional execution from start to finish. Our best summit yet.", author: "Sarah Lim", company: "Technology Company" },
+      { quote: "The networking sessions were invaluable. Real connections were made.", author: "Michael Wong", company: "Consulting Firm" },
+      { quote: "Content quality and speaker management were exceptional.", author: "Rachel Goh", company: "Healthcare Organization" },
+      { quote: "A seamless hybrid experience that engaged all attendees equally.", author: "David Chen", company: "Financial Services" },
+      { quote: "Team Elevate made our vision a reality. Highly recommended.", author: "Amanda Lee", company: "Manufacturing Company" }
+    ],
+    faqs: [
+      { question: "What size summits can you manage?", answer: "We handle summits from 50 to 2000+ attendees, both in-person and hybrid formats." },
+      { question: "Do you help with speaker sourcing?", answer: "Yes, we can help identify, invite, and coordinate speakers aligned with your summit themes." },
+      { question: "Can you manage hybrid summits?", answer: "Absolutely. We specialize in seamless hybrid experiences that engage both in-person and virtual attendees." },
+      { question: "What's the typical planning timeline?", answer: "We recommend 3-6 months for comprehensive summit planning, though we can accommodate shorter timelines." },
+      { question: "Do you provide content support?", answer: "Yes, we help develop agendas, moderate sessions, and package content for post-event distribution." }
+    ],
+    cta: {
+      headline: "Ready to Host an Impactful Summit?",
+      subtext: "Let's create a summit that positions your organization as an industry leader."
+    }
+  },
+  "government-events": {
+    accentColor: "#DC2626",
+    hero: {
+      title: "Government Events",
+      subtitle: "Government",
+      tagline: "Delivering excellence in public sector events with precision and professionalism.",
+      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+    },
+    overview: {
+      description: "Partner with us for government events that meet the highest standards of professionalism, security, and impact. From ministry conferences to national celebrations, we bring expertise in protocol, stakeholder management, and seamless execution.",
+      backgroundImage: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920"
+    },
+    features: [
+      { icon: Award, title: "Protocol Excellence", description: "Adherence to government protocols and VIP requirements." },
+      { icon: Lock, title: "Security Compliance", description: "Event planning that meets security standards." },
+      { icon: Users, title: "Stakeholder Management", description: "Coordination across multiple agencies and departments." },
+      { icon: Monitor, title: "Technical Production", description: "Broadcast-quality AV for official proceedings." },
+      { icon: Globe, title: "Multi-Cultural Sensitivity", description: "Inclusive programming for diverse communities." },
+      { icon: Clock, title: "Precision Timing", description: "Military-precision event flow and scheduling." }
+    ],
+    benefits: [
+      { icon: Star, title: "Professional Image", description: "Events that reflect positively on your organization." },
+      { icon: Users, title: "Public Engagement", description: "Meaningful connections with citizens and stakeholders." },
+      { icon: Target, title: "Message Clarity", description: "Clear communication of government initiatives." },
+      { icon: Heart, title: "Community Building", description: "Events that bring people together." },
+      { icon: Award, title: "Standards Compliance", description: "Meeting all regulatory and protocol requirements." }
+    ],
+    activities: {
+      sectionTitle: "EVENT TYPES",
+      items: ["Ministry Conferences", "National Day Celebrations", "Community Outreach", "Policy Launches", "Award Ceremonies", "Public Forums", "Training Programs", "International Delegations", "Ground-Breaking Ceremonies", "Memorial Events", "Town Hall Meetings", "Youth Programs"]
+    },
+    alternatingSections: [
+      {
+        title: "Government Event Excellence",
+        description: "We understand the unique requirements of public sector events and deliver accordingly.",
+        image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920",
+        points: [
+          { text: "Protocol and ceremonial expertise" },
+          { text: "Multi-stakeholder coordination" },
+          { text: "Security and logistics planning" },
+          { text: "Media and communications support" }
+        ]
+      },
+      {
+        title: "Trusted by Government",
+        description: "Our track record in government events speaks for itself.",
+        image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920",
+        points: [
+          { text: "Experience with statutory boards" },
+          { text: "Understanding of procurement processes" },
+          { text: "Compliance with government standards" },
+          { text: "Professional and discrete service" }
+        ]
+      },
+      {
+        title: "Perfect For",
+        description: "Public sector events that require precision, professionalism, and impact.",
+        image: "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=1920",
+        points: [
+          { text: "Ministerial and agency events" },
+          { text: "Public engagement initiatives" },
+          { text: "National celebrations" },
+          { text: "Inter-agency programs" }
+        ]
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800",
+      "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=800",
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800",
+      "https://images.unsplash.com/photo-1560439514-4e9645039924?w=800",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800"
+    ],
+    testimonials: [
+      { quote: "Professional execution that met all our protocol requirements.", author: "Director", company: "Government Agency" },
+      { quote: "Seamless coordination across multiple departments.", author: "Event Manager", company: "Statutory Board" },
+      { quote: "The attention to detail was impressive.", author: "Communications Lead", company: "Ministry" },
+      { quote: "They understood our unique requirements perfectly.", author: "Programme Director", company: "Government Organization" },
+      { quote: "A trusted partner for our annual events.", author: "Senior Manager", company: "Public Sector" },
+      { quote: "Delivered excellence under tight timelines.", author: "Project Lead", company: "Government Agency" }
+    ],
+    faqs: [
+      { question: "Do you understand government procurement?", answer: "Yes, we are familiar with GeBIZ and government procurement processes." },
+      { question: "Can you handle VIP protocols?", answer: "Absolutely. We have experience with ministerial and diplomatic protocols." },
+      { question: "What about security requirements?", answer: "We work closely with security teams to ensure all requirements are met." },
+      { question: "Do you have relevant certifications?", answer: "We maintain necessary certifications and can provide documentation as required." },
+      { question: "Can you manage large-scale public events?", answer: "Yes, we have experience with events ranging from intimate gatherings to large public celebrations." }
+    ],
+    cta: {
+      headline: "Ready to Plan Your Government Event?",
+      subtext: "Partner with us for events that meet the highest standards of public sector excellence."
+    }
+  },
+  "private-events": {
+    accentColor: "#EC4899",
+    hero: {
+      title: "Private Events",
+      subtitle: "Private",
+      tagline: "Intimate celebrations and exclusive gatherings crafted with personal attention.",
+      backgroundImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920"
+    },
+    overview: {
+      description: "Create unforgettable private events for your most important occasions. From executive dinners to milestone celebrations, we bring the same level of excellence to intimate gatherings as we do to large-scale events.",
+      backgroundImage: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920"
+    },
+    features: [
+      { icon: Heart, title: "Personal Touch", description: "Every detail tailored to your preferences and style." },
+      { icon: Wine, title: "Premium Experiences", description: "Access to exclusive venues and services." },
+      { icon: Sparkles, title: "Custom Design", description: "Unique themes and décor for your occasion." },
+      { icon: Camera, title: "Memory Capture", description: "Professional photography and videography." },
+      { icon: Music, title: "Entertainment", description: "Curated entertainment for your guests." },
+      { icon: Lock, title: "Privacy", description: "Discrete planning and execution." }
+    ],
+    benefits: [
+      { icon: Star, title: "Exclusive Experience", description: "Events as unique as you are." },
+      { icon: Heart, title: "Stress-Free Planning", description: "We handle everything so you can enjoy." },
+      { icon: Sparkles, title: "Memorable Moments", description: "Create lasting memories with loved ones." },
+      { icon: Award, title: "Quality Assurance", description: "Corporate-level excellence for personal events." },
+      { icon: Users, title: "Guest Experience", description: "Every guest feels valued and welcomed." }
+    ],
+    activities: {
+      sectionTitle: "EVENT TYPES",
+      items: ["Executive Dinners", "Milestone Birthdays", "Anniversary Celebrations", "Retirement Parties", "Private Concerts", "Intimate Weddings", "Family Reunions", "Graduation Parties", "Engagement Parties", "Baby Showers", "Farewell Gatherings", "VIP Gatherings"]
+    },
+    alternatingSections: [
+      {
+        title: "Personal Event Excellence",
+        description: "Bringing corporate event expertise to your most personal celebrations.",
+        image: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920",
+        points: [
+          { text: "Personalized planning and design" },
+          { text: "Premium vendor network" },
+          { text: "Full event coordination" },
+          { text: "Day-of management" }
+        ]
+      },
+      {
+        title: "Why Choose Us",
+        description: "The same excellence that Singapore's top companies trust, now for your private events.",
+        image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920",
+        points: [
+          { text: "Attention to detail" },
+          { text: "Professional coordination" },
+          { text: "Creative concepts" },
+          { text: "Seamless execution" }
+        ]
+      },
+      {
+        title: "Perfect For",
+        description: "Special occasions that deserve special attention.",
+        image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920",
+        points: [
+          { text: "Executive celebrations" },
+          { text: "Family milestones" },
+          { text: "Intimate gatherings" },
+          { text: "VIP occasions" }
+        ]
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800",
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800",
+      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800",
+      "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800",
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800",
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800",
+      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800",
+      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800"
+    ],
+    testimonials: [
+      { quote: "My 50th birthday was absolutely perfect. Every detail was thoughtfully planned.", author: "Michelle", company: "Private Client" },
+      { quote: "They made our anniversary celebration truly special.", author: "David & Sarah", company: "Private Clients" },
+      { quote: "Professional service with a personal touch.", author: "James", company: "Private Client" },
+      { quote: "Our family reunion was the best we've ever had.", author: "The Tan Family", company: "Private Clients" },
+      { quote: "Exceeded all expectations for our intimate dinner.", author: "Robert", company: "Private Client" },
+      { quote: "They understood exactly what we wanted.", author: "Amanda", company: "Private Client" }
+    ],
+    faqs: [
+      { question: "What's the minimum guest count?", answer: "We cater to events from 20 to 500+ guests. Intimate gatherings are our specialty." },
+      { question: "Can you help with venue sourcing?", answer: "Yes, we have relationships with exclusive venues across Singapore." },
+      { question: "Do you handle all vendors?", answer: "We coordinate everything - catering, entertainment, décor, photography, and more." },
+      { question: "How far in advance should we book?", answer: "We recommend 2-3 months for optimal planning, but can accommodate shorter timelines." },
+      { question: "Is there flexibility in packages?", answer: "Absolutely. Every event is customized to your needs and budget." }
+    ],
+    cta: {
+      headline: "Ready to Plan Your Private Event?",
+      subtext: "Let's create an unforgettable celebration for you and your guests."
+    }
+  },
+  "family-fun-days": {
+    accentColor: "#F97316",
+    hero: {
+      title: "Family Fun Days",
+      subtitle: "Family Day",
+      tagline: "Bring families together for a day of joy, laughter, and unforgettable memories.",
+      backgroundImage: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1920"
+    },
+    overview: {
+      description: "Create magical family fun days that bring your employees and their loved ones together. Our comprehensive family events include activities for all ages, ensuring everyone from toddlers to grandparents has an amazing time.",
+      backgroundImage: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920"
+    },
+    features: [
+      { icon: Users, title: "All-Ages Activities", description: "Engaging programs for every generation." },
+      { icon: Gamepad2, title: "Game Stations", description: "Interactive games and carnival booths." },
+      { icon: Music, title: "Entertainment", description: "Live performances and stage shows." },
+      { icon: Gift, title: "Prizes & Giveaways", description: "Exciting prizes for participants." },
+      { icon: Camera, title: "Photo Opportunities", description: "Fun photo booths and instant prints." },
+      { icon: Heart, title: "Family Bonding", description: "Activities designed for family participation." }
+    ],
+    benefits: [
+      { icon: Heart, title: "Employee Appreciation", description: "Show employees you value their families." },
+      { icon: Users, title: "Team Bonding", description: "Build connections beyond the workplace." },
+      { icon: Star, title: "Memorable Experience", description: "Create lasting family memories." },
+      { icon: Sparkles, title: "Company Culture", description: "Strengthen organizational culture." },
+      { icon: PartyPopper, title: "Fun Atmosphere", description: "A day of pure enjoyment for all." }
+    ],
+    activities: {
+      sectionTitle: "ACTIVITY OPTIONS",
+      items: ["Carnival Games", "Bouncy Castles", "Face Painting", "Balloon Sculpting", "Magic Shows", "Kids Workshops", "Sports Challenges", "Treasure Hunts", "Photo Booths", "Food Stalls", "Lucky Draws", "Stage Performances"]
+    },
+    alternatingSections: [
+      {
+        title: "A Day for Everyone",
+        description: "Our family fun days cater to all ages with diverse activities and entertainment.",
+        image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1920",
+        points: [
+          { text: "Kids zone with age-appropriate activities" },
+          { text: "Family challenge stations" },
+          { text: "Entertainment for all ages" },
+          { text: "Food and refreshments" }
+        ]
+      },
+      {
+        title: "Seamless Experience",
+        description: "We handle everything so families can focus on having fun together.",
+        image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920",
+        points: [
+          { text: "Full event setup and breakdown" },
+          { text: "Professional facilitators" },
+          { text: "Safety-first approach" },
+          { text: "Weather contingency plans" }
+        ]
+      },
+      {
+        title: "Perfect For",
+        description: "Companies that value work-life balance and family engagement.",
+        image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1920",
+        points: [
+          { text: "Annual family appreciation events" },
+          { text: "Company milestone celebrations" },
+          { text: "Year-end gatherings" },
+          { text: "Community building initiatives" }
+        ]
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800",
+      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800",
+      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800",
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800",
+      "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=800",
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800",
+      "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800",
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800"
+    ],
+    testimonials: [
+      { quote: "Our employees and their families had the best time. Thank you!", author: "HR Director", company: "Technology Company" },
+      { quote: "The kids couldn't stop talking about the fun day for weeks!", author: "Admin Manager", company: "Financial Services" },
+      { quote: "A truly inclusive event that brought everyone together.", author: "People Lead", company: "Healthcare Organization" },
+      { quote: "Professional execution with a fun, family-friendly atmosphere.", author: "Culture Manager", company: "Retail Company" },
+      { quote: "Best family day we've ever organized. Will definitely repeat!", author: "Events Coordinator", company: "Manufacturing Company" },
+      { quote: "Every family member, regardless of age, had activities to enjoy.", author: "HR Manager", company: "Logistics Company" }
+    ],
+    faqs: [
+      { question: "How many families can you accommodate?", answer: "We regularly manage events for 500 to 5000+ participants." },
+      { question: "What if it rains?", answer: "We always have weather contingency plans and can arrange covered venues." },
+      { question: "Are activities safe for young children?", answer: "Safety is paramount. All activities are age-appropriate with trained supervisors." },
+      { question: "Can we customize the activities?", answer: "Absolutely. We tailor activities to your company culture and preferences." },
+      { question: "What food options are available?", answer: "We can arrange diverse food options including vegetarian, halal, and kid-friendly menus." }
+    ],
+    cta: {
+      headline: "Ready to Plan Your Family Fun Day?",
+      subtext: "Let's create a day that brings families together and creates lasting memories."
+    }
+  },
+  "corporate-carnivals": {
+    accentColor: "#EAB308",
+    hero: {
+      title: "Corporate Carnivals",
+      subtitle: "Carnival",
+      tagline: "Transform your corporate event into a spectacular carnival celebration.",
+      backgroundImage: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1920"
+    },
+    overview: {
+      description: "Bring the excitement of a carnival to your corporate celebration. Our carnival events feature thrilling games, vibrant entertainment, and festive atmospheres that create unforgettable experiences for your team.",
+      backgroundImage: "https://images.unsplash.com/photo-1492684223066-81342ee5ff32?w=1920"
+    },
+    features: [
+      { icon: PartyPopper, title: "Carnival Games", description: "Classic and modern carnival game stations." },
+      { icon: Gift, title: "Prize Redemption", description: "Exciting prizes and merchandise." },
+      { icon: Music, title: "Live Entertainment", description: "Performers, musicians, and DJs." },
+      { icon: Palette, title: "Themed Décor", description: "Full carnival atmosphere transformation." },
+      { icon: Users, title: "Crowd Games", description: "Interactive mass participation activities." },
+      { icon: Camera, title: "Photo Experiences", description: "Instagram-worthy photo opportunities." }
+    ],
+    benefits: [
+      { icon: PartyPopper, title: "Fun Atmosphere", description: "A break from the everyday routine." },
+      { icon: Users, title: "Team Engagement", description: "Friendly competition and collaboration." },
+      { icon: Heart, title: "Employee Appreciation", description: "Show your team they're valued." },
+      { icon: Star, title: "Memorable Event", description: "An experience people will remember." },
+      { icon: Zap, title: "Energy Boost", description: "Inject excitement into your organization." }
+    ],
+    activities: {
+      sectionTitle: "CARNIVAL ELEMENTS",
+      items: ["Ring Toss", "Balloon Darts", "Basketball Shootout", "Giant Jenga", "Spin the Wheel", "Strength Tester", "Photo Booth", "Food Carts", "Prize Station", "Stage Games", "Dance Floor", "Roaming Performers"]
+    },
+    alternatingSections: [
+      {
+        title: "Carnival Magic",
+        description: "We transform any venue into a vibrant carnival wonderland.",
+        image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1920",
+        points: [
+          { text: "Complete carnival game setup" },
+          { text: "Themed decorations and lighting" },
+          { text: "Professional game operators" },
+          { text: "Prize management system" }
+        ]
+      },
+      {
+        title: "Entertainment Excellence",
+        description: "Non-stop entertainment keeps the energy high throughout.",
+        image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff32?w=1920",
+        points: [
+          { text: "Stage performances and shows" },
+          { text: "Roaming entertainers" },
+          { text: "Music and DJ services" },
+          { text: "Interactive crowd games" }
+        ]
+      },
+      {
+        title: "Perfect For",
+        description: "Celebrations that call for excitement and fun.",
+        image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1920",
+        points: [
+          { text: "Company anniversaries" },
+          { text: "Year-end celebrations" },
+          { text: "Product launches" },
+          { text: "Team appreciation events" }
+        ]
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800",
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff32?w=800",
+      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800",
+      "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800",
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800",
+      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800",
+      "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=800",
+      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800"
+    ],
+    testimonials: [
+      { quote: "The carnival atmosphere was incredible! Everyone had so much fun.", author: "Events Manager", company: "Retail Company" },
+      { quote: "Best company event we've had in years!", author: "HR Director", company: "Banking" },
+      { quote: "The games and entertainment kept everyone engaged all night.", author: "Admin Lead", company: "Technology Company" },
+      { quote: "Professional setup with a fun, festive atmosphere.", author: "Culture Lead", company: "Consulting Firm" },
+      { quote: "Our team is still talking about the carnival!", author: "Office Manager", company: "Insurance Company" },
+      { quote: "Perfect mix of games, food, and entertainment.", author: "People Manager", company: "Logistics" }
+    ],
+    faqs: [
+      { question: "What's included in a carnival package?", answer: "Packages typically include games, prizes, decorations, entertainment, and event coordination." },
+      { question: "How much space do you need?", answer: "We can design carnivals for spaces from 200 sqm to large outdoor areas." },
+      { question: "Can this be done indoors?", answer: "Yes, we have indoor-suitable games and decorations for ballrooms and function rooms." },
+      { question: "What about food and beverages?", answer: "We can include carnival food carts and traditional F&B options." },
+      { question: "How many games are included?", answer: "Standard packages include 8-12 game stations, customizable based on your needs." }
+    ],
+    cta: {
+      headline: "Ready for Carnival Fun?",
+      subtext: "Let's bring the carnival excitement to your next corporate celebration."
+    }
+  },
+  "vip-gala": {
+    accentColor: "#A855F7",
+    hero: {
+      title: "VIP Gala Experiences",
+      subtitle: "VIP Gala",
+      tagline: "Exclusive, luxurious gatherings for your most distinguished guests.",
+      backgroundImage: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920"
+    },
+    overview: {
+      description: "Host spectacular VIP galas that leave lasting impressions on your most important guests. Our luxury event expertise ensures every detail reflects sophistication, exclusivity, and world-class hospitality.",
+      backgroundImage: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920"
+    },
+    features: [
+      { icon: Crown, title: "Premium Venues", description: "Access to Singapore's most exclusive venues." },
+      { icon: Wine, title: "Fine Dining", description: "Gourmet cuisine and premium beverages." },
+      { icon: Sparkles, title: "Luxury Décor", description: "Opulent designs and floral arrangements." },
+      { icon: Music, title: "Elite Entertainment", description: "World-class performers and musicians." },
+      { icon: Camera, title: "Red Carpet Experience", description: "VIP arrivals and media management." },
+      { icon: Gem, title: "Bespoke Details", description: "Personalized touches for each guest." }
+    ],
+    benefits: [
+      { icon: Crown, title: "Prestige", description: "Events that reflect your organization's excellence." },
+      { icon: Users, title: "Relationship Building", description: "Strengthen bonds with key stakeholders." },
+      { icon: Star, title: "Brand Elevation", description: "Position your brand in the luxury space." },
+      { icon: Heart, title: "Memorable Impact", description: "Create unforgettable experiences." },
+      { icon: Award, title: "Recognition", description: "Celebrate achievements in style." }
+    ],
+    activities: {
+      sectionTitle: "GALA ELEMENTS",
+      items: ["Red Carpet Arrivals", "Champagne Reception", "Gourmet Dinner", "Awards Ceremony", "Live Orchestra", "Celebrity Performances", "After-Party", "VIP Gifting", "Photo Gallery", "Auction Events", "Keynote Speeches", "Entertainment Shows"]
+    },
+    alternatingSections: [
+      {
+        title: "Luxury Defined",
+        description: "Every aspect of our VIP galas exudes sophistication and elegance.",
+        image: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920",
+        points: [
+          { text: "Exclusive venue curation" },
+          { text: "Premium catering and beverages" },
+          { text: "Luxurious décor and styling" },
+          { text: "White-glove service" }
+        ]
+      },
+      {
+        title: "Guest Experience",
+        description: "Your guests receive unparalleled attention and hospitality.",
+        image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920",
+        points: [
+          { text: "Personalized invitations" },
+          { text: "VIP arrivals and hosting" },
+          { text: "Curated entertainment" },
+          { text: "Premium takeaway gifts" }
+        ]
+      },
+      {
+        title: "Perfect For",
+        description: "Occasions that demand the highest levels of sophistication.",
+        image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920",
+        points: [
+          { text: "Corporate anniversaries" },
+          { text: "Executive appreciation events" },
+          { text: "Client galas" },
+          { text: "Charity fundraisers" }
+        ]
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800",
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800",
+      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800",
+      "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800",
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800",
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800",
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+      "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800"
+    ],
+    testimonials: [
+      { quote: "An evening of pure luxury. Our guests were thoroughly impressed.", author: "CEO", company: "Investment Firm" },
+      { quote: "The attention to detail was extraordinary.", author: "Managing Director", company: "Luxury Brand" },
+      { quote: "World-class execution that exceeded expectations.", author: "Chairman", company: "Property Group" },
+      { quote: "Our clients felt truly valued and appreciated.", author: "Partner", company: "Law Firm" },
+      { quote: "The most elegant corporate event I've attended.", author: "Executive Director", company: "Private Bank" },
+      { quote: "Sophisticated, seamless, spectacular.", author: "President", company: "Industry Association" }
+    ],
+    faqs: [
+      { question: "What venues do you recommend?", answer: "We work with Singapore's finest hotels, private clubs, and unique venues for VIP events." },
+      { question: "What's included in VIP packages?", answer: "Full-service including venue, catering, décor, entertainment, photography, and guest management." },
+      { question: "Can you accommodate dietary requirements?", answer: "Absolutely. We work with top caterers to accommodate all dietary needs at the highest level." },
+      { question: "How do you ensure exclusivity?", answer: "We curate every detail to create a one-of-a-kind experience your guests won't find elsewhere." },
+      { question: "What's the typical budget range?", answer: "VIP gala investments vary based on scope. We'll work within your budget to maximize impact." }
+    ],
+    cta: {
+      headline: "Ready for VIP Excellence?",
+      subtext: "Let's create an exclusive gala experience that leaves lasting impressions."
+    }
+  },
+  "grand-opening": {
+    accentColor: "#EF4444",
+    hero: {
+      title: "Grand Openings",
+      subtitle: "Grand Opening",
+      tagline: "Make your debut unforgettable with a spectacular grand opening celebration.",
+      backgroundImage: "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=1920"
+    },
+    overview: {
+      description: "Launch your new venture with impact. Our grand opening events combine ceremony, celebration, and strategic communications to create memorable debuts that generate buzz and establish your brand presence.",
+      backgroundImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920"
+    },
+    features: [
+      { icon: Rocket, title: "Launch Ceremonies", description: "Ribbon-cutting and ceremonial moments." },
+      { icon: Megaphone, title: "Media Coverage", description: "Press management and media coordination." },
+      { icon: Users, title: "VIP Management", description: "Guest of honor and dignitary coordination." },
+      { icon: Sparkles, title: "Brand Experience", description: "Immersive brand showcases and tours." },
+      { icon: PartyPopper, title: "Celebration", description: "Post-ceremony entertainment and festivities." },
+      { icon: Camera, title: "Content Creation", description: "Professional photo and video documentation." }
+    ],
+    benefits: [
+      { icon: Rocket, title: "Strong Launch", description: "Start with maximum impact and visibility." },
+      { icon: Star, title: "Media Coverage", description: "Generate press and social buzz." },
+      { icon: Users, title: "Stakeholder Engagement", description: "Impress investors, partners, and VIPs." },
+      { icon: Heart, title: "Community Connection", description: "Build relationships from day one." },
+      { icon: Target, title: "Brand Establishment", description: "Set the tone for your brand presence." }
+    ],
+    activities: {
+      sectionTitle: "OPENING ELEMENTS",
+      items: ["Ribbon Cutting", "VIP Tours", "Press Conference", "Product Showcase", "Ceremonial Launch", "Entertainment", "Networking Reception", "Media Wall", "Gift Distribution", "Live Streaming", "Cultural Performances", "Fireworks Display"]
+    },
+    alternatingSections: [
+      {
+        title: "Launch with Impact",
+        description: "We create grand openings that generate buzz and establish your presence.",
+        image: "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=1920",
+        points: [
+          { text: "Strategic event planning" },
+          { text: "VIP and media coordination" },
+          { text: "Brand-aligned experiences" },
+          { text: "Comprehensive coverage" }
+        ]
+      },
+      {
+        title: "Beyond the Ribbon",
+        description: "Our grand openings combine ceremony with celebration and engagement.",
+        image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920",
+        points: [
+          { text: "Ceremonial moments" },
+          { text: "Guest entertainment" },
+          { text: "Product/space showcases" },
+          { text: "Networking opportunities" }
+        ]
+      },
+      {
+        title: "Perfect For",
+        description: "Any new venture deserving a memorable launch.",
+        image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1920",
+        points: [
+          { text: "New office or HQ openings" },
+          { text: "Retail store launches" },
+          { text: "Facility inaugurations" },
+          { text: "Branch expansions" }
+        ]
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=800",
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800",
+      "https://images.unsplash.com/photo-1560439514-4e9645039924?w=800",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800",
+      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800"
+    ],
+    testimonials: [
+      { quote: "Our new headquarters opening made a powerful statement.", author: "CEO", company: "Technology Company" },
+      { quote: "The media coverage exceeded all expectations.", author: "Marketing Director", company: "Retail Brand" },
+      { quote: "A perfect blend of ceremony and celebration.", author: "Managing Director", company: "Financial Services" },
+      { quote: "Our VIP guests were thoroughly impressed.", author: "Country Manager", company: "MNC" },
+      { quote: "The launch set the perfect tone for our brand.", author: "Founder", company: "Startup" },
+      { quote: "Professional execution from start to finish.", author: "Operations Director", company: "Hospitality Group" }
+    ],
+    faqs: [
+      { question: "How far in advance should we plan?", answer: "We recommend 2-3 months for comprehensive planning, though we can accommodate shorter timelines." },
+      { question: "Do you handle media and PR?", answer: "Yes, we can coordinate media invitations, press releases, and on-site media management." },
+      { question: "Can you arrange VIP attendance?", answer: "We can help coordinate invitations and logistics for VIPs and dignitaries." },
+      { question: "What about permits and approvals?", answer: "We assist with venue permits, safety requirements, and necessary approvals." },
+      { question: "Do you provide entertainment?", answer: "Yes, from cultural performances to live bands, we curate entertainment fitting your brand." }
+    ],
+    cta: {
+      headline: "Ready for Your Grand Opening?",
+      subtext: "Let's create a launch that establishes your presence with impact."
+    }
   }
 };

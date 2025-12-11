@@ -3,18 +3,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
-  { id: 1, src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80", title: "Gala Night", category: "Dinner & Dance" },
-  { id: 2, src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80", title: "Team Challenge", category: "Team Building" },
-  { id: 3, src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80", title: "Product Reveal", category: "Product Launches" },
-  { id: 4, src: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80", title: "Awards Night", category: "Awards Ceremonies" },
-  { id: 5, src: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80", title: "Festival Vibes", category: "Immersive Experiences" },
-  { id: 6, src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80", title: "Concert Setup", category: "AV, Stage & Production" },
-  { id: 7, src: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80", title: "Conference", category: "Team Building" },
-  { id: 8, src: "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=800&q=80", title: "VIP Launch", category: "Product Launches" },
-  { id: 9, src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80", title: "Team Bonding", category: "Overseas Retreats" },
-  { id: 10, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80", title: "Workshop", category: "Team Building" },
-  { id: 11, src: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=800&q=80", title: "Celebration", category: "Awards Ceremonies" },
-  { id: 12, src: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80", title: "Networking", category: "Brand Activations" },
+  { id: 1, src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80", title: "Gala Night", category: "Dinner & Dance", industry: "Finance", year: "2024" },
+  { id: 2, src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80", title: "Team Challenge", category: "Team Building", industry: "Technology", year: "2023" },
+  { id: 3, src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80", title: "Product Reveal", category: "Product Launches", industry: "Consumer Goods", year: "2024" },
+  { id: 4, src: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80", title: "Awards Night", category: "Awards Ceremonies", industry: "Insurance", year: "2023" },
+  { id: 5, src: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80", title: "Festival Vibes", category: "Immersive Experiences", industry: "Entertainment", year: "2024" },
+  { id: 6, src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80", title: "Concert Setup", category: "AV, Stage & Production", industry: "Media", year: "2023" },
+  { id: 7, src: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80", title: "Conference", category: "Team Building", industry: "Consulting", year: "2024" },
+  { id: 8, src: "https://images.unsplash.com/photo-1559223607-a43c990c692c?w=800&q=80", title: "VIP Launch", category: "Product Launches", industry: "Luxury Retail", year: "2023" },
+  { id: 9, src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80", title: "Team Bonding", category: "Overseas Retreats", industry: "Logistics", year: "2024" },
+  { id: 10, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80", title: "Workshop", category: "Team Building", industry: "Healthcare", year: "2023" },
+  { id: 11, src: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=800&q=80", title: "Celebration", category: "Awards Ceremonies", industry: "Manufacturing", year: "2024" },
+  { id: 12, src: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80", title: "Networking", category: "Brand Activations", industry: "F&B", year: "2023" },
 ];
 
 interface PhotoGalleryProps {
@@ -99,7 +99,7 @@ export const PhotoGallery = ({ filter }: PhotoGalleryProps) => {
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <div className="text-center">
                   <h3 className="text-white font-display font-bold text-lg">{image.title}</h3>
-                  <span className="text-primary text-sm">{image.category}</span>
+                  <span className="text-primary text-sm">{image.industry} • {image.year}</span>
                 </div>
               </div>
 
@@ -160,7 +160,7 @@ export const PhotoGallery = ({ filter }: PhotoGalleryProps) => {
               />
               <div className="text-center mt-4">
                 <h3 className="text-white font-display font-bold text-xl">{selectedImageData.title}</h3>
-                <span className="text-primary">{selectedImageData.category}</span>
+                <span className="text-primary">{selectedImageData.industry} • {selectedImageData.year}</span>
               </div>
             </motion.div>
           </motion.div>

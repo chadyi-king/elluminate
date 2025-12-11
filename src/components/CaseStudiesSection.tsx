@@ -4,7 +4,7 @@ import { Quote, MapPin, Users, CheckCircle } from "lucide-react";
 const caseStudies = [
   {
     id: 1,
-    title: "DBS Corporate Retreat 2024",
+    title: "Banking Sector Leadership Retreat",
     location: "Bintan, Indonesia",
     participants: "220",
     keyElements: ["Amazing Race", "Leadership Sessions", "Beachfront D&D"],
@@ -15,12 +15,14 @@ const caseStudies = [
       "Team bonding activities and water sports",
     ],
     quote: "Team Elevate transformed our annual retreat into an unforgettable experience. The team building activities were perfectly aligned with our leadership development goals. Our people are still talking about it months later.",
+    industry: "Banking & Finance",
+    year: "2024",
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
     gradient: "from-primary/30 via-transparent to-transparent",
   },
   {
     id: 2,
-    title: "Shopee Awards Gala 2023",
+    title: "E-Commerce Awards Gala",
     location: "Resorts World Ballroom",
     participants: "500",
     keyElements: ["Trophy Procession", "Stage Lighting", "Gold Theme"],
@@ -31,12 +33,14 @@ const caseStudies = [
       "Red carpet experience with photo ops",
     ],
     quote: "The level of detail and creativity exceeded our expectations. Our employees still talk about the magical atmosphere created that night. Truly a world-class production.",
+    industry: "Technology & E-Commerce",
+    year: "2023",
     image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800",
     gradient: "from-transparent via-primary/30 to-transparent",
   },
   {
     id: 3,
-    title: "NUH Family Fun Day 2023",
+    title: "Healthcare Family Fun Day",
     location: "West Coast Park",
     participants: "3,000",
     keyElements: ["Carnival Booths", "Live Performances", "Photo Ops"],
@@ -47,13 +51,15 @@ const caseStudies = [
       "Food villages with diverse options",
     ],
     quote: "Managing 3,000 participants seamlessly while ensuring everyone had an amazing time - that's the Team Elevate difference. A truly family-friendly event that exceeded all expectations.",
+    industry: "Healthcare",
+    year: "2023",
     image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800",
     gradient: "from-transparent via-transparent to-primary/30",
   },
   {
     id: 4,
-    title: "Google Singapore Town Hall 2023",
-    location: "Google APAC HQ",
+    title: "Tech Company Town Hall",
+    location: "Singapore HQ",
     participants: "800",
     keyElements: ["Hybrid Format", "Interactive Q&A", "Tech Integration"],
     highlights: [
@@ -63,6 +69,8 @@ const caseStudies = [
       "Multi-camera professional production",
     ],
     quote: "The hybrid format was executed flawlessly. Our teams across APAC felt connected and engaged. The technical execution was on par with our global standards.",
+    industry: "Technology",
+    year: "2023",
     image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800",
     gradient: "from-primary/20 via-transparent to-primary/20",
   },
@@ -131,6 +139,11 @@ export const CaseStudiesSection = () => {
 
                 {/* Content */}
                 <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-primary text-xs font-display font-semibold">{study.industry}</span>
+                    <span className="text-muted-foreground text-xs">•</span>
+                    <span className="text-muted-foreground text-xs font-display">{study.year}</span>
+                  </div>
                   <h3 className="text-xl md:text-2xl font-display font-black text-primary-soft mb-4 group-hover:text-metallic-gold transition-colors">
                     {study.title}
                   </h3>
