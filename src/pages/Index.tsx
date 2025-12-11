@@ -1,39 +1,32 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
-import { VideoSection } from "@/components/CredibilitySection";
 import { SocialProofSection } from "@/components/SocialProofSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { CaseStudiesSection } from "@/components/CaseStudiesSection";
 import { WhyUsSection } from "@/components/WhyUsSection";
 import { JourneySection } from "@/components/JourneySection";
 import { CTASection } from "@/components/CTASection";
-import { CredibilitySection } from "@/components/CredibilitySection";
 import { Footer } from "@/components/Footer";
-import { GoldParticles } from "@/components/GoldParticles";
 import { SEO } from "@/components/SEO";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Team Elevate | Singapore's Premier Corporate Event Specialists"
-        description="Where Moments Become Masterpieces. Premium corporate events, galas, team building, dinner & dance, and brand activations in Singapore. 1000+ events executed."
-        keywords="corporate events Singapore, team building Singapore, dinner and dance, awards ceremony, brand activation, event planner Singapore"
-        canonical="https://teamelevate.sg"
+        title="Elluminate | Illuminate Your Teams | Corporate Team Building Singapore"
+        description="Transform your workforce with engaging team building experiences. Physical & virtual activities, retreats, and training programs. 500+ events delivered in Singapore."
+        keywords="team building Singapore, corporate team building, virtual team building, amazing race, company retreats, corporate training"
+        canonical="https://elluminate.sg"
       />
-      <GoldParticles />
-      <GoldParticles />
       <Navbar />
       <main>
         <HeroSection />
-        <VideoSection />
         <SocialProofSection />
         <ServicesSection />
-        <CaseStudiesSection />
         <WhyUsSection />
+        <CaseStudiesSection />
         <JourneySection />
         <CTASection />
-        <CredibilitySection />
       </main>
       <Footer />
     </div>
