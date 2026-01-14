@@ -1,0 +1,104 @@
+import { motion } from "framer-motion";
+
+// Import all event photos for the photo wall
+import awardsCeremony from "@/assets/events/awards-ceremony-1.jpg";
+import brandActivation from "@/assets/events/brand-activation-1.jpg";
+import dinnerDance from "@/assets/events/dinner-dance-1.jpg";
+import familyFunDay from "@/assets/events/family-fun-day-1.jpg";
+import immersiveExperience from "@/assets/events/immersive-experience-1.jpg";
+import overseasRetreat from "@/assets/events/overseas-retreat-1.jpg";
+import productLaunch from "@/assets/events/product-launch-1.jpg";
+import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
+import teamCelebration from "@/assets/events/team-celebration-1.jpg";
+import townHall from "@/assets/events/town-hall-1.jpg";
+
+// Hero images
+import heroAmazingRace from "@/assets/hero/amazing-race.jpg";
+import heroOverseasRetreat from "@/assets/hero/overseas-retreat.jpg";
+import heroCreativeWorkshop from "@/assets/hero/creative-workshop.jpg";
+import heroCsiInvestigation from "@/assets/hero/csi-investigation.jpg";
+import heroWellnessActivity from "@/assets/hero/wellness-activity.jpg";
+import heroAdventureChallenge from "@/assets/hero/adventure-challenge.jpg";
+import heroTeamCelebration from "@/assets/hero/team-celebration.jpg";
+import heroCulturalRace from "@/assets/hero/cultural-race.jpg";
+
+const allPhotos = [
+  awardsCeremony,
+  brandActivation,
+  dinnerDance,
+  familyFunDay,
+  immersiveExperience,
+  overseasRetreat,
+  productLaunch,
+  teamBuildingOutdoor,
+  teamCelebration,
+  townHall,
+  heroAmazingRace,
+  heroOverseasRetreat,
+  heroCreativeWorkshop,
+  heroCsiInvestigation,
+  heroWellnessActivity,
+  heroAdventureChallenge,
+  heroTeamCelebration,
+  heroCulturalRace,
+];
+
+// Create columns for the photo wall
+const columns = [
+  allPhotos.slice(0, 5),
+  allPhotos.slice(5, 10),
+  allPhotos.slice(10, 14),
+  allPhotos.slice(14, 18),
+  allPhotos.slice(0, 5), // Repeat for more coverage
+];
+
+export const PhotoWall = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Photo grid with animated columns */}
+      <div className="flex gap-2 h-[200%] -translate-y-1/4">
+        {columns.map((column, colIndex) => (
+          <motion.div
+            key={colIndex}
+            className="flex-1 flex flex-col gap-2"
+            animate={{
+              y: colIndex % 2 === 0 ? ["0%", "-10%", "0%"] : ["-10%", "0%", "-10%"],
+            }}
+            transition={{
+              duration: 30 + colIndex * 5,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {/* Double the photos for seamless loop */}
+            {[...column, ...column].map((photo, photoIndex) => (
+              <div
+                key={photoIndex}
+                className="relative w-full aspect-[3/4] rounded-lg overflow-hidden"
+              >
+                <img
+                  src={photo}
+                  alt={`Event photo ${photoIndex + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Overlay gradients for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-white/90" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-transparent to-white/50" />
+      
+      {/* Vignette effect */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: "radial-gradient(ellipse at center, transparent 30%, white 80%)",
+        }}
+      />
+    </div>
+  );
+};
