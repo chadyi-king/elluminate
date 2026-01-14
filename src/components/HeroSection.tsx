@@ -1,223 +1,129 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useContactModal } from "@/contexts/ContactModalContext";
-import { Lightbulb, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ConfettiBurst } from "./ConfettiBurst";
+import { PhotoWall } from "./hero/PhotoWall";
+import { RotatingWord } from "./hero/RotatingWord";
+import { DuotonePerson } from "./hero/DuotonePerson";
+import { ServicePills } from "./hero/ServicePills";
 
-// Import hero images
-import heroAmazingRace from "@/assets/hero/amazing-race.jpg";
-import heroOverseasRetreat from "@/assets/hero/overseas-retreat.jpg";
-import heroCreativeWorkshop from "@/assets/hero/creative-workshop.jpg";
-import heroCsiInvestigation from "@/assets/hero/csi-investigation.jpg";
-import heroWellnessActivity from "@/assets/hero/wellness-activity.jpg";
-import heroAdventureChallenge from "@/assets/hero/adventure-challenge.jpg";
-import heroTeamCelebration from "@/assets/hero/team-celebration.jpg";
-import heroCulturalRace from "@/assets/hero/cultural-race.jpg";
+// Import person images
+import personCorporateWoman from "@/assets/hero/person-corporate-woman.png";
+import personStudent from "@/assets/hero/person-student.png";
+import personBusinessman from "@/assets/hero/person-businessman.png";
 
-// Group images into sets of 3
-const imageGroups = [
-  [heroAmazingRace, heroOverseasRetreat, heroCreativeWorkshop],
-  [heroCsiInvestigation, heroWellnessActivity, heroAdventureChallenge],
-  [heroTeamCelebration, heroCulturalRace, heroAmazingRace],
+// SPARK letter colors for rainbow gradient
+const sparkLetters = [
+  { letter: "S", color: "#FFC400" }, // Yellow
+  { letter: "P", color: "#FF8A3D" }, // Orange
+  { letter: "A", color: "#FF4F4F" }, // Red/Pink
+  { letter: "R", color: "#A768FF" }, // Purple
+  { letter: "K", color: "#2A8DFF" }, // Blue
 ];
 
 export const HeroSection = () => {
   const { openContactModal } = useContactModal();
   const [showConfetti, setShowConfetti] = useState(false);
-  const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
-
-  // Auto-rotate image groups
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentGroupIndex((prev) => (prev + 1) % imageGroups.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleCTAClick = () => {
     setShowConfetti(true);
     setTimeout(() => openContactModal(), 300);
   };
 
-  const nextGroup = () => {
-    setCurrentGroupIndex((prev) => (prev + 1) % imageGroups.length);
-  };
-
-  const prevGroup = () => {
-    setCurrentGroupIndex((prev) => (prev - 1 + imageGroups.length) % imageGroups.length);
-  };
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* 3-Photo Grid Background */}
-      <div className="absolute inset-0">
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={currentGroupIndex}
-            className="absolute inset-0 grid grid-cols-3 gap-1"
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          >
-            {imageGroups[currentGroupIndex].map((image, idx) => (
-              <motion.div
-                key={idx}
-                className="relative overflow-hidden"
-                initial={{ y: idx % 2 === 0 ? -20 : 20 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1, delay: idx * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Team building activity ${idx + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-        
-        {/* Overlay gradients */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/60 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-transparent" />
-      </div>
-
-      {/* Image navigation arrows */}
-      <button
-        onClick={prevGroup}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-        aria-label="Previous images"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-      <button
-        onClick={nextGroup}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-        aria-label="Next images"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
-
-      {/* Image dots indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        {imageGroups.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentGroupIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentGroupIndex
-                ? "w-8 bg-primary"
-                : "bg-white/50 hover:bg-white/80"
-            }`}
-            aria-label={`Go to image set ${index + 1}`}
-          />
-        ))}
-      </div>
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white">
+      {/* Layer 1: Animated Photo Wall Background */}
+      <PhotoWall />
 
       {/* Confetti */}
       <ConfettiBurst trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
 
-      <div className="container mx-auto px-6 relative z-10 pt-24 pb-16">
+      {/* Layer 2: Main Content */}
+      <div className="container mx-auto px-6 relative z-20 pt-24 pb-32">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
-          {/* Animated tagline badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, type: "spring" }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/95 border-2 border-primary/30 mb-8 shadow-lg"
-          >
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <Lightbulb className="w-5 h-5 text-yellow-500" />
-            </motion.div>
-            <span className="text-sm font-semibold text-primary tracking-wide">1,000+ Events Delivered</span>
-            <Sparkles className="w-4 h-4 text-yellow-500" />
-          </motion.div>
-
           {/* Main Headline */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-black mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-black mb-4 leading-tight"
           >
-            <motion.span
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="inline-block mr-3 md:mr-5 bg-gradient-to-r from-yellow-400 via-orange-500 to-orange-600 bg-clip-text text-transparent"
+            {/* IGNITE THE */}
+            <motion.div className="mb-2">
+              <motion.span
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-block text-primary mr-2 md:mr-4"
+              >
+                IGNITE
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="inline-block text-primary"
+              >
+                THE
+              </motion.span>
+            </motion.div>
+
+            {/* SPARK with rainbow colors */}
+            <motion.div
+              className="mb-2"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Ignite
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 50 }}
+              {sparkLetters.map((item, index) => (
+                <motion.span
+                  key={item.letter}
+                  className="inline-block font-black"
+                  style={{ color: item.color }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                  whileHover={{ scale: 1.1, y: -5 }}
+                >
+                  {item.letter}
+                </motion.span>
+              ))}
+            </motion.div>
+
+            {/* WITHIN YOUR */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.45 }}
-              className="inline-block mr-3 md:mr-5 text-primary"
+              transition={{ duration: 0.6, delay: 0.9 }}
+              className="flex items-center justify-center flex-wrap gap-2 md:gap-3"
             >
-              the
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="inline-block text-primary"
-            >
-              Spark
-            </motion.span>
-            <br />
-            <motion.span
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.75 }}
-              className="inline-block mr-3 md:mr-5 text-foreground"
-            >
-              in
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="inline-block mr-3 md:mr-5 text-foreground"
-            >
-              Your
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.05 }}
-              className="inline-block text-foreground"
-            >
-              Teams
-            </motion.span>
+              <span className="text-foreground">WITHIN</span>
+              <span className="text-foreground">YOUR</span>
+              <RotatingWord />
+            </motion.div>
           </motion.h1>
 
-          {/* Subtitle with glassmorphism */}
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mb-12 font-sans bg-white/80 backdrop-blur-md px-8 py-5 rounded-2xl border border-white/50 shadow-lg"
+            transition={{ duration: 0.6, delay: 1.1 }}
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 font-sans"
           >
-            Transform your workforce with <span className="text-primary font-semibold">engaging team building</span> experiences that inspire collaboration, boost morale, and create lasting connections.
+            Transform your team with Singapore's leading team building experiences. 
+            Over <span className="text-primary font-bold">1,000+ events</span> delivered for corporates, schools, and organizations.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="flex flex-col sm:flex-row items-center gap-5"
+            transition={{ duration: 0.6, delay: 1.2 }}
+            className="flex flex-col sm:flex-row items-center gap-4 mb-12"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Button 
-                variant="hero" 
-                size="lg" 
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+              <Button
+                variant="hero"
+                size="lg"
                 onClick={handleCTAClick}
                 className="group shadow-xl text-lg px-8 py-6"
               >
@@ -231,12 +137,9 @@ export const HeroSection = () => {
                 </motion.span>
               </Button>
             </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Button 
-                variant="outline" 
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+              <Button
+                variant="outline"
                 size="lg"
                 asChild
                 className="bg-white/90 hover:bg-white border-2 border-primary/30 hover:border-primary text-lg px-8 py-6"
@@ -245,6 +148,41 @@ export const HeroSection = () => {
               </Button>
             </motion.div>
           </motion.div>
+
+          {/* Service Pills - Layer 4 */}
+          <ServicePills />
+        </div>
+      </div>
+
+      {/* Layer 3: Duotone People */}
+      <div className="absolute bottom-0 left-0 right-0 h-[45%] sm:h-[50%] md:h-[55%] pointer-events-none z-10">
+        <div className="relative w-full h-full max-w-6xl mx-auto pointer-events-auto">
+          {/* Corporate Woman - Left (Blue) */}
+          <DuotonePerson
+            image={personCorporateWoman}
+            position="left"
+            duotoneColor="hsl(214, 100%, 56%)"
+            glowColor="rgba(42, 141, 255, 0.3)"
+            delay={0.3}
+          />
+
+          {/* Student - Center (Pink/Red) */}
+          <DuotonePerson
+            image={personStudent}
+            position="center"
+            duotoneColor="hsl(350, 80%, 50%)"
+            glowColor="rgba(255, 79, 79, 0.3)"
+            delay={0.5}
+          />
+
+          {/* Businessman - Right (Green) */}
+          <DuotonePerson
+            image={personBusinessman}
+            position="right"
+            duotoneColor="hsl(160, 70%, 45%)"
+            glowColor="rgba(38, 208, 124, 0.3)"
+            delay={0.7}
+          />
         </div>
       </div>
 
@@ -253,17 +191,17 @@ export const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.8 }}
-        className="absolute bottom-20 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30"
       >
         <motion.div
-          animate={{ y: [0, 12, 0] }}
+          animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-7 h-12 rounded-full border-2 border-primary/50 flex items-start justify-center p-2 bg-white/30 backdrop-blur-sm"
+          className="w-6 h-10 rounded-full border-2 border-primary/50 flex items-start justify-center p-2 bg-white/80 backdrop-blur-sm"
         >
           <motion.div
-            animate={{ height: [8, 16, 8], opacity: [0.5, 1, 0.5] }}
+            animate={{ height: [6, 14, 6], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1.5 bg-primary rounded-full"
+            className="w-1 bg-primary rounded-full"
           />
         </motion.div>
       </motion.div>
