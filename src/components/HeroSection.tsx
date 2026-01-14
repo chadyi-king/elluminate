@@ -6,13 +6,7 @@ import { useState } from "react";
 import { ConfettiBurst } from "./ConfettiBurst";
 import { PhotoWall } from "./hero/PhotoWall";
 import { RotatingWord } from "./hero/RotatingWord";
-import { DuotonePerson } from "./hero/DuotonePerson";
 import { ServicePills } from "./hero/ServicePills";
-
-// Import person images
-import personCorporateWoman from "@/assets/hero/person-corporate-woman.png";
-import personStudent from "@/assets/hero/person-student.png";
-import personBusinessman from "@/assets/hero/person-businessman.png";
 
 // SPARK letter colors for rainbow gradient
 const sparkLetters = [
@@ -41,19 +35,19 @@ export const HeroSection = () => {
       <ConfettiBurst trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
 
       {/* Layer 2: Main Content */}
-      <div className="container mx-auto px-6 relative z-20 pt-24 pb-32">
-        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
-          {/* Main Headline */}
+      <div className="container mx-auto px-4 relative z-20 pt-20 pb-24">
+        <div className="flex flex-col items-center text-center w-full">
+          {/* Main Headline - Much larger, covering 3/4 of screen */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-black mb-4 leading-tight"
+            className="text-[8vw] sm:text-[7vw] md:text-[6.5vw] lg:text-[6vw] font-display font-black leading-[0.95] mb-6 w-full"
           >
             {/* IGNITE THE */}
-            <motion.div className="mb-2">
+            <motion.div className="mb-1">
               <motion.span
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-block text-primary mr-2 md:mr-4"
+                className="inline-block text-primary mr-[2vw]"
               >
                 IGNITE
               </motion.span>
@@ -67,9 +61,9 @@ export const HeroSection = () => {
               </motion.span>
             </motion.div>
 
-            {/* SPARK with rainbow colors */}
+            {/* SPARK with rainbow colors - Extra large */}
             <motion.div
-              className="mb-2"
+              className="mb-1"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -77,7 +71,7 @@ export const HeroSection = () => {
               {sparkLetters.map((item, index) => (
                 <motion.span
                   key={item.letter}
-                  className="inline-block font-black"
+                  className="inline-block font-black text-[12vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw]"
                   style={{ color: item.color }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -89,12 +83,12 @@ export const HeroSection = () => {
               ))}
             </motion.div>
 
-            {/* WITHIN YOUR */}
+            {/* WITHIN YOUR + Rotating Word */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="flex items-center justify-center flex-wrap gap-2 md:gap-3"
+              className="flex items-center justify-center flex-wrap gap-[1vw]"
             >
               <span className="text-foreground">WITHIN</span>
               <span className="text-foreground">YOUR</span>
@@ -107,10 +101,10 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.1 }}
-            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 font-sans"
+            className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mb-6 font-sans"
           >
             Transform your team with Singapore's leading team building experiences. 
-            Over <span className="text-primary font-bold">1,000+ events</span> delivered for corporates, schools, and organizations.
+            Over <span className="text-primary font-bold">1,000+ events</span> delivered.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -118,14 +112,14 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="flex flex-col sm:flex-row items-center gap-4 mb-12"
+            className="flex flex-col sm:flex-row items-center gap-4 mb-8"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Button
                 variant="hero"
                 size="lg"
                 onClick={handleCTAClick}
-                className="group shadow-xl text-lg px-8 py-6"
+                className="group shadow-xl text-base px-6 py-5"
               >
                 <span>Plan My Event</span>
                 <motion.span
@@ -142,47 +136,15 @@ export const HeroSection = () => {
                 variant="outline"
                 size="lg"
                 asChild
-                className="bg-white/90 hover:bg-white border-2 border-primary/30 hover:border-primary text-lg px-8 py-6"
+                className="bg-white/90 hover:bg-white border-2 border-primary/30 hover:border-primary text-base px-6 py-5"
               >
                 <Link to="/portfolio">View Our Work</Link>
               </Button>
             </motion.div>
           </motion.div>
 
-          {/* Service Pills - Layer 4 */}
+          {/* Service Pills - Circular icons */}
           <ServicePills />
-        </div>
-      </div>
-
-      {/* Layer 3: Duotone People */}
-      <div className="absolute bottom-0 left-0 right-0 h-[45%] sm:h-[50%] md:h-[55%] pointer-events-none z-10">
-        <div className="relative w-full h-full max-w-6xl mx-auto pointer-events-auto">
-          {/* Corporate Woman - Left (Blue) */}
-          <DuotonePerson
-            image={personCorporateWoman}
-            position="left"
-            duotoneColor="hsl(214, 100%, 56%)"
-            glowColor="rgba(42, 141, 255, 0.3)"
-            delay={0.3}
-          />
-
-          {/* Student - Center (Pink/Red) */}
-          <DuotonePerson
-            image={personStudent}
-            position="center"
-            duotoneColor="hsl(350, 80%, 50%)"
-            glowColor="rgba(255, 79, 79, 0.3)"
-            delay={0.5}
-          />
-
-          {/* Businessman - Right (Green) */}
-          <DuotonePerson
-            image={personBusinessman}
-            position="right"
-            duotoneColor="hsl(160, 70%, 45%)"
-            glowColor="rgba(38, 208, 124, 0.3)"
-            delay={0.7}
-          />
         </div>
       </div>
 
