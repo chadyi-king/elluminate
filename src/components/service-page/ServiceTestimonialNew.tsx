@@ -14,11 +14,11 @@ interface ServiceTestimonialNewProps {
 
 export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTestimonialNewProps) => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden bg-gray-900">
       {/* Dark background with dim image */}
-      <div className="absolute inset-0 bg-background">
+      <div className="absolute inset-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920)` }}
         />
       </div>
@@ -26,7 +26,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
       {/* Background glow with accent color */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[100px]"
-        style={{ backgroundColor: `${accentColor}08` }}
+        style={{ backgroundColor: `${accentColor}15` }}
         animate={{ opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
@@ -57,7 +57,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
                 />
               ))}
             </div>
-            <span className="text-sm text-white/70">
+            <span className="text-sm text-gray-300">
               4.8 / 600+ Verified Reviews
             </span>
           </div>
@@ -71,7 +71,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative bg-card border rounded-xl p-6 group hover:border-opacity-60 transition-all duration-300"
+              className="relative bg-gray-800 border rounded-xl p-6 group hover:border-opacity-60 transition-all duration-300"
               style={{ borderColor: `${accentColor}30` }}
             >
               {/* Quote icon */}
@@ -91,7 +91,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
                 ))}
               </div>
               
-              <p className="text-white/80 mb-6 italic leading-relaxed text-sm">
+              <p className="text-gray-300 mb-6 italic leading-relaxed text-sm">
                 "{testimonial.quote}"
               </p>
               
@@ -102,7 +102,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
                 <p className="font-display font-bold text-white text-sm">
                   {testimonial.author}
                 </p>
-                <p className="text-xs text-white/50">
+                <p className="text-xs text-gray-400">
                   {testimonial.company}
                 </p>
               </div>

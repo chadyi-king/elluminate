@@ -10,11 +10,11 @@ export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
   const { openContactModal } = useContactModal();
   
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden bg-gray-900">
       {/* Dark background with dim image */}
-      <div className="absolute inset-0 bg-background">
+      <div className="absolute inset-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920)` }}
         />
       </div>
@@ -22,7 +22,7 @@ export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
       {/* Accent gradient spotlight */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] rounded-full blur-[150px]"
-        style={{ backgroundColor: `${accentColor}08` }}
+        style={{ backgroundColor: `${accentColor}15` }}
         animate={{ opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 5, repeat: Infinity }}
       />

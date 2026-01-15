@@ -18,11 +18,11 @@ interface ServiceFAQProps {
 
 export const ServiceFAQ = ({ faqs, accentColor }: ServiceFAQProps) => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden bg-gray-900">
       {/* Dark background with dim image */}
-      <div className="absolute inset-0 bg-background-deep">
+      <div className="absolute inset-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920)` }}
         />
       </div>
@@ -64,7 +64,7 @@ export const ServiceFAQ = ({ faqs, accentColor }: ServiceFAQProps) => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-card border rounded-xl px-6 overflow-hidden"
+                className="bg-gray-800 border rounded-xl px-6 overflow-hidden"
                 style={{ borderColor: `${accentColor}20` }}
               >
                 <AccordionTrigger 
@@ -78,7 +78,7 @@ export const ServiceFAQ = ({ faqs, accentColor }: ServiceFAQProps) => {
                     {faq.question}
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="text-white/60 pb-5 pl-5">
+                <AccordionContent className="text-gray-300 pb-5 pl-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
