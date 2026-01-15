@@ -27,13 +27,14 @@ export const ServiceHeroSplit = ({
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-background/85" />
+        {/* Dark overlay - fixed for visibility */}
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/40 to-transparent" />
         
         {/* Accent color tinted overlay */}
         <div 
-          className="absolute inset-0 opacity-10"
-          style={{ background: `linear-gradient(135deg, ${accentColor}30 0%, transparent 50%)` }}
+          className="absolute inset-0 opacity-15"
+          style={{ background: `linear-gradient(135deg, ${accentColor}40 0%, transparent 50%)` }}
         />
       </div>
 
