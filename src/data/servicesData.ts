@@ -1,4 +1,4 @@
-import { LucideIcon, Mic, Palette, Monitor, Gamepad2, Trophy, Music, Camera, Sparkles, Users, Heart, Star, Zap, PartyPopper, Wine, Lightbulb, Target, Clock, Gift, Crown, MapPin, Gem, Rocket, Building, Award, CalendarDays, Plane, Flag, Lock, Home, Theater, Dumbbell, Video, PenTool, Volume2, Megaphone, Handshake, GraduationCap, Globe, Briefcase, Navigation, Timer, Brain, Compass, Route } from "lucide-react";
+import { LucideIcon, Mic, Palette, Monitor, Gamepad2, Trophy, Music, Camera, Sparkles, Users, Heart, Star, Zap, PartyPopper, Wine, Lightbulb, Target, Clock, Gift, Crown, MapPin, Gem, Rocket, Building, Award, CalendarDays, Plane, Flag, Lock, Home, Theater, Dumbbell, Video, PenTool, Volume2, Megaphone, Handshake, GraduationCap, Globe, Briefcase, Navigation, Timer, Brain, Compass, Route, Phone, CheckCircle, ClipboardList, Send } from "lucide-react";
 
 // Service hero images
 import teamBuildingHero from "@/assets/services/team-building-hero.jpg";
@@ -95,6 +95,11 @@ export interface ServiceData {
     company: string;
   }[];
   faqs: FAQ[];
+  processFlow?: {
+    icon: LucideIcon;
+    title: string;
+    description: string;
+  }[];
   cta: {
     headline: string;
     subtext: string;
@@ -2440,6 +2445,13 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "How long does an Amazing Race typically last?", answer: "A standard race runs 2-3 hours, but we can customize the duration from 1.5 to 4 hours based on your schedule." },
       { question: "Is it suitable for all fitness levels?", answer: "Yes! We design challenges to be inclusive with a mix of physical and mental tasks. Teams can strategize based on individual strengths." },
       { question: "Can challenges be customized to our company?", answer: "Absolutely! We can incorporate company trivia, branded materials, and challenges aligned with your values and objectives." }
+    ],
+    processFlow: [
+      { icon: Phone, title: "Inquire", description: "Share your event details and team size with us." },
+      { icon: ClipboardList, title: "Customize", description: "We design the perfect race route and challenges." },
+      { icon: CheckCircle, title: "Confirm", description: "Review the proposal and finalize your booking." },
+      { icon: Flag, title: "Race Day", description: "Your team embarks on the exciting adventure!" },
+      { icon: Trophy, title: "Celebrate", description: "Awards, photos, and memories to treasure." }
     ],
     cta: {
       headline: "Ready for Your Amazing Race?",

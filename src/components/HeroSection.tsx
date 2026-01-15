@@ -92,16 +92,17 @@ export const HeroSection = () => {
               ))}
             </motion.div>
 
-            {/* WITHIN YOUR + Rotating Word - Much smaller */}
+            {/* WITHIN YOUR + Rotating Word - Stacked and centered */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="flex items-center justify-center flex-wrap gap-[1vw]"
+              className="flex flex-col items-center"
             >
-              <span className="text-foreground text-[4vw] sm:text-[3.5vw] md:text-[3vw] lg:text-[2.5vw] uppercase tracking-wide">WITHIN</span>
-              <span className="text-foreground text-[4vw] sm:text-[3.5vw] md:text-[3vw] lg:text-[2.5vw] uppercase tracking-wide">YOUR</span>
-              <RotatingWord onWordChange={handleWordChange} />
+              <span className="text-foreground text-[4vw] sm:text-[3.5vw] md:text-[3vw] lg:text-[2.5vw] uppercase tracking-wide mb-2">WITHIN YOUR</span>
+              <motion.div layout className="flex justify-center">
+                <RotatingWord onWordChange={handleWordChange} />
+              </motion.div>
             </motion.div>
           </motion.h1>
 

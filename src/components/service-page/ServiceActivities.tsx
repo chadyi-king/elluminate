@@ -12,11 +12,11 @@ export const ServiceActivities = ({ activities, accentColor, sectionTitle = "ACT
   const { openContactModal } = useContactModal();
   
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Dark background */}
-      <div className="absolute inset-0 bg-background-deep">
+    <section className="py-20 relative overflow-hidden bg-white">
+      {/* Light background */}
+      <div className="absolute inset-0 bg-gray-50">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-10"
+          className="absolute inset-0 bg-cover bg-center opacity-5"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920)` }}
         />
       </div>
@@ -38,7 +38,7 @@ export const ServiceActivities = ({ activities, accentColor, sectionTitle = "ACT
           className="text-center mb-12"
         >
           <h2 
-            className="text-2xl md:text-3xl font-display font-bold text-white mb-2"
+            className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-2"
           >
             {sectionTitle}
           </h2>

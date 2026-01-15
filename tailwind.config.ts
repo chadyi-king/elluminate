@@ -17,7 +17,7 @@ export default {
         sans: ['Inter', 'sans-serif'],
         display: ['Poppins', 'sans-serif'],
         bebas: ['Bebas Neue', 'sans-serif'],
-        horizon: ['Orbitron', 'sans-serif'],
+        horizon: ['Anton', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

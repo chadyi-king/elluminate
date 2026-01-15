@@ -108,7 +108,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
             </motion.div>
           </div>
           
-          <p className="mt-8 text-sm text-white/40 italic">
+          <p className="mt-8 text-sm text-gray-500 italic">
             "Let's create a memorable experience together."
           </p>
         </motion.div>
