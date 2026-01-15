@@ -39,17 +39,17 @@ export const HeroSection = () => {
       {/* Layer 2: Main Content */}
       <div className="container mx-auto px-4 relative z-20 pt-20 pb-24">
         <div className="flex flex-col items-center text-center w-full">
-          {/* Main Headline - Much larger, covering 3/4 of screen */}
+          {/* Main Headline - Dramatic visual hierarchy */}
           <motion.h1
-            className="text-[8vw] sm:text-[7vw] md:text-[6.5vw] lg:text-[6vw] font-display font-black leading-[0.95] mb-6 w-full"
+            className="font-display font-black leading-[0.95] mb-6 w-full"
           >
-            {/* IGNITE THE */}
-            <motion.div className="mb-1">
+            {/* IGNITE THE - Much smaller */}
+            <motion.div className="mb-2">
               <motion.span
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-block text-primary mr-[2vw]"
+                className="inline-block text-primary text-[4vw] sm:text-[3.5vw] md:text-[3vw] lg:text-[2.5vw] mr-[1vw] uppercase tracking-wide"
               >
                 IGNITE
               </motion.span>
@@ -57,15 +57,15 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="inline-block text-primary"
+                className="inline-block text-primary text-[4vw] sm:text-[3.5vw] md:text-[3vw] lg:text-[2.5vw] uppercase tracking-wide"
               >
                 THE
               </motion.span>
             </motion.div>
 
-            {/* SPARK with Bebas Neue - Extra large with dynamic color */}
+            {/* SPARK with Orbitron (Horizon-like) - Massive with dynamic color */}
             <motion.div
-              className="mb-1"
+              className="mb-2"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -73,7 +73,7 @@ export const HeroSection = () => {
               {sparkLetters.map((letter, index) => (
                 <motion.span
                   key={letter}
-                  className="inline-block font-bebas text-[18vw] sm:text-[16vw] md:text-[14vw] lg:text-[12vw] cursor-pointer transition-colors duration-500"
+                  className="inline-block font-horizon text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[14vw] cursor-pointer transition-colors duration-500 tracking-tight"
                   style={{ 
                     color: currentColor,
                   }}
@@ -92,15 +92,15 @@ export const HeroSection = () => {
               ))}
             </motion.div>
 
-            {/* WITHIN YOUR + Rotating Word */}
+            {/* WITHIN YOUR + Rotating Word - Much smaller */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
               className="flex items-center justify-center flex-wrap gap-[1vw]"
             >
-              <span className="text-foreground">WITHIN</span>
-              <span className="text-foreground">YOUR</span>
+              <span className="text-foreground text-[4vw] sm:text-[3.5vw] md:text-[3vw] lg:text-[2.5vw] uppercase tracking-wide">WITHIN</span>
+              <span className="text-foreground text-[4vw] sm:text-[3.5vw] md:text-[3vw] lg:text-[2.5vw] uppercase tracking-wide">YOUR</span>
               <RotatingWord onWordChange={handleWordChange} />
             </motion.div>
           </motion.h1>

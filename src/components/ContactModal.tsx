@@ -191,37 +191,37 @@ export const ContactModal = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="relative p-6 border-b border-primary/10 flex-shrink-0">
+            <div className="relative p-4 sm:p-6 border-b border-primary/10 flex-shrink-0">
               <button
                 onClick={closeContactModal}
-                className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors"
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
-              <h2 className="text-2xl font-display font-bold text-metallic-gold">
+              <h2 className="text-xl sm:text-2xl font-display font-bold text-primary">
                 Let Our Team Elevate Your Experience
               </h2>
-              <p className="text-white/60 mt-1">Let's create something extraordinary together</p>
+              <p className="text-gray-600 mt-1 text-sm sm:text-base">Let's create something extraordinary together</p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="p-6 space-y-5 overflow-y-auto flex-1 scrollbar-gold">
+            <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5 overflow-y-auto flex-1 scrollbar-gold">
               {/* Name & Email */}
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label className="block text-white/70 text-sm mb-1">
+                  <label className="block text-gray-700 text-sm mb-1">
                     Name <span className="text-primary">*</span>
                   </label>
                   <Input
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-background border-primary/20 focus:border-primary"
+                    className="bg-white border-gray-300 focus:border-primary text-gray-900"
                     placeholder="Your Name"
                   />
                 </div>
                 <div>
-                  <label className="block text-white/70 text-sm mb-1">
+                  <label className="block text-gray-700 text-sm mb-1">
                     Email <span className="text-primary">*</span>
                   </label>
                   <Input
@@ -229,7 +229,7 @@ export const ContactModal = () => {
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-background border-primary/20 focus:border-primary"
+                    className="bg-white border-gray-300 focus:border-primary text-gray-900"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -237,7 +237,7 @@ export const ContactModal = () => {
 
               {/* Phone */}
               <div>
-                <label className="block text-white/70 text-sm mb-1">
+                <label className="block text-gray-700 text-sm mb-1">
                   Phone <span className="text-primary">*</span>
                 </label>
                 <Input
@@ -245,21 +245,21 @@ export const ContactModal = () => {
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="bg-background border-primary/20 focus:border-primary"
+                  className="bg-white border-gray-300 focus:border-primary text-gray-900"
                   placeholder="+65 9123 4567"
                 />
               </div>
 
               {/* Event Category */}
               <div>
-                <label className="block text-white/70 text-sm mb-1">
+                <label className="block text-gray-700 text-sm mb-1">
                   Event Category <span className="text-primary">*</span>
                 </label>
                 <select
                   required
                   value={formData.eventCategory}
                   onChange={(e) => setFormData({ ...formData, eventCategory: e.target.value })}
-                  className="w-full px-3 py-2 rounded-md bg-background border border-primary/20 text-white focus:border-primary focus:outline-none"
+                  className="w-full px-3 py-2 rounded-md bg-white border border-gray-300 text-gray-900 focus:border-primary focus:outline-none"
                 >
                   <option value="">Select event category</option>
                   {eventCategories.map((category) => (
@@ -270,21 +270,21 @@ export const ContactModal = () => {
 
               {/* Expected Date with Calendar Picker */}
               <div>
-                <label className="block text-white/70 text-sm mb-1">Expected Date of Event</label>
+                <label className="block text-gray-700 text-sm mb-1">Expected Date of Event</label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
                       className={cn(
-                        "w-full justify-start text-left font-normal bg-background border-primary/20 hover:bg-background hover:border-primary",
-                        !selectedDate && "text-white/50"
+                        "w-full justify-start text-left font-normal bg-white border-gray-300 hover:bg-gray-50 hover:border-primary text-gray-900",
+                        !selectedDate && "text-gray-500"
                       )}
                     >
                       <CalendarIcon className="mr-2 h-4 w-4 text-primary" />
                       {selectedDate ? format(selectedDate, "PPP") : <span>Pick a date</span>}
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0 bg-background-card border-primary/30" align="start">
+                  <PopoverContent className="w-auto p-0 bg-white border-gray-200" align="start">
                     <Calendar
                       mode="single"
                       selected={selectedDate}
@@ -299,28 +299,28 @@ export const ContactModal = () => {
 
               {/* Organisation */}
               <div>
-                <label className="block text-white/70 text-sm mb-1">
+                <label className="block text-gray-700 text-sm mb-1">
                   Organisation <span className="text-primary">*</span>
                 </label>
                 <Input
                   required
                   value={formData.organisation}
                   onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
-                  className="bg-background border-primary/20 focus:border-primary"
+                  className="bg-white border-gray-300 focus:border-primary text-gray-900"
                   placeholder="Company / Organisation Name"
                 />
               </div>
 
               {/* Type of Organisation */}
               <div>
-                <label className="block text-white/70 text-sm mb-1">
+                <label className="block text-gray-700 text-sm mb-1">
                   Type of Organisation <span className="text-primary">*</span>
                 </label>
                 <select
                   required
                   value={formData.organisationType}
                   onChange={(e) => setFormData({ ...formData, organisationType: e.target.value })}
-                  className="w-full px-3 py-2 rounded-md bg-background border border-primary/20 text-white focus:border-primary focus:outline-none"
+                  className="w-full px-3 py-2 rounded-md bg-white border border-gray-300 text-gray-900 focus:border-primary focus:outline-none"
                 >
                   <option value="">Select organisation type</option>
                   {organisationTypes.map((type) => (
@@ -331,7 +331,7 @@ export const ContactModal = () => {
 
               {/* Expected Number of Attendees */}
               <div>
-                <label className="block text-white/70 text-sm mb-1">
+                <label className="block text-gray-700 text-sm mb-1">
                   Expected Number of Attendees <span className="text-primary">*</span>
                 </label>
                 <Input
@@ -340,21 +340,21 @@ export const ContactModal = () => {
                   min="1"
                   value={formData.expectedAttendees}
                   onChange={(e) => setFormData({ ...formData, expectedAttendees: e.target.value })}
-                  className="bg-background border-primary/20 focus:border-primary"
+                  className="bg-white border-gray-300 focus:border-primary text-gray-900"
                   placeholder="e.g., 150"
                 />
               </div>
 
               {/* Additional Customisation */}
               <div>
-                <label className="block text-white/70 text-sm mb-1">
+                <label className="block text-gray-700 text-sm mb-1">
                   Additional Customisation <span className="text-primary">*</span>
                 </label>
                 <select
                   required
                   value={formData.additionalCustomisation}
                   onChange={(e) => setFormData({ ...formData, additionalCustomisation: e.target.value })}
-                  className="w-full px-3 py-2 rounded-md bg-background border border-primary/20 text-white focus:border-primary focus:outline-none"
+                  className="w-full px-3 py-2 rounded-md bg-white border border-gray-300 text-gray-900 focus:border-primary focus:outline-none"
                 >
                   <option value="">Select option</option>
                   {customisationOptions.map((option) => (
@@ -365,11 +365,11 @@ export const ContactModal = () => {
 
               {/* Game Customisation */}
               <div>
-                <label className="block text-white/70 text-sm mb-1">Game Customisation</label>
+                <label className="block text-gray-700 text-sm mb-1">Game Customisation</label>
                 <select
                   value={formData.gameCustomisation}
                   onChange={(e) => setFormData({ ...formData, gameCustomisation: e.target.value })}
-                  className="w-full px-3 py-2 rounded-md bg-background border border-primary/20 text-white focus:border-primary focus:outline-none"
+                  className="w-full px-3 py-2 rounded-md bg-white border border-gray-300 text-gray-900 focus:border-primary focus:outline-none"
                 >
                   <option value="">Select option</option>
                   {gameCustomisationOptions.map((option) => (
@@ -380,23 +380,23 @@ export const ContactModal = () => {
 
               {/* Add-on Services */}
               <div>
-                <label className="block text-white/70 text-sm mb-2">Add-on Services</label>
-                <div className="grid grid-cols-2 gap-2">
+                <label className="block text-gray-700 text-sm mb-2">Add-on Services</label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {addOnServices.map((service) => (
                     <label
                       key={service}
                       className={`flex items-center gap-2 p-2 rounded-md border cursor-pointer transition-colors ${
                         formData.addOnServices.includes(service)
                           ? "border-primary bg-primary/10"
-                          : "border-primary/20 hover:border-primary/40"
+                          : "border-gray-300 hover:border-primary/40"
                       }`}
                     >
                       <Checkbox
                         checked={formData.addOnServices.includes(service)}
                         onCheckedChange={() => toggleAddOnService(service)}
-                        className="border-primary/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                        className="border-gray-400 data-[state=checked]:bg-primary data-[state=checked]:border-primary"
                       />
-                      <span className="text-white/80 text-sm">{service}</span>
+                      <span className="text-gray-700 text-sm">{service}</span>
                     </label>
                   ))}
                 </div>
@@ -404,11 +404,11 @@ export const ContactModal = () => {
 
               {/* Additional Details */}
               <div>
-                <label className="block text-white/70 text-sm mb-1">Additional Details</label>
+                <label className="block text-gray-700 text-sm mb-1">Additional Details</label>
                 <Textarea
                   value={formData.additionalDetails}
                   onChange={(e) => setFormData({ ...formData, additionalDetails: e.target.value })}
-                  className="bg-background border-primary/20 focus:border-primary min-h-[100px]"
+                  className="bg-white border-gray-300 focus:border-primary min-h-[80px] sm:min-h-[100px] text-gray-900"
                   placeholder="Share your vision, preferred venues, special requirements..."
                 />
               </div>
@@ -420,16 +420,16 @@ export const ContactModal = () => {
                   onCheckedChange={(checked) => 
                     setFormData({ ...formData, privacyConsent: checked === true })
                   }
-                  className="border-primary/40 data-[state=checked]:bg-primary data-[state=checked]:border-primary mt-0.5"
+                  className="border-gray-400 data-[state=checked]:bg-primary data-[state=checked]:border-primary mt-0.5"
                 />
-                <span className="text-white/60 text-sm">
+                <span className="text-gray-600 text-sm">
                   I confirm and agree to the storing and processing of my personal data as described in the privacy statement.
                 </span>
               </label>
 
               <Button
                 type="submit"
-                className="w-full bg-primary text-black hover:bg-black hover:text-white hover:border hover:border-primary transition-all"
+                className="w-full bg-primary text-white hover:bg-primary/90 transition-all"
               >
                 <Send className="w-4 h-4 mr-2" />
                 Send Inquiry
@@ -437,8 +437,8 @@ export const ContactModal = () => {
             </form>
 
             {/* Quick Contact */}
-            <div className="px-6 pb-6 flex-shrink-0">
-              <div className="flex flex-wrap gap-4 justify-center text-sm text-white/50">
+            <div className="px-4 sm:px-6 pb-4 sm:pb-6 flex-shrink-0">
+              <div className="flex flex-wrap gap-4 justify-center text-sm text-gray-500">
                 <a href="mailto:info@teamelevate.sg" className="flex items-center gap-1 hover:text-primary transition-colors">
                   <Mail className="w-4 h-4" /> info@teamelevate.sg
                 </a>
