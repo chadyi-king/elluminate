@@ -46,44 +46,44 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-background-card rounded-2xl max-w-lg w-full border border-primary/20 overflow-hidden my-8"
+            className="bg-white rounded-2xl max-w-lg w-full border border-gray-200 overflow-hidden my-8"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="relative p-6 border-b border-primary/10">
+            <div className="relative p-6 border-b border-gray-200">
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors"
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
-              <h2 className="text-2xl font-display font-bold text-metallic-gold">
+              <h2 className="text-2xl font-display font-bold text-primary">
                 Plan Your Event
               </h2>
-              <p className="text-white/60 mt-1">Let's create something extraordinary together</p>
+              <p className="text-gray-600 mt-1">Let's create something extraordinary together</p>
             </div>
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-white/70 text-sm mb-1">Your Name *</label>
+                  <label className="block text-gray-700 text-sm mb-1">Your Name *</label>
                   <Input
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-background border-primary/20 focus:border-primary"
+                    className="bg-gray-50 border-gray-300 focus:border-primary text-gray-900"
                     placeholder="John Doe"
                   />
                 </div>
                 <div>
-                  <label className="block text-white/70 text-sm mb-1">Email *</label>
+                  <label className="block text-gray-700 text-sm mb-1">Email *</label>
                   <Input
                     required
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-background border-primary/20 focus:border-primary"
+                    className="bg-gray-50 border-gray-300 focus:border-primary text-gray-900"
                     placeholder="john@company.com"
                   />
                 </div>
@@ -91,31 +91,31 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-white/70 text-sm mb-1">Company</label>
+                  <label className="block text-gray-700 text-sm mb-1">Company</label>
                   <Input
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="bg-background border-primary/20 focus:border-primary"
+                    className="bg-gray-50 border-gray-300 focus:border-primary text-gray-900"
                     placeholder="Company Name"
                   />
                 </div>
                 <div>
-                  <label className="block text-white/70 text-sm mb-1">Phone</label>
+                  <label className="block text-gray-700 text-sm mb-1">Phone</label>
                   <Input
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="bg-background border-primary/20 focus:border-primary"
+                    className="bg-gray-50 border-gray-300 focus:border-primary text-gray-900"
                     placeholder="+65 9123 4567"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-white/70 text-sm mb-1">Event Type</label>
+                <label className="block text-gray-700 text-sm mb-1">Event Type</label>
                 <select
                   value={formData.eventType}
                   onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
-                  className="w-full px-3 py-2 rounded-md bg-background border border-primary/20 text-white focus:border-primary focus:outline-none"
+                  className="w-full px-3 py-2 rounded-md bg-gray-50 border border-gray-300 text-gray-900 focus:border-primary focus:outline-none"
                 >
                   <option value="">Select event type</option>
                   <option value="Team Building">Team Building</option>
@@ -129,19 +129,19 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
               </div>
 
               <div>
-                <label className="block text-white/70 text-sm mb-1">Tell us about your event *</label>
+                <label className="block text-gray-700 text-sm mb-1">Tell us about your event *</label>
                 <Textarea
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="bg-background border-primary/20 focus:border-primary min-h-[100px]"
+                  className="bg-gray-50 border-gray-300 focus:border-primary min-h-[100px] text-gray-900"
                   placeholder="Share your vision, expected pax, preferred dates, venue ideas..."
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-primary text-black hover:bg-black hover:text-white hover:border hover:border-primary transition-all"
+                className="w-full bg-primary text-black hover:bg-gray-900 hover:text-white transition-all"
               >
                 <Send className="w-4 h-4 mr-2" />
                 Send Inquiry
@@ -150,7 +150,7 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
 
             {/* Quick Contact */}
             <div className="px-6 pb-6">
-              <div className="flex flex-wrap gap-4 justify-center text-sm text-white/50">
+              <div className="flex flex-wrap gap-4 justify-center text-sm text-gray-500">
                 <a href="mailto:info@teamelevate.sg" className="flex items-center gap-1 hover:text-primary transition-colors">
                   <Mail className="w-4 h-4" /> info@teamelevate.sg
                 </a>

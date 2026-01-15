@@ -106,7 +106,7 @@ export const ServiceActivities = ({ activities, accentColor, sectionTitle = "ACT
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#fff';
+              e.currentTarget.style.color = accentColor;
               e.currentTarget.style.border = `2px solid ${accentColor}`;
             }}
             onMouseLeave={(e) => {

@@ -100,6 +100,12 @@ export interface ServiceData {
     title: string;
     description: string;
   }[];
+  videoSection?: {
+    title: string;
+    subtitle?: string;
+    videoUrl?: string;
+    thumbnailImage?: string;
+  };
   cta: {
     headline: string;
     subtext: string;
@@ -2453,6 +2459,10 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Flag, title: "Race Day", description: "Your team embarks on the exciting adventure!" },
       { icon: Trophy, title: "Celebrate", description: "Awards, photos, and memories to treasure." }
     ],
+    videoSection: {
+      title: "See the Race in Action",
+      subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks"
+    },
     cta: {
       headline: "Ready for Your Amazing Race?",
       subtext: "Let's design an exhilarating race experience that brings your team together."

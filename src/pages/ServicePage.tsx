@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GoldParticles } from "@/components/GoldParticles";
 import { ServiceHeroSplit } from "@/components/service-page/ServiceHeroSplit";
+import { ServiceVideoSection } from "@/components/service-page/ServiceVideoSection";
 import { ServiceOverviewNew } from "@/components/service-page/ServiceOverviewNew";
 import { ServiceFeaturesNew } from "@/components/service-page/ServiceFeaturesNew";
 import { ServiceActivities } from "@/components/service-page/ServiceActivities";
@@ -71,6 +72,16 @@ const ServicePage = () => {
         backgroundImage={service.hero.backgroundImage}
         accentColor={service.accentColor}
       />
+
+      {service.videoSection && (
+        <ServiceVideoSection
+          title={service.videoSection.title}
+          subtitle={service.videoSection.subtitle}
+          videoUrl={service.videoSection.videoUrl}
+          thumbnailImage={service.videoSection.thumbnailImage}
+          accentColor={service.accentColor}
+        />
+      )}
 
       <ServiceOverviewNew
         description={service.overview.description}

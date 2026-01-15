@@ -12,22 +12,19 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
   const { openContactModal } = useContactModal();
   
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden bg-gray-900">
       {/* Dark background with dim image */}
-      <div className="absolute inset-0 bg-background-deep">
+      <div className="absolute inset-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1920)` }}
         />
       </div>
       
-      {/* Dark background panel */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/90 to-background-deep/95" />
-      
       {/* Accent spotlight behind text */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-[150px]"
-        style={{ backgroundColor: `${accentColor}12` }}
+        style={{ backgroundColor: `${accentColor}15` }}
         animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
@@ -66,7 +63,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
             {headline}
           </h2>
           
-          <p className="text-lg text-white/60 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
             {subtext}
           </p>
           
@@ -108,7 +105,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
             </motion.div>
           </div>
           
-          <p className="mt-8 text-sm text-gray-500 italic">
+          <p className="mt-8 text-sm text-gray-400 italic">
             "Let's create a memorable experience together."
           </p>
         </motion.div>

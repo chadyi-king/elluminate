@@ -7,11 +7,11 @@ interface ServiceGalleryNewProps {
 
 export const ServiceGalleryNew = ({ images, accentColor }: ServiceGalleryNewProps) => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden bg-gray-900">
       {/* Dark background with dim image */}
-      <div className="absolute inset-0 bg-background-deep">
+      <div className="absolute inset-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920)` }}
         />
       </div>
@@ -19,7 +19,7 @@ export const ServiceGalleryNew = ({ images, accentColor }: ServiceGalleryNewProp
       {/* Background glow with accent color */}
       <motion.div
         className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full blur-[120px]"
-        style={{ backgroundColor: `${accentColor}08` }}
+        style={{ backgroundColor: `${accentColor}15` }}
         animate={{ opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
@@ -39,7 +39,7 @@ export const ServiceGalleryNew = ({ images, accentColor }: ServiceGalleryNewProp
             className="w-24 h-0.5 mx-auto"
             style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
           />
-          <p className="text-white/50 max-w-2xl mx-auto mt-4">
+          <p className="text-gray-400 max-w-2xl mx-auto mt-4">
             A glimpse into the extraordinary experiences we create
           </p>
         </motion.div>
