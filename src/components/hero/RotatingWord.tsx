@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const words = [
+export const wordData = [
   { text: "TEAM", color: "hsl(214, 100%, 56%)" }, // Blue
   { text: "SELF", color: "hsl(33, 100%, 50%)" }, // Orange
   { text: "SCHOOL", color: "hsl(340, 82%, 52%)" }, // Pink
@@ -9,14 +9,27 @@ const words = [
   { text: "WORKPLACE", color: "hsl(160, 70%, 45%)" }, // Green
 ];
 
-export const RotatingWord = () => {
+interface RotatingWordProps {
+  onWordChange?: (index: number) => void;
+}
+
+export const RotatingWord = ({ onWordChange }: RotatingWordProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % words.length);
+      setCurrentIndex((prev) => {
+        const next = (prev + 1) % wordData.length;
+        onWordChange?.(next);
+        return next;
+      });
     }, 2500);
     return () => clearInterval(interval);
+  }, [onWordChange]);
+
+  // Call onWordChange on mount with initial index
+  useEffect(() => {
+    onWordChange?.(0);
   }, []);
 
   return (
@@ -30,12 +43,12 @@ export const RotatingWord = () => {
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="inline-block px-3 py-1 rounded-lg font-black"
           style={{
-            backgroundColor: words[currentIndex].color,
+            backgroundColor: wordData[currentIndex].color,
             color: "white",
             textShadow: "0 2px 10px rgba(0,0,0,0.2)",
           }}
         >
-          {words[currentIndex].text}
+          {wordData[currentIndex].text}
         </motion.span>
       </AnimatePresence>
     </span>
