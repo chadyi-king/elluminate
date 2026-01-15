@@ -1,4 +1,4 @@
-import { LucideIcon, Mic, Palette, Monitor, Gamepad2, Trophy, Music, Camera, Sparkles, Users, Heart, Star, Zap, PartyPopper, Wine, Lightbulb, Target, Clock, Gift, Crown, MapPin, Gem, Rocket, Building, Award, CalendarDays, Plane, Flag, Lock, Home, Theater, Dumbbell, Video, PenTool, Volume2, Megaphone, Handshake, GraduationCap, Globe, Briefcase, Navigation, Timer, Brain, Compass, Route, Phone, CheckCircle, ClipboardList, Send } from "lucide-react";
+import { LucideIcon, Mic, Palette, Monitor, Gamepad2, Trophy, Music, Camera, Sparkles, Users, Heart, Star, Zap, PartyPopper, Wine, Lightbulb, Target, Clock, Gift, Crown, MapPin, Gem, Rocket, Building, Award, CalendarDays, Plane, Flag, Lock, Home, Theater, Dumbbell, Video, PenTool, Volume2, Megaphone, Handshake, GraduationCap, Globe, Briefcase, Navigation, Timer, Brain, Compass, Route, Phone, CheckCircle, ClipboardList, Send, Activity, UserPlus, Puzzle, Building2, Trees, Mountain, ShoppingBag, Palmtree, Moon, Map } from "lucide-react";
 
 // Service hero images
 import teamBuildingHero from "@/assets/services/team-building-hero.jpg";
@@ -36,6 +36,20 @@ export interface AlternatingSection {
 export interface FAQ {
   question: string;
   answer: string;
+}
+
+export interface FlowSectionItem {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+export interface FlowSection {
+  sectionTitle: string;
+  sectionSubtitle?: string;
+  items: FlowSectionItem[];
+  itemsPerRow?: number;
+  showNumbers?: boolean;
 }
 
 export interface ServiceData {
@@ -110,6 +124,12 @@ export interface ServiceData {
     headline: string;
     subtext: string;
   };
+  // New flow sections
+  howItWorksFlow?: FlowSection;
+  whatToExpectFlow?: FlowSection;
+  raceFormatsFlow?: FlowSection;
+  challengeTypesFlow?: FlowSection;
+  perfectForFlow?: FlowSection;
 }
 
 export const servicesData: Record<string, ServiceData> = {
@@ -2388,6 +2408,75 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Lightbulb, title: "Problem Solving", description: "Real-world puzzles that spark creative thinking." },
       { icon: Star, title: "Memorable Experience", description: "Stories your team will talk about for years." }
     ],
+    // New Flow Sections
+    howItWorksFlow: {
+      sectionTitle: "HOW IT WORKS",
+      sectionSubtitle: "Your Race Day Journey",
+      showNumbers: true,
+      itemsPerRow: 4,
+      items: [
+        { icon: Users, title: "Form Teams", description: "Divide into teams of 4-8 members with diverse skills and strengths." },
+        { icon: ClipboardList, title: "Get Briefed", description: "Receive your race kit, rules, and the first set of clues." },
+        { icon: Map, title: "Solve Clues", description: "Decode clues to discover each checkpoint location." },
+        { icon: Zap, title: "Complete Challenges", description: "Physical, mental, and creative tasks at every station." },
+        { icon: Timer, title: "Race the Clock", description: "Compete against time and rival teams for glory." },
+        { icon: Trophy, title: "Cross the Finish", description: "Celebrate with awards, photos, and victory!" }
+      ]
+    },
+    whatToExpectFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "An Unforgettable Adventure",
+      itemsPerRow: 3,
+      items: [
+        { icon: Navigation, title: "Multi-Checkpoint Adventure", description: "Navigate through 6-10 strategically placed stations across exciting venues." },
+        { icon: Brain, title: "Mind-Bending Puzzles", description: "Riddles, codes, and brain teasers that challenge your team's wit." },
+        { icon: Timer, title: "Adrenaline-Pumping Races", description: "Time pressure adds excitement to every challenge you face." },
+        { icon: Users, title: "True Team Collaboration", description: "Every member's skills are essential to winning the race." },
+        { icon: Compass, title: "Customized to Your Goals", description: "Routes and challenges tailored to your company objectives." },
+        { icon: Trophy, title: "Prizes & Recognition", description: "Exciting rewards for top teams and special category winners." }
+      ]
+    },
+    raceFormatsFlow: {
+      sectionTitle: "RACE FORMATS",
+      sectionSubtitle: "Choose Your Adventure",
+      itemsPerRow: 4,
+      items: [
+        { icon: Building, title: "City Amazing Race", description: "Explore urban landmarks and hidden gems across the city." },
+        { icon: Home, title: "Indoor Amazing Race", description: "Perfect for hotels, conference centers, or office buildings." },
+        { icon: Globe, title: "Virtual Amazing Race", description: "Remote teams compete online with digital challenges." },
+        { icon: MapPin, title: "Heritage Trail Race", description: "Discover cultural landmarks and historical sites." },
+        { icon: Flag, title: "Cultural Amazing Race", description: "Immerse in local traditions and cultural experiences." },
+        { icon: Building2, title: "Campus Race", description: "Ideal for universities, schools, or large campuses." },
+        { icon: Palmtree, title: "Beach Amazing Race", description: "Sun, sand, and exciting seaside challenges." },
+        { icon: Moon, title: "Night Race Challenge", description: "After-dark adventure with unique nocturnal tasks." },
+        { icon: Trees, title: "Nature Trail Race", description: "Parks, gardens, and outdoor natural settings." },
+        { icon: ShoppingBag, title: "Mall Adventure Race", description: "Indoor shopping mall exploration and challenges." },
+        { icon: Mountain, title: "Resort Race", description: "Perfect for team retreats at resort destinations." },
+        { icon: Plane, title: "Hybrid Experience", description: "Combine physical and virtual elements for distributed teams." }
+      ]
+    },
+    challengeTypesFlow: {
+      sectionTitle: "CHALLENGE TYPES",
+      sectionSubtitle: "Something for Everyone",
+      itemsPerRow: 4,
+      items: [
+        { icon: Activity, title: "Physical Challenges", description: "Relay races, obstacle courses, and active team tasks." },
+        { icon: Brain, title: "Mental Challenges", description: "Puzzles, riddles, trivia, and logic problems." },
+        { icon: Camera, title: "Creative Challenges", description: "Photo missions, performances, and artistic tasks." },
+        { icon: Users, title: "Team Coordination", description: "Tasks requiring full team synchronization and communication." }
+      ]
+    },
+    perfectForFlow: {
+      sectionTitle: "PERFECT FOR",
+      sectionSubtitle: "Ideal for Every Occasion",
+      itemsPerRow: 4,
+      items: [
+        { icon: UserPlus, title: "New Team Integration", description: "Break the ice and build bonds with new hires and team members." },
+        { icon: Building, title: "Department Off-sites", description: "Strengthen collaboration within departments and divisions." },
+        { icon: PartyPopper, title: "Company Celebrations", description: "Milestones, anniversaries, and annual company events." },
+        { icon: GraduationCap, title: "Leadership Programs", description: "Develop decision-making and strategic thinking skills." }
+      ]
+    },
     activities: {
       sectionTitle: "RACE FORMATS",
       items: ["City Amazing Race", "Indoor Amazing Race", "Virtual Amazing Race", "Heritage Trail Race", "Cultural Amazing Race", "Campus Race", "Beach Amazing Race", "Night Race Challenge", "Hybrid Race Experience", "Corporate Park Race", "Mall Adventure Race", "Nature Trail Race"]

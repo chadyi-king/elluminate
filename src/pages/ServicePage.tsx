@@ -15,6 +15,7 @@ import { ServiceFAQ } from "@/components/service-page/ServiceFAQ";
 import { ServiceGalleryNew } from "@/components/service-page/ServiceGalleryNew";
 import { ServiceFinalCTA } from "@/components/service-page/ServiceFinalCTA";
 import { ServiceProcessFlow } from "@/components/service-page/ServiceProcessFlow";
+import { ServiceFlowSection } from "@/components/service-page/ServiceFlowSection";
 import { servicesData } from "@/data/servicesData";
 import { SEO } from "@/components/SEO";
 
@@ -87,6 +88,62 @@ const ServicePage = () => {
         description={service.overview.description}
         accentColor={service.accentColor}
       />
+
+      {/* New Flow Sections */}
+      {service.howItWorksFlow && (
+        <ServiceFlowSection
+          sectionTitle={service.howItWorksFlow.sectionTitle}
+          sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
+          items={service.howItWorksFlow.items}
+          accentColor={service.accentColor}
+          itemsPerRow={service.howItWorksFlow.itemsPerRow}
+          showNumbers={service.howItWorksFlow.showNumbers}
+        />
+      )}
+
+      {service.whatToExpectFlow && (
+        <ServiceFlowSection
+          sectionTitle={service.whatToExpectFlow.sectionTitle}
+          sectionSubtitle={service.whatToExpectFlow.sectionSubtitle}
+          items={service.whatToExpectFlow.items}
+          accentColor={service.accentColor}
+          itemsPerRow={service.whatToExpectFlow.itemsPerRow}
+          showNumbers={service.whatToExpectFlow.showNumbers}
+        />
+      )}
+
+      {service.raceFormatsFlow && (
+        <ServiceFlowSection
+          sectionTitle={service.raceFormatsFlow.sectionTitle}
+          sectionSubtitle={service.raceFormatsFlow.sectionSubtitle}
+          items={service.raceFormatsFlow.items}
+          accentColor={service.accentColor}
+          itemsPerRow={service.raceFormatsFlow.itemsPerRow}
+          showNumbers={service.raceFormatsFlow.showNumbers}
+        />
+      )}
+
+      {service.challengeTypesFlow && (
+        <ServiceFlowSection
+          sectionTitle={service.challengeTypesFlow.sectionTitle}
+          sectionSubtitle={service.challengeTypesFlow.sectionSubtitle}
+          items={service.challengeTypesFlow.items}
+          accentColor={service.accentColor}
+          itemsPerRow={service.challengeTypesFlow.itemsPerRow}
+          showNumbers={service.challengeTypesFlow.showNumbers}
+        />
+      )}
+
+      {service.perfectForFlow && (
+        <ServiceFlowSection
+          sectionTitle={service.perfectForFlow.sectionTitle}
+          sectionSubtitle={service.perfectForFlow.sectionSubtitle}
+          items={service.perfectForFlow.items}
+          accentColor={service.accentColor}
+          itemsPerRow={service.perfectForFlow.itemsPerRow}
+          showNumbers={service.perfectForFlow.showNumbers}
+        />
+      )}
 
       {service.processFlow && (
         <ServiceProcessFlow
