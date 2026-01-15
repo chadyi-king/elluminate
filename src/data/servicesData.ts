@@ -1,4 +1,4 @@
-import { LucideIcon, Mic, Palette, Monitor, Gamepad2, Trophy, Music, Camera, Sparkles, Users, Heart, Star, Zap, PartyPopper, Wine, Lightbulb, Target, Clock, Gift, Crown, MapPin, Gem, Rocket, Building, Award, CalendarDays, Plane, Flag, Lock, Home, Theater, Dumbbell, Video, PenTool, Volume2, Megaphone, Handshake, GraduationCap, Globe, Briefcase } from "lucide-react";
+import { LucideIcon, Mic, Palette, Monitor, Gamepad2, Trophy, Music, Camera, Sparkles, Users, Heart, Star, Zap, PartyPopper, Wine, Lightbulb, Target, Clock, Gift, Crown, MapPin, Gem, Rocket, Building, Award, CalendarDays, Plane, Flag, Lock, Home, Theater, Dumbbell, Video, PenTool, Volume2, Megaphone, Handshake, GraduationCap, Globe, Briefcase, Navigation, Timer, Brain, Compass, Route } from "lucide-react";
 
 // Service hero images
 import teamBuildingHero from "@/assets/services/team-building-hero.jpg";
@@ -24,6 +24,7 @@ import vipGalaHero from "@/assets/services/vip-gala-hero.jpg";
 import corporateCarnivalHero from "@/assets/services/corporate-carnival-hero.jpg";
 import governmentEventHero from "@/assets/services/government-event-hero.jpg";
 import privateEventHero from "@/assets/services/private-event-hero.jpg";
+import amazingRaceHero from "@/assets/services/amazing-race-hero.jpg";
 
 export interface AlternatingSection {
   title: string;
@@ -2347,6 +2348,102 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready for Your Grand Opening?",
       subtext: "Let's create a launch that establishes your presence with impact."
+    }
+  },
+  "amazing-race": {
+    accentColor: "#FFC400",
+    hero: {
+      title: "Amazing Race",
+      subtitle: "Team Building Adventure",
+      tagline: "Race through exciting challenges that test teamwork, strategy, and problem-solving in an unforgettable competition.",
+      backgroundImage: amazingRaceHero
+    },
+    overview: {
+      description: "Experience the thrill of our signature Amazing Race team building activity! Teams compete in an exhilarating race across multiple checkpoints, solving puzzles, completing physical challenges, and working together under pressure. This high-energy adventure brings out the best in your team while creating memories that last a lifetime.",
+      backgroundImage: amazingRaceHero
+    },
+    features: [
+      { icon: Navigation, title: "Multi-Checkpoint Adventure", description: "Navigate through strategically placed stations across your chosen venue." },
+      { icon: Brain, title: "Problem-Solving Challenges", description: "Puzzles and riddles that require teamwork and creative thinking." },
+      { icon: Timer, title: "Time-Based Competition", description: "Race against the clock and other teams for ultimate bragging rights." },
+      { icon: Users, title: "Team Collaboration", description: "Challenges designed to require all team members to contribute." },
+      { icon: Compass, title: "Customizable Routes", description: "Tailored race routes based on your venue and objectives." },
+      { icon: Trophy, title: "Prizes & Recognition", description: "Exciting prizes for winning teams and special category awards." }
+    ],
+    benefits: [
+      { icon: Zap, title: "High Energy Fun", description: "An exciting, adrenaline-pumping experience for all fitness levels." },
+      { icon: Target, title: "Strategic Thinking", description: "Develops planning and decision-making skills under pressure." },
+      { icon: Heart, title: "Team Bonding", description: "Shared challenges create lasting connections between colleagues." },
+      { icon: Lightbulb, title: "Problem Solving", description: "Real-world puzzles that spark creative thinking." },
+      { icon: Star, title: "Memorable Experience", description: "Stories your team will talk about for years." }
+    ],
+    activities: {
+      sectionTitle: "RACE FORMATS",
+      items: ["City Amazing Race", "Indoor Amazing Race", "Virtual Amazing Race", "Heritage Trail Race", "Cultural Amazing Race", "Campus Race", "Beach Amazing Race", "Night Race Challenge", "Hybrid Race Experience", "Corporate Park Race", "Mall Adventure Race", "Nature Trail Race"]
+    },
+    alternatingSections: [
+      {
+        title: "How It Works",
+        description: "Teams are given clues that lead them to various checkpoints where they must complete challenges before moving on.",
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920",
+        points: [
+          { text: "Teams of 4-8 members work together" },
+          { text: "Solve clues to find checkpoint locations" },
+          { text: "Complete physical and mental challenges" },
+          { text: "Race against time and other teams" }
+        ]
+      },
+      {
+        title: "Challenge Types",
+        description: "Our Amazing Race features a diverse mix of challenges that cater to different strengths and abilities.",
+        image: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=1920",
+        points: [
+          { text: "Physical challenges - Relay races, obstacle courses" },
+          { text: "Mental challenges - Puzzles, riddles, trivia" },
+          { text: "Creative challenges - Photo missions, performances" },
+          { text: "Team challenges - Tasks requiring full team coordination" }
+        ]
+      },
+      {
+        title: "Perfect For",
+        description: "The Amazing Race format is versatile and can be adapted for various corporate needs and group sizes.",
+        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920",
+        points: [
+          { text: "New team integration and onboarding" },
+          { text: "Department off-sites and team days" },
+          { text: "Company-wide events and celebrations" },
+          { text: "Leadership development programs" }
+        ]
+      }
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800",
+      "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800",
+      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800",
+      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800",
+      "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800"
+    ],
+    testimonials: [
+      { quote: "The Amazing Race was absolutely incredible! Our team has never been more energized.", author: "David Chen", company: "Google Singapore" },
+      { quote: "Perfectly organized with just the right level of challenge. Everyone had a blast!", author: "Amanda Lee", company: "Grab Holdings" },
+      { quote: "The best team building activity we've ever done. Highly recommend!", author: "Robert Tan", company: "Shopee" },
+      { quote: "Our team is still talking about the race weeks later. Unforgettable experience!", author: "Michelle Goh", company: "Microsoft Singapore" },
+      { quote: "Great mix of mental and physical challenges. Something for everyone!", author: "James Lim", company: "Amazon Singapore" },
+      { quote: "Professional facilitation and amazing energy throughout. Will book again!", author: "Sarah Wong", company: "Meta Singapore" }
+    ],
+    faqs: [
+      { question: "How many participants can join the Amazing Race?", answer: "We can accommodate groups from 20 to 500+ participants. We'll structure teams and challenges based on your group size." },
+      { question: "Where can the Amazing Race be held?", answer: "We offer city-wide races, indoor venue races, resort races, and virtual options. Popular locations include Marina Bay, Sentosa, and various CBD areas." },
+      { question: "How long does an Amazing Race typically last?", answer: "A standard race runs 2-3 hours, but we can customize the duration from 1.5 to 4 hours based on your schedule." },
+      { question: "Is it suitable for all fitness levels?", answer: "Yes! We design challenges to be inclusive with a mix of physical and mental tasks. Teams can strategize based on individual strengths." },
+      { question: "Can challenges be customized to our company?", answer: "Absolutely! We can incorporate company trivia, branded materials, and challenges aligned with your values and objectives." }
+    ],
+    cta: {
+      headline: "Ready for Your Amazing Race?",
+      subtext: "Let's design an exhilarating race experience that brings your team together."
     }
   }
 };
