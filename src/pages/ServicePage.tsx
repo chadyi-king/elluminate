@@ -13,6 +13,7 @@ import { ServiceTestimonialNew } from "@/components/service-page/ServiceTestimon
 import { ServiceFAQ } from "@/components/service-page/ServiceFAQ";
 import { ServiceGalleryNew } from "@/components/service-page/ServiceGalleryNew";
 import { ServiceFinalCTA } from "@/components/service-page/ServiceFinalCTA";
+import { ServiceProcessFlow } from "@/components/service-page/ServiceProcessFlow";
 import { servicesData } from "@/data/servicesData";
 import { SEO } from "@/components/SEO";
 
@@ -75,6 +76,13 @@ const ServicePage = () => {
         description={service.overview.description}
         accentColor={service.accentColor}
       />
+
+      {service.processFlow && (
+        <ServiceProcessFlow
+          steps={service.processFlow}
+          accentColor={service.accentColor}
+        />
+      )}
 
       <ServiceFeaturesNew 
         features={service.features} 

@@ -15,11 +15,11 @@ interface ServiceFeaturesNewProps {
 
 export const ServiceFeaturesNew = ({ features, accentColor, image }: ServiceFeaturesNewProps) => {
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Dark background with dim image */}
-      <div className="absolute inset-0 bg-background-deep">
+    <section className="py-24 relative overflow-hidden bg-gray-50">
+      {/* Light background with subtle pattern */}
+      <div className="absolute inset-0 bg-white">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-5"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920)` }}
         />
       </div>
@@ -41,7 +41,7 @@ export const ServiceFeaturesNew = ({ features, accentColor, image }: ServiceFeat
           className="text-center mb-16"
         >
           <h2 
-            className="text-3xl md:text-4xl font-display font-bold text-white"
+            className="text-3xl md:text-4xl font-display font-bold text-gray-900"
           >
             WHAT TO EXPECT
           </h2>
@@ -78,7 +78,7 @@ export const ServiceFeaturesNew = ({ features, accentColor, image }: ServiceFeat
                   >
                     {feature.title.toUpperCase()}
                   </h3>
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </div>

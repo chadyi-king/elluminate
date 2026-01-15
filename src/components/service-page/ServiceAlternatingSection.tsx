@@ -14,11 +14,11 @@ interface ServiceAlternatingSectionProps {
 
 export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlternatingSectionProps) => {
   return (
-    <section className="py-16 relative overflow-hidden">
-      {/* Dark background with dim image */}
-      <div className="absolute inset-0 bg-background">
+    <section className="py-16 relative overflow-hidden bg-white">
+      {/* Light background with subtle pattern */}
+      <div className="absolute inset-0 bg-gray-50">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-5"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920)` }}
         />
       </div>
@@ -34,7 +34,7 @@ export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlte
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className={`flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 py-16 ${
-                index < sections.length - 1 ? 'border-b border-white/10' : ''
+                index < sections.length - 1 ? 'border-b border-gray-200' : ''
               }`}
             >
               {/* Image */}
@@ -84,8 +84,8 @@ export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlte
                   initial={{ opacity: 0, x: isReversed ? -20 : 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
+                  className="text-gray-600 leading-relaxed mb-6"
                   transition={{ duration: 0.6, delay: 0.3 }}
-                  className="text-white/70 leading-relaxed mb-6"
                 >
                   {section.description}
                 </motion.p>
@@ -105,7 +105,7 @@ export const ServiceAlternatingSection = ({ sections, accentColor }: ServiceAlte
                           className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                           style={{ backgroundColor: accentColor }}
                         />
-                        <span className="text-white/80">{point.text}</span>
+                        <span className="text-gray-700">{point.text}</span>
                       </motion.li>
                     ))}
                   </ul>
