@@ -2,29 +2,31 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useContactModal } from "@/contexts/ContactModalContext";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { ConfettiBurst } from "./ConfettiBurst";
 import { PhotoWall } from "./hero/PhotoWall";
-import { RotatingWord } from "./hero/RotatingWord";
+import { RotatingWord, wordData } from "./hero/RotatingWord";
 import { ServicePills } from "./hero/ServicePills";
 
-// SPARK letter colors for rainbow gradient
-const sparkLetters = [
-  { letter: "S", color: "#FFC400" }, // Yellow
-  { letter: "P", color: "#FF8A3D" }, // Orange
-  { letter: "A", color: "#FF4F4F" }, // Red/Pink
-  { letter: "R", color: "#A768FF" }, // Purple
-  { letter: "K", color: "#2A8DFF" }, // Blue
-];
+// SPARK letters
+const sparkLetters = ["S", "P", "A", "R", "K"];
 
 export const HeroSection = () => {
   const { openContactModal } = useContactModal();
   const [showConfetti, setShowConfetti] = useState(false);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   const handleCTAClick = () => {
     setShowConfetti(true);
     setTimeout(() => openContactModal(), 300);
   };
+
+  const handleWordChange = useCallback((index: number) => {
+    setCurrentWordIndex(index);
+  }, []);
+
+  // Get current color from rotating word
+  const currentColor = wordData[currentWordIndex].color;
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white">
@@ -61,24 +63,31 @@ export const HeroSection = () => {
               </motion.span>
             </motion.div>
 
-            {/* SPARK with rainbow colors - Extra large */}
+            {/* SPARK with Bebas Neue - Extra large with dynamic color */}
             <motion.div
               className="mb-1"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              {sparkLetters.map((item, index) => (
+              {sparkLetters.map((letter, index) => (
                 <motion.span
-                  key={item.letter}
-                  className="inline-block font-black text-[12vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw]"
-                  style={{ color: item.color }}
+                  key={letter}
+                  className="inline-block font-bebas text-[18vw] sm:text-[16vw] md:text-[14vw] lg:text-[12vw] cursor-pointer transition-colors duration-500"
+                  style={{ 
+                    color: currentColor,
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
+                  whileHover={{ 
+                    scale: 1.15, 
+                    y: -15,
+                    textShadow: "0 15px 30px rgba(0,0,0,0.3), 0 8px 10px rgba(0,0,0,0.2)",
+                    transition: { type: "spring", stiffness: 400, damping: 10 }
+                  }}
                 >
-                  {item.letter}
+                  {letter}
                 </motion.span>
               ))}
             </motion.div>
@@ -92,7 +101,7 @@ export const HeroSection = () => {
             >
               <span className="text-foreground">WITHIN</span>
               <span className="text-foreground">YOUR</span>
-              <RotatingWord />
+              <RotatingWord onWordChange={handleWordChange} />
             </motion.div>
           </motion.h1>
 
