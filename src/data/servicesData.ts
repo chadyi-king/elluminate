@@ -52,6 +52,32 @@ export interface FlowSection {
   showNumbers?: boolean;
 }
 
+// New interfaces for enhanced service pages
+export interface RecentEvent {
+  client: string;
+  event: string;
+  pax: number;
+}
+
+export interface PricingInfo {
+  startingPrice: string;
+  unit: string;
+  minimumPax: number;
+  duration: string;
+}
+
+export interface AddOn {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface Outcome {
+  icon: string;
+  title: string;
+  description: string;
+}
+
 export interface ServiceData {
   accentColor: string;
   hero: {
@@ -130,6 +156,12 @@ export interface ServiceData {
   raceFormatsFlow?: FlowSection;
   challengeTypesFlow?: FlowSection;
   perfectForFlow?: FlowSection;
+  // New enhanced sections
+  clientLogos?: string[];
+  recentEvents?: RecentEvent[];
+  pricing?: PricingInfo;
+  addOns?: AddOn[];
+  outcomes?: Outcome[];
 }
 
 export const servicesData: Record<string, ServiceData> = {
@@ -2555,6 +2587,42 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready for Your Amazing Race?",
       subtext: "Let's design an exhilarating race experience that brings your team together."
-    }
+    },
+    // New enhanced sections
+    clientLogos: ["Google", "DBS", "Shopee", "Microsoft", "Grab", "Meta", "Deloitte", "Amazon"],
+    recentEvents: [
+      { client: "DBS", event: "City Amazing Race", pax: 200 },
+      { client: "Google", event: "Heritage Trail", pax: 150 },
+      { client: "Shopee", event: "Shopping Race", pax: 300 },
+      { client: "Microsoft", event: "Virtual Race", pax: 180 },
+      { client: "Grab", event: "MRT Challenge", pax: 250 },
+      { client: "Meta", event: "Beach Race", pax: 120 },
+      { client: "Amazon", event: "Night Race", pax: 160 },
+      { client: "Deloitte", event: "Cultural Race", pax: 220 }
+    ],
+    pricing: {
+      startingPrice: "From $45",
+      unit: "per pax",
+      minimumPax: 20,
+      duration: "3-4 hours"
+    },
+    addOns: [
+      { icon: "Bus", title: "Transport", description: "Bus/van transfers for your team" },
+      { icon: "Medal", title: "Medals & Prizes", description: "Custom medals, trophies, gift bags" },
+      { icon: "UtensilsCrossed", title: "Food & Catering", description: "Lunch, snacks, refreshments" },
+      { icon: "MapPin", title: "Venue Booking", description: "Indoor/outdoor location arrangements" },
+      { icon: "Shirt", title: "Team T-shirts", description: "Custom printed team jerseys" },
+      { icon: "Camera", title: "Photo & Video", description: "Professional event coverage" },
+      { icon: "Mic", title: "Emcee", description: "Professional host for your event" },
+      { icon: "Palette", title: "Custom Themes", description: "Branded materials and props" }
+    ],
+    outcomes: [
+      { icon: "TrendingUp", title: "Improved Communication", description: "Teams report 40% better collaboration after our events" },
+      { icon: "Heart", title: "Stronger Team Bonds", description: "Colleagues become friends through shared adventures" },
+      { icon: "Zap", title: "Re-energized Workforce", description: "Return to work motivated and connected" },
+      { icon: "Target", title: "Better Problem-Solving", description: "Skills that transfer directly to workplace challenges" },
+      { icon: "Star", title: "Unforgettable Memories", description: "Stories your team will share for years" },
+      { icon: "Users", title: "Enhanced Leadership", description: "Natural leaders emerge through team challenges" }
+    ]
   }
 };

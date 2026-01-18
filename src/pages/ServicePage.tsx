@@ -6,16 +6,14 @@ import { GoldParticles } from "@/components/GoldParticles";
 import { ServiceHeroSplit } from "@/components/service-page/ServiceHeroSplit";
 import { ServiceVideoSection } from "@/components/service-page/ServiceVideoSection";
 import { ServiceOverviewNew } from "@/components/service-page/ServiceOverviewNew";
-import { ServiceFeaturesNew } from "@/components/service-page/ServiceFeaturesNew";
-import { ServiceActivities } from "@/components/service-page/ServiceActivities";
-import { ServiceAlternatingSection } from "@/components/service-page/ServiceAlternatingSection";
 import { ServiceCTANew } from "@/components/service-page/ServiceCTANew";
 import { ServiceTestimonialNew } from "@/components/service-page/ServiceTestimonialNew";
-import { ServiceFAQ } from "@/components/service-page/ServiceFAQ";
-import { ServiceGalleryNew } from "@/components/service-page/ServiceGalleryNew";
 import { ServiceFinalCTA } from "@/components/service-page/ServiceFinalCTA";
-import { ServiceProcessFlow } from "@/components/service-page/ServiceProcessFlow";
 import { ServiceFlowSection } from "@/components/service-page/ServiceFlowSection";
+import { ServiceClientLogos } from "@/components/service-page/ServiceClientLogos";
+import { ServiceRecentEventsTicker } from "@/components/service-page/ServiceRecentEventsTicker";
+import { ServiceHowItWorksWithPricing } from "@/components/service-page/ServiceHowItWorksWithPricing";
+import { ServiceOutcomes } from "@/components/service-page/ServiceOutcomes";
 import { servicesData } from "@/data/servicesData";
 import { SEO } from "@/components/SEO";
 
@@ -52,8 +50,12 @@ const ServicePage = () => {
     "event-concept": "event concept development, creative event design, event planning",
     "stage-production": "stage production Singapore, AV production, event lighting and sound",
     "custom-themes": "custom theme event, themed party, venue transformation",
-    "emcee-media": "event emcee Singapore, event photography, corporate videography"
+    "emcee-media": "event emcee Singapore, event photography, corporate videography",
+    "amazing-race": "amazing race Singapore, corporate amazing race, team building race"
   };
+
+  // Check if this service has the new enhanced structure
+  const hasEnhancedStructure = service.clientLogos || service.recentEvents || service.pricing;
 
   return (
     <div className="min-h-screen bg-background">
@@ -66,6 +68,7 @@ const ServicePage = () => {
       <GoldParticles />
       <Navbar />
 
+      {/* 1. Hero Section */}
       <ServiceHeroSplit
         title={service.hero.title}
         subtitle={service.hero.subtitle}
@@ -74,6 +77,7 @@ const ServicePage = () => {
         accentColor={service.accentColor}
       />
 
+      {/* 2. Video Section */}
       {service.videoSection && (
         <ServiceVideoSection
           title={service.videoSection.title}
@@ -84,13 +88,43 @@ const ServicePage = () => {
         />
       )}
 
+      {/* 3. Client Logos (NEW) */}
+      {service.clientLogos && (
+        <ServiceClientLogos
+          clients={service.clientLogos}
+          accentColor={service.accentColor}
+          headline={`Companies who've experienced our ${service.hero.subtitle}`}
+        />
+      )}
+
+      {/* 4. Recent Events Ticker (NEW) */}
+      {service.recentEvents && (
+        <ServiceRecentEventsTicker
+          events={service.recentEvents}
+          accentColor={service.accentColor}
+        />
+      )}
+
+      {/* 5. What Is This Service? (Overview) */}
       <ServiceOverviewNew
         description={service.overview.description}
         accentColor={service.accentColor}
       />
 
-      {/* New Flow Sections */}
-      {service.howItWorksFlow && (
+      {/* 6. How It Works with Pricing & Add-ons (NEW - for enhanced structure) */}
+      {hasEnhancedStructure && service.howItWorksFlow && service.pricing && service.addOns && (
+        <ServiceHowItWorksWithPricing
+          sectionTitle={service.howItWorksFlow.sectionTitle}
+          sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
+          steps={service.howItWorksFlow.items}
+          pricing={service.pricing}
+          addOns={service.addOns}
+          accentColor={service.accentColor}
+        />
+      )}
+
+      {/* Fallback: Original How It Works Flow (for services without enhanced structure) */}
+      {!hasEnhancedStructure && service.howItWorksFlow && (
         <ServiceFlowSection
           sectionTitle={service.howItWorksFlow.sectionTitle}
           sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
@@ -101,7 +135,16 @@ const ServicePage = () => {
         />
       )}
 
-      {service.whatToExpectFlow && (
+      {/* 7. Benefits/Outcomes (NEW - for enhanced structure) */}
+      {service.outcomes && (
+        <ServiceOutcomes
+          outcomes={service.outcomes}
+          accentColor={service.accentColor}
+        />
+      )}
+
+      {/* Other Flow Sections (for services without enhanced structure) */}
+      {!hasEnhancedStructure && service.whatToExpectFlow && (
         <ServiceFlowSection
           sectionTitle={service.whatToExpectFlow.sectionTitle}
           sectionSubtitle={service.whatToExpectFlow.sectionSubtitle}
@@ -112,7 +155,7 @@ const ServicePage = () => {
         />
       )}
 
-      {service.raceFormatsFlow && (
+      {!hasEnhancedStructure && service.raceFormatsFlow && (
         <ServiceFlowSection
           sectionTitle={service.raceFormatsFlow.sectionTitle}
           sectionSubtitle={service.raceFormatsFlow.sectionSubtitle}
@@ -123,7 +166,7 @@ const ServicePage = () => {
         />
       )}
 
-      {service.challengeTypesFlow && (
+      {!hasEnhancedStructure && service.challengeTypesFlow && (
         <ServiceFlowSection
           sectionTitle={service.challengeTypesFlow.sectionTitle}
           sectionSubtitle={service.challengeTypesFlow.sectionSubtitle}
@@ -134,6 +177,14 @@ const ServicePage = () => {
         />
       )}
 
+      {/* 8. Mid-Page CTA */}
+      <ServiceCTANew
+        headline={service.cta.headline}
+        subtext={service.cta.subtext}
+        accentColor={service.accentColor}
+      />
+
+      {/* 9. Perfect For Section */}
       {service.perfectForFlow && (
         <ServiceFlowSection
           sectionTitle={service.perfectForFlow.sectionTitle}
@@ -145,53 +196,13 @@ const ServicePage = () => {
         />
       )}
 
-      {service.processFlow && (
-        <ServiceProcessFlow
-          steps={service.processFlow}
-          accentColor={service.accentColor}
-        />
-      )}
-
-      <ServiceFeaturesNew 
-        features={service.features} 
-        accentColor={service.accentColor}
-        image={service.gallery[0]}
-      />
-
-      {service.activities && (
-        <ServiceActivities
-          activities={service.activities.items}
-          accentColor={service.accentColor}
-          sectionTitle={service.activities.sectionTitle}
-        />
-      )}
-
-      <ServiceAlternatingSection
-        sections={service.alternatingSections}
-        accentColor={service.accentColor}
-      />
-
-      <ServiceCTANew
-        headline={service.cta.headline}
-        subtext={service.cta.subtext}
-        accentColor={service.accentColor}
-      />
-
+      {/* 10. Testimonials */}
       <ServiceTestimonialNew 
         testimonials={service.testimonials} 
         accentColor={service.accentColor}
       />
 
-      <ServiceFAQ
-        faqs={service.faqs}
-        accentColor={service.accentColor}
-      />
-
-      <ServiceGalleryNew 
-        images={service.gallery} 
-        accentColor={service.accentColor}
-      />
-
+      {/* 11. Final CTA */}
       <ServiceFinalCTA accentColor={service.accentColor} />
 
       <Footer />
