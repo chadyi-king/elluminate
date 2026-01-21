@@ -64,6 +64,15 @@ export interface PricingInfo {
   unit: string;
   minimumPax: number;
   duration: string;
+  activityType: "outdoor" | "indoor" | "hybrid";
+}
+
+export interface PackageTier {
+  color: string;
+  title: string;
+  description: string;
+  price?: string;
+  features: string[];
 }
 
 export interface AddOn {
@@ -160,6 +169,7 @@ export interface ServiceData {
   clientLogos?: string[];
   recentEvents?: RecentEvent[];
   pricing?: PricingInfo;
+  packages?: PackageTier[];
   addOns?: AddOn[];
   outcomes?: Outcome[];
 }
@@ -2447,7 +2457,7 @@ export const servicesData: Record<string, ServiceData> = {
       showNumbers: true,
       itemsPerRow: 4,
       items: [
-        { icon: Users, title: "Form Teams", description: "Divide into teams of 4-8 members with diverse skills and strengths." },
+        { icon: Users, title: "Form Teams", description: "Divide into teams of 5 to 10 members with diverse skills and strengths." },
         { icon: ClipboardList, title: "Get Briefed", description: "Receive your race kit, rules, and the first set of clues." },
         { icon: Map, title: "Solve Clues", description: "Decode clues to discover each checkpoint location." },
         { icon: Zap, title: "Complete Challenges", description: "Physical, mental, and creative tasks at every station." },
@@ -2604,8 +2614,30 @@ export const servicesData: Record<string, ServiceData> = {
       startingPrice: "From $45",
       unit: "per pax",
       minimumPax: 20,
-      duration: "3-4 hours"
+      duration: "3-4 hours",
+      activityType: "outdoor"
     },
+    packages: [
+      {
+        color: "#26D07C",
+        title: "Minimum Package",
+        description: "Simply play Amazing Race at one of our set locations. We handle everything — you just show up and have fun.",
+        price: "From $45/pax",
+        features: ["Pre-set location", "Standard race format", "Basic facilitation"]
+      },
+      {
+        color: "#FFC400",
+        title: "Enhanced Package",
+        description: "Add venue selection, catering, prizes, and logistics. Your event, your preferences.",
+        features: ["Custom venue", "Add-ons available", "Flexible timing"]
+      },
+      {
+        color: "#FF4F4F",
+        title: "Premium Package",
+        description: "A fully bespoke experience designed around your goals, brand, and vision.",
+        features: ["Custom route design", "Branded challenges", "Full event management"]
+      }
+    ],
     addOns: [
       { icon: "Bus", title: "Transport", description: "Bus/van transfers for your team" },
       { icon: "Medal", title: "Medals & Prizes", description: "Custom medals, trophies, gift bags" },
@@ -2613,7 +2645,7 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: "MapPin", title: "Venue Booking", description: "Indoor/outdoor location arrangements" },
       { icon: "Shirt", title: "Team T-shirts", description: "Custom printed team jerseys" },
       { icon: "Camera", title: "Photo & Video", description: "Professional event coverage" },
-      { icon: "Mic", title: "Emcee", description: "Professional host for your event" },
+      { icon: "BarChart3", title: "Live Leaderboard", description: "Real-time team rankings on display" },
       { icon: "Palette", title: "Custom Themes", description: "Branded materials and props" }
     ],
     outcomes: [

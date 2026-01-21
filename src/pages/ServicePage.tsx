@@ -118,6 +118,7 @@ const ServicePage = () => {
           sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
           steps={service.howItWorksFlow.items}
           pricing={service.pricing}
+          packages={service.packages}
           addOns={service.addOns}
           accentColor={service.accentColor}
         />

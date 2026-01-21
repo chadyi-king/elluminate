@@ -7,7 +7,7 @@ const trafficLights = [
   {
     color: "#26D07C", // Green
     icon: Zap,
-    title: "Quick Start",
+    title: "Minimum Package",
     subtitle: "Green Light",
     description: "Choose from our ready-to-go programs and get started immediately. Perfect for teams who know exactly what they want.",
     features: [
@@ -35,7 +35,7 @@ const trafficLights = [
   {
     color: "#FF4F4F", // Red
     icon: Crown,
-    title: "Fully Customized",
+    title: "Premium Package",
     subtitle: "Red Light",
     description: "A completely bespoke experience designed from scratch. Multi-day programs, unique themes, and everything tailored to your vision.",
     features: [
