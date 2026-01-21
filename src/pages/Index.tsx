@@ -9,7 +9,6 @@ import { GallerySection } from "@/components/GallerySection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
-import { LightbulbCursor } from "@/components/LightbulbCursor";
 
 const Index = () => {
   return (
@@ -20,9 +19,6 @@ const Index = () => {
         keywords="team building Singapore, corporate team building, virtual team building, amazing race, company retreats, corporate training"
         canonical="https://elluminate.sg"
       />
-      
-      {/* Lightbulb cursor glow effect */}
-      <LightbulbCursor />
       
       <Navbar />
       <main>
