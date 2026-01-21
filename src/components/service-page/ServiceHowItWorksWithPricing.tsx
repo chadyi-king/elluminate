@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { LucideIcon, Bus, Medal, UtensilsCrossed, MapPin, Shirt, Camera, Mic, Palette } from "lucide-react";
+import { LucideIcon, Bus, Medal, UtensilsCrossed, MapPin, Shirt, Camera, Palette, BarChart3, Users, Clock, Sun, Building, Sparkles, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 export interface AddOn {
   icon: string;
@@ -12,6 +14,15 @@ export interface PricingInfo {
   unit: string;
   minimumPax: number;
   duration: string;
+  activityType?: "outdoor" | "indoor" | "hybrid";
+}
+
+export interface PackageTier {
+  color: string;
+  title: string;
+  description: string;
+  price?: string;
+  features: string[];
 }
 
 export interface HowItWorksStep {
@@ -25,6 +36,7 @@ interface ServiceHowItWorksWithPricingProps {
   sectionSubtitle?: string;
   steps: HowItWorksStep[];
   pricing: PricingInfo;
+  packages?: PackageTier[];
   addOns: AddOn[];
   accentColor: string;
 }
@@ -37,8 +49,15 @@ const iconMap: Record<string, LucideIcon> = {
   MapPin,
   Shirt,
   Camera,
-  Mic,
-  Palette
+  Palette,
+  BarChart3
+};
+
+// Activity type icons
+const activityTypeIcons: Record<string, LucideIcon> = {
+  outdoor: Sun,
+  indoor: Building,
+  hybrid: Sparkles
 };
 
 export const ServiceHowItWorksWithPricing = ({
@@ -46,9 +65,13 @@ export const ServiceHowItWorksWithPricing = ({
   sectionSubtitle = "Your Journey with Us",
   steps,
   pricing,
+  packages,
   addOns,
   accentColor
 }: ServiceHowItWorksWithPricingProps) => {
+  const { openContactModal } = useContactModal();
+  const ActivityIcon = activityTypeIcons[pricing.activityType || "outdoor"];
+
   return (
     <section className="py-20 px-4 relative overflow-hidden bg-background">
       {/* Background pattern */}
@@ -89,80 +112,156 @@ export const ServiceHowItWorksWithPricing = ({
           </h2>
         </motion.div>
 
-        {/* Process Steps */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        {/* Process Steps - Responsive Grid with Centering */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
           {steps.map((step, index) => {
             const Icon = step.icon;
-            const isLast = index === steps.length - 1;
 
             return (
-              <div key={index} className="flex items-center">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  className="relative group"
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="relative group"
+              >
+                <div 
+                  className="relative p-5 rounded-xl border bg-card/80 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg h-full text-center"
+                  style={{ borderColor: `${accentColor}30` }}
                 >
+                  {/* Step number - centered */}
                   <div 
-                    className="relative p-5 rounded-xl border bg-card/80 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg w-40"
-                    style={{ borderColor: `${accentColor}30` }}
+                    className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-background mx-auto mb-3"
+                    style={{ backgroundColor: accentColor }}
                   >
-                    {/* Step number */}
-                    <div 
-                      className="absolute -top-3 -left-3 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-background"
-                      style={{ backgroundColor: accentColor }}
-                    >
-                      {index + 1}
-                    </div>
-
-                    {/* Icon */}
-                    <div 
-                      className="w-10 h-10 rounded-lg flex items-center justify-center mb-3"
-                      style={{ backgroundColor: `${accentColor}15` }}
-                    >
-                      <Icon className="w-5 h-5" style={{ color: accentColor }} />
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-sm font-display font-semibold text-foreground mb-1">
-                      {step.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
+                    {index + 1}
                   </div>
-                </motion.div>
 
-                {/* Arrow */}
-                {!isLast && (
-                  <motion.div
-                    initial={{ opacity: 0, scaleX: 0 }}
-                    whileInView={{ opacity: 1, scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 + 0.2, duration: 0.3 }}
-                    className="hidden md:flex items-center px-2"
+                  {/* Icon - centered */}
+                  <div 
+                    className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 mx-auto"
+                    style={{ backgroundColor: `${accentColor}15` }}
                   >
-                    <svg width="30" height="24" viewBox="0 0 30 24" fill="none">
-                      <path 
-                        d="M0 12H22M22 12L14 4M22 12L14 20" 
-                        stroke={accentColor} 
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round"
-                        strokeOpacity="0.5"
-                      />
-                    </svg>
-                  </motion.div>
-                )}
-              </div>
+                    <Icon className="w-5 h-5" style={{ color: accentColor }} />
+                  </div>
+
+                  {/* Title - centered */}
+                  <h3 className="text-sm font-display font-semibold text-foreground mb-1">
+                    {step.title}
+                  </h3>
+
+                  {/* Description - centered */}
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </motion.div>
             );
           })}
         </div>
 
-        {/* Pricing Banner */}
+        {/* PRICING Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-10"
+        >
+          <p 
+            className="text-xs tracking-[0.3em] uppercase font-display mb-3 font-medium"
+            style={{ color: accentColor }}
+          >
+            PRICING
+          </p>
+          <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+            Choose Your Package
+          </h3>
+        </motion.div>
+
+        {/* Traffic Light Package Cards */}
+        {packages && packages.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-5xl mx-auto">
+            {packages.map((pkg, index) => (
+              <motion.div
+                key={pkg.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15, duration: 0.5 }}
+                className="relative group"
+              >
+                <div 
+                  className="relative bg-white border rounded-2xl p-6 h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                  style={{ borderColor: `${pkg.color}40` }}
+                >
+                  {/* Glow effect on hover */}
+                  <div 
+                    className="absolute -top-20 left-1/2 -translate-x-1/2 w-40 h-40 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"
+                    style={{ backgroundColor: pkg.color }}
+                  />
+
+                  {/* Traffic light indicator */}
+                  <div className="flex items-center gap-3 mb-4 relative z-10">
+                    <div 
+                      className="w-4 h-4 rounded-full"
+                      style={{ backgroundColor: pkg.color, boxShadow: `0 0 10px ${pkg.color}60` }}
+                    />
+                    <span 
+                      className="text-xs font-display font-semibold uppercase tracking-wider"
+                      style={{ color: pkg.color }}
+                    >
+                      {pkg.title}
+                    </span>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground mb-4 relative z-10 leading-relaxed min-h-[60px]">
+                    {pkg.description}
+                  </p>
+
+                  {/* Features */}
+                  <ul className="space-y-2 mb-6 relative z-10">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <div 
+                          className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: pkg.color }}
+                        />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Price or CTA */}
+                  <div className="relative z-10">
+                    {pkg.price ? (
+                      <p 
+                        className="text-xl font-display font-bold"
+                        style={{ color: pkg.color }}
+                      >
+                        {pkg.price}
+                      </p>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full group/btn"
+                        style={{ borderColor: pkg.color, color: pkg.color }}
+                        onClick={openContactModal}
+                      >
+                        <span>Let's Chat</span>
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
+
+        {/* Info Bar with Icons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -170,47 +269,54 @@ export const ServiceHowItWorksWithPricing = ({
           className="mb-16"
         >
           <div 
-            className="rounded-2xl p-8 text-center relative overflow-hidden"
-            style={{ backgroundColor: `${accentColor}15` }}
+            className="rounded-2xl p-6 relative overflow-hidden max-w-3xl mx-auto"
+            style={{ backgroundColor: `${accentColor}10` }}
           >
-            {/* Decorative elements */}
-            <div 
-              className="absolute top-0 left-0 w-32 h-32 rounded-full blur-3xl opacity-30"
-              style={{ backgroundColor: accentColor }}
-            />
-            <div 
-              className="absolute bottom-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-30"
-              style={{ backgroundColor: accentColor }}
-            />
-
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-              <div>
-                <p className="text-sm text-muted-foreground mb-1">Starting from</p>
-                <p 
-                  className="text-4xl md:text-5xl font-display font-bold"
-                  style={{ color: accentColor }}
+            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12">
+              {/* Min Pax */}
+              <div className="flex flex-col items-center text-center">
+                <div 
+                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2"
+                  style={{ backgroundColor: `${accentColor}20` }}
                 >
-                  {pricing.startingPrice}
-                </p>
-                <p className="text-sm text-muted-foreground">{pricing.unit}</p>
-              </div>
-
-              <div className="w-px h-16 bg-border hidden md:block" />
-
-              <div className="text-center">
-                <p className="text-2xl font-display font-semibold text-foreground">
+                  <Users className="w-6 h-6" style={{ color: accentColor }} />
+                </div>
+                <p className="text-lg font-display font-semibold text-foreground">
                   Min {pricing.minimumPax} pax
                 </p>
-                <p className="text-sm text-muted-foreground">group size</p>
+                <p className="text-xs text-muted-foreground">group size</p>
               </div>
 
-              <div className="w-px h-16 bg-border hidden md:block" />
+              <div className="w-px h-12 bg-border hidden sm:block" />
 
-              <div className="text-center">
-                <p className="text-2xl font-display font-semibold text-foreground">
+              {/* Duration */}
+              <div className="flex flex-col items-center text-center">
+                <div 
+                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2"
+                  style={{ backgroundColor: `${accentColor}20` }}
+                >
+                  <Clock className="w-6 h-6" style={{ color: accentColor }} />
+                </div>
+                <p className="text-lg font-display font-semibold text-foreground">
                   {pricing.duration}
                 </p>
-                <p className="text-sm text-muted-foreground">duration</p>
+                <p className="text-xs text-muted-foreground">duration</p>
+              </div>
+
+              <div className="w-px h-12 bg-border hidden sm:block" />
+
+              {/* Activity Type */}
+              <div className="flex flex-col items-center text-center">
+                <div 
+                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2"
+                  style={{ backgroundColor: `${accentColor}20` }}
+                >
+                  <ActivityIcon className="w-6 h-6" style={{ color: accentColor }} />
+                </div>
+                <p className="text-lg font-display font-semibold text-foreground capitalize">
+                  {pricing.activityType || "Outdoor"}
+                </p>
+                <p className="text-xs text-muted-foreground">activity type</p>
               </div>
             </div>
           </div>
@@ -248,15 +354,9 @@ export const ServiceHowItWorksWithPricing = ({
                   className="group"
                 >
                   <div 
-                    className="p-5 rounded-xl border bg-card/80 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg h-full"
+                    className="relative p-5 rounded-xl border bg-card/80 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg h-full"
                     style={{ borderColor: `${accentColor}30` }}
                   >
-                    {/* Hover glow */}
-                    <div 
-                      className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
-                      style={{ boxShadow: `0 0 30px ${accentColor}20` }}
-                    />
-
                     {/* Icon */}
                     <div 
                       className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110"
