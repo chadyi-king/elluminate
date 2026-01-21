@@ -32,7 +32,7 @@ const services = [
 export const ServicePills = () => {
   return (
     <motion.div
-      className="flex flex-wrap justify-center gap-4 sm:gap-6"
+      className="flex flex-wrap justify-center gap-8 sm:gap-12 lg:gap-16 w-full max-w-4xl mx-auto"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 1.2 }}
@@ -52,40 +52,43 @@ export const ServicePills = () => {
               to={service.href}
               className="flex flex-col items-center gap-2 group"
             >
-              {/* Lightbulb shape */}
-              <div
-                className="w-14 h-[72px] sm:w-18 sm:h-[90px] flex items-start justify-center pt-3 sm:pt-4 shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:brightness-110"
-                style={{
-                  backgroundColor: service.color,
-                  boxShadow: `0 4px 20px ${service.color}40`,
-                  clipPath: `polygon(
-                    50% 0%,
-                    90% 15%,
-                    100% 40%,
-                    95% 55%,
-                    75% 65%,
-                    75% 75%,
-                    70% 85%,
-                    65% 100%,
-                    35% 100%,
-                    30% 85%,
-                    25% 75%,
-                    25% 65%,
-                    5% 55%,
-                    0% 40%,
-                    10% 15%
-                  )`,
-                }}
-              >
-                <Icon
-                  className="w-6 h-6 sm:w-8 sm:h-8 text-white transition-transform duration-300 group-hover:scale-110"
-                  strokeWidth={2}
+              {/* Lightbulb: Circle + Trapezoid base */}
+              <div className="flex flex-col items-center">
+                {/* Circle (bulb) */}
+                <div
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center transition-all duration-300"
+                  style={{
+                    backgroundColor: service.color,
+                    boxShadow: `0 4px 20px ${service.color}40`,
+                  }}
+                >
+                  <Icon
+                    className="w-8 h-8 sm:w-10 sm:h-10 text-white transition-transform duration-300 group-hover:scale-110"
+                    strokeWidth={2}
+                  />
+                </div>
+                
+                {/* Trapezoid (screw base) */}
+                <div
+                  className="w-12 h-4 sm:w-16 sm:h-5 -mt-1 transition-all duration-300"
+                  style={{
+                    backgroundColor: service.color,
+                    clipPath: 'polygon(15% 0%, 85% 0%, 65% 100%, 35% 100%)',
+                  }}
                 />
               </div>
 
-              {/* Label below circle */}
+              {/* Hover glow overlay */}
+              <div
+                className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none -z-10"
+                style={{
+                  boxShadow: `0 0 60px 20px ${service.color}50`,
+                }}
+              />
+
+              {/* Label below */}
               <span
-                className="text-xs sm:text-sm font-semibold transition-colors duration-300"
+                className="text-sm sm:text-base font-semibold transition-colors duration-300 mt-1"
                 style={{ color: service.color }}
               >
                 {service.label}
