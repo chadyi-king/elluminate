@@ -52,16 +52,33 @@ export const ServicePills = () => {
               to={service.href}
               className="flex flex-col items-center gap-2 group"
             >
-              {/* Fixed-size circle */}
+              {/* Lightbulb shape */}
               <div
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-xl"
+                className="w-14 h-[72px] sm:w-18 sm:h-[90px] flex items-start justify-center pt-3 sm:pt-4 shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:brightness-110"
                 style={{
                   backgroundColor: service.color,
                   boxShadow: `0 4px 20px ${service.color}40`,
+                  clipPath: `polygon(
+                    50% 0%,
+                    90% 15%,
+                    100% 40%,
+                    95% 55%,
+                    75% 65%,
+                    75% 75%,
+                    70% 85%,
+                    65% 100%,
+                    35% 100%,
+                    30% 85%,
+                    25% 75%,
+                    25% 65%,
+                    5% 55%,
+                    0% 40%,
+                    10% 15%
+                  )`,
                 }}
               >
                 <Icon
-                  className="w-7 h-7 sm:w-9 sm:h-9 text-white transition-transform duration-300 group-hover:scale-110"
+                  className="w-6 h-6 sm:w-8 sm:h-8 text-white transition-transform duration-300 group-hover:scale-110"
                   strokeWidth={2}
                 />
               </div>
