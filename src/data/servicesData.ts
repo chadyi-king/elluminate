@@ -26,6 +26,11 @@ import governmentEventHero from "@/assets/services/government-event-hero.jpg";
 import privateEventHero from "@/assets/services/private-event-hero.jpg";
 import amazingRaceHero from "@/assets/services/amazing-race-hero.jpg";
 
+// Physical service heroes (sourced from teamelevate.sg)
+import treasureHeistHero from "@/assets/services/physical/treasure-heist-hero.jpg";
+import treasureHeistMask from "@/assets/services/physical/treasure-heist-mask.png";
+import treasureHeistGallery1 from "@/assets/services/physical/treasure-heist-gallery-1.jpg";
+
 // Activity / gallery images (used for mini galleries)
 import heroCsiInvestigation from "@/assets/hero/csi-investigation.jpg";
 import heroCulturalRace from "@/assets/hero/cultural-race.jpg";
@@ -102,6 +107,7 @@ export interface MiniGallery {
 
 export interface ServiceData {
   accentColor: string;
+  dividerVariant?: "raceTrack" | "vault";
   hero: {
     title: string;
     subtitle: string;
@@ -216,7 +222,8 @@ const trafficLightPackages = (minimumPriceLabel: string, shortName: string, acce
     features: ["Pre-set location", "Standard format", "Basic facilitation"],
   },
   {
-    color: accentColor,
+    // Always Amber for the "Enhanced" tier (traffic light system)
+    color: "#FFC400",
     title: "Enhanced Package",
     description: "Add venue selection, catering, prizes, and logistics. Your event, your preferences.",
     features: ["Custom venue", "Add-ons available", "Flexible timing"],
@@ -3217,24 +3224,129 @@ export const servicesData: Record<string, ServiceData> = {
   },
 
   "treasure-heist": {
-    accentColor: "#FF4F4F",
-    hero: { title: "Treasure Heist", subtitle: "Team Strategy Adventure", tagline: "Plan the heist, execute the missions — strategy and teamwork in a thrilling format.", backgroundImage: heroAdventureChallenge },
-    overview: { description: "Treasure Heist is a story-driven team adventure inspired by heist themes — teams plan routes, complete missions, and outsmart rivals.", backgroundImage: heroAdventureChallenge },
-    features: [{ icon: Gem, title: "Heist Storyline", description: "Narrative missions with team roles." }],
-    benefits: [{ icon: Lightbulb, title: "Creative Strategy", description: "Plan, adapt, and improvise together." }],
+    accentColor: "#FFD400",
+    dividerVariant: "vault",
+    hero: {
+      title: "Treasure Heist",
+      subtitle: "Team Strategy Adventure",
+      tagline: "Rob from the pirates! Plan the heist to get the most amount of gold!",
+      backgroundImage: treasureHeistHero,
+    },
+    overview: {
+      description:
+        "What strategies and skills are required for the ultimate heist? In Treasure Heist, teams put their skills to the test by completing challenges and puzzles to steal from the pirates — can your team outwit them and claim the treasure? As the stakes rise, the experience gets more intense as teams battle to the finish line. Along the way, participants sharpen teamwork, communication, and strategy in a high-energy, friendly competition.",
+      backgroundImage: treasureHeistHero,
+    },
+    features: [
+      { icon: Gem, title: "Heist Theme", description: "A playful pirate storyline that keeps teams locked-in." },
+      { icon: Puzzle, title: "Puzzles & Clues", description: "Solve challenges to uncover clues that lead to the treasure." },
+      { icon: Users, title: "Team Strategy", description: "Plan, communicate, and adapt together under time pressure." },
+    ],
+    benefits: [
+      { icon: Lightbulb, title: "Sharper Strategy", description: "Think ahead, prioritize, and make decisions as a team." },
+      { icon: Heart, title: "Stronger Trust", description: "Build confidence and collaboration through shared wins." },
+      { icon: Zap, title: "High Energy", description: "Fast-moving missions that keep everyone engaged." },
+    ],
     alternatingSections: [],
     gallery: [],
-    testimonials: [{ quote: "The theme was amazing.", author: "Manager", company: "Tech" }],
+    testimonials: [
+      {
+        quote:
+          "We had to organize a last-minute teambuilding for 40 pax and Team Elevate pulled it off in spectacular fashion — everyone had a blast.",
+        author: "Darren Tey",
+        company: "Lonza (Operations Manager)",
+      },
+      {
+        quote:
+          "Ever since our first session, we haven't stopped — departments across the company, from new hires to management, all enjoyed the activities.",
+        author: "Darren Tey",
+        company: "Lonza (Operations Manager)",
+      },
+      {
+        quote: "Super accommodating and professional throughout — highly recommended.",
+        author: "Arianti Amalina",
+        company: "Madam Tussauds (Human Resource Officer)",
+      },
+      {
+        quote:
+          "Thank you for organizing our session on short notice — teams bonded quickly and the facilitators handled every detail with care.",
+        author: "Arianti Amalina",
+        company: "Madam Tussauds (Human Resource Officer)",
+      },
+      {
+        quote:
+          "A smooth, well-run experience from start to finish — the games were engaging and the energy stayed high.",
+        author: "Farzanah Begum",
+        company: "A*STAR SIMTech (Senior Officer)",
+      },
+      {
+        quote:
+          "Great facilitation and structure — it kept the group focused, moving, and having fun the whole time.",
+        author: "Jurgen Carlson",
+        company: "AMS AG (Senior Partner)",
+      },
+      {
+        quote:
+          "The heist storyline made it easy for everyone to jump in, collaborate, and compete in a friendly way.",
+        author: "Jurgen Carlson",
+        company: "AMS AG (Senior Partner)",
+      },
+    ],
     faqs: [],
     cta: { headline: "Ready for the Heist?", subtext: "Tell us your pax and venue — we’ll propose a Treasure Heist experience." },
-    howItWorksFlow: { sectionTitle: "HOW IT WORKS", sectionSubtitle: "Heist Flow", itemsPerRow: 4, showNumbers: true, items: [{ icon: ClipboardList, title: "Brief", description: "Story setup, teams, rules." }] },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Your Treasure Heist Game Plan",
+      itemsPerRow: 3,
+      showNumbers: true,
+      items: [
+        {
+          icon: ClipboardList,
+          title: "Obstacles & Clues",
+          description:
+            "Overcome teambuilding obstacles designed as games to unlock clues that lead to the treasure — speed and teamwork win.",
+        },
+        {
+          icon: Gamepad2,
+          title: "100+ Games",
+          description:
+            "Choose from a library of customizable games to match your energy level and group profile.",
+        },
+        {
+          icon: Palette,
+          title: "Thematic Values",
+          description:
+            "Tell us the values you want to reinforce, and we'll design missions that reflect your theme and objectives.",
+        },
+      ],
+    },
     perfectForFlow: defaultPerfectForFlow,
-    clientLogos: ["DBS"],
-    recentEvents: [{ client: "DBS", event: "Treasure Heist", pax: 160 }],
-    pricing: { startingPrice: "From $45", unit: "per pax", minimumPax: 20, duration: "2.5-3.5 hours", activityType: "hybrid" },
-    packages: trafficLightPackages("From $45/pax", "Treasure Heist", "#FF4F4F"),
+    clientLogos: ["Lonza", "A*STAR SIMTech", "Madam Tussauds", "AMS AG"],
+    recentEvents: [
+      { client: "Lonza", event: "Treasure Heist", pax: 120 },
+      { client: "A*STAR SIMTech", event: "Treasure Heist", pax: 60 },
+      { client: "Madam Tussauds", event: "Treasure Heist", pax: 80 },
+      { client: "AMS AG", event: "Treasure Heist", pax: 45 },
+      { client: "Lonza", event: "Team Strategy Day", pax: 150 },
+      { client: "A*STAR SIMTech", event: "Heist Challenge", pax: 90 },
+      { client: "Madam Tussauds", event: "Pirate Missions", pax: 110 },
+      { client: "AMS AG", event: "Treasure Heist", pax: 70 },
+      { client: "Lonza", event: "Heist Race", pax: 95 },
+      { client: "A*STAR SIMTech", event: "Treasure Heist", pax: 130 },
+      { client: "Madam Tussauds", event: "Team Heist", pax: 55 },
+      { client: "AMS AG", event: "Strategy Heist", pax: 100 },
+    ],
+    pricing: { startingPrice: "$60", unit: "per pax", minimumPax: 10, duration: "TBD", activityType: "outdoor" },
+    packages: trafficLightPackages("From $60/pax", "Treasure Heist", "#FFD400"),
     addOns: defaultAddOns,
-    miniGallery: { title: "Treasure Heist Highlights", images: [{ src: heroAdventureChallenge, alt: "Treasure Heist mission" }, { src: heroTeamCelebration, alt: "Team celebrating" }, { src: teamBuildingOutdoor1, alt: "Team moment" }] },
+    miniGallery: {
+      title: "Treasure Heist Highlights",
+      images: [
+        { src: treasureHeistHero, alt: "Treasure Heist team-building session" },
+        { src: treasureHeistGallery1, alt: "Outdoor team-building moment" },
+        { src: treasureHeistMask, alt: "Treasure Heist mask key art" },
+      ],
+    },
     hideOutcomes: true,
     hideMidCta: true,
     perfectForVariant: "pills",
