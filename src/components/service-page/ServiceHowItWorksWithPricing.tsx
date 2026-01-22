@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { LucideIcon, Bus, Medal, UtensilsCrossed, MapPin, Shirt, Camera, Palette, BarChart3, Users, Clock, Sun, Building, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
+import { RaceTrackStrip } from "@/components/service-page/RaceTrackStrip";
 
 export interface AddOn {
   icon: string;
@@ -94,6 +95,8 @@ export const ServiceHowItWorksWithPricing = ({
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
+        <RaceTrackStrip direction="downRight" accentColor={accentColor} />
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -160,6 +163,8 @@ export const ServiceHowItWorksWithPricing = ({
             );
           })}
         </div>
+
+        <RaceTrackStrip direction="downLeft" accentColor={accentColor} />
 
         {/* PRICING Section Header */}
         <motion.div
@@ -276,7 +281,7 @@ export const ServiceHowItWorksWithPricing = ({
               {/* Min Pax */}
               <div className="flex flex-col items-center text-center">
                 <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2"
+                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-2"
                   style={{ backgroundColor: `${accentColor}20` }}
                 >
                   <Users className="w-6 h-6" style={{ color: accentColor }} />
@@ -292,7 +297,7 @@ export const ServiceHowItWorksWithPricing = ({
               {/* Duration */}
               <div className="flex flex-col items-center text-center">
                 <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2"
+                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-2"
                   style={{ backgroundColor: `${accentColor}20` }}
                 >
                   <Clock className="w-6 h-6" style={{ color: accentColor }} />
@@ -308,7 +313,7 @@ export const ServiceHowItWorksWithPricing = ({
               {/* Activity Type */}
               <div className="flex flex-col items-center text-center">
                 <div 
-                  className="w-12 h-12 rounded-full flex items-center justify-center mb-2"
+                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-2"
                   style={{ backgroundColor: `${accentColor}20` }}
                 >
                   <ActivityIcon className="w-6 h-6" style={{ color: accentColor }} />
@@ -321,6 +326,8 @@ export const ServiceHowItWorksWithPricing = ({
             </div>
           </div>
         </motion.div>
+
+        <RaceTrackStrip direction="downRight" accentColor={accentColor} />
 
         {/* Add-ons Section */}
         <motion.div

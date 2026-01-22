@@ -14,13 +14,8 @@ import { ServiceRecentEventsTicker } from "@/components/service-page/ServiceRece
 import { ServiceHowItWorksWithPricing } from "@/components/service-page/ServiceHowItWorksWithPricing";
 import { ServiceOutcomes } from "@/components/service-page/ServiceOutcomes";
 import { ServicePillsSection } from "@/components/service-page/ServicePillsSection";
-import { ServiceSectionAccent } from "@/components/service-page/ServiceSectionAccent";
 import { servicesData } from "@/data/servicesData";
 import { SEO } from "@/components/SEO";
-
-import michelleChen from "@/assets/team/michelle-chen.jpg";
-import danielWong from "@/assets/team/daniel-wong.jpg";
-import priyaSharma from "@/assets/team/priya-sharma.jpg";
 
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -106,27 +101,19 @@ const ServicePage = () => {
       )}
 
       {/* 4. What Is This Service? (Overview) */}
-      <ServiceSectionAccent
-        imageSrc={michelleChen}
-        alt="Elluminate team member"
-        side="right"
-      >
-        <ServiceOverviewNew description={service.overview.description} accentColor={service.accentColor} />
-      </ServiceSectionAccent>
+      <ServiceOverviewNew description={service.overview.description} accentColor={service.accentColor} />
 
       {/* 6. How It Works with Pricing & Add-ons (NEW - for enhanced structure) */}
       {hasEnhancedStructure && service.howItWorksFlow && service.pricing && service.addOns && (
-        <ServiceSectionAccent imageSrc={danielWong} alt="Elluminate team member" side="left">
-          <ServiceHowItWorksWithPricing
-            sectionTitle={service.howItWorksFlow.sectionTitle}
-            sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
-            steps={service.howItWorksFlow.items}
-            pricing={service.pricing}
-            packages={service.packages}
-            addOns={service.addOns}
-            accentColor={service.accentColor}
-          />
-        </ServiceSectionAccent>
+        <ServiceHowItWorksWithPricing
+          sectionTitle={service.howItWorksFlow.sectionTitle}
+          sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
+          steps={service.howItWorksFlow.items}
+          pricing={service.pricing}
+          packages={service.packages}
+          addOns={service.addOns}
+          accentColor={service.accentColor}
+        />
       )}
 
       {/* Fallback: Original How It Works Flow (for services without enhanced structure) */}
@@ -194,7 +181,7 @@ const ServicePage = () => {
 
       {/* 9. Perfect For Section */}
       {service.perfectForFlow && (
-        <ServiceSectionAccent imageSrc={priyaSharma} alt="Elluminate team member" side="right">
+        <>
           {service.perfectForVariant === "pills" ? (
             <ServicePillsSection
               sectionTitle={service.perfectForFlow.sectionTitle}
@@ -212,7 +199,7 @@ const ServicePage = () => {
               showNumbers={service.perfectForFlow.showNumbers}
             />
           )}
-        </ServiceSectionAccent>
+        </>
       )}
 
       {/* 10. Testimonials */}
