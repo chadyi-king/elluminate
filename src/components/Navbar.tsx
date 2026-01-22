@@ -8,13 +8,18 @@ import { useContactModal } from "@/contexts/ContactModalContext";
 // Physical Team Building Activities
 const physicalActivities = [
   { name: "Amazing Race", slug: "amazing-race" },
-  { name: "CSI Investigation", slug: "csi-investigation" },
+  { name: "CSI-Bones", slug: "csi-bones" },
   { name: "Cultural Race", slug: "cultural-race" },
   { name: "Archery Tag", slug: "archery-tag" },
-  { name: "Laser Tag", slug: "laser-tag" },
-  { name: "Creative Workshops", slug: "creative-workshops" },
-  { name: "Wellness Activities", slug: "wellness-activities" },
-  { name: "Adventure Challenges", slug: "adventure-challenges" },
+  { name: "Builder Cross", slug: "builder-cross" },
+  { name: "GelBlitz", slug: "gel-blitz" },
+  { name: "Minute To Win It", slug: "minute-to-win-it" },
+  { name: "Monopoly Dash", slug: "monopoly-dash" },
+  { name: "Nerfwar", slug: "nerfwar" },
+  { name: "Running Man Adventure", slug: "running-man" },
+  { name: "Sotong Game", slug: "sotong-game" },
+  { name: "Tag-tical Laser Teambuilding", slug: "tag-tical-laser-teambuilding" },
+  { name: "Treasure Heist", slug: "treasure-heist" },
 ];
 
 // Virtual Team Building Activities
@@ -57,7 +62,9 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: Dro
     <div className="relative group">
       <button
         onClick={onToggle}
-        onMouseEnter={onToggle}
+        onMouseEnter={() => {
+          if (!isOpen) onToggle();
+        }}
         className="flex items-center gap-1.5 text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium py-2"
       >
         {label}
@@ -72,30 +79,33 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: Dro
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
             onMouseLeave={onClose}
-            className="absolute top-full left-0 mt-2 w-64 bg-background border border-border rounded-xl shadow-card overflow-hidden z-50"
+            className={`absolute top-full left-0 mt-2 bg-background border border-border rounded-xl shadow-card overflow-hidden z-50 ${
+              subGroups ? "w-[860px]" : "w-64"
+            }`}
           >
             {subGroups ? (
-              <div className="py-2">
-                {subGroups.map((group, idx) => (
-                  <div key={group.title}>
-                    <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                      {group.title}
+              <div className="p-4">
+                <div className="grid grid-cols-2 gap-8">
+                  {subGroups.map((group) => (
+                    <div key={group.title}>
+                      <div className="px-2 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                        {group.title}
+                      </div>
+                      <div className="grid grid-cols-2 gap-x-2">
+                        {group.items.map((item) => (
+                          <Link
+                            key={item.slug}
+                            to={`/services/${item.slug}`}
+                            onClick={onClose}
+                            className="block rounded-lg px-2 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                    {group.items.map((item) => (
-                      <Link
-                        key={item.slug}
-                        to={`/services/${item.slug}`}
-                        onClick={onClose}
-                        className="block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                    {idx < subGroups.length - 1 && (
-                      <div className="my-2 border-t border-border" />
-                    )}
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             ) : (
               <div className="py-2 max-h-80 overflow-y-auto scrollbar-blue">

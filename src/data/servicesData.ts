@@ -1,4 +1,4 @@
-import { LucideIcon, Mic, Palette, Monitor, Gamepad2, Trophy, Music, Camera, Sparkles, Users, Heart, Star, Zap, PartyPopper, Wine, Lightbulb, Target, Clock, Gift, Crown, MapPin, Gem, Rocket, Building, Award, CalendarDays, Plane, Flag, Lock, Home, Theater, Dumbbell, Video, PenTool, Volume2, Megaphone, Handshake, GraduationCap, Globe, Briefcase, Navigation, Timer, Brain, Compass, Route, Phone, CheckCircle, ClipboardList, Send, Activity, UserPlus, Puzzle, Building2, Trees, Mountain, ShoppingBag, Palmtree, Moon, Map } from "lucide-react";
+import { LucideIcon, Mic, Palette, Monitor, Gamepad2, Trophy, Music, Camera, Sparkles, Users, Heart, Star, Zap, PartyPopper, Wine, Lightbulb, Target, Clock, Gift, Crown, MapPin, Gem, Rocket, Building, Award, CalendarDays, Plane, Flag, Lock, Home, Theater, Dumbbell, Video, PenTool, Volume2, Megaphone, Handshake, GraduationCap, Globe, Briefcase, Navigation, Timer, Brain, Compass, Route, Phone, CheckCircle, ClipboardList, Send, Activity, UserPlus, Puzzle, Building2, Trees, Mountain, ShoppingBag, Palmtree, Moon, Map, Search, Shield, Crosshair, Swords, Footprints } from "lucide-react";
 
 // Service hero images
 import teamBuildingHero from "@/assets/services/team-building-hero.jpg";
@@ -25,6 +25,14 @@ import corporateCarnivalHero from "@/assets/services/corporate-carnival-hero.jpg
 import governmentEventHero from "@/assets/services/government-event-hero.jpg";
 import privateEventHero from "@/assets/services/private-event-hero.jpg";
 import amazingRaceHero from "@/assets/services/amazing-race-hero.jpg";
+
+// Activity / gallery images (used for mini galleries)
+import heroCsiInvestigation from "@/assets/hero/csi-investigation.jpg";
+import heroCulturalRace from "@/assets/hero/cultural-race.jpg";
+import heroAmazingRaceAlt from "@/assets/hero/amazing-race.jpg";
+import heroAdventureChallenge from "@/assets/hero/adventure-challenge.jpg";
+import heroTeamCelebration from "@/assets/hero/team-celebration.jpg";
+import teamBuildingOutdoor1 from "@/assets/events/team-building-outdoor-1.jpg";
 
 export interface AlternatingSection {
   title: string;
@@ -85,6 +93,11 @@ export interface Outcome {
   icon: string;
   title: string;
   description: string;
+}
+
+export interface MiniGallery {
+  title: string;
+  images: { src: string; alt: string }[];
 }
 
 export interface ServiceData {
@@ -173,12 +186,64 @@ export interface ServiceData {
   addOns?: AddOn[];
   outcomes?: Outcome[];
 
+  // Optional mini gallery shown under "Perfect For"
+  miniGallery?: MiniGallery;
+
   // Page-level presentation controls (optional)
   hideOutcomes?: boolean;
   hideMidCta?: boolean;
   perfectForVariant?: "flow" | "pills";
   recentEventsHeadline?: string;
 }
+
+const defaultAddOns: AddOn[] = [
+  { icon: "Bus", title: "Transport", description: "Bus/van transfers for your team" },
+  { icon: "Medal", title: "Medals & Prizes", description: "Custom medals, trophies, gift bags" },
+  { icon: "UtensilsCrossed", title: "Food & Catering", description: "Lunch, snacks, refreshments" },
+  { icon: "MapPin", title: "Venue Booking", description: "Indoor/outdoor location arrangements" },
+  { icon: "Shirt", title: "Team T-shirts", description: "Custom printed team jerseys" },
+  { icon: "Camera", title: "Photo & Video", description: "Professional event coverage" },
+  { icon: "BarChart3", title: "Live Leaderboard", description: "Real-time team rankings on display" },
+  { icon: "Palette", title: "Custom Themes", description: "Branded materials and props" },
+];
+
+const trafficLightPackages = (minimumPriceLabel: string, shortName: string, accentColor: string): PackageTier[] => [
+  {
+    color: "#26D07C",
+    title: "Minimum Package",
+    description: `Simply play ${shortName} at one of our set locations. We handle everything — you just show up and have fun.`,
+    price: minimumPriceLabel,
+    features: ["Pre-set location", "Standard format", "Basic facilitation"],
+  },
+  {
+    color: accentColor,
+    title: "Enhanced Package",
+    description: "Add venue selection, catering, prizes, and logistics. Your event, your preferences.",
+    features: ["Custom venue", "Add-ons available", "Flexible timing"],
+  },
+  {
+    color: "#FF4F4F",
+    title: "Premium Package",
+    description: "A fully bespoke experience designed around your goals, brand, and vision.",
+    features: ["Custom experience design", "Branded materials", "Full event management"],
+  },
+];
+
+const defaultPerfectForFlow: FlowSection = {
+  sectionTitle: "PERFECT FOR",
+  sectionSubtitle: "Every Occasion",
+  itemsPerRow: 4,
+  items: [
+    { icon: UserPlus, title: "New Team Integration", description: "Break the ice and build bonds with new hires and team members." },
+    { icon: Building, title: "Department Off-sites", description: "Strengthen collaboration within departments and divisions." },
+    { icon: PartyPopper, title: "Company Celebrations", description: "Milestones, anniversaries, and annual company events." },
+    { icon: GraduationCap, title: "Leadership Programs", description: "Develop decision-making and strategic thinking skills." },
+    { icon: Handshake, title: "Client Engagement", description: "Turn relationship-building into a memorable shared experience." },
+    { icon: Rocket, title: "Sales Kickoff", description: "Energize teams with momentum, urgency, and shared goals." },
+    { icon: Briefcase, title: "Cross-Team Alignment", description: "Connect functions and improve collaboration across silos." },
+    { icon: Target, title: "Strategy Retreats", description: "Sharpen focus with challenges that mirror real decision-making." },
+  ],
+};
 
 export const servicesData: Record<string, ServiceData> = {
   "team-building": {
@@ -2658,6 +2723,14 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: "BarChart3", title: "Live Leaderboard", description: "Real-time team rankings on display" },
       { icon: "Palette", title: "Custom Themes", description: "Branded materials and props" }
     ],
+    miniGallery: {
+      title: "Amazing Race in Action",
+      images: [
+        { src: amazingRaceHero, alt: "Amazing Race team building checkpoint challenge" },
+        { src: heroAmazingRaceAlt, alt: "Teams racing during an Amazing Race activity" },
+        { src: teamBuildingOutdoor1, alt: "Outdoor team building moment during Amazing Race" },
+      ],
+    },
     outcomes: [
       { icon: "TrendingUp", title: "Improved Communication", description: "Teams report 40% better collaboration after our events" },
       { icon: "Heart", title: "Stronger Team Bonds", description: "Colleagues become friends through shared adventures" },
@@ -2672,5 +2745,499 @@ export const servicesData: Record<string, ServiceData> = {
     hideMidCta: true,
     perfectForVariant: "pills",
     recentEventsHeadline: "Companies who've experienced our Amazing Race"
+  },
+
+  // --- Physical Team Building (replicates Amazing Race structure) ---
+
+  "csi-bones": {
+    accentColor: "#26D07C",
+    hero: {
+      title: "CSI-Bones",
+      subtitle: "Team Building Mystery",
+      tagline: "Crack the case with your colleagues — evidence, deduction, and teamwork under pressure.",
+      backgroundImage: heroCsiInvestigation,
+    },
+    overview: {
+      description: "CSI-Bones is a forensic investigation team building experience where teams collaborate to solve a high-stakes mystery. Your team will examine evidence, connect clues, and make fast decisions together — a perfect mix of logic, communication, and fun.",
+      backgroundImage: heroCsiInvestigation,
+    },
+    features: [
+      { icon: Search, title: "Evidence-Based Gameplay", description: "Analyze clues, artifacts, and witness statements." },
+      { icon: Brain, title: "Deduction & Logic", description: "Connect the dots and build a case as a team." },
+      { icon: Users, title: "Role-Based Collaboration", description: "Each teammate contributes different strengths." },
+    ],
+    benefits: [
+      { icon: Users, title: "Sharper Communication", description: "Teams practice clarity and alignment under time pressure." },
+      { icon: Lightbulb, title: "Better Problem Solving", description: "Structured thinking that transfers back to work." },
+      { icon: Heart, title: "Real Team Bonding", description: "Shared wins (and plot twists) build stronger relationships." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "Our team was fully locked in from start to finish. So engaging!", author: "Team Lead", company: "Technology Company" },
+      { quote: "Great balance of fun and critical thinking. Everyone contributed.", author: "HR Manager", company: "Financial Services" },
+      { quote: "The storyline was fantastic — we still talk about the twist ending.", author: "Operations Lead", company: "Logistics" },
+    ],
+    faqs: [],
+    cta: {
+      headline: "Ready to Solve the Case?",
+      subtext: "Tell us your pax count and venue — we’ll tailor the CSI-Bones experience for your team.",
+    },
+    howItWorksFlow: {
+      sectionTitle: "HOW IT WORKS",
+      sectionSubtitle: "Your Investigation Journey",
+      itemsPerRow: 4,
+      showNumbers: true,
+      items: [
+        { icon: Users, title: "Form Teams", description: "Split into squads with different investigative strengths." },
+        { icon: ClipboardList, title: "Get Briefed", description: "Receive the case file, rules, and starting evidence." },
+        { icon: Search, title: "Collect Clues", description: "Inspect artifacts, statements, and hidden details." },
+        { icon: Brain, title: "Build the Case", description: "Discuss theories and narrow down suspects together." },
+        { icon: Timer, title: "Race the Clock", description: "Make decisions under time pressure and uncertainty." },
+        { icon: Trophy, title: "Reveal & Awards", description: "Final reveal, debrief, and winning team recognition." },
+      ],
+    },
+    perfectForFlow: {
+      sectionTitle: "PERFECT FOR",
+      sectionSubtitle: "Every Occasion",
+      itemsPerRow: 4,
+      items: [
+        { icon: UserPlus, title: "New Team Integration", description: "Break the ice through shared detective work." },
+        { icon: Building, title: "Department Off-sites", description: "Strengthen collaboration within a team." },
+        { icon: PartyPopper, title: "Company Celebrations", description: "A fresh alternative to the usual games." },
+        { icon: GraduationCap, title: "Leadership Programs", description: "Practice decision-making and alignment." },
+        { icon: Handshake, title: "Client Engagement", description: "Turn relationship-building into a shared story." },
+        { icon: Rocket, title: "Sales Kickoff", description: "Energize teams with urgency and teamwork." },
+        { icon: Briefcase, title: "Cross-Team Alignment", description: "Improve communication across functions." },
+        { icon: Target, title: "Strategy Retreats", description: "Mirror real-world ambiguity in a safe setting." },
+      ],
+    },
+    clientLogos: ["Google", "DBS", "Shopee", "Microsoft"],
+    recentEvents: [
+      { client: "DBS", event: "CSI-Bones", pax: 120 },
+      { client: "Google", event: "CSI-Bones", pax: 80 },
+      { client: "Shopee", event: "CSI-Bones", pax: 150 },
+      { client: "Microsoft", event: "CSI-Bones", pax: 90 },
+    ],
+    pricing: {
+      startingPrice: "From $45",
+      unit: "per pax",
+      minimumPax: 20,
+      duration: "2-3 hours",
+      activityType: "indoor",
+    },
+    packages: trafficLightPackages("From $45/pax", "CSI-Bones", "#26D07C"),
+    addOns: defaultAddOns,
+    miniGallery: {
+      title: "CSI-Bones Highlights",
+      images: [
+        { src: heroCsiInvestigation, alt: "CSI-Bones investigation briefing" },
+        { src: heroTeamCelebration, alt: "Teams collaborating during CSI-Bones" },
+        { src: teamBuildingOutdoor1, alt: "Team moment after completing CSI-Bones" },
+      ],
+    },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our CSI-Bones",
+  },
+
+  "cultural-race": {
+    accentColor: "#FF4F4F",
+    hero: {
+      title: "Cultural Race",
+      subtitle: "Team Building Adventure",
+      tagline: "Explore, laugh, and compete through Singapore’s culture — with challenges built for teamwork.",
+      backgroundImage: heroCulturalRace,
+    },
+    overview: {
+      description: "Cultural Race is a high-energy heritage adventure where teams complete interactive missions across cultural landmarks. Expect exploration, puzzle-solving, and creative tasks — all designed to get teams talking, moving, and collaborating.",
+      backgroundImage: heroCulturalRace,
+    },
+    features: [
+      { icon: MapPin, title: "Landmark Checkpoints", description: "Routes tailored to your venue or district." },
+      { icon: Camera, title: "Creative Missions", description: "Photo/video challenges that bring out team personality." },
+      { icon: Users, title: "Inclusive Format", description: "A mix of mental, creative, and light physical tasks." },
+    ],
+    benefits: [
+      { icon: Heart, title: "Stronger Bonds", description: "Shared exploration creates real connection." },
+      { icon: Target, title: "Better Coordination", description: "Teams plan routes and divide roles effectively." },
+      { icon: Star, title: "Memorable Stories", description: "A feel-good experience your team will remember." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "We learned new things about Singapore and about each other!", author: "People Ops", company: "FMCG" },
+      { quote: "Perfect for a mixed team — everyone could contribute.", author: "Manager", company: "Bank" },
+      { quote: "Great energy and pacing. The missions were hilarious.", author: "Director", company: "Startup" },
+    ],
+    faqs: [],
+    cta: {
+      headline: "Ready to Run Your Cultural Race?",
+      subtext: "Share your date and pax — we’ll recommend routes and formats.",
+    },
+    howItWorksFlow: {
+      sectionTitle: "HOW IT WORKS",
+      sectionSubtitle: "Your Race Day Journey",
+      itemsPerRow: 4,
+      showNumbers: true,
+      items: [
+        { icon: Users, title: "Form Teams", description: "Teams of 5–10 with a mix of strengths." },
+        { icon: ClipboardList, title: "Get Briefed", description: "Rules, first clue, and safety notes." },
+        { icon: Map, title: "Navigate", description: "Find checkpoints with clues and map guidance." },
+        { icon: Sparkles, title: "Complete Missions", description: "Culture, food, and creative tasks along the way." },
+        { icon: Timer, title: "Race the Clock", description: "Earn points and optimize time." },
+        { icon: Trophy, title: "Awards", description: "Winners, best team spirit, and photo wrap-up." },
+      ],
+    },
+    perfectForFlow: {
+      sectionTitle: "PERFECT FOR",
+      sectionSubtitle: "Every Occasion",
+      itemsPerRow: 4,
+      items: [
+        { icon: UserPlus, title: "New Team Integration", description: "Explore and break the ice quickly." },
+        { icon: Building, title: "Department Off-sites", description: "Build collaboration outside the office." },
+        { icon: PartyPopper, title: "Company Celebrations", description: "A lively, photo-worthy team activity." },
+        { icon: GraduationCap, title: "Leadership Programs", description: "Decision-making and coordination under time." },
+        { icon: Handshake, title: "Client Engagement", description: "Relationship-building with shared fun." },
+        { icon: Rocket, title: "Sales Kickoff", description: "Energize teams with competition." },
+        { icon: Briefcase, title: "Cross-Team Alignment", description: "Bridge silos with shared missions." },
+        { icon: Target, title: "Strategy Retreats", description: "A fun reset before planning sessions." },
+      ],
+    },
+    clientLogos: ["DBS", "Grab", "Meta", "Deloitte"],
+    recentEvents: [
+      { client: "DBS", event: "Cultural Race", pax: 180 },
+      { client: "Grab", event: "Heritage Missions", pax: 120 },
+      { client: "Meta", event: "Chinatown Trail", pax: 90 },
+      { client: "Deloitte", event: "Little India Trail", pax: 150 },
+    ],
+    pricing: {
+      startingPrice: "From $45",
+      unit: "per pax",
+      minimumPax: 20,
+      duration: "2.5-3.5 hours",
+      activityType: "outdoor",
+    },
+    packages: trafficLightPackages("From $45/pax", "Cultural Race", "#FF4F4F"),
+    addOns: defaultAddOns,
+    miniGallery: {
+      title: "Cultural Race Highlights",
+      images: [
+        { src: heroCulturalRace, alt: "Teams racing through cultural checkpoints" },
+        { src: heroTeamCelebration, alt: "Team celebrating during Cultural Race" },
+        { src: teamBuildingOutdoor1, alt: "Outdoor team moment during Cultural Race" },
+      ],
+    },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Cultural Race",
+  },
+
+  // Quick-launch placeholders (content can be refined later)
+  "archery-tag": {
+    accentColor: "#2A8DFF",
+    hero: {
+      title: "Archery Tag",
+      subtitle: "Team Battle",
+      tagline: "Fast rounds, light tactics, and big laughs — compete safely as a team.",
+      backgroundImage: heroAdventureChallenge,
+    },
+    overview: {
+      description: "Archery Tag is a team battle experience that blends movement, strategy, and communication. It’s designed to be safe and inclusive, with clear rules and facilitation for maximum fun.",
+      backgroundImage: heroAdventureChallenge,
+    },
+    features: [
+      { icon: Target, title: "Tactical Team Play", description: "Coordinate roles and communicate to win rounds." },
+      { icon: Shield, title: "Safe Equipment", description: "Proper safety briefing and supervised gameplay." },
+      { icon: Trophy, title: "Tournament Format", description: "Round-robin or bracketed competition." },
+    ],
+    benefits: [
+      { icon: Users, title: "Team Coordination", description: "Align quickly and execute together." },
+      { icon: Zap, title: "High Energy", description: "A lively, adrenaline-filled format." },
+      { icon: Heart, title: "Bonding", description: "Shared wins and funny moments build connection." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "So much fun and surprisingly strategic.", author: "HR", company: "MNC" },
+      { quote: "Great energy for a company offsite.", author: "Manager", company: "Tech" },
+      { quote: "Everyone got involved — even the quieter folks.", author: "Lead", company: "Finance" },
+    ],
+    faqs: [],
+    cta: { headline: "Ready to Battle?", subtext: "Share your pax count and venue — we’ll propose the best format." },
+    howItWorksFlow: {
+      sectionTitle: "HOW IT WORKS",
+      sectionSubtitle: "Your Battle Flow",
+      itemsPerRow: 4,
+      showNumbers: true,
+      items: [
+        { icon: Users, title: "Form Teams", description: "Teams of 5–10 with mixed roles." },
+        { icon: ClipboardList, title: "Safety Brief", description: "Rules, equipment, and safe play." },
+        { icon: Target, title: "Match Rounds", description: "Compete through timed rounds." },
+        { icon: Trophy, title: "Tournament", description: "Playoffs and winner reveal." },
+      ],
+    },
+    perfectForFlow: {
+      sectionTitle: "PERFECT FOR",
+      sectionSubtitle: "Every Occasion",
+      itemsPerRow: 4,
+      items: [
+        { icon: UserPlus, title: "New Team Integration", description: "Break the ice with playful competition." },
+        { icon: Building, title: "Department Off-sites", description: "A fast win for team energy." },
+        { icon: PartyPopper, title: "Company Celebrations", description: "A hype activity to anchor the day." },
+        { icon: GraduationCap, title: "Leadership Programs", description: "Practice communication and alignment." },
+        { icon: Handshake, title: "Client Engagement", description: "A memorable shared experience." },
+        { icon: Rocket, title: "Sales Kickoff", description: "Momentum-building competition." },
+        { icon: Briefcase, title: "Cross-Team Alignment", description: "Build trust across functions." },
+        { icon: Target, title: "Strategy Retreats", description: "A reset before planning sessions." },
+      ],
+    },
+    clientLogos: ["Google", "DBS"],
+    recentEvents: [
+      { client: "Google", event: "Archery Tag", pax: 80 },
+      { client: "DBS", event: "Archery Tag", pax: 120 },
+    ],
+    pricing: { startingPrice: "From $45", unit: "per pax", minimumPax: 20, duration: "1.5-2.5 hours", activityType: "outdoor" },
+    packages: trafficLightPackages("From $45/pax", "Archery Tag", "#2A8DFF"),
+    addOns: defaultAddOns,
+    miniGallery: {
+      title: "Archery Tag Highlights",
+      images: [
+        { src: heroAdventureChallenge, alt: "Archery Tag team battle" },
+        { src: teamBuildingOutdoor1, alt: "Outdoor team building moment" },
+        { src: heroTeamCelebration, alt: "Team celebrating after Archery Tag" },
+      ],
+    },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Archery Tag",
+  },
+
+  "builder-cross": {
+    accentColor: "#FFC400",
+    hero: { title: "Builder Cross", subtitle: "Team Building Challenge", tagline: "Build, test, and iterate — teamwork meets hands-on problem solving.", backgroundImage: heroAdventureChallenge },
+    overview: { description: "Builder Cross is a hands-on construction-style team building challenge where teams plan, build, and refine solutions together.", backgroundImage: heroAdventureChallenge },
+    features: [{ icon: Building, title: "Hands-On Build", description: "Create something together under constraints." }],
+    benefits: [{ icon: Lightbulb, title: "Creative Thinking", description: "Teams learn to iterate quickly." }],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [{ quote: "Loved the build-and-test format.", author: "Manager", company: "Engineering" }],
+    faqs: [],
+    cta: { headline: "Ready to Build Together?", subtext: "Tell us your pax and goals — we’ll propose a Builder Cross format." },
+    howItWorksFlow: { sectionTitle: "HOW IT WORKS", sectionSubtitle: "Build Flow", itemsPerRow: 4, showNumbers: true, items: [{ icon: ClipboardList, title: "Brief", description: "Rules, materials, and scoring." }] },
+    perfectForFlow: defaultPerfectForFlow,
+    clientLogos: ["DBS"],
+    recentEvents: [{ client: "DBS", event: "Builder Cross", pax: 120 }],
+    pricing: { startingPrice: "From $45", unit: "per pax", minimumPax: 20, duration: "2-3 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $45/pax", "Builder Cross", "#FFC400"),
+    addOns: defaultAddOns,
+    miniGallery: { title: "Builder Cross Highlights", images: [{ src: heroAdventureChallenge, alt: "Builder Cross team challenge" }, { src: heroTeamCelebration, alt: "Team celebrating after Builder Cross" }, { src: teamBuildingOutdoor1, alt: "Team moment" }] },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Builder Cross",
+  },
+
+  "gel-blitz": {
+    accentColor: "#2A8DFF",
+    hero: { title: "GelBlitz", subtitle: "Team Battle", tagline: "Fast, tactical gel blaster matches built for team communication.", backgroundImage: heroAdventureChallenge },
+    overview: { description: "GelBlitz is an action-packed gel blaster team battle experience designed for safe, high-energy team bonding.", backgroundImage: heroAdventureChallenge },
+    features: [{ icon: Crosshair, title: "Tactical Rounds", description: "Short, exciting rounds with clear objectives." }],
+    benefits: [{ icon: Users, title: "Communication", description: "Quick calls and coordination win games." }],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [{ quote: "The team couldn’t stop laughing.", author: "People Ops", company: "Startup" }],
+    faqs: [],
+    cta: { headline: "Ready for GelBlitz?", subtext: "Share your pax and venue — we’ll propose match formats." },
+    howItWorksFlow: { sectionTitle: "HOW IT WORKS", sectionSubtitle: "Battle Flow", itemsPerRow: 4, showNumbers: true, items: [{ icon: ClipboardList, title: "Safety Brief", description: "Rules, equipment, safe play." }] },
+    perfectForFlow: defaultPerfectForFlow,
+    clientLogos: ["Shopee"],
+    recentEvents: [{ client: "Shopee", event: "GelBlitz", pax: 150 }],
+    pricing: { startingPrice: "From $45", unit: "per pax", minimumPax: 20, duration: "1.5-2.5 hours", activityType: "outdoor" },
+    packages: trafficLightPackages("From $45/pax", "GelBlitz", "#2A8DFF"),
+    addOns: defaultAddOns,
+    miniGallery: { title: "GelBlitz Highlights", images: [{ src: heroAdventureChallenge, alt: "GelBlitz team battle" }, { src: heroTeamCelebration, alt: "Team celebrating after GelBlitz" }, { src: teamBuildingOutdoor1, alt: "Outdoor team moment" }] },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our GelBlitz",
+  },
+
+  "minute-to-win-it": {
+    accentColor: "#FF8A3D",
+    hero: { title: "Minute To Win It", subtitle: "Team Party Games", tagline: "Short challenges, big laughs — rapid-fire games for every team.", backgroundImage: heroTeamCelebration },
+    overview: { description: "Minute To Win It is a fast-paced series of short challenges where teams compete for points in quick rounds.", backgroundImage: heroTeamCelebration },
+    features: [{ icon: Timer, title: "Fast Rounds", description: "Quick games with rotating missions." }],
+    benefits: [{ icon: Heart, title: "Instant Bonding", description: "Laughter breaks barriers fast." }],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [{ quote: "Perfect for a celebration day.", author: "HR", company: "Retail" }],
+    faqs: [],
+    cta: { headline: "Ready to Play?", subtext: "Tell us your pax and vibe — we’ll curate the best game set." },
+    howItWorksFlow: { sectionTitle: "HOW IT WORKS", sectionSubtitle: "Game Flow", itemsPerRow: 4, showNumbers: true, items: [{ icon: ClipboardList, title: "Brief", description: "Teams, rules, scoring." }] },
+    perfectForFlow: defaultPerfectForFlow,
+    clientLogos: ["Grab"],
+    recentEvents: [{ client: "Grab", event: "Minute To Win It", pax: 200 }],
+    pricing: { startingPrice: "From $45", unit: "per pax", minimumPax: 20, duration: "1.5-2.5 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $45/pax", "Minute To Win It", "#FF8A3D"),
+    addOns: defaultAddOns,
+    miniGallery: { title: "Minute To Win It Highlights", images: [{ src: heroTeamCelebration, alt: "Minute To Win It team game" }, { src: heroAdventureChallenge, alt: "Challenge moment" }, { src: teamBuildingOutdoor1, alt: "Team moment" }] },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Minute To Win It",
+  },
+
+  "monopoly-dash": {
+    accentColor: "#FFC400",
+    hero: { title: "Monopoly Dash", subtitle: "City Strategy Race", tagline: "Life-sized Monopoly meets city missions — plan, negotiate, and dominate.", backgroundImage: heroAmazingRaceAlt },
+    overview: { description: "Monopoly Dash is a city-based strategy race inspired by Monopoly — teams earn, trade, and complete missions to gain an edge.", backgroundImage: heroAmazingRaceAlt },
+    features: [{ icon: Map, title: "City Missions", description: "Move through checkpoints with strategic choices." }],
+    benefits: [{ icon: Target, title: "Strategic Thinking", description: "Teams balance risk and reward." }],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [{ quote: "The strategy element was a hit.", author: "Director", company: "Finance" }],
+    faqs: [],
+    cta: { headline: "Ready to Dash?", subtext: "Tell us your pax and venue — we’ll propose a Monopoly Dash route." },
+    howItWorksFlow: { sectionTitle: "HOW IT WORKS", sectionSubtitle: "Dash Flow", itemsPerRow: 4, showNumbers: true, items: [{ icon: Map, title: "Route + Missions", description: "Teams choose paths to maximize points." }] },
+    perfectForFlow: defaultPerfectForFlow,
+    clientLogos: ["Deloitte"],
+    recentEvents: [{ client: "Deloitte", event: "Monopoly Dash", pax: 150 }],
+    pricing: { startingPrice: "From $45", unit: "per pax", minimumPax: 20, duration: "2.5-3.5 hours", activityType: "outdoor" },
+    packages: trafficLightPackages("From $45/pax", "Monopoly Dash", "#FFC400"),
+    addOns: defaultAddOns,
+    miniGallery: { title: "Monopoly Dash Highlights", images: [{ src: heroAmazingRaceAlt, alt: "Monopoly Dash checkpoint" }, { src: teamBuildingOutdoor1, alt: "Outdoor team moment" }, { src: heroTeamCelebration, alt: "Celebration moment" }] },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Monopoly Dash",
+  },
+
+  "nerfwar": {
+    accentColor: "#FFC400",
+    hero: { title: "Nerfwar", subtitle: "Team Battle", tagline: "Foam-dart battles for everyone — tactics, teamwork, and fun.", backgroundImage: heroAdventureChallenge },
+    overview: { description: "Nerfwar is an inclusive, high-energy team battle experience with safe foam blasters and structured match formats.", backgroundImage: heroAdventureChallenge },
+    features: [{ icon: Swords, title: "Team Formats", description: "Objective modes and fun missions." }],
+    benefits: [{ icon: Users, title: "Coordination", description: "Clear calls and role assignment matter." }],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [{ quote: "So inclusive — everyone participated.", author: "HR", company: "Tech" }],
+    faqs: [],
+    cta: { headline: "Ready for Nerfwar?", subtext: "Share your pax and venue — we’ll propose match modes." },
+    howItWorksFlow: { sectionTitle: "HOW IT WORKS", sectionSubtitle: "Battle Flow", itemsPerRow: 4, showNumbers: true, items: [{ icon: ClipboardList, title: "Safety + Brief", description: "Rules, equipment, safe play." }] },
+    perfectForFlow: defaultPerfectForFlow,
+    clientLogos: ["Amazon"],
+    recentEvents: [{ client: "Amazon", event: "Nerfwar", pax: 120 }],
+    pricing: { startingPrice: "From $45", unit: "per pax", minimumPax: 20, duration: "1.5-2.5 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $45/pax", "Nerfwar", "#FFC400"),
+    addOns: defaultAddOns,
+    miniGallery: { title: "Nerfwar Highlights", images: [{ src: heroAdventureChallenge, alt: "Nerfwar team battle" }, { src: heroTeamCelebration, alt: "Team celebrating" }, { src: teamBuildingOutdoor1, alt: "Team moment" }] },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Nerfwar",
+  },
+
+  "running-man": {
+    accentColor: "#FF4F4F",
+    hero: { title: "Running Man Adventure", subtitle: "Team Games", tagline: "Missions, chaos, and laughs — a variety show style team game day.", backgroundImage: heroCulturalRace },
+    overview: { description: "Running Man Adventure is inspired by variety show missions — teams compete in hilarious games that reward coordination and creativity.", backgroundImage: heroCulturalRace },
+    features: [{ icon: Footprints, title: "Mission Variety", description: "Rotating games and challenges." }],
+    benefits: [{ icon: Heart, title: "Team Spirit", description: "A high-energy morale booster." }],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [{ quote: "The laughter was nonstop.", author: "Manager", company: "FMCG" }],
+    faqs: [],
+    cta: { headline: "Ready for Running Man Adventure?", subtext: "Share your pax and venue — we’ll propose mission sets." },
+    howItWorksFlow: { sectionTitle: "HOW IT WORKS", sectionSubtitle: "Mission Flow", itemsPerRow: 4, showNumbers: true, items: [{ icon: ClipboardList, title: "Brief", description: "Teams, rules, scoring." }] },
+    perfectForFlow: defaultPerfectForFlow,
+    clientLogos: ["Meta"],
+    recentEvents: [{ client: "Meta", event: "Running Man Adventure", pax: 120 }],
+    pricing: { startingPrice: "From $45", unit: "per pax", minimumPax: 20, duration: "2-3 hours", activityType: "hybrid" },
+    packages: trafficLightPackages("From $45/pax", "Running Man Adventure", "#FF4F4F"),
+    addOns: defaultAddOns,
+    miniGallery: { title: "Running Man Highlights", images: [{ src: heroCulturalRace, alt: "Running Man style team missions" }, { src: heroTeamCelebration, alt: "Team celebrating" }, { src: teamBuildingOutdoor1, alt: "Outdoor team moment" }] },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Running Man Adventure",
+  },
+
+  "sotong-game": {
+    accentColor: "#D946EF",
+    hero: { title: "Sotong Game", subtitle: "Squid-Style Games", tagline: "Squid-game vibes, safe team challenges — can your team survive the missions?", backgroundImage: heroTeamCelebration },
+    overview: { description: "Sotong Game is inspired by the tension and fun of Squid-style games — adapted into safe, team-friendly challenges that everyone can enjoy.", backgroundImage: heroTeamCelebration },
+    features: [{ icon: Gamepad2, title: "Iconic Missions", description: "A themed set of team challenges." }],
+    benefits: [{ icon: Users, title: "Team Cohesion", description: "Win through coordination and calm decision-making." }],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [{ quote: "Super on-theme and insanely fun.", author: "HR", company: "Tech" }],
+    faqs: [],
+    cta: { headline: "Ready for Sotong Game?", subtext: "Tell us your pax and venue — we’ll tailor the mission set." },
+    howItWorksFlow: { sectionTitle: "HOW IT WORKS", sectionSubtitle: "Mission Flow", itemsPerRow: 4, showNumbers: true, items: [{ icon: ClipboardList, title: "Brief", description: "Theme setup, teams, rules." }] },
+    perfectForFlow: defaultPerfectForFlow,
+    clientLogos: ["Grab"],
+    recentEvents: [{ client: "Grab", event: "Sotong Game", pax: 180 }],
+    pricing: { startingPrice: "From $45", unit: "per pax", minimumPax: 20, duration: "2-3 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $45/pax", "Sotong Game", "#D946EF"),
+    addOns: defaultAddOns,
+    miniGallery: { title: "Sotong Game Highlights", images: [{ src: heroTeamCelebration, alt: "Sotong Game themed challenge" }, { src: heroAdventureChallenge, alt: "Team challenge moment" }, { src: teamBuildingOutdoor1, alt: "Team moment" }] },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Sotong Game",
+  },
+
+  "tag-tical-laser-teambuilding": {
+    accentColor: "#FFC400",
+    hero: { title: "Tag-tical Laser Teambuilding", subtitle: "Laser Team Battle", tagline: "Tactics, teamwork, and adrenaline — laser battles built for communication.", backgroundImage: heroAdventureChallenge },
+    overview: { description: "Tag-tical Laser Teambuilding is a laser team battle experience with objective-based modes and structured rounds.", backgroundImage: heroAdventureChallenge },
+    features: [{ icon: Crosshair, title: "Objective Modes", description: "Capture, defend, and team missions." }],
+    benefits: [{ icon: Target, title: "Alignment", description: "Teams plan, communicate, and execute together." }],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [{ quote: "Very tactical and fun.", author: "Lead", company: "Sales" }],
+    faqs: [],
+    cta: { headline: "Ready for Tag-tical Laser Teambuilding?", subtext: "Share your pax and venue — we’ll recommend the best format." },
+    howItWorksFlow: { sectionTitle: "HOW IT WORKS", sectionSubtitle: "Battle Flow", itemsPerRow: 4, showNumbers: true, items: [{ icon: ClipboardList, title: "Brief", description: "Rules, equipment, safe play." }] },
+    perfectForFlow: defaultPerfectForFlow,
+    clientLogos: ["Shopee"],
+    recentEvents: [{ client: "Shopee", event: "Laser Battle", pax: 140 }],
+    pricing: { startingPrice: "From $45", unit: "per pax", minimumPax: 20, duration: "1.5-2.5 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $45/pax", "Tag-tical Laser Teambuilding", "#FFC400"),
+    addOns: defaultAddOns,
+    miniGallery: { title: "Laser Battle Highlights", images: [{ src: heroAdventureChallenge, alt: "Laser team battle" }, { src: heroTeamCelebration, alt: "Team celebrating" }, { src: teamBuildingOutdoor1, alt: "Team moment" }] },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Laser Team Battles",
+  },
+
+  "treasure-heist": {
+    accentColor: "#FF4F4F",
+    hero: { title: "Treasure Heist", subtitle: "Team Strategy Adventure", tagline: "Plan the heist, execute the missions — strategy and teamwork in a thrilling format.", backgroundImage: heroAdventureChallenge },
+    overview: { description: "Treasure Heist is a story-driven team adventure inspired by heist themes — teams plan routes, complete missions, and outsmart rivals.", backgroundImage: heroAdventureChallenge },
+    features: [{ icon: Gem, title: "Heist Storyline", description: "Narrative missions with team roles." }],
+    benefits: [{ icon: Lightbulb, title: "Creative Strategy", description: "Plan, adapt, and improvise together." }],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [{ quote: "The theme was amazing.", author: "Manager", company: "Tech" }],
+    faqs: [],
+    cta: { headline: "Ready for the Heist?", subtext: "Tell us your pax and venue — we’ll propose a Treasure Heist experience." },
+    howItWorksFlow: { sectionTitle: "HOW IT WORKS", sectionSubtitle: "Heist Flow", itemsPerRow: 4, showNumbers: true, items: [{ icon: ClipboardList, title: "Brief", description: "Story setup, teams, rules." }] },
+    perfectForFlow: defaultPerfectForFlow,
+    clientLogos: ["DBS"],
+    recentEvents: [{ client: "DBS", event: "Treasure Heist", pax: 160 }],
+    pricing: { startingPrice: "From $45", unit: "per pax", minimumPax: 20, duration: "2.5-3.5 hours", activityType: "hybrid" },
+    packages: trafficLightPackages("From $45/pax", "Treasure Heist", "#FF4F4F"),
+    addOns: defaultAddOns,
+    miniGallery: { title: "Treasure Heist Highlights", images: [{ src: heroAdventureChallenge, alt: "Treasure Heist mission" }, { src: heroTeamCelebration, alt: "Team celebrating" }, { src: teamBuildingOutdoor1, alt: "Team moment" }] },
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Treasure Heist",
   }
 };
