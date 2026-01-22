@@ -16,6 +16,11 @@ import { ServiceOutcomes } from "@/components/service-page/ServiceOutcomes";
 import { ServicePillsSection } from "@/components/service-page/ServicePillsSection";
 import { servicesData } from "@/data/servicesData";
 import { SEO } from "@/components/SEO";
+import { ServiceMiniGallery } from "@/components/service-page/ServiceMiniGallery";
+
+import amazingRaceHero from "@/assets/services/amazing-race-hero.jpg";
+import amazingRaceAlt from "@/assets/hero/amazing-race.jpg";
+import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
 
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -200,6 +205,18 @@ const ServicePage = () => {
             />
           )}
         </>
+      )}
+
+      {/* Mini gallery (Amazing Race) */}
+      {slug === "amazing-race" && (
+        <ServiceMiniGallery
+          title="Amazing Race in Action"
+          images={[
+            { src: amazingRaceHero, alt: "Amazing Race team building checkpoint challenge" },
+            { src: amazingRaceAlt, alt: "Teams racing during an Amazing Race activity" },
+            { src: teamBuildingOutdoor, alt: "Outdoor team building moment during Amazing Race" },
+          ]}
+        />
       )}
 
       {/* 10. Testimonials */}

@@ -2516,13 +2516,17 @@ export const servicesData: Record<string, ServiceData> = {
     },
     perfectForFlow: {
       sectionTitle: "PERFECT FOR",
-      sectionSubtitle: "Perfect for Every Occasion",
+      sectionSubtitle: "Every Occasion",
       itemsPerRow: 4,
       items: [
         { icon: UserPlus, title: "New Team Integration", description: "Break the ice and build bonds with new hires and team members." },
         { icon: Building, title: "Department Off-sites", description: "Strengthen collaboration within departments and divisions." },
         { icon: PartyPopper, title: "Company Celebrations", description: "Milestones, anniversaries, and annual company events." },
-        { icon: GraduationCap, title: "Leadership Programs", description: "Develop decision-making and strategic thinking skills." }
+        { icon: GraduationCap, title: "Leadership Programs", description: "Develop decision-making and strategic thinking skills." },
+        { icon: Handshake, title: "Client Engagement", description: "Turn relationship-building into a memorable shared experience." },
+        { icon: Rocket, title: "Sales Kickoff", description: "Energize teams with momentum, urgency, and shared goals." },
+        { icon: Briefcase, title: "Cross-Team Alignment", description: "Connect functions and improve collaboration across silos." },
+        { icon: Target, title: "Strategy Retreats", description: "Sharpen focus with challenges that mirror real decision-making." }
       ]
     },
     activities: {

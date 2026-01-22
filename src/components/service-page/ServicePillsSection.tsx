@@ -60,7 +60,7 @@ export const ServicePillsSection = ({
           )}
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {items.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -73,7 +73,7 @@ export const ServicePillsSection = ({
                 className="group"
               >
                 <div
-                  className="inline-flex items-center gap-3 rounded-full border bg-card/80 backdrop-blur-sm px-4 py-3 transition-all duration-300 group-hover:shadow-lg"
+                  className="w-full flex items-center gap-3 rounded-full border bg-card/80 backdrop-blur-sm px-4 py-3 transition-all duration-300 group-hover:shadow-lg"
                   style={{ borderColor: `${accentColor}30` }}
                 >
                   <span
@@ -87,7 +87,7 @@ export const ServicePillsSection = ({
                       {item.title}
                     </p>
                     {item.description && (
-                      <p className="text-xs text-muted-foreground leading-snug mt-0.5 max-w-[32ch]">
+                      <p className="text-xs text-muted-foreground leading-snug mt-0.5">
                         {item.description}
                       </p>
                     )}
