@@ -23,7 +23,7 @@ export const RaceTrackStrip = ({
     <div className={"relative -mx-4 my-10 overflow-hidden " + (className ?? "")}>
       <div
         aria-hidden
-        className="relative h-10 w-[120%] -translate-x-[10%]"
+        className="relative h-14 w-[120%] -translate-x-[10%]"
         style={{ transform: rotation }}
       >
         {/* Checkered track */}
@@ -38,11 +38,11 @@ export const RaceTrackStrip = ({
 
         {/* Accent rails */}
         <div
-          className="absolute left-0 right-0 top-1 h-[3px]"
+          className="absolute left-0 right-0 top-2 h-[6px]"
           style={{ backgroundColor: accentColor }}
         />
         <div
-          className="absolute left-0 right-0 bottom-1 h-[3px]"
+          className="absolute left-0 right-0 bottom-2 h-[6px]"
           style={{ backgroundColor: accentColor }}
         />
       </div>
