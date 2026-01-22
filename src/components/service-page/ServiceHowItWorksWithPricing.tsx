@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { LucideIcon, Bus, Medal, UtensilsCrossed, MapPin, Shirt, Camera, Palette, BarChart3, Users, Clock, Sun, Building, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
-import { RaceTrackStrip } from "@/components/service-page/RaceTrackStrip";
+import { ServiceDividerStrip, type DividerVariant } from "@/components/service-page/dividers/ServiceDividerStrip";
 
 export interface AddOn {
   icon: string;
@@ -40,6 +40,7 @@ interface ServiceHowItWorksWithPricingProps {
   packages?: PackageTier[];
   addOns: AddOn[];
   accentColor: string;
+  dividerVariant?: DividerVariant;
 }
 
 // Icon mapping for add-ons (using string keys)
@@ -68,7 +69,8 @@ export const ServiceHowItWorksWithPricing = ({
   pricing,
   packages,
   addOns,
-  accentColor
+  accentColor,
+  dividerVariant = "raceTrack"
 }: ServiceHowItWorksWithPricingProps) => {
   const { openContactModal } = useContactModal();
   const ActivityIcon = activityTypeIcons[pricing.activityType || "outdoor"];
@@ -95,7 +97,7 @@ export const ServiceHowItWorksWithPricing = ({
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <RaceTrackStrip direction="downRight" accentColor={accentColor} />
+        <ServiceDividerStrip variant={dividerVariant} direction="downRight" accentColor={accentColor} />
 
         {/* Section Header */}
         <motion.div
@@ -164,7 +166,7 @@ export const ServiceHowItWorksWithPricing = ({
           })}
         </div>
 
-        <RaceTrackStrip direction="downLeft" accentColor={accentColor} />
+        <ServiceDividerStrip variant={dividerVariant} direction="downLeft" accentColor={accentColor} />
 
         {/* PRICING Section Header */}
         <motion.div
@@ -197,7 +199,10 @@ export const ServiceHowItWorksWithPricing = ({
                 className="relative group"
               >
                 <div 
-                  className="relative bg-white border rounded-2xl p-6 h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                  className={
+                    "relative bg-white border rounded-2xl h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden " +
+                    (pkg.title === "Enhanced Package" ? "p-8 md:p-9 md:scale-[1.06] md:z-10" : "p-6")
+                  }
                   style={{ borderColor: `${pkg.color}40` }}
                 >
                   {/* Glow effect on hover */}
@@ -327,7 +332,7 @@ export const ServiceHowItWorksWithPricing = ({
           </div>
         </motion.div>
 
-        <RaceTrackStrip direction="downRight" accentColor={accentColor} />
+        <ServiceDividerStrip variant={dividerVariant} direction="downRight" accentColor={accentColor} />
 
         {/* Add-ons Section */}
         <motion.div

@@ -107,7 +107,18 @@ export interface MiniGallery {
 
 export interface ServiceData {
   accentColor: string;
-  dividerVariant?: "raceTrack" | "vault";
+  dividerVariant?:
+    | "raceTrack"
+    | "policeTape"
+    | "arrow"
+    | "money"
+    | "vault"
+    | "timer"
+    | "foamDart"
+    | "blueprint"
+    | "route"
+    | "gelBeads"
+    | "squid";
   hero: {
     title: string;
     subtitle: string;
@@ -2503,6 +2514,7 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "amazing-race": {
     accentColor: "#FFC400",
+    dividerVariant: "raceTrack",
     hero: {
       title: "Amazing Race",
       subtitle: "Team Building Adventure",
@@ -2758,6 +2770,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "csi-bones": {
     accentColor: "#26D07C",
+    dividerVariant: "policeTape",
     hero: {
       title: "CSI-Bones",
       subtitle: "Team Building Mystery",
@@ -2851,6 +2864,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "cultural-race": {
     accentColor: "#FF4F4F",
+    dividerVariant: "raceTrack",
     hero: {
       title: "Cultural Race",
       subtitle: "Team Building Adventure",
@@ -2945,6 +2959,7 @@ export const servicesData: Record<string, ServiceData> = {
   // Quick-launch placeholders (content can be refined later)
   "archery-tag": {
     accentColor: "#2A8DFF",
+    dividerVariant: "arrow",
     hero: {
       title: "Archery Tag",
       subtitle: "Team Battle",
@@ -3024,7 +3039,8 @@ export const servicesData: Record<string, ServiceData> = {
   },
 
   "builder-cross": {
-    accentColor: "#FFC400",
+    accentColor: "#FF8A3D",
+    dividerVariant: "blueprint",
     hero: { title: "Builder Cross", subtitle: "Team Building Challenge", tagline: "Build, test, and iterate — teamwork meets hands-on problem solving.", backgroundImage: heroAdventureChallenge },
     overview: { description: "Builder Cross is a hands-on construction-style team building challenge where teams plan, build, and refine solutions together.", backgroundImage: heroAdventureChallenge },
     features: [{ icon: Building, title: "Hands-On Build", description: "Create something together under constraints." }],
@@ -3050,6 +3066,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "gel-blitz": {
     accentColor: "#2A8DFF",
+    dividerVariant: "gelBeads",
     hero: { title: "GelBlitz", subtitle: "Team Battle", tagline: "Fast, tactical gel blaster matches built for team communication.", backgroundImage: heroAdventureChallenge },
     overview: { description: "GelBlitz is an action-packed gel blaster team battle experience designed for safe, high-energy team bonding.", backgroundImage: heroAdventureChallenge },
     features: [{ icon: Crosshair, title: "Tactical Rounds", description: "Short, exciting rounds with clear objectives." }],
@@ -3074,7 +3091,8 @@ export const servicesData: Record<string, ServiceData> = {
   },
 
   "minute-to-win-it": {
-    accentColor: "#FF8A3D",
+    accentColor: "#2A8DFF",
+    dividerVariant: "timer",
     hero: { title: "Minute To Win It", subtitle: "Team Party Games", tagline: "Short challenges, big laughs — rapid-fire games for every team.", backgroundImage: heroTeamCelebration },
     overview: { description: "Minute To Win It is a fast-paced series of short challenges where teams compete for points in quick rounds.", backgroundImage: heroTeamCelebration },
     features: [{ icon: Timer, title: "Fast Rounds", description: "Quick games with rotating missions." }],
@@ -3099,7 +3117,8 @@ export const servicesData: Record<string, ServiceData> = {
   },
 
   "monopoly-dash": {
-    accentColor: "#FFC400",
+    accentColor: "#FF4F4F",
+    dividerVariant: "money",
     hero: { title: "Monopoly Dash", subtitle: "City Strategy Race", tagline: "Life-sized Monopoly meets city missions — plan, negotiate, and dominate.", backgroundImage: heroAmazingRaceAlt },
     overview: { description: "Monopoly Dash is a city-based strategy race inspired by Monopoly — teams earn, trade, and complete missions to gain an edge.", backgroundImage: heroAmazingRaceAlt },
     features: [{ icon: Map, title: "City Missions", description: "Move through checkpoints with strategic choices." }],
@@ -3124,7 +3143,8 @@ export const servicesData: Record<string, ServiceData> = {
   },
 
   "nerfwar": {
-    accentColor: "#FFC400",
+    accentColor: "#FF8A3D",
+    dividerVariant: "foamDart",
     hero: { title: "Nerfwar", subtitle: "Team Battle", tagline: "Foam-dart battles for everyone — tactics, teamwork, and fun.", backgroundImage: heroAdventureChallenge },
     overview: { description: "Nerfwar is an inclusive, high-energy team battle experience with safe foam blasters and structured match formats.", backgroundImage: heroAdventureChallenge },
     features: [{ icon: Swords, title: "Team Formats", description: "Objective modes and fun missions." }],
@@ -3149,7 +3169,8 @@ export const servicesData: Record<string, ServiceData> = {
   },
 
   "running-man": {
-    accentColor: "#FF4F4F",
+    accentColor: "#FFD400",
+    dividerVariant: "route",
     hero: { title: "Running Man Adventure", subtitle: "Team Games", tagline: "Missions, chaos, and laughs — a variety show style team game day.", backgroundImage: heroCulturalRace },
     overview: { description: "Running Man Adventure is inspired by variety show missions — teams compete in hilarious games that reward coordination and creativity.", backgroundImage: heroCulturalRace },
     features: [{ icon: Footprints, title: "Mission Variety", description: "Rotating games and challenges." }],
@@ -3175,6 +3196,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "sotong-game": {
     accentColor: "#D946EF",
+    dividerVariant: "squid",
     hero: { title: "Sotong Game", subtitle: "Squid-Style Games", tagline: "Squid-game vibes, safe team challenges — can your team survive the missions?", backgroundImage: heroTeamCelebration },
     overview: { description: "Sotong Game is inspired by the tension and fun of Squid-style games — adapted into safe, team-friendly challenges that everyone can enjoy.", backgroundImage: heroTeamCelebration },
     features: [{ icon: Gamepad2, title: "Iconic Missions", description: "A themed set of team challenges." }],
