@@ -7,11 +7,11 @@ interface ServiceOverviewNewProps {
 
 export const ServiceOverviewNew = ({ description, accentColor }: ServiceOverviewNewProps) => {
   return (
-    <section className="py-24 relative overflow-hidden bg-white">
+    <section className="py-24 relative overflow-hidden bg-muted/40">
       {/* Light background with subtle pattern */}
-      <div className="absolute inset-0 bg-gray-50">
+      <div className="absolute inset-0 bg-muted/60">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-5"
+          className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: `url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920)` }}
         />
       </div>
@@ -57,7 +57,7 @@ export const ServiceOverviewNew = ({ description, accentColor }: ServiceOverview
             transition={{ duration: 1, delay: 0.3 }}
           />
           
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+          <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
             {description}
           </p>
         </motion.div>
