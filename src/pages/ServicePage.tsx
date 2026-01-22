@@ -116,6 +116,7 @@ const ServicePage = () => {
           packages={service.packages}
           addOns={service.addOns}
           accentColor={service.accentColor}
+          dividerVariant={service.dividerVariant}
         />
       )}
 
