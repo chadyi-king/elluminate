@@ -54,6 +54,8 @@ const activityColors = {
   adventureRaces: "#FF8A3D",
   mystery: "#8B5CF6",
   action: "#F97316",
+  sotong: "#D946EF",
+  laser: "#FFC400",
 };
 
 const allActivities = [
@@ -112,7 +114,7 @@ const allActivities = [
     name: "Sotong Game", 
     icon: Gamepad2, 
     slug: "sotong-game", 
-    color: activityColors.action, 
+    color: activityColors.sotong,
     description: "Squid Game-inspired challenges adapted for safe, exciting team competition. Can your team survive?",
     stats: "100+ games organized",
     clients: "Trending with all industries",
@@ -148,6 +150,16 @@ const allActivities = [
     clients: "Sales teams and startups",
     image: heroAdventureChallenge,
   },
+  {
+    name: "Nerfwar",
+    icon: Swords,
+    slug: "nerfwar",
+    color: activityColors.laser,
+    description: "Foam-dart team battles with light tactics, fast rounds, and big laughs.",
+    stats: "80+ Nerf wars hosted",
+    clients: "Great for mixed fitness levels",
+    image: heroAdventureChallenge,
+  },
   { 
     name: "Minute to Win It", 
     icon: Timer, 
@@ -178,6 +190,16 @@ const allActivities = [
     clients: "Popular with K-culture fans",
     image: heroCulturalRace,
   },
+  {
+    name: "Tag-tical Laser Teambuilding",
+    icon: Crosshair,
+    slug: "tag-tical-laser-teambuilding",
+    color: activityColors.laser,
+    description: "High-energy laser team battles that sharpen communication, tactics, and coordination.",
+    stats: "120+ laser events delivered",
+    clients: "Perfect for competitive teams",
+    image: heroAdventureChallenge,
+  },
   { 
     name: "Battle of the Olympians", 
     icon: Crown, 
@@ -207,16 +229,6 @@ const allActivities = [
     stats: "100+ wellness retreats",
     clients: "Healthcare and finance sectors",
     image: heroWellnessActivity,
-  },
-  { 
-    name: "Adventure Challenges", 
-    icon: Mountain, 
-    slug: "adventure-challenges", 
-    color: activityColors.adventureRaces, 
-    description: "Outdoor adventures featuring obstacle courses, hiking, and physical team challenges.",
-    stats: "180+ adventure events",
-    clients: "Popular with sales teams",
-    image: heroAdventureChallenge,
   },
   { 
     name: "Archery Tag", 
