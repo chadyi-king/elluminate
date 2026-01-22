@@ -65,9 +65,6 @@ export const ServiceRecentEventsTicker = ({
             <span className="text-foreground font-semibold">
               {event.client}
             </span>
-            <span className="text-muted-foreground">
-              {event.event}
-            </span>
             <span 
               className="px-2 py-0.5 rounded-full text-xs font-bold"
               style={{ 

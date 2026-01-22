@@ -172,6 +172,12 @@ export interface ServiceData {
   packages?: PackageTier[];
   addOns?: AddOn[];
   outcomes?: Outcome[];
+
+  // Page-level presentation controls (optional)
+  hideOutcomes?: boolean;
+  hideMidCta?: boolean;
+  perfectForVariant?: "flow" | "pills";
+  recentEventsHeadline?: string;
 }
 
 export const servicesData: Record<string, ServiceData> = {
@@ -2510,7 +2516,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     perfectForFlow: {
       sectionTitle: "PERFECT FOR",
-      sectionSubtitle: "Ideal for Every Occasion",
+      sectionSubtitle: "Perfect for Every Occasion",
       itemsPerRow: 4,
       items: [
         { icon: UserPlus, title: "New Team Integration", description: "Break the ice and build bonds with new hires and team members." },
@@ -2655,6 +2661,12 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: "Target", title: "Better Problem-Solving", description: "Skills that transfer directly to workplace challenges" },
       { icon: "Star", title: "Unforgettable Memories", description: "Stories your team will share for years" },
       { icon: "Users", title: "Enhanced Leadership", description: "Natural leaders emerge through team challenges" }
-    ]
+    ],
+
+    // Amazing Race page tweaks
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Amazing Race"
   }
 };

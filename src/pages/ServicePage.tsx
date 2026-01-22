@@ -10,12 +10,17 @@ import { ServiceCTANew } from "@/components/service-page/ServiceCTANew";
 import { ServiceTestimonialNew } from "@/components/service-page/ServiceTestimonialNew";
 import { ServiceFinalCTA } from "@/components/service-page/ServiceFinalCTA";
 import { ServiceFlowSection } from "@/components/service-page/ServiceFlowSection";
-import { ServiceClientLogos } from "@/components/service-page/ServiceClientLogos";
 import { ServiceRecentEventsTicker } from "@/components/service-page/ServiceRecentEventsTicker";
 import { ServiceHowItWorksWithPricing } from "@/components/service-page/ServiceHowItWorksWithPricing";
 import { ServiceOutcomes } from "@/components/service-page/ServiceOutcomes";
+import { ServicePillsSection } from "@/components/service-page/ServicePillsSection";
+import { ServiceSectionAccent } from "@/components/service-page/ServiceSectionAccent";
 import { servicesData } from "@/data/servicesData";
 import { SEO } from "@/components/SEO";
+
+import michelleChen from "@/assets/team/michelle-chen.jpg";
+import danielWong from "@/assets/team/daniel-wong.jpg";
+import priyaSharma from "@/assets/team/priya-sharma.jpg";
 
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -88,40 +93,40 @@ const ServicePage = () => {
         />
       )}
 
-      {/* 3. Client Logos (NEW) */}
-      {service.clientLogos && (
-        <ServiceClientLogos
-          clients={service.clientLogos}
-          accentColor={service.accentColor}
-          headline={`Companies who've experienced our ${service.hero.subtitle}`}
-        />
-      )}
-
-      {/* 4. Recent Events Ticker (NEW) */}
+      {/* 3. Recent Events Ticker */}
       {service.recentEvents && (
-        <ServiceRecentEventsTicker
-          events={service.recentEvents}
-          accentColor={service.accentColor}
-        />
+        <section className="py-10 px-4 bg-background">
+          <div className="max-w-6xl mx-auto">
+            <p className="text-center text-sm font-medium tracking-wide mb-6 text-muted-foreground">
+              {service.recentEventsHeadline || `Companies who've experienced our ${service.hero.title}`}
+            </p>
+          </div>
+          <ServiceRecentEventsTicker events={service.recentEvents} accentColor={service.accentColor} />
+        </section>
       )}
 
-      {/* 5. What Is This Service? (Overview) */}
-      <ServiceOverviewNew
-        description={service.overview.description}
-        accentColor={service.accentColor}
-      />
+      {/* 4. What Is This Service? (Overview) */}
+      <ServiceSectionAccent
+        imageSrc={michelleChen}
+        alt="Elluminate team member"
+        side="right"
+      >
+        <ServiceOverviewNew description={service.overview.description} accentColor={service.accentColor} />
+      </ServiceSectionAccent>
 
       {/* 6. How It Works with Pricing & Add-ons (NEW - for enhanced structure) */}
       {hasEnhancedStructure && service.howItWorksFlow && service.pricing && service.addOns && (
-        <ServiceHowItWorksWithPricing
-          sectionTitle={service.howItWorksFlow.sectionTitle}
-          sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
-          steps={service.howItWorksFlow.items}
-          pricing={service.pricing}
-          packages={service.packages}
-          addOns={service.addOns}
-          accentColor={service.accentColor}
-        />
+        <ServiceSectionAccent imageSrc={danielWong} alt="Elluminate team member" side="left">
+          <ServiceHowItWorksWithPricing
+            sectionTitle={service.howItWorksFlow.sectionTitle}
+            sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
+            steps={service.howItWorksFlow.items}
+            pricing={service.pricing}
+            packages={service.packages}
+            addOns={service.addOns}
+            accentColor={service.accentColor}
+          />
+        </ServiceSectionAccent>
       )}
 
       {/* Fallback: Original How It Works Flow (for services without enhanced structure) */}
@@ -137,7 +142,7 @@ const ServicePage = () => {
       )}
 
       {/* 7. Benefits/Outcomes (NEW - for enhanced structure) */}
-      {service.outcomes && (
+      {service.outcomes && !service.hideOutcomes && (
         <ServiceOutcomes
           outcomes={service.outcomes}
           accentColor={service.accentColor}
@@ -179,22 +184,35 @@ const ServicePage = () => {
       )}
 
       {/* 8. Mid-Page CTA */}
-      <ServiceCTANew
-        headline={service.cta.headline}
-        subtext={service.cta.subtext}
-        accentColor={service.accentColor}
-      />
+      {!service.hideMidCta && (
+        <ServiceCTANew
+          headline={service.cta.headline}
+          subtext={service.cta.subtext}
+          accentColor={service.accentColor}
+        />
+      )}
 
       {/* 9. Perfect For Section */}
       {service.perfectForFlow && (
-        <ServiceFlowSection
-          sectionTitle={service.perfectForFlow.sectionTitle}
-          sectionSubtitle={service.perfectForFlow.sectionSubtitle}
-          items={service.perfectForFlow.items}
-          accentColor={service.accentColor}
-          itemsPerRow={service.perfectForFlow.itemsPerRow}
-          showNumbers={service.perfectForFlow.showNumbers}
-        />
+        <ServiceSectionAccent imageSrc={priyaSharma} alt="Elluminate team member" side="right">
+          {service.perfectForVariant === "pills" ? (
+            <ServicePillsSection
+              sectionTitle={service.perfectForFlow.sectionTitle}
+              sectionSubtitle={service.perfectForFlow.sectionSubtitle}
+              items={service.perfectForFlow.items}
+              accentColor={service.accentColor}
+            />
+          ) : (
+            <ServiceFlowSection
+              sectionTitle={service.perfectForFlow.sectionTitle}
+              sectionSubtitle={service.perfectForFlow.sectionSubtitle}
+              items={service.perfectForFlow.items}
+              accentColor={service.accentColor}
+              itemsPerRow={service.perfectForFlow.itemsPerRow}
+              showNumbers={service.perfectForFlow.showNumbers}
+            />
+          )}
+        </ServiceSectionAccent>
       )}
 
       {/* 10. Testimonials */}
