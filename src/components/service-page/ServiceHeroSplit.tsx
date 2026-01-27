@@ -8,16 +8,23 @@ interface ServiceHeroSplitProps {
   tagline: string;
   backgroundImage: string;
   accentColor: string;
+  accentColorSecondary?: string;
 }
+
+// Helper to create gradient or solid color
+const getAccentGradient = (primary: string, secondary?: string) => 
+  secondary ? `linear-gradient(135deg, ${primary}, ${secondary})` : primary;
 
 export const ServiceHeroSplit = ({ 
   title, 
   subtitle, 
   tagline, 
   backgroundImage,
-  accentColor 
+  accentColor,
+  accentColorSecondary
 }: ServiceHeroSplitProps) => {
   const { openContactModal } = useContactModal();
+  const gradient = getAccentGradient(accentColor, accentColorSecondary);
   
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background">
@@ -76,10 +83,12 @@ export const ServiceHeroSplit = ({
           />
         ))}
 
-        {/* Spotlight glow with accent color */}
+        {/* Spotlight glow with accent color (or gradient) */}
         <motion.div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full blur-[120px]"
-          style={{ backgroundColor: `${accentColor}15` }}
+          style={{ background: accentColorSecondary 
+            ? `linear-gradient(135deg, ${accentColor}25, ${accentColorSecondary}25)` 
+            : `${accentColor}15` }}
           animate={{ opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 5, repeat: Infinity }}
         />
@@ -115,10 +124,12 @@ export const ServiceHeroSplit = ({
               "{tagline}"
             </p>
 
-            {/* Shimmer effect divider with accent color */}
+            {/* Shimmer effect divider with accent color (or gradient) */}
             <motion.div 
               className="w-24 h-0.5 mb-10"
-              style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
+              style={{ background: accentColorSecondary 
+                ? `linear-gradient(90deg, transparent, ${accentColor}, ${accentColorSecondary}, transparent)` 
+                : `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
@@ -133,9 +144,9 @@ export const ServiceHeroSplit = ({
                 size="xl"
                 className="group relative overflow-hidden font-display font-semibold tracking-wide"
                 style={{ 
-                  backgroundColor: accentColor, 
+                  background: gradient,
                   color: '#000',
-                  borderColor: accentColor 
+                  border: 'none'
                 }}
                 onClick={openContactModal}
               >

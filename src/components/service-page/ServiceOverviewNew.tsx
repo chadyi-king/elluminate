@@ -3,9 +3,15 @@ import { motion } from "framer-motion";
 interface ServiceOverviewNewProps {
   description: string;
   accentColor: string;
+  accentColorSecondary?: string;
 }
 
-export const ServiceOverviewNew = ({ description, accentColor }: ServiceOverviewNewProps) => {
+const getAccentGradient = (primary: string, secondary?: string) => 
+  secondary ? `linear-gradient(135deg, ${primary}, ${secondary})` : primary;
+
+export const ServiceOverviewNew = ({ description, accentColor, accentColorSecondary }: ServiceOverviewNewProps) => {
+  const gradient = getAccentGradient(accentColor, accentColorSecondary);
+  
   return (
     <section className="py-24 relative overflow-hidden bg-muted/40">
       {/* Light background with subtle pattern */}
@@ -42,15 +48,22 @@ export const ServiceOverviewNew = ({ description, accentColor }: ServiceOverview
         >
           <h2 
             className="text-3xl md:text-4xl font-display font-bold mb-6"
-            style={{ color: accentColor }}
+            style={{ 
+              background: gradient,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: accentColorSecondary ? 'transparent' : undefined,
+              color: accentColorSecondary ? undefined : accentColor
+            }}
           >
             What's Inside
           </h2>
           
-          {/* Decorative underline with accent color */}
+          {/* Decorative underline with accent color (or gradient) */}
           <motion.div 
             className="w-32 h-0.5 mx-auto mb-10"
-            style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
+            style={{ background: accentColorSecondary 
+              ? `linear-gradient(90deg, transparent, ${accentColor}, ${accentColorSecondary}, transparent)` 
+              : `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
             initial={{ width: 0 }}
             whileInView={{ width: 128 }}
             viewport={{ once: true }}
