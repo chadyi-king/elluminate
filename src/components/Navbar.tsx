@@ -43,13 +43,13 @@ const retreatServices = [
 
 // Training
 const trainingServices = [
+  { name: "MBTI Profiling", slug: "mbti" },
+  { name: "DISC Assessment", slug: "disc" },
+  { name: "OCEAN Profiling", slug: "ocean" },
   { name: "Mass Talks", slug: "mass-talks" },
   { name: "Workshops", slug: "workshops" },
   { name: "Youth Camps", slug: "youth-camps" },
   { name: "Corporate Days", slug: "corporate-days" },
-  { name: "MBTI Training", slug: "mbti-training" },
-  { name: "DISC Assessment", slug: "disc-assessment" },
-  { name: "OCEAN Profiling", slug: "ocean-profiling" },
 ];
 
 interface DropdownProps {
