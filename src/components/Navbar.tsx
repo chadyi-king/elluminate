@@ -174,6 +174,13 @@ export const Navbar = () => {
               About
             </Link>
             <NavDropdown
+              label="Retreats"
+              items={retreatServices}
+              isOpen={openDropdown === 'retreats'}
+              onToggle={() => handleDropdownToggle('retreats')}
+              onClose={handleDropdownClose}
+            />
+            <NavDropdown
               label="Team Building"
               items={[]}
               isOpen={openDropdown === 'team-building'}
@@ -199,19 +206,28 @@ export const Navbar = () => {
           {/* Right Navigation */}
           <div className="hidden lg:flex items-center gap-6">
             <NavDropdown
-              label="Retreats"
-              items={retreatServices}
-              isOpen={openDropdown === 'retreats'}
-              onToggle={() => handleDropdownToggle('retreats')}
-              onClose={handleDropdownClose}
-            />
-            <NavDropdown
               label="Training"
               items={trainingServices}
               isOpen={openDropdown === 'training'}
               onToggle={() => handleDropdownToggle('training')}
               onClose={handleDropdownClose}
             />
+            <a
+              href="https://teamelevate.sg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium"
+            >
+              Large-Scale Events
+            </a>
+            <a
+              href="https://encompass.sg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium"
+            >
+              School Events
+            </a>
             <Button 
               variant="primary" 
               size="sm"
@@ -256,6 +272,21 @@ export const Navbar = () => {
                 About
               </Link>
               
+              {/* Retreats Section */}
+              <div className="border-t border-border pt-4">
+                <span className="text-primary text-sm font-semibold mb-2 block">Retreats</span>
+                {retreatServices.map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={`/services/${item.slug}`}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-foreground/70 hover:text-primary py-1.5 pl-4 text-sm"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+
               {/* Team Building Section */}
               <div className="border-t border-border pt-4">
                 <span className="text-primary text-sm font-semibold mb-2 block">Team Building - Physical</span>
@@ -285,21 +316,6 @@ export const Navbar = () => {
                 ))}
               </div>
 
-              {/* Retreats Section */}
-              <div className="border-t border-border pt-4">
-                <span className="text-primary text-sm font-semibold mb-2 block">Retreats</span>
-                {retreatServices.map((item) => (
-                  <Link
-                    key={item.slug}
-                    to={`/services/${item.slug}`}
-                    onClick={() => setIsOpen(false)}
-                    className="block text-foreground/70 hover:text-primary py-1.5 pl-4 text-sm"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-
               {/* Training Section */}
               <div className="border-t border-border pt-4">
                 <span className="text-primary text-sm font-semibold mb-2 block">Training</span>
@@ -313,6 +329,28 @@ export const Navbar = () => {
                     {item.name}
                   </Link>
                 ))}
+              </div>
+
+              {/* External Links */}
+              <div className="border-t border-border pt-4">
+                <a
+                  href="https://teamelevate.sg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-foreground hover:text-primary transition-colors py-2 font-medium"
+                >
+                  Large-Scale Events →
+                </a>
+                <a
+                  href="https://encompass.sg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-foreground hover:text-primary transition-colors py-2 font-medium"
+                >
+                  School Events →
+                </a>
               </div>
               
               <Button 
