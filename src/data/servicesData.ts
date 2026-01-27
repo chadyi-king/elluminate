@@ -108,6 +108,8 @@ export interface MiniGallery {
 export interface ServiceData {
   accentColor: string;
   accentColorSecondary?: string; // For two-tone gradient support
+  howItWorksImage?: string; // Image for What to Expect section
+  addOnsImage?: string; // Image for Add-ons section
   dividerVariant?:
     | "raceTrack"
     | "policeTape"

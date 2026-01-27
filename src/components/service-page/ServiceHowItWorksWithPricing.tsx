@@ -3,6 +3,7 @@ import { LucideIcon, Bus, Medal, UtensilsCrossed, MapPin, Shirt, Camera, Palette
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import { ServiceDividerStrip, type DividerVariant } from "@/components/service-page/dividers/ServiceDividerStrip";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export interface AddOn {
   icon: string;
@@ -40,7 +41,10 @@ interface ServiceHowItWorksWithPricingProps {
   packages?: PackageTier[];
   addOns: AddOn[];
   accentColor: string;
+  accentColorSecondary?: string;
   dividerVariant?: DividerVariant;
+  howItWorksImage?: string;
+  addOnsImage?: string;
 }
 
 // Icon mapping for add-ons (using string keys)
@@ -62,18 +66,33 @@ const activityTypeIcons: Record<string, LucideIcon> = {
   hybrid: Sparkles
 };
 
+// Default placeholder images
+const defaultHowItWorksImage = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80";
+const defaultAddOnsImage = "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80";
+
+// Helper to get gradient or solid color
+const getAccentStyle = (primary: string, secondary?: string) => 
+  secondary ? `linear-gradient(135deg, ${primary}, ${secondary})` : primary;
+
 export const ServiceHowItWorksWithPricing = ({
-  sectionTitle = "HOW IT WORKS",
+  sectionTitle = "WHAT TO EXPECT",
   sectionSubtitle = "Your Journey with Us",
   steps,
   pricing,
   packages,
   addOns,
   accentColor,
-  dividerVariant = "raceTrack"
+  accentColorSecondary,
+  dividerVariant = "raceTrack",
+  howItWorksImage,
+  addOnsImage
 }: ServiceHowItWorksWithPricingProps) => {
   const { openContactModal } = useContactModal();
   const ActivityIcon = activityTypeIcons[pricing.activityType || "outdoor"];
+  const isMobile = useIsMobile();
+
+  const finalHowItWorksImage = howItWorksImage || defaultHowItWorksImage;
+  const finalAddOnsImage = addOnsImage || defaultAddOnsImage;
 
   return (
     <section className="py-20 px-4 relative overflow-hidden bg-background">
@@ -91,7 +110,7 @@ export const ServiceHowItWorksWithPricing = ({
       {/* Dynamic glow */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[150px] pointer-events-none"
-        style={{ backgroundColor: `${accentColor}10` }}
+        style={{ background: getAccentStyle(accentColor + "10", accentColorSecondary ? accentColorSecondary + "10" : undefined) }}
         animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
@@ -117,53 +136,81 @@ export const ServiceHowItWorksWithPricing = ({
           </h2>
         </motion.div>
 
-        {/* Process Steps - Responsive Grid with Centering */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
+        {/* WHAT TO EXPECT - Split Layout: Grid Left, Trapezoid Image Right */}
+        <div className="flex flex-col lg:flex-row gap-0 mb-16 rounded-2xl overflow-hidden border border-border/50 bg-card/50">
+          {/* Left Column - Grid of Steps */}
+          <div className="lg:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+            <div className={`grid gap-4 ${steps.length <= 3 ? 'grid-cols-1 sm:grid-cols-3' : 'grid-cols-2 sm:grid-cols-3'}`}>
+              {steps.map((step, index) => {
+                const Icon = step.icon;
 
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="relative group"
-              >
-                <div 
-                  className="relative p-5 rounded-xl border bg-card/80 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg h-full text-center"
-                  style={{ borderColor: `${accentColor}30` }}
-                >
-                  {/* Step number - centered */}
-                  <div 
-                    className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-background mx-auto mb-3"
-                    style={{ backgroundColor: accentColor }}
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                    className="group"
                   >
-                    {index + 1}
-                  </div>
+                    <div 
+                      className="relative p-4 rounded-xl border bg-card/80 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg h-full text-center"
+                      style={{ borderColor: `${accentColor}30` }}
+                    >
+                      {/* Step number - centered */}
+                      <div 
+                        className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-background mx-auto mb-2"
+                        style={{ background: getAccentStyle(accentColor, accentColorSecondary) }}
+                      >
+                        {index + 1}
+                      </div>
 
-                  {/* Icon - centered */}
-                  <div 
-                    className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 mx-auto"
-                    style={{ backgroundColor: `${accentColor}15` }}
-                  >
-                    <Icon className="w-5 h-5" style={{ color: accentColor }} />
-                  </div>
+                      {/* Icon - centered */}
+                      <div 
+                        className="w-10 h-10 rounded-lg flex items-center justify-center mb-2 mx-auto"
+                        style={{ backgroundColor: `${accentColor}15` }}
+                      >
+                        <Icon className="w-5 h-5" style={{ color: accentColor }} />
+                      </div>
 
-                  {/* Title - centered */}
-                  <h3 className="text-sm font-display font-semibold text-foreground mb-1">
-                    {step.title}
-                  </h3>
+                      {/* Title - centered */}
+                      <h3 className="text-sm font-display font-semibold text-foreground mb-1">
+                        {step.title}
+                      </h3>
 
-                  {/* Description - centered */}
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+                      {/* Description - centered */}
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right Column - Trapezoid Image */}
+          <div className="lg:w-1/2 relative min-h-[300px] lg:min-h-[400px]">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ 
+                backgroundImage: `url(${finalHowItWorksImage})`,
+                clipPath: isMobile ? 'none' : 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)'
+              }}
+            />
+            {/* Gradient overlay for depth */}
+            <div 
+              className="absolute inset-0 pointer-events-none"
+              style={{ 
+                background: `linear-gradient(90deg, ${accentColor}30 0%, transparent 50%)`,
+                clipPath: isMobile ? 'none' : 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)'
+              }}
+            />
+          </div>
         </div>
 
         <ServiceDividerStrip variant={dividerVariant} direction="downLeft" accentColor={accentColor} />
@@ -334,7 +381,7 @@ export const ServiceHowItWorksWithPricing = ({
 
         <ServiceDividerStrip variant={dividerVariant} direction="downRight" accentColor={accentColor} />
 
-        {/* Add-ons Section */}
+        {/* ADD-ONS - Split Layout: Trapezoid Image Left, Grid Right */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -352,44 +399,72 @@ export const ServiceHowItWorksWithPricing = ({
             </h3>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {addOns.map((addOn, index) => {
-              const Icon = iconMap[addOn.icon] || Palette;
+          <div className="flex flex-col lg:flex-row gap-0 rounded-2xl overflow-hidden border border-border/50 bg-card/50">
+            {/* Left Column - Trapezoid Image */}
+            <div className="lg:w-1/2 relative min-h-[250px] lg:min-h-[350px] order-2 lg:order-1">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ 
+                  backgroundImage: `url(${finalAddOnsImage})`,
+                  clipPath: isMobile ? 'none' : 'polygon(0 0, 100% 0, 80% 100%, 0 100%)'
+                }}
+              />
+              {/* Gradient overlay for depth */}
+              <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{ 
+                  background: `linear-gradient(270deg, ${accentColor}30 0%, transparent 50%)`,
+                  clipPath: isMobile ? 'none' : 'polygon(0 0, 100% 0, 80% 100%, 0 100%)'
+                }}
+              />
+            </div>
 
-              return (
-                <motion.div
-                  key={addOn.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05, duration: 0.4 }}
-                  className="group"
-                >
-                  <div 
-                    className="relative p-5 rounded-xl border bg-card/80 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg h-full"
-                    style={{ borderColor: `${accentColor}30` }}
-                  >
-                    {/* Icon */}
-                    <div 
-                      className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110"
-                      style={{ backgroundColor: `${accentColor}15` }}
+            {/* Right Column - Add-on Items Grid */}
+            <div className="lg:w-1/2 p-6 md:p-8 flex flex-col justify-center order-1 lg:order-2">
+              <div className="grid grid-cols-2 gap-4">
+                {addOns.map((addOn, index) => {
+                  const Icon = iconMap[addOn.icon] || Palette;
+
+                  return (
+                    <motion.div
+                      key={addOn.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05, duration: 0.4 }}
+                      className="group"
                     >
-                      <Icon className="w-5 h-5" style={{ color: accentColor }} />
-                    </div>
+                      <div 
+                        className="relative p-4 rounded-xl border bg-card/80 backdrop-blur-sm transition-all duration-300 group-hover:shadow-lg h-full text-center"
+                        style={{ borderColor: `${accentColor}30` }}
+                      >
+                        {/* Icon */}
+                        <div 
+                          className="w-10 h-10 rounded-lg flex items-center justify-center mb-2 mx-auto transition-transform duration-300 group-hover:scale-110"
+                          style={{ backgroundColor: `${accentColor}15` }}
+                        >
+                          <Icon className="w-5 h-5" style={{ color: accentColor }} />
+                        </div>
 
-                    {/* Title */}
-                    <h4 className="text-sm font-display font-semibold text-foreground mb-1">
-                      {addOn.title}
-                    </h4>
+                        {/* Title */}
+                        <h4 className="text-sm font-display font-semibold text-foreground mb-1">
+                          {addOn.title}
+                        </h4>
 
-                    {/* Description */}
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      {addOn.description}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
+                        {/* Description */}
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          {addOn.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
