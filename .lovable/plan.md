@@ -1,152 +1,149 @@
 
-
-## Plan: Redesign What to Expect & Add-ons with Trapezoid Image Layout
+## Plan: Create Retreat & Profiling Service Pages
 
 ### Overview
-Transform the "What to Expect" and "Optional Add-ons" sections into a two-column split layout with trapezoid-shaped images. The left column supports up to 6 items in a 2-row grid format. This applies to ALL service pages (physical + virtual).
+Add 5 new service pages for retreats and profiling tools. The MBTI, DISC, and OCEAN pages have full content from teamelevate.sg. Local Retreats and Overseas Retreats also have detailed content. Travel Planning will be created as a simplified service page.
 
 ---
 
-### Visual Design
+### Services to Create (5 total)
 
-**What to Expect Section (Up to 6 Items):**
-```
-+--------------------------------------------------+
-|  LEFT COLUMN (2x3 Grid)      |  RIGHT IMAGE      |
-|                              |       ▼           |
-| ┌────────┐ ┌────────┐ ┌────────┐    /            |
-| │ 1 Icon │ │ 2 Icon │ │ 3 Icon │   /             |
-| │ Title  │ │ Title  │ │ Title  │  /              |
-| │ Desc   │ │ Desc   │ │ Desc   │ /   TRAPEZOID   |
-| └────────┘ └────────┘ └────────┘/    IMAGE       |
-| ┌────────┐ ┌────────┐ ┌────────┐                 |
-| │ 4 Icon │ │ 5 Icon │ │ 6 Icon │   Full height   |
-| │ Title  │ │ Title  │ │ Title  │   on right      |
-| │ Desc   │ │ Desc   │ │ Desc   │   edge          |
-| └────────┘ └────────┘ └────────┘                 |
-+--------------------------------------------------+
-```
-
-**Flexible Grid Options:**
-- 3 items: Single row (1, 2, 3)
-- 4 items: Two rows (1, 2) + (3, 4)
-- 5 items: Two rows (1, 2, 3) + (4, 5)
-- 6 items: Two rows (1, 2, 3) + (4, 5, 6)
-
-**Optional Add-ons Section (Opposite Layout):**
-```
-+--------------------------------------------------+
-| LEFT IMAGE         |  RIGHT COLUMN (Grid)        |
-|     ▲              |                             |
-|      \             |  ┌────────┐ ┌────────┐      |
-|       \            |  │ Food   │ │Transport│     |
-|TRAPEZOID \         |  └────────┘ └────────┘      |
-|IMAGE      \        |  ┌────────┐ ┌────────┐      |
-|            \       |  │ Prizes │ │ Venue  │      |
-|             \      |  └────────┘ └────────┘      |
-+--------------------------------------------------+
-```
+| # | Slug | Title | Category | Pricing | Min-Max Pax |
+|---|------|-------|----------|---------|-------------|
+| 1 | `local-retreats` | LOCAL RETREATS | Retreat | $200-500/pax/night | 10-200 |
+| 2 | `overseas-retreats` | OVERSEAS RETREATS | Retreat | From $300/pax/night | 10-100 |
+| 3 | `mbti` | MBTI PERSONALITY PROFILING | Training | $250/pax | 10-100 |
+| 4 | `disc` | DISC ASSESSMENT | Training | $250/pax | 10-100 |
+| 5 | `ocean` | O.C.E.A.N PROFILING | Training | $250/pax | 10-100 |
 
 ---
 
-### Technical Implementation
+### Content from Website
 
-#### 1. Data Model Updates (`src/data/servicesData.ts`)
+#### MBTI - "What's Your Type?"
+**Tagline:** "Personality has the power to uplift, depress, curse and to bless."
 
-Add new optional image fields:
+**Overview:** Looking to find out more about who you are and how you work with others? What's your Type? breaks down your entire personality to figure out what drives you and which types you are able to get along with! This activity is designed as a team building event, where teams will discover the frameworks of the mind, energy, nature and tactics within us. By pushing values such as exploration, awareness and insightfulness, we aim to give your group a reflective event filled with diverse growth!
 
+**What To Expect - The Four Frameworks:**
+1. **Mind** - Extroversion vs Introversion: How we deal with one another
+2. **Energy** - Sensory vs Intuitive: Determines how we see the environment and process information
+3. **Nature** - Thinking vs Feeling: Influences how we make choices and deal with emotion
+4. **Tactics** - Judging vs Prospecting: Reflects our commitment to practice, preparation, and decision-making
+
+**Pricing:** $250/pax (includes Digital MBTI Profiles for Individuals)
+
+---
+
+#### DISC - "Communication is Key"
+**Tagline:** "The biggest communication problem is that we do not listen to understand. We only listen to reply."
+
+**Overview:** Are you compatible with others? What's your personality type? We will help you break down your entire core personality and figure out what makes you, well you. Since everyone is special, we believe this exercise will help with self-awareness and tell you about your specialty. This activity should be done with team members, where teams will find out each member's mind, energy, and nature.
+
+**What To Expect:**
+1. **Raise Self-Awareness** - Self-awareness is the first step toward constructive progress. DISC profiles demonstrate how you handle tension, respond to disagreements, and solve conflicts
+2. **Make Conflict More Productive** - Conflict can be turned into a constructive, fruitful exercise using DISC profiles
+3. **Manage Teams More Effectively** - Leaders become more effective when they have deep connections with their employees
+4. **Train Without Judgment** - Nobody enjoys being judged. DiSC profiles level the playing field
+
+**Pricing:** $250/pax (includes Digital DiSC Profiles for Individuals)
+
+---
+
+#### OCEAN - "The Big Five"
+**Tagline:** "All great changes into Order is preceded always by Chaos."
+
+**Overview:** Rated as one of the top most accurate personality tests in the world! OCEAN Big Five are the domains that represent the basic structure behind all individual personality traits. By diving in deeper, this will allow your team to identify predictive behaviors for real-life scenarios! Gain insights into different office environment situations and how various personalities deal with them.
+
+**What To Expect - The Big Five:**
+1. **Openness** - People who love learning a new skill or gain experiences usually score high in openness
+2. **Conscientiousness** - People with a maximum score in Conscientiousness are most reliable and prompt
+3. **Extroversion** - Extroverts gain energy by socializing; introverts are drained by interaction
+4. **Agreeableness** - People who agree most with others are likely to be kind, friendly, cooperative
+5. **Neuroticism** - Ability to reject negative emotions and maintain emotional stability
+
+**Pricing:** $250/pax (includes Digital O.C.E.A.N Profiles for Individuals)
+
+---
+
+#### Local Retreats - "Explore Singapore"
+**Tagline:** "Singapore may be small, but not all of it has been explored!"
+
+**Overview:** The best ideal approach to engage communication among employees and their employer is to bond in a casual environment. For our local options, there are 3 themes: Staycation, Heritage or Luxury.
+
+**What To Expect (3 Tiers):**
+1. **Staycation** ($200/pax/night) - Affordable option for rewarding whole staff with a reasonable getaway
+2. **Heritage** ($300/pax/night) - Unique twist with historical hotels: Goodwood Park, Capitol Kempinski, Raffles, Fort Canning, Barracks Hotel
+3. **Luxury** ($500/pax/night) - 4-5 star hotels only for truly rewarding top performers
+
+**Each tier includes:** Hotel Accommodations, Meals & Refreshments, Recreation/Entertainment, Special Add-ons
+
+---
+
+#### Overseas Retreats - "The World is Your Oyster"
+**Tagline:** "The world is your company's oyster! Time to open it up and enjoy!"
+
+**Overview:** Good interactions at corporate retreats and rewarding travel packages can help improve an employee's relationship with their company! Corporate retreats are the perfect place to start conversations with workers and imagine a better direction for influence and organization.
+
+**What To Expect (Destinations):**
+- **Bali** - Forested volcanoes, rice paddies, beaches, coral reefs
+- **Hong Kong** - Cultural and modern landmark mix
+- **Kuala Lumpur** - Luxury at affordable rate
+- **Taiwan** - Culture and modern landmarks
+- **Batam** - Intense affordable shopping
+- **Indonesia** - Nature and modern attractions
+- **Philippines** - Oceanic dives and boat rides
+- **Thailand** - Beaches, food and culture
+- **Bintan** - Golf courses, water sports, secluded beaches
+- **Johor Bahru** - Legoland and affordable travels
+- **Siem Reap** - Cultural haven of Cambodia
+- **Vietnam** - Attractions plus shopping
+
+**Pricing:** From $300/pax/night, 10-100 pax, 3-4 days
+
+---
+
+### Accent Colors
+
+| Service | Color | Notes |
+|---------|-------|-------|
+| MBTI | `#8B5CF6` (Purple) | Personality/psychology theme |
+| DISC | `#3B82F6` (Blue) | Communication/clarity theme |
+| OCEAN | `#14B8A6` (Teal) | Ocean-inspired color |
+| Local Retreats | `#10B981` (Emerald) | Singapore green |
+| Overseas Retreats | `#5AB7AE` (Existing) | Keep current color |
+
+---
+
+### Navbar Updates
+
+Update slugs to match website URLs:
+
+**Training section:**
 ```typescript
-export interface ServiceData {
-  // ... existing fields
-  howItWorksImage?: string;  // NEW - image for What to Expect section
-  addOnsImage?: string;      // NEW - image for Add-ons section
-}
+const trainingServices = [
+  { name: "MBTI Profiling", slug: "mbti" },
+  { name: "DISC Assessment", slug: "disc" },
+  { name: "OCEAN Profiling", slug: "ocean" },
+  { name: "Mass Talks", slug: "mass-talks" },
+  { name: "Workshops", slug: "workshops" },
+  { name: "Youth Camps", slug: "youth-camps" },
+  { name: "Corporate Days", slug: "corporate-days" },
+];
 ```
 
-#### 2. Component Redesign (`ServiceHowItWorksWithPricing.tsx`)
+---
 
-**Trapezoid CSS using clip-path:**
+### Implementation Details
 
-```css
-/* Right-side trapezoid (What to Expect) */
-clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
-
-/* Left-side trapezoid (Add-ons) - mirrored */
-clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
-```
-
-**New Layout Structure:**
-
-```tsx
-{/* WHAT TO EXPECT - Grid Left, Image Right */}
-<div className="flex flex-col lg:flex-row gap-0">
-  {/* Left Column - 2x3 Grid of Steps */}
-  <div className="lg:w-1/2 p-8">
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-      {steps.map((step, index) => (
-        <StepCard key={index} step={step} index={index} />
-      ))}
-    </div>
-  </div>
-  
-  {/* Right Column - Trapezoid Image */}
-  <div className="lg:w-1/2 relative min-h-[400px]">
-    <div 
-      className="absolute inset-0 bg-cover bg-center"
-      style={{ 
-        backgroundImage: `url(${howItWorksImage})`,
-        clipPath: 'polygon(25% 0, 100% 0, 100% 100%, 0% 100%)'
-      }}
-    />
-  </div>
-</div>
-
-{/* ADD-ONS - Image Left, Grid Right */}
-<div className="flex flex-col lg:flex-row gap-0">
-  {/* Left Column - Trapezoid Image */}
-  <div className="lg:w-1/2 relative min-h-[300px]">
-    <div 
-      className="absolute inset-0 bg-cover bg-center"
-      style={{ 
-        backgroundImage: `url(${addOnsImage})`,
-        clipPath: 'polygon(0 0, 100% 0, 75% 100%, 0 100%)'
-      }}
-    />
-  </div>
-  
-  {/* Right Column - Add-on Items Grid */}
-  <div className="lg:w-1/2 p-8">
-    <div className="grid grid-cols-2 gap-4">
-      {addOns.map((addOn, index) => (
-        <AddOnCard key={index} addOn={addOn} />
-      ))}
-    </div>
-  </div>
-</div>
-```
-
-#### 3. Step Card Design (Compact for Grid)
-
-```
-┌─────────────────┐
-│      [1]        │
-│     [Icon]      │
-│     Title       │
-│   Description   │
-└─────────────────┘
-```
-- Number badge at top
-- Icon centered below
-- Title and description centered
-- Accent color border on hover
-- Works in 2-column or 3-column grid
-
-#### 4. Mobile Responsiveness
-
-- Mobile: 2-column grid for steps (stacks 2 per row)
-- Tablet: 3-column grid
-- Desktop: 3-column grid with trapezoid image beside
-- Trapezoid becomes full-width rectangle on mobile
+Each service will follow the enhanced structure with:
+- `accentColor` for theming
+- `howItWorksFlow` with 3-5 items from website content
+- `pricing` with startingPrice, unit, minimumPax, duration, activityType
+- `packages` using trafficLightPackages or custom tiers (retreats)
+- `addOns` from website (Food $8/pax, Venue TBD, Transport $120/bus, Prizes $150 for medals)
+- `perfectForFlow` with relevant use cases
+- Testimonials from website
 
 ---
 
@@ -154,32 +151,15 @@ clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
 
 | File | Changes |
 |------|---------|
-| `src/data/servicesData.ts` | Add `howItWorksImage?: string` and `addOnsImage?: string` to interface |
-| `src/components/service-page/ServiceHowItWorksWithPricing.tsx` | Complete redesign with split layout, trapezoid images, and grid cards |
-| `src/pages/ServicePage.tsx` | Pass new image props to component |
+| `src/data/servicesData.ts` | Add 5 new service entries (local-retreats, overseas-retreats update, mbti, disc, ocean) |
+| `src/components/Navbar.tsx` | Update training slugs (mbti-training to mbti, disc-assessment to disc, ocean-profiling to ocean) |
 
 ---
 
-### Grid Behavior Based on Item Count
+### Technical Notes
 
-| Items | Layout |
-|-------|--------|
-| 2 | 1 row: (1, 2) |
-| 3 | 1 row: (1, 2, 3) |
-| 4 | 2 rows: (1, 2) + (3, 4) or (1, 2, 3) + (4) |
-| 5 | 2 rows: (1, 2, 3) + (4, 5) |
-| 6 | 2 rows: (1, 2, 3) + (4, 5, 6) |
-
-Using CSS grid with `grid-cols-3` and items will auto-wrap.
-
----
-
-### What Stays the Same
-
-- Traffic Light pricing section (stays between What to Expect and Add-ons)
-- Info bar with Min Pax, Duration, Activity Type
-- Section headers and accent colors
-- Themed divider strips
-- All existing service data content
-- This applies to ALL 21 services (13 physical + 8 virtual)
-
+- Overseas Retreats already exists but will be updated with website content
+- MBTI/DISC/OCEAN all share same add-ons and pricing structure ($250/pax)
+- Local Retreats has 3 pricing tiers (will use modified traffic light for Staycation/Heritage/Luxury)
+- Duration for profiling services is "TBD Hours" on website - will use "2-4 hours" as reasonable estimate
+- Management Incentive Retreats marked as "Currently Unavailable" on website - skip for now
