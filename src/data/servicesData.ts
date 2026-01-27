@@ -389,14 +389,15 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "overseas-retreats": {
     accentColor: "#5AB7AE",
+    dividerVariant: "route",
     hero: {
-      title: "Overseas Retreats",
+      title: "OVERSEAS RETREATS",
       subtitle: "Retreat",
-      tagline: "Escape the ordinary. Discover extraordinary destinations that inspire and unite.",
+      tagline: "The world is your company's oyster! Time to open it up and enjoy!",
       backgroundImage: overseasRetreatHero
     },
     overview: {
-      description: "Take your team beyond borders for transformative retreat experiences in stunning international destinations. We handle every detail from flights to activities, ensuring your team enjoys a seamless, unforgettable journey that combines work, play, and cultural exploration.",
+      description: "Good interactions at corporate retreats and rewarding travel packages can help improve an employee's relationship with their company! Corporate retreats are the perfect place to start conversations with workers and imagine a better direction for influence and organization. We handle every detail from flights to activities, ensuring your team enjoys a seamless, unforgettable journey.",
       backgroundImage: overseasRetreatHero
     },
     features: [
@@ -414,54 +415,14 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Zap, title: "Renewed Energy", description: "Return refreshed and motivated." },
       { icon: Users, title: "Cultural Growth", description: "Expand horizons together as a team." }
     ],
-    activities: {
-      sectionTitle: "DESTINATION OPTIONS",
-      items: ["Bali, Indonesia", "Phuket, Thailand", "Niseko, Japan", "Da Nang, Vietnam", "Langkawi, Malaysia", "Bintan, Indonesia", "Krabi, Thailand", "Jeju Island, Korea", "Cebu, Philippines", "Chiang Mai, Thailand", "Hokkaido, Japan", "Batam, Indonesia"]
-    },
-    alternatingSections: [
-      {
-        title: "Popular Destinations",
-        description: "From tropical beaches to mountain retreats, we curate experiences in the world's most inspiring locations.",
-        image: "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1920",
-        points: [
-          { text: "Bali - Tropical paradise with cultural richness" },
-          { text: "Phuket - Beach adventures and island hopping" },
-          { text: "Niseko - Mountain retreats and winter activities" },
-          { text: "Vietnam - Cultural immersion and cuisine" }
-        ]
-      },
-      {
-        title: "What's Included",
-        description: "We take care of everything so you can focus on connecting with your team.",
-        image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1920",
-        points: [
-          { text: "Round-trip flights and airport transfers" },
-          { text: "Luxury accommodation and meals" },
-          { text: "Team building activities and excursions" },
-          { text: "24/7 on-ground support" }
-        ]
-      },
-      {
-        title: "Perfect For",
-        description: "Whether celebrating achievements or planning the year ahead, overseas retreats create magic.",
-        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920",
-        points: [
-          { text: "Annual leadership retreats" },
-          { text: "Team reward trips" },
-          { text: "Strategic planning sessions" },
-          { text: "Milestone celebrations" }
-        ]
-      }
-    ],
+    alternatingSections: [],
     gallery: [
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
       "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800",
       "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=800",
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800",
       "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
-      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800",
-      "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=800"
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800"
     ],
     testimonials: [
       { quote: "The Bali retreat was absolutely magical. Every detail was perfect!", author: "Jennifer Tan", company: "Deloitte Singapore" },
@@ -475,13 +436,86 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "How far in advance should we book an overseas retreat?", answer: "We recommend booking 3-6 months in advance for optimal destination and accommodation availability." },
       { question: "What destinations do you recommend?", answer: "Popular choices include Bali, Phuket, Vietnam, and Japan. We'll recommend based on your budget, group size, and objectives." },
       { question: "Do you handle all travel logistics?", answer: "Yes, we manage everything from flights, accommodation, transfers, activities, and on-ground support." },
-      { question: "What's the typical group size?", answer: "We typically handle groups from 15 to 200+ participants for overseas retreats." },
+      { question: "What's the typical group size?", answer: "We typically handle groups from 10 to 100+ participants for overseas retreats." },
       { question: "Can you incorporate work sessions into the retreat?", answer: "Absolutely! We can arrange meeting spaces and blend strategic sessions with leisure activities." }
     ],
     cta: {
       headline: "Ready for Your Team's Adventure?",
       subtext: "Let's plan an overseas retreat that inspires, connects, and transforms."
-    }
+    },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Popular Destinations",
+      itemsPerRow: 4,
+      showNumbers: false,
+      items: [
+        { icon: Palmtree, title: "Bali", description: "Forested volcanoes, rice paddies, beaches, and coral reefs." },
+        { icon: Building, title: "Hong Kong", description: "Cultural and modern landmark mix." },
+        { icon: Gem, title: "Kuala Lumpur", description: "Luxury at affordable rate." },
+        { icon: Mountain, title: "Taiwan", description: "Culture and modern landmarks." },
+        { icon: ShoppingBag, title: "Batam", description: "Intense affordable shopping." },
+        { icon: Trees, title: "Indonesia", description: "Nature and modern attractions." },
+        { icon: Compass, title: "Philippines", description: "Oceanic dives and boat rides." },
+        { icon: Wine, title: "Thailand", description: "Beaches, food and culture." },
+        { icon: Dumbbell, title: "Bintan", description: "Golf courses, water sports, secluded beaches." },
+        { icon: Gamepad2, title: "Johor Bahru", description: "Legoland and affordable travels." },
+        { icon: Building2, title: "Siem Reap", description: "Cultural haven of Cambodia." },
+        { icon: ShoppingBag, title: "Vietnam", description: "Attractions plus shopping." },
+      ],
+    },
+    perfectForFlow: {
+      sectionTitle: "PERFECT FOR",
+      sectionSubtitle: "Every Team",
+      itemsPerRow: 4,
+      items: [
+        { icon: Trophy, title: "Top Performer Rewards", description: "Celebrate your best achievers." },
+        { icon: Users, title: "Team Bonding", description: "Strengthen connections in a new environment." },
+        { icon: Target, title: "Strategy Retreats", description: "Plan the year ahead together." },
+        { icon: PartyPopper, title: "Milestone Celebrations", description: "Mark company achievements." },
+        { icon: Handshake, title: "Leadership Off-sites", description: "Executive planning sessions." },
+        { icon: GraduationCap, title: "Training Programs", description: "Combine learning with adventure." },
+        { icon: Heart, title: "Wellness Retreats", description: "Focus on team wellbeing." },
+        { icon: Sparkles, title: "Year-End Celebrations", description: "End the year on a high note." },
+      ],
+    },
+    recentEvents: [
+      { client: "Deloitte", event: "Bali Retreat", pax: 80 },
+      { client: "PwC", event: "Thailand Trip", pax: 60 },
+      { client: "KPMG", event: "Vietnam Adventure", pax: 50 },
+      { client: "EY", event: "Bintan Getaway", pax: 40 },
+    ],
+    pricing: { startingPrice: "From $300", unit: "per pax/night", minimumPax: 10, duration: "3-4 days", activityType: "outdoor" },
+    packages: [
+      {
+        color: "#26D07C",
+        title: "Essential Package",
+        description: "Core retreat experience with accommodation, meals, and basic activities.",
+        price: "From $300/pax/night",
+        features: ["Accommodation", "Meals included", "Airport transfers", "Basic activities"],
+      },
+      {
+        color: "#FFC400",
+        title: "Enhanced Package",
+        description: "Premium experiences with curated activities and team building.",
+        features: ["Premium accommodation", "Full board dining", "Cultural excursions", "Team building activities"],
+      },
+      {
+        color: "#FF4F4F",
+        title: "Luxury Package",
+        description: "All-inclusive VIP experience with exclusive venues and activities.",
+        features: ["5-star resort stay", "Private dining", "VIP experiences", "24/7 concierge support"],
+      },
+    ],
+    addOns: [
+      { icon: "UtensilsCrossed", title: "Enhanced Catering", description: "Premium dining experiences" },
+      { icon: "Camera", title: "Photo & Video", description: "Professional event coverage" },
+      { icon: "Gamepad2", title: "Team Activities", description: "Custom bonding experiences" },
+      { icon: "Dumbbell", title: "Spa & Wellness", description: "Massage and wellness packages" },
+    ],
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced Overseas Retreats",
   },
   "dinner-and-dance": {
     accentColor: "#E8D18A",
@@ -3904,5 +3938,387 @@ export const servicesData: Record<string, ServiceData> = {
     hideMidCta: true,
     perfectForVariant: "pills",
     recentEventsHeadline: "Companies who've experienced The Grand Christmas Delivery",
+  },
+
+  // ================== RETREATS ==================
+
+  "local-retreats": {
+    accentColor: "#10B981",
+    dividerVariant: "route",
+    hero: {
+      title: "LOCAL RETREATS",
+      subtitle: "Retreat",
+      tagline: "Singapore may be small, but not all of it has been explored!",
+      backgroundImage: overseasRetreatHero,
+    },
+    overview: {
+      description: "The best ideal approach to engage communication among employees and their employer is to bond in a casual environment. For our local options, there are 3 themes: Staycation, Heritage or Luxury. Each tier is designed to match your team's needs and reward your people with a memorable getaway without leaving Singapore.",
+      backgroundImage: overseasRetreatHero,
+    },
+    features: [
+      { icon: Building, title: "Curated Venues", description: "Handpicked hotels across Singapore." },
+      { icon: Wine, title: "Meals Included", description: "Breakfast, lunch, and dinner options." },
+      { icon: Users, title: "Team Activities", description: "Bonding experiences tailored to your group." },
+      { icon: Sparkles, title: "Special Add-ons", description: "Spa, recreation, entertainment." },
+    ],
+    benefits: [
+      { icon: Heart, title: "Deep Bonding", description: "Extended time together builds connections." },
+      { icon: Zap, title: "Renewed Energy", description: "Return refreshed and motivated." },
+      { icon: MapPin, title: "Convenient Location", description: "No passport, no long flights." },
+      { icon: Star, title: "Memorable Experiences", description: "Adventures your team will cherish." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "The heritage hotel retreat was a unique experience our team loved.", author: "Rachel L.", company: "DBS Bank" },
+      { quote: "Perfect way to reward our team without the hassle of overseas travel.", author: "Marcus T.", company: "Grab Holdings" },
+      { quote: "The luxury tier was absolutely worth it—5-star treatment all the way.", author: "Jennifer W.", company: "Google Singapore" },
+      { quote: "Our staycation retreat was affordable yet memorable.", author: "David C.", company: "Shopee" },
+      { quote: "Great balance of relaxation and team activities.", author: "Amanda G.", company: "Meta Singapore" },
+      { quote: "Team Elevate handled everything seamlessly.", author: "Kevin L.", company: "Microsoft Singapore" },
+    ],
+    faqs: [
+      { question: "What's the difference between the three tiers?", answer: "Staycation ($200/night) offers affordable stays, Heritage ($300/night) features historical hotels, and Luxury ($500/night) provides 4-5 star experiences." },
+      { question: "What's included in each package?", answer: "All tiers include hotel accommodations, meals & refreshments, recreation/entertainment, and special add-ons." },
+      { question: "How far in advance should we book?", answer: "We recommend booking 4-6 weeks in advance for best availability, especially for Heritage hotels." },
+      { question: "Can you customize the itinerary?", answer: "Absolutely! We tailor activities and timing to your team's preferences." },
+    ],
+    cta: { headline: "Ready for a Local Escape?", subtext: "Discover Singapore's hidden gems with your team." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Three Tiers to Choose From",
+      itemsPerRow: 3,
+      showNumbers: true,
+      items: [
+        { icon: Home, title: "Staycation", description: "Affordable option for rewarding whole staff with a reasonable getaway. From $200/pax/night." },
+        { icon: Building, title: "Heritage", description: "Unique twist with historical hotels: Goodwood Park, Capitol Kempinski, Raffles, Fort Canning. From $300/pax/night." },
+        { icon: Gem, title: "Luxury", description: "4-5 star hotels only for truly rewarding top performers. From $500/pax/night." },
+      ],
+    },
+    perfectForFlow: {
+      sectionTitle: "PERFECT FOR",
+      sectionSubtitle: "Every Team",
+      itemsPerRow: 4,
+      items: [
+        { icon: Trophy, title: "Top Performer Rewards", description: "Celebrate your best achievers." },
+        { icon: Users, title: "Team Bonding", description: "Strengthen connections in a relaxed setting." },
+        { icon: Target, title: "Strategy Retreats", description: "Plan the year ahead together." },
+        { icon: PartyPopper, title: "Milestone Celebrations", description: "Mark company achievements." },
+        { icon: Handshake, title: "Leadership Off-sites", description: "Executive planning sessions." },
+        { icon: GraduationCap, title: "Training Programs", description: "Combine learning with leisure." },
+        { icon: Heart, title: "Wellness Retreats", description: "Focus on team wellbeing." },
+        { icon: Sparkles, title: "Year-End Celebrations", description: "End the year on a high note." },
+      ],
+    },
+    recentEvents: [
+      { client: "DBS Bank", event: "Heritage Retreat", pax: 50 },
+      { client: "Singtel", event: "Luxury Staycation", pax: 80 },
+      { client: "OCBC", event: "Team Retreat", pax: 60 },
+      { client: "Standard Chartered", event: "Leadership Off-site", pax: 30 },
+    ],
+    pricing: { startingPrice: "From $200", unit: "per pax/night", minimumPax: 10, duration: "1-3 nights", activityType: "indoor" },
+    packages: [
+      {
+        color: "#26D07C",
+        title: "Staycation Tier",
+        description: "Affordable option for rewarding whole staff with a reasonable getaway.",
+        price: "From $200/pax/night",
+        features: ["Hotel accommodations", "Meals & refreshments", "Recreation activities", "Team bonding games"],
+      },
+      {
+        color: "#FFC400",
+        title: "Heritage Tier",
+        description: "Unique twist with historical hotels like Goodwood Park, Capitol Kempinski, Raffles.",
+        price: "From $300/pax/night",
+        features: ["Heritage hotel stay", "Premium dining", "Cultural experiences", "Special entertainment"],
+      },
+      {
+        color: "#FF4F4F",
+        title: "Luxury Tier",
+        description: "4-5 star hotels only for truly rewarding top performers.",
+        price: "From $500/pax/night",
+        features: ["Luxury accommodations", "Fine dining", "Spa & wellness", "VIP experiences"],
+      },
+    ],
+    addOns: [
+      { icon: "UtensilsCrossed", title: "Enhanced Catering", description: "Premium dining options" },
+      { icon: "Dumbbell", title: "Spa & Wellness", description: "Massages and wellness activities" },
+      { icon: "Camera", title: "Photo & Video", description: "Professional event coverage" },
+      { icon: "Gamepad2", title: "Team Activities", description: "Custom bonding games" },
+    ],
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced Local Retreats",
+  },
+
+  // ================== PROFILING & TRAINING ==================
+
+  "mbti": {
+    accentColor: "#8B5CF6",
+    dividerVariant: "blueprint",
+    hero: {
+      title: "MBTI PERSONALITY PROFILING",
+      subtitle: "Training",
+      tagline: "Personality has the power to uplift, depress, curse and to bless.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    overview: {
+      description: "Looking to find out more about who you are and how you work with others? What's your Type? breaks down your entire personality to figure out what drives you and which types you are able to get along with! This activity is designed as a team building event, where teams will discover the frameworks of the mind, energy, nature and tactics within us. By pushing values such as exploration, awareness and insightfulness, we aim to give your group a reflective event filled with diverse growth!",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    features: [
+      { icon: Brain, title: "Personality Discovery", description: "Understand what drives you and others." },
+      { icon: Users, title: "Team Compatibility", description: "Learn which types work best together." },
+      { icon: Lightbulb, title: "Self-Awareness", description: "Gain insights into your own behavior." },
+      { icon: Puzzle, title: "Digital Profiles", description: "Each participant receives their MBTI profile." },
+    ],
+    benefits: [
+      { icon: Target, title: "Better Communication", description: "Understand how to communicate with different types." },
+      { icon: Heart, title: "Improved Relationships", description: "Build stronger team connections." },
+      { icon: Zap, title: "Enhanced Productivity", description: "Leverage personality strengths." },
+      { icon: Star, title: "Personal Growth", description: "Develop self-awareness and empathy." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "Eye-opening experience! Now I understand why my teammates think differently.", author: "Sarah L.", company: "DBS Bank" },
+      { quote: "The MBTI session helped our team communicate more effectively.", author: "Marcus T.", company: "Grab Holdings" },
+      { quote: "Fascinating to learn about the four frameworks of personality.", author: "Jennifer W.", company: "Google Singapore" },
+      { quote: "Our team dynamics improved significantly after this session.", author: "David C.", company: "Shopee" },
+      { quote: "The digital profiles were a great takeaway for everyone.", author: "Amanda G.", company: "Meta Singapore" },
+      { quote: "Highly recommended for any team looking to improve collaboration.", author: "Kevin L.", company: "Microsoft Singapore" },
+    ],
+    faqs: [
+      { question: "What is MBTI?", answer: "MBTI (Myers-Briggs Type Indicator) is a personality framework that categorizes people into 16 types based on four dimensions: Mind, Energy, Nature, and Tactics." },
+      { question: "What's included in the package?", answer: "The package includes professional facilitation, individual MBTI assessments, digital profiles for each participant, and team analysis." },
+      { question: "How long is the session?", answer: "Sessions typically run 2-4 hours depending on group size and depth of analysis required." },
+      { question: "Can this be done virtually?", answer: "Yes! We offer both in-person and virtual MBTI sessions via Zoom or Teams." },
+    ],
+    cta: { headline: "Ready to Discover Your Type?", subtext: "Unlock the power of personality understanding." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "The Four Frameworks",
+      itemsPerRow: 4,
+      showNumbers: true,
+      items: [
+        { icon: Brain, title: "Mind", description: "Extroversion vs Introversion: How we deal with one another and draw energy." },
+        { icon: Compass, title: "Energy", description: "Sensory vs Intuitive: Determines how we see the environment and process information." },
+        { icon: Heart, title: "Nature", description: "Thinking vs Feeling: Influences how we make choices and deal with emotion." },
+        { icon: Target, title: "Tactics", description: "Judging vs Prospecting: Reflects our commitment to practice, preparation, and decision-making." },
+      ],
+    },
+    perfectForFlow: {
+      sectionTitle: "PERFECT FOR",
+      sectionSubtitle: "Understanding Your Team",
+      itemsPerRow: 4,
+      items: [
+        { icon: UserPlus, title: "New Teams", description: "Help new team members understand each other." },
+        { icon: Building, title: "Department Alignment", description: "Improve cross-functional collaboration." },
+        { icon: GraduationCap, title: "Leadership Development", description: "Develop emotional intelligence in leaders." },
+        { icon: Handshake, title: "Conflict Resolution", description: "Understand different perspectives." },
+        { icon: Target, title: "Career Development", description: "Guide personal and professional growth." },
+        { icon: Users, title: "Team Optimization", description: "Build balanced, high-performing teams." },
+        { icon: Briefcase, title: "Hiring & Recruitment", description: "Inform team composition decisions." },
+        { icon: Sparkles, title: "Culture Building", description: "Create understanding and empathy." },
+      ],
+    },
+    recentEvents: [
+      { client: "DBS Bank", event: "MBTI Workshop", pax: 60 },
+      { client: "Google", event: "Personality Profiling", pax: 80 },
+      { client: "Grab", event: "Team MBTI", pax: 50 },
+      { client: "Shopee", event: "MBTI Session", pax: 70 },
+    ],
+    pricing: { startingPrice: "$250", unit: "per pax", minimumPax: 10, duration: "2-4 hours", activityType: "indoor" },
+    packages: trafficLightPackages("$250/pax", "MBTI Profiling", "#8B5CF6"),
+    addOns: [
+      { icon: "FileText", title: "Digital MBTI Profiles", description: "Included for all participants" },
+      { icon: "BarChart3", title: "Team Analysis Report", description: "Comprehensive team dynamics analysis" },
+      { icon: "Video", title: "Virtual Delivery", description: "Zoom/Teams facilitation available" },
+      { icon: "Users", title: "Follow-up Session", description: "30-day check-in and reinforcement" },
+    ],
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced MBTI Profiling",
+  },
+
+  "disc": {
+    accentColor: "#3B82F6",
+    dividerVariant: "blueprint",
+    hero: {
+      title: "DISC ASSESSMENT",
+      subtitle: "Training",
+      tagline: "The biggest communication problem is that we do not listen to understand. We only listen to reply.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    overview: {
+      description: "Are you compatible with others? What's your personality type? We will help you break down your entire core personality and figure out what makes you, well you. Since everyone is special, we believe this exercise will help with self-awareness and tell you about your specialty. This activity should be done with team members, where teams will find out each member's mind, energy, and nature.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    features: [
+      { icon: Brain, title: "Core Personality", description: "Discover what makes you unique." },
+      { icon: Users, title: "Team Compatibility", description: "Understand how you work with others." },
+      { icon: Target, title: "Conflict Resolution", description: "Learn productive ways to handle disagreements." },
+      { icon: Puzzle, title: "Digital Profiles", description: "Each participant receives their DiSC profile." },
+    ],
+    benefits: [
+      { icon: Lightbulb, title: "Self-Awareness", description: "The first step toward constructive progress." },
+      { icon: Handshake, title: "Better Conflict Handling", description: "Turn conflict into constructive exercises." },
+      { icon: Building, title: "Effective Management", description: "Lead with deeper employee connections." },
+      { icon: Heart, title: "Judgment-Free Training", description: "DiSC levels the playing field." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "DISC helped our team understand why we communicate differently.", author: "Rachel L.", company: "DBS Bank" },
+      { quote: "The conflict resolution insights were incredibly valuable.", author: "Marcus T.", company: "Grab Holdings" },
+      { quote: "Our managers are now more effective at connecting with their teams.", author: "Jennifer W.", company: "Google Singapore" },
+      { quote: "A must for any organization focused on communication.", author: "David C.", company: "Shopee" },
+      { quote: "The judgment-free approach made everyone comfortable.", author: "Amanda G.", company: "Meta Singapore" },
+      { quote: "Practical insights we could apply immediately.", author: "Kevin L.", company: "Microsoft Singapore" },
+    ],
+    faqs: [
+      { question: "What is DISC?", answer: "DISC is a behavior assessment tool that measures Dominance, Influence, Steadiness, and Conscientiousness—helping people understand their communication style." },
+      { question: "How is DISC different from MBTI?", answer: "DISC focuses on observable behavior and communication styles, while MBTI explores cognitive preferences. Both are valuable for different purposes." },
+      { question: "What's included in the package?", answer: "Professional facilitation, individual DiSC assessments, digital profiles, and team analysis." },
+      { question: "How long is the session?", answer: "Sessions typically run 2-4 hours depending on group size." },
+    ],
+    cta: { headline: "Ready to Improve Communication?", subtext: "Discover the power of understanding behavioral styles." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Key Outcomes",
+      itemsPerRow: 4,
+      showNumbers: true,
+      items: [
+        { icon: Lightbulb, title: "Raise Self-Awareness", description: "Understand how you handle tension, respond to disagreements, and solve conflicts." },
+        { icon: Handshake, title: "Productive Conflict", description: "Turn conflict into a constructive, fruitful exercise using DISC profiles." },
+        { icon: Building, title: "Effective Management", description: "Leaders become more effective with deep connections to their employees." },
+        { icon: Heart, title: "Train Without Judgment", description: "Nobody enjoys being judged. DiSC profiles level the playing field." },
+      ],
+    },
+    perfectForFlow: {
+      sectionTitle: "PERFECT FOR",
+      sectionSubtitle: "Communication Excellence",
+      itemsPerRow: 4,
+      items: [
+        { icon: Users, title: "Team Communication", description: "Improve how your team talks and listens." },
+        { icon: Building, title: "Manager Training", description: "Develop leadership communication skills." },
+        { icon: Handshake, title: "Conflict Resolution", description: "Build tools for handling disagreements." },
+        { icon: UserPlus, title: "New Hire Integration", description: "Accelerate team cohesion." },
+        { icon: Target, title: "Sales Teams", description: "Adapt communication to client styles." },
+        { icon: GraduationCap, title: "Leadership Programs", description: "Develop emotional intelligence." },
+        { icon: Briefcase, title: "Cross-Team Collaboration", description: "Bridge departmental communication gaps." },
+        { icon: Sparkles, title: "Customer Service", description: "Better understand customer needs." },
+      ],
+    },
+    recentEvents: [
+      { client: "Singtel", event: "DISC Workshop", pax: 80 },
+      { client: "OCBC", event: "Communication Training", pax: 60 },
+      { client: "Standard Chartered", event: "DISC Assessment", pax: 50 },
+      { client: "Deloitte", event: "Team DISC", pax: 70 },
+    ],
+    pricing: { startingPrice: "$250", unit: "per pax", minimumPax: 10, duration: "2-4 hours", activityType: "indoor" },
+    packages: trafficLightPackages("$250/pax", "DISC Assessment", "#3B82F6"),
+    addOns: [
+      { icon: "FileText", title: "Digital DiSC Profiles", description: "Included for all participants" },
+      { icon: "BarChart3", title: "Team Analysis Report", description: "Comprehensive team dynamics analysis" },
+      { icon: "Video", title: "Virtual Delivery", description: "Zoom/Teams facilitation available" },
+      { icon: "Users", title: "Follow-up Session", description: "30-day check-in and reinforcement" },
+    ],
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced DISC Assessment",
+  },
+
+  "ocean": {
+    accentColor: "#14B8A6",
+    dividerVariant: "blueprint",
+    hero: {
+      title: "O.C.E.A.N PROFILING",
+      subtitle: "Training",
+      tagline: "All great changes into Order is preceded always by Chaos.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    overview: {
+      description: "Rated as one of the top most accurate personality tests in the world! OCEAN Big Five are the domains that represent the basic structure behind all individual personality traits. By diving in deeper, this will allow your team to identify predictive behaviors for real-life scenarios! Gain insights into different office environment situations and how various personalities deal with them.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    features: [
+      { icon: Brain, title: "Scientific Accuracy", description: "One of the most validated personality models." },
+      { icon: Target, title: "Predictive Behaviors", description: "Identify how people act in real scenarios." },
+      { icon: Users, title: "Office Dynamics", description: "Understand workplace personality interactions." },
+      { icon: Puzzle, title: "Digital Profiles", description: "Each participant receives their OCEAN profile." },
+    ],
+    benefits: [
+      { icon: Lightbulb, title: "Deep Insights", description: "Understand the five fundamental traits." },
+      { icon: Heart, title: "Better Relationships", description: "Navigate personality differences effectively." },
+      { icon: Zap, title: "Improved Performance", description: "Leverage natural strengths." },
+      { icon: Star, title: "Evidence-Based", description: "Backed by decades of research." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "The most comprehensive personality assessment we've done.", author: "Sarah L.", company: "DBS Bank" },
+      { quote: "OCEAN gave us predictive insights we couldn't get elsewhere.", author: "Marcus T.", company: "Grab Holdings" },
+      { quote: "The five traits framework is incredibly practical.", author: "Jennifer W.", company: "Google Singapore" },
+      { quote: "Helped us understand why certain team dynamics exist.", author: "David C.", company: "Shopee" },
+      { quote: "Backed by science—we trust the results.", author: "Amanda G.", company: "Meta Singapore" },
+      { quote: "Great for building emotionally intelligent teams.", author: "Kevin L.", company: "Microsoft Singapore" },
+    ],
+    faqs: [
+      { question: "What is OCEAN?", answer: "OCEAN (also known as the Big Five) measures Openness, Conscientiousness, Extroversion, Agreeableness, and Neuroticism—the five fundamental personality traits." },
+      { question: "Why is OCEAN considered highly accurate?", answer: "OCEAN is backed by decades of psychological research and is considered one of the most scientifically validated personality models." },
+      { question: "What's included in the package?", answer: "Professional facilitation, individual OCEAN assessments, digital profiles, and team analysis." },
+      { question: "How does OCEAN differ from MBTI?", answer: "OCEAN measures traits on a spectrum (high to low), while MBTI categorizes into distinct types. OCEAN is more predictive of behavior." },
+    ],
+    cta: { headline: "Ready to Explore the Big Five?", subtext: "Unlock scientifically-validated personality insights." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "The Big Five",
+      itemsPerRow: 5,
+      showNumbers: true,
+      items: [
+        { icon: Lightbulb, title: "Openness", description: "People who love learning new skills or gaining experiences usually score high in openness." },
+        { icon: CheckCircle, title: "Conscientiousness", description: "People with a maximum score in Conscientiousness are most reliable and prompt." },
+        { icon: Users, title: "Extroversion", description: "Extroverts gain energy by socializing; introverts are drained by interaction." },
+        { icon: Heart, title: "Agreeableness", description: "People who agree most with others are likely to be kind, friendly, and cooperative." },
+        { icon: Shield, title: "Neuroticism", description: "Ability to reject negative emotions and maintain emotional stability." },
+      ],
+    },
+    perfectForFlow: {
+      sectionTitle: "PERFECT FOR",
+      sectionSubtitle: "Data-Driven Insights",
+      itemsPerRow: 4,
+      items: [
+        { icon: Target, title: "Hiring Decisions", description: "Use evidence-based insights for recruitment." },
+        { icon: Building, title: "Team Composition", description: "Build balanced teams with complementary traits." },
+        { icon: GraduationCap, title: "Leadership Development", description: "Identify and develop high-potential leaders." },
+        { icon: Users, title: "Conflict Prediction", description: "Anticipate and prevent team conflicts." },
+        { icon: Briefcase, title: "Role Fit Analysis", description: "Match people to roles they'll thrive in." },
+        { icon: Handshake, title: "Client Matching", description: "Pair account managers with compatible clients." },
+        { icon: Sparkles, title: "Culture Alignment", description: "Assess cultural fit for new hires." },
+        { icon: Heart, title: "Wellbeing Programs", description: "Tailor support based on personality needs." },
+      ],
+    },
+    recentEvents: [
+      { client: "McKinsey", event: "OCEAN Profiling", pax: 40 },
+      { client: "BCG", event: "Big Five Assessment", pax: 50 },
+      { client: "Bain", event: "Personality Workshop", pax: 35 },
+      { client: "Accenture", event: "OCEAN Training", pax: 60 },
+    ],
+    pricing: { startingPrice: "$250", unit: "per pax", minimumPax: 10, duration: "2-4 hours", activityType: "indoor" },
+    packages: trafficLightPackages("$250/pax", "OCEAN Profiling", "#14B8A6"),
+    addOns: [
+      { icon: "FileText", title: "Digital OCEAN Profiles", description: "Included for all participants" },
+      { icon: "BarChart3", title: "Team Analysis Report", description: "Comprehensive team dynamics analysis" },
+      { icon: "Video", title: "Virtual Delivery", description: "Zoom/Teams facilitation available" },
+      { icon: "Users", title: "Follow-up Session", description: "30-day check-in and reinforcement" },
+    ],
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced OCEAN Profiling",
   },
 };
