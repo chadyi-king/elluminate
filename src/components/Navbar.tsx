@@ -24,10 +24,14 @@ const physicalActivities = [
 
 // Virtual Team Building Activities
 const virtualActivities = [
-  { name: "Virtual Amazing Race", slug: "virtual-amazing-race" },
-  { name: "Online Escape Room", slug: "online-escape-room" },
-  { name: "Virtual Team Games", slug: "virtual-team-games" },
-  { name: "Remote Wellness", slug: "remote-wellness" },
+  { name: "Amazing Race Virtual", slug: "amazing-race-virtual" },
+  { name: "Fit In Your Team", slug: "fit-in-your-team-virtual" },
+  { name: "Gameshow Experience", slug: "the-gameshow-experience-virtual" },
+  { name: "Great Zodiac Hunt", slug: "the-great-zodiac-hunt-virtual" },
+  { name: "Nuclear Fallout Escape Room", slug: "the-nuclear-fallout-escape-room-virtual" },
+  { name: "The Patriot Act", slug: "the-patriot-act-virtual" },
+  { name: "Tomb Raider King", slug: "tomb-raider-king-treasure-hunt-virtual" },
+  { name: "Grand Christmas Delivery", slug: "grand-christmas-delivery" },
 ];
 
 // Retreats

@@ -107,6 +107,7 @@ export interface MiniGallery {
 
 export interface ServiceData {
   accentColor: string;
+  accentColorSecondary?: string; // For two-tone gradient support
   dividerVariant?:
     | "raceTrack"
     | "policeTape"
@@ -262,6 +263,31 @@ const defaultPerfectForFlow: FlowSection = {
     { icon: Target, title: "Strategy Retreats", description: "Sharpen focus with challenges that mirror real decision-making." },
   ],
 };
+
+// Virtual-specific defaults
+const defaultVirtualAddOns: AddOn[] = [
+  { icon: "UtensilsCrossed", title: "Food Delivery", description: "$20/pax (delivered to homes)" },
+  { icon: "Medal", title: "Prizes", description: "Delivered individually" },
+];
+
+const defaultVirtualPerfectFor: FlowSection = {
+  sectionTitle: "PERFECT FOR",
+  sectionSubtitle: "Virtual Events",
+  itemsPerRow: 4,
+  items: [
+    { icon: Monitor, title: "Remote Teams", description: "Connect distributed team members across locations." },
+    { icon: Home, title: "Work From Home", description: "Bring the office energy to home-based teams." },
+    { icon: Globe, title: "Cross-Country Teams", description: "Unite international teams in one virtual space." },
+    { icon: Users, title: "Hybrid Workplaces", description: "Bridge the gap between in-office and remote staff." },
+    { icon: UserPlus, title: "Virtual Onboarding", description: "Welcome new hires with interactive team experiences." },
+    { icon: Building, title: "Town Hall Add-ons", description: "Add engagement activities to virtual all-hands meetings." },
+    { icon: Sparkles, title: "Year-End Celebrations", description: "Celebrate milestones with online team bonding." },
+    { icon: Target, title: "Sales Kickoffs", description: "Energize sales teams with competitive virtual challenges." },
+  ],
+};
+
+// Placeholder hero for virtual services
+const virtualPlaceholderHero = "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=1920";
 
 export const servicesData: Record<string, ServiceData> = {
   "team-building": {
@@ -3375,5 +3401,506 @@ export const servicesData: Record<string, ServiceData> = {
     hideMidCta: true,
     perfectForVariant: "pills",
     recentEventsHeadline: "Companies who've experienced our Treasure Heist",
-  }
+  },
+
+  // ==========================================
+  // VIRTUAL TEAM BUILDING SERVICES
+  // ==========================================
+
+  "amazing-race-virtual": {
+    accentColor: "#FFC400",
+    dividerVariant: "timer",
+    hero: {
+      title: "AMAZING RACE VIRTUAL",
+      subtitle: "Virtual Team Building",
+      tagline: "The World is waiting for you. Good Luck. Travel Safe and Go!",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    overview: {
+      description: "Journey across the globe without leaving your seat! In this high-energy virtual adventure, teams race through countries, solve puzzles, and complete challenges inspired by destinations worldwide. Perfect for remote teams who want excitement, strategy, and bonding—all through Zoom. Requires only a laptop/desktop with camera and internet.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    features: [
+      { icon: Globe, title: "World Adventure", description: "Travel virtually to exciting destinations around the globe." },
+      { icon: Puzzle, title: "Team Challenges", description: "Solve puzzles and complete missions together." },
+      { icon: Trophy, title: "Competitive Racing", description: "Race against other teams to win." },
+    ],
+    benefits: [
+      { icon: Users, title: "Team Bonding", description: "Connect remote colleagues through shared adventure." },
+      { icon: Zap, title: "High Energy", description: "Keep engagement high throughout the session." },
+      { icon: Globe, title: "Global Access", description: "Join from anywhere in the world." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "Amazing energy! Our team felt like we traveled the world together.", author: "Sarah T.", company: "Remote Tech Co" },
+      { quote: "Perfect for our distributed team—everyone was engaged from start to finish.", author: "Mike L.", company: "Global Solutions" },
+      { quote: "The virtual format worked surprisingly well. Highly recommend!", author: "Lisa K.", company: "Digital Agency" },
+      { quote: "Our team is still talking about the Amazing Race experience weeks later.", author: "James W.", company: "FinTech Startup" },
+      { quote: "Great way to break the ice with new remote team members.", author: "Amanda C.", company: "Marketing Pro" },
+      { quote: "The facilitators were excellent at keeping everyone involved.", author: "David R.", company: "Consulting Group" },
+    ],
+    faqs: [],
+    cta: { headline: "Ready to Race Around the World?", subtext: "Book your virtual Amazing Race adventure today." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Your Virtual Adventure",
+      itemsPerRow: 3,
+      showNumbers: true,
+      items: [
+        { icon: Monitor, title: "Online Teambuilding Challenges", description: "Engage in interactive puzzles and missions designed for virtual collaboration." },
+        { icon: Video, title: "Innovative Activities for All", description: "Activities suitable for all skill levels and team dynamics." },
+        { icon: Users, title: "Thematic Values", description: "We weave your company values into the race challenges and storyline." },
+      ],
+    },
+    perfectForFlow: defaultVirtualPerfectFor,
+    recentEvents: [
+      { client: "Google Singapore", event: "Virtual Amazing Race", pax: 150 },
+      { client: "Microsoft", event: "Remote Team Day", pax: 200 },
+      { client: "Shopee", event: "Virtual Bonding", pax: 180 },
+      { client: "Grab", event: "Amazing Race Online", pax: 120 },
+    ],
+    pricing: { startingPrice: "From $25", unit: "per pax", minimumPax: 10, duration: "1.5-3 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $25/pax", "Virtual Amazing Race", "#FFC400"),
+    addOns: defaultVirtualAddOns,
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Virtual Amazing Race",
+  },
+
+  "fit-in-your-team-virtual": {
+    accentColor: "#8B5CF6",
+    dividerVariant: "timer",
+    hero: {
+      title: "FIT IN YOUR TEAM",
+      subtitle: "Virtual Team Building",
+      tagline: "A Fun and Competitive Workout Teambuilding Activity made for Your Team to get Energized!",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    overview: {
+      description: "Get your team moving with this high-energy virtual workout experience! Combining fitness challenges with team competition, Fit In Your Team promotes physical wellness, mental clarity, and social connection—all from the comfort of home. Perfect for teams looking to energize, bond, and prioritize wellbeing together via Zoom.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    features: [
+      { icon: Dumbbell, title: "Fitness Challenges", description: "Fun workout activities for all fitness levels." },
+      { icon: Heart, title: "Wellness Focus", description: "Promote physical and mental wellbeing." },
+      { icon: Trophy, title: "Team Competition", description: "Compete as teams for points and prizes." },
+    ],
+    benefits: [
+      { icon: Activity, title: "Get Moving", description: "Break sedentary habits with fun movement." },
+      { icon: Heart, title: "Boost Morale", description: "Energize your team with positive vibes." },
+      { icon: Users, title: "Team Spirit", description: "Build camaraderie through shared challenges." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "Our team loved the workout session—great for morale and health!", author: "Jennifer M.", company: "Health Corp" },
+      { quote: "Perfect blend of fitness and fun. Everyone was laughing and sweating!", author: "Ryan P.", company: "Wellness Inc" },
+      { quote: "A refreshing change from typical virtual meetings.", author: "Emily S.", company: "Active Agency" },
+      { quote: "The instructors were motivating and inclusive of all fitness levels.", author: "Chris T.", company: "Sports Co" },
+      { quote: "We've made this a monthly team tradition now!", author: "Nicole B.", company: "Fit Tech" },
+      { quote: "Great energy and perfect for remote team engagement.", author: "Mark D.", company: "Digital Health" },
+    ],
+    faqs: [],
+    cta: { headline: "Ready to Get Fit Together?", subtext: "Energize your team with a virtual workout experience." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Your Wellness Journey",
+      itemsPerRow: 3,
+      showNumbers: true,
+      items: [
+        { icon: Dumbbell, title: "Physical Well-Being", description: "Engage in fun, accessible fitness challenges that get everyone moving." },
+        { icon: Brain, title: "Mental Well-Being", description: "Boost focus and reduce stress through energizing activities." },
+        { icon: Users, title: "Social Well-Being", description: "Connect and bond with teammates through shared wellness goals." },
+      ],
+    },
+    perfectForFlow: defaultVirtualPerfectFor,
+    recentEvents: [
+      { client: "DBS Bank", event: "Fit In Your Team", pax: 200 },
+      { client: "OCBC", event: "Virtual Wellness Day", pax: 150 },
+      { client: "Singtel", event: "Team Fitness", pax: 180 },
+      { client: "StarHub", event: "Fit In Your Team", pax: 100 },
+    ],
+    pricing: { startingPrice: "From $25", unit: "per pax", minimumPax: 10, duration: "1.5-3 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $25/pax", "Fit In Your Team", "#8B5CF6"),
+    addOns: defaultVirtualAddOns,
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced Fit In Your Team",
+  },
+
+  "the-gameshow-experience-virtual": {
+    accentColor: "#1F7CFF",
+    dividerVariant: "timer",
+    hero: {
+      title: "GAMESHOW EXPERIENCE",
+      subtitle: "Virtual Team Building",
+      tagline: "6 in 1 Gameshows to play and challenge your colleagues",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    overview: {
+      description: "Bring the excitement of TV gameshows to your virtual team event! With 6 different gameshow formats in one experience, teams compete through trivia, challenges, and hilarious moments. This high-energy virtual experience is perfect for large groups looking for entertainment and friendly competition via Zoom.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    features: [
+      { icon: Gamepad2, title: "6 Gameshows", description: "Multiple formats keep things fresh and exciting." },
+      { icon: Trophy, title: "Points Competition", description: "Teams compete for the highest score." },
+      { icon: PartyPopper, title: "Entertainment", description: "Fun, laughter, and memorable moments." },
+    ],
+    benefits: [
+      { icon: Sparkles, title: "High Energy", description: "Keep engagement sky-high throughout." },
+      { icon: Users, title: "Inclusive Fun", description: "Everyone can participate regardless of skills." },
+      { icon: Star, title: "Memorable", description: "Create lasting team memories." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "Best virtual team event we've ever had! The gameshows were hilarious.", author: "Kevin L.", company: "Entertainment Inc" },
+      { quote: "Our team was laughing the entire time. Highly recommend!", author: "Priya S.", company: "Media Group" },
+      { quote: "Perfect for our year-end virtual celebration.", author: "Tom H.", company: "Creative Agency" },
+      { quote: "The variety of games kept everyone engaged throughout.", author: "Rachel W.", company: "Gaming Co" },
+      { quote: "Our remote team finally felt connected after this experience.", author: "Jason M.", company: "Tech Startup" },
+      { quote: "The host was fantastic—professional yet fun!", author: "Linda C.", company: "Events Plus" },
+    ],
+    faqs: [],
+    cta: { headline: "Ready for Gameshow Fun?", subtext: "Book your virtual gameshow experience today." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Your Gameshow Experience",
+      itemsPerRow: 3,
+      showNumbers: true,
+      items: [
+        { icon: Gamepad2, title: "Your Favourite Gameshows", description: "Play classic and modern gameshow formats that everyone recognizes and loves." },
+        { icon: Trophy, title: "Highest Points Wins", description: "Compete across all games—the team with the most points takes the crown." },
+        { icon: PartyPopper, title: "A Memorable Time", description: "Laughter, surprises, and unforgettable moments guaranteed." },
+      ],
+    },
+    perfectForFlow: defaultVirtualPerfectFor,
+    recentEvents: [
+      { client: "Netflix", event: "Gameshow Experience", pax: 250 },
+      { client: "Spotify", event: "Virtual Games Night", pax: 180 },
+      { client: "TikTok", event: "Gameshow Fun", pax: 300 },
+      { client: "Meta", event: "Team Gameshow", pax: 200 },
+    ],
+    pricing: { startingPrice: "From $25", unit: "per pax", minimumPax: 20, duration: "1.5-3 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $25/pax", "Gameshow Experience", "#1F7CFF"),
+    addOns: defaultVirtualAddOns,
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced our Gameshow Experience",
+  },
+
+  "the-great-zodiac-hunt-virtual": {
+    accentColor: "#EF4444",
+    dividerVariant: "timer",
+    hero: {
+      title: "GREAT ZODIAC HUNT",
+      subtitle: "Virtual Team Building",
+      tagline: "The Zodiac Animals have all escaped! It is up to you the Celestial Vanguards to get them all back!",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    overview: {
+      description: "Celebrate Chinese New Year virtually with this themed team adventure! The 12 Zodiac animals have escaped and your team must work together to bring them back. Through puzzles, challenges, and cultural trivia, teams race to capture all the animals and restore harmony. Perfect for CNY celebrations via Zoom.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    features: [
+      { icon: Search, title: "Zodiac Hunt", description: "Track down all 12 escaped zodiac animals." },
+      { icon: Puzzle, title: "Team Puzzles", description: "Solve challenges to capture each animal." },
+      { icon: Flag, title: "CNY Theme", description: "Celebrate Chinese New Year with cultural elements." },
+    ],
+    benefits: [
+      { icon: Users, title: "Team Unity", description: "Work together to complete the mission." },
+      { icon: Sparkles, title: "Festive Fun", description: "Perfect for CNY celebrations." },
+      { icon: Globe, title: "Cultural Learning", description: "Learn about zodiac traditions." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "Perfect for our CNY virtual celebration! Everyone loved the theme.", author: "Ming L.", company: "Asian Markets" },
+      { quote: "Great way to celebrate Chinese New Year with our global team.", author: "Wei C.", company: "International Corp" },
+      { quote: "The zodiac storyline was creative and engaging.", author: "Hui T.", company: "Cultural Events" },
+      { quote: "Our team had so much fun hunting the zodiac animals!", author: "Chen W.", company: "Festival Co" },
+      { quote: "A unique and culturally meaningful team experience.", author: "Lin M.", company: "Heritage Group" },
+      { quote: "The perfect blend of tradition and modern team building.", author: "Jing S.", company: "Lunar Ltd" },
+    ],
+    faqs: [],
+    cta: { headline: "Ready for the Zodiac Hunt?", subtext: "Celebrate with your team in this CNY-themed adventure." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Your Zodiac Adventure",
+      itemsPerRow: 3,
+      showNumbers: true,
+      items: [
+        { icon: Monitor, title: "Online Teambuilding Challenges", description: "Engage in interactive puzzles designed for virtual collaboration." },
+        { icon: Flag, title: "Chinese New Year Inspired", description: "Immerse in festive themes and cultural elements throughout." },
+        { icon: Users, title: "Thematic Values", description: "Teamwork, fortune, and prosperity woven into every challenge." },
+      ],
+    },
+    perfectForFlow: defaultVirtualPerfectFor,
+    recentEvents: [
+      { client: "HSBC", event: "Great Zodiac Hunt", pax: 200 },
+      { client: "Standard Chartered", event: "CNY Celebration", pax: 150 },
+      { client: "Bank of China", event: "Zodiac Hunt", pax: 180 },
+      { client: "UOB", event: "Virtual CNY", pax: 120 },
+    ],
+    pricing: { startingPrice: "From $25", unit: "per pax", minimumPax: 10, duration: "1.5-3 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $25/pax", "Great Zodiac Hunt", "#EF4444"),
+    addOns: defaultVirtualAddOns,
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced the Great Zodiac Hunt",
+  },
+
+  "the-nuclear-fallout-escape-room-virtual": {
+    accentColor: "#26D07C",
+    dividerVariant: "timer",
+    hero: {
+      title: "NUCLEAR FALLOUT ESCAPE ROOM",
+      subtitle: "Virtual Team Building",
+      tagline: "To save the world, your team needs to work together to stop the Nuclear Countdown.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    overview: {
+      description: "The clock is ticking! In this intense virtual escape room, teams must work together to stop a nuclear countdown. Communication, logic, and teamwork are crucial as you solve puzzles and crack codes under pressure. This adrenaline-pumping experience is perfect for teams who thrive on intellectual challenges via Zoom.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    features: [
+      { icon: Lock, title: "Escape Room", description: "Solve puzzles and crack codes under pressure." },
+      { icon: Timer, title: "Countdown", description: "Race against the clock to save the world." },
+      { icon: Brain, title: "Intellectual Challenge", description: "Test your logic and problem-solving skills." },
+    ],
+    benefits: [
+      { icon: Users, title: "Deep Collaboration", description: "Success requires everyone's input." },
+      { icon: Zap, title: "High Stakes", description: "Adrenaline-pumping excitement." },
+      { icon: Target, title: "Problem Solving", description: "Sharpen critical thinking skills." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "Intense, thrilling, and amazing for team communication!", author: "Alex K.", company: "Nuclear Solutions" },
+      { quote: "Our team has never worked together so intensely. Great experience!", author: "Sara J.", company: "Energy Corp" },
+      { quote: "The pressure of the countdown really brought out the best in us.", author: "Michael R.", company: "Defense Tech" },
+      { quote: "Perfect for testing and improving team communication skills.", author: "Diana L.", company: "Security Inc" },
+      { quote: "We solved it with 30 seconds left—what a rush!", author: "Peter H.", company: "Crisis Management" },
+      { quote: "Highly engaging and mentally stimulating.", author: "Karen W.", company: "Think Tank" },
+    ],
+    faqs: [],
+    cta: { headline: "Ready to Save the World?", subtext: "Can your team stop the nuclear countdown in time?" },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Your Escape Mission",
+      itemsPerRow: 3,
+      showNumbers: true,
+      items: [
+        { icon: Brain, title: "Deep Communication Gameplay", description: "Success depends on clear, efficient team communication under pressure." },
+        { icon: Puzzle, title: "Made for All Intellectual Types", description: "Puzzles cater to different thinking styles—everyone contributes." },
+        { icon: Timer, title: "Time is of the Essence", description: "The countdown creates urgency and brings out peak team performance." },
+      ],
+    },
+    perfectForFlow: defaultVirtualPerfectFor,
+    recentEvents: [
+      { client: "Deloitte", event: "Nuclear Fallout", pax: 100 },
+      { client: "PwC", event: "Escape Room Challenge", pax: 80 },
+      { client: "EY", event: "Virtual Escape", pax: 90 },
+      { client: "KPMG", event: "Nuclear Fallout", pax: 70 },
+    ],
+    pricing: { startingPrice: "From $25", unit: "per pax", minimumPax: 10, duration: "1.5-3 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $25/pax", "Nuclear Fallout Escape Room", "#26D07C"),
+    addOns: defaultVirtualAddOns,
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced Nuclear Fallout Escape Room",
+  },
+
+  "the-patriot-act-virtual": {
+    accentColor: "#DC2626",
+    dividerVariant: "timer",
+    hero: {
+      title: "THE PATRIOT ACT",
+      subtitle: "Virtual Team Building",
+      tagline: "Salute to our Great Nation by playing activities mixed of the old and new of Singapore",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    overview: {
+      description: "Celebrate Singapore's heritage with this patriotic virtual team experience! Teams compete through activities that blend old-school Singapore nostalgia with modern challenges. From traditional games to national trivia, this experience is perfect for National Day celebrations or any time you want to celebrate Singapore's spirit via Zoom.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    features: [
+      { icon: Flag, title: "National Pride", description: "Celebrate Singapore's heritage and culture." },
+      { icon: Gamepad2, title: "Mixed Activities", description: "Old-school games meet modern challenges." },
+      { icon: Trophy, title: "Team Competition", description: "Compete for patriotic glory." },
+    ],
+    benefits: [
+      { icon: Heart, title: "National Spirit", description: "Foster love for Singapore." },
+      { icon: Users, title: "Team Bonding", description: "Unite through shared cultural experiences." },
+      { icon: PartyPopper, title: "Celebration", description: "Perfect for National Day events." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "Perfect for our National Day celebration! Very meaningful.", author: "Ahmad B.", company: "Singapore Ltd" },
+      { quote: "Loved the mix of nostalgia and modern games.", author: "Mei Ling T.", company: "Heritage Corp" },
+      { quote: "Our team learned so much about Singapore while having fun!", author: "Raj S.", company: "National Events" },
+      { quote: "The old-school games brought back so many memories.", author: "Susan L.", company: "Memory Lane" },
+      { quote: "Great way to celebrate our nation with remote colleagues.", author: "Daniel C.", company: "Patriot Inc" },
+      { quote: "The facilitators were engaging and knowledgeable about SG culture.", author: "Farah M.", company: "Cultural Events" },
+    ],
+    faqs: [],
+    cta: { headline: "Ready to Celebrate Singapore?", subtext: "Unite your team with patriotic pride and fun." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Your Patriotic Experience",
+      itemsPerRow: 3,
+      showNumbers: true,
+      items: [
+        { icon: Gamepad2, title: "Large Variety of Games", description: "From old-school kampong games to modern trivia challenges." },
+        { icon: Trophy, title: "Highest Points Wins", description: "Teams compete across all activities for the ultimate patriot crown." },
+        { icon: PartyPopper, title: "Crazy Unforgettable Activities", description: "Unique challenges you won't find anywhere else." },
+      ],
+    },
+    perfectForFlow: defaultVirtualPerfectFor,
+    recentEvents: [
+      { client: "SAF", event: "The Patriot Act", pax: 400 },
+      { client: "SPF", event: "National Day Special", pax: 300 },
+      { client: "MOE", event: "Patriot Act Virtual", pax: 350 },
+      { client: "MOM", event: "Team Singapore", pax: 200 },
+    ],
+    pricing: { startingPrice: "From $25", unit: "per pax", minimumPax: 15, duration: "1.5-3 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $25/pax", "The Patriot Act", "#DC2626"),
+    addOns: defaultVirtualAddOns,
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced The Patriot Act",
+  },
+
+  "tomb-raider-king-treasure-hunt-virtual": {
+    accentColor: "#D97706",
+    dividerVariant: "timer",
+    hero: {
+      title: "TOMB RAIDER KING",
+      subtitle: "Virtual Team Building",
+      tagline: "The Grand Treasure Hunt Game made to push your team to the limit!",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    overview: {
+      description: "Embark on an epic virtual treasure hunt across 5 ancient tombs! Teams race to collect the most gold by solving puzzles, overcoming obstacles, and raiding tombs before competitors. This adventure-packed experience combines strategy, speed, and teamwork for an unforgettable virtual journey via Zoom.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    features: [
+      { icon: Crown, title: "Treasure Hunting", description: "Raid 5 tombs for gold and glory." },
+      { icon: Map, title: "Epic Adventure", description: "Journey through ancient mysteries." },
+      { icon: Trophy, title: "Competition", description: "Most gold wins the crown." },
+    ],
+    benefits: [
+      { icon: Target, title: "Strategic Thinking", description: "Plan your tomb-raiding approach." },
+      { icon: Zap, title: "High Energy", description: "Non-stop action and excitement." },
+      { icon: Users, title: "Team Coordination", description: "Success requires full team effort." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "Felt like a real adventure movie! Our team loved every moment.", author: "Indiana J.", company: "Adventure Corp" },
+      { quote: "The tomb raiding theme was so immersive and exciting.", author: "Lara C.", company: "Explorer Inc" },
+      { quote: "Great competitive energy—we barely beat our rivals!", author: "Nathan D.", company: "Treasure Hunters" },
+      { quote: "Perfect blend of puzzles and action.", author: "Elena F.", company: "Ancient Discoveries" },
+      { quote: "Our team couldn't stop talking about the gold we collected!", author: "Marcus A.", company: "Fortune Seekers" },
+      { quote: "Highly engaging from start to finish.", author: "Alicia V.", company: "Mystery Co" },
+    ],
+    faqs: [],
+    cta: { headline: "Ready to Raid the Tombs?", subtext: "Lead your team to treasure and glory." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Your Treasure Hunt",
+      itemsPerRow: 3,
+      showNumbers: true,
+      items: [
+        { icon: Map, title: "Hunt 5 Treasure Tombs", description: "Navigate through 5 unique tombs, each with different challenges and rewards." },
+        { icon: Crown, title: "Highest Gold Wins", description: "Collect the most gold across all tombs to claim the Tomb Raider King title." },
+        { icon: PartyPopper, title: "Crazy Unforgettable Activities", description: "Unique challenges that test every aspect of teamwork." },
+      ],
+    },
+    perfectForFlow: defaultVirtualPerfectFor,
+    recentEvents: [
+      { client: "Apple", event: "Tomb Raider King", pax: 400 },
+      { client: "Google", event: "Virtual Treasure Hunt", pax: 350 },
+      { client: "Amazon", event: "Tomb Raider", pax: 300 },
+      { client: "Microsoft", event: "Treasure Adventure", pax: 250 },
+    ],
+    pricing: { startingPrice: "From $25", unit: "per pax", minimumPax: 15, duration: "1.5-3 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $25/pax", "Tomb Raider King", "#D97706"),
+    addOns: defaultVirtualAddOns,
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced Tomb Raider King",
+  },
+
+  "grand-christmas-delivery": {
+    accentColor: "#DC2626",
+    accentColorSecondary: "#26D07C",
+    dividerVariant: "timer",
+    hero: {
+      title: "THE GRAND CHRISTMAS DELIVERY",
+      subtitle: "Virtual Team Building",
+      tagline: "Santa's Village is under attack! You are the Elite Elf Force that will save Christmas!",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    overview: {
+      description: "Santa needs your help! In this festive virtual adventure, teams become the Elite Elf Force on a mission to save Christmas. Battle through party games, team challenges, and boss battles to deliver presents and defeat the forces threatening the holiday season. The team that delivers the most presents wins! Perfect for year-end celebrations via Zoom.",
+      backgroundImage: virtualPlaceholderHero,
+    },
+    features: [
+      { icon: Gift, title: "Christmas Mission", description: "Save Christmas as the Elite Elf Force." },
+      { icon: Swords, title: "Boss Battles", description: "Defeat enemies threatening the holidays." },
+      { icon: Trophy, title: "Delivery Competition", description: "Deliver the most presents to win." },
+    ],
+    benefits: [
+      { icon: PartyPopper, title: "Festive Fun", description: "Perfect year-end celebration." },
+      { icon: Users, title: "Team Spirit", description: "Unite to save Christmas together." },
+      { icon: Sparkles, title: "Holiday Magic", description: "Immersive Christmas atmosphere." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "The best virtual Christmas party we've ever had!", author: "Nick C.", company: "North Pole Inc" },
+      { quote: "Our team loved being elves on a mission to save Christmas!", author: "Holly B.", company: "Festive Corp" },
+      { quote: "The boss battles were hilarious and challenging.", author: "Rudolph R.", company: "Reindeer Ltd" },
+      { quote: "Perfect way to end the year with our remote team.", author: "Ivy G.", company: "Winter Wonderland" },
+      { quote: "Everyone got into the Christmas spirit—even our Grinches!", author: "Jingle B.", company: "Holiday Events" },
+      { quote: "The present delivery competition was so much fun!", author: "Carol S.", company: "Yuletide Co" },
+    ],
+    faqs: [],
+    cta: { headline: "Ready to Save Christmas?", subtext: "Join the Elite Elf Force and deliver holiday magic." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "Your Christmas Mission",
+      itemsPerRow: 3,
+      showNumbers: true,
+      items: [
+        { icon: PartyPopper, title: "Party and Team Games", description: "Festive games designed to spread holiday cheer and teamwork." },
+        { icon: Gift, title: "Deliver the Most Presents", description: "Race to deliver presents—the team with the most wins!" },
+        { icon: Swords, title: "Boss Battles Everywhere", description: "Face off against Christmas villains in epic team showdowns." },
+      ],
+    },
+    perfectForFlow: defaultVirtualPerfectFor,
+    recentEvents: [
+      { client: "Coca-Cola", event: "Grand Christmas Delivery", pax: 400 },
+      { client: "Starbucks", event: "Holiday Team Event", pax: 300 },
+      { client: "Unilever", event: "Christmas Celebration", pax: 350 },
+      { client: "P&G", event: "Elf Force Mission", pax: 250 },
+    ],
+    pricing: { startingPrice: "From $25", unit: "per pax", minimumPax: 15, duration: "1.5-3 hours", activityType: "indoor" },
+    packages: trafficLightPackages("From $25/pax", "Grand Christmas Delivery", "#DC2626"),
+    addOns: defaultVirtualAddOns,
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've experienced The Grand Christmas Delivery",
+  },
 };

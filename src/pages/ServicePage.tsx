@@ -78,6 +78,7 @@ const ServicePage = () => {
         tagline={service.hero.tagline}
         backgroundImage={service.hero.backgroundImage}
         accentColor={service.accentColor}
+        accentColorSecondary={service.accentColorSecondary}
       />
 
       {/* 2. Video Section */}
@@ -104,7 +105,7 @@ const ServicePage = () => {
       )}
 
       {/* 4. What Is This Service? (Overview) */}
-      <ServiceOverviewNew description={service.overview.description} accentColor={service.accentColor} />
+      <ServiceOverviewNew description={service.overview.description} accentColor={service.accentColor} accentColorSecondary={service.accentColorSecondary} />
 
       {/* 6. How It Works with Pricing & Add-ons (NEW - for enhanced structure) */}
       {hasEnhancedStructure && service.howItWorksFlow && service.pricing && service.addOns && (
@@ -180,6 +181,7 @@ const ServicePage = () => {
           headline={service.cta.headline}
           subtext={service.cta.subtext}
           accentColor={service.accentColor}
+          accentColorSecondary={service.accentColorSecondary}
         />
       )}
 

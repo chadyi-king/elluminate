@@ -6,10 +6,15 @@ interface ServiceCTANewProps {
   headline: string;
   subtext: string;
   accentColor: string;
+  accentColorSecondary?: string;
 }
 
-export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewProps) => {
+const getAccentGradient = (primary: string, secondary?: string) => 
+  secondary ? `linear-gradient(135deg, ${primary}, ${secondary})` : primary;
+
+export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecondary }: ServiceCTANewProps) => {
   const { openContactModal } = useContactModal();
+  const gradient = getAccentGradient(accentColor, accentColorSecondary);
   
   return (
     <section className="py-24 relative overflow-hidden bg-gray-900">
@@ -76,9 +81,9 @@ export const ServiceCTANew = ({ headline, subtext, accentColor }: ServiceCTANewP
                 size="xl"
                 className="relative overflow-hidden group font-display font-semibold"
                 style={{ 
-                  backgroundColor: accentColor, 
+                  background: gradient,
                   color: '#000',
-                  borderColor: accentColor 
+                  border: 'none'
                 }}
                 onClick={openContactModal}
               >
