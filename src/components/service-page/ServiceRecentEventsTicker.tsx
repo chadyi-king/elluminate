@@ -16,8 +16,8 @@ export const ServiceRecentEventsTicker = ({
   events,
   accentColor
 }: ServiceRecentEventsTickerProps) => {
-  // Double the events for seamless infinite scroll
-  const doubledEvents = [...events, ...events];
+  // Quadruple the events for seamless infinite scroll
+  const repeatedEvents = [...events, ...events, ...events, ...events];
 
   return (
     <section 
@@ -48,12 +48,12 @@ export const ServiceRecentEventsTicker = ({
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 30,
+            duration: 40,
             ease: "linear"
           }
         }}
       >
-        {doubledEvents.map((event, index) => (
+        {repeatedEvents.map((event, index) => (
           <div 
             key={`${event.client}-${index}`}
             className="flex items-center gap-2 text-sm font-medium"

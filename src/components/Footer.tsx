@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
 import { 
-  Instagram, 
-  Linkedin, 
-  Facebook, 
   Mail, 
   Phone, 
   MapPin,
@@ -18,11 +15,7 @@ const quickLinks = [
   { name: "Portfolio", path: "/portfolio" },
 ];
 
-const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-];
+// Social links removed - no active accounts for Elluminate yet
 
 export const Footer = () => {
   return (
@@ -41,23 +34,9 @@ export const Footer = () => {
               </span>
             </Link>
             
-            <p className="text-background/70 text-sm leading-relaxed mb-6">
+            <p className="text-background/70 text-sm leading-relaxed">
               Illuminate Your Teams with engaging team building experiences that inspire collaboration and create lasting connections.
             </p>
-            
-            {/* Social Links */}
-            <div className="flex items-center gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center text-background hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -156,6 +135,7 @@ export const Footer = () => {
             <p className="text-background/40 text-sm">
               8 Years of Excellence — Since 2017
             </p>
+
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { LucideIcon, Bus, Medal, UtensilsCrossed, MapPin, Shirt, Camera, Palette, BarChart3, Users, Clock, Sun, Building, Sparkles, ArrowRight } from "lucide-react";
+import { LucideIcon, Bus, Medal, UtensilsCrossed, MapPin, Shirt, Camera, Palette, BarChart3, Users, Clock, Sun, Building, Sparkles, ArrowRight, FileText, Video, Gamepad2, Dumbbell, Mic, Gift, Moon, Award, PenTool, Brain, Shield, Heart, Target, GraduationCap, Phone, ClipboardList, Flag, Puzzle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import { ServiceDividerStrip, type DividerVariant } from "@/components/service-page/dividers/ServiceDividerStrip";
@@ -56,7 +56,30 @@ const iconMap: Record<string, LucideIcon> = {
   Shirt,
   Camera,
   Palette,
-  BarChart3
+  BarChart3,
+  FileText,
+  Video,
+  Users,
+  Gamepad2,
+  Dumbbell,
+  Mic,
+  Gift,
+  Moon,
+  Award,
+  PenTool,
+  Brain,
+  Shield,
+  Heart,
+  Target,
+  GraduationCap,
+  Phone,
+  ClipboardList,
+  Flag,
+  Puzzle,
+  Clock,
+  Sun,
+  Building,
+  Sparkles,
 };
 
 // Activity type icons

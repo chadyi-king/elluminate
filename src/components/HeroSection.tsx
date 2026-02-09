@@ -9,7 +9,13 @@ import { RotatingWord, wordData } from "./hero/RotatingWord";
 import { ServicePills } from "./hero/ServicePills";
 
 // SPARK letters
-const sparkLetters = ["S", "P", "A", "R", "K"];
+const sparkLetters = [
+  { letter: "S", color: "hsl(45, 100%, 50%)" },   // Yellow
+  { letter: "P", color: "hsl(25, 100%, 55%)" },    // Orange
+  { letter: "A", color: "hsl(340, 82%, 52%)" },     // Pink
+  { letter: "R", color: "hsl(270, 70%, 55%)" },     // Purple
+  { letter: "K", color: "hsl(160, 70%, 45%)" },     // Green
+];
 
 export const HeroSection = () => {
   const { openContactModal } = useContactModal();
@@ -70,12 +76,12 @@ export const HeroSection = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              {sparkLetters.map((letter, index) => (
+              {sparkLetters.map((item, index) => (
                 <motion.span
-                  key={letter}
+                  key={item.letter}
                   className="inline-block font-horizon text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[14vw] cursor-pointer transition-colors duration-500 tracking-tight"
                   style={{ 
-                    color: currentColor,
+                    color: item.color,
                   }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -83,11 +89,11 @@ export const HeroSection = () => {
                   whileHover={{ 
                     scale: 1.15, 
                     y: -15,
-                    textShadow: "0 15px 30px rgba(0,0,0,0.3), 0 8px 10px rgba(0,0,0,0.2)",
+                    textShadow: `0 15px 30px ${item.color}40, 0 8px 10px ${item.color}20`,
                     transition: { type: "spring", stiffness: 400, damping: 10 }
                   }}
                 >
-                  {letter}
+                  {item.letter}
                 </motion.span>
               ))}
             </motion.div>

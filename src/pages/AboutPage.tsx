@@ -132,7 +132,7 @@ const clientLogos = [
 ];
 
 const testimonials = [
-  { quote: "Team Elevate delivered the best team-building event we've ever had. The energy was incredible and our team is still talking about it months later.", company: "Shopee Singapore", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/400px-Shopee.svg.png" },
+  { quote: "Elluminate delivered the best team-building event we've ever had. The energy was incredible and our team is still talking about it months later.", company: "Shopee Singapore", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/400px-Shopee.svg.png" },
   { quote: "Professional, energetic, and flawless execution. They understood our corporate culture perfectly and designed an experience that resonated with everyone.", company: "SP Group", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/SP_Group_logo.svg/400px-SP_Group_logo.svg.png" },
   { quote: "Immersive activities with meaningful takeaways. Our employees left feeling connected and inspired. Highly recommend for any corporate event.", company: "NTUC Enterprise", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/NTUC_FairPrice_logo.svg/400px-NTUC_FairPrice_logo.svg.png" },
   { quote: "The attention to detail was extraordinary. Every moment was carefully crafted to engage and inspire our team.", company: "DBS Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/DBS_Bank_Logo.svg/400px-DBS_Bank_Logo.svg.png" },
@@ -140,7 +140,7 @@ const testimonials = [
   { quote: "They brought creativity and professionalism in equal measure. Our team bonding has never been stronger.", company: "Grab", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Grab_Logo.svg/400px-Grab_Logo.svg.png" },
   { quote: "From concept to execution, everything was seamless. The facilitators were absolutely phenomenal.", company: "GovTech Singapore", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/GovTech_Singapore_Logo.svg/400px-GovTech_Singapore_Logo.svg.png" },
   { quote: "The best investment we made for our company retreat. Every activity had purpose and every moment counted.", company: "OCBC Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OCBC_Bank_logo.svg/400px-OCBC_Bank_logo.svg.png" },
-  { quote: "Team Elevate exceeded all expectations. Our 500-person event ran like clockwork with incredible energy throughout.", company: "UOB", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/UOB_Logo.svg/400px-UOB_Logo.svg.png" },
+  { quote: "Elluminate exceeded all expectations. Our 500-person event ran like clockwork with incredible energy throughout.", company: "UOB", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/UOB_Logo.svg/400px-UOB_Logo.svg.png" },
   { quote: "Creative, organized, and truly memorable. This was the highlight of our corporate calendar.", company: "Marina Bay Sands", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Marina_Bay_Sands_Logo.svg/400px-Marina_Bay_Sands_Logo.svg.png" },
   { quote: "The immersive experience they created was unlike anything we'd seen before. Absolutely world-class.", company: "Singapore Airlines", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Singapore_Airlines_Logo_2.svg/400px-Singapore_Airlines_Logo_2.svg.png" },
   { quote: "Professional hosts who kept our entire team engaged from start to finish. Highly recommended!", company: "Prudential", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Prudential_plc_logo.svg/400px-Prudential_plc_logo.svg.png" },
@@ -149,7 +149,7 @@ const testimonials = [
   { quote: "The team building activities were fun yet meaningful. Our staff couldn't stop talking about it.", company: "SMRT", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SMRT_Corporation_Logo.svg/400px-SMRT_Corporation_Logo.svg.png" },
   { quote: "Exceptional service from planning to execution. They made our anniversary celebration truly special.", company: "Great Eastern", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Great_Eastern_logo.svg/400px-Great_Eastern_logo.svg.png" },
   { quote: "The level of customization and creativity was impressive. Every detail was perfectly aligned with our brand.", company: "AIA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/AIA_Group_logo.svg/400px-AIA_Group_logo.svg.png" },
-  { quote: "Our product launch was a massive success thanks to Team Elevate's vision and execution.", company: "M1", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/M1_Limited_logo.svg/400px-M1_Limited_logo.svg.png" },
+  { quote: "Our product launch was a massive success thanks to Elluminate's vision and execution.", company: "M1", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/M1_Limited_logo.svg/400px-M1_Limited_logo.svg.png" },
   { quote: "From the initial consultation to the final bow, professionalism and passion were evident at every step.", company: "HSBC", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/HSBC_logo_%282018%29.svg/400px-HSBC_logo_%282018%29.svg.png" },
   { quote: "They understand corporate events like no one else. Our leadership offsite was transformative.", company: "Standard Chartered", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Standard_Chartered_%282021%29.svg/400px-Standard_Chartered_%282021%29.svg.png" },
 ];
@@ -172,10 +172,10 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="About Us | Team Elevate"
-        description="Learn about Team Elevate - Singapore's premier corporate event specialists. Since 2019, we've executed 1000+ events for 100,000+ participants with our Creative, Authentic, Lasting, Exceptional, Boundless, and Eccentric approach."
-        keywords="about Team Elevate, Singapore event company, corporate event planners, event specialists Singapore"
-        canonical="https://teamelevate.sg/about"
+        title="About Us | Elluminate"
+        description="Learn about Elluminate - Singapore's most eccentric team building company. Since 2017, we've executed 1000+ events for 100,000+ participants with our Creative, Authentic, Lasting, Exceptional, Boundless, and Eccentric approach."
+        keywords="about Elluminate, Singapore team building company, corporate team building, event specialists Singapore"
+        canonical="https://elluminate.sg/about"
       />
       <Navbar />
       
@@ -218,9 +218,9 @@ const AboutPage = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-3xl md:text-4xl lg:text-5xl font-display font-medium mb-4 leading-tight tracking-wide"
             >
-              <span className="text-foreground">Where Moments Become</span>
+              <span className="text-foreground">Where Teams Come</span>
               <br />
-              <span className="text-metallic-gold font-semibold">Masterpieces</span>
+              <span className="text-metallic-gold font-semibold">Alive</span>
             </motion.h1>
             
             <motion.p
@@ -229,7 +229,7 @@ const AboutPage = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-base text-muted-foreground/90 font-sans mb-8"
             >
-              Singapore's Premier Corporate Event Specialists
+              Singapore's Most Eccentric Team Building Company
             </motion.p>
             
             <motion.a
@@ -278,10 +278,10 @@ const AboutPage = () => {
               
               <div className="space-y-5 text-muted-foreground font-sans leading-relaxed">
                 <p>
-                  Team Elevate was founded in Singapore with one belief: events should inspire lasting connection — not just fill a program.
+                  Elluminate was founded in Singapore with one belief: team building should ignite real connection — not just fill a program.
                 </p>
                 <p>
-                  Since 2019, we've transformed corporate gatherings into signature experiences through purposeful design, immersive engagement, and world-class facilitation.
+                  Since 2017, we've transformed corporate gatherings into signature experiences through purposeful design, immersive engagement, and world-class facilitation.
                 </p>
                 <p>
                   What began as a passionate team of creators has grown into one of Singapore's most trusted partners, delivering <span className="text-primary font-medium">1,000+ events</span> and engaging <span className="text-primary font-medium">100,000+ participants</span> across the region.
@@ -732,10 +732,10 @@ const AboutPage = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-2xl md:text-4xl font-display font-medium text-foreground mb-4">
-              Ready to <span className="text-metallic-gold">Elevate</span> Your Next Event?
+              Ready to <span className="text-metallic-gold">Illuminate</span> Your Next Event?
             </h2>
             <p className="text-muted-foreground/80 font-sans mb-8">
-              Let's turn your next gathering into a masterpiece of connection and impact.
+              Let's turn your next gathering into an unforgettable experience of connection and impact.
             </p>
             <motion.a
               href="/#contact"

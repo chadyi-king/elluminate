@@ -63,10 +63,10 @@ const ServicePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title={`${service.hero.title} | Team Elevate`}
+        title={`${service.hero.title} | Elluminate`}
         description={service.overview.description.slice(0, 155) + "..."}
         keywords={serviceKeywords[slug || ""] || "corporate events Singapore, event planning"}
-        canonical={`https://teamelevate.sg/services/${slug}`}
+        canonical={`https://elluminate.sg/services/${slug}`}
       />
       <GoldParticles />
       <Navbar />
@@ -79,6 +79,7 @@ const ServicePage = () => {
         backgroundImage={service.hero.backgroundImage}
         accentColor={service.accentColor}
         accentColorSecondary={service.accentColorSecondary}
+        slug={slug}
       />
 
       {/* 2. Video Section */}
