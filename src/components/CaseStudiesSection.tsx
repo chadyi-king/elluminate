@@ -78,7 +78,7 @@ const caseStudies = [
 
 export const CaseStudiesSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-secondary/30 via-background to-secondary/50">
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-blue-50 via-primary/5 to-blue-50">
       {/* Background decorative elements */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-green-100/30 rounded-full blur-3xl" />

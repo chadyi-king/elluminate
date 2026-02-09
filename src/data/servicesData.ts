@@ -121,7 +121,8 @@ export interface ServiceData {
     | "blueprint"
     | "route"
     | "gelBeads"
-    | "squid";
+    | "squid"
+    | "laser";
   hero: {
     title: string;
     subtitle: string;
@@ -428,7 +429,7 @@ export const servicesData: Record<string, ServiceData> = {
       { quote: "The Bali retreat was absolutely magical. Every detail was perfect!", author: "Jennifer Tan", company: "Deloitte Singapore" },
       { quote: "Our team came back more united than ever. Worth every investment.", author: "Marcus Lee", company: "PwC Singapore" },
       { quote: "Seamless planning, incredible experiences. Highly recommend!", author: "Rachel Goh", company: "KPMG Singapore" },
-      { quote: "Best company trip we've ever had. Team Elevate handled everything.", author: "Daniel Wong", company: "EY Singapore" },
+      { quote: "Best company trip we've ever had. Elluminate handled everything.", author: "Daniel Wong", company: "EY Singapore" },
       { quote: "The cultural experiences added so much depth to our retreat.", author: "Priya Sharma", company: "Accenture Singapore" },
       { quote: "From start to finish, absolutely flawless execution.", author: "Kevin Tan", company: "McKinsey Singapore" }
     ],
@@ -526,7 +527,7 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: dinnerDanceHero
     },
     overview: {
-      description: "A premium, fully hosted Dinner & Dance experience crafted to celebrate your people with elegance, laughter, and unforgettable moments. Whether you're hosting a formal awards gala, a high-energy dance party, or a themed extravaganza, Team Elevate brings cinematic production value, professional hosting, and crowd-driven engagement to make your night legendary.",
+      description: "A premium, fully hosted Dinner & Dance experience crafted to celebrate your people with elegance, laughter, and unforgettable moments. Whether you're hosting a formal awards gala, a high-energy dance party, or a themed extravaganza, Elluminate brings cinematic production value, professional hosting, and crowd-driven engagement to make your night legendary.",
       backgroundImage: dinnerDanceHero
     },
     features: [
@@ -628,7 +629,7 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     testimonials: [
       { quote: "The best Dinner & Dance we've ever experienced. The energy, hosting, and atmosphere were perfect.", author: "Sarah Lim", company: "SP Group Singapore" },
-      { quote: "Team Elevate transformed our annual gala into an unforgettable Hollywood experience.", author: "Michael Tan", company: "DBS Bank" },
+      { quote: "Elluminate transformed our annual gala into an unforgettable Hollywood experience.", author: "Michael Tan", company: "DBS Bank" },
       { quote: "Every detail was perfect. Our team is still talking about that night!", author: "Jennifer Wong", company: "Singtel" },
       { quote: "The production value was incredible. Felt like a real TV show!", author: "David Lee", company: "OCBC Bank" },
       { quote: "Our employees rated it the best company event ever.", author: "Amanda Goh", company: "Standard Chartered" },
@@ -725,7 +726,7 @@ export const servicesData: Record<string, ServiceData> = {
     testimonials: [
       { quote: "The most professionally executed awards ceremony we've ever had.", author: "Patricia Goh", company: "OCBC Bank" },
       { quote: "Our employees felt truly valued. The attention to detail was exceptional.", author: "James Lim", company: "CapitaLand" },
-      { quote: "Team Elevate made our recognition night absolutely spectacular.", author: "Michelle Teo", company: "Marina Bay Sands" },
+      { quote: "Elluminate made our recognition night absolutely spectacular.", author: "Michelle Teo", company: "Marina Bay Sands" },
       { quote: "The red carpet experience made everyone feel like a superstar.", author: "Richard Wong", company: "Singtel" },
       { quote: "Production quality was TV-grade. Absolutely impressed!", author: "Sandra Lee", company: "DBS Bank" },
       { quote: "Our awardees felt truly celebrated. Perfect execution.", author: "Kenneth Tan", company: "Standard Chartered" }
@@ -819,7 +820,7 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800"
     ],
     testimonials: [
-      { quote: "Our 25th anniversary was absolutely magical. Team Elevate exceeded all expectations.", author: "William Koh", company: "Keppel Corporation" },
+      { quote: "Our 25th anniversary was absolutely magical. Elluminate exceeded all expectations.", author: "William Koh", company: "Keppel Corporation" },
       { quote: "The perfect blend of nostalgia and celebration. Our employees loved it!", author: "Grace Tan", company: "ST Engineering" },
       { quote: "A truly memorable milestone celebration that honored our company's legacy.", author: "Andrew Lim", company: "ComfortDelGro" },
       { quote: "The historical storytelling touched everyone's hearts.", author: "Linda Wong", company: "Sembcorp" },
@@ -917,7 +918,7 @@ export const servicesData: Record<string, ServiceData> = {
     testimonials: [
       { quote: "The most productive leadership retreat we've ever had. Exceptional facilitation.", author: "Richard Lee", company: "Temasek Holdings" },
       { quote: "Perfect balance of strategic sessions and team bonding activities.", author: "Susan Chong", company: "Singapore Airlines" },
-      { quote: "Team Elevate understood exactly what our leadership team needed.", author: "Kenneth Tan", company: "UOB Bank" },
+      { quote: "Elluminate understood exactly what our leadership team needed.", author: "Kenneth Tan", company: "UOB Bank" },
       { quote: "The venue selection was perfect. Inspired great thinking.", author: "Amanda Wong", company: "CapitaLand" },
       { quote: "We achieved more alignment in 2 days than 6 months of meetings.", author: "Daniel Goh", company: "Mapletree" },
       { quote: "The facilitation brought out insights we never expected.", author: "Michelle Teo", company: "GIC" }
@@ -1012,7 +1013,7 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     testimonials: [
       { quote: "Our product launch exceeded all expectations. The buzz was incredible!", author: "Emily Tan", company: "Samsung Singapore" },
-      { quote: "Team Elevate created an experience our customers are still talking about.", author: "Jason Lee", company: "Apple Southeast Asia" },
+      { quote: "Elluminate created an experience our customers are still talking about.", author: "Jason Lee", company: "Apple Southeast Asia" },
       { quote: "The perfect blend of showmanship and substance. Highly recommended!", author: "Rachel Koh", company: "Sony Singapore" },
       { quote: "Media coverage exceeded our KPIs by 200%. Amazing execution!", author: "Marcus Wong", company: "Huawei Singapore" },
       { quote: "The influencer engagement was perfectly managed.", author: "Sarah Lim", company: "OPPO Singapore" },
@@ -1108,7 +1109,7 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     testimonials: [
       { quote: "Our brand activation drove incredible engagement and social buzz.", author: "Amanda Wong", company: "Nike Singapore" },
-      { quote: "Team Elevate truly understood our brand and brought it to life beautifully.", author: "Marcus Lim", company: "Coca-Cola Singapore" },
+      { quote: "Elluminate truly understood our brand and brought it to life beautifully.", author: "Marcus Lim", company: "Coca-Cola Singapore" },
       { quote: "The activation exceeded our KPIs and created lasting brand memories.", author: "Jessica Tan", company: "Red Bull Asia" },
       { quote: "Social media engagement was through the roof. Amazing content generation!", author: "Kevin Goh", company: "Adidas Singapore" },
       { quote: "The experiential elements perfectly captured our brand essence.", author: "Sarah Lee", company: "Unilever Singapore" },
@@ -1205,7 +1206,7 @@ export const servicesData: Record<string, ServiceData> = {
     testimonials: [
       { quote: "Our clients felt truly valued. The event strengthened our partnerships significantly.", author: "Jonathan Ng", company: "Credit Suisse" },
       { quote: "The attention to personalization was exceptional. Each client felt special.", author: "Diana Teo", company: "Standard Chartered" },
-      { quote: "A masterclass in client appreciation. Team Elevate delivers excellence.", author: "Victor Chua", company: "Julius Baer" },
+      { quote: "A masterclass in client appreciation. Elluminate delivers excellence.", author: "Victor Chua", company: "Julius Baer" },
       { quote: "Our top clients are now our biggest advocates. Incredible ROI.", author: "Amanda Lee", company: "HSBC Singapore" },
       { quote: "The networking facilitation led to new business among our clients.", author: "Richard Tan", company: "Citi Singapore" },
       { quote: "Premium experience from start to finish. Clients were impressed.", author: "Michelle Wong", company: "Morgan Stanley" }
@@ -1301,7 +1302,7 @@ export const servicesData: Record<string, ServiceData> = {
     testimonials: [
       { quote: "Our town hall has never been more engaging. Employees loved the interactive elements.", author: "Catherine Lee", company: "Prudential Singapore" },
       { quote: "The hybrid execution was flawless. Everyone felt equally included.", author: "Benjamin Tan", company: "AIA Singapore" },
-      { quote: "Team Elevate transformed our annual conference into an inspiring experience.", author: "Helen Wong", company: "Great Eastern" },
+      { quote: "Elluminate transformed our annual conference into an inspiring experience.", author: "Helen Wong", company: "Great Eastern" },
       { quote: "Production quality was outstanding. Made our message truly impactful.", author: "David Lim", company: "NTUC Income" },
       { quote: "The Q&A facilitation kept energy high throughout.", author: "Rachel Goh", company: "Manulife Singapore" },
       { quote: "Best company-wide event we've hosted. Clear and engaging.", author: "Kenneth Tan", company: "AXA Singapore" }
@@ -1596,7 +1597,7 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     testimonials: [
       { quote: "The concept development process was incredibly thorough. Exceeded our expectations!", author: "Lisa Wong", company: "L'Oreal Singapore" },
-      { quote: "Team Elevate transformed our vague ideas into a stunning event concept.", author: "Marcus Tan", company: "Chanel Singapore" },
+      { quote: "Elluminate transformed our vague ideas into a stunning event concept.", author: "Marcus Tan", company: "Chanel Singapore" },
       { quote: "The visual presentations made it easy to get stakeholder buy-in.", author: "Amanda Lee", company: "Gucci Singapore" },
       { quote: "Creative and practical - they understood our brand perfectly.", author: "Kevin Goh", company: "Louis Vuitton Singapore" },
       { quote: "The production plans were so detailed, execution was seamless.", author: "Sarah Chen", company: "Dior Singapore" },
@@ -1788,7 +1789,7 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     testimonials: [
       { quote: "The venue transformation was absolutely magical. Guests were blown away!", author: "Lisa Wong", company: "Raffles Hotel" },
-      { quote: "Team Elevate brought our fantasy theme to life beyond our imagination.", author: "Marcus Tan", company: "Marina Bay Sands" },
+      { quote: "Elluminate brought our fantasy theme to life beyond our imagination.", author: "Marcus Tan", company: "Marina Bay Sands" },
       { quote: "Every detail was perfect. The theme was completely immersive.", author: "Amanda Lee", company: "Capella Singapore" },
       { quote: "Most creative themed event we've ever experienced.", author: "Kevin Goh", company: "St. Regis Singapore" },
       { quote: "The sensory elements really completed the experience.", author: "Sarah Chen", company: "Fullerton Hotel" },
@@ -1984,7 +1985,7 @@ export const servicesData: Record<string, ServiceData> = {
       { quote: "The networking sessions were invaluable. Real connections were made.", author: "Michael Wong", company: "Consulting Firm" },
       { quote: "Content quality and speaker management were exceptional.", author: "Rachel Goh", company: "Healthcare Organization" },
       { quote: "A seamless hybrid experience that engaged all attendees equally.", author: "David Chen", company: "Financial Services" },
-      { quote: "Team Elevate made our vision a reality. Highly recommended.", author: "Amanda Lee", company: "Manufacturing Company" }
+      { quote: "Elluminate made our vision a reality. Highly recommended.", author: "Amanda Lee", company: "Manufacturing Company" }
     ],
     faqs: [
       { question: "What size summits can you manage?", answer: "We handle summits from 50 to 2000+ attendees, both in-person and hybrid formats." },
@@ -3129,7 +3130,7 @@ export const servicesData: Record<string, ServiceData> = {
   },
 
   "gel-blitz": {
-    accentColor: "#2A8DFF",
+    accentColor: "#FF8A3D",
     dividerVariant: "gelBeads",
     hero: { title: "GELBLITZ", subtitle: "Team Battle", tagline: "You should be out playing GelBlitz and Being Awesome!", backgroundImage: heroAdventureChallenge },
     overview: { description: "GelBlitz is an action-packed gel blaster team battle experience designed for safe, high-energy team bonding. Fast tactical rounds, clear objectives, and friendly competition.", backgroundImage: heroAdventureChallenge },
@@ -3286,6 +3287,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "tag-tical-laser-teambuilding": {
     accentColor: "#FFC400",
+    dividerVariant: "laser",
     hero: { title: "TAGTICAL - LASER TAG", subtitle: "Laser Team Battle", tagline: "You should be out playing Laser Tag and Being Awesome!", backgroundImage: heroAdventureChallenge },
     overview: { description: "Tag-tical Laser Teambuilding is a laser team battle experience with objective-based modes and structured rounds. Plan, communicate, and execute together.", backgroundImage: heroAdventureChallenge },
     features: [{ icon: Crosshair, title: "Objective Modes", description: "Capture, defend, and team missions." }],
@@ -4332,11 +4334,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MASS TALKS",
       subtitle: "Training",
       tagline: "Inspire Hundreds, Impact Thousands",
-      backgroundImage: teamBuildingHero,
+      backgroundImage: summitsHero,
     },
     overview: {
       description: "Transform your large-scale gatherings into unforgettable moments of inspiration and learning. Our Mass Talks bring together captivating speakers, engaging content, and professional production to deliver powerful messages that resonate with audiences of any size. Whether it's a company-wide town hall, industry conference keynote, or motivational assembly, we craft experiences that inform, inspire, and ignite action across your entire organization.",
-      backgroundImage: teamBuildingHero,
+      backgroundImage: summitsHero,
     },
     features: [
       { icon: Mic, title: "Professional Speakers", description: "Access our network of industry experts and motivational speakers." },
@@ -4421,11 +4423,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "WORKSHOPS",
       subtitle: "Training",
       tagline: "Learn by Doing, Grow by Practicing",
-      backgroundImage: teamBuildingHero,
+      backgroundImage: leadershipOffsiteHero,
     },
     overview: {
       description: "Our interactive workshops go beyond passive learning to create immersive skill-building experiences. With hands-on activities, real-world scenarios, and expert facilitation, participants don't just learn concepts - they practice and internalize them. From communication and leadership to creativity and problem-solving, our workshops transform knowledge into actionable skills that drive immediate results in the workplace.",
-      backgroundImage: teamBuildingHero,
+      backgroundImage: leadershipOffsiteHero,
     },
     features: [
       { icon: PenTool, title: "Hands-On Learning", description: "Interactive exercises that reinforce concepts through practice." },
@@ -4510,11 +4512,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "YOUTH CAMPS",
       subtitle: "Training",
       tagline: "Building Tomorrow's Leaders Today",
-      backgroundImage: teamBuildingHero,
+      backgroundImage: familyFunDayHero,
     },
     overview: {
       description: "Our Youth Camps combine adventure, learning, and personal growth to create transformative experiences for young people. Designed for schools, CCAs, and youth organizations, these programs develop leadership, teamwork, and resilience through carefully structured activities and challenges. From day camps to multi-day adventures, we create safe yet challenging environments where youth discover their potential and forge lasting friendships.",
-      backgroundImage: teamBuildingHero,
+      backgroundImage: familyFunDayHero,
     },
     features: [
       { icon: Flag, title: "Adventure Activities", description: "Exciting challenges that push comfort zones safely." },
@@ -4600,11 +4602,11 @@ export const servicesData: Record<string, ServiceData> = {
       title: "CORPORATE DAYS",
       subtitle: "Training",
       tagline: "Where Work Meets Play, Teams Thrive",
-      backgroundImage: teamBuildingHero,
+      backgroundImage: corporateCarnivalHero,
     },
     overview: {
       description: "Transform ordinary workdays into extraordinary team experiences with our Corporate Days program. These specially designed full-day or half-day events blend professional development with engaging activities, creating the perfect balance of learning and fun. Whether you're celebrating milestones, reinforcing company culture, or simply giving your team a well-deserved break, Corporate Days deliver memorable experiences that boost morale and strengthen team bonds.",
-      backgroundImage: teamBuildingHero,
+      backgroundImage: corporateCarnivalHero,
     },
     features: [
       { icon: CalendarDays, title: "Flexible Formats", description: "Half-day, full-day, or custom durations to fit your schedule." },

@@ -18,7 +18,7 @@ const physicalActivities = [
   { name: "Nerfwar", slug: "nerfwar" },
   { name: "Running Man Adventure", slug: "running-man" },
   { name: "Sotong Game", slug: "sotong-game" },
-  { name: "Tag-tical Laser Teambuilding", slug: "tag-tical-laser-teambuilding" },
+  { name: "Tag-tical Laser", slug: "tag-tical-laser-teambuilding" },
   { name: "Treasure Heist", slug: "treasure-heist" },
 ];
 
@@ -91,7 +91,9 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: Dro
                 <div className="grid grid-cols-2 gap-8">
                   {subGroups.map((group) => (
                     <div key={group.title}>
-                      <div className="px-2 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                      <div className={`px-2 py-2 text-xs font-semibold uppercase tracking-wider ${
+                        group.title === "Physical" ? "text-primary" : group.title === "Virtual" ? "text-purple-600" : "text-muted-foreground"
+                      }`}>
                         {group.title}
                       </div>
                       <div className="grid grid-cols-2 gap-x-2">
@@ -173,13 +175,6 @@ export const Navbar = () => {
               About
             </Link>
             <NavDropdown
-              label="Retreats"
-              items={retreatServices}
-              isOpen={openDropdown === 'retreats'}
-              onToggle={() => handleDropdownToggle('retreats')}
-              onClose={handleDropdownClose}
-            />
-            <NavDropdown
               label="Team Building"
               items={[]}
               isOpen={openDropdown === 'team-building'}
@@ -189,6 +184,13 @@ export const Navbar = () => {
                 { title: "Physical", items: physicalActivities },
                 { title: "Virtual", items: virtualActivities },
               ]}
+            />
+            <NavDropdown
+              label="Retreats"
+              items={retreatServices}
+              isOpen={openDropdown === 'retreats'}
+              onToggle={() => handleDropdownToggle('retreats')}
+              onClose={handleDropdownClose}
             />
           </div>
 
@@ -220,7 +222,7 @@ export const Navbar = () => {
               Large-Scale Events
             </a>
             <a
-              href="https://encompass.sg"
+              href="https://encompasse.org"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium"
@@ -271,21 +273,6 @@ export const Navbar = () => {
                 About
               </Link>
               
-              {/* Retreats Section */}
-              <div className="border-t border-border pt-4">
-                <span className="text-primary text-sm font-semibold mb-2 block">Retreats</span>
-                {retreatServices.map((item) => (
-                  <Link
-                    key={item.slug}
-                    to={`/services/${item.slug}`}
-                    onClick={() => setIsOpen(false)}
-                    className="block text-foreground/70 hover:text-primary py-1.5 pl-4 text-sm"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-
               {/* Team Building Section */}
               <div className="border-t border-border pt-4">
                 <span className="text-primary text-sm font-semibold mb-2 block">Team Building - Physical</span>
@@ -302,8 +289,23 @@ export const Navbar = () => {
               </div>
 
               <div className="border-t border-border pt-4">
-                <span className="text-primary text-sm font-semibold mb-2 block">Team Building - Virtual</span>
+                <span className="text-purple-600 text-sm font-semibold mb-2 block">Team Building - Virtual</span>
                 {virtualActivities.map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={`/services/${item.slug}`}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-foreground/70 hover:text-primary py-1.5 pl-4 text-sm"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Retreats Section */}
+              <div className="border-t border-border pt-4">
+                <span className="text-primary text-sm font-semibold mb-2 block">Retreats</span>
+                {retreatServices.map((item) => (
                   <Link
                     key={item.slug}
                     to={`/services/${item.slug}`}
@@ -342,7 +344,7 @@ export const Navbar = () => {
                   Large-Scale Events →
                 </a>
                 <a
-                  href="https://encompass.sg"
+                  href="https://encompasse.org"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
