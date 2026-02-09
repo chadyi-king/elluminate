@@ -22,6 +22,7 @@ export default {
       colors: {
         border: "hsl(var(--border))",
         "border-accent": "hsl(var(--border-accent))",
+        "border-gold": "hsl(var(--border-accent))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: {
@@ -148,6 +149,9 @@ export default {
         "blue-intense": "0 8px 50px hsl(214, 100%, 56%, 0.25)",
         "soft": "0 2px 20px hsl(220, 20%, 10%, 0.08)",
         "card": "0 4px 20px hsl(220, 20%, 10%, 0.06)",
+        "gold": "0 4px 30px hsl(214, 100%, 56%, 0.15)",
+        "gold-soft": "0 2px 15px hsl(214, 100%, 56%, 0.1)",
+        "gold-intense": "0 8px 50px hsl(214, 100%, 56%, 0.25)",
       },
     },
   },

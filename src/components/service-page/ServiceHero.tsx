@@ -99,7 +99,7 @@ export const ServiceHero = ({ title, subtitle, tagline, backgroundImage }: Servi
               <Sparkles className="w-5 h-5 text-primary" />
             </motion.div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-black text-metallic-gold mb-8 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-black text-primary mb-8 leading-tight">
               {title}
             </h1>
             

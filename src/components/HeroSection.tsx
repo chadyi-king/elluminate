@@ -7,10 +7,6 @@ import { ConfettiBurst } from "./ConfettiBurst";
 import { PhotoWall } from "./hero/PhotoWall";
 import { RotatingWord, wordData } from "./hero/RotatingWord";
 import { ServicePills } from "./hero/ServicePills";
-import { DuotonePerson } from "./hero/DuotonePerson";
-import personCorporateWoman from "@/assets/hero/person-corporate-woman.png";
-import personStudent from "@/assets/hero/person-student.png";
-import personBusinessman from "@/assets/hero/person-businessman.png";
 
 // SPARK letters
 const sparkLetters = [
@@ -109,7 +105,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.9 }}
               className="flex flex-col items-center"
             >
-              <span className="text-foreground text-[4vw] sm:text-[3.5vw] md:text-[3vw] lg:text-[2.5vw] uppercase tracking-wide mb-2">WITHIN YOUR</span>
+              <span className="text-foreground text-[5vw] sm:text-[4vw] md:text-[3.5vw] lg:text-[3vw] uppercase tracking-wide mb-2">WITHIN YOUR</span>
               <motion.div layout className="flex justify-center">
                 <RotatingWord onWordChange={handleWordChange} />
               </motion.div>
@@ -162,31 +158,6 @@ export const HeroSection = () => {
               </Button>
             </motion.div>
           </motion.div>
-
-          {/* DuotonePerson Cutouts */}
-          <div className="relative w-full h-48 sm:h-64 md:h-72 lg:h-80 mb-4">
-            <DuotonePerson
-              image={personCorporateWoman}
-              position="left"
-              duotoneColor="hsl(214, 100%, 56%)"
-              glowColor="rgba(31, 124, 255, 0.3)"
-              delay={0.3}
-            />
-            <DuotonePerson
-              image={personStudent}
-              position="center"
-              duotoneColor="hsl(340, 82%, 52%)"
-              glowColor="rgba(236, 72, 153, 0.3)"
-              delay={0.5}
-            />
-            <DuotonePerson
-              image={personBusinessman}
-              position="right"
-              duotoneColor="hsl(160, 70%, 45%)"
-              glowColor="rgba(34, 197, 94, 0.3)"
-              delay={0.7}
-            />
-          </div>
 
           {/* Service Pills - Circular icons */}
           <ServicePills />

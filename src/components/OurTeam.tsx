@@ -75,7 +75,7 @@ export const OurTeam = () => {
           className="text-center mb-12"
         >
           <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
-            Our <span className="text-metallic-gold">Team</span>
+            Our <span className="text-primary">Team</span>
           </h2>
           <p className="text-muted-foreground/80 font-sans max-w-xl mx-auto text-sm">
             The passionate professionals behind every masterpiece experience.

@@ -22,7 +22,7 @@ export const ServiceMoments = ({ title, moments }: ServiceMomentsProps) => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-metallic-gold">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary">
             {title}
           </h2>
         </motion.div>

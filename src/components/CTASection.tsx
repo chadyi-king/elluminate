@@ -75,7 +75,7 @@ export const CTASection = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="border-white text-white hover:bg-white/10 font-display font-bold" 
+              className="border-white text-white hover:bg-white/10 font-display font-bold bg-transparent" 
               onClick={openContactModal}
             >
               Book a Consultation
