@@ -1,224 +1,172 @@
 
-# Comprehensive Website Refinement Plan
 
-This plan addresses all the issues identified during a thorough audit of every page, covering the hero banner, About page, service pages, divider strips, company ticker, gallery, testimonials, footer, and branding.
+# Unified Website Refinement Plan - All Remaining Tasks
 
----
-
-## 1. Homepage Hero Banner Improvements
-
-**Current state:** The hero has SPARK letters that change color with a rotating word, a photo wall background, and 4 lightbulb-shaped service pills at the bottom. The lightbulb icons are simple colored circles with a small trapezoid base.
-
-**Changes needed:**
-- Add three DuotonePerson cutouts (Corporate Woman/Blue, Student/Pink, Businessman/Green) from existing `src/assets/hero/` images, positioned at the bottom of the hero
-- Change SPARK letter colors to a fixed rainbow gradient (S=yellow, P=orange, A=pink, R=purple, K=green) instead of syncing to the rotating word
-- Improve the 4 lightbulb pills at the bottom:
-  - Make them look more like actual lightbulbs (add a glass-like inner glow effect, Edison-style filament appearance)
-  - Add a pulsing glow animation on hover
-  - Update labels: "Corporate Teambuilding", "School Programs", "Overseas Retreats", "Focused Trainings"
-
-**Files:** `src/components/HeroSection.tsx`, `src/components/hero/ServicePills.tsx`
+This plan combines the previously separated tasks with the service data improvements into a single comprehensive implementation.
 
 ---
 
-## 2. About Us Page Overhaul
+## Part A: Navigation Fixes
 
-**Current state:** Says "Team Elevate" throughout, tagline is "Where Moments Become Masterpieces" (old luxury branding), references old brand identity.
+**File: `src/components/Navbar.tsx`**
 
-**Changes needed:**
-- Update all "Team Elevate" references to "Elluminate"
-- New tagline: "Where Teams Come Alive" (fits the "Illuminate Your Teams" brand)
-- Update SEO title and canonical URL
-- Update Our Story text to reference Elluminate brand
-- Update "Singapore's Premier Corporate Event Specialists" to "Singapore's Most Eccentric Team Building Company"
-- Fix testimonials that say "Team Elevate" to say "Elluminate"
+1. **Swap Team Building and Retreats order** -- In the desktop left nav (lines 175-192), move the "Team Building" NavDropdown BEFORE the "Retreats" NavDropdown. Same swap in mobile menu (lines 274-316): move "Team Building - Physical" and "Team Building - Virtual" sections before "Retreats".
 
-**Files:** `src/pages/AboutPage.tsx`
+2. **Shorten "Tag-tical Laser Teambuilding"** -- Line 21: change `name: "Tag-tical Laser Teambuilding"` to `name: "Tag-tical Laser"`.
+
+3. **Fix School Events link** -- Lines 223 and 345: change `href="https://encompass.sg"` to `href="https://encompasse.org"`.
+
+4. **Color differentiation for Physical vs Virtual** -- In the mega-menu subGroups rendering (lines 91-110), style the "PHYSICAL" header text in primary blue and the "VIRTUAL" header text in purple/teal (e.g., `text-purple-600`) to visually distinguish the two columns.
 
 ---
 
-## 3. SEO Branding Fix (All Service Pages)
+## Part B: Homepage Hero - DuotonePerson Cutouts
 
-**Current state:** `ServicePage.tsx` line 66 says "Team Elevate" in SEO title, line 69 has `teamelevate.sg` as canonical URL.
+**File: `src/components/HeroSection.tsx`**
 
-**Changes:**
-- Title: `{service.hero.title} | Elluminate`
-- Canonical: `https://elluminate.sg/services/${slug}`
+Add three DuotonePerson cutouts from existing assets, positioned at the bottom of the hero between the CTA buttons and the ServicePills:
 
-**Files:** `src/pages/ServicePage.tsx`
-
----
-
-## 4. Service Page Hero - Themed Item on Left Side
-
-**Current state:** The hero split has a background image on the left and content on the right, but no distinctive themed prop/item.
-
-**Changes needed:** Add a floating themed graphic/icon element on the left side of each service hero. These will be large, semi-transparent SVG/icon elements that represent each activity:
-- Amazing Race: A race card / finish flag
-- CSI-Bones: Magnifying glass / chalk body outline
-- Cultural Race: Globe / cultural landmarks
-- Archery Tag: Bow and arrow with foam tip
-- Monopoly Dash: Dice / game board
-- GelBlitz: Gel blaster target
-- Nerfwar: Foam dart
-- Treasure Heist: Safe / treasure chest
-- Sotong Game: Circle-triangle-square shapes
-- Running Man: Running figure / name tag
-- Minute To Win It: Stopwatch / timer
-- Builder Cross: Building blocks / crane
-- Tag-tical Laser: Laser crosshair
-- MBTI/DISC/OCEAN: Brain / personality chart
-- Retreats: Suitcase / palm tree
-- Training services: Podium / microphone
-
-This will be implemented as a mapping of slug-to-icon in `ServiceHeroSplit.tsx`, using Lucide icons rendered at large scale with accent color and low opacity.
-
-**Files:** `src/components/service-page/ServiceHeroSplit.tsx`
+- Import `DuotonePerson` from `./hero/DuotonePerson`
+- Import person images: `person-corporate-woman.png` (left, blue), `person-student.png` (center, pink), `person-businessman.png` (right, green)
+- Add a relative container div wrapping the three DuotonePerson components
+- Position: left person at ~15% from left, center person at center, right person at ~15% from right
+- Each person has their themed duotone color and glow, with lightbulb icons above their heads
+- Adjust z-index so persons appear behind the text content but in front of the photo wall
 
 ---
 
-## 5. Company Events Ticker - Infinite Marquee
+## Part C: Homepage Section Color Variation
 
-**Current state:** The `ServiceRecentEventsTicker` uses a framer-motion animation that scrolls from 0% to -50% with doubled events. It works but runs out of items visually.
+Currently nearly every homepage section is white/very faint. Add alternating blue-tinted backgrounds to break up the monotony.
 
-**Changes needed:**
-- Triple or quadruple the events array for smoother infinite scrolling
-- Add more company names to each service's `recentEvents` (aim for 8-12 entries per service)
-- Ensure the animation loops seamlessly without visible gaps
+**Files to modify:**
 
-**Files:** `src/components/service-page/ServiceRecentEventsTicker.tsx`, `src/data/servicesData.ts` (add more recentEvents entries)
-
----
-
-## 6. Visibility Fixes (White-on-White, Yellow-on-Yellow)
-
-**Issues found:**
-- **Virtual Amazing Race:** Yellow accent color (#FFC400) used as text and background tints creates poor contrast in pricing section, package cards, and divider rails
-- **Treasure Heist:** Same yellow issue (#FFD400)
-- **Running Man Adventure:** Same yellow issue (#FFD400)
-- **Mass Talks:** Orange accent (#F59E0B) may have contrast issues on light backgrounds
-
-**Fix approach:** In the traffic light pricing cards and info bar, ensure accent-colored text has sufficient contrast. For yellow/orange accents, darken the text version or use the accent only for backgrounds with dark text.
-
-**Files:** `src/components/service-page/ServiceHowItWorksWithPricing.tsx` (add contrast-aware color handling for light accent colors)
+| Section | File | Current Background | New Background |
+|---------|------|-------------------|----------------|
+| SocialProofSection | `src/components/SocialProofSection.tsx` | `bg-gradient-to-b from-secondary/50 via-background to-secondary/30` | Keep (already has some color) |
+| ServicesSection | `src/components/ServicesSection.tsx` | `bg-gradient-to-b from-secondary/30 via-background to-secondary/20` | Add stronger blue tint: `from-primary/5 via-primary/3 to-primary/5` |
+| CaseStudiesSection | `src/components/CaseStudiesSection.tsx` | `bg-gradient-to-b from-secondary/30 via-background to-secondary/50` | Add blue-tinted background: `bg-gradient-to-b from-blue-50 via-primary/5 to-blue-50` |
+| GallerySection | `src/components/GallerySection.tsx` | `bg-gradient-to-b from-background via-secondary/30 to-background` | Keep as-is (already has variation) |
+| CTASection | `src/components/CTASection.tsx` | `bg-gradient-to-br from-primary via-primary to-sky-500` | Keep (already blue) -- verify button contrast: "Book a Consultation" has `text-white` on blue bg which is fine |
 
 ---
 
-## 7. Divider Strip Visual Enhancement
+## Part D: About Us Hero Banner Redesign
 
-**Current state:** All strips use CSS background patterns but most look very similar (faint lines/dots at low opacity). The user wants each to be visually distinctive and thematically relevant.
+**File: `src/pages/AboutPage.tsx`** (Section 1, lines 183-248)
 
-**Enhancements per strip:**
+Replace the current generic centered-text hero with a more dynamic split layout:
 
-| Strip | Current | Enhancement |
-|-------|---------|-------------|
-| PoliceTapeStrip | Yellow/black diagonal lines | Add repeating "CAUTION DO NOT CROSS" text, increase opacity to 0.6 |
-| MoneyStrip | Faint grid | Make green-tinted, add repeating "$" symbols in pattern, increase contrast |
-| ArrowStrip | Diagonal lines | Add actual arrow/chevron shapes (>>>) repeating |
-| VaultStrip | Diagonal lines | Add gear/dial/keyhole shapes, gold-tinted rails |
-| TimerStrip | Faint tick marks | Add clock-style tick marks, countdown numbers |
-| FoamDartStrip | Dotted markers | Add bullet/dart shapes, increase size/opacity |
-| BlueprintStrip | Grid lines | Add heavier grid with measurement markers |
-| RouteStrip | Route dots | Add checkpoint flags, dashed path pattern |
-| GelBeadsStrip | Scattered dots | Make dots larger, add splatter effect, increase color |
-| SquidStrip | Circle/triangle/square | Make shapes larger and bolder, increase opacity to 0.5 |
-| RaceTrackStrip | Checkered flag | Already distinct - minor opacity boost |
+- **Left side:** Bold headline "Where Teams Come Alive" with a gradient accent bar, animated stats badges (1000+ Events, 100K+ Participants, 8 Years), and the CTA button
+- **Right side:** A collage/grid of 3-4 event photos from existing assets (team celebration, outdoor team building, dinner dance, overseas retreat) with overlapping layout and subtle rotation
+- Add a subtle animated gradient background (blue-to-sky gradient with floating particles instead of GoldParticles)
+- Add the lightbulb brand icon as a large semi-transparent watermark behind the text
 
-**New strip needed:** `LaserStrip` for Tag-tical Laser Teambuilding (crosshair/beam pattern)
-
-**Files:** All files in `src/components/service-page/dividers/`, plus `ServiceDividerStrip.tsx` for the new laser variant, and `src/data/servicesData.ts` to assign it
+Also add alternating section backgrounds throughout the About page:
+- Section 3 (Mission/Vision/Values): Add `bg-primary/[0.03]` tint
+- Section 5 (Key Metrics): Add `bg-gradient-to-br from-primary/[0.08] via-primary/[0.03] to-transparent`
+- Testimonials section: Add subtle blue tint
 
 ---
 
-## 8. Missing Icon Mappings (Broken Add-on Icons)
+## Part E: Service Data Comprehensive Fixes
 
-**Current `iconMap` in `ServiceHowItWorksWithPricing.tsx` only has 8 icons.** Services reference 15+ icons that fall back to generic `Palette`.
+**File: `src/data/servicesData.ts`** (all targeted line-range edits)
 
-**Icons to add:** `FileText`, `Video`, `Users`, `Gamepad2`, `Dumbbell`, `Mic`, `Gift`, `Moon`, `Award`, `PenTool`, `Brain`, `Shield`, `Heart`, `Target`, `Puzzle`, `GraduationCap`, `Phone`, `ClipboardList`, `Flag`, `Clock`
+### E1. Global "Team Elevate" to "Elluminate" replacement
+Replace all ~75 occurrences of "Team Elevate" with "Elluminate" across all testimonials, overviews, and descriptions.
 
-**Files:** `src/components/service-page/ServiceHowItWorksWithPricing.tsx`
+### E2. Fix hero background images for training services
 
----
+| Service | Current | Fix To |
+|---------|---------|--------|
+| Mass Talks | `teamBuildingHero` | `summitsHero` |
+| Workshops | `teamBuildingHero` | `leadershipOffsiteHero` |
+| Youth Camps | `teamBuildingHero` | `familyFunDayHero` |
+| Corporate Days | `teamBuildingHero` | `corporateCarnivalHero` |
 
-## 9. Mini Gallery Expansion (3 to 7 Photos in Carousel)
+### E3. Add `dividerVariant: "laser"` to Tag-tical Laser service data
+Also update the `ServiceData` interface `dividerVariant` type union to include `"laser"`.
 
-**Current state:** `ServiceMiniGallery` shows only 3 images in a static grid (`images.slice(0, 3)`).
+### E4. Fix GelBlitz accent color
+Change `accentColor: "#2A8DFF"` to `accentColor: "#FF8A3D"` for gel-blitz entry.
 
-**Changes needed:**
-- Convert to an embla-carousel (already installed as dependency) showing up to 7 images
-- Mobile: 1 image at a time with swipe
-- Desktop: 3 visible with navigation arrows, carousel loops
-- Remove the `slice(0, 3)` limit
+### E5. Expand client logos and recent events for ALL services
+Every service should have 8-12 client names in `clientLogos` and 8-12 entries in `recentEvents`. Currently many physical activities have only 1-4 entries. Will add companies like DBS, Google, Shopee, Grab, Meta, Deloitte, Amazon, Singtel, NTUC, GovTech, Microsoft, Standard Chartered, HSBC, etc.
 
-**Files:** `src/components/service-page/ServiceMiniGallery.tsx`
+### E6. Enrich "What to Expect" copywriting
+Expand sparse step descriptions for: Archery Tag, GelBlitz, Nerfwar, Tag-tical Laser, Builder Cross, Running Man, Sotong Game, Minute To Win It. Each step gets 2-3 vivid sentences that paint a picture of the experience.
 
----
+### E7. Add testimonials for sparse services
+Expand from 1-3 to 5-6 testimonials per service for: Archery Tag, Builder Cross, GelBlitz, Minute To Win It, Monopoly Dash, Nerfwar, Running Man, Sotong Game, Tag-tical Laser.
 
-## 10. Testimonial Author Formatting
-
-**Current state:** Full names displayed (e.g., "Michelle Goh", "David Chen").
-
-**Changes needed:** Format as "First Name + Last Initial." (e.g., "Michelle G.", "David C.")
-- Apply in `ServiceTestimonialNew.tsx` display logic (format the author string before rendering)
-- Also update the About page testimonials similarly
-
-**Files:** `src/components/service-page/ServiceTestimonialNew.tsx`, `src/pages/AboutPage.tsx`
-
----
-
-## 11. Remove Social Media Links from Footer
-
-**Current state:** Footer has Facebook, LinkedIn, Instagram icons linking to "#".
-
-**Changes needed:** Remove the social links section entirely from the footer since no active social media accounts exist for Elluminate.
-
-**Files:** `src/components/Footer.tsx`
+### E8. Add FAQs for services with empty FAQ arrays
+Add 3-5 relevant FAQs covering group size, venue, safety, customization, and duration for: CSI-Bones, Cultural Race, Archery Tag, Builder Cross, GelBlitz, Minute To Win It, Monopoly Dash, Nerfwar, Running Man, Sotong Game, Tag-tical Laser.
 
 ---
 
-## 12. Remove "Travel Planning" from Navbar
+## Part F: Visibility/Contrast Fixes
 
-**Current state:** The Retreats dropdown includes "Travel Planning" which leads to a 404 page.
+**File: `src/components/service-page/ServiceHowItWorksWithPricing.tsx`**
 
-**Changes needed:** Remove the `travel-planning` entry from the `retreatServices` array in both desktop and mobile nav.
+Add a `getReadableTextColor` helper function that detects light accent colors (yellow, orange, amber) and returns a darkened version for text usage. This fixes:
+- Amazing Race (#FFC400) -- yellow text invisible on light backgrounds
+- Treasure Heist (#FFD400) -- same issue
+- Running Man (#FFD400) -- same issue
+- Tag-tical Laser (#FFC400) -- same issue
+- Mass Talks (#F59E0B) -- amber contrast issues
 
-**Files:** `src/components/Navbar.tsx`
+Apply the darkened color to: section header accent text, step number badges, info bar icons/text, and any accent-colored text on light backgrounds.
+
+### Adaptive "What to Expect" Grid Layout
+Update the grid column logic to be dynamic based on `steps.length`:
+- 1-2 items: `grid-cols-1 sm:grid-cols-2`
+- 3 items: `grid-cols-1 sm:grid-cols-3`
+- 4 items: `grid-cols-2`
+- 5+ items: `grid-cols-2 sm:grid-cols-3`
 
 ---
 
-## 13. Footer Branding Update
+## Part G: Elluminate Logo Concepts
 
-**Current state:** Footer description says "Team Elevate" and references old messaging. Also footer copyright says "Since 2017" but About page says "Since 2019."
+Generate logo ideas using the Lovable AI image generation capability. The logo should incorporate:
+- The lightbulb motif (brand = "illuminating" teams)
+- The double-L in "Elluminate" as a design feature
+- Primary blue (#1F7CFF) with optional yellow/gold accent
+- Clean, modern, professional styling
 
-**Changes needed:**
-- Ensure footer says "Elluminate" consistently
-- Correct founding year to match (use 2017 if that's accurate)
+This requires creating an edge function that calls the AI image generation model (e.g., `google/gemini-3-pro-image-preview`) to produce 3-4 logo variations. The generated images can be stored in file storage and displayed to the user for review.
 
-**Files:** `src/components/Footer.tsx`
+**Concept directions:**
+1. Lightbulb icon with "E" integrated into the filament
+2. Abstract double-L forming a lightbulb silhouette
+3. Minimalist "E" with a glowing spark accent at the top
+4. Wordmark "Elluminate" with the dot on the "i" replaced by a lightbulb
 
 ---
 
 ## Implementation Order
 
-1. **Branding fixes first** (SEO, About page, Footer) - quick wins, high impact
-2. **Icon mapping fix** - resolves broken visuals across all training/retreat pages
-3. **Navbar cleanup** - removes broken link
-4. **Social media removal** from footer
-5. **Testimonial formatting** - simple display logic change
-6. **Visibility/contrast fixes** - yellow-on-yellow and similar issues
-7. **Company ticker enhancement** - more companies, smoother infinite scroll
-8. **Divider strip visual enhancements** - all 11 strips + new LaserStrip
-9. **Mini gallery carousel** - expand from 3 to 7 with embla-carousel
-10. **Hero banner refinement** - DuotonePerson cutouts, rainbow SPARK, improved lightbulb pills
-11. **Service hero themed items** - floating icons on left side of each service hero
+1. Navigation fixes (Part A) -- quick, fixes broken links
+2. Service data fixes (Part E) -- bulk content improvements
+3. Contrast/visibility fixes (Part F) -- fixes unreadable text
+4. Homepage color variation (Part C) -- visual improvement
+5. Hero DuotonePerson cutouts (Part B) -- major hero visual
+6. About Us hero redesign (Part D) -- page-level improvement
+7. Logo generation (Part G) -- creative task, done last
 
 ---
 
-## Technical Notes
+## Summary of Files Modified
 
-- The `servicesData.ts` file is very large (4681 lines). Edits will be targeted to specific line ranges.
-- Divider strips are all self-contained components, each under 50 lines - straightforward to enhance.
-- The embla-carousel package is already installed and used in `src/components/ui/carousel.tsx`.
-- DuotonePerson component already exists with hover effects - just needs integration into HeroSection.
-- Logo generation is possible via Lovable AI image generation API but would require an edge function to call the API and store results. This can be a follow-up task.
-- All About page testimonials currently reference "Team Elevate" and need to be updated to "Elluminate".
+| File | Changes |
+|------|---------|
+| `src/components/Navbar.tsx` | Swap Team Building/Retreats, shorten Tag-tical, fix School Events link, Physical/Virtual color labels |
+| `src/components/HeroSection.tsx` | Add 3 DuotonePerson cutouts with imports |
+| `src/data/servicesData.ts` | Replace Team Elevate, fix hero images, fix GelBlitz color, add laser dividerVariant, expand clients/events/testimonials/FAQs/descriptions |
+| `src/components/service-page/ServiceHowItWorksWithPricing.tsx` | Add contrast helper, dynamic grid layout |
+| `src/components/ServicesSection.tsx` | Stronger blue tint background |
+| `src/components/CaseStudiesSection.tsx` | Blue tint background |
+| `src/pages/AboutPage.tsx` | Hero redesign with split layout, add section color tints |
+| New edge function (for logo) | AI image generation for logo concepts |
+
