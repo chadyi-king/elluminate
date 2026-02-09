@@ -33,7 +33,7 @@ export const RotatingWord = ({ onWordChange }: RotatingWordProps) => {
   }, []);
 
   return (
-    <span className="inline-block relative min-w-[180px] sm:min-w-[220px] md:min-w-[280px]">
+    <span className="inline-block relative min-w-[50vw] sm:min-w-[45vw] md:min-w-[40vw]">
       <AnimatePresence mode="wait">
         <motion.span
           key={currentIndex}
@@ -41,11 +41,11 @@ export const RotatingWord = ({ onWordChange }: RotatingWordProps) => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -30, scale: 0.9 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="inline-block px-3 py-1 rounded-lg font-black"
+          className="inline-block px-4 py-1 sm:px-6 sm:py-2 rounded-xl font-black text-[14vw] sm:text-[12vw] md:text-[11vw] lg:text-[10vw] leading-none"
           style={{
             backgroundColor: wordData[currentIndex].color,
             color: "white",
-            textShadow: "0 2px 10px rgba(0,0,0,0.2)",
+            textShadow: "0 4px 20px rgba(0,0,0,0.3)",
           }}
         >
           {wordData[currentIndex].text}

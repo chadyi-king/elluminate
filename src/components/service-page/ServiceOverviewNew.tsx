@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { getReadableTextColor } from "@/lib/colorUtils";
 
 interface ServiceOverviewNewProps {
   description: string;
@@ -49,10 +50,10 @@ export const ServiceOverviewNew = ({ description, accentColor, accentColorSecond
           <h2 
             className="text-3xl md:text-4xl font-display font-bold mb-6"
             style={{ 
-              background: gradient,
-              WebkitBackgroundClip: 'text',
+              background: accentColorSecondary ? gradient : undefined,
+              WebkitBackgroundClip: accentColorSecondary ? 'text' : undefined,
               WebkitTextFillColor: accentColorSecondary ? 'transparent' : undefined,
-              color: accentColorSecondary ? undefined : accentColor
+              color: accentColorSecondary ? undefined : getReadableTextColor(accentColor)
             }}
           >
             What's Inside

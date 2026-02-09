@@ -26,7 +26,7 @@ export const ServiceOverview = ({ description, backgroundImage }: ServiceOvervie
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-metallic-gold mb-8">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-8">
             Service Overview
           </h2>
           <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">

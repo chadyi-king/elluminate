@@ -481,7 +481,7 @@ const AboutPage = () => {
             >
               <div className="text-center mb-10">
                 <h3 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
-                  Our <span className="text-metallic-gold">Values</span>
+                  Our <span className="text-primary">Values</span>
                 </h3>
                 <p className="text-muted-foreground/80 font-sans max-w-xl mx-auto text-sm">
                   These are the principles that guide how we craft every experience for you.
@@ -546,7 +546,7 @@ const AboutPage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
-              What Makes Us <span className="text-metallic-gold">Different</span>
+              What Makes Us <span className="text-primary">Different</span>
             </h2>
           </motion.div>
 
@@ -599,7 +599,7 @@ const AboutPage = () => {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="text-4xl md:text-5xl font-display font-semibold text-metallic-gold mb-2">
+              <div className="text-4xl md:text-5xl font-display font-semibold text-primary mb-2">
                 {eventsCounter.count.toLocaleString()}+
               </div>
               <p className="text-muted-foreground/80 font-sans text-sm">Events Delivered</p>
@@ -613,7 +613,7 @@ const AboutPage = () => {
               transition={{ delay: 0.1 }}
               className="text-center"
             >
-              <div className="text-4xl md:text-5xl font-display font-semibold text-metallic-gold mb-2">
+              <div className="text-4xl md:text-5xl font-display font-semibold text-primary mb-2">
                 {participantsCounter.count.toLocaleString()}+
               </div>
               <p className="text-muted-foreground/80 font-sans text-sm">Participants Engaged</p>
@@ -627,7 +627,7 @@ const AboutPage = () => {
               transition={{ delay: 0.2 }}
               className="text-center"
             >
-              <div className="text-4xl md:text-5xl font-display font-semibold text-metallic-gold mb-2 flex items-center justify-center gap-2">
+              <div className="text-4xl md:text-5xl font-display font-semibold text-primary mb-2 flex items-center justify-center gap-2">
                 4.8 <Star className="w-8 h-8 fill-primary text-primary" />
               </div>
               <p className="text-muted-foreground/80 font-sans text-sm">{reviewsCounter.count}+ Reviews</p>
@@ -641,7 +641,7 @@ const AboutPage = () => {
               transition={{ delay: 0.3 }}
               className="text-center"
             >
-              <div className="text-4xl md:text-5xl font-display font-semibold text-metallic-gold mb-2">
+              <div className="text-4xl md:text-5xl font-display font-semibold text-primary mb-2">
                 {yearsCounter.count}
               </div>
               <p className="text-muted-foreground/80 font-sans text-sm">Years of Excellence</p>
@@ -672,7 +672,7 @@ const AboutPage = () => {
             className="text-center mb-10"
           >
             <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
-              Trusted By <span className="text-metallic-gold">Leading Brands</span>
+              Trusted By <span className="text-primary">Leading Brands</span>
             </h2>
           </motion.div>
 
@@ -732,7 +732,7 @@ const AboutPage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
-              What Our <span className="text-metallic-gold">Clients Say</span>
+              What Our <span className="text-primary">Clients Say</span>
             </h2>
           </motion.div>
 
@@ -828,7 +828,7 @@ const AboutPage = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-2xl md:text-4xl font-display font-medium text-foreground mb-4">
-              Ready to <span className="text-metallic-gold">Illuminate</span> Your Next Event?
+              Ready to <span className="text-primary">Illuminate</span> Your Next Event?
             </h2>
             <p className="text-muted-foreground/80 font-sans mb-8">
               Let's turn your next gathering into an unforgettable experience of connection and impact.

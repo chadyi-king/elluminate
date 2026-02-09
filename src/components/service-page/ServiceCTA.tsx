@@ -71,7 +71,7 @@ export const ServiceCTA = ({ headline, subtext }: ServiceCTAProps) => {
             <Sparkles className="w-5 h-5 text-primary" />
           </motion.div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-black text-metallic-gold mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-black text-primary mb-6 leading-tight">
             {headline}
           </h2>
           

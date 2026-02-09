@@ -34,7 +34,7 @@ export const PortfolioCTA = ({ onOpenContact }: PortfolioCTAProps) => {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-metallic-gold mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
             Ready to Elevate Your Next Event?
           </h2>
           

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
+import { getReadableTextColor } from "@/lib/colorUtils";
 
 export interface PillItem {
   icon: LucideIcon;
@@ -49,7 +50,7 @@ export const ServicePillsSection = ({
         >
           <p
             className="text-xs tracking-[0.3em] uppercase font-display mb-3 font-medium"
-            style={{ color: accentColor }}
+            style={{ color: getReadableTextColor(accentColor) }}
           >
             {sectionTitle}
           </p>

@@ -105,7 +105,7 @@ export const FeaturedCaseStudies = ({ filter }: FeaturedCaseStudiesProps) => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-metallic-gold mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
             Featured Case Studies
           </h2>
           <motion.div 

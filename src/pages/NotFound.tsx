@@ -26,7 +26,7 @@ const NotFound = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-8xl md:text-9xl font-serif text-metallic-gold mb-4">404</h1>
+          <h1 className="text-8xl md:text-9xl font-serif text-primary mb-4">404</h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8">
             This page seems to have vanished into the spotlight
           </p>

@@ -28,7 +28,7 @@ const ServicePage = () => {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-display font-bold text-metallic-gold mb-4">Service Not Found</h1>
+          <h1 className="text-4xl font-display font-bold text-primary mb-4">Service Not Found</h1>
           <Link to="/" className="text-primary hover:underline">
             Return Home
           </Link>

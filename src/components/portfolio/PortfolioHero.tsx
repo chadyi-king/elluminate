@@ -34,7 +34,7 @@ export const PortfolioHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-metallic-gold mb-6"
+          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-primary mb-6"
         >
           Our Masterpieces
         </motion.h1>

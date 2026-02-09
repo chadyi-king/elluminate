@@ -76,7 +76,7 @@ export const TestimonialWall = () => {
               <Star key={i} className="w-6 h-6 text-primary fill-primary" />
             ))}
           </div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-metallic-gold mb-2">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-2">
             4.8 / 600+ Verified Google Reviews
           </h2>
           <motion.div 
