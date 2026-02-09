@@ -2,13 +2,13 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { GoldParticles } from "@/components/GoldParticles";
+import { FloatingBlobs } from "@/components/FloatingBlobs";
 import { OurTeam } from "@/components/OurTeam";
 import { SEO } from "@/components/SEO";
 import { 
   Target, Eye, Heart, Sparkles, Award, Zap, 
   Users, Lightbulb, Palette, Mic, Film, Star,
-  Quote, Rocket, Globe
+  Quote, Rocket, Globe, ArrowRight
 } from "lucide-react";
 
 // Import generated event photos
@@ -179,71 +179,167 @@ const AboutPage = () => {
       />
       <Navbar />
       
-      {/* SECTION 1 - HERO BANNER - Elegant with smaller text */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-16">
-        {/* Background Image - Asian corporate event setting */}
-        <div className="absolute inset-0">
-          <img
-            src={teamCelebration}
-            alt="Corporate Event"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
+      {/* SECTION 1 - HERO BANNER - Dynamic Split Layout */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20 pb-16">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.08] via-background to-sky-500/[0.06]" />
+        <FloatingBlobs opacity={0.08} className="z-0" />
+        
+        {/* Large lightbulb watermark */}
+        <div className="absolute left-[5%] top-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none z-0">
+          <Lightbulb className="w-[400px] h-[400px] md:w-[500px] md:h-[500px] text-primary" strokeWidth={0.5} />
         </div>
         
-        <div className="absolute inset-0">
-          <GoldParticles />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-t from-primary/15 via-primary/5 to-transparent blur-3xl" />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="max-w-3xl mx-auto"
-          >
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-primary/80 text-sm tracking-[0.3em] uppercase font-display mb-6"
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
+            {/* Left Side - Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              About Us
-            </motion.p>
-            
-            <motion.h1 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-display font-medium mb-4 leading-tight tracking-wide"
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-primary text-sm tracking-[0.3em] uppercase font-display mb-4"
+              >
+                About Elluminate
+              </motion.p>
+              
+              {/* Gradient accent bar */}
+              <div className="w-16 h-1 bg-gradient-to-r from-primary via-sky-400 to-primary rounded-full mb-6" />
+              
+              <motion.h1 
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-[1.1] tracking-tight"
+              >
+                <span className="text-foreground">Where Teams</span>
+                <br />
+                <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">Come Alive</span>
+              </motion.h1>
+              
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-lg text-muted-foreground/90 font-sans mb-8 max-w-md leading-relaxed"
+              >
+                Singapore's most eccentric team building company — crafting unforgettable corporate experiences since 2017.
+              </motion.p>
+
+              {/* Stats Badges */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="flex flex-wrap gap-3 mb-8"
+              >
+                {[
+                  { value: "1000+", label: "Events" },
+                  { value: "100K+", label: "Participants" },
+                  { value: "8", label: "Years" },
+                ].map((stat, i) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
+                    className="flex items-center gap-2 bg-card/60 backdrop-blur-sm border border-primary/20 rounded-full px-4 py-2 shadow-sm"
+                  >
+                    <span className="text-lg font-display font-bold text-primary">{stat.value}</span>
+                    <span className="text-xs text-muted-foreground font-sans">{stat.label}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+              
+              <motion.a
+                href="/#contact"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-sky-500 text-primary-foreground font-display font-medium text-sm tracking-wider rounded-full shadow-blue hover:shadow-blue-intense transition-all duration-500 group"
+              >
+                Plan Your Event With Us
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </motion.a>
+            </motion.div>
+
+            {/* Right Side - Photo Collage */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              className="relative h-[400px] md:h-[500px] lg:h-[550px] hidden md:block"
             >
-              <span className="text-foreground">Where Teams Come</span>
-              <br />
-              <span className="text-metallic-gold font-semibold">Alive</span>
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-base text-muted-foreground/90 font-sans mb-8"
-            >
-              Singapore's Most Eccentric Team Building Company
-            </motion.p>
-            
-            <motion.a
-              href="/#contact"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary via-primary-ember to-primary text-primary-foreground font-display font-medium text-sm tracking-wider rounded-full shadow-gold hover:shadow-gold-intense hover:bg-background hover:text-primary border border-transparent hover:border-primary transition-all duration-500"
-            >
-              Plan Your Event With Us
-            </motion.a>
-          </motion.div>
+              {/* Main large photo */}
+              <motion.div
+                className="absolute top-0 right-0 w-[65%] h-[65%] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 z-20"
+                whileHover={{ scale: 1.02, rotate: 0 }}
+                initial={{ rotate: 2 }}
+                animate={{ rotate: 2 }}
+              >
+                <img
+                  src={teamCelebration}
+                  alt="Team Celebration"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+              </motion.div>
+
+              {/* Bottom-left photo */}
+              <motion.div
+                className="absolute bottom-4 left-0 w-[50%] h-[50%] rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 z-30"
+                whileHover={{ scale: 1.02, rotate: 0 }}
+                initial={{ rotate: -3 }}
+                animate={{ rotate: -3 }}
+              >
+                <img
+                  src={teamBuildingOutdoor}
+                  alt="Outdoor Team Building"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-sky-500/20 to-transparent" />
+              </motion.div>
+
+              {/* Top-left smaller photo */}
+              <motion.div
+                className="absolute top-8 left-[5%] w-[40%] h-[35%] rounded-xl overflow-hidden shadow-lg border-2 border-white/20 z-10"
+                whileHover={{ scale: 1.02, rotate: 0 }}
+                initial={{ rotate: -2 }}
+                animate={{ rotate: -2 }}
+              >
+                <img
+                  src={dinnerDance}
+                  alt="Dinner & Dance"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/15 to-transparent" />
+              </motion.div>
+
+              {/* Bottom-right accent photo */}
+              <motion.div
+                className="absolute bottom-0 right-[5%] w-[35%] h-[30%] rounded-xl overflow-hidden shadow-lg border-2 border-white/20 z-10"
+                whileHover={{ scale: 1.02, rotate: 0 }}
+                initial={{ rotate: 3 }}
+                animate={{ rotate: 3 }}
+              >
+                <img
+                  src={overseasRetreat}
+                  alt="Overseas Retreat"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-sky-500/15 to-transparent" />
+              </motion.div>
+
+              {/* Decorative glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-to-r from-primary/15 to-sky-400/15 rounded-full blur-3xl -z-10" />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -315,7 +411,7 @@ const AboutPage = () => {
       <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
       {/* SECTION 3 - MISSION, VISION & VALUES */}
-      <section className="py-24 relative">
+      <section className="py-24 relative bg-primary/[0.03]">
         {/* Background */}
         <div className="absolute inset-0">
           <img
@@ -482,7 +578,7 @@ const AboutPage = () => {
       <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
       {/* SECTION 5 - KEY METRICS */}
-      <section className="py-24 relative">
+      <section className="py-24 relative bg-gradient-to-br from-primary/[0.08] via-primary/[0.03] to-transparent">
         {/* Background */}
         <div className="absolute inset-0">
           <img
@@ -618,7 +714,7 @@ const AboutPage = () => {
       <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
       {/* SECTION 7 - TESTIMONIALS */}
-      <section className="py-24 relative">
+      <section className="py-24 relative bg-primary/[0.02]">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1920&h=1080&fit=crop"
