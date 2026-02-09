@@ -8,7 +8,7 @@ interface PoliceTapeStripProps {
   className?: string;
 }
 
-/** CSI-themed divider: warning/police tape vibe. */
+/** CSI-themed divider: bold warning/police tape with "CAUTION" text. */
 export const PoliceTapeStrip = ({
   direction = "downRight",
   accentColor,
@@ -19,25 +19,36 @@ export const PoliceTapeStrip = ({
   return (
     <div className={"relative -mx-4 my-10 overflow-hidden " + (className ?? "")}>
       <div aria-hidden className="relative h-14 w-[120%] -translate-x-[10%]" style={{ transform: rotation }}>
+        {/* Black/yellow diagonal stripe background */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "repeating-linear-gradient(45deg, hsl(var(--foreground)) 0 18px, hsl(var(--background)) 18px 36px)",
-            opacity: 0.9,
+              "repeating-linear-gradient(45deg, #000 0 14px, #FFD600 14px 28px)",
+            opacity: 0.85,
           }}
         />
 
-        <div className="absolute left-0 right-0 top-2 h-[6px]" style={{ backgroundColor: accentColor }} />
-        <div className="absolute left-0 right-0 bottom-2 h-[6px]" style={{ backgroundColor: accentColor }} />
+        {/* Accent color rails */}
+        <div className="absolute left-0 right-0 top-1 h-[6px]" style={{ backgroundColor: accentColor }} />
+        <div className="absolute left-0 right-0 bottom-1 h-[6px]" style={{ backgroundColor: accentColor }} />
 
+        {/* Repeating "CAUTION" text overlay */}
         <div
-          className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-6 opacity-70"
-          style={{
-            backgroundImage:
-              `repeating-linear-gradient(90deg, transparent 0 26px, ${accentColor} 26px 27px)`,
-          }}
-        />
+          className="absolute inset-0 flex items-center overflow-hidden"
+        >
+          <div className="whitespace-nowrap animate-[marquee_20s_linear_infinite] flex gap-0">
+            {Array.from({ length: 20 }).map((_, i) => (
+              <span
+                key={i}
+                className="text-xs font-black tracking-[0.3em] uppercase mx-8"
+                style={{ color: "#FFD600", textShadow: "1px 1px 2px rgba(0,0,0,0.8)" }}
+              >
+                ⚠ CAUTION DO NOT CROSS ⚠
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -12,6 +12,13 @@ interface ServiceTestimonialNewProps {
   accentColor: string;
 }
 
+// Format "Michelle Goh" → "Michelle G."
+const formatAuthorName = (name: string) => {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length <= 1) return name;
+  return `${parts[0]} ${parts[parts.length - 1][0]}.`;
+};
+
 export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTestimonialNewProps) => {
   return (
     <section className="py-24 relative overflow-hidden bg-gray-900">
@@ -100,7 +107,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTest
                 style={{ borderColor: `${accentColor}20` }}
               >
                 <p className="font-display font-bold text-white text-sm">
-                  {testimonial.author}
+                  {formatAuthorName(testimonial.author)}
                 </p>
                 <p className="text-xs text-gray-400">
                   {testimonial.company}

@@ -1,4 +1,11 @@
 import { motion } from "framer-motion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface ServiceMiniGalleryProps {
   title?: string;
@@ -16,26 +23,37 @@ export const ServiceMiniGallery = ({
           {title}
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {images.slice(0, 3).map((img, i) => (
-            <motion.div
-              key={img.alt}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="relative overflow-hidden rounded-2xl border bg-card"
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                className="h-56 w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-            </motion.div>
-          ))}
-        </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {images.slice(0, 7).map((img, i) => (
+              <CarouselItem key={img.alt} className="pl-4 basis-full md:basis-1/3">
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  className="relative overflow-hidden rounded-2xl border bg-card"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    className="h-56 w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                </motion.div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex -left-4" />
+          <CarouselNext className="hidden md:flex -right-4" />
+        </Carousel>
       </div>
     </section>
   );

@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
+import { 
+  Flag, Search, Globe, Target, Dice5, Crosshair, Zap,
+  Trophy, Timer, Blocks, Shapes, MapPin, Lock,
+  Brain, Palmtree, Briefcase, Mic, Users, BookOpen,
+  Tent, CalendarDays, Monitor
+} from "lucide-react";
 
 interface ServiceHeroSplitProps {
   title: string;
@@ -9,7 +15,39 @@ interface ServiceHeroSplitProps {
   backgroundImage: string;
   accentColor: string;
   accentColorSecondary?: string;
+  slug?: string;
 }
+
+// Map service slugs to themed icons
+const serviceIconMap: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+  "amazing-race": Flag,
+  "csi-bones": Search,
+  "cultural-race": Globe,
+  "archery-tag": Target,
+  "monopoly-dash": Dice5,
+  "gel-blitz": Crosshair,
+  "nerfwar": Zap,
+  "treasure-heist": Lock,
+  "sotong-game": Shapes,
+  "running-man": MapPin,
+  "minute-to-win-it": Timer,
+  "builder-cross": Blocks,
+  "tag-tical-laser-teambuilding": Crosshair,
+  "mbti": Brain,
+  "disc": Brain,
+  "ocean": Brain,
+  "overseas-retreats": Palmtree,
+  "local-retreats": Tent,
+  "mass-talks": Mic,
+  "workshops": BookOpen,
+  "youth-camps": Tent,
+  "corporate-days": CalendarDays,
+  "leadership-offsites": Briefcase,
+  // Virtual fallback
+  "amazing-race-virtual": Monitor,
+  "fit-in-your-team-virtual": Users,
+  "the-gameshow-experience-virtual": Trophy,
+};
 
 // Helper to create gradient or solid color
 const getAccentGradient = (primary: string, secondary?: string) => 
@@ -21,10 +59,12 @@ export const ServiceHeroSplit = ({
   tagline, 
   backgroundImage,
   accentColor,
-  accentColorSecondary
+  accentColorSecondary,
+  slug
 }: ServiceHeroSplitProps) => {
   const { openContactModal } = useContactModal();
   const gradient = getAccentGradient(accentColor, accentColorSecondary);
+  const ThemedIcon = slug ? serviceIconMap[slug] : null;
   
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background">
@@ -34,28 +74,43 @@ export const ServiceHeroSplit = ({
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
-        {/* Dark overlay - fixed for visibility */}
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/60 to-black/60" />
         
-        {/* Accent color tinted overlay */}
         <div 
           className="absolute inset-0 opacity-15"
           style={{ background: `linear-gradient(135deg, ${accentColor}40 0%, transparent 50%)` }}
         />
       </div>
 
-      {/* Left side - Decorative Image Area */}
+      {/* Left side - Decorative Image Area with Themed Icon */}
       <div className="hidden lg:block absolute left-0 top-0 w-1/2 h-full">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
-        {/* Gradient fade to right */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/70 to-black/70" />
-        
-        {/* Vignette effect */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)]" />
+
+        {/* Floating themed icon */}
+        {ThemedIcon && (
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <motion.div
+              animate={{ y: [0, -15, 0], rotate: [0, 3, -3, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ThemedIcon
+                className="w-32 h-32 md:w-40 md:h-40"
+                style={{ color: accentColor, opacity: 0.25, filter: `drop-shadow(0 0 30px ${accentColor}40)` }}
+              />
+            </motion.div>
+          </motion.div>
+        )}
       </div>
 
       {/* Right side - Content */}
@@ -83,7 +138,7 @@ export const ServiceHeroSplit = ({
           />
         ))}
 
-        {/* Spotlight glow with accent color (or gradient) */}
+        {/* Spotlight glow */}
         <motion.div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full blur-[120px]"
           style={{ background: accentColorSecondary 
@@ -124,7 +179,7 @@ export const ServiceHeroSplit = ({
               "{tagline}"
             </p>
 
-            {/* Shimmer effect divider with accent color (or gradient) */}
+            {/* Shimmer effect divider */}
             <motion.div 
               className="w-24 h-0.5 mb-10"
               style={{ background: accentColorSecondary 

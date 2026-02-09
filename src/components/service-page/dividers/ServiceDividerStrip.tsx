@@ -10,6 +10,7 @@ import { BlueprintStrip } from "@/components/service-page/dividers/BlueprintStri
 import { RouteStrip } from "@/components/service-page/dividers/RouteStrip";
 import { GelBeadsStrip } from "@/components/service-page/dividers/GelBeadsStrip";
 import { SquidStrip } from "@/components/service-page/dividers/SquidStrip";
+import { LaserStrip } from "@/components/service-page/dividers/LaserStrip";
 
 export type DividerVariant =
   | "raceTrack"
@@ -22,7 +23,8 @@ export type DividerVariant =
   | "blueprint"
   | "route"
   | "gelBeads"
-  | "squid";
+  | "squid"
+  | "laser";
 
 export type DividerDirection = "downRight" | "downLeft";
 
@@ -60,6 +62,8 @@ export const ServiceDividerStrip = ({
       return <GelBeadsStrip direction={direction} accentColor={accentColor} className={className} />;
     case "squid":
       return <SquidStrip direction={direction} accentColor={accentColor} className={className} />;
+    case "laser":
+      return <LaserStrip direction={direction} accentColor={accentColor} className={className} />;
     case "raceTrack":
     default:
       return <RaceTrackStrip direction={direction} accentColor={accentColor} className={className} />;

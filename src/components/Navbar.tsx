@@ -38,7 +38,6 @@ const virtualActivities = [
 const retreatServices = [
   { name: "Overseas Retreats", slug: "overseas-retreats" },
   { name: "Local Retreats", slug: "local-retreats" },
-  { name: "Travel Planning", slug: "travel-planning" },
 ];
 
 // Training
