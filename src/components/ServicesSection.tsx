@@ -319,7 +319,7 @@ export const ServicesSection = () => {
   return (
     <section id="services" className="py-24 relative overflow-hidden">
       {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-background to-secondary/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-primary/[0.03] to-primary/5" />
       
       {/* Floating blobs */}
       <FloatingBlobs opacity={0.06} />
