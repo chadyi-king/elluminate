@@ -76,11 +76,12 @@ export const PhotoWall = () => {
                 key={photoIndex}
                 className="relative w-full aspect-[3/4] rounded-lg overflow-hidden"
               >
-                <img
+              <img
                   src={photo}
                   alt={`Event photo ${photoIndex + 1}`}
                   className="w-full h-full object-cover"
-                  loading="lazy"
+                  loading={photoIndex < 3 ? "eager" : "lazy"}
+                  {...(photoIndex === 0 ? { fetchPriority: "high" as const } : {})}
                 />
               </div>
             ))}
