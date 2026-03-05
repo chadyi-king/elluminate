@@ -1,128 +1,127 @@
 
-# Hero Fix + Site-Wide Visibility Sweep
 
-This plan covers three main areas: reverting the hero cutouts, enlarging the rotating word, and a comprehensive visibility fix across the entire site.
+# Comprehensive SEO Overhaul + Blog for elluminate.sg
 
----
+## Part 1: SEO Preparation (Comprehensive)
 
-## 1. Remove DuotonePerson Cutouts from Homepage Hero
+### Current Gaps
+- All meta tags still say "Team Elevate" with old URLs (teamelevate.sg/teamelevate.com)
+- Zero structured data (JSON-LD) -- no Organization, LocalBusiness, Service, or BreadcrumbList schemas
+- No sitemap.xml
+- No FAQ schema on service pages (you have FAQ data in servicesData but it's not marked up)
+- No breadcrumbs component or markup
+- OG images point to lovable.dev placeholder
 
-**File: `src/components/HeroSection.tsx`**
+### Changes
 
-- Remove the DuotonePerson import (line 10) and the three person image imports (lines 11-13)
-- Remove the entire "DuotonePerson Cutouts" block (lines 166-189) -- the `<div className="relative w-full h-48...">` with all three `<DuotonePerson>` components inside
-- This reverts the hero to just: headline, subtitle, CTA buttons, then ServicePills
+**1. Rebrand all meta tags to Elluminate / elluminate.sg**
 
----
+| File | Change |
+|------|--------|
+| `index.html` | Title, description, author, OG, Twitter, canonical all to Elluminate + elluminate.sg |
+| `src/components/SEO.tsx` | Default props, `og:site_name`, author, `includes("Elluminate")` check |
+| `src/pages/Index.tsx` | Already says Elluminate -- just verify canonical |
+| `src/pages/PortfolioPage.tsx` | Canonical to elluminate.sg/portfolio |
+| `src/pages/AboutPage.tsx` | Canonical to elluminate.sg/about |
 
-## 2. Make Rotating Word Much Bigger
+**2. JSON-LD Structured Data (new component: `src/components/StructuredData.tsx`)**
 
-The rotating word (TEAM, SCHOOL, CLASS, WORKPLACE, SELF) is currently small (inherited text size ~3-4vw). The SPARK letters are `text-[20vw]` on mobile down to `text-[14vw]` on desktop. The rotating word should match that scale.
+Inject schema.org markup for every page type:
 
-**File: `src/components/hero/RotatingWord.tsx`**
+- **Organization schema** (global, on every page): name, url, logo, contactPoint, address, sameAs
+- **LocalBusiness schema** (homepage): extends Organization with geo coordinates, openingHours, priceRange
+- **Service schema** (each service page): name, description, provider, areaServed, offers (price from servicesData.pricing)
+- **FAQPage schema** (service pages with FAQs): question/answer pairs from servicesData.faqs
+- **BreadcrumbList schema** (all pages): Home > Services > {Service Name}
+- **WebSite schema** (homepage): potentialAction with SearchAction for site search
 
-- Change the outer `<span>` min-width from `min-w-[180px] sm:min-w-[220px] md:min-w-[280px]` to much larger values to accommodate the bigger text: `min-w-[50vw] sm:min-w-[45vw] md:min-w-[40vw]`
-- Add massive font sizing to the inner `<motion.span>`: `text-[14vw] sm:text-[12vw] md:text-[11vw] lg:text-[10vw]` -- slightly smaller than SPARK but still massive
-- Keep the colored background pill style but ensure it scales properly with larger padding
+**3. Sitemap generation (`public/sitemap.xml`)**
 
-**File: `src/components/HeroSection.tsx`**
+Static XML sitemap listing all routes: homepage, about, portfolio, and every service slug from servicesData. Each entry has `<loc>`, `<lastmod>`, `<changefreq>`, `<priority>`.
 
-- Update the "WITHIN YOUR" text size to be slightly bigger to bridge the gap: change from `text-[4vw] sm:text-[3.5vw] md:text-[3vw] lg:text-[2.5vw]` to `text-[5vw] sm:text-[4vw] md:text-[3.5vw] lg:text-[3vw]`
+**4. Update `public/robots.txt`**
 
----
+Add `Sitemap: https://elluminate.sg/sitemap.xml` directive.
 
-## 3. Fix `text-metallic-gold` -- NOT DEFINED (Critical)
+**5. Breadcrumbs component (`src/components/Breadcrumbs.tsx`)**
 
-`text-metallic-gold` is used in **160 places across 24 files** but is NOT defined in tailwind.config.ts or index.css. This means those elements render with no color applied (inheriting default/transparent), causing invisible text in many places.
+Lightweight breadcrumb nav rendered on service pages and about/portfolio. Visible to users AND marked up with BreadcrumbList JSON-LD. This is a top SEO signal used by Google's rich results.
 
-**Fix approach:** Replace all `text-metallic-gold` with `text-primary` (the brand blue) across all files. This is the correct brand color for headlines.
+**6. Service page SEO enrichment**
 
-**Files affected (24 files):**
-- `src/pages/AboutPage.tsx` (10 occurrences)
-- `src/components/service-page/ServiceGallery.tsx`
-- `src/components/service-page/ServiceOverview.tsx`
-- `src/components/service-page/ServiceCTA.tsx`
-- `src/components/service-page/ServiceHero.tsx`
-- `src/components/service-page/ServiceMoments.tsx`
-- `src/components/service-page/ServiceBenefits.tsx`
-- `src/components/service-page/ServiceTimeline.tsx`
-- `src/components/portfolio/PortfolioCTA.tsx`
-- `src/components/portfolio/FeaturedCaseStudies.tsx`
-- `src/components/portfolio/PhotoGallery.tsx`
-- `src/pages/ServicePage.tsx`
-- And ~12 more files
+- Each service page already has keywords in ServicePage.tsx but they're incomplete. Expand the `serviceKeywords` record to cover ALL service slugs (treasure-heist, archery-tag, etc.)
+- Meta descriptions should be richer -- use the first 155 chars of overview but also append "Singapore" and key terms
 
----
+**7. Alt text audit on images**
 
-## 4. Fix `shadow-gold` Variants -- NOT DEFINED
-
-`shadow-gold`, `shadow-gold-soft`, `shadow-gold-intense` are used in ~54 places across 5 files but are NOT defined in tailwind.config.ts. These won't cause invisible text but they should have proper shadow definitions.
-
-**Fix in `tailwind.config.ts`:** Add shadow definitions mapped to the primary blue brand color:
-- `shadow-gold` -> `0 4px 30px hsl(214, 100%, 56%, 0.15)` (same as shadow-blue)
-- `shadow-gold-soft` -> `0 2px 15px hsl(214, 100%, 56%, 0.1)`
-- `shadow-gold-intense` -> `0 8px 50px hsl(214, 100%, 56%, 0.25)` (same as shadow-blue-intense)
+Many images use generic alt text like "Event photo 1". Update the PhotoWall and gallery components to use descriptive alt text with keywords (e.g., "Corporate team building amazing race activity in Singapore").
 
 ---
 
-## 5. Fix `border-border-gold` -- NOT DEFINED
+## Part 2: Blog for SEO
 
-`border-border-gold/20` and `border-border-gold/30` are used in ~65 places across 5 files (AboutPage, ServiceMoments, ServiceTestimonial, OurTeam) but `border-gold` color is not defined.
+Yes, a blog is one of the highest-impact SEO strategies. Team building competitors in Singapore (FunEmpire, Terrarium Singapore, Team Building Singapore) all rank heavily through blog content targeting long-tail keywords like "best team building activities Singapore 2025", "indoor team building ideas", etc.
 
-**Fix in `tailwind.config.ts`:** Add the color definition:
-- `"border-gold"` -> `"hsl(var(--border-accent))"` (maps to the existing blue accent border)
+### Blog Implementation Plan
+
+**Database**: Create a `blog_posts` table in Lovable Cloud with fields: id, slug, title, excerpt, content (markdown), cover_image_url, author, published_at, category, tags, meta_description, is_published.
+
+**Pages**:
+- `/blog` -- Blog listing page with category filters, search, and pagination
+- `/blog/:slug` -- Individual blog post page with Article JSON-LD schema, OG tags, reading time, share buttons
+
+**Components**:
+- `BlogCard` -- Preview card for listing
+- `BlogPost` -- Full article renderer (markdown to HTML)
+- `BlogSidebar` -- Categories, recent posts, CTA
+
+**SEO value**: Each blog post generates a unique indexable URL with its own meta tags, Article schema, and internal links back to service pages. This is the primary way to capture long-tail search traffic.
+
+**Content strategy** (suggested initial posts):
+- "Top 10 Team Building Activities in Singapore 2026"
+- "How to Plan an Amazing Race for Your Company"
+- "Indoor vs Outdoor Team Building: Which Is Better?"
+- "Corporate Retreat Planning Guide: Singapore & Overseas"
+- "5 Benefits of Team Building for Employee Retention"
 
 ---
 
-## 6. Fix CTA "Book a Consultation" Button (White on White)
+## Part 3: Image Generation
 
-**File: `src/components/CTASection.tsx`** (line 75-82)
+Regarding your question about image generation capabilities:
 
-The button uses `variant="outline"` which applies `bg-background` (white). Combined with the className `text-white`, you get white text on a white button background -- invisible!
+Lovable has built-in AI image generation using **Google Gemini 2.5 Flash Image** (called "Nano banana") and **Google Gemini 3 Pro Image Preview** for higher quality. These can generate images from text prompts and edit existing images.
 
-**Fix:** Add `bg-transparent` to override the variant's default `bg-background`:
-```
-className="border-white text-white hover:bg-white/10 font-display font-bold bg-transparent"
-```
+**How it works**: Images are generated via an edge function calling the Lovable AI Gateway. The model returns base64-encoded images that can be uploaded to storage.
 
----
+**Quality comparison with KIMI 2.5**: The Gemini models produce decent results for general imagery but may not match dedicated image generation models (like KIMI 2.5, Midjourney, or DALL-E 3) for photorealistic or highly stylized outputs. For website hero images and OG images, they're serviceable but for professional photography-quality results, you may want to generate externally and upload.
 
-## 7. Fix Accent-Color-on-Light-Background in Service Components
-
-The `getReadableTextColor` helper was added to `ServiceHowItWorksWithPricing.tsx` but other components also display accent colors as text on white/light backgrounds.
-
-**Files needing the same fix:**
-
-| File | Issue | Fix |
-|------|-------|-----|
-| `ServicePillsSection.tsx` (line 51) | Section title uses `color: accentColor` on white bg | Import and apply `getReadableTextColor` |
-| `ServiceOverviewNew.tsx` (line 56) | Heading uses accent color on light bg | Import and apply `getReadableTextColor` |
-| `ServiceClientLogos.tsx` | Section title and decorative line use accent color -- already uses muted text so OK | No change needed |
-
-**Approach:** Extract `getReadableTextColor` into a shared utility (e.g., `src/lib/colorUtils.ts`) and import it in all service components that use accent colors as text on light backgrounds.
+**Practical use**: We could use the built-in generation to create OG images for each service page and blog posts, branded with Elluminate's colors and typography.
 
 ---
 
 ## Implementation Order
 
-1. Remove DuotonePerson cutouts from hero
-2. Make rotating word bigger
-3. Fix `text-metallic-gold` -> `text-primary` (bulk find-replace across 24 files)
-4. Fix CTA button visibility
-5. Add missing shadow/border definitions to tailwind config
-6. Fix accent-on-light contrast in ServicePillsSection and ServiceOverviewNew
+1. Rebrand all meta tags (index.html, SEO.tsx, page-level SEO props)
+2. Create StructuredData.tsx with Organization, LocalBusiness, Service, FAQ, Breadcrumb schemas
+3. Create static sitemap.xml + update robots.txt
+4. Add Breadcrumbs component to service/about/portfolio pages
+5. Expand service keywords coverage
+6. Create blog database table + blog pages (Phase 2 -- larger task)
 
----
+## Files Modified/Created
 
-## Summary of Files Modified
+| File | Action |
+|------|--------|
+| `index.html` | Edit -- rebrand meta tags |
+| `src/components/SEO.tsx` | Edit -- rebrand defaults |
+| `src/components/StructuredData.tsx` | New -- JSON-LD schemas |
+| `src/components/Breadcrumbs.tsx` | New -- breadcrumb nav |
+| `public/sitemap.xml` | New -- static sitemap |
+| `public/robots.txt` | Edit -- add sitemap directive |
+| `src/pages/Index.tsx` | Edit -- add structured data |
+| `src/pages/ServicePage.tsx` | Edit -- add structured data, breadcrumbs, expand keywords |
+| `src/pages/AboutPage.tsx` | Edit -- canonical URL, breadcrumbs |
+| `src/pages/PortfolioPage.tsx` | Edit -- canonical URL, breadcrumbs |
+| Blog (Phase 2) | New table, new pages, new components |
 
-| File | Changes |
-|------|---------|
-| `src/components/HeroSection.tsx` | Remove DuotonePerson cutouts, adjust "WITHIN YOUR" text size |
-| `src/components/hero/RotatingWord.tsx` | Massive font size increase to match SPARK |
-| `tailwind.config.ts` | Add shadow-gold variants, border-gold color |
-| `src/components/CTASection.tsx` | Add bg-transparent to outline button |
-| `src/lib/colorUtils.ts` (new) | Extract getReadableTextColor utility |
-| `src/components/service-page/ServicePillsSection.tsx` | Apply contrast helper |
-| `src/components/service-page/ServiceOverviewNew.tsx` | Apply contrast helper |
-| ~24 files with `text-metallic-gold` | Replace with `text-primary` |
