@@ -26,7 +26,7 @@ import governmentEventHero from "@/assets/services/government-event-hero.jpg";
 import privateEventHero from "@/assets/services/private-event-hero.jpg";
 import amazingRaceHero from "@/assets/services/amazing-race-hero.jpg";
 
-// Physical service heroes (sourced from teamelevate.sg)
+// Physical service heroes
 import treasureHeistHero from "@/assets/services/physical/treasure-heist-hero.jpg";
 import treasureHeistMask from "@/assets/services/physical/treasure-heist-mask.png";
 import treasureHeistGallery1 from "@/assets/services/physical/treasure-heist-gallery-1.jpg";
@@ -3340,7 +3340,7 @@ export const servicesData: Record<string, ServiceData> = {
     testimonials: [
       {
         quote:
-          "We had to organize a last-minute teambuilding for 40 pax and Team Elevate pulled it off in spectacular fashion — everyone had a blast.",
+          "We had to organize a last-minute teambuilding for 40 pax and Elluminate pulled it off in spectacular fashion — everyone had a blast.",
         author: "Darren Tey",
         company: "Lonza (Operations Manager)",
       },
@@ -3977,7 +3977,7 @@ export const servicesData: Record<string, ServiceData> = {
       { quote: "The luxury tier was absolutely worth it—5-star treatment all the way.", author: "Jennifer W.", company: "Google Singapore" },
       { quote: "Our staycation retreat was affordable yet memorable.", author: "David C.", company: "Shopee" },
       { quote: "Great balance of relaxation and team activities.", author: "Amanda G.", company: "Meta Singapore" },
-      { quote: "Team Elevate handled everything seamlessly.", author: "Kevin L.", company: "Microsoft Singapore" },
+      { quote: "Elluminate handled everything seamlessly.", author: "Kevin L.", company: "Microsoft Singapore" },
     ],
     faqs: [
       { question: "What's the difference between the three tiers?", answer: "Staycation ($200/night) offers affordable stays, Heritage ($300/night) features historical hotels, and Luxury ($500/night) provides 4-5 star experiences." },

@@ -23,24 +23,24 @@ import heroTeamCelebration from "@/assets/hero/team-celebration.jpg";
 import heroCulturalRace from "@/assets/hero/cultural-race.jpg";
 
 const allPhotos = [
-  awardsCeremony,
-  brandActivation,
-  dinnerDance,
-  familyFunDay,
-  immersiveExperience,
-  overseasRetreat,
-  productLaunch,
-  teamBuildingOutdoor,
-  teamCelebration,
-  townHall,
-  heroAmazingRace,
-  heroOverseasRetreat,
-  heroCreativeWorkshop,
-  heroCsiInvestigation,
-  heroWellnessActivity,
-  heroAdventureChallenge,
-  heroTeamCelebration,
-  heroCulturalRace,
+  { src: awardsCeremony, alt: "Corporate awards ceremony event in Singapore" },
+  { src: brandActivation, alt: "Brand activation experiential marketing event Singapore" },
+  { src: dinnerDance, alt: "Company dinner and dance gala Singapore" },
+  { src: familyFunDay, alt: "Corporate family fun day team building Singapore" },
+  { src: immersiveExperience, alt: "Immersive themed experience corporate event" },
+  { src: overseasRetreat, alt: "Overseas corporate retreat team bonding" },
+  { src: productLaunch, alt: "Product launch event Singapore" },
+  { src: teamBuildingOutdoor, alt: "Outdoor team building activity Singapore" },
+  { src: teamCelebration, alt: "Team celebration corporate event" },
+  { src: townHall, alt: "Corporate town hall meeting event" },
+  { src: heroAmazingRace, alt: "Amazing race team building activity Singapore" },
+  { src: heroOverseasRetreat, alt: "Corporate overseas retreat experience" },
+  { src: heroCreativeWorkshop, alt: "Creative workshop team building Singapore" },
+  { src: heroCsiInvestigation, alt: "CSI investigation team building game" },
+  { src: heroWellnessActivity, alt: "Corporate wellness activity team event" },
+  { src: heroAdventureChallenge, alt: "Adventure challenge outdoor team building" },
+  { src: heroTeamCelebration, alt: "Team celebration event corporate Singapore" },
+  { src: heroCulturalRace, alt: "Cultural race heritage team building Singapore" },
 ];
 
 // Create columns for the photo wall
@@ -77,8 +77,8 @@ export const PhotoWall = () => {
                 className="relative w-full aspect-[3/4] rounded-lg overflow-hidden"
               >
               <img
-                  src={photo}
-                  alt={`Event photo ${photoIndex + 1}`}
+                  src={photo.src}
+                  alt={photo.alt}
                   className="w-full h-full object-cover"
                   loading={photoIndex < 3 ? "eager" : "lazy"}
                   {...(photoIndex === 0 ? { fetchPriority: "high" as const } : {})}

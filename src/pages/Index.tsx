@@ -9,6 +9,7 @@ import { GallerySection } from "@/components/GallerySection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { OrganizationSchema, WebSiteSchema } from "@/components/StructuredData";
 
 const Index = () => {
   return (
@@ -19,6 +20,8 @@ const Index = () => {
         keywords="team building Singapore, corporate team building, virtual team building, amazing race, company retreats, corporate training"
         canonical="https://elluminate.sg"
       />
+      <OrganizationSchema type="LocalBusiness" />
+      <WebSiteSchema />
       
       <Navbar />
       <main>
