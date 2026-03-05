@@ -214,7 +214,7 @@ export const Navbar = () => {
               onClose={handleDropdownClose}
             />
             <a
-              href="https://teamelevate.sg"
+              href="https://elluminate.sg"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium"
@@ -335,7 +335,7 @@ export const Navbar = () => {
               {/* External Links */}
               <div className="border-t border-border pt-4">
                 <a
-                  href="https://teamelevate.sg"
+                  href="https://elluminate.sg"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}

@@ -13,6 +13,7 @@ const quickLinks = [
   { name: "Retreats", path: "/services/overseas-retreats" },
   { name: "Training", path: "/services/workshops" },
   { name: "Portfolio", path: "/portfolio" },
+  { name: "Blog", path: "/blog" },
 ];
 
 // Social links removed - no active accounts for Elluminate yet

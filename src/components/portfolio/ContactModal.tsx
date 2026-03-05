@@ -151,8 +151,8 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
             {/* Quick Contact */}
             <div className="px-6 pb-6">
               <div className="flex flex-wrap gap-4 justify-center text-sm text-gray-500">
-                <a href="mailto:info@teamelevate.sg" className="flex items-center gap-1 hover:text-primary transition-colors">
-                  <Mail className="w-4 h-4" /> info@teamelevate.sg
+                <a href="mailto:hello@elluminate.sg" className="flex items-center gap-1 hover:text-primary transition-colors">
+                  <Mail className="w-4 h-4" /> hello@elluminate.sg
                 </a>
               </div>
             </div>

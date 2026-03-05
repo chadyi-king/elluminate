@@ -13,6 +13,8 @@ import { BehindTheScenes } from "@/components/portfolio/BehindTheScenes";
 import { PortfolioCTA } from "@/components/portfolio/PortfolioCTA";
 import { ContactModal } from "@/components/portfolio/ContactModal";
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { OrganizationSchema } from "@/components/StructuredData";
 
 const PortfolioPage = () => {
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
@@ -21,12 +23,17 @@ const PortfolioPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Portfolio | Team Elevate"
+        title="Portfolio | Elluminate"
         description="Explore our portfolio of 1000+ successful corporate events in Singapore. View case studies, photos, and videos of team building, dinner & dance, awards ceremonies, and more."
-        keywords="event portfolio Singapore, corporate event gallery, team building photos, event case studies"
-        canonical="https://teamelevate.sg/portfolio"
+        keywords="event portfolio Singapore, corporate event gallery, team building photos, event case studies, Elluminate portfolio"
+        canonical="https://elluminate.sg/portfolio"
       />
+      <OrganizationSchema />
       <Navbar />
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Portfolio" },
+      ]} />
       <main>
         <PortfolioHero />
         <PortfolioFilters activeFilter={activeFilter} onFilterChange={setActiveFilter} />

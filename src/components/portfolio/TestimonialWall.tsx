@@ -7,7 +7,7 @@ const testimonials = [
     name: "Sarah Chen",
     company: "Tech Solutions Pte Ltd",
     eventType: "Annual D&D",
-    text: "Team Elevate transformed our annual dinner into an unforgettable experience. The attention to detail was impeccable.",
+    text: "Elluminate transformed our annual dinner into an unforgettable experience. The attention to detail was impeccable.",
     rating: 5,
   },
   {
