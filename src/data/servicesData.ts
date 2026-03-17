@@ -4468,7 +4468,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "tomb-raider-king-treasure-hunt-virtual": {
     accentColor: "#D97706",
-    dividerVariant: "timer",
+    dividerVariant: "vault",
     hero: {
       title: "TOMB RAIDER KING",
       subtitle: "Virtual Team Building",
