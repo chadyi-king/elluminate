@@ -2419,7 +2419,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Plan Your Private Event?",
       subtext: "Let's create an unforgettable celebration for you and your guests."
-    }
+    },
+    dividerVariant: "wave",
+    recentEvents: [
+      { client: "Private Client", event: "Executive 50th Birthday", pax: 80 },
+      { client: "Private Client", event: "Anniversary Celebration", pax: 60 },
+      { client: "Private Client", event: "Retirement Gala", pax: 120 },
+      { client: "Private Client", event: "Milestone Birthday", pax: 100 },
+      { client: "Private Client", event: "Family Reunion", pax: 200 },
+      { client: "Private Client", event: "Engagement Party", pax: 50 },
+      { client: "Private Client", event: "Graduation Celebration", pax: 70 },
+      { client: "Private Client", event: "VIP Dinner", pax: 40 },
+      { client: "Private Client", event: "Farewell Gathering", pax: 90 },
+      { client: "Private Client", event: "Baby Shower", pax: 30 },
+      { client: "Private Client", event: "Executive Dinner", pax: 25 },
+      { client: "Private Client", event: "Housewarming", pax: 45 }
+    ],
+    recentEventsHeadline: "Private events we've curated"
   },
   "family-fun-days": {
     accentColor: "#F97316",
