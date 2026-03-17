@@ -1002,7 +1002,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Align Your Leadership Team?",
       subtext: "Let's design a strategic offsite that transforms vision into action."
-    }
+    },
+    dividerVariant: "spotlight",
+    recentEvents: [
+      { client: "Temasek Holdings", event: "Leadership Retreat", pax: 40 },
+      { client: "Singapore Airlines", event: "Executive Off-site", pax: 60 },
+      { client: "UOB Bank", event: "Strategy Retreat", pax: 35 },
+      { client: "CapitaLand", event: "Board Planning Day", pax: 25 },
+      { client: "Mapletree", event: "Leadership Alignment", pax: 30 },
+      { client: "GIC", event: "Annual Strategy Off-site", pax: 50 },
+      { client: "DBS Bank", event: "C-Suite Planning", pax: 20 },
+      { client: "OCBC Bank", event: "Executive Workshop", pax: 45 },
+      { client: "Singtel", event: "Leadership Forum", pax: 55 },
+      { client: "Keppel Corporation", event: "Vision Retreat", pax: 35 },
+      { client: "PSA International", event: "Senior Leadership Day", pax: 40 },
+      { client: "Sembcorp", event: "Strategy Offsite", pax: 30 },
+    ],
+    recentEventsHeadline: "Companies who've trusted us for Leadership Offsites",
   },
   "product-launch": {
     accentColor: "#9B51E0",
