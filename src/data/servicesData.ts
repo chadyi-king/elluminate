@@ -1879,7 +1879,7 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "custom-themes": {
     accentColor: "#7A2BE2",
-    hero: {
+    dividerVariant: "spotlight",
       title: "Custom Theme Creation",
       subtitle: "Theme",
       tagline: "Where imagination takes form and events become works of art.",
