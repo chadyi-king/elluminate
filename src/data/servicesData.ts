@@ -1670,6 +1670,7 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "event-concept": {
     accentColor: "#C0C0C0",
+    dividerVariant: "spotlight",
     hero: {
       title: "Event Concept Development",
       subtitle: "Concept",
@@ -1677,23 +1678,23 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: eventConceptHero
     },
     overview: {
-      description: "Turn your event vision into reality with our comprehensive concept development services. We work closely with you to craft unique event narratives, design immersive experiences, and create detailed execution plans that bring your ideas to life with precision and creativity.",
+      description: "Turn your event vision into reality with our comprehensive concept development services. We work closely with your stakeholders to craft unique event narratives, design immersive guest journeys, and create detailed execution plans that bring your ideas to life with precision and creativity. Our process begins with discovery workshops where we decode your brand DNA, audience profile, and strategic objectives. From there, our creative directors develop 2-3 distinct concept directions, each with mood boards, colour palettes, 3D venue renderings, and experience flow maps. Once a direction is selected, we refine every touchpoint from entrance moments to farewell gifts, producing detailed production specifications that any vendor team can execute flawlessly. Whether you are planning a product launch, annual gala, or multi-day conference, our concept development ensures your event tells a cohesive story that resonates long after the last guest departs.",
       backgroundImage: eventConceptHero
     },
     features: [
-      { icon: Lightbulb, title: "Creative Ideation", description: "Brainstorming sessions that spark innovative concepts." },
-      { icon: Palette, title: "Theme Development", description: "Cohesive narratives that tie your event together." },
-      { icon: PenTool, title: "Visual Design", description: "Mood boards, renderings, and design specifications." },
-      { icon: Target, title: "Strategic Alignment", description: "Concepts that achieve your event objectives." },
-      { icon: Users, title: "Stakeholder Workshops", description: "Collaborative sessions to refine your vision." },
-      { icon: Monitor, title: "Production Planning", description: "Detailed technical and logistics specifications." }
+      { icon: Lightbulb, title: "Creative Ideation", description: "Multi-session brainstorming that sparks innovative, on-brand concepts." },
+      { icon: Palette, title: "Theme Development", description: "Cohesive narratives that tie every element of your event together." },
+      { icon: PenTool, title: "Visual Design", description: "Mood boards, 3D renderings, colour palettes, and design specifications." },
+      { icon: Target, title: "Strategic Alignment", description: "Concepts engineered to achieve measurable event objectives." },
+      { icon: Users, title: "Stakeholder Workshops", description: "Collaborative sessions to align vision across all decision-makers." },
+      { icon: Monitor, title: "Production Planning", description: "Detailed technical specs, vendor briefs, and run-sheet documentation." }
     ],
     benefits: [
-      { icon: Star, title: "Unique Concepts", description: "Events that stand out from the crowd." },
-      { icon: Target, title: "Clear Direction", description: "Defined vision for all stakeholders." },
-      { icon: Sparkles, title: "Creative Excellence", description: "Innovative ideas that inspire." },
-      { icon: Clock, title: "Efficient Execution", description: "Detailed plans prevent last-minute surprises." },
-      { icon: Heart, title: "Memorable Experiences", description: "Concepts designed for impact." }
+      { icon: Star, title: "Unique Concepts", description: "Events that stand out and never feel templated." },
+      { icon: Target, title: "Clear Direction", description: "A defined creative vision for all stakeholders and vendors." },
+      { icon: Sparkles, title: "Creative Excellence", description: "Innovative ideas from a team with 500+ events produced." },
+      { icon: Clock, title: "Efficient Execution", description: "Detailed plans that prevent scope creep and last-minute surprises." },
+      { icon: Heart, title: "Memorable Experiences", description: "Concepts designed for emotional impact and audience delight." }
     ],
     activities: {
       sectionTitle: "CONCEPT SERVICES",
@@ -1745,24 +1746,39 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800"
     ],
     testimonials: [
-      { quote: "The concept development process was incredibly thorough. Exceeded our expectations!", author: "Lisa Wong", company: "L'Oreal Singapore" },
-      { quote: "Elluminate transformed our vague ideas into a stunning event concept.", author: "Marcus Tan", company: "Chanel Singapore" },
-      { quote: "The visual presentations made it easy to get stakeholder buy-in.", author: "Amanda Lee", company: "Gucci Singapore" },
-      { quote: "Creative and practical - they understood our brand perfectly.", author: "Kevin Goh", company: "Louis Vuitton Singapore" },
-      { quote: "The production plans were so detailed, execution was seamless.", author: "Sarah Chen", company: "Dior Singapore" },
-      { quote: "Best concept development experience we've had.", author: "Daniel Lim", company: "Hermès Singapore" }
+      { quote: "The concept development process was incredibly thorough. Every stakeholder was aligned within two weeks.", author: "Lisa Wong", company: "L'Oreal Singapore" },
+      { quote: "Elluminate transformed our vague ideas into a stunning event concept with 3D renderings that blew us away.", author: "Marcus Tan", company: "BMW Asia" },
+      { quote: "The visual presentations made it easy to get C-suite buy-in on our first attempt.", author: "Amanda Lee", company: "Johnson & Johnson" },
+      { quote: "Creative and practical. They understood our brand DNA perfectly from the first workshop.", author: "Kevin Goh", company: "Sephora Singapore" },
+      { quote: "The production plans were so detailed, our vendor team executed without a single question.", author: "Sarah Chen", company: "Pandora Singapore" },
+      { quote: "Best concept development experience we have had. Truly elevated our annual conference.", author: "Daniel Lim", company: "Abbott Laboratories" }
     ],
     faqs: [
-      { question: "What's included in concept development?", answer: "Our service includes discovery sessions, creative brainstorming, theme development, visual presentations, 3D renderings, and detailed production specifications." },
-      { question: "How many concept options do you present?", answer: "We typically develop 2-3 distinct concept directions for you to choose from, then refine the selected concept." },
-      { question: "Can you work with our existing ideas?", answer: "Absolutely! We can develop your existing vision or start from scratch based on your objectives." },
-      { question: "Do you handle execution as well?", answer: "Yes, we can provide end-to-end service from concept to execution, or hand over detailed plans to your production team." },
-      { question: "What's the typical timeline for concept development?", answer: "Concept development typically takes 2-4 weeks depending on complexity and stakeholder availability." }
+      { question: "What is included in concept development?", answer: "Discovery workshops, creative brainstorming, 2-3 concept directions with mood boards, 3D renderings, experience flow maps, and detailed production specifications." },
+      { question: "How many concept options do you present?", answer: "We typically develop 2-3 distinct concept directions for you to choose from, then refine the selected concept through two revision rounds." },
+      { question: "Can you work with our existing ideas?", answer: "Absolutely! We can develop your existing vision further or start from scratch based on your objectives and audience." },
+      { question: "Do you handle execution as well?", answer: "Yes, we offer end-to-end service from concept to on-site execution, or we can hand over detailed plans to your production team." },
+      { question: "What is the typical timeline for concept development?", answer: "Concept development typically takes 2-4 weeks depending on complexity, number of stakeholders, and revision cycles." }
     ],
     cta: {
       headline: "Ready to Bring Your Vision to Life?",
       subtext: "Let's develop an event concept that exceeds your imagination."
-    }
+    },
+    recentEvents: [
+      { client: "L'Oreal Singapore", event: "Annual Summit Concept", pax: 500 },
+      { client: "BMW Asia", event: "Product Launch Concept", pax: 300 },
+      { client: "Johnson & Johnson", event: "Conference Design", pax: 800 },
+      { client: "Sephora Singapore", event: "Brand Event Concept", pax: 200 },
+      { client: "Pandora Singapore", event: "VIP Gala Concept", pax: 150 },
+      { client: "Abbott Laboratories", event: "Annual Dinner Concept", pax: 600 },
+      { client: "Roche Singapore", event: "Summit Concept Development", pax: 400 },
+      { client: "Procter & Gamble", event: "Brand Activation Concept", pax: 1000 },
+      { client: "Unilever Singapore", event: "Year-End Gala Concept", pax: 700 },
+      { client: "AstraZeneca", event: "Conference Concept", pax: 350 },
+      { client: "GSK Singapore", event: "Awards Night Concept", pax: 250 },
+      { client: "Pfizer Singapore", event: "Product Launch Concept", pax: 450 }
+    ],
+    recentEventsHeadline: "Companies whose events we've conceptualized"
   },
   "stage-production": {
     accentColor: "#FFB347",
