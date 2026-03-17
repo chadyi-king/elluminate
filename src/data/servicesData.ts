@@ -1991,6 +1991,7 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "emcee-media": {
     accentColor: "#6C7A89",
+    dividerVariant: "spotlight",
     hero: {
       title: "Emcee, Photo & Video",
       subtitle: "Media",
