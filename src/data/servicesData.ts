@@ -4344,7 +4344,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "the-nuclear-fallout-escape-room-virtual": {
     accentColor: "#26D07C",
-    dividerVariant: "timer",
+    dividerVariant: "vault",
     hero: {
       title: "NUCLEAR FALLOUT ESCAPE ROOM",
       subtitle: "Virtual Team Building",
