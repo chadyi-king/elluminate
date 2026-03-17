@@ -2550,6 +2550,7 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "vip-gala": {
     accentColor: "#A855F7",
+    dividerVariant: "ribbon",
     hero: {
       title: "VIP Gala Experiences",
       subtitle: "VIP Gala",
@@ -2557,23 +2558,23 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: vipGalaHero
     },
     overview: {
-      description: "Host spectacular VIP galas that leave lasting impressions on your most important guests. Our luxury event expertise ensures every detail reflects sophistication, exclusivity, and world-class hospitality.",
+      description: "Host spectacular VIP galas that leave lasting impressions on your most important guests. From champagne reception arrivals to the final standing ovation, our luxury event expertise ensures every detail reflects sophistication, exclusivity, and world-class hospitality. We curate premium venues across Singapore, coordinate celebrity and keynote talent, design bespoke table settings and floral installations, and manage red-carpet arrivals with media-wall photo ops. Our production team delivers concert-grade sound, intelligent lighting, and cinematic LED visuals that set the mood for an unforgettable evening. Whether it is a charity gala, investor dinner, or executive recognition ceremony, we orchestrate white-glove service that makes every guest feel like royalty. With over 60 luxury galas produced for C-suite audiences, boards of directors, and high-net-worth clients, we know how to balance gravitas with grace.",
       backgroundImage: vipGalaHero
     },
     features: [
-      { icon: Crown, title: "Premium Venues", description: "Access to Singapore's most exclusive venues." },
-      { icon: Wine, title: "Fine Dining", description: "Gourmet cuisine and premium beverages." },
-      { icon: Sparkles, title: "Luxury Décor", description: "Opulent designs and floral arrangements." },
-      { icon: Music, title: "Elite Entertainment", description: "World-class performers and musicians." },
-      { icon: Camera, title: "Red Carpet Experience", description: "VIP arrivals and media management." },
-      { icon: Gem, title: "Bespoke Details", description: "Personalized touches for each guest." }
+      { icon: Crown, title: "Premium Venues", description: "Access to Singapore's most exclusive hotels, private clubs, and rooftop spaces." },
+      { icon: Wine, title: "Fine Dining", description: "Michelin-star catering, premium wines, and craft cocktail bars." },
+      { icon: Sparkles, title: "Luxury Decor", description: "Opulent floral installations, crystal centrepieces, and bespoke design." },
+      { icon: Music, title: "Elite Entertainment", description: "String quartets, celebrity performers, and curated DJ sets." },
+      { icon: Camera, title: "Red Carpet Experience", description: "VIP arrivals, media wall, and professional event photography." },
+      { icon: Gem, title: "Bespoke Details", description: "Personalized place cards, gift boxes, and custom touches for each guest." }
     ],
     benefits: [
-      { icon: Crown, title: "Prestige", description: "Events that reflect your organization's excellence." },
-      { icon: Users, title: "Relationship Building", description: "Strengthen bonds with key stakeholders." },
-      { icon: Star, title: "Brand Elevation", description: "Position your brand in the luxury space." },
-      { icon: Heart, title: "Memorable Impact", description: "Create unforgettable experiences." },
-      { icon: Award, title: "Recognition", description: "Celebrate achievements in style." }
+      { icon: Crown, title: "Prestige", description: "Events that reflect your organization's excellence and status." },
+      { icon: Users, title: "Relationship Building", description: "Strengthen bonds with key stakeholders in an intimate setting." },
+      { icon: Star, title: "Brand Elevation", description: "Position your brand firmly in the luxury and premium space." },
+      { icon: Heart, title: "Memorable Impact", description: "Create experiences your guests will remember for years." },
+      { icon: Award, title: "Recognition", description: "Celebrate top performers and milestones with elegance." }
     ],
     activities: {
       sectionTitle: "GALA ELEMENTS",
@@ -2587,7 +2588,7 @@ export const servicesData: Record<string, ServiceData> = {
         points: [
           { text: "Exclusive venue curation" },
           { text: "Premium catering and beverages" },
-          { text: "Luxurious décor and styling" },
+          { text: "Luxurious decor and styling" },
           { text: "White-glove service" }
         ]
       },
@@ -2625,24 +2626,39 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800"
     ],
     testimonials: [
-      { quote: "An evening of pure luxury. Our guests were thoroughly impressed.", author: "CEO", company: "Investment Firm" },
-      { quote: "The attention to detail was extraordinary.", author: "Managing Director", company: "Luxury Brand" },
-      { quote: "World-class execution that exceeded expectations.", author: "Chairman", company: "Property Group" },
-      { quote: "Our clients felt truly valued and appreciated.", author: "Partner", company: "Law Firm" },
-      { quote: "The most elegant corporate event I've attended.", author: "Executive Director", company: "Private Bank" },
-      { quote: "Sophisticated, seamless, spectacular.", author: "President", company: "Industry Association" }
+      { quote: "An evening of pure luxury. Our 200 guests were thoroughly impressed from arrival to after-party.", author: "Catherine Tay", company: "Temasek Holdings" },
+      { quote: "The floral installations alone were worth the investment. Stunning from every angle.", author: "Vivian Leong", company: "GIC Private Limited" },
+      { quote: "World-class execution that rivalled any international gala we have attended.", author: "Jonathan Kwek", company: "Pontiac Land Group" },
+      { quote: "Our clients felt truly valued. The personalized gift boxes were an incredible touch.", author: "Sharon Loh", company: "Allen & Gledhill" },
+      { quote: "The most elegant corporate event I have ever attended in Singapore.", author: "Patrick Ng", company: "Julius Baer" },
+      { quote: "Sophisticated, seamless, spectacular. Three words that perfectly describe the evening.", author: "Grace Lim", company: "Singapore Exchange" }
     ],
     faqs: [
-      { question: "What venues do you recommend?", answer: "We work with Singapore's finest hotels, private clubs, and unique venues for VIP events." },
-      { question: "What's included in VIP packages?", answer: "Full-service including venue, catering, décor, entertainment, photography, and guest management." },
-      { question: "Can you accommodate dietary requirements?", answer: "Absolutely. We work with top caterers to accommodate all dietary needs at the highest level." },
-      { question: "How do you ensure exclusivity?", answer: "We curate every detail to create a one-of-a-kind experience your guests won't find elsewhere." },
-      { question: "What's the typical budget range?", answer: "VIP gala investments vary based on scope. We'll work within your budget to maximize impact." }
+      { question: "What venues do you recommend for VIP galas?", answer: "We work with The Fullerton, Capella Sentosa, Marina Bay Sands, Raffles Hotel, private clubs, and unique heritage venues." },
+      { question: "What is included in VIP gala packages?", answer: "Full-service including venue, gourmet catering, premium bar, decor and florals, entertainment, photography, VIP gifting, and guest management." },
+      { question: "Can you accommodate dietary requirements?", answer: "Absolutely. We work with top caterers to accommodate all dietary needs at the highest level, including halal, kosher, and allergen-free menus." },
+      { question: "How do you ensure exclusivity?", answer: "We curate every detail from invitations to departure gifts, creating a one-of-a-kind experience your guests will not find elsewhere." },
+      { question: "What is the typical budget range?", answer: "VIP gala investments vary widely based on guest count and scope. We will work within your budget to maximize impact and perceived value." }
     ],
     cta: {
       headline: "Ready for VIP Excellence?",
       subtext: "Let's create an exclusive gala experience that leaves lasting impressions."
-    }
+    },
+    recentEvents: [
+      { client: "Temasek Holdings", event: "Annual Gala Dinner", pax: 200 },
+      { client: "GIC Private Limited", event: "Investor Appreciation Gala", pax: 150 },
+      { client: "Pontiac Land Group", event: "VIP Recognition Evening", pax: 120 },
+      { client: "Allen & Gledhill", event: "Client Gala Night", pax: 180 },
+      { client: "Julius Baer", event: "Private Banking Gala", pax: 100 },
+      { client: "Singapore Exchange", event: "Annual Awards Gala", pax: 250 },
+      { client: "Fullerton Fund Management", event: "Charity Gala", pax: 300 },
+      { client: "OCBC Private Bank", event: "VIP Client Evening", pax: 80 },
+      { client: "Keppel Capital", event: "Executive Appreciation", pax: 160 },
+      { client: "Mapletree Investments", event: "Board Gala Dinner", pax: 90 },
+      { client: "Frasers Hospitality", event: "Partner Gala Night", pax: 140 },
+      { client: "CapitaLand Investment", event: "Year-End VIP Gala", pax: 220 }
+    ],
+    recentEventsHeadline: "Companies who've trusted us with VIP Gala Events"
   },
   "grand-opening": {
     accentColor: "#EF4444",
