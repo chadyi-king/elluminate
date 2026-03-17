@@ -1114,7 +1114,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Launch with Impact?",
       subtext: "Let's create a product launch that captures attention and drives results."
-    }
+    },
+    dividerVariant: "spotlight",
+    recentEvents: [
+      { client: "Samsung Singapore", event: "Galaxy S Launch", pax: 300 },
+      { client: "Apple Southeast Asia", event: "Product Preview", pax: 200 },
+      { client: "Sony Singapore", event: "Console Launch Night", pax: 250 },
+      { client: "Huawei Singapore", event: "Flagship Reveal", pax: 350 },
+      { client: "OPPO Singapore", event: "Phone Launch", pax: 180 },
+      { client: "Dyson Singapore", event: "New Product Showcase", pax: 150 },
+      { client: "LG Electronics", event: "Home Appliance Launch", pax: 200 },
+      { client: "Panasonic Asia", event: "Innovation Reveal", pax: 120 },
+      { client: "BMW Asia", event: "New Model Launch", pax: 250 },
+      { client: "Porsche Singapore", event: "Exclusive Preview", pax: 100 },
+      { client: "Lululemon Singapore", event: "Collection Launch", pax: 180 },
+      { client: "Sephora Singapore", event: "Beauty Launch Event", pax: 220 },
+    ],
+    recentEventsHeadline: "Brands who've launched with Elluminate",
   },
   "brand-activations": {
     accentColor: "#F2C744",
