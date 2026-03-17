@@ -6,7 +6,16 @@ import { Sparkles } from "lucide-react";
 export const CTASection = () => {
   const { openContactModal } = useContactModal();
   return (
-    <section id="contact" className="py-32 relative overflow-hidden bg-gradient-to-br from-primary via-primary to-sky-500">
+    <section id="contact" className="py-32 relative overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&h=1080&fit=crop"
+          alt="Corporate event"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-sky-500/90" />
+      </div>
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
