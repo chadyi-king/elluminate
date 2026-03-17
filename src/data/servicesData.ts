@@ -4531,7 +4531,7 @@ export const servicesData: Record<string, ServiceData> = {
   "grand-christmas-delivery": {
     accentColor: "#DC2626",
     accentColorSecondary: "#26D07C",
-    dividerVariant: "timer",
+    dividerVariant: "confetti",
     hero: {
       title: "THE GRAND CHRISTMAS DELIVERY",
       subtitle: "Virtual Team Building",
