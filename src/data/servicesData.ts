@@ -693,7 +693,7 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: awardsCeremonyHero
     },
     overview: {
-      description: "Honor your achievers with prestigious award ceremonies that leave lasting impressions. We design and execute ceremonies that spotlight excellence, inspire teams, and create moments of genuine recognition and pride. From intimate appreciation events to grand galas, we make every award moment unforgettable.",
+      description: "Honor your achievers with prestigious award ceremonies that leave lasting impressions on every attendee. We design and execute ceremonies that spotlight excellence, inspire teams, and create moments of genuine recognition and pride. Our end-to-end service covers award category development, nominee video production, trophy and plaque design, stage scripting, professional hosting, and full AV production including dramatic lighting reveals and cinematic walk-up sequences. Whether you are recognising Employee of the Year, Long Service milestones, Innovation Champions, or department-level achievements, we ensure every honouree feels like a superstar. Our ceremonies blend formality with entertainment, featuring red carpet arrivals, live audience voting, surprise musical acts, and confetti finales that make the night truly unforgettable. We have produced award ceremonies for groups ranging from 50 to 2,000 across Singapore's finest hotels and convention centres.",
       backgroundImage: awardsCeremonyHero
     },
     features: [
