@@ -123,7 +123,11 @@ export interface ServiceData {
     | "route"
     | "gelBeads"
     | "squid"
-    | "laser";
+    | "laser"
+    | "confetti"
+    | "spotlight"
+    | "ribbon"
+    | "wave";
   hero: {
     title: string;
     subtitle: string;
