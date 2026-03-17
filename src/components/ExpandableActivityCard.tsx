@@ -7,12 +7,15 @@ import { LucideIcon } from "lucide-react";
 interface ExpandableActivityCardProps {
   name: string;
   icon: LucideIcon;
-  slug: string;
+  slug?: string;
   color: string;
   description: string;
   stats?: string;
   clients?: string;
   image: string;
+  tag?: string;
+  href?: string;
+  ctaLabel?: string;
 }
 
 export const ExpandableActivityCard = ({
@@ -24,8 +27,12 @@ export const ExpandableActivityCard = ({
   stats,
   clients,
   image,
+  tag,
+  href,
+  ctaLabel,
 }: ExpandableActivityCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const targetHref = href ?? (slug ? `/services/${slug}` : undefined);
 
   return (
     <motion.div
@@ -70,14 +77,23 @@ export const ExpandableActivityCard = ({
         <div className="relative h-full flex flex-col justify-between p-6 text-white">
           {/* Top section */}
           <div>
-            {/* Icon */}
-            <motion.div
-              className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4"
-              animate={{ rotate: isExpanded ? 10 : 0, scale: isExpanded ? 1.1 : 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Icon className="w-7 h-7 text-white" />
-            </motion.div>
+            <div className="mb-4 flex items-start justify-between gap-3">
+              {tag ? (
+                <span className="inline-flex items-center rounded-full border border-white/25 bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/90 backdrop-blur-sm">
+                  {tag}
+                </span>
+              ) : (
+                <span />
+              )}
+
+              <motion.div
+                className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center"
+                animate={{ rotate: isExpanded ? 10 : 0, scale: isExpanded ? 1.1 : 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Icon className="w-7 h-7 text-white" />
+              </motion.div>
+            </div>
 
             {/* Title */}
             <h3 className="text-xl font-display font-bold mb-2">{name}</h3>
@@ -112,13 +128,25 @@ export const ExpandableActivityCard = ({
                 )}
 
                 {/* Read More Link */}
-                <Link
-                  to={`/services/${slug}`}
-                  className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
-                >
-                  <span>Learn More</span>
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
+                {targetHref ? (
+                  targetHref.startsWith("#") ? (
+                    <a
+                      href={targetHref}
+                      className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
+                    >
+                      <span>{ctaLabel ?? "Learn More"}</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={targetHref}
+                      className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
+                    >
+                      <span>{ctaLabel ?? "Learn More"}</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  )
+                ) : null}
               </motion.div>
             )}
           </AnimatePresence>

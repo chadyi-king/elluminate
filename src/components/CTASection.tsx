@@ -38,7 +38,7 @@ export const CTASection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white mb-6"
           >
-            Ready to Plan an Event Your Team Will Remember?
+            Let Us Elluminate Your Next Experience
           </motion.h2>
           
           <motion.p
@@ -48,7 +48,7 @@ export const CTASection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white/90 text-xl mb-10"
           >
-            Tell us your goals, audience, and budget — we will help shape the right experience for your team.
+            Tell us your goals, audience, and budget, and we will shape the right format for your workplace, school, class, or student cohort.
           </motion.p>
 
           <motion.div
@@ -75,10 +75,10 @@ export const CTASection = () => {
             <Button 
               variant="outline" 
               size="lg" 
+              asChild
               className="border-white text-white hover:bg-white/10 font-display font-bold bg-transparent" 
-              onClick={openContactModal}
             >
-              Talk Through Your Brief
+              <a href="#services">Explore Services</a>
             </Button>
           </motion.div>
 

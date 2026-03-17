@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { FloatingBlobs } from "@/components/FloatingBlobs";
 import { OurTeam } from "@/components/OurTeam";
 import { SEO } from "@/components/SEO";
+import { useContactModal } from "@/contexts/ContactModalContext";
 import { 
   Target, Eye, Heart, Sparkles, Award, Zap, 
   Users, Lightbulb, Palette, Mic, Film, Star,
@@ -156,6 +157,7 @@ const testimonials = [
 
 const AboutPage = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const { openContactModal } = useContactModal();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -173,8 +175,8 @@ const AboutPage = () => {
     <div className="min-h-screen bg-background">
       <SEO 
         title="About Us | Elluminate"
-        description="Learn how Elluminate designs team building, retreats, training, and corporate events that strengthen culture, energise teams, and create lasting impact across Singapore."
-        keywords="about Elluminate, Singapore team building company, corporate team building, event specialists Singapore"
+        description="Learn how Elluminate designs team building, school programmes, retreats, and training that strengthen culture, energise people, and create lasting impact across Singapore."
+        keywords="about Elluminate, Singapore team building company, school programmes Singapore, training workshops Singapore"
         canonical="https://elluminate.sg/about"
       />
       <Navbar />
@@ -227,7 +229,7 @@ const AboutPage = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg text-muted-foreground/90 font-sans mb-8 max-w-md leading-relaxed"
               >
-                We design team building, retreats, training, and corporate events that feel seamless to run and meaningful to attend.
+                We design team building, school programmes, retreats, and training that feel seamless to run and meaningful to attend.
               </motion.p>
 
               {/* Stats Badges */}
@@ -255,18 +257,19 @@ const AboutPage = () => {
                 ))}
               </motion.div>
               
-              <motion.a
-                href="/#contact"
+              <motion.button
+                type="button"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.7 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-sky-500 text-primary-foreground font-display font-medium text-sm tracking-wider rounded-full shadow-blue hover:shadow-blue-intense transition-all duration-500 group"
+                onClick={openContactModal}
               >
                 Plan My Event
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </motion.a>
+              </motion.button>
             </motion.div>
 
             {/* Right Side - Photo Collage */}
@@ -343,8 +346,8 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      {/* Blue Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
 
       {/* SECTION 2 - OUR STORY */}
       <section className="py-24 relative">
@@ -377,7 +380,7 @@ const AboutPage = () => {
                   Elluminate was founded in Singapore with one belief: great team experiences should create real connection, not just fill an agenda.
                 </p>
                 <p>
-                  Since 2017, we have helped organisations turn team building, retreats, celebrations, and training days into experiences people genuinely remember.
+                  Since 2017, we have helped organisations, schools, and student groups turn team building, retreats, celebrations, and training days into experiences people genuinely remember.
                 </p>
                 <p>
                   Today, our team brings together creative design, facilitation, and on-ground execution to deliver <span className="text-primary font-medium">1,000+ events</span> for more than <span className="text-primary font-medium">100,000 participants</span> across Singapore and the region.
@@ -393,7 +396,7 @@ const AboutPage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-border-gold/30">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-sky-500/20 shadow-blue">
                 <img
                   src={teamBuildingOutdoor}
                   alt="Asian Team Celebration"
@@ -401,17 +404,17 @@ const AboutPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
               </div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/15 via-transparent to-primary/15 blur-2xl -z-10" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-sky-500/20 via-transparent to-primary/15 blur-2xl -z-10" />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      {/* Blue Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
 
       {/* SECTION 3 - MISSION, VISION & VALUES */}
-      <section className="py-24 relative bg-primary/[0.03]">
+      <section className="py-24 relative bg-slate-950">
         {/* Background */}
         <div className="absolute inset-0">
           <img
@@ -419,7 +422,7 @@ const AboutPage = () => {
             alt="Event Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-background/95" />
+          <div className="absolute inset-0 bg-slate-950/92" />
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -431,18 +434,18 @@ const AboutPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="group relative bg-card/50 backdrop-blur-sm border border-border-gold/30 rounded-2xl p-8 hover:border-primary/50 transition-all duration-500"
+                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-sky-400/40 transition-all duration-500"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-deep flex items-center justify-center mb-5 shadow-gold">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-sky-500 flex items-center justify-center mb-5 shadow-blue">
                     <Target className="w-6 h-6 text-primary-foreground" />
                   </div>
-                  <h3 className="text-xl font-display font-medium text-foreground mb-3">Our Mission</h3>
-                  <p className="text-muted-foreground font-sans leading-relaxed mb-3">
+                  <h3 className="text-xl font-display font-medium text-white mb-3">Our Mission</h3>
+                  <p className="text-slate-200 font-sans leading-relaxed mb-3">
                     To design experiences that bring people together, strengthen culture, and make every event feel worth attending.
                   </p>
-                  <p className="text-muted-foreground/70 font-sans text-sm leading-relaxed">
+                  <p className="text-slate-300/80 font-sans text-sm leading-relaxed">
                     We combine thoughtful strategy, strong facilitation, and polished execution so teams leave more connected than when they arrived.
                   </p>
                 </div>
@@ -454,19 +457,19 @@ const AboutPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="group relative bg-card/50 backdrop-blur-sm border border-border-gold/30 rounded-2xl p-8 hover:border-primary/50 transition-all duration-500"
+                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-sky-400/40 transition-all duration-500"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-deep flex items-center justify-center mb-5 shadow-gold">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-sky-500 flex items-center justify-center mb-5 shadow-blue">
                     <Eye className="w-6 h-6 text-primary-foreground" />
                   </div>
-                  <h3 className="text-xl font-display font-medium text-foreground mb-3">Our Vision</h3>
-                  <p className="text-muted-foreground font-sans leading-relaxed mb-3">
+                  <h3 className="text-xl font-display font-medium text-white mb-3">Our Vision</h3>
+                  <p className="text-slate-200 font-sans leading-relaxed mb-3">
                     To be the partner teams trust when the experience needs to feel engaging, well-run, and genuinely memorable.
                   </p>
-                  <p className="text-muted-foreground/70 font-sans text-sm leading-relaxed">
-                    We believe the best corporate events do more than entertain — they support culture, alignment, morale, and long-term team connection.
+                  <p className="text-slate-300/80 font-sans text-sm leading-relaxed">
+                    We believe the best experiences do more than entertain. They support culture, confidence, leadership, and long-term connection across workplaces and classrooms.
                   </p>
                 </div>
               </motion.div>
@@ -480,10 +483,10 @@ const AboutPage = () => {
               className="mb-8"
             >
               <div className="text-center mb-10">
-                <h3 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
+                <h3 className="text-2xl md:text-3xl font-display font-medium text-white mb-3">
                   Our <span className="text-primary">Values</span>
                 </h3>
-                <p className="text-muted-foreground/80 font-sans max-w-xl mx-auto text-sm">
+                <p className="text-slate-300/80 font-sans max-w-xl mx-auto text-sm">
                   These are the principles that guide how we craft every experience for you.
                 </p>
               </div>
@@ -496,18 +499,18 @@ const AboutPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.08 }}
-                    className="group relative bg-card/40 backdrop-blur-sm border border-border-gold/20 rounded-xl p-5 hover:border-primary/40 hover:shadow-gold-soft transition-all duration-500"
+                    className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-sky-400/40 hover:shadow-blue transition-all duration-500"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-sky-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
                     <div className="relative z-10">
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary-deep flex items-center justify-center shadow-gold">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-sky-500 flex items-center justify-center shadow-blue">
                           <value.icon className="w-5 h-5 text-primary-foreground" />
                         </div>
-                        <h4 className="text-lg font-display font-medium text-foreground">{value.name}</h4>
+                        <h4 className="text-lg font-display font-medium text-white">{value.name}</h4>
                       </div>
-                      <p className="text-primary/90 font-sans text-sm mb-2">{value.description}</p>
-                      <p className="text-muted-foreground/70 font-sans text-xs leading-relaxed">{value.details}</p>
+                      <p className="text-sky-200 font-sans text-sm mb-2">{value.description}</p>
+                      <p className="text-slate-300/80 font-sans text-xs leading-relaxed">{value.details}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -517,14 +520,14 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      {/* Blue Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
 
       {/* OUR TEAM SECTION */}
       <OurTeam />
 
-      {/* Gold Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      {/* Blue Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
 
       {/* SECTION 4 - WHAT MAKES US DIFFERENT */}
       <section className="py-24 relative">
@@ -558,11 +561,11 @@ const AboutPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative bg-card/40 backdrop-blur-sm border border-border-gold/20 rounded-xl p-6 hover:border-primary/40 hover:shadow-gold-soft transition-all duration-500"
+                className="group relative bg-white/75 backdrop-blur-sm border border-sky-500/15 rounded-xl p-6 hover:border-sky-500/35 hover:shadow-blue transition-all duration-500"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-400/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-primary-deep flex items-center justify-center mb-4 shadow-gold group-hover:shadow-gold-intense transition-shadow duration-500">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-sky-500 flex items-center justify-center mb-4 shadow-blue group-hover:shadow-blue-intense transition-shadow duration-500">
                     <feature.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <h3 className="text-lg font-display font-medium text-foreground mb-2">{feature.title}</h3>
@@ -574,11 +577,11 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      {/* Blue Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
 
       {/* SECTION 5 - IMAGE STRIP */}
-      <section className="py-20 relative overflow-hidden bg-primary/[0.02]">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white via-sky-50/70 to-white">
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -590,7 +593,7 @@ const AboutPage = () => {
               A Glimpse <span className="text-primary">Behind The Scenes</span>
             </h2>
             <p className="text-muted-foreground/80 font-sans text-sm md:text-base leading-relaxed">
-              From high-energy team building to polished evening celebrations, our work is designed to feel engaging in the moment and memorable after it ends.
+              From high-energy team building and training to school programmes and retreats, our work is designed to feel engaging in the moment and memorable after it ends.
             </p>
           </motion.div>
 
@@ -607,7 +610,7 @@ const AboutPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
-                className="group relative overflow-hidden rounded-2xl border border-border-gold/20 bg-card/30"
+                className="group relative overflow-hidden rounded-2xl border border-sky-500/15 bg-white/70 shadow-sm"
               >
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
@@ -623,8 +626,8 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      {/* Blue Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
 
       {/* SECTION 6 - KEY METRICS */}
       <section className="py-24 relative bg-gradient-to-br from-primary/[0.08] via-primary/[0.03] to-transparent">
@@ -699,8 +702,8 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      {/* Blue Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
 
       {/* SECTION 6 - CLIENT LOGOS CAROUSEL */}
       <section className="py-20 relative overflow-hidden">
@@ -745,7 +748,7 @@ const AboutPage = () => {
               {[...clientLogos, ...clientLogos, ...clientLogos].map((client, index) => (
                 <div
                   key={`${client.name}-${index}`}
-                  className="flex-shrink-0 w-28 h-16 bg-card/30 backdrop-blur-sm border border-border-gold/20 rounded-lg p-3 flex items-center justify-center hover:border-primary/40 transition-all duration-500"
+                  className="flex-shrink-0 w-28 h-16 bg-white/75 backdrop-blur-sm border border-sky-500/15 rounded-lg p-3 flex items-center justify-center hover:border-sky-500/35 transition-all duration-500"
                 >
                   <img
                     src={client.logo}
@@ -759,18 +762,18 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      {/* Blue Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
 
       {/* SECTION 7 - TESTIMONIALS */}
-      <section className="py-24 relative bg-primary/[0.02]">
+      <section className="py-24 relative bg-slate-950">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1920&h=1080&fit=crop"
             alt="Event"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-background/95" />
+          <div className="absolute inset-0 bg-slate-950/92" />
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -780,7 +783,7 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
+            <h2 className="text-2xl md:text-3xl font-display font-medium text-white mb-3">
               What Our <span className="text-primary">Clients Say</span>
             </h2>
           </motion.div>
@@ -799,20 +802,20 @@ const AboutPage = () => {
                   transition={{ duration: 0.5 }}
                   className={`absolute inset-0 ${currentTestimonial === index ? 'block' : 'hidden'}`}
                 >
-                  <div className="bg-card/40 backdrop-blur-sm border border-border-gold/20 rounded-xl p-8 text-center h-full flex flex-col justify-center">
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 text-center h-full flex flex-col justify-center">
                     <Quote className="w-10 h-10 text-primary/30 mx-auto mb-4" />
-                    <p className="text-lg md:text-xl text-foreground font-sans leading-relaxed mb-6 italic">
+                    <p className="text-lg md:text-xl text-white font-sans leading-relaxed mb-6 italic">
                       "{testimonial.quote}"
                     </p>
                     <div className="flex items-center justify-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-card border border-border-gold/20 p-2 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-white/10 border border-white/10 p-2 flex items-center justify-center">
                         <img
                           src={testimonial.logo}
                           alt={testimonial.company}
                           className="max-w-full max-h-full object-contain"
                         />
                       </div>
-                      <span className="text-primary font-display font-medium text-sm">{testimonial.company}</span>
+                      <span className="text-sky-200 font-display font-medium text-sm">{testimonial.company}</span>
                     </div>
                   </div>
                 </motion.div>
@@ -854,8 +857,8 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      {/* Blue Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent" />
 
       {/* SECTION 8 - FINAL CTA */}
       <section className="py-28 relative overflow-hidden">
@@ -877,19 +880,20 @@ const AboutPage = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-2xl md:text-4xl font-display font-medium text-foreground mb-4">
-              Ready to Plan Your Next <span className="text-primary">Team Experience</span>?
+              Ready to Plan Your Next <span className="text-primary">Team or School Experience</span>?
             </h2>
             <p className="text-muted-foreground/80 font-sans mb-8">
-              Whether you are planning team building, a retreat, training, or a company celebration, we can help you shape the right format.
+              Whether you are planning team building, training, a retreat, or a school programme, we can help you shape the right format.
             </p>
-            <motion.a
-              href="/#contact"
+            <motion.button
+              type="button"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-primary via-primary-ember to-primary text-primary-foreground font-display font-medium tracking-wider rounded-full shadow-gold hover:shadow-gold-intense hover:bg-background hover:text-primary border border-transparent hover:border-primary transition-all duration-500"
+              className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-primary to-sky-500 text-primary-foreground font-display font-medium tracking-wider rounded-full shadow-blue hover:shadow-blue-intense hover:bg-background hover:text-primary border border-transparent hover:border-primary transition-all duration-500"
+              onClick={openContactModal}
             >
               Plan My Event
-            </motion.a>
+            </motion.button>
           </motion.div>
         </div>
       </section>

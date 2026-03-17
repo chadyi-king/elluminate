@@ -4,35 +4,31 @@ import {
   Globe,
   Target,
   Monitor,
-  Gamepad2,
   BookOpen,
   Sparkles,
-  Plane,
-  MapPin,
-  Swords,
   Timer,
   Footprints,
   Users,
   Skull,
-  Crosshair,
-  Dice5,
-  Building,
+  Brain,
+  GraduationCap,
+  Ghost,
+  Rabbit,
+  Crown,
+  Plane,
 } from "lucide-react";
 import { ExpandableActivityCard } from "./ExpandableActivityCard";
 import { WaveDivider } from "./WaveDivider";
 import { FloatingBlobs } from "./FloatingBlobs";
 
-// Import activity images
 import heroAmazingRace from "@/assets/hero/amazing-race.jpg";
-import heroOverseasRetreat from "@/assets/hero/overseas-retreat.jpg";
 import heroCreativeWorkshop from "@/assets/hero/creative-workshop.jpg";
 import heroCsiInvestigation from "@/assets/hero/csi-investigation.jpg";
-import heroWellnessActivity from "@/assets/hero/wellness-activity.jpg";
 import heroAdventureChallenge from "@/assets/hero/adventure-challenge.jpg";
 import heroTeamCelebration from "@/assets/hero/team-celebration.jpg";
 import heroCulturalRace from "@/assets/hero/cultural-race.jpg";
+import heroOverseasRetreat from "@/assets/hero/overseas-retreat.jpg";
 
-// Activity accent colors matching brand guidelines
 const activityColors = {
   amazingRace: "#FFC400",
   csiInvestigation: "#26D07C",
@@ -43,231 +39,198 @@ const activityColors = {
   adventureRaces: "#FF8A3D",
   mystery: "#8B5CF6",
   action: "#F97316",
-  sotong: "#D946EF",
-  laser: "#FFC400",
 };
 
 const allActivities = [
-  // Team Building
-  { 
-    name: "Amazing Race", 
-    icon: Flag, 
-    slug: "amazing-race", 
-    color: activityColors.amazingRace, 
+  {
+    name: "Amazing Race",
+    icon: Flag,
+    slug: "amazing-race",
+    color: activityColors.amazingRace,
     description: "Exciting city-wide treasure hunts with challenges and puzzles that test teamwork and problem-solving.",
     stats: "300+ Amazing Races organized",
     clients: "For Google, DBS, Shopee, and more",
     image: heroAmazingRace,
+    tag: "Physical",
   },
-  { 
-    name: "CSI-Bones", 
-    icon: Skull, 
-    slug: "csi-bones", 
-    color: activityColors.csiInvestigation, 
+  {
+    name: "CSI-Bones",
+    icon: Skull,
+    slug: "csi-bones",
+    color: activityColors.csiInvestigation,
     description: "Forensic investigation experience where teams solve mysteries using clues, evidence, and deduction skills.",
     stats: "150+ CSI events delivered",
-    clients: "Popular with banks and tech companies",
+    clients: "Popular with banks, schools, and tech companies",
     image: heroCsiInvestigation,
+    tag: "Physical",
   },
-  { 
-    name: "Cultural Race", 
-    icon: Globe, 
-    slug: "cultural-race", 
-    color: activityColors.culturalRace, 
+  {
+    name: "Cultural Race",
+    icon: Globe,
+    slug: "cultural-race",
+    color: activityColors.culturalRace,
     description: "Explore Singapore's rich heritage through interactive challenges in historic districts.",
     stats: "200+ Cultural Races completed",
-    clients: "Perfect for multinational teams",
+    clients: "Perfect for multinational teams and student groups",
     image: heroCulturalRace,
+    tag: "Physical",
   },
-  { 
-    name: "Archery Tag", 
-    icon: Target, 
-    slug: "archery-tag", 
-    color: activityColors.archeryLaserTag, 
+  {
+    name: "Amongst Us",
+    icon: Ghost,
+    color: activityColors.mystery,
+    description: "A live social-deduction concept where your group hunts for the imposters before the room turns on itself.",
+    stats: "80+ games played",
+    clients: "Popular for workplaces, camps, and student leaders",
+    image: heroTeamCelebration,
+    tag: "Physical",
+    href: "#contact",
+    ctaLabel: "Enquire Now",
+  },
+  {
+    name: "Alice in Motherland",
+    icon: Rabbit,
+    color: activityColors.creativeWorkshops,
+    description: "A whimsical, story-led journey packed with themed stations, playful puzzles, and immersive team moments.",
+    stats: "40+ experiences created",
+    clients: "Loved by creative brands, schools, and curated events",
+    image: heroCreativeWorkshop,
+    tag: "Physical",
+    href: "#contact",
+    ctaLabel: "Enquire Now",
+  },
+  {
+    name: "Battle of the Olympians",
+    icon: Crown,
+    color: activityColors.amazingRace,
+    description: "An epic competition format that blends athletic rounds, mental games, and all-out team pride.",
+    stats: "40+ battles fought",
+    clients: "Built for large cohorts, schools, and full-company showdowns",
+    image: heroAdventureChallenge,
+    tag: "Physical",
+    href: "#contact",
+    ctaLabel: "Enquire Now",
+  },
+  {
+    name: "Archery Tag",
+    icon: Target,
+    slug: "archery-tag",
+    color: activityColors.archeryLaserTag,
     description: "Action-packed archery battles that sharpen team strategy, communication, and fast decision-making.",
     stats: "120+ archery events",
-    clients: "Great for competitive teams",
+    clients: "Great for competitive teams and student cohorts",
     image: heroAdventureChallenge,
-  },
-  { 
-    name: "Builder Cross", 
-    icon: Building, 
-    slug: "builder-cross", 
-    color: activityColors.amazingRace, 
-    description: "Construction-themed challenges that test planning, collaboration, and hands-on problem solving.",
-    stats: "70+ builds completed",
-    clients: "Engineering and operations teams",
-    image: heroAdventureChallenge,
-  },
-  { 
-    name: "Gel Blitz", 
-    icon: Crosshair, 
-    slug: "gel-blitz", 
-    color: activityColors.archeryLaserTag, 
-    description: "Fast-moving gel blaster battles built around teamwork, tactics, and adrenaline-filled fun.",
-    stats: "90+ battles organised",
-    clients: "Sales teams and startups",
-    image: heroAdventureChallenge,
+    tag: "Physical",
   },
   {
-    name: "Nerfwar",
-    icon: Swords,
-    slug: "nerfwar",
-    color: activityColors.laser,
-    description: "Foam-dart team battles with light tactics, fast rounds, and big laughs.",
-    stats: "80+ Nerf wars hosted",
-    clients: "Great for mixed fitness levels",
-    image: heroAdventureChallenge,
-  },
-  { 
-    name: "Minute to Win It", 
-    icon: Timer, 
-    slug: "minute-to-win-it", 
-    color: activityColors.action, 
+    name: "Minute to Win It",
+    icon: Timer,
+    slug: "minute-to-win-it",
+    color: activityColors.action,
     description: "Fast-paced one-minute challenges that bring out competitive spirit and lots of laughter.",
     stats: "200+ events hosted",
-    clients: "Perfect for D&D and celebrations",
+    clients: "Perfect for D&D, schools, and celebrations",
     image: heroTeamCelebration,
+    tag: "Physical",
   },
-  { 
-    name: "Monopoly Dash", 
-    icon: Dice5, 
-    slug: "monopoly-dash", 
-    color: activityColors.amazingRace, 
-    description: "Life-sized Monopoly experience across the city. Buy properties, complete missions, dominate the board!",
-    stats: "50+ dashes completed",
-    clients: "Finance and real estate teams",
-    image: heroAmazingRace,
-  },
-  { 
-    name: "Running Man Adventure", 
-    icon: Footprints, 
-    slug: "running-man", 
-    color: activityColors.culturalRace, 
+  {
+    name: "Running Man Adventure",
+    icon: Footprints,
+    slug: "running-man",
+    color: activityColors.culturalRace,
     description: "Korean Running Man-inspired games with name tag ripping, missions, and hilarious challenges.",
-    stats: "120+ adventures run",
-    clients: "Popular with K-culture fans",
+    stats: "120+ adventures ran",
+    clients: "Popular with K-culture fans and youth groups",
     image: heroCulturalRace,
+    tag: "Physical",
   },
   {
-    name: "Sotong Game",
-    icon: Gamepad2,
-    slug: "sotong-game",
-    color: activityColors.sotong,
-    description: "Squid Game-inspired challenges adapted into a safe, high-energy format for team competition.",
-    stats: "100+ games organised",
-    clients: "Trending across industries",
-    image: heroAmazingRace,
-  },
-  {
-    name: "Tag-tical Laser Teambuilding",
-    icon: Crosshair,
-    slug: "tag-tical-laser-teambuilding",
-    color: activityColors.laser,
-    description: "High-energy laser team battles that sharpen communication, tactics, and coordination.",
-    stats: "120+ laser events delivered",
-    clients: "Perfect for competitive teams",
-    image: heroAdventureChallenge,
-  },
-  { 
-    name: "Treasure Heist", 
-    icon: Sparkles, 
-    slug: "treasure-heist", 
-    color: activityColors.culturalRace, 
-    description: "A cinematic heist-themed challenge where teams collaborate, plan, and race against the clock.",
-    stats: "60+ heists completed",
-    clients: "Popular for team bonding",
-    image: heroAdventureChallenge,
-  },
-  // Virtual & Hybrid
-  { 
-    name: "Amazing Race Virtual", 
-    icon: Monitor, 
-    slug: "amazing-race-virtual", 
-    color: activityColors.csiInvestigation, 
+    name: "Amazing Race Virtual",
+    icon: Monitor,
+    slug: "amazing-race-virtual",
+    color: activityColors.csiInvestigation,
     description: "A remote-friendly Amazing Race experience that keeps distributed teams engaged through live digital challenges.",
     stats: "150+ virtual races",
-    clients: "Global tech companies",
+    clients: "Global teams and hybrid cohorts",
     image: heroTeamCelebration,
+    tag: "Virtual",
   },
-  { 
-    name: "Gameshow Experience", 
-    icon: Sparkles, 
-    slug: "the-gameshow-experience-virtual", 
-    color: activityColors.mystery, 
+  {
+    name: "Gameshow Experience",
+    icon: Sparkles,
+    slug: "the-gameshow-experience-virtual",
+    color: activityColors.mystery,
     description: "An interactive online game show format designed for fast laughs, remote participation, and easy engagement.",
     stats: "120+ virtual game shows",
     clients: "Distributed teams worldwide",
     image: heroCsiInvestigation,
+    tag: "Virtual",
   },
-  { 
-    name: "Fit In Your Team", 
-    icon: Gamepad2, 
-    slug: "fit-in-your-team-virtual", 
-    color: activityColors.archeryLaserTag, 
-    description: "A movement-based virtual session that helps remote teams bond through light fitness and shared energy.",
-    stats: "90+ virtual wellness sessions",
-    clients: "Hybrid and remote teams",
-    image: heroTeamCelebration,
+  {
+    name: "Overseas Retreats",
+    icon: Plane,
+    slug: "overseas-retreats",
+    color: activityColors.adventureRaces,
+    description: "Retreat experiences designed for deeper connection, offsite focus, and shared momentum outside the usual setting.",
+    stats: "Regional retreats across Asia",
+    clients: "Leadership teams, departments, and top performers",
+    image: heroOverseasRetreat,
+    tag: "Retreat",
   },
-  // Training
-  { 
-    name: "Workshops", 
-    icon: BookOpen, 
-    slug: "workshops", 
-    color: activityColors.creativeWorkshops, 
+  {
+    name: "Workshops",
+    icon: BookOpen,
+    slug: "workshops",
+    color: activityColors.creativeWorkshops,
     description: "Interactive learning sessions built around communication, collaboration, leadership, and team development.",
     stats: "150+ training programmes",
-    clients: "MNCs and public sector teams",
+    clients: "MNCs, public sector teams, and schools",
     image: heroCreativeWorkshop,
+    tag: "Training",
   },
-  { 
-    name: "MBTI Profiling", 
-    icon: Users, 
-    slug: "mbti", 
-    color: activityColors.wellness, 
+  {
+    name: "MBTI Profiling",
+    icon: Users,
+    slug: "mbti",
+    color: activityColors.wellness,
     description: "A practical profiling workshop that helps teams understand personality differences and work better together.",
     stats: "100+ profiling sessions",
-    clients: "Leadership and HR teams",
+    clients: "Leadership, HR, and student leaders",
     image: heroCreativeWorkshop,
+    tag: "Training",
   },
-  // Retreats
-  { 
-    name: "Overseas Retreats", 
-    icon: Plane, 
-    slug: "overseas-retreats", 
-    color: activityColors.archeryLaserTag, 
-    description: "Memorable team getaways to exciting destinations like Bali, Phuket, and more.",
-    stats: "50+ overseas retreats planned",
-    clients: "Executive and leadership teams",
-    image: heroOverseasRetreat,
+  {
+    name: "DISC Assessment",
+    icon: Brain,
+    slug: "disc",
+    color: activityColors.archeryLaserTag,
+    description: "A practical behavioural profiling session that helps teams communicate better and collaborate more effectively.",
+    stats: "80+ DISC sessions",
+    clients: "Managers, schools, and leadership teams",
+    image: heroCreativeWorkshop,
+    tag: "Training",
   },
-  { 
-    name: "Local Retreats", 
-    icon: MapPin, 
-    slug: "local-retreats", 
-    color: activityColors.wellness, 
-    description: "Staycation retreats within Singapore at beautiful resorts and venues.",
-    stats: "80+ local retreats",
-    clients: "SMEs and startups",
-    image: heroOverseasRetreat,
+  {
+    name: "Youth Camps",
+    icon: GraduationCap,
+    slug: "youth-camps",
+    color: activityColors.wellness,
+    description: "High-energy school and youth experiences designed for bonding, leadership, and memorable cohort moments.",
+    stats: "120+ school and youth programmes",
+    clients: "Schools, student leaders, and youth groups",
+    image: heroTeamCelebration,
+    tag: "School",
   },
 ];
 
 export const ServicesSection = () => {
   return (
     <section id="services" className="py-24 relative overflow-hidden">
-      {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-primary/[0.03] to-primary/5" />
-      
-      {/* Floating blobs */}
       <FloatingBlobs opacity={0.06} />
-
-      {/* Wave divider at top */}
       <WaveDivider variant="top" className="z-10" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -275,7 +238,7 @@ export const ServicesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <motion.span 
+          <motion.span
             className="text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block"
             initial={{ opacity: 0, letterSpacing: "0.1em" }}
             whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
@@ -285,22 +248,21 @@ export const ServicesSection = () => {
             What We Do
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-6">
-            Signature <span className="text-primary">Experiences</span>
+            Team Building & <span className="text-primary">Training</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Explore the formats teams book us for most — from high-energy team building and immersive games
-            to retreats, workshops, and celebration-led corporate events.
+            Explore the formats clients, schools, and student groups book us for most, from standout signature concepts
+            and virtual games to profiling workshops, retreats, and youth programmes.
           </p>
           <p className="text-muted-foreground/70 max-w-3xl mx-auto text-sm mt-4">
-            This is a curated starting point, so visitors can explore your most popular experiences without being overwhelmed.
+            The mix below makes the offer clearer at a glance, while keeping your most distinctive experiences front and centre.
           </p>
         </motion.div>
 
-        {/* Activity Cards Grid - Unified, no categories */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {allActivities.map((activity, index) => (
             <motion.div
-              key={activity.slug}
+              key={activity.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -315,13 +277,15 @@ export const ServicesSection = () => {
                 stats={activity.stats}
                 clients={activity.clients}
                 image={activity.image}
+                tag={activity.tag}
+                href={activity.href}
+                ctaLabel={activity.ctaLabel}
               />
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Wave divider at bottom */}
       <WaveDivider variant="bottom" className="z-10" />
     </section>
   );

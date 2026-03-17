@@ -3,10 +3,18 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export const wordData = [
   { text: "TEAM", color: "hsl(214, 100%, 56%)" }, // Blue
-  { text: "PEOPLE", color: "hsl(33, 100%, 50%)" }, // Orange
-  { text: "CULTURE", color: "hsl(340, 82%, 52%)" }, // Pink
-  { text: "LEADERS", color: "hsl(270, 100%, 70%)" }, // Purple
-  { text: "WORKPLACE", color: "hsl(160, 70%, 45%)" }, // Green
+  { text: "LEADERS", color: "hsl(156, 72%, 42%)" }, // Green
+  { text: "SCHOOL", color: "hsl(33, 100%, 50%)" }, // Orange
+  { text: "CLASS", color: "hsl(340, 82%, 52%)" }, // Pink
+  { text: "STUDENTS", color: "hsl(270, 100%, 70%)" }, // Purple
+  { text: "PEOPLE", color: "hsl(160, 70%, 45%)" }, // Green
+  { text: "CULTURE", color: "hsl(192, 90%, 48%)" }, // Cyan
+  { text: "WORKPLACE", color: "hsl(221, 83%, 58%)" }, // Indigo blue
+  { text: "COHORTS", color: "hsl(43, 96%, 53%)" }, // Amber
+  { text: "TEACHERS", color: "hsl(12, 91%, 58%)" }, // Coral
+  { text: "MANAGERS", color: "hsl(282, 73%, 60%)" }, // Violet
+  { text: "CONNECTION", color: "hsl(188, 90%, 42%)" }, // Teal
+  { text: "RETREATS", color: "hsl(200, 98%, 39%)" }, // Deep sky
 ];
 
 interface RotatingWordProps {
@@ -33,7 +41,7 @@ export const RotatingWord = ({ onWordChange }: RotatingWordProps) => {
   }, []);
 
   return (
-    <span className="inline-block relative min-w-[30vw] sm:min-w-[25vw] md:min-w-[22vw]">
+    <span className="inline-block relative min-w-[40vw] sm:min-w-[31vw] md:min-w-[26vw] lg:min-w-[22vw]">
       <AnimatePresence mode="wait">
         <motion.span
           key={currentIndex}

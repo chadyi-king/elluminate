@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
 
 interface RecentEvent {
   client: string;
@@ -56,12 +55,8 @@ export const ServiceRecentEventsTicker = ({
         {repeatedEvents.map((event, index) => (
           <div 
             key={`${event.client}-${index}`}
-            className="flex items-center gap-2 text-sm font-medium"
+            className="flex items-center gap-3 text-sm font-medium"
           >
-            <CheckCircle 
-              className="w-4 h-4 flex-shrink-0" 
-              style={{ color: accentColor }}
-            />
             <span className="text-foreground font-semibold">
               {event.client}
             </span>
@@ -74,6 +69,7 @@ export const ServiceRecentEventsTicker = ({
             >
               {event.pax} pax
             </span>
+            <span className="text-foreground/30">/</span>
           </div>
         ))}
       </motion.div>

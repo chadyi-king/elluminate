@@ -118,8 +118,8 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1.1 }}
             className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mb-6 font-sans"
           >
-            Corporate team building, retreats, training, and event experiences designed to strengthen culture,
-            energise people, and bring teams closer together.
+            Team building, school programmes, training, and retreats designed to energise teams,
+            classes, and student groups across Singapore.
           </motion.p>
 
           <motion.p
@@ -128,7 +128,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1.15 }}
             className="text-xs sm:text-sm text-foreground/70 max-w-2xl mb-8 font-sans tracking-wide uppercase"
           >
-            Trusted by teams across Singapore with <span className="text-primary font-semibold">1,000+ events delivered</span>
+            Trusted by companies, schools, and public-sector teams with <span className="text-primary font-semibold">1,000+ events delivered</span>
           </motion.p>
 
           {/* CTA Buttons */}

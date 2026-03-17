@@ -261,14 +261,14 @@ const defaultPerfectForFlow: FlowSection = {
   sectionSubtitle: "Every Occasion",
   itemsPerRow: 4,
   items: [
-    { icon: UserPlus, title: "New Team Integration", description: "Break the ice and build bonds with new hires and team members." },
-    { icon: Building, title: "Department Off-sites", description: "Strengthen collaboration within departments and divisions." },
-    { icon: PartyPopper, title: "Company Celebrations", description: "Milestones, anniversaries, and annual company events." },
-    { icon: GraduationCap, title: "Leadership Programs", description: "Develop decision-making and strategic thinking skills." },
-    { icon: Handshake, title: "Client Engagement", description: "Turn relationship-building into a memorable shared experience." },
-    { icon: Rocket, title: "Sales Kickoff", description: "Energize teams with momentum, urgency, and shared goals." },
-    { icon: Briefcase, title: "Cross-Team Alignment", description: "Connect functions and improve collaboration across silos." },
-    { icon: Target, title: "Strategy Retreats", description: "Sharpen focus with challenges that mirror real decision-making." },
+  { icon: UserPlus, title: "New Team Integration", description: "Break the ice and build bonds with new hires, classmates, or fresh cohorts." },
+  { icon: Building, title: "Department Off-sites", description: "Strengthen collaboration within departments, houses, or student groups." },
+  { icon: PartyPopper, title: "Celebration Days", description: "Milestones, cohort celebrations, and high-energy appreciation events." },
+  { icon: GraduationCap, title: "Student Leadership", description: "Build confidence, decision-making, and communication through shared challenge." },
+  { icon: Handshake, title: "Orientation Programmes", description: "Create faster connection and familiarity across new groups." },
+  { icon: Rocket, title: "Kickoffs & Cohorts", description: "Start the term, programme, or project with momentum and shared energy." },
+  { icon: Briefcase, title: "Cross-Team Alignment", description: "Connect functions, classes, or committees that do not usually work together." },
+  { icon: Target, title: "Training Days", description: "Pair learning objectives with a format people actually stay engaged in." },
   ],
 };
 
@@ -2875,11 +2875,11 @@ export const servicesData: Record<string, ServiceData> = {
     hero: {
       title: "THE AMAZING RACE",
       subtitle: "Team Building Adventure",
-      tagline: "Singapore is waiting for you. Good Luck. Travel Safe and Go!",
+      tagline: "A fast-moving race across Singapore built for teams, schools, and student groups who want to move, solve, and win together.",
       backgroundImage: amazingRaceHero
     },
     overview: {
-      description: "The Amazing Race is our signature outdoor team building experience where teams race across Singapore completing missions, solving puzzles, and working together under pressure. Navigate through iconic locations, tackle physical and mental challenges, and compete against the clock and rival teams in this high-energy adventure that brings out the best in your people.",
+      description: "The Amazing Race is our signature outdoor experience where teams race across Singapore completing missions, solving puzzles, and working together under pressure. It works brilliantly for corporate teams, school groups, leadership cohorts, and student leaders who need a format that feels active, inclusive, and genuinely memorable. Navigate through iconic locations, tackle physical and mental challenges, and compete against the clock in a high-energy adventure that brings out communication, strategy, and team spirit.",
       backgroundImage: amazingRaceHero
     },
     features: [
@@ -2960,12 +2960,12 @@ export const servicesData: Record<string, ServiceData> = {
       items: [
         { icon: UserPlus, title: "New Team Integration", description: "Break the ice and build bonds with new hires and team members." },
         { icon: Building, title: "Department Off-sites", description: "Strengthen collaboration within departments and divisions." },
-        { icon: PartyPopper, title: "Company Celebrations", description: "Milestones, anniversaries, and annual company events." },
-        { icon: GraduationCap, title: "Leadership Programs", description: "Develop decision-making and strategic thinking skills." },
-        { icon: Handshake, title: "Client Engagement", description: "Turn relationship-building into a memorable shared experience." },
-        { icon: Rocket, title: "Sales Kickoff", description: "Energize teams with momentum, urgency, and shared goals." },
-        { icon: Briefcase, title: "Cross-Team Alignment", description: "Connect functions and improve collaboration across silos." },
-        { icon: Target, title: "Strategy Retreats", description: "Sharpen focus with challenges that mirror real decision-making." }
+        { icon: PartyPopper, title: "Celebration Days", description: "Milestones, cohort celebrations, and annual appreciation events." },
+        { icon: GraduationCap, title: "School Cohorts", description: "Ideal for classes, CCA groups, and student leaders who learn best by doing." },
+        { icon: Handshake, title: "Orientation Programmes", description: "Turn a fresh group into a connected team quickly." },
+        { icon: Rocket, title: "Kickoff Events", description: "Start the term, project, or programme with momentum and excitement." },
+        { icon: Briefcase, title: "Cross-Team Alignment", description: "Connect functions, houses, or committees through shared challenge." },
+        { icon: Target, title: "Leadership Retreats", description: "Sharpen communication and decision-making through active missions." }
       ]
     },
     activities: {
@@ -3045,7 +3045,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     cta: {
       headline: "Ready for Your Amazing Race?",
-      subtext: "Let's design an exhilarating race experience that brings your team together."
+      subtext: "Let's design an exhilarating race experience for your team, class, or student cohort."
     },
     // New enhanced sections
     clientLogos: ["Google", "DBS", "Shopee", "Microsoft", "Grab", "Meta", "Deloitte", "Amazon"],
@@ -3125,11 +3125,11 @@ export const servicesData: Record<string, ServiceData> = {
     hero: {
       title: "CSI - BONES",
       subtitle: "Team Building Mystery",
-      tagline: "People lie. The Evidence Doesn't.",
+      tagline: "A forensic mystery built for teams and school groups who love clues, deduction, and competitive problem-solving.",
       backgroundImage: heroCsiInvestigation,
     },
     overview: {
-      description: "CSI-Bones is a forensic investigation team building experience where teams collaborate to solve a high-stakes mystery. Your team will examine evidence, connect clues, and make fast decisions together — a perfect mix of logic, communication, and fun that sharpens teamwork under pressure.",
+      description: "CSI-Bones is a forensic investigation experience where teams collaborate to solve a high-stakes mystery. Your group examines evidence, connects clues, and makes fast decisions together, making it a strong fit for both workplace teams and student groups who enjoy logic, communication, and immersive storytelling. It is a safe, indoor-friendly format that keeps everyone engaged without relying on pure physical intensity.",
       backgroundImage: heroCsiInvestigation,
     },
     features: [
@@ -3152,7 +3152,7 @@ export const servicesData: Record<string, ServiceData> = {
     faqs: [],
     cta: {
       headline: "Ready to Solve the Case?",
-      subtext: "Tell us your pax count and venue — we’ll tailor the CSI-Bones experience for your team.",
+      subtext: "Tell us your pax count and venue and we’ll tailor the CSI-Bones experience for your team or student group.",
     },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
@@ -3173,11 +3173,11 @@ export const servicesData: Record<string, ServiceData> = {
         { icon: UserPlus, title: "New Team Integration", description: "Break the ice through shared detective work." },
         { icon: Building, title: "Department Off-sites", description: "Strengthen collaboration within a team." },
         { icon: PartyPopper, title: "Company Celebrations", description: "A fresh alternative to the usual games." },
-        { icon: GraduationCap, title: "Leadership Programs", description: "Practice decision-making and alignment." },
-        { icon: Handshake, title: "Client Engagement", description: "Turn relationship-building into a shared story." },
-        { icon: Rocket, title: "Sales Kickoff", description: "Energize teams with urgency and teamwork." },
-        { icon: Briefcase, title: "Cross-Team Alignment", description: "Improve communication across functions." },
-        { icon: Target, title: "Strategy Retreats", description: "Mirror real-world ambiguity in a safe setting." },
+        { icon: GraduationCap, title: "School Cohorts", description: "Great for classes, student leaders, and problem-solving groups." },
+        { icon: Handshake, title: "Orientation Programmes", description: "Turn shared mystery-solving into faster group connection." },
+        { icon: Rocket, title: "Kickoff Events", description: "Start a programme or term with curiosity and momentum." },
+        { icon: Briefcase, title: "Cross-Team Alignment", description: "Improve communication across functions or committees." },
+        { icon: Target, title: "Training Days", description: "A lighter, story-led format for decision-making and collaboration." },
       ],
     },
     clientLogos: ["Google", "DBS", "Shopee", "Microsoft"],
@@ -3221,11 +3221,11 @@ export const servicesData: Record<string, ServiceData> = {
     hero: {
       title: "CULTURAL RACE",
       subtitle: "Team Building Adventure",
-      tagline: "Explore, laugh, and compete through Singapore’s culture — with challenges built for teamwork.",
+      tagline: "Explore, laugh, and compete through Singapore’s culture with challenges built for teamwork, curiosity, and shared discovery.",
       backgroundImage: heroCulturalRace,
     },
     overview: {
-      description: "Cultural Race is a high-energy heritage adventure where teams complete interactive missions across Singapore's cultural landmarks. Explore Chinatown, Little India, Kampong Glam, and more while solving puzzles, completing creative tasks, and racing against rival teams.",
+      description: "Cultural Race is a high-energy heritage adventure where teams complete interactive missions across Singapore's cultural landmarks. It works well for corporate teams, school groups, and youth cohorts who want a format that combines exploration, teamwork, and local discovery. Explore Chinatown, Little India, Kampong Glam, and more while solving puzzles, completing creative tasks, and racing against rival teams.",
       backgroundImage: heroCulturalRace,
     },
     features: [
@@ -3248,7 +3248,7 @@ export const servicesData: Record<string, ServiceData> = {
     faqs: [],
     cta: {
       headline: "Ready to Run Your Cultural Race?",
-      subtext: "Share your date and pax — we’ll recommend routes and formats.",
+      subtext: "Share your date and pax and we’ll recommend the right route and format for your team or school group.",
     },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
@@ -3269,11 +3269,11 @@ export const servicesData: Record<string, ServiceData> = {
         { icon: UserPlus, title: "New Team Integration", description: "Explore and break the ice quickly." },
         { icon: Building, title: "Department Off-sites", description: "Build collaboration outside the office." },
         { icon: PartyPopper, title: "Company Celebrations", description: "A lively, photo-worthy team activity." },
-        { icon: GraduationCap, title: "Leadership Programs", description: "Decision-making and coordination under time." },
-        { icon: Handshake, title: "Client Engagement", description: "Relationship-building with shared fun." },
-        { icon: Rocket, title: "Sales Kickoff", description: "Energize teams with competition." },
-        { icon: Briefcase, title: "Cross-Team Alignment", description: "Bridge silos with shared missions." },
-        { icon: Target, title: "Strategy Retreats", description: "A fun reset before planning sessions." },
+        { icon: GraduationCap, title: "School Cohorts", description: "Perfect for classes and student groups exploring Singapore together." },
+        { icon: Handshake, title: "Orientation Programmes", description: "Shared discovery makes new groups connect faster." },
+        { icon: Rocket, title: "Kickoff Events", description: "An energetic way to launch a term, retreat, or programme." },
+        { icon: Briefcase, title: "Cross-Team Alignment", description: "Bridge silos, houses, or committees with shared missions." },
+        { icon: Target, title: "Learning Journeys", description: "Blend exploration with active participation and teamwork." },
       ],
     },
     clientLogos: ["DBS", "Grab", "Meta", "Deloitte"],
@@ -3318,11 +3318,11 @@ export const servicesData: Record<string, ServiceData> = {
     hero: {
       title: "ARCHERY TAG",
       subtitle: "Team Battle",
-      tagline: "Be the Hawkeye that is truly in you!",
+      tagline: "A safe, high-energy battle format for teams and student groups who want action, teamwork, and fast decisions.",
       backgroundImage: heroAdventureChallenge,
     },
     overview: {
-      description: "Archery Tag is a team battle experience that blends movement, strategy, and communication. It’s designed to be safe and inclusive, with clear rules and facilitation for maximum fun.",
+      description: "Archery Tag is a team battle experience that blends movement, strategy, and communication. It is designed to be safe, inclusive, and easy to run for workplace teams, school groups, and student leaders who want something active without losing structure. Clear rules, protective equipment, and professional facilitation keep the format fun and accessible.",
       backgroundImage: heroAdventureChallenge,
     },
     features: [
@@ -3343,7 +3343,7 @@ export const servicesData: Record<string, ServiceData> = {
       { quote: "Everyone got involved — even the quieter folks.", author: "Lead", company: "Finance" },
     ],
     faqs: [],
-    cta: { headline: "Ready to Battle?", subtext: "Share your pax count and venue — we’ll propose the best format." },
+    cta: { headline: "Ready to Battle?", subtext: "Share your pax count and venue and we’ll propose the best format for your team or school group." },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "Your Battle Flow",
@@ -3363,11 +3363,11 @@ export const servicesData: Record<string, ServiceData> = {
         { icon: UserPlus, title: "New Team Integration", description: "Break the ice with playful competition." },
         { icon: Building, title: "Department Off-sites", description: "A fast win for team energy." },
         { icon: PartyPopper, title: "Company Celebrations", description: "A hype activity to anchor the day." },
-        { icon: GraduationCap, title: "Leadership Programs", description: "Practice communication and alignment." },
-        { icon: Handshake, title: "Client Engagement", description: "A memorable shared experience." },
-        { icon: Rocket, title: "Sales Kickoff", description: "Momentum-building competition." },
-        { icon: Briefcase, title: "Cross-Team Alignment", description: "Build trust across functions." },
-        { icon: Target, title: "Strategy Retreats", description: "A reset before planning sessions." },
+        { icon: GraduationCap, title: "School Cohorts", description: "A big hit for classes, camps, and student leaders who enjoy active formats." },
+        { icon: Handshake, title: "Orientation Programmes", description: "Fast-paced rounds help new groups loosen up quickly." },
+        { icon: Rocket, title: "Kickoff Events", description: "A momentum-building activity for camps, teams, and term openings." },
+        { icon: Briefcase, title: "Cross-Team Alignment", description: "Build trust across functions, squads, or committees." },
+        { icon: Target, title: "Training Days", description: "A strong action block inside a wider team-development day." },
       ],
     },
     clientLogos: ["Google", "DBS"],
@@ -3400,9 +3400,9 @@ export const servicesData: Record<string, ServiceData> = {
   "builder-cross": {
     accentColor: "#FF8A3D",
     dividerVariant: "blueprint",
-    hero: { title: "BUILDERCROSS", subtitle: "Team Building Challenge", tagline: "Build Up Your Team by Building Structures That Last.", backgroundImage: heroAdventureChallenge },
+    hero: { title: "BUILDERCROSS", subtitle: "Team Building Challenge", tagline: "A hands-on build challenge for teams, classes, and student leaders who learn best by making things together.", backgroundImage: heroAdventureChallenge },
     overview: {
-      description: "BuilderCross is a hands-on construction challenge where teams design, plan, and build structures together under time pressure. Inspired by engineering and architecture challenges, participants work with provided materials to create functional builds that meet specific criteria. Every round tests a different aspect of teamwork: planning under constraints, delegating tasks effectively, iterating on failed designs, and communicating clearly when the clock is ticking. Whether your team is building bridges, towers, or themed creations, BuilderCross rewards ingenuity and collaboration over brute force. Suitable for indoor venues, conference rooms, and outdoor spaces alike.",
+      description: "BuilderCross is a hands-on construction challenge where teams design, plan, and build structures together under time pressure. Inspired by engineering and architecture challenges, participants work with provided materials to create functional builds that meet specific criteria. It is especially strong for workplace teams, school cohorts, and youth groups because it rewards planning, delegation, iteration, and communication without requiring high physical intensity. Whether your group is building bridges, towers, or themed creations, BuilderCross rewards ingenuity and collaboration over brute force.",
       backgroundImage: heroAdventureChallenge,
     },
     features: [
@@ -3434,7 +3434,7 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "Can it be done indoors?", answer: "Yes, BuilderCross is perfect for indoor venues like conference rooms, hotel ballrooms, and function halls. We also offer outdoor setups for a different dynamic." },
       { question: "How long does a session last?", answer: "Standard sessions run 2 to 3 hours. We can adjust the number of rounds and difficulty to fit your schedule." },
     ],
-    cta: { headline: "Ready to Build Together?", subtext: "Tell us your group size and goals and we will design a BuilderCross experience your team will remember." },
+    cta: { headline: "Ready to Build Together?", subtext: "Tell us your group size and goals and we will design a BuilderCross experience your team or class will remember." },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "Your Build Journey",
@@ -3470,9 +3470,9 @@ export const servicesData: Record<string, ServiceData> = {
   "gel-blitz": {
     accentColor: "#FF8A3D",
     dividerVariant: "gelBeads",
-    hero: { title: "GELBLITZ", subtitle: "Team Battle", tagline: "Lock, Load, and Gel Your Way to Victory!", backgroundImage: heroAdventureChallenge },
+    hero: { title: "GELBLITZ", subtitle: "Team Battle", tagline: "A fast, tactical battle format built for teams and student groups that want action without the admin headache.", backgroundImage: heroAdventureChallenge },
     overview: {
-      description: "GelBlitz is a high-energy gel blaster team battle experience designed for safe, exciting team bonding. Using specially designed gel blasters that fire soft, biodegradable gel beads, teams compete in structured tactical rounds with clear objectives. From capture-the-flag to base defense, every game mode requires coordination, quick thinking, and clear communication. The gel beads burst on impact and leave no mess, making GelBlitz perfect for both indoor arenas and outdoor fields. All safety equipment including goggles and protective gear is provided. Whether your team prefers tactical strategy or all-out action, GelBlitz delivers an adrenaline rush that brings colleagues together in a way no boardroom activity ever could.",
+      description: "GelBlitz is a high-energy gel blaster team battle experience designed for safe, exciting team bonding. Using specially designed gel blasters that fire soft, biodegradable gel beads, teams compete in structured tactical rounds with clear objectives. It is a strong fit for both workplace teams and older student groups because it combines action, teamwork, and facilitation in a format that feels exciting but remains well-controlled. Whether your group prefers tactical strategy or all-out action, GelBlitz delivers an adrenaline rush that gets people communicating fast.",
       backgroundImage: heroAdventureChallenge,
     },
     features: [
@@ -3504,7 +3504,7 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "How large can the group be?", answer: "We accommodate groups from 12 to 200+ participants. Larger groups are split into multiple squads with rotating match rounds." },
       { question: "What game modes are available?", answer: "We offer capture the flag, team elimination, base defense, VIP escort, and custom objective modes. The facilitator selects the best mix based on your group size and energy level." },
     ],
-    cta: { headline: "Ready for GelBlitz?", subtext: "Share your group size and preferred venue and we will design the ultimate gel blaster battle experience." },
+    cta: { headline: "Ready for GelBlitz?", subtext: "Share your group size and preferred venue and we will design the right GelBlitz experience for your team or student cohort." },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "Your Battle Plan",
@@ -3540,9 +3540,9 @@ export const servicesData: Record<string, ServiceData> = {
   "minute-to-win-it": {
     accentColor: "#2A8DFF",
     dividerVariant: "timer",
-    hero: { title: "MINUTE TO WIN IT", subtitle: "Team Party Games", tagline: "Hundreds of Mini Games, One Minute To Win Them All!", backgroundImage: heroTeamCelebration },
+    hero: { title: "MINUTE TO WIN IT", subtitle: "Team Party Games", tagline: "Quick-fire mini games for teams, classes, and cohorts that want instant laughs and full participation.", backgroundImage: heroTeamCelebration },
     overview: {
-      description: "Minute To Win It is a high-energy party-style team building experience featuring dozens of fast-paced mini challenges, each lasting just 60 seconds. Inspired by the hit TV show, teams compete across multiple rounds of quirky, hilarious, and surprisingly challenging games that test dexterity, coordination, creativity, and teamwork. From stacking cups to balancing objects to completing relay challenges, every game is designed for maximum laughter and participation. Our professional emcees keep the energy sky-high with live commentary, real-time scoring, and dramatic countdowns. With over 100 games in our library, we curate the perfect mix based on your group size, venue, and vibe. Minute To Win It works brilliantly as a standalone event, a D&D segment, or an energizer during conferences.",
+      description: "Minute To Win It is a high-energy party-style team building experience featuring dozens of fast-paced mini challenges, each lasting just 60 seconds. Inspired by the hit TV show, teams compete across multiple rounds of quirky, hilarious, and surprisingly challenging games that test dexterity, coordination, creativity, and teamwork. It works just as well for school cohorts and student groups as it does for workplace teams because the rules are simple, the energy is immediate, and everyone can take part. Minute To Win It works brilliantly as a standalone event, a celebration segment, or an energizer during workshops and camp programmes.",
       backgroundImage: heroTeamCelebration,
     },
     features: [
@@ -3574,7 +3574,7 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "Do we need a large venue?", answer: "A standard function room or ballroom works perfectly. We bring all equipment and set up game stations. Minimum recommended space is about 50 square meters for groups up to 50." },
       { question: "Is it suitable for formal corporate events?", answer: "Yes. We tailor the game selection and hosting style to match your event tone, from casual team days to more formal gala entertainment." },
     ],
-    cta: { headline: "Ready to Play?", subtext: "Tell us your group size, venue, and event style and we will curate the ultimate Minute To Win It experience." },
+    cta: { headline: "Ready to Play?", subtext: "Tell us your group size, venue, and event style and we will curate the right Minute To Win It experience for your team or class." },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "Your Game Night Flow",
@@ -3610,9 +3610,9 @@ export const servicesData: Record<string, ServiceData> = {
   "monopoly-dash": {
     accentColor: "#FF4F4F",
     dividerVariant: "money",
-    hero: { title: "MONOPOLY DASH", subtitle: "City Strategy Race", tagline: "Own Real-Life Singapore Properties. Negotiate, Trade, and Dominate!", backgroundImage: heroAmazingRaceAlt },
+    hero: { title: "MONOPOLY DASH", subtitle: "City Strategy Race", tagline: "A city race for teams and student groups who enjoy strategy, negotiation, and fast decisions on the move.", backgroundImage: heroAmazingRaceAlt },
     overview: {
-      description: "Monopoly Dash is a city-wide strategy race inspired by the classic board game, brought to life on the streets of Singapore. Teams navigate real neighborhoods, landmarks, and hidden gems while earning virtual currency, purchasing properties, and completing trade missions. Unlike a standard Amazing Race, Monopoly Dash adds a layer of financial strategy: teams must decide when to invest, when to save, and when to negotiate with rival teams for property trades. Every decision affects the final score, making this an activity that rewards both physical effort and strategic thinking. The game runs on our custom digital platform, with live leaderboards showing property portfolios and team rankings in real time. Perfect for teams that enjoy competition with a cerebral edge.",
+      description: "Monopoly Dash is a city-wide strategy race inspired by the classic board game, brought to life on the streets of Singapore. Teams navigate real neighborhoods, landmarks, and hidden gems while earning virtual currency, purchasing properties, and completing trade missions. Unlike a standard Amazing Race, Monopoly Dash adds a layer of financial strategy: teams must decide when to invest, when to save, and when to negotiate with rival teams for property trades. That makes it a strong fit for workplace groups, older students, and leadership cohorts who enjoy competition with a more cerebral edge.",
       backgroundImage: heroAmazingRaceAlt,
     },
     features: [
@@ -3644,7 +3644,7 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "How are winners determined?", answer: "Teams earn points based on total property value, completed sets, bonus mission scores, and trade profits. The team with the highest portfolio value wins." },
       { question: "Can challenges be customized?", answer: "Yes. We can incorporate company trivia, branded properties, and custom missions aligned with your event theme or company values." },
     ],
-    cta: { headline: "Ready to Dash?", subtext: "Tell us your group size and preferred neighborhood and we will design an unforgettable Monopoly Dash." },
+    cta: { headline: "Ready to Dash?", subtext: "Tell us your group size and preferred neighborhood and we will design a Monopoly Dash that fits your team or student group." },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "Your Monopoly Dash Journey",
@@ -3680,9 +3680,9 @@ export const servicesData: Record<string, ServiceData> = {
   "nerfwar": {
     accentColor: "#FF8A3D",
     dividerVariant: "foamDart",
-    hero: { title: "NERFWAR", subtitle: "Foam Dart Battles", tagline: "Lock and Load for the Ultimate Foam Dart Showdown!", backgroundImage: heroAdventureChallenge },
+    hero: { title: "NERFWAR", subtitle: "Foam Dart Battles", tagline: "A safe, fast, and hilarious battle format for teams and school groups who want action with structure.", backgroundImage: heroAdventureChallenge },
     overview: {
-      description: "Nerfwar is a high-energy foam dart battle experience that transforms your team outing into an action-packed tactical adventure. Equipped with Nerf blasters and foam darts, teams compete in structured match formats designed to encourage communication, strategy, and good old-fashioned fun. Our game modes include classic team elimination, capture the flag, protect the VIP, and multi-objective missions where every player has a role. All equipment is provided including blasters, extra dart magazines, and safety goggles. The foam darts are completely safe and suitable for all ages and fitness levels. Professional facilitators manage each round, keep score, and ensure fair play throughout. Whether you are hosting a casual team day or an energetic kickoff event, Nerfwar delivers guaranteed laughs and memorable team moments.",
+      description: "Nerfwar is a high-energy foam dart battle experience that transforms your outing into an action-packed tactical adventure. Equipped with Nerf blasters and foam darts, teams compete in structured match formats designed to encourage communication, strategy, and good old-fashioned fun. It is especially useful for mixed groups, schools, and student cohorts because the format is safe, easy to pick up, and full of movement without feeling intimidating. Whether you are hosting a casual team day or an energetic kickoff event, Nerfwar delivers guaranteed laughs and memorable team moments.",
       backgroundImage: heroAdventureChallenge,
     },
     features: [
@@ -3714,7 +3714,7 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "How many rounds are played?", answer: "A standard 3-hour session includes 6 to 8 rounds with different game modes. We adjust the pace based on your group energy and time constraints." },
       { question: "What is the ideal group size?", answer: "Nerfwar works best for groups of 10 to 200+. Larger groups are split into platoons with rotating matches and a central leaderboard." },
     ],
-    cta: { headline: "Ready for Nerfwar?", subtext: "Share your group size and venue preference and we will design the ultimate foam dart battle experience." },
+    cta: { headline: "Ready for Nerfwar?", subtext: "Share your group size and venue preference and we will design the right foam dart battle experience for your team or class." },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "Your Battle Briefing",
@@ -3750,9 +3750,9 @@ export const servicesData: Record<string, ServiceData> = {
   "running-man": {
     accentColor: "#FFD400",
     dividerVariant: "route",
-    hero: { title: "RUNNING MAN ADVENTURE", subtitle: "Variety Show Games", tagline: "A Fan Favorite Made for All Ages!", backgroundImage: heroCulturalRace },
+    hero: { title: "RUNNING MAN ADVENTURE", subtitle: "Variety Show Games", tagline: "A fan-favourite challenge format for teams, classes, and student groups that want pure energy and big laughs.", backgroundImage: heroCulturalRace },
     overview: {
-      description: "Running Man Adventure is inspired by the massively popular Korean variety show, bringing its signature blend of hilarious challenges, name-tag battles, and team missions to your corporate event. Teams compete through multiple rounds of creative, physical, and strategic games that reward quick thinking, coordination, and plenty of laughter. From water relay challenges to memory games to the iconic name-tag ripping battle, every round is designed to get your entire team on their feet and fully engaged. Our professional facilitators play the role of game masters, delivering commentary and keeping the competitive spirit alive. Running Man Adventure is one of our most requested activities for good reason: it combines genuine team building with the kind of entertainment that people actually enjoy. Suitable for outdoor parks, indoor venues, and resort settings.",
+      description: "Running Man Adventure is inspired by the massively popular Korean variety show, bringing its signature blend of hilarious challenges, name-tag battles, and team missions to your event. Teams compete through multiple rounds of creative, physical, and strategic games that reward quick thinking, coordination, and plenty of laughter. It is one of our strongest crossover formats for workplace teams, school cohorts, and student groups because it feels familiar, inclusive, and instantly exciting. Suitable for outdoor parks, indoor venues, and resort settings.",
       backgroundImage: heroCulturalRace,
     },
     features: [
@@ -3784,7 +3784,7 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "How long is a typical session?", answer: "Standard sessions run 2.5 to 3 hours. We can extend to 4 hours for larger groups or add it as a segment within a longer event." },
       { question: "Is it suitable for large groups?", answer: "Absolutely. We have hosted Running Man for groups of up to 300+ with multiple simultaneous game stations and a central scoring system." },
     ],
-    cta: { headline: "Ready for Running Man?", subtext: "Share your group size and event style and we will curate an unforgettable Running Man Adventure." },
+    cta: { headline: "Ready for Running Man?", subtext: "Share your group size and event style and we will curate the right Running Man Adventure for your team or student group." },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "Your Running Man Journey",

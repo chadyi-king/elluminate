@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, Plane, Target, Sparkles } from "lucide-react";
+import { Users, Monitor, Target, GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
@@ -10,22 +10,22 @@ const services = [
     href: "/services/team-building",
   },
   {
-    label: "Corporate Events",
-    icon: Sparkles,
+    label: "Virtual Team Building",
+    icon: Monitor,
     color: "hsl(340, 82%, 52%)", // Pink
-    href: "/services/dinner-and-dance",
-  },
-  {
-    label: "Retreats",
-    icon: Plane,
-    color: "hsl(33, 100%, 50%)", // Orange
-    href: "/services/overseas-retreats",
+    href: "/services/amazing-race-virtual",
   },
   {
     label: "Training",
     icon: Target,
-    color: "hsl(160, 70%, 45%)", // Green
+    color: "hsl(33, 100%, 50%)", // Orange
     href: "/services/workshops",
+  },
+  {
+    label: "Youth Camps",
+    icon: GraduationCap,
+    color: "hsl(160, 70%, 45%)", // Green
+    href: "/services/youth-camps",
   },
 ];
 

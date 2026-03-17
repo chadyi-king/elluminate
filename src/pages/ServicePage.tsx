@@ -157,12 +157,7 @@ const ServicePage = () => {
 
       {/* 3. Recent Events Ticker */}
       {service.recentEvents && (
-        <section className="py-10 px-4 bg-background">
-          <div className="max-w-6xl mx-auto">
-            <p className="text-center text-sm font-medium tracking-wide mb-6 text-muted-foreground">
-              {service.recentEventsHeadline || `Companies who've experienced our ${service.hero.title}`}
-            </p>
-          </div>
+        <section className="py-8 px-4 bg-background">
           <ServiceRecentEventsTicker events={service.recentEvents} accentColor={service.accentColor} />
         </section>
       )}
