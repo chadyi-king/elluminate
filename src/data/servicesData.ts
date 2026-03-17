@@ -391,7 +391,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Transform Your Team?",
       subtext: "Let's design an unforgettable team building experience that brings your people together."
-    }
+    },
+    dividerVariant: "confetti",
+    recentEvents: [
+      { client: "Google Singapore", event: "Innovation Team Day", pax: 200 },
+      { client: "DBS Bank", event: "Department Off-site", pax: 350 },
+      { client: "Shopee", event: "Cross-Team Challenge", pax: 280 },
+      { client: "Grab Holdings", event: "Team Building Day", pax: 180 },
+      { client: "Microsoft Singapore", event: "Quarterly Bonding", pax: 150 },
+      { client: "Amazon Singapore", event: "Operations Team Day", pax: 250 },
+      { client: "Singtel", event: "Annual Team Building", pax: 400 },
+      { client: "OCBC Bank", event: "Branch Team Building", pax: 300 },
+      { client: "Unilever Singapore", event: "Sales Kickoff", pax: 180 },
+      { client: "Standard Chartered", event: "New Hire Bonding", pax: 90 },
+      { client: "ST Engineering", event: "Engineering Team Day", pax: 220 },
+      { client: "CapitaLand", event: "Leadership Team Building", pax: 120 },
+    ],
+    recentEventsHeadline: "Companies who've experienced our Team Building",
   },
   "overseas-retreats": {
     accentColor: "#5AB7AE",
