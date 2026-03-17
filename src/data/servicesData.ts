@@ -55,6 +55,7 @@ export interface FlowSectionItem {
   icon: LucideIcon;
   title: string;
   description: string;
+  image?: string;
 }
 
 export interface FlowSection {
