@@ -2662,6 +2662,7 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "grand-opening": {
     accentColor: "#EF4444",
+    dividerVariant: "confetti",
     hero: {
       title: "Grand Openings",
       subtitle: "Grand Opening",
@@ -2669,23 +2670,23 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: grandOpeningHero
     },
     overview: {
-      description: "Launch your new venture with impact. Our grand opening events combine ceremony, celebration, and strategic communications to create memorable debuts that generate buzz and establish your brand presence.",
+      description: "Launch your new venture with maximum impact and lasting impressions. Our grand opening events combine solemn ceremony with joyful celebration and strategic media management to create debuts that generate buzz, attract press coverage, and firmly establish your brand presence from day one. We handle every element: ribbon-cutting choreography with VIP dignitaries, guided venue tours for media and investors, branded photo walls, live entertainment, and post-ceremony networking receptions. Our production team sets up stage, sound, and lighting to ensure your launch looks and sounds world-class, whether you are opening a flagship retail store, a new corporate headquarters, or a community facility. We coordinate media invitations, press kits, social media coverage, and professional videography so your opening reaches far beyond the guests in the room. From intimate boutique unveilings for 50 guests to large-scale public launches for 2,000+, we have produced grand openings across every industry in Singapore.",
       backgroundImage: grandOpeningHero
     },
     features: [
-      { icon: Rocket, title: "Launch Ceremonies", description: "Ribbon-cutting and ceremonial moments." },
-      { icon: Megaphone, title: "Media Coverage", description: "Press management and media coordination." },
-      { icon: Users, title: "VIP Management", description: "Guest of honor and dignitary coordination." },
-      { icon: Sparkles, title: "Brand Experience", description: "Immersive brand showcases and tours." },
-      { icon: PartyPopper, title: "Celebration", description: "Post-ceremony entertainment and festivities." },
-      { icon: Camera, title: "Content Creation", description: "Professional photo and video documentation." }
+      { icon: Rocket, title: "Launch Ceremonies", description: "Ribbon-cutting choreography with VIP and dignitary coordination." },
+      { icon: Megaphone, title: "Media Coverage", description: "Press kit preparation, media wall setup, and journalist coordination." },
+      { icon: Users, title: "VIP Management", description: "Guest of honor logistics, arrivals protocol, and guided tours." },
+      { icon: Sparkles, title: "Brand Experience", description: "Immersive brand showcases, product demos, and interactive displays." },
+      { icon: PartyPopper, title: "Celebration", description: "Post-ceremony entertainment, networking reception, and festivities." },
+      { icon: Camera, title: "Content Creation", description: "Professional photo and video documentation for marketing use." }
     ],
     benefits: [
-      { icon: Rocket, title: "Strong Launch", description: "Start with maximum impact and visibility." },
-      { icon: Star, title: "Media Coverage", description: "Generate press and social buzz." },
-      { icon: Users, title: "Stakeholder Engagement", description: "Impress investors, partners, and VIPs." },
-      { icon: Heart, title: "Community Connection", description: "Build relationships from day one." },
-      { icon: Target, title: "Brand Establishment", description: "Set the tone for your brand presence." }
+      { icon: Rocket, title: "Strong Launch", description: "Start with maximum impact, visibility, and media coverage." },
+      { icon: Star, title: "Media Coverage", description: "Generate press articles, social media buzz, and online traction." },
+      { icon: Users, title: "Stakeholder Engagement", description: "Impress investors, partners, VIPs, and government officials." },
+      { icon: Heart, title: "Community Connection", description: "Build neighbourhood and customer relationships from day one." },
+      { icon: Target, title: "Brand Establishment", description: "Set the tone and standard for your brand presence in Singapore." }
     ],
     activities: {
       sectionTitle: "OPENING ELEMENTS",
@@ -2737,24 +2738,39 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800"
     ],
     testimonials: [
-      { quote: "Our new headquarters opening made a powerful statement.", author: "CEO", company: "Technology Company" },
-      { quote: "The media coverage exceeded all expectations.", author: "Marketing Director", company: "Retail Brand" },
-      { quote: "A perfect blend of ceremony and celebration.", author: "Managing Director", company: "Financial Services" },
-      { quote: "Our VIP guests were thoroughly impressed.", author: "Country Manager", company: "MNC" },
-      { quote: "The launch set the perfect tone for our brand.", author: "Founder", company: "Startup" },
-      { quote: "Professional execution from start to finish.", author: "Operations Director", company: "Hospitality Group" }
+      { quote: "Our new regional headquarters opening made a powerful statement to the entire industry.", author: "Tan Wei Ming", company: "Dyson Singapore" },
+      { quote: "The media coverage exceeded all expectations. We were featured in five publications.", author: "Serene Goh", company: "Lululemon Singapore" },
+      { quote: "A perfect blend of ceremony and celebration that our investors loved.", author: "Adrian Chew", company: "Sea Group" },
+      { quote: "Our VIP guests, including two ministers, were thoroughly impressed.", author: "Rachel Ng", company: "CapitaLand" },
+      { quote: "The launch set the perfect tone for our flagship store brand experience.", author: "Marcus Loh", company: "Decathlon Singapore" },
+      { quote: "Professional execution from ribbon-cutting to after-party networking.", author: "Felicia Tan", company: "WeWork Singapore" }
     ],
     faqs: [
-      { question: "How far in advance should we plan?", answer: "We recommend 2-3 months for comprehensive planning, though we can accommodate shorter timelines." },
-      { question: "Do you handle media and PR?", answer: "Yes, we can coordinate media invitations, press releases, and on-site media management." },
-      { question: "Can you arrange VIP attendance?", answer: "We can help coordinate invitations and logistics for VIPs and dignitaries." },
-      { question: "What about permits and approvals?", answer: "We assist with venue permits, safety requirements, and necessary approvals." },
-      { question: "Do you provide entertainment?", answer: "Yes, from cultural performances to live bands, we curate entertainment fitting your brand." }
+      { question: "How far in advance should we plan a grand opening?", answer: "We recommend 2-3 months for comprehensive planning, though we can accommodate shorter timelines for simpler formats." },
+      { question: "Do you handle media and PR coordination?", answer: "Yes, we coordinate media invitations, press kits, on-site media management, and post-event press release distribution." },
+      { question: "Can you arrange VIP and government attendance?", answer: "We can help coordinate invitations, logistics, and protocol for VIPs, ministers, and foreign dignitaries." },
+      { question: "What about permits and approvals?", answer: "We assist with venue permits, road closures, safety requirements, NEA approvals, and all necessary regulatory paperwork." },
+      { question: "Do you provide post-event content?", answer: "Yes, we deliver edited photos, highlight videos, and social media content within 3-5 business days for your marketing use." }
     ],
     cta: {
       headline: "Ready for Your Grand Opening?",
       subtext: "Let's create a launch that establishes your presence with impact."
-    }
+    },
+    recentEvents: [
+      { client: "Dyson Singapore", event: "Regional HQ Grand Opening", pax: 500 },
+      { client: "Lululemon", event: "Flagship Store Launch", pax: 300 },
+      { client: "Sea Group", event: "New Office Opening", pax: 800 },
+      { client: "CapitaLand", event: "Mixed-Use Development Launch", pax: 1200 },
+      { client: "Decathlon Singapore", event: "Megastore Grand Opening", pax: 600 },
+      { client: "WeWork Singapore", event: "Co-Working Space Launch", pax: 250 },
+      { client: "Grab", event: "Tech Centre Opening", pax: 400 },
+      { client: "Samsung", event: "Experience Store Launch", pax: 350 },
+      { client: "Nike Singapore", event: "Concept Store Opening", pax: 450 },
+      { client: "Apple Orchard Road", event: "Flagship Opening Support", pax: 200 },
+      { client: "Foodpanda", event: "Cloud Kitchen Launch", pax: 150 },
+      { client: "Tesla Singapore", event: "Showroom Grand Opening", pax: 280 }
+    ],
+    recentEventsHeadline: "Companies who've launched with Elluminate"
   },
   "amazing-race": {
     accentColor: "#FFC400",
