@@ -5,6 +5,7 @@ export interface FlowItem {
   icon: LucideIcon;
   title: string;
   description: string;
+  image?: string;
 }
 
 interface ServiceFlowSectionProps {
