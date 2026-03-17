@@ -47,7 +47,7 @@ export const CTASection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white mb-6"
           >
-            Let Us Elluminate Your Next Experience
+            Let Us <span className="text-yellow-300">Elluminate</span> Your Next Experience
           </motion.h2>
           
           <motion.p

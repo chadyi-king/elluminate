@@ -802,7 +802,7 @@ const AboutPage = () => {
                   transition={{ duration: 0.5 }}
                   className={`absolute inset-0 ${currentTestimonial === index ? 'block' : 'hidden'}`}
                 >
-                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 text-center h-full flex flex-col justify-center">
+                  <div className="bg-slate-900/80 backdrop-blur-md border border-white/15 rounded-xl p-8 text-center h-full flex flex-col justify-center">
                     <Quote className="w-10 h-10 text-primary/30 mx-auto mb-4" />
                     <p className="text-lg md:text-xl text-white font-sans leading-relaxed mb-6 italic">
                       "{testimonial.quote}"

@@ -44,14 +44,14 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Top Activities */}
           <div>
             <h4 className="text-background font-display font-semibold text-lg mb-6">
-              Quick Links
+              Top Activities
             </h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.path}>
+            <ul className="space-y-2">
+              {topActivities.map((link, index) => (
+                <li key={`${link.path}-${index}`}>
                   <Link
                     to={link.path}
                     className="text-background/70 hover:text-primary text-sm transition-colors duration-300"
