@@ -307,7 +307,7 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: teamBuildingHero
     },
     overview: {
-      description: "Transform your team dynamics with our expertly crafted team building experiences. We design engaging activities that foster collaboration, communication, and trust among team members, creating lasting connections that enhance workplace productivity and morale. From outdoor adventures to creative challenges, every activity is designed to bring out the best in your people.",
+      description: "Transform your team dynamics with expertly crafted team building experiences designed to deliver measurable improvements in collaboration, communication, and trust. Our programmes range from high-energy outdoor adventures like the Amazing Race and Archery Tag to creative indoor challenges such as BuilderCross and Minute To Win It. Every session is facilitated by experienced game masters who adapt the format, difficulty, and debrief to match your team's size, goals, and energy level. Whether you need to break the ice with new hires, re-energise a veteran department, or align a cross-functional task force before a major project, we design an activity mix that fits. Groups of 20 to 2,000 are welcome. We handle venue sourcing, logistics, catering coordination, live scoring, photography, and post-event highlight reels so your HR or admin team can simply show up and enjoy the day alongside everyone else. With over 600 events delivered across Singapore, our track record speaks for itself: stronger teams, happier employees, and companies that keep coming back year after year.",
       backgroundImage: teamBuildingHero
     },
     features: [
