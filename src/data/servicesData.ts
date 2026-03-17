@@ -1338,7 +1338,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Appreciate Your Clients?",
       subtext: "Let's create experiences that turn clients into lifelong partners."
-    }
+    },
+    dividerVariant: "ribbon",
+    recentEvents: [
+      { client: "Credit Suisse", event: "VIP Client Dinner", pax: 80 },
+      { client: "Standard Chartered", event: "Top Client Evening", pax: 60 },
+      { client: "Julius Baer", event: "Private Client Event", pax: 50 },
+      { client: "HSBC Singapore", event: "Wealth Client Appreciation", pax: 100 },
+      { client: "Citi Singapore", event: "Platinum Client Night", pax: 70 },
+      { client: "Morgan Stanley", event: "Partner Appreciation", pax: 45 },
+      { client: "Goldman Sachs", event: "Client Awards Dinner", pax: 65 },
+      { client: "J.P. Morgan", event: "Annual Client Gala", pax: 90 },
+      { client: "Bank of America", event: "Key Client Event", pax: 55 },
+      { client: "Barclays Singapore", event: "Client Thank-You Night", pax: 75 },
+      { client: "BNP Paribas", event: "VIP Appreciation", pax: 40 },
+      { client: "Deutsche Bank", event: "Client Experience Night", pax: 60 },
+    ],
+    recentEventsHeadline: "Companies who've appreciated clients with Elluminate",
   },
   "town-halls": {
     accentColor: "#295CFF",
