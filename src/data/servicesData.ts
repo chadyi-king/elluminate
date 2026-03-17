@@ -1972,7 +1972,22 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Create Your Perfect Theme?",
       subtext: "Let's transform your venue into an unforgettable themed experience."
-    }
+    },
+    recentEvents: [
+      { client: "Raffles Hotel", event: "Gatsby Theme Gala", pax: 300 },
+      { client: "Marina Bay Sands", event: "Casino Royale Theme", pax: 500 },
+      { client: "Capella Singapore", event: "Enchanted Garden D&D", pax: 200 },
+      { client: "St. Regis Singapore", event: "Hollywood Glamour Night", pax: 250 },
+      { client: "Fullerton Hotel", event: "Arabian Nights Theme", pax: 400 },
+      { client: "W Singapore", event: "Neon Futuristic Launch", pax: 350 },
+      { client: "Shangri-La Singapore", event: "Winter Wonderland Theme", pax: 600 },
+      { client: "Mandarin Oriental", event: "Tropical Paradise Gala", pax: 280 },
+      { client: "The Ritz-Carlton", event: "Black & Gold Luxury", pax: 180 },
+      { client: "Pan Pacific", event: "Retro 80s Party", pax: 450 },
+      { client: "Fairmont Singapore", event: "Carnival Fiesta Theme", pax: 320 },
+      { client: "Conrad Centennial", event: "Rustic Charm D&D", pax: 220 }
+    ],
+    recentEventsHeadline: "Venues we've transformed with custom themes"
   },
   "emcee-media": {
     accentColor: "#6C7A89",
