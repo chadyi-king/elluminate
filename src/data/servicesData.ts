@@ -4220,7 +4220,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "the-gameshow-experience-virtual": {
     accentColor: "#1F7CFF",
-    dividerVariant: "timer",
+    dividerVariant: "spotlight",
     hero: {
       title: "GAMESHOW EXPERIENCE",
       subtitle: "Virtual Team Building",
