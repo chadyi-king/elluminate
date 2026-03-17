@@ -666,7 +666,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Create a Night Your Team Will Never Forget?",
       subtext: "Let's bring your Dinner & Dance vision to life with cinematic precision and unforgettable moments."
-    }
+    },
+    dividerVariant: "confetti",
+    recentEvents: [
+      { client: "SP Group", event: "Annual D&D Gala", pax: 500 },
+      { client: "DBS Bank", event: "Year-End D&D", pax: 800 },
+      { client: "Singtel", event: "Dinner & Dance", pax: 600 },
+      { client: "OCBC Bank", event: "Black Tie Gala", pax: 450 },
+      { client: "Standard Chartered", event: "Awards Night D&D", pax: 350 },
+      { client: "UBS Singapore", event: "Annual Dinner", pax: 300 },
+      { client: "CapitaLand", event: "Masquerade D&D", pax: 400 },
+      { client: "Keppel Corporation", event: "Golden Gala", pax: 550 },
+      { client: "Singapore Airlines", event: "Crew D&D Night", pax: 700 },
+      { client: "StarHub", event: "Neon Theme D&D", pax: 380 },
+      { client: "GIC", event: "Annual Dinner & Dance", pax: 200 },
+      { client: "Temasek Holdings", event: "Hollywood D&D", pax: 250 },
+    ],
+    recentEventsHeadline: "Companies who've celebrated with our Dinner & Dance",
   },
   "awards-ceremonies": {
     accentColor: "#D4AF37",
