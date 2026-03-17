@@ -4282,7 +4282,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "the-great-zodiac-hunt-virtual": {
     accentColor: "#EF4444",
-    dividerVariant: "timer",
+    dividerVariant: "route",
     hero: {
       title: "GREAT ZODIAC HUNT",
       subtitle: "Virtual Team Building",
