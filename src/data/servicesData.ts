@@ -4096,7 +4096,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "amazing-race-virtual": {
     accentColor: "#FFC400",
-    dividerVariant: "timer",
+    dividerVariant: "raceTrack",
     hero: {
       title: "AMAZING RACE VIRTUAL",
       subtitle: "Virtual Team Building",
