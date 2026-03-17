@@ -1226,7 +1226,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Activate Your Brand?",
       subtext: "Let's create experiences that turn audiences into advocates."
-    }
+    },
+    dividerVariant: "confetti",
+    recentEvents: [
+      { client: "Nike Singapore", event: "Air Max Day Activation", pax: 500 },
+      { client: "Coca-Cola Singapore", event: "Mall Roadshow", pax: 800 },
+      { client: "Red Bull Asia", event: "Extreme Sports Activation", pax: 400 },
+      { client: "Adidas Singapore", event: "Originals Pop-Up", pax: 350 },
+      { client: "Unilever Singapore", event: "Brand Experience Day", pax: 600 },
+      { client: "P&G Singapore", event: "Consumer Activation", pax: 450 },
+      { client: "L'Oreal Singapore", event: "Beauty Activation", pax: 300 },
+      { client: "Nestlé Singapore", event: "Taste Tour", pax: 550 },
+      { client: "Tiger Beer", event: "Street Festival", pax: 700 },
+      { client: "Grab", event: "GrabPay Launch Activation", pax: 400 },
+      { client: "Lazada", event: "11.11 Countdown", pax: 900 },
+      { client: "Shopee", event: "Brand Festival Booth", pax: 650 },
+    ],
+    recentEventsHeadline: "Brands who've activated with Elluminate",
   },
   "client-appreciation": {
     accentColor: "#E4AFA3",
