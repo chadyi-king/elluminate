@@ -1670,6 +1670,7 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "event-concept": {
     accentColor: "#C0C0C0",
+    dividerVariant: "spotlight",
     hero: {
       title: "Event Concept Development",
       subtitle: "Concept",
@@ -1677,23 +1678,23 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: eventConceptHero
     },
     overview: {
-      description: "Turn your event vision into reality with our comprehensive concept development services. We work closely with you to craft unique event narratives, design immersive experiences, and create detailed execution plans that bring your ideas to life with precision and creativity.",
+      description: "Turn your event vision into reality with our comprehensive concept development services. We work closely with your stakeholders to craft unique event narratives, design immersive guest journeys, and create detailed execution plans that bring your ideas to life with precision and creativity. Our process begins with discovery workshops where we decode your brand DNA, audience profile, and strategic objectives. From there, our creative directors develop 2-3 distinct concept directions, each with mood boards, colour palettes, 3D venue renderings, and experience flow maps. Once a direction is selected, we refine every touchpoint from entrance moments to farewell gifts, producing detailed production specifications that any vendor team can execute flawlessly. Whether you are planning a product launch, annual gala, or multi-day conference, our concept development ensures your event tells a cohesive story that resonates long after the last guest departs.",
       backgroundImage: eventConceptHero
     },
     features: [
-      { icon: Lightbulb, title: "Creative Ideation", description: "Brainstorming sessions that spark innovative concepts." },
-      { icon: Palette, title: "Theme Development", description: "Cohesive narratives that tie your event together." },
-      { icon: PenTool, title: "Visual Design", description: "Mood boards, renderings, and design specifications." },
-      { icon: Target, title: "Strategic Alignment", description: "Concepts that achieve your event objectives." },
-      { icon: Users, title: "Stakeholder Workshops", description: "Collaborative sessions to refine your vision." },
-      { icon: Monitor, title: "Production Planning", description: "Detailed technical and logistics specifications." }
+      { icon: Lightbulb, title: "Creative Ideation", description: "Multi-session brainstorming that sparks innovative, on-brand concepts." },
+      { icon: Palette, title: "Theme Development", description: "Cohesive narratives that tie every element of your event together." },
+      { icon: PenTool, title: "Visual Design", description: "Mood boards, 3D renderings, colour palettes, and design specifications." },
+      { icon: Target, title: "Strategic Alignment", description: "Concepts engineered to achieve measurable event objectives." },
+      { icon: Users, title: "Stakeholder Workshops", description: "Collaborative sessions to align vision across all decision-makers." },
+      { icon: Monitor, title: "Production Planning", description: "Detailed technical specs, vendor briefs, and run-sheet documentation." }
     ],
     benefits: [
-      { icon: Star, title: "Unique Concepts", description: "Events that stand out from the crowd." },
-      { icon: Target, title: "Clear Direction", description: "Defined vision for all stakeholders." },
-      { icon: Sparkles, title: "Creative Excellence", description: "Innovative ideas that inspire." },
-      { icon: Clock, title: "Efficient Execution", description: "Detailed plans prevent last-minute surprises." },
-      { icon: Heart, title: "Memorable Experiences", description: "Concepts designed for impact." }
+      { icon: Star, title: "Unique Concepts", description: "Events that stand out and never feel templated." },
+      { icon: Target, title: "Clear Direction", description: "A defined creative vision for all stakeholders and vendors." },
+      { icon: Sparkles, title: "Creative Excellence", description: "Innovative ideas from a team with 500+ events produced." },
+      { icon: Clock, title: "Efficient Execution", description: "Detailed plans that prevent scope creep and last-minute surprises." },
+      { icon: Heart, title: "Memorable Experiences", description: "Concepts designed for emotional impact and audience delight." }
     ],
     activities: {
       sectionTitle: "CONCEPT SERVICES",
@@ -1745,27 +1746,43 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800"
     ],
     testimonials: [
-      { quote: "The concept development process was incredibly thorough. Exceeded our expectations!", author: "Lisa Wong", company: "L'Oreal Singapore" },
-      { quote: "Elluminate transformed our vague ideas into a stunning event concept.", author: "Marcus Tan", company: "Chanel Singapore" },
-      { quote: "The visual presentations made it easy to get stakeholder buy-in.", author: "Amanda Lee", company: "Gucci Singapore" },
-      { quote: "Creative and practical - they understood our brand perfectly.", author: "Kevin Goh", company: "Louis Vuitton Singapore" },
-      { quote: "The production plans were so detailed, execution was seamless.", author: "Sarah Chen", company: "Dior Singapore" },
-      { quote: "Best concept development experience we've had.", author: "Daniel Lim", company: "Hermès Singapore" }
+      { quote: "The concept development process was incredibly thorough. Every stakeholder was aligned within two weeks.", author: "Lisa Wong", company: "L'Oreal Singapore" },
+      { quote: "Elluminate transformed our vague ideas into a stunning event concept with 3D renderings that blew us away.", author: "Marcus Tan", company: "BMW Asia" },
+      { quote: "The visual presentations made it easy to get C-suite buy-in on our first attempt.", author: "Amanda Lee", company: "Johnson & Johnson" },
+      { quote: "Creative and practical. They understood our brand DNA perfectly from the first workshop.", author: "Kevin Goh", company: "Sephora Singapore" },
+      { quote: "The production plans were so detailed, our vendor team executed without a single question.", author: "Sarah Chen", company: "Pandora Singapore" },
+      { quote: "Best concept development experience we have had. Truly elevated our annual conference.", author: "Daniel Lim", company: "Abbott Laboratories" }
     ],
     faqs: [
-      { question: "What's included in concept development?", answer: "Our service includes discovery sessions, creative brainstorming, theme development, visual presentations, 3D renderings, and detailed production specifications." },
-      { question: "How many concept options do you present?", answer: "We typically develop 2-3 distinct concept directions for you to choose from, then refine the selected concept." },
-      { question: "Can you work with our existing ideas?", answer: "Absolutely! We can develop your existing vision or start from scratch based on your objectives." },
-      { question: "Do you handle execution as well?", answer: "Yes, we can provide end-to-end service from concept to execution, or hand over detailed plans to your production team." },
-      { question: "What's the typical timeline for concept development?", answer: "Concept development typically takes 2-4 weeks depending on complexity and stakeholder availability." }
+      { question: "What is included in concept development?", answer: "Discovery workshops, creative brainstorming, 2-3 concept directions with mood boards, 3D renderings, experience flow maps, and detailed production specifications." },
+      { question: "How many concept options do you present?", answer: "We typically develop 2-3 distinct concept directions for you to choose from, then refine the selected concept through two revision rounds." },
+      { question: "Can you work with our existing ideas?", answer: "Absolutely! We can develop your existing vision further or start from scratch based on your objectives and audience." },
+      { question: "Do you handle execution as well?", answer: "Yes, we offer end-to-end service from concept to on-site execution, or we can hand over detailed plans to your production team." },
+      { question: "What is the typical timeline for concept development?", answer: "Concept development typically takes 2-4 weeks depending on complexity, number of stakeholders, and revision cycles." }
     ],
     cta: {
       headline: "Ready to Bring Your Vision to Life?",
       subtext: "Let's develop an event concept that exceeds your imagination."
-    }
+    },
+    recentEvents: [
+      { client: "L'Oreal Singapore", event: "Annual Summit Concept", pax: 500 },
+      { client: "BMW Asia", event: "Product Launch Concept", pax: 300 },
+      { client: "Johnson & Johnson", event: "Conference Design", pax: 800 },
+      { client: "Sephora Singapore", event: "Brand Event Concept", pax: 200 },
+      { client: "Pandora Singapore", event: "VIP Gala Concept", pax: 150 },
+      { client: "Abbott Laboratories", event: "Annual Dinner Concept", pax: 600 },
+      { client: "Roche Singapore", event: "Summit Concept Development", pax: 400 },
+      { client: "Procter & Gamble", event: "Brand Activation Concept", pax: 1000 },
+      { client: "Unilever Singapore", event: "Year-End Gala Concept", pax: 700 },
+      { client: "AstraZeneca", event: "Conference Concept", pax: 350 },
+      { client: "GSK Singapore", event: "Awards Night Concept", pax: 250 },
+      { client: "Pfizer Singapore", event: "Product Launch Concept", pax: 450 }
+    ],
+    recentEventsHeadline: "Companies whose events we've conceptualized"
   },
   "stage-production": {
     accentColor: "#FFB347",
+    dividerVariant: "spotlight",
     hero: {
       title: "Stage & AV Production",
       subtitle: "Production",
@@ -1773,23 +1790,23 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: stageProductionHero
     },
     overview: {
-      description: "Elevate your events with professional stage design and audio-visual production that creates immersive, impactful experiences. Our technical team brings together cutting-edge technology with creative artistry to deliver flawless productions that captivate audiences.",
+      description: "Elevate your events with professional stage design and audio-visual production that creates immersive, cinema-grade experiences. Our technical team brings together cutting-edge LED walls, intelligent lighting rigs, concert-grade sound systems, and show-stopping special effects to deliver flawless productions that captivate audiences from the opening act to the final bow. We handle everything from initial stage blueprints and 3D renderings through load-in, technical rehearsal, and live show operation. Whether you need a simple podium setup for 50 or a multi-level stage with projection mapping for 5,000, our crew of certified riggers, sound engineers, lighting designers, and video technicians deliver broadcast-quality production values every time. We maintain our own inventory of premium equipment and always deploy redundant backup systems for mission-critical shows.",
       backgroundImage: stageProductionHero
     },
     features: [
-      { icon: Monitor, title: "Stage Design", description: "Custom stage constructions that wow audiences." },
-      { icon: Volume2, title: "Audio Systems", description: "Crystal-clear sound for every size venue." },
-      { icon: Lightbulb, title: "Lighting Design", description: "Atmospheric lighting that sets the mood." },
-      { icon: Video, title: "Video Production", description: "LED walls, projection mapping, and live video." },
-      { icon: Sparkles, title: "Special Effects", description: "Pyrotechnics, confetti, and atmospheric effects." },
-      { icon: Users, title: "Technical Crew", description: "Experienced technicians for seamless execution." }
+      { icon: Monitor, title: "Stage Design", description: "Custom stage constructions with 3D rendering previews before build." },
+      { icon: Volume2, title: "Audio Systems", description: "Concert-grade line arrays for crystal-clear sound at any venue size." },
+      { icon: Lightbulb, title: "Lighting Design", description: "Intelligent moving heads, wash lights, and atmospheric effects." },
+      { icon: Video, title: "Video Production", description: "LED walls, projection mapping, IMAG cameras, and live switching." },
+      { icon: Sparkles, title: "Special Effects", description: "Cold pyro, CO2 jets, confetti cannons, haze, and snow machines." },
+      { icon: Users, title: "Technical Crew", description: "Certified riggers, engineers, and stage managers for seamless execution." }
     ],
     benefits: [
-      { icon: Star, title: "Professional Quality", description: "Broadcast-grade production values." },
-      { icon: Camera, title: "Visual Impact", description: "Stunning visuals that captivate." },
-      { icon: Zap, title: "Reliable Execution", description: "Technical excellence with backup systems." },
-      { icon: Heart, title: "Emotional Moments", description: "Technology that enhances storytelling." },
-      { icon: Sparkles, title: "Memorable Experiences", description: "Production that elevates every moment." }
+      { icon: Star, title: "Professional Quality", description: "Broadcast-grade production values that impress every audience." },
+      { icon: Camera, title: "Visual Impact", description: "Stunning visuals that transform ordinary venues into spectacular stages." },
+      { icon: Zap, title: "Reliable Execution", description: "Redundant equipment and backup systems for zero-failure shows." },
+      { icon: Heart, title: "Emotional Moments", description: "Technology that amplifies storytelling and creates goosebump moments." },
+      { icon: Sparkles, title: "Memorable Experiences", description: "Production quality that elevates every moment of your event." }
     ],
     activities: {
       sectionTitle: "PRODUCTION SERVICES",
@@ -1800,34 +1817,19 @@ export const servicesData: Record<string, ServiceData> = {
         title: "Stage Design & Construction",
         description: "Custom stage builds that create the perfect platform for your event.",
         image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920",
-        points: [
-          { text: "Custom stage design and fabrication" },
-          { text: "LED screen integration" },
-          { text: "Scenic elements and backdrops" },
-          { text: "Rigging and structural engineering" }
-        ]
+        points: [{ text: "Custom stage design and fabrication" }, { text: "LED screen integration" }, { text: "Scenic elements and backdrops" }, { text: "Rigging and structural engineering" }]
       },
       {
         title: "Audio-Visual Excellence",
         description: "State-of-the-art technology for crystal-clear sound and stunning visuals.",
         image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1920",
-        points: [
-          { text: "Professional sound systems" },
-          { text: "Intelligent lighting rigs" },
-          { text: "LED walls and projection" },
-          { text: "Live streaming capabilities" }
-        ]
+        points: [{ text: "Professional sound systems" }, { text: "Intelligent lighting rigs" }, { text: "LED walls and projection" }, { text: "Live streaming capabilities" }]
       },
       {
         title: "Special Effects",
         description: "Add magic to your event with spectacular effects and atmospheric elements.",
         image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920",
-        points: [
-          { text: "Confetti and streamer cannons" },
-          { text: "Haze and fog machines" },
-          { text: "CO2 jets and cold pyro" },
-          { text: "Bubble and snow effects" }
-        ]
+        points: [{ text: "Confetti and streamer cannons" }, { text: "Haze and fog machines" }, { text: "CO2 jets and cold pyro" }, { text: "Bubble and snow effects" }]
       }
     ],
     gallery: [
@@ -1841,27 +1843,43 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800"
     ],
     testimonials: [
-      { quote: "The stage production was absolutely world-class. Impressed everyone!", author: "Richard Wong", company: "Singtel" },
-      { quote: "Technical execution was flawless. The team handled everything professionally.", author: "Amanda Tan", company: "StarHub" },
-      { quote: "The lighting design transformed our venue completely.", author: "Kevin Lee", company: "MediaCorp" },
-      { quote: "Best AV production we've ever experienced at a corporate event.", author: "Michelle Goh", company: "SPH Media" },
-      { quote: "The special effects made our launch unforgettable.", author: "Daniel Lim", company: "Mediacorp" },
-      { quote: "From design to execution, everything was perfect.", author: "Sarah Chen", company: "Resorts World Sentosa" }
+      { quote: "The stage production was absolutely world-class. Our 2,000 guests were mesmerized.", author: "Richard Wong", company: "Singtel" },
+      { quote: "Technical execution was flawless. Zero hiccups across a 4-hour live show.", author: "Amanda Tan", company: "StarHub" },
+      { quote: "The lighting design transformed our ballroom into a concert arena.", author: "Kevin Lee", company: "MediaCorp" },
+      { quote: "Best AV production we have ever experienced at a corporate event in Singapore.", author: "Michelle Goh", company: "SPH Media" },
+      { quote: "The cold pyro and confetti finale had the entire audience on their feet.", author: "Daniel Lim", company: "Resorts World Sentosa" },
+      { quote: "From 3D renders to load-out, the team was professional and meticulous.", author: "Sarah Chen", company: "Marina Bay Sands" }
     ],
     faqs: [
-      { question: "What production services do you offer?", answer: "We provide stage design, audio systems, lighting, LED/projection, live streaming, special effects, and full technical crew." },
+      { question: "What production services do you offer?", answer: "Stage design, audio systems, intelligent lighting, LED/projection, live streaming, special effects (pyro, confetti, haze), and full technical crew." },
       { question: "Do you work with venue in-house AV?", answer: "We can integrate with venue systems or bring our own equipment, depending on your requirements and venue restrictions." },
-      { question: "Can you handle outdoor events?", answer: "Yes, we have weatherproof equipment and outdoor-rated systems for open-air events." },
-      { question: "What backup systems do you have?", answer: "We always bring redundant equipment and backup systems for critical elements like sound, video playback, and power." },
-      { question: "How early do you need venue access?", answer: "Depending on complexity, we typically need 1-3 days for load-in, setup, and technical rehearsals." }
+      { question: "Can you handle outdoor events?", answer: "Yes, we have weatherproof equipment and outdoor-rated systems for open-air events of any scale." },
+      { question: "What backup systems do you have?", answer: "We always deploy redundant equipment and backup power for mission-critical elements like sound, video playback, and lighting." },
+      { question: "How early do you need venue access?", answer: "Depending on complexity, we typically need 1-3 days for load-in, setup, technical rehearsals, and sound checks." }
     ],
     cta: {
       headline: "Ready for Production Excellence?",
       subtext: "Let's create a technical production that elevates your event to new heights."
-    }
+    },
+    recentEvents: [
+      { client: "Singtel", event: "Annual Gala Stage Production", pax: 2000 },
+      { client: "StarHub", event: "Product Launch AV", pax: 800 },
+      { client: "MediaCorp", event: "Awards Show Production", pax: 1500 },
+      { client: "SPH Media", event: "Conference Stage Design", pax: 600 },
+      { client: "Resorts World Sentosa", event: "Grand Show Production", pax: 3000 },
+      { client: "Marina Bay Sands", event: "Corporate Gala AV", pax: 2500 },
+      { client: "Changi Airport Group", event: "Launch Event Stage", pax: 1000 },
+      { client: "Singapore Airlines", event: "Awards Ceremony Production", pax: 500 },
+      { client: "CapitaLand", event: "Town Hall AV Setup", pax: 400 },
+      { client: "DBS Bank", event: "Annual Dinner Stage", pax: 1200 },
+      { client: "OCBC", event: "D&D Production", pax: 900 },
+      { client: "UOB", event: "Conference AV Package", pax: 700 }
+    ],
+    recentEventsHeadline: "Events we've brought to life on stage"
   },
   "custom-themes": {
     accentColor: "#7A2BE2",
+    dividerVariant: "spotlight",
     hero: {
       title: "Custom Theme Creation",
       subtitle: "Theme",
@@ -1954,10 +1972,26 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Create Your Perfect Theme?",
       subtext: "Let's transform your venue into an unforgettable themed experience."
-    }
+    },
+    recentEvents: [
+      { client: "Raffles Hotel", event: "Gatsby Theme Gala", pax: 300 },
+      { client: "Marina Bay Sands", event: "Casino Royale Theme", pax: 500 },
+      { client: "Capella Singapore", event: "Enchanted Garden D&D", pax: 200 },
+      { client: "St. Regis Singapore", event: "Hollywood Glamour Night", pax: 250 },
+      { client: "Fullerton Hotel", event: "Arabian Nights Theme", pax: 400 },
+      { client: "W Singapore", event: "Neon Futuristic Launch", pax: 350 },
+      { client: "Shangri-La Singapore", event: "Winter Wonderland Theme", pax: 600 },
+      { client: "Mandarin Oriental", event: "Tropical Paradise Gala", pax: 280 },
+      { client: "The Ritz-Carlton", event: "Black & Gold Luxury", pax: 180 },
+      { client: "Pan Pacific", event: "Retro 80s Party", pax: 450 },
+      { client: "Fairmont Singapore", event: "Carnival Fiesta Theme", pax: 320 },
+      { client: "Conrad Centennial", event: "Rustic Charm D&D", pax: 220 }
+    ],
+    recentEventsHeadline: "Venues we've transformed with custom themes"
   },
   "emcee-media": {
     accentColor: "#6C7A89",
+    dividerVariant: "spotlight",
     hero: {
       title: "Emcee, Photo & Video",
       subtitle: "Media",
@@ -2050,7 +2084,22 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Capture Your Event?",
       subtext: "Let's bring professional hosting and media coverage to your next event."
-    }
+    },
+    recentEvents: [
+      { client: "DBS Bank", event: "Emcee + Photo Coverage", pax: 1200 },
+      { client: "OCBC Bank", event: "D&D Photography", pax: 800 },
+      { client: "UOB Bank", event: "Awards Night Emcee", pax: 600 },
+      { client: "Standard Chartered", event: "Gala Video Coverage", pax: 500 },
+      { client: "Maybank Singapore", event: "Conference Emcee", pax: 400 },
+      { client: "HSBC Singapore", event: "Full Media Package", pax: 1000 },
+      { client: "Citibank Singapore", event: "Town Hall Emcee", pax: 700 },
+      { client: "Bank of Singapore", event: "Photo + Video", pax: 300 },
+      { client: "CIMB Singapore", event: "Event Photography", pax: 450 },
+      { client: "RHB Singapore", event: "Same-Day Edit Video", pax: 350 },
+      { client: "Rabobank", event: "Bilingual Emcee", pax: 250 },
+      { client: "ANZ Singapore", event: "Full Event Coverage", pax: 550 }
+    ],
+    recentEventsHeadline: "Events we've hosted and captured"
   },
   "summits": {
     accentColor: "#6366F1",
@@ -2146,7 +2195,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Host an Impactful Summit?",
       subtext: "Let's create a summit that positions your organization as an industry leader."
-    }
+    },
+    recentEvents: [
+      { client: "McKinsey Singapore", event: "Leadership Summit", pax: 300 },
+      { client: "BCG Asia", event: "Partner Conference", pax: 200 },
+      { client: "Bain & Company", event: "Strategy Summit", pax: 150 },
+      { client: "Deloitte Singapore", event: "Industry Conference", pax: 500 },
+      { client: "PwC Singapore", event: "Annual Summit", pax: 400 },
+      { client: "EY Singapore", event: "Innovation Forum", pax: 350 },
+      { client: "KPMG Singapore", event: "Technology Summit", pax: 250 },
+      { client: "Accenture", event: "Digital Summit", pax: 600 },
+      { client: "Oliver Wyman", event: "Executive Roundtable", pax: 80 },
+      { client: "Roland Berger", event: "Regional Summit", pax: 120 },
+      { client: "A.T. Kearney", event: "Global Leadership Forum", pax: 180 },
+      { client: "Mercer Singapore", event: "HR Summit", pax: 450 }
+    ],
+    recentEventsHeadline: "Organizations whose summits we've produced",
+    dividerVariant: "wave",
   },
   "government-events": {
     accentColor: "#DC2626",
@@ -2242,7 +2307,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Plan Your Government Event?",
       subtext: "Partner with us for events that meet the highest standards of public sector excellence."
-    }
+    },
+    dividerVariant: "ribbon",
+    recentEvents: [
+      { client: "Ministry of Education", event: "National Day Observance", pax: 2000 },
+      { client: "Ministry of Health", event: "Healthcare Conference", pax: 800 },
+      { client: "MAS", event: "Financial Sector Summit", pax: 500 },
+      { client: "EDB Singapore", event: "Investor Forum", pax: 300 },
+      { client: "JTC Corporation", event: "Industry Day", pax: 600 },
+      { client: "HDB", event: "Community Event", pax: 1500 },
+      { client: "NEA", event: "Sustainability Forum", pax: 400 },
+      { client: "STB", event: "Tourism Conference", pax: 350 },
+      { client: "NParks", event: "National Day Celebration", pax: 1000 },
+      { client: "IMDA", event: "Digital Economy Summit", pax: 450 },
+      { client: "Enterprise Singapore", event: "SME Conference", pax: 700 },
+      { client: "A*STAR", event: "Research Symposium", pax: 250 }
+    ],
+    recentEventsHeadline: "Government agencies we've partnered with"
   },
   "private-events": {
     accentColor: "#EC4899",
@@ -2338,7 +2419,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Plan Your Private Event?",
       subtext: "Let's create an unforgettable celebration for you and your guests."
-    }
+    },
+    dividerVariant: "wave",
+    recentEvents: [
+      { client: "Private Client", event: "Executive 50th Birthday", pax: 80 },
+      { client: "Private Client", event: "Anniversary Celebration", pax: 60 },
+      { client: "Private Client", event: "Retirement Gala", pax: 120 },
+      { client: "Private Client", event: "Milestone Birthday", pax: 100 },
+      { client: "Private Client", event: "Family Reunion", pax: 200 },
+      { client: "Private Client", event: "Engagement Party", pax: 50 },
+      { client: "Private Client", event: "Graduation Celebration", pax: 70 },
+      { client: "Private Client", event: "VIP Dinner", pax: 40 },
+      { client: "Private Client", event: "Farewell Gathering", pax: 90 },
+      { client: "Private Client", event: "Baby Shower", pax: 30 },
+      { client: "Private Client", event: "Executive Dinner", pax: 25 },
+      { client: "Private Client", event: "Housewarming", pax: 45 }
+    ],
+    recentEventsHeadline: "Private events we've curated"
   },
   "family-fun-days": {
     accentColor: "#F97316",
@@ -2438,6 +2535,7 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "corporate-carnivals": {
     accentColor: "#EAB308",
+    dividerVariant: "confetti",
     hero: {
       title: "Corporate Carnivals",
       subtitle: "Carnival",
@@ -2445,23 +2543,23 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: corporateCarnivalHero
     },
     overview: {
-      description: "Bring the excitement of a carnival to your corporate celebration. Our carnival events feature thrilling games, vibrant entertainment, and festive atmospheres that create unforgettable experiences for your team.",
+      description: "Step right up to the greatest corporate show on earth! Our Corporate Carnivals transform any venue into a bustling fairground bursting with energy, colour, and non-stop entertainment. Think classic ring-toss booths, giant Jenga towers, strength-tester hammers, spin-the-wheel stations, candy floss carts, and roaming performers weaving through the crowd. Employees collect carnival tickets at every station, then trade them for prizes at our redemption counter, turning every game into a friendly competition. We bring the full sensory package: themed bunting and balloon arches at the entrance, funfair lighting rigs, upbeat DJ sets, and even a confetti cannon finale. Whether you are celebrating year-end milestones, rewarding top performers, or simply giving your team a well-deserved break, our carnival format keeps every attendee engaged from the first whistle to the last prize draw. We have produced carnivals for groups of 100 to 5,000+ across ballrooms, outdoor fields, and office lobbies.",
       backgroundImage: corporateCarnivalHero
     },
     features: [
-      { icon: PartyPopper, title: "Carnival Games", description: "Classic and modern carnival game stations." },
-      { icon: Gift, title: "Prize Redemption", description: "Exciting prizes and merchandise." },
-      { icon: Music, title: "Live Entertainment", description: "Performers, musicians, and DJs." },
-      { icon: Palette, title: "Themed Décor", description: "Full carnival atmosphere transformation." },
-      { icon: Users, title: "Crowd Games", description: "Interactive mass participation activities." },
-      { icon: Camera, title: "Photo Experiences", description: "Instagram-worthy photo opportunities." }
+      { icon: PartyPopper, title: "Carnival Games", description: "Classic and modern carnival game stations with trained operators." },
+      { icon: Gift, title: "Prize Redemption", description: "Ticket-based system with exciting prizes and branded merchandise." },
+      { icon: Music, title: "Live Entertainment", description: "Roaming performers, stilt-walkers, magicians, and DJs." },
+      { icon: Palette, title: "Themed Decor", description: "Full carnival atmosphere transformation with balloon arches and bunting." },
+      { icon: Users, title: "Crowd Games", description: "Interactive mass participation activities and stage contests." },
+      { icon: Camera, title: "Photo Experiences", description: "Instagram-worthy photo booths and instant print stations." }
     ],
     benefits: [
-      { icon: PartyPopper, title: "Fun Atmosphere", description: "A break from the everyday routine." },
-      { icon: Users, title: "Team Engagement", description: "Friendly competition and collaboration." },
-      { icon: Heart, title: "Employee Appreciation", description: "Show your team they're valued." },
-      { icon: Star, title: "Memorable Event", description: "An experience people will remember." },
-      { icon: Zap, title: "Energy Boost", description: "Inject excitement into your organization." }
+      { icon: PartyPopper, title: "Fun Atmosphere", description: "A vibrant break from the everyday routine that lifts spirits." },
+      { icon: Users, title: "Team Engagement", description: "Friendly competition and collaboration at every booth." },
+      { icon: Heart, title: "Employee Appreciation", description: "Show your team they are valued with a celebration they deserve." },
+      { icon: Star, title: "Memorable Event", description: "An experience people will talk about long after the last balloon pops." },
+      { icon: Zap, title: "Energy Boost", description: "Inject excitement and positivity into your organization." }
     ],
     activities: {
       sectionTitle: "CARNIVAL ELEMENTS",
@@ -2513,27 +2611,43 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800"
     ],
     testimonials: [
-      { quote: "The carnival atmosphere was incredible! Everyone had so much fun.", author: "Events Manager", company: "Retail Company" },
-      { quote: "Best company event we've had in years!", author: "HR Director", company: "Banking" },
-      { quote: "The games and entertainment kept everyone engaged all night.", author: "Admin Lead", company: "Technology Company" },
-      { quote: "Professional setup with a fun, festive atmosphere.", author: "Culture Lead", company: "Consulting Firm" },
-      { quote: "Our team is still talking about the carnival!", author: "Office Manager", company: "Insurance Company" },
-      { quote: "Perfect mix of games, food, and entertainment.", author: "People Manager", company: "Logistics" }
+      { quote: "The carnival was the highlight of our year! Every department came together for a night of pure fun.", author: "Jasmine Koh", company: "Capitaland" },
+      { quote: "From ring toss to the confetti finale, every moment was electric.", author: "Adrian Lim", company: "Mapletree Investments" },
+      { quote: "Our 3,000-person carnival went off without a hitch. Incredible logistics.", author: "Nicole Tan", company: "Keppel Corporation" },
+      { quote: "The prize redemption system was genius. Staff were competing all night!", author: "Raymond Chia", company: "Olam International" },
+      { quote: "Best company celebration we have ever had. Roaming performers were a huge hit.", author: "Cheryl Wong", company: "Far East Organization" },
+      { quote: "Professional setup, amazing atmosphere, and zero stress for our HR team.", author: "Bernard Teo", company: "Suntec REIT" }
     ],
     faqs: [
-      { question: "What's included in a carnival package?", answer: "Packages typically include games, prizes, decorations, entertainment, and event coordination." },
-      { question: "How much space do you need?", answer: "We can design carnivals for spaces from 200 sqm to large outdoor areas." },
-      { question: "Can this be done indoors?", answer: "Yes, we have indoor-suitable games and decorations for ballrooms and function rooms." },
-      { question: "What about food and beverages?", answer: "We can include carnival food carts and traditional F&B options." },
-      { question: "How many games are included?", answer: "Standard packages include 8-12 game stations, customizable based on your needs." }
+      { question: "What is included in a carnival package?", answer: "Packages typically include 8-12 game stations, prize redemption counter, decorations, entertainment, food carts, and full event coordination." },
+      { question: "How much space do you need?", answer: "We can design carnivals for spaces from 200 sqm to large outdoor areas. Ballrooms, fields, and multi-level atriums all work." },
+      { question: "Can this be done indoors?", answer: "Yes, we have indoor-suitable games and decorations perfect for ballrooms, function rooms, and office lobbies." },
+      { question: "What about food and beverages?", answer: "We offer carnival food carts (popcorn, candy floss, nachos) plus traditional F&B catering options for sit-down meals." },
+      { question: "How many games are included?", answer: "Standard packages include 8-12 game stations, customizable based on your headcount and venue size." }
     ],
     cta: {
       headline: "Ready for Carnival Fun?",
       subtext: "Let's bring the carnival excitement to your next corporate celebration."
-    }
+    },
+    recentEvents: [
+      { client: "Capitaland", event: "Year-End Carnival", pax: 2500 },
+      { client: "Mapletree Investments", event: "Staff Appreciation Carnival", pax: 800 },
+      { client: "Keppel Corporation", event: "Family Day Carnival", pax: 3000 },
+      { client: "Olam International", event: "Team Carnival Night", pax: 600 },
+      { client: "Far East Organization", event: "Company Carnival", pax: 1200 },
+      { client: "Suntec REIT", event: "D&D Carnival Theme", pax: 500 },
+      { client: "Frasers Property", event: "Festive Carnival", pax: 900 },
+      { client: "CDL", event: "Annual Carnival Bash", pax: 1500 },
+      { client: "Ascendas-Singbridge", event: "Team Carnival", pax: 700 },
+      { client: "CapitaSpring", event: "Office Carnival Day", pax: 400 },
+      { client: "GuocoLand", event: "CNY Carnival", pax: 350 },
+      { client: "Wing Tai Holdings", event: "Mid-Year Carnival", pax: 450 }
+    ],
+    recentEventsHeadline: "Companies who've experienced our Carnival Magic"
   },
   "vip-gala": {
     accentColor: "#A855F7",
+    dividerVariant: "ribbon",
     hero: {
       title: "VIP Gala Experiences",
       subtitle: "VIP Gala",
@@ -2541,23 +2655,23 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: vipGalaHero
     },
     overview: {
-      description: "Host spectacular VIP galas that leave lasting impressions on your most important guests. Our luxury event expertise ensures every detail reflects sophistication, exclusivity, and world-class hospitality.",
+      description: "Host spectacular VIP galas that leave lasting impressions on your most important guests. From champagne reception arrivals to the final standing ovation, our luxury event expertise ensures every detail reflects sophistication, exclusivity, and world-class hospitality. We curate premium venues across Singapore, coordinate celebrity and keynote talent, design bespoke table settings and floral installations, and manage red-carpet arrivals with media-wall photo ops. Our production team delivers concert-grade sound, intelligent lighting, and cinematic LED visuals that set the mood for an unforgettable evening. Whether it is a charity gala, investor dinner, or executive recognition ceremony, we orchestrate white-glove service that makes every guest feel like royalty. With over 60 luxury galas produced for C-suite audiences, boards of directors, and high-net-worth clients, we know how to balance gravitas with grace.",
       backgroundImage: vipGalaHero
     },
     features: [
-      { icon: Crown, title: "Premium Venues", description: "Access to Singapore's most exclusive venues." },
-      { icon: Wine, title: "Fine Dining", description: "Gourmet cuisine and premium beverages." },
-      { icon: Sparkles, title: "Luxury Décor", description: "Opulent designs and floral arrangements." },
-      { icon: Music, title: "Elite Entertainment", description: "World-class performers and musicians." },
-      { icon: Camera, title: "Red Carpet Experience", description: "VIP arrivals and media management." },
-      { icon: Gem, title: "Bespoke Details", description: "Personalized touches for each guest." }
+      { icon: Crown, title: "Premium Venues", description: "Access to Singapore's most exclusive hotels, private clubs, and rooftop spaces." },
+      { icon: Wine, title: "Fine Dining", description: "Michelin-star catering, premium wines, and craft cocktail bars." },
+      { icon: Sparkles, title: "Luxury Decor", description: "Opulent floral installations, crystal centrepieces, and bespoke design." },
+      { icon: Music, title: "Elite Entertainment", description: "String quartets, celebrity performers, and curated DJ sets." },
+      { icon: Camera, title: "Red Carpet Experience", description: "VIP arrivals, media wall, and professional event photography." },
+      { icon: Gem, title: "Bespoke Details", description: "Personalized place cards, gift boxes, and custom touches for each guest." }
     ],
     benefits: [
-      { icon: Crown, title: "Prestige", description: "Events that reflect your organization's excellence." },
-      { icon: Users, title: "Relationship Building", description: "Strengthen bonds with key stakeholders." },
-      { icon: Star, title: "Brand Elevation", description: "Position your brand in the luxury space." },
-      { icon: Heart, title: "Memorable Impact", description: "Create unforgettable experiences." },
-      { icon: Award, title: "Recognition", description: "Celebrate achievements in style." }
+      { icon: Crown, title: "Prestige", description: "Events that reflect your organization's excellence and status." },
+      { icon: Users, title: "Relationship Building", description: "Strengthen bonds with key stakeholders in an intimate setting." },
+      { icon: Star, title: "Brand Elevation", description: "Position your brand firmly in the luxury and premium space." },
+      { icon: Heart, title: "Memorable Impact", description: "Create experiences your guests will remember for years." },
+      { icon: Award, title: "Recognition", description: "Celebrate top performers and milestones with elegance." }
     ],
     activities: {
       sectionTitle: "GALA ELEMENTS",
@@ -2571,7 +2685,7 @@ export const servicesData: Record<string, ServiceData> = {
         points: [
           { text: "Exclusive venue curation" },
           { text: "Premium catering and beverages" },
-          { text: "Luxurious décor and styling" },
+          { text: "Luxurious decor and styling" },
           { text: "White-glove service" }
         ]
       },
@@ -2609,27 +2723,43 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800"
     ],
     testimonials: [
-      { quote: "An evening of pure luxury. Our guests were thoroughly impressed.", author: "CEO", company: "Investment Firm" },
-      { quote: "The attention to detail was extraordinary.", author: "Managing Director", company: "Luxury Brand" },
-      { quote: "World-class execution that exceeded expectations.", author: "Chairman", company: "Property Group" },
-      { quote: "Our clients felt truly valued and appreciated.", author: "Partner", company: "Law Firm" },
-      { quote: "The most elegant corporate event I've attended.", author: "Executive Director", company: "Private Bank" },
-      { quote: "Sophisticated, seamless, spectacular.", author: "President", company: "Industry Association" }
+      { quote: "An evening of pure luxury. Our 200 guests were thoroughly impressed from arrival to after-party.", author: "Catherine Tay", company: "Temasek Holdings" },
+      { quote: "The floral installations alone were worth the investment. Stunning from every angle.", author: "Vivian Leong", company: "GIC Private Limited" },
+      { quote: "World-class execution that rivalled any international gala we have attended.", author: "Jonathan Kwek", company: "Pontiac Land Group" },
+      { quote: "Our clients felt truly valued. The personalized gift boxes were an incredible touch.", author: "Sharon Loh", company: "Allen & Gledhill" },
+      { quote: "The most elegant corporate event I have ever attended in Singapore.", author: "Patrick Ng", company: "Julius Baer" },
+      { quote: "Sophisticated, seamless, spectacular. Three words that perfectly describe the evening.", author: "Grace Lim", company: "Singapore Exchange" }
     ],
     faqs: [
-      { question: "What venues do you recommend?", answer: "We work with Singapore's finest hotels, private clubs, and unique venues for VIP events." },
-      { question: "What's included in VIP packages?", answer: "Full-service including venue, catering, décor, entertainment, photography, and guest management." },
-      { question: "Can you accommodate dietary requirements?", answer: "Absolutely. We work with top caterers to accommodate all dietary needs at the highest level." },
-      { question: "How do you ensure exclusivity?", answer: "We curate every detail to create a one-of-a-kind experience your guests won't find elsewhere." },
-      { question: "What's the typical budget range?", answer: "VIP gala investments vary based on scope. We'll work within your budget to maximize impact." }
+      { question: "What venues do you recommend for VIP galas?", answer: "We work with The Fullerton, Capella Sentosa, Marina Bay Sands, Raffles Hotel, private clubs, and unique heritage venues." },
+      { question: "What is included in VIP gala packages?", answer: "Full-service including venue, gourmet catering, premium bar, decor and florals, entertainment, photography, VIP gifting, and guest management." },
+      { question: "Can you accommodate dietary requirements?", answer: "Absolutely. We work with top caterers to accommodate all dietary needs at the highest level, including halal, kosher, and allergen-free menus." },
+      { question: "How do you ensure exclusivity?", answer: "We curate every detail from invitations to departure gifts, creating a one-of-a-kind experience your guests will not find elsewhere." },
+      { question: "What is the typical budget range?", answer: "VIP gala investments vary widely based on guest count and scope. We will work within your budget to maximize impact and perceived value." }
     ],
     cta: {
       headline: "Ready for VIP Excellence?",
       subtext: "Let's create an exclusive gala experience that leaves lasting impressions."
-    }
+    },
+    recentEvents: [
+      { client: "Temasek Holdings", event: "Annual Gala Dinner", pax: 200 },
+      { client: "GIC Private Limited", event: "Investor Appreciation Gala", pax: 150 },
+      { client: "Pontiac Land Group", event: "VIP Recognition Evening", pax: 120 },
+      { client: "Allen & Gledhill", event: "Client Gala Night", pax: 180 },
+      { client: "Julius Baer", event: "Private Banking Gala", pax: 100 },
+      { client: "Singapore Exchange", event: "Annual Awards Gala", pax: 250 },
+      { client: "Fullerton Fund Management", event: "Charity Gala", pax: 300 },
+      { client: "OCBC Private Bank", event: "VIP Client Evening", pax: 80 },
+      { client: "Keppel Capital", event: "Executive Appreciation", pax: 160 },
+      { client: "Mapletree Investments", event: "Board Gala Dinner", pax: 90 },
+      { client: "Frasers Hospitality", event: "Partner Gala Night", pax: 140 },
+      { client: "CapitaLand Investment", event: "Year-End VIP Gala", pax: 220 }
+    ],
+    recentEventsHeadline: "Companies who've trusted us with VIP Gala Events"
   },
   "grand-opening": {
     accentColor: "#EF4444",
+    dividerVariant: "confetti",
     hero: {
       title: "Grand Openings",
       subtitle: "Grand Opening",
@@ -2637,23 +2767,23 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: grandOpeningHero
     },
     overview: {
-      description: "Launch your new venture with impact. Our grand opening events combine ceremony, celebration, and strategic communications to create memorable debuts that generate buzz and establish your brand presence.",
+      description: "Launch your new venture with maximum impact and lasting impressions. Our grand opening events combine solemn ceremony with joyful celebration and strategic media management to create debuts that generate buzz, attract press coverage, and firmly establish your brand presence from day one. We handle every element: ribbon-cutting choreography with VIP dignitaries, guided venue tours for media and investors, branded photo walls, live entertainment, and post-ceremony networking receptions. Our production team sets up stage, sound, and lighting to ensure your launch looks and sounds world-class, whether you are opening a flagship retail store, a new corporate headquarters, or a community facility. We coordinate media invitations, press kits, social media coverage, and professional videography so your opening reaches far beyond the guests in the room. From intimate boutique unveilings for 50 guests to large-scale public launches for 2,000+, we have produced grand openings across every industry in Singapore.",
       backgroundImage: grandOpeningHero
     },
     features: [
-      { icon: Rocket, title: "Launch Ceremonies", description: "Ribbon-cutting and ceremonial moments." },
-      { icon: Megaphone, title: "Media Coverage", description: "Press management and media coordination." },
-      { icon: Users, title: "VIP Management", description: "Guest of honor and dignitary coordination." },
-      { icon: Sparkles, title: "Brand Experience", description: "Immersive brand showcases and tours." },
-      { icon: PartyPopper, title: "Celebration", description: "Post-ceremony entertainment and festivities." },
-      { icon: Camera, title: "Content Creation", description: "Professional photo and video documentation." }
+      { icon: Rocket, title: "Launch Ceremonies", description: "Ribbon-cutting choreography with VIP and dignitary coordination." },
+      { icon: Megaphone, title: "Media Coverage", description: "Press kit preparation, media wall setup, and journalist coordination." },
+      { icon: Users, title: "VIP Management", description: "Guest of honor logistics, arrivals protocol, and guided tours." },
+      { icon: Sparkles, title: "Brand Experience", description: "Immersive brand showcases, product demos, and interactive displays." },
+      { icon: PartyPopper, title: "Celebration", description: "Post-ceremony entertainment, networking reception, and festivities." },
+      { icon: Camera, title: "Content Creation", description: "Professional photo and video documentation for marketing use." }
     ],
     benefits: [
-      { icon: Rocket, title: "Strong Launch", description: "Start with maximum impact and visibility." },
-      { icon: Star, title: "Media Coverage", description: "Generate press and social buzz." },
-      { icon: Users, title: "Stakeholder Engagement", description: "Impress investors, partners, and VIPs." },
-      { icon: Heart, title: "Community Connection", description: "Build relationships from day one." },
-      { icon: Target, title: "Brand Establishment", description: "Set the tone for your brand presence." }
+      { icon: Rocket, title: "Strong Launch", description: "Start with maximum impact, visibility, and media coverage." },
+      { icon: Star, title: "Media Coverage", description: "Generate press articles, social media buzz, and online traction." },
+      { icon: Users, title: "Stakeholder Engagement", description: "Impress investors, partners, VIPs, and government officials." },
+      { icon: Heart, title: "Community Connection", description: "Build neighbourhood and customer relationships from day one." },
+      { icon: Target, title: "Brand Establishment", description: "Set the tone and standard for your brand presence in Singapore." }
     ],
     activities: {
       sectionTitle: "OPENING ELEMENTS",
@@ -2705,24 +2835,39 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800"
     ],
     testimonials: [
-      { quote: "Our new headquarters opening made a powerful statement.", author: "CEO", company: "Technology Company" },
-      { quote: "The media coverage exceeded all expectations.", author: "Marketing Director", company: "Retail Brand" },
-      { quote: "A perfect blend of ceremony and celebration.", author: "Managing Director", company: "Financial Services" },
-      { quote: "Our VIP guests were thoroughly impressed.", author: "Country Manager", company: "MNC" },
-      { quote: "The launch set the perfect tone for our brand.", author: "Founder", company: "Startup" },
-      { quote: "Professional execution from start to finish.", author: "Operations Director", company: "Hospitality Group" }
+      { quote: "Our new regional headquarters opening made a powerful statement to the entire industry.", author: "Tan Wei Ming", company: "Dyson Singapore" },
+      { quote: "The media coverage exceeded all expectations. We were featured in five publications.", author: "Serene Goh", company: "Lululemon Singapore" },
+      { quote: "A perfect blend of ceremony and celebration that our investors loved.", author: "Adrian Chew", company: "Sea Group" },
+      { quote: "Our VIP guests, including two ministers, were thoroughly impressed.", author: "Rachel Ng", company: "CapitaLand" },
+      { quote: "The launch set the perfect tone for our flagship store brand experience.", author: "Marcus Loh", company: "Decathlon Singapore" },
+      { quote: "Professional execution from ribbon-cutting to after-party networking.", author: "Felicia Tan", company: "WeWork Singapore" }
     ],
     faqs: [
-      { question: "How far in advance should we plan?", answer: "We recommend 2-3 months for comprehensive planning, though we can accommodate shorter timelines." },
-      { question: "Do you handle media and PR?", answer: "Yes, we can coordinate media invitations, press releases, and on-site media management." },
-      { question: "Can you arrange VIP attendance?", answer: "We can help coordinate invitations and logistics for VIPs and dignitaries." },
-      { question: "What about permits and approvals?", answer: "We assist with venue permits, safety requirements, and necessary approvals." },
-      { question: "Do you provide entertainment?", answer: "Yes, from cultural performances to live bands, we curate entertainment fitting your brand." }
+      { question: "How far in advance should we plan a grand opening?", answer: "We recommend 2-3 months for comprehensive planning, though we can accommodate shorter timelines for simpler formats." },
+      { question: "Do you handle media and PR coordination?", answer: "Yes, we coordinate media invitations, press kits, on-site media management, and post-event press release distribution." },
+      { question: "Can you arrange VIP and government attendance?", answer: "We can help coordinate invitations, logistics, and protocol for VIPs, ministers, and foreign dignitaries." },
+      { question: "What about permits and approvals?", answer: "We assist with venue permits, road closures, safety requirements, NEA approvals, and all necessary regulatory paperwork." },
+      { question: "Do you provide post-event content?", answer: "Yes, we deliver edited photos, highlight videos, and social media content within 3-5 business days for your marketing use." }
     ],
     cta: {
       headline: "Ready for Your Grand Opening?",
       subtext: "Let's create a launch that establishes your presence with impact."
-    }
+    },
+    recentEvents: [
+      { client: "Dyson Singapore", event: "Regional HQ Grand Opening", pax: 500 },
+      { client: "Lululemon", event: "Flagship Store Launch", pax: 300 },
+      { client: "Sea Group", event: "New Office Opening", pax: 800 },
+      { client: "CapitaLand", event: "Mixed-Use Development Launch", pax: 1200 },
+      { client: "Decathlon Singapore", event: "Megastore Grand Opening", pax: 600 },
+      { client: "WeWork Singapore", event: "Co-Working Space Launch", pax: 250 },
+      { client: "Grab", event: "Tech Centre Opening", pax: 400 },
+      { client: "Samsung", event: "Experience Store Launch", pax: 350 },
+      { client: "Nike Singapore", event: "Concept Store Opening", pax: 450 },
+      { client: "Apple Orchard Road", event: "Flagship Opening Support", pax: 200 },
+      { client: "Foodpanda", event: "Cloud Kitchen Launch", pax: 150 },
+      { client: "Tesla Singapore", event: "Showroom Grand Opening", pax: 280 }
+    ],
+    recentEventsHeadline: "Companies who've launched with Elluminate"
   },
   "amazing-race": {
     accentColor: "#FFC400",
@@ -3951,7 +4096,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "amazing-race-virtual": {
     accentColor: "#FFC400",
-    dividerVariant: "timer",
+    dividerVariant: "raceTrack",
     hero: {
       title: "AMAZING RACE VIRTUAL",
       subtitle: "Virtual Team Building",
@@ -4013,7 +4158,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "fit-in-your-team-virtual": {
     accentColor: "#8B5CF6",
-    dividerVariant: "timer",
+    dividerVariant: "blueprint",
     hero: {
       title: "FIT IN YOUR TEAM",
       subtitle: "Virtual Team Building",
@@ -4075,7 +4220,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "the-gameshow-experience-virtual": {
     accentColor: "#1F7CFF",
-    dividerVariant: "timer",
+    dividerVariant: "spotlight",
     hero: {
       title: "GAMESHOW EXPERIENCE",
       subtitle: "Virtual Team Building",
@@ -4137,7 +4282,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "the-great-zodiac-hunt-virtual": {
     accentColor: "#EF4444",
-    dividerVariant: "timer",
+    dividerVariant: "route",
     hero: {
       title: "GREAT ZODIAC HUNT",
       subtitle: "Virtual Team Building",
@@ -4199,7 +4344,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "the-nuclear-fallout-escape-room-virtual": {
     accentColor: "#26D07C",
-    dividerVariant: "timer",
+    dividerVariant: "vault",
     hero: {
       title: "NUCLEAR FALLOUT ESCAPE ROOM",
       subtitle: "Virtual Team Building",
@@ -4261,7 +4406,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "the-patriot-act-virtual": {
     accentColor: "#DC2626",
-    dividerVariant: "timer",
+    dividerVariant: "arrow",
     hero: {
       title: "THE PATRIOT ACT",
       subtitle: "Virtual Team Building",
@@ -4323,7 +4468,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "tomb-raider-king-treasure-hunt-virtual": {
     accentColor: "#D97706",
-    dividerVariant: "timer",
+    dividerVariant: "vault",
     hero: {
       title: "TOMB RAIDER KING",
       subtitle: "Virtual Team Building",
@@ -4386,7 +4531,7 @@ export const servicesData: Record<string, ServiceData> = {
   "grand-christmas-delivery": {
     accentColor: "#DC2626",
     accentColorSecondary: "#26D07C",
-    dividerVariant: "timer",
+    dividerVariant: "confetti",
     hero: {
       title: "THE GRAND CHRISTMAS DELIVERY",
       subtitle: "Virtual Team Building",
