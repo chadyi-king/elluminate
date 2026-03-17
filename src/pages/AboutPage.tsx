@@ -434,7 +434,7 @@ const AboutPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-sky-400/40 transition-all duration-500"
+                className="group relative bg-slate-900/80 backdrop-blur-md border border-white/15 rounded-2xl p-8 hover:border-sky-400/40 transition-all duration-500"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-sky-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                 <div className="relative z-10">
@@ -457,7 +457,7 @@ const AboutPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-sky-400/40 transition-all duration-500"
+                className="group relative bg-slate-900/80 backdrop-blur-md border border-white/15 rounded-2xl p-8 hover:border-sky-400/40 transition-all duration-500"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-sky-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                 <div className="relative z-10">
@@ -499,7 +499,7 @@ const AboutPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.08 }}
-                    className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-sky-400/40 hover:shadow-blue transition-all duration-500"
+                    className="group relative bg-slate-900/80 backdrop-blur-md border border-white/15 rounded-xl p-5 hover:border-sky-400/40 hover:shadow-blue transition-all duration-500"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-sky-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
                     <div className="relative z-10">
@@ -783,7 +783,7 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-medium text-white mb-3">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">
               What Our <span className="text-primary">Clients Say</span>
             </h2>
           </motion.div>
@@ -802,7 +802,7 @@ const AboutPage = () => {
                   transition={{ duration: 0.5 }}
                   className={`absolute inset-0 ${currentTestimonial === index ? 'block' : 'hidden'}`}
                 >
-                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 text-center h-full flex flex-col justify-center">
+                  <div className="bg-slate-900/80 backdrop-blur-md border border-white/15 rounded-xl p-8 text-center h-full flex flex-col justify-center">
                     <Quote className="w-10 h-10 text-primary/30 mx-auto mb-4" />
                     <p className="text-lg md:text-xl text-white font-sans leading-relaxed mb-6 italic">
                       "{testimonial.quote}"

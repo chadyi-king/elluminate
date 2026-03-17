@@ -7,13 +7,17 @@ import {
   Lightbulb
 } from "lucide-react";
 
-const quickLinks = [
-  { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
+const topActivities = [
+  { name: "Amazing Race", path: "/services/amazing-race" },
+  { name: "CSI Investigation", path: "/services/csi-investigation" },
+  { name: "Treasure Heist", path: "/services/treasure-heist" },
+  { name: "Dinner & Dance", path: "/services/dinner-and-dance" },
+  { name: "Overseas Retreats", path: "/services/overseas-retreats" },
   { name: "Team Building", path: "/services/team-building" },
-  { name: "Corporate Events", path: "/services/dinner-and-dance" },
-  { name: "Retreats", path: "/services/overseas-retreats" },
-  { name: "Training", path: "/services/workshops" },
+  { name: "Student Workshops", path: "/services/workshops" },
+  { name: "Teacher Workshops", path: "/services/workshops" },
+  { name: "Family Fun Day", path: "/services/family-fun-day" },
+  { name: "Corporate Carnival", path: "/services/corporate-carnival" },
 ];
 
 // Social links removed - no active accounts for Elluminate yet
@@ -31,7 +35,7 @@ export const Footer = () => {
                 <Lightbulb className="w-6 h-6 text-primary-foreground" />
               </div>
               <span className="text-2xl font-display font-bold text-background">
-                <span className="text-primary">E</span>lluminate
+                <span className="text-yellow-300">E</span>lluminate
               </span>
             </Link>
             
@@ -40,14 +44,14 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Top Activities */}
           <div>
             <h4 className="text-background font-display font-semibold text-lg mb-6">
-              Quick Links
+              Top Activities
             </h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.path}>
+            <ul className="space-y-2">
+              {topActivities.map((link, index) => (
+                <li key={`${link.path}-${index}`}>
                   <Link
                     to={link.path}
                     className="text-background/70 hover:text-primary text-sm transition-colors duration-300"
