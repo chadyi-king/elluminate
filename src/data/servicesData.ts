@@ -890,7 +890,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Celebrate Your Milestone?",
       subtext: "Let's honor your company's journey with a celebration worthy of your achievements."
-    }
+    },
+    dividerVariant: "wave",
+    recentEvents: [
+      { client: "Keppel Corporation", event: "25th Anniversary Gala", pax: 500 },
+      { client: "ST Engineering", event: "50th Anniversary", pax: 800 },
+      { client: "ComfortDelGro", event: "10th Anniversary Dinner", pax: 350 },
+      { client: "Sembcorp Industries", event: "Silver Jubilee", pax: 400 },
+      { client: "SIA Engineering", event: "30th Anniversary", pax: 600 },
+      { client: "Neptune Orient Lines", event: "Anniversary Celebration", pax: 250 },
+      { client: "Olam International", event: "20th Anniversary", pax: 300 },
+      { client: "Wilmar International", event: "Corporate Milestone", pax: 450 },
+      { client: "Venture Corporation", event: "Anniversary Gala", pax: 200 },
+      { client: "Creative Technology", event: "40th Anniversary", pax: 180 },
+      { client: "Sats Ltd", event: "Golden Anniversary", pax: 550 },
+      { client: "Far East Organization", event: "Company Anniversary", pax: 350 },
+    ],
+    recentEventsHeadline: "Companies who've celebrated milestones with us",
   },
   "leadership-offsites": {
     accentColor: "#4FB3B3",
