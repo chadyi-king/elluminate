@@ -1,127 +1,117 @@
 
 
-# Comprehensive SEO Overhaul + Blog for elluminate.sg
+# Complete Service Page Overhaul — All 45+ Services
 
-## Part 1: SEO Preparation (Comprehensive)
-
-### Current Gaps
-- All meta tags still say "Team Elevate" with old URLs (teamelevate.sg/teamelevate.com)
-- Zero structured data (JSON-LD) -- no Organization, LocalBusiness, Service, or BreadcrumbList schemas
-- No sitemap.xml
-- No FAQ schema on service pages (you have FAQ data in servicesData but it's not marked up)
-- No breadcrumbs component or markup
-- OG images point to lovable.dev placeholder
-
-### Changes
-
-**1. Rebrand all meta tags to Elluminate / elluminate.sg**
-
-| File | Change |
-|------|--------|
-| `index.html` | Title, description, author, OG, Twitter, canonical all to Elluminate + elluminate.sg |
-| `src/components/SEO.tsx` | Default props, `og:site_name`, author, `includes("Elluminate")` check |
-| `src/pages/Index.tsx` | Already says Elluminate -- just verify canonical |
-| `src/pages/PortfolioPage.tsx` | Canonical to elluminate.sg/portfolio |
-| `src/pages/AboutPage.tsx` | Canonical to elluminate.sg/about |
-
-**2. JSON-LD Structured Data (new component: `src/components/StructuredData.tsx`)**
-
-Inject schema.org markup for every page type:
-
-- **Organization schema** (global, on every page): name, url, logo, contactPoint, address, sameAs
-- **LocalBusiness schema** (homepage): extends Organization with geo coordinates, openingHours, priceRange
-- **Service schema** (each service page): name, description, provider, areaServed, offers (price from servicesData.pricing)
-- **FAQPage schema** (service pages with FAQs): question/answer pairs from servicesData.faqs
-- **BreadcrumbList schema** (all pages): Home > Services > {Service Name}
-- **WebSite schema** (homepage): potentialAction with SearchAction for site search
-
-**3. Sitemap generation (`public/sitemap.xml`)**
-
-Static XML sitemap listing all routes: homepage, about, portfolio, and every service slug from servicesData. Each entry has `<loc>`, `<lastmod>`, `<changefreq>`, `<priority>`.
-
-**4. Update `public/robots.txt`**
-
-Add `Sitemap: https://elluminate.sg/sitemap.xml` directive.
-
-**5. Breadcrumbs component (`src/components/Breadcrumbs.tsx`)**
-
-Lightweight breadcrumb nav rendered on service pages and about/portfolio. Visible to users AND marked up with BreadcrumbList JSON-LD. This is a top SEO signal used by Google's rich results.
-
-**6. Service page SEO enrichment**
-
-- Each service page already has keywords in ServicePage.tsx but they're incomplete. Expand the `serviceKeywords` record to cover ALL service slugs (treasure-heist, archery-tag, etc.)
-- Meta descriptions should be richer -- use the first 155 chars of overview but also append "Singapore" and key terms
-
-**7. Alt text audit on images**
-
-Many images use generic alt text like "Event photo 1". Update the PhotoWall and gallery components to use descriptive alt text with keywords (e.g., "Corporate team building amazing race activity in Singapore").
+This plan covers **every single service page** in the site, organized into implementation rounds. Each round rewrites content, diversifies testimonials/client tickers, and improves the themed divider designs.
 
 ---
 
-## Part 2: Blog for SEO
+## Current State Summary
 
-Yes, a blog is one of the highest-impact SEO strategies. Team building competitors in Singapore (FunEmpire, Terrarium Singapore, Team Building Singapore) all rank heavily through blog content targeting long-tail keywords like "best team building activities Singapore 2025", "indoor team building ideas", etc.
+**45 total services** across 6 categories:
 
-### Blog Implementation Plan
-
-**Database**: Create a `blog_posts` table in Lovable Cloud with fields: id, slug, title, excerpt, content (markdown), cover_image_url, author, published_at, category, tags, meta_description, is_published.
-
-**Pages**:
-- `/blog` -- Blog listing page with category filters, search, and pagination
-- `/blog/:slug` -- Individual blog post page with Article JSON-LD schema, OG tags, reading time, share buttons
-
-**Components**:
-- `BlogCard` -- Preview card for listing
-- `BlogPost` -- Full article renderer (markdown to HTML)
-- `BlogSidebar` -- Categories, recent posts, CTA
-
-**SEO value**: Each blog post generates a unique indexable URL with its own meta tags, Article schema, and internal links back to service pages. This is the primary way to capture long-tail search traffic.
-
-**Content strategy** (suggested initial posts):
-- "Top 10 Team Building Activities in Singapore 2026"
-- "How to Plan an Amazing Race for Your Company"
-- "Indoor vs Outdoor Team Building: Which Is Better?"
-- "Corporate Retreat Planning Guide: Singapore & Overseas"
-- "5 Benefits of Team Building for Employee Retention"
+| Category | Services | Current Quality |
+|----------|----------|----------------|
+| Corporate Events (15) | team-building, dinner-and-dance, awards-ceremonies, corporate-anniversaries, leadership-offsites, product-launch, brand-activations, client-appreciation, town-halls, immersive-experiences, wellness-events, family-fun-days, corporate-carnivals, vip-gala, grand-opening | Medium — have full content but repetitive tickers and thin overviews |
+| Event Services (6) | event-concept, stage-production, custom-themes, emcee-media, summits, government-events, private-events | Medium — same issues |
+| Physical Activities (13) | amazing-race, csi-bones, cultural-race, archery-tag, builder-cross, gel-blitz, minute-to-win-it, monopoly-dash, nerfwar, running-man, sotong-game, tag-tical-laser-teambuilding, treasure-heist | **10 are skeleton placeholders** with 1 feature, 1 benefit, fake testimonials |
+| Virtual Activities (8) | amazing-race-virtual, fit-in-your-team-virtual, the-gameshow-experience-virtual, the-great-zodiac-hunt-virtual, the-nuclear-fallout-escape-room-virtual, the-patriot-act-virtual, tomb-raider-king-treasure-hunt-virtual, grand-christmas-delivery | Medium — decent content but all use same `virtualPlaceholderHero` and `dividerVariant: "timer"` |
+| Retreats (2) | overseas-retreats, local-retreats | Medium — icons instead of destination photos, thin descriptions |
+| Training (7) | mbti, disc, ocean, mass-talks, workshops, youth-camps, corporate-days | Good structure but all use `dividerVariant: "blueprint"` and share testimonial authors |
 
 ---
 
-## Part 3: Image Generation
+## What Gets Fixed Across ALL Services
 
-Regarding your question about image generation capabilities:
+### A. Content Enrichment (every service)
+- Rewrite overviews to 150-250 words with specific details about what participants do
+- Remove all em dashes; use clean, professional copy
+- 3-4 unique features and benefits per service (no more 1-liners)
+- 5-6 realistic testimonials with proper names and diverse Singapore companies (no repeats across services)
+- 4-5 specific FAQs per service
+- 6-8 unique recent events with varied, realistic companies per service
+- Unique CTA headlines per service
 
-Lovable has built-in AI image generation using **Google Gemini 2.5 Flash Image** (called "Nano banana") and **Google Gemini 3 Pro Image Preview** for higher quality. These can generate images from text prompts and edit existing images.
+### B. Themed Divider Designs (visual differentiation)
 
-**How it works**: Images are generated via an edge function calling the Lovable AI Gateway. The model returns base64-encoded images that can be uploaded to storage.
+Currently 12 divider variants exist. Some services reuse the same one inappropriately. Here's the plan:
 
-**Quality comparison with KIMI 2.5**: The Gemini models produce decent results for general imagery but may not match dedicated image generation models (like KIMI 2.5, Midjourney, or DALL-E 3) for photorealistic or highly stylized outputs. For website hero images and OG images, they're serviceable but for professional photography-quality results, you may want to generate externally and upload.
+| Service | Current Divider | Proposed Change |
+|---------|----------------|-----------------|
+| **amazing-race** | raceTrack | Keep — perfect fit |
+| **cultural-race** | raceTrack | Keep — race theme fits |
+| **csi-bones** | policeTape | Keep — crime theme fits |
+| **archery-tag** | arrow | Keep — arrow theme fits |
+| **builder-cross** | blueprint | Keep — construction theme fits |
+| **gel-blitz** | gelBeads | Keep — perfect fit |
+| **minute-to-win-it** | timer | Keep — countdown theme fits |
+| **monopoly-dash** | money | Keep — perfect fit |
+| **nerfwar** | foamDart | Keep — perfect fit |
+| **running-man** | route | Keep — running route fits |
+| **sotong-game** | squid | Keep — perfect fit |
+| **tag-tical-laser** | laser | Keep — perfect fit |
+| **treasure-heist** | vault | Keep — perfect fit |
+| **All 8 virtual services** | ALL use "timer" | Differentiate: Amazing Race Virtual → raceTrack, Zodiac Hunt → route, Nuclear Fallout → vault, Patriot Act → arrow, Tomb Raider → vault, Christmas → new "gift/festive" strip, Gameshow → new "spotlight" strip, Fit In Your Team → blueprint |
+| **All 4 training profiling** | ALL use "blueprint" | Keep blueprint for MBTI/DISC/OCEAN (fits). Mass Talks → new "microphone/sound wave" strip. Youth Camps → route. Corporate Days → arrow. Workshops → blueprint (keep). |
+| **Retreats** | Both use "route" | Keep — travel theme fits |
+| **15 corporate events** | None have dividers | Add appropriate dividers: dinner-and-dance → new "sparkle/confetti" strip, awards → new "trophy/ribbon" strip, etc. |
 
-**Practical use**: We could use the built-in generation to create OG images for each service page and blog posts, branded with Elluminate's colors and typography.
+**New divider variants to create (4):**
+1. **ConfettiStrip** — for celebrations (dinner-and-dance, corporate-carnivals, grand-opening)
+2. **SpotlightStrip** — for performances/entertainment (stage-production, emcee-media, gameshow-virtual)
+3. **RibbonStrip** — for awards/VIP (awards-ceremonies, vip-gala, client-appreciation)
+4. **WaveStrip** — for wellness/retreats (wellness-events, corporate-anniversaries)
+
+### C. Image/Visual Improvements
+- Overseas retreats: Replace Lucide icons with Unsplash destination photos (Bali beach, KL skyline, etc.) by adding optional `image` field to FlowSection items
+- Local retreats: Same — show actual hotel photos for Staycation/Heritage/Luxury tiers
+- Stop reusing `heroAdventureChallenge` for 8+ physical services — assign unique Unsplash hero images per service until Cloudinary assets are ready
+- Stop reusing `virtualPlaceholderHero` — assign unique virtual-themed images per service
 
 ---
 
-## Implementation Order
+## Implementation Rounds
 
-1. Rebrand all meta tags (index.html, SEO.tsx, page-level SEO props)
-2. Create StructuredData.tsx with Organization, LocalBusiness, Service, FAQ, Breadcrumb schemas
-3. Create static sitemap.xml + update robots.txt
-4. Add Breadcrumbs component to service/about/portfolio pages
-5. Expand service keywords coverage
-6. Create blog database table + blog pages (Phase 2 -- larger task)
+### Round 1: Component Updates
+- Add optional `image?: string` to `FlowSectionItem` interface
+- Update `ServiceFlowSection.tsx` to render images when provided (instead of only icons)
+- Create 4 new divider strip components (ConfettiStrip, SpotlightStrip, RibbonStrip, WaveStrip)
+- Register them in `ServiceDividerStrip.tsx` and the `ServiceData` type
 
-## Files Modified/Created
+### Round 2: Physical Team Building (13 services)
+Full content rewrite for all 13 physical activities. The 10 skeleton services (builder-cross through tag-tical-laser) get expanded from 1-line entries to full pages. Amazing Race, CSI-Bones, and Cultural Race get content refresh.
+
+### Round 3: Corporate Events (15 services)
+Content enrichment for all 15 corporate event services. Diversify all client tickers, expand overviews, add divider variants, assign unique hero images.
+
+### Round 4: Event Services (7 services)
+Content enrichment for event-concept, stage-production, custom-themes, emcee-media, summits, government-events, private-events.
+
+### Round 5: Virtual Activities (8 services)
+Content enrichment, differentiate divider variants (stop all using "timer"), assign unique hero images, expand thin content.
+
+### Round 6: Retreats + Training (9 services)
+- Overseas/Local retreats: Add destination photos, expand descriptions
+- MBTI/DISC/OCEAN: Diversify testimonial authors (currently all share same names)
+- Mass Talks/Workshops/Youth Camps/Corporate Days: Content polish, differentiate dividers
+
+---
+
+## Files Created/Modified
 
 | File | Action |
 |------|--------|
-| `index.html` | Edit -- rebrand meta tags |
-| `src/components/SEO.tsx` | Edit -- rebrand defaults |
-| `src/components/StructuredData.tsx` | New -- JSON-LD schemas |
-| `src/components/Breadcrumbs.tsx` | New -- breadcrumb nav |
-| `public/sitemap.xml` | New -- static sitemap |
-| `public/robots.txt` | Edit -- add sitemap directive |
-| `src/pages/Index.tsx` | Edit -- add structured data |
-| `src/pages/ServicePage.tsx` | Edit -- add structured data, breadcrumbs, expand keywords |
-| `src/pages/AboutPage.tsx` | Edit -- canonical URL, breadcrumbs |
-| `src/pages/PortfolioPage.tsx` | Edit -- canonical URL, breadcrumbs |
-| Blog (Phase 2) | New table, new pages, new components |
+| `src/components/service-page/dividers/ConfettiStrip.tsx` | New |
+| `src/components/service-page/dividers/SpotlightStrip.tsx` | New |
+| `src/components/service-page/dividers/RibbonStrip.tsx` | New |
+| `src/components/service-page/dividers/WaveStrip.tsx` | New |
+| `src/components/service-page/dividers/ServiceDividerStrip.tsx` | Edit — register 4 new variants |
+| `src/data/servicesData.ts` | Major edit — all 45 services rewritten/enriched |
+| `src/components/service-page/ServiceFlowSection.tsx` | Edit — add image support to flow items |
+
+---
+
+## Execution
+
+Given the massive scope (~4,600 lines in servicesData.ts alone), this will be implemented across **6 rounds** as listed above. I recommend starting with **Round 1 (components) + Round 2 (physical team building)** in the first pass, then proceeding through the remaining rounds sequentially.
 
