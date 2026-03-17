@@ -2084,7 +2084,22 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Capture Your Event?",
       subtext: "Let's bring professional hosting and media coverage to your next event."
-    }
+    },
+    recentEvents: [
+      { client: "DBS Bank", event: "Emcee + Photo Coverage", pax: 1200 },
+      { client: "OCBC Bank", event: "D&D Photography", pax: 800 },
+      { client: "UOB Bank", event: "Awards Night Emcee", pax: 600 },
+      { client: "Standard Chartered", event: "Gala Video Coverage", pax: 500 },
+      { client: "Maybank Singapore", event: "Conference Emcee", pax: 400 },
+      { client: "HSBC Singapore", event: "Full Media Package", pax: 1000 },
+      { client: "Citibank Singapore", event: "Town Hall Emcee", pax: 700 },
+      { client: "Bank of Singapore", event: "Photo + Video", pax: 300 },
+      { client: "CIMB Singapore", event: "Event Photography", pax: 450 },
+      { client: "RHB Singapore", event: "Same-Day Edit Video", pax: 350 },
+      { client: "Rabobank", event: "Bilingual Emcee", pax: 250 },
+      { client: "ANZ Singapore", event: "Full Event Coverage", pax: 550 }
+    ],
+    recentEventsHeadline: "Events we've hosted and captured"
   },
   "summits": {
     accentColor: "#6366F1",
