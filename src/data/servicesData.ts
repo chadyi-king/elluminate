@@ -2438,6 +2438,7 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "corporate-carnivals": {
     accentColor: "#EAB308",
+    dividerVariant: "confetti",
     hero: {
       title: "Corporate Carnivals",
       subtitle: "Carnival",
@@ -2445,23 +2446,23 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: corporateCarnivalHero
     },
     overview: {
-      description: "Bring the excitement of a carnival to your corporate celebration. Our carnival events feature thrilling games, vibrant entertainment, and festive atmospheres that create unforgettable experiences for your team.",
+      description: "Step right up to the greatest corporate show on earth! Our Corporate Carnivals transform any venue into a bustling fairground bursting with energy, colour, and non-stop entertainment. Think classic ring-toss booths, giant Jenga towers, strength-tester hammers, spin-the-wheel stations, candy floss carts, and roaming performers weaving through the crowd. Employees collect carnival tickets at every station, then trade them for prizes at our redemption counter, turning every game into a friendly competition. We bring the full sensory package: themed bunting and balloon arches at the entrance, funfair lighting rigs, upbeat DJ sets, and even a confetti cannon finale. Whether you are celebrating year-end milestones, rewarding top performers, or simply giving your team a well-deserved break, our carnival format keeps every attendee engaged from the first whistle to the last prize draw. We have produced carnivals for groups of 100 to 5,000+ across ballrooms, outdoor fields, and office lobbies.",
       backgroundImage: corporateCarnivalHero
     },
     features: [
-      { icon: PartyPopper, title: "Carnival Games", description: "Classic and modern carnival game stations." },
-      { icon: Gift, title: "Prize Redemption", description: "Exciting prizes and merchandise." },
-      { icon: Music, title: "Live Entertainment", description: "Performers, musicians, and DJs." },
-      { icon: Palette, title: "Themed Décor", description: "Full carnival atmosphere transformation." },
-      { icon: Users, title: "Crowd Games", description: "Interactive mass participation activities." },
-      { icon: Camera, title: "Photo Experiences", description: "Instagram-worthy photo opportunities." }
+      { icon: PartyPopper, title: "Carnival Games", description: "Classic and modern carnival game stations with trained operators." },
+      { icon: Gift, title: "Prize Redemption", description: "Ticket-based system with exciting prizes and branded merchandise." },
+      { icon: Music, title: "Live Entertainment", description: "Roaming performers, stilt-walkers, magicians, and DJs." },
+      { icon: Palette, title: "Themed Decor", description: "Full carnival atmosphere transformation with balloon arches and bunting." },
+      { icon: Users, title: "Crowd Games", description: "Interactive mass participation activities and stage contests." },
+      { icon: Camera, title: "Photo Experiences", description: "Instagram-worthy photo booths and instant print stations." }
     ],
     benefits: [
-      { icon: PartyPopper, title: "Fun Atmosphere", description: "A break from the everyday routine." },
-      { icon: Users, title: "Team Engagement", description: "Friendly competition and collaboration." },
-      { icon: Heart, title: "Employee Appreciation", description: "Show your team they're valued." },
-      { icon: Star, title: "Memorable Event", description: "An experience people will remember." },
-      { icon: Zap, title: "Energy Boost", description: "Inject excitement into your organization." }
+      { icon: PartyPopper, title: "Fun Atmosphere", description: "A vibrant break from the everyday routine that lifts spirits." },
+      { icon: Users, title: "Team Engagement", description: "Friendly competition and collaboration at every booth." },
+      { icon: Heart, title: "Employee Appreciation", description: "Show your team they are valued with a celebration they deserve." },
+      { icon: Star, title: "Memorable Event", description: "An experience people will talk about long after the last balloon pops." },
+      { icon: Zap, title: "Energy Boost", description: "Inject excitement and positivity into your organization." }
     ],
     activities: {
       sectionTitle: "CARNIVAL ELEMENTS",
@@ -2513,24 +2514,39 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800"
     ],
     testimonials: [
-      { quote: "The carnival atmosphere was incredible! Everyone had so much fun.", author: "Events Manager", company: "Retail Company" },
-      { quote: "Best company event we've had in years!", author: "HR Director", company: "Banking" },
-      { quote: "The games and entertainment kept everyone engaged all night.", author: "Admin Lead", company: "Technology Company" },
-      { quote: "Professional setup with a fun, festive atmosphere.", author: "Culture Lead", company: "Consulting Firm" },
-      { quote: "Our team is still talking about the carnival!", author: "Office Manager", company: "Insurance Company" },
-      { quote: "Perfect mix of games, food, and entertainment.", author: "People Manager", company: "Logistics" }
+      { quote: "The carnival was the highlight of our year! Every department came together for a night of pure fun.", author: "Jasmine Koh", company: "Capitaland" },
+      { quote: "From ring toss to the confetti finale, every moment was electric.", author: "Adrian Lim", company: "Mapletree Investments" },
+      { quote: "Our 3,000-person carnival went off without a hitch. Incredible logistics.", author: "Nicole Tan", company: "Keppel Corporation" },
+      { quote: "The prize redemption system was genius. Staff were competing all night!", author: "Raymond Chia", company: "Olam International" },
+      { quote: "Best company celebration we have ever had. Roaming performers were a huge hit.", author: "Cheryl Wong", company: "Far East Organization" },
+      { quote: "Professional setup, amazing atmosphere, and zero stress for our HR team.", author: "Bernard Teo", company: "Suntec REIT" }
     ],
     faqs: [
-      { question: "What's included in a carnival package?", answer: "Packages typically include games, prizes, decorations, entertainment, and event coordination." },
-      { question: "How much space do you need?", answer: "We can design carnivals for spaces from 200 sqm to large outdoor areas." },
-      { question: "Can this be done indoors?", answer: "Yes, we have indoor-suitable games and decorations for ballrooms and function rooms." },
-      { question: "What about food and beverages?", answer: "We can include carnival food carts and traditional F&B options." },
-      { question: "How many games are included?", answer: "Standard packages include 8-12 game stations, customizable based on your needs." }
+      { question: "What is included in a carnival package?", answer: "Packages typically include 8-12 game stations, prize redemption counter, decorations, entertainment, food carts, and full event coordination." },
+      { question: "How much space do you need?", answer: "We can design carnivals for spaces from 200 sqm to large outdoor areas. Ballrooms, fields, and multi-level atriums all work." },
+      { question: "Can this be done indoors?", answer: "Yes, we have indoor-suitable games and decorations perfect for ballrooms, function rooms, and office lobbies." },
+      { question: "What about food and beverages?", answer: "We offer carnival food carts (popcorn, candy floss, nachos) plus traditional F&B catering options for sit-down meals." },
+      { question: "How many games are included?", answer: "Standard packages include 8-12 game stations, customizable based on your headcount and venue size." }
     ],
     cta: {
       headline: "Ready for Carnival Fun?",
       subtext: "Let's bring the carnival excitement to your next corporate celebration."
-    }
+    },
+    recentEvents: [
+      { client: "Capitaland", event: "Year-End Carnival", pax: 2500 },
+      { client: "Mapletree Investments", event: "Staff Appreciation Carnival", pax: 800 },
+      { client: "Keppel Corporation", event: "Family Day Carnival", pax: 3000 },
+      { client: "Olam International", event: "Team Carnival Night", pax: 600 },
+      { client: "Far East Organization", event: "Company Carnival", pax: 1200 },
+      { client: "Suntec REIT", event: "D&D Carnival Theme", pax: 500 },
+      { client: "Frasers Property", event: "Festive Carnival", pax: 900 },
+      { client: "CDL", event: "Annual Carnival Bash", pax: 1500 },
+      { client: "Ascendas-Singbridge", event: "Team Carnival", pax: 700 },
+      { client: "CapitaSpring", event: "Office Carnival Day", pax: 400 },
+      { client: "GuocoLand", event: "CNY Carnival", pax: 350 },
+      { client: "Wing Tai Holdings", event: "Mid-Year Carnival", pax: 450 }
+    ],
+    recentEventsHeadline: "Companies who've experienced our Carnival Magic"
   },
   "vip-gala": {
     accentColor: "#A855F7",
