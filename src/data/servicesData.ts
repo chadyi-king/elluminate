@@ -1782,6 +1782,7 @@ export const servicesData: Record<string, ServiceData> = {
   },
   "stage-production": {
     accentColor: "#FFB347",
+    dividerVariant: "spotlight",
     hero: {
       title: "Stage & AV Production",
       subtitle: "Production",
@@ -1789,23 +1790,23 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: stageProductionHero
     },
     overview: {
-      description: "Elevate your events with professional stage design and audio-visual production that creates immersive, impactful experiences. Our technical team brings together cutting-edge technology with creative artistry to deliver flawless productions that captivate audiences.",
+      description: "Elevate your events with professional stage design and audio-visual production that creates immersive, cinema-grade experiences. Our technical team brings together cutting-edge LED walls, intelligent lighting rigs, concert-grade sound systems, and show-stopping special effects to deliver flawless productions that captivate audiences from the opening act to the final bow. We handle everything from initial stage blueprints and 3D renderings through load-in, technical rehearsal, and live show operation. Whether you need a simple podium setup for 50 or a multi-level stage with projection mapping for 5,000, our crew of certified riggers, sound engineers, lighting designers, and video technicians deliver broadcast-quality production values every time. We maintain our own inventory of premium equipment and always deploy redundant backup systems for mission-critical shows.",
       backgroundImage: stageProductionHero
     },
     features: [
-      { icon: Monitor, title: "Stage Design", description: "Custom stage constructions that wow audiences." },
-      { icon: Volume2, title: "Audio Systems", description: "Crystal-clear sound for every size venue." },
-      { icon: Lightbulb, title: "Lighting Design", description: "Atmospheric lighting that sets the mood." },
-      { icon: Video, title: "Video Production", description: "LED walls, projection mapping, and live video." },
-      { icon: Sparkles, title: "Special Effects", description: "Pyrotechnics, confetti, and atmospheric effects." },
-      { icon: Users, title: "Technical Crew", description: "Experienced technicians for seamless execution." }
+      { icon: Monitor, title: "Stage Design", description: "Custom stage constructions with 3D rendering previews before build." },
+      { icon: Volume2, title: "Audio Systems", description: "Concert-grade line arrays for crystal-clear sound at any venue size." },
+      { icon: Lightbulb, title: "Lighting Design", description: "Intelligent moving heads, wash lights, and atmospheric effects." },
+      { icon: Video, title: "Video Production", description: "LED walls, projection mapping, IMAG cameras, and live switching." },
+      { icon: Sparkles, title: "Special Effects", description: "Cold pyro, CO2 jets, confetti cannons, haze, and snow machines." },
+      { icon: Users, title: "Technical Crew", description: "Certified riggers, engineers, and stage managers for seamless execution." }
     ],
     benefits: [
-      { icon: Star, title: "Professional Quality", description: "Broadcast-grade production values." },
-      { icon: Camera, title: "Visual Impact", description: "Stunning visuals that captivate." },
-      { icon: Zap, title: "Reliable Execution", description: "Technical excellence with backup systems." },
-      { icon: Heart, title: "Emotional Moments", description: "Technology that enhances storytelling." },
-      { icon: Sparkles, title: "Memorable Experiences", description: "Production that elevates every moment." }
+      { icon: Star, title: "Professional Quality", description: "Broadcast-grade production values that impress every audience." },
+      { icon: Camera, title: "Visual Impact", description: "Stunning visuals that transform ordinary venues into spectacular stages." },
+      { icon: Zap, title: "Reliable Execution", description: "Redundant equipment and backup systems for zero-failure shows." },
+      { icon: Heart, title: "Emotional Moments", description: "Technology that amplifies storytelling and creates goosebump moments." },
+      { icon: Sparkles, title: "Memorable Experiences", description: "Production quality that elevates every moment of your event." }
     ],
     activities: {
       sectionTitle: "PRODUCTION SERVICES",
@@ -1816,34 +1817,19 @@ export const servicesData: Record<string, ServiceData> = {
         title: "Stage Design & Construction",
         description: "Custom stage builds that create the perfect platform for your event.",
         image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920",
-        points: [
-          { text: "Custom stage design and fabrication" },
-          { text: "LED screen integration" },
-          { text: "Scenic elements and backdrops" },
-          { text: "Rigging and structural engineering" }
-        ]
+        points: [{ text: "Custom stage design and fabrication" }, { text: "LED screen integration" }, { text: "Scenic elements and backdrops" }, { text: "Rigging and structural engineering" }]
       },
       {
         title: "Audio-Visual Excellence",
         description: "State-of-the-art technology for crystal-clear sound and stunning visuals.",
         image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1920",
-        points: [
-          { text: "Professional sound systems" },
-          { text: "Intelligent lighting rigs" },
-          { text: "LED walls and projection" },
-          { text: "Live streaming capabilities" }
-        ]
+        points: [{ text: "Professional sound systems" }, { text: "Intelligent lighting rigs" }, { text: "LED walls and projection" }, { text: "Live streaming capabilities" }]
       },
       {
         title: "Special Effects",
         description: "Add magic to your event with spectacular effects and atmospheric elements.",
         image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920",
-        points: [
-          { text: "Confetti and streamer cannons" },
-          { text: "Haze and fog machines" },
-          { text: "CO2 jets and cold pyro" },
-          { text: "Bubble and snow effects" }
-        ]
+        points: [{ text: "Confetti and streamer cannons" }, { text: "Haze and fog machines" }, { text: "CO2 jets and cold pyro" }, { text: "Bubble and snow effects" }]
       }
     ],
     gallery: [
@@ -1857,24 +1843,39 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800"
     ],
     testimonials: [
-      { quote: "The stage production was absolutely world-class. Impressed everyone!", author: "Richard Wong", company: "Singtel" },
-      { quote: "Technical execution was flawless. The team handled everything professionally.", author: "Amanda Tan", company: "StarHub" },
-      { quote: "The lighting design transformed our venue completely.", author: "Kevin Lee", company: "MediaCorp" },
-      { quote: "Best AV production we've ever experienced at a corporate event.", author: "Michelle Goh", company: "SPH Media" },
-      { quote: "The special effects made our launch unforgettable.", author: "Daniel Lim", company: "Mediacorp" },
-      { quote: "From design to execution, everything was perfect.", author: "Sarah Chen", company: "Resorts World Sentosa" }
+      { quote: "The stage production was absolutely world-class. Our 2,000 guests were mesmerized.", author: "Richard Wong", company: "Singtel" },
+      { quote: "Technical execution was flawless. Zero hiccups across a 4-hour live show.", author: "Amanda Tan", company: "StarHub" },
+      { quote: "The lighting design transformed our ballroom into a concert arena.", author: "Kevin Lee", company: "MediaCorp" },
+      { quote: "Best AV production we have ever experienced at a corporate event in Singapore.", author: "Michelle Goh", company: "SPH Media" },
+      { quote: "The cold pyro and confetti finale had the entire audience on their feet.", author: "Daniel Lim", company: "Resorts World Sentosa" },
+      { quote: "From 3D renders to load-out, the team was professional and meticulous.", author: "Sarah Chen", company: "Marina Bay Sands" }
     ],
     faqs: [
-      { question: "What production services do you offer?", answer: "We provide stage design, audio systems, lighting, LED/projection, live streaming, special effects, and full technical crew." },
+      { question: "What production services do you offer?", answer: "Stage design, audio systems, intelligent lighting, LED/projection, live streaming, special effects (pyro, confetti, haze), and full technical crew." },
       { question: "Do you work with venue in-house AV?", answer: "We can integrate with venue systems or bring our own equipment, depending on your requirements and venue restrictions." },
-      { question: "Can you handle outdoor events?", answer: "Yes, we have weatherproof equipment and outdoor-rated systems for open-air events." },
-      { question: "What backup systems do you have?", answer: "We always bring redundant equipment and backup systems for critical elements like sound, video playback, and power." },
-      { question: "How early do you need venue access?", answer: "Depending on complexity, we typically need 1-3 days for load-in, setup, and technical rehearsals." }
+      { question: "Can you handle outdoor events?", answer: "Yes, we have weatherproof equipment and outdoor-rated systems for open-air events of any scale." },
+      { question: "What backup systems do you have?", answer: "We always deploy redundant equipment and backup power for mission-critical elements like sound, video playback, and lighting." },
+      { question: "How early do you need venue access?", answer: "Depending on complexity, we typically need 1-3 days for load-in, setup, technical rehearsals, and sound checks." }
     ],
     cta: {
       headline: "Ready for Production Excellence?",
       subtext: "Let's create a technical production that elevates your event to new heights."
-    }
+    },
+    recentEvents: [
+      { client: "Singtel", event: "Annual Gala Stage Production", pax: 2000 },
+      { client: "StarHub", event: "Product Launch AV", pax: 800 },
+      { client: "MediaCorp", event: "Awards Show Production", pax: 1500 },
+      { client: "SPH Media", event: "Conference Stage Design", pax: 600 },
+      { client: "Resorts World Sentosa", event: "Grand Show Production", pax: 3000 },
+      { client: "Marina Bay Sands", event: "Corporate Gala AV", pax: 2500 },
+      { client: "Changi Airport Group", event: "Launch Event Stage", pax: 1000 },
+      { client: "Singapore Airlines", event: "Awards Ceremony Production", pax: 500 },
+      { client: "CapitaLand", event: "Town Hall AV Setup", pax: 400 },
+      { client: "DBS Bank", event: "Annual Dinner Stage", pax: 1200 },
+      { client: "OCBC", event: "D&D Production", pax: 900 },
+      { client: "UOB", event: "Conference AV Package", pax: 700 }
+    ],
+    recentEventsHeadline: "Events we've brought to life on stage"
   },
   "custom-themes": {
     accentColor: "#7A2BE2",
