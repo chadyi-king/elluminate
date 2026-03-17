@@ -4158,7 +4158,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "fit-in-your-team-virtual": {
     accentColor: "#8B5CF6",
-    dividerVariant: "timer",
+    dividerVariant: "blueprint",
     hero: {
       title: "FIT IN YOUR TEAM",
       subtitle: "Virtual Team Building",
