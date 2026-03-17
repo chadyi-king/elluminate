@@ -778,7 +778,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Celebrate Your Achievers?",
       subtext: "Let's create an awards ceremony that honors excellence and inspires greatness."
-    }
+    },
+    dividerVariant: "ribbon",
+    recentEvents: [
+      { client: "OCBC Bank", event: "Annual Awards Night", pax: 400 },
+      { client: "CapitaLand", event: "Excellence Awards", pax: 300 },
+      { client: "Marina Bay Sands", event: "Team Awards Gala", pax: 500 },
+      { client: "Singtel", event: "Innovation Awards", pax: 350 },
+      { client: "DBS Bank", event: "Star Performer Night", pax: 600 },
+      { client: "Standard Chartered", event: "Service Awards", pax: 250 },
+      { client: "PSA International", event: "Safety Awards", pax: 450 },
+      { client: "SIA Engineering", event: "Long Service Awards", pax: 200 },
+      { client: "Changi Airport Group", event: "Annual Recognition", pax: 550 },
+      { client: "ComfortDelGro", event: "Driver Awards Night", pax: 380 },
+      { client: "Sembcorp Industries", event: "Achievement Awards", pax: 280 },
+      { client: "Sats Ltd", event: "Employee of the Year", pax: 320 },
+    ],
+    recentEventsHeadline: "Companies who've hosted Awards Ceremonies with us",
   },
   "corporate-anniversaries": {
     accentColor: "#B03052",
