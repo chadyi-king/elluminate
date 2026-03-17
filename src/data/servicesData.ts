@@ -4406,7 +4406,7 @@ export const servicesData: Record<string, ServiceData> = {
 
   "the-patriot-act-virtual": {
     accentColor: "#DC2626",
-    dividerVariant: "timer",
+    dividerVariant: "arrow",
     hero: {
       title: "THE PATRIOT ACT",
       subtitle: "Virtual Team Building",
