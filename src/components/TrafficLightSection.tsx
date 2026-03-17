@@ -9,7 +9,7 @@ const trafficLights = [
     icon: Zap,
     title: "Minimum Package",
     subtitle: "Green Light",
-    description: "Choose from our ready-to-go programs and get started immediately. Perfect for teams who know exactly what they want.",
+    description: "Start with a proven format that is ready to run. Ideal when you want a strong experience without a lengthy planning cycle.",
     features: [
       "Pre-designed activity packages",
       "Fast turnaround time",
@@ -23,7 +23,7 @@ const trafficLights = [
     icon: Package,
     title: "Enhanced Package",
     subtitle: "Amber Light",
-    description: "Add extra elements like venue, catering, prizes, and logistics. We've partnered with trusted vendors to make it seamless.",
+    description: "Add the support services that make the day feel easier, smoother, and more complete for your team and organisers.",
     features: [
       "Venue sourcing & booking",
       "Catering arrangements",
@@ -37,7 +37,7 @@ const trafficLights = [
     icon: Crown,
     title: "Premium Package",
     subtitle: "Red Light",
-    description: "A completely bespoke experience designed from scratch. Multi-day programs, unique themes, and everything tailored to your vision.",
+    description: "Build a fully customised experience from the ground up, with concepting, production, and delivery shaped around your goals.",
     features: [
       "Custom theme development",
       "Multi-day event planning",
@@ -74,8 +74,7 @@ export const TrafficLightSection = () => {
             The <span className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 bg-clip-text text-transparent">Traffic Light</span> System
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Choose your level of customization. From quick starts to fully bespoke experiences, 
-            Elluminate adapts to your needs.
+            Choose how much support and customisation you need — from ready-to-run formats to fully bespoke event design.
           </p>
         </motion.div>
 

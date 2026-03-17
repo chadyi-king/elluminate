@@ -8,12 +8,12 @@ import {
 } from "lucide-react";
 
 const quickLinks = [
+  { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
-  { name: "Team Building", path: "/services/amazing-race" },
+  { name: "Team Building", path: "/services/team-building" },
+  { name: "Corporate Events", path: "/services/dinner-and-dance" },
   { name: "Retreats", path: "/services/overseas-retreats" },
   { name: "Training", path: "/services/workshops" },
-  { name: "Portfolio", path: "/portfolio" },
-  { name: "Blog", path: "/blog" },
 ];
 
 // Social links removed - no active accounts for Elluminate yet
@@ -36,7 +36,7 @@ export const Footer = () => {
             </Link>
             
             <p className="text-background/70 text-sm leading-relaxed">
-              Illuminate Your Teams with engaging team building experiences that inspire collaboration and create lasting connections.
+              Team building, retreats, training, and corporate event experiences designed to strengthen culture and create lasting connection.
             </p>
           </div>
 
@@ -134,7 +134,7 @@ export const Footer = () => {
               © {new Date().getFullYear()} Elluminate. All rights reserved.
             </p>
             <p className="text-background/40 text-sm">
-              8 Years of Excellence — Since 2017
+              8+ Years Delivering Experiences — Since 2017
             </p>
 
           </div>

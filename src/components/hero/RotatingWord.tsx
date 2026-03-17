@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export const wordData = [
   { text: "TEAM", color: "hsl(214, 100%, 56%)" }, // Blue
-  { text: "SELF", color: "hsl(33, 100%, 50%)" }, // Orange
-  { text: "SCHOOL", color: "hsl(340, 82%, 52%)" }, // Pink
-  { text: "CLASS", color: "hsl(270, 100%, 70%)" }, // Purple
+  { text: "PEOPLE", color: "hsl(33, 100%, 50%)" }, // Orange
+  { text: "CULTURE", color: "hsl(340, 82%, 52%)" }, // Pink
+  { text: "LEADERS", color: "hsl(270, 100%, 70%)" }, // Purple
   { text: "WORKPLACE", color: "hsl(160, 70%, 45%)" }, // Green
 ];
 

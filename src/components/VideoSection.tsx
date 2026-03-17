@@ -19,8 +19,11 @@ export const VideoSection = () => {
             See Us In Action
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-black text-foreground">
-            Watch How We <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Ignite</span> Teams
+            Watch How We Bring <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">Teams Together</span>
           </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto mt-4 text-base md:text-lg">
+            A quick look at the energy, facilitation, and production style behind Elluminate experiences.
+          </p>
         </motion.div>
 
         {/* Video Container */}
@@ -63,7 +66,7 @@ export const VideoSection = () => {
             ) : (
               <div className="absolute inset-0 bg-foreground flex items-center justify-center">
                 <p className="text-white/60 text-center px-6">
-                  Video player placeholder - Add your Elluminate showreel video URL here
+                  Video player placeholder — add your Elluminate showreel URL here.
                 </p>
               </div>
             )}

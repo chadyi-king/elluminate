@@ -2,32 +2,32 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star, Calendar, Users, Award } from "lucide-react";
 import { useState, useEffect } from "react";
 
-// Real client logos - tech, finance, and corporate brands
+// Real client logos - aligned with brand list used across the site
 const clientLogos = [
-  { id: 1, name: "DBS Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a1/DBS_Bank_logo.svg" },
-  { id: 2, name: "OCBC", logo: "https://upload.wikimedia.org/wikipedia/commons/8/83/OCBC_Bank_logo.svg" },
-  { id: 3, name: "UOB", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0d/UOB_Logo.svg" },
-  { id: 4, name: "Singtel", logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/Singtel.svg" },
-  { id: 5, name: "CapitaLand", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
-  { id: 6, name: "Grab", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Grab_Logo.svg" },
-  { id: 7, name: "Lazada", logo: "https://upload.wikimedia.org/wikipedia/commons/5/55/Lazada_%282019%29.svg" },
-  { id: 8, name: "Shopee", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopee_logo.svg" },
-  { id: 9, name: "Sea Limited", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
-  { id: 10, name: "Razer", logo: "https://upload.wikimedia.org/wikipedia/commons/1/17/Razer_wordmark.svg" },
-  { id: 11, name: "Keppel", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
-  { id: 12, name: "ST Engineering", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
-  { id: 13, name: "Wilmar", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
-  { id: 14, name: "Genting", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
-  { id: 15, name: "Marina Bay Sands", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
-  { id: 16, name: "Singapore Airlines", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Singapore_Airlines_Logo_2.svg" },
-  { id: 17, name: "HSBC", logo: "https://upload.wikimedia.org/wikipedia/commons/a/aa/HSBC_logo_%282018%29.svg" },
-  { id: 18, name: "Standard Chartered", logo: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Standard_Chartered_%282021%29.svg" },
-  { id: 19, name: "Prudential", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
-  { id: 20, name: "AIA", logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/AIA_Group_logo.svg" },
-  { id: 21, name: "Great Eastern", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
-  { id: 22, name: "Manulife", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
-  { id: 23, name: "NTUC", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
-  { id: 24, name: "FairPrice", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=100&fit=crop" },
+  { id: 1, name: "DBS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/DBS_Bank_Logo.svg/400px-DBS_Bank_Logo.svg.png" },
+  { id: 2, name: "OCBC", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OCBC_Bank_logo.svg/400px-OCBC_Bank_logo.svg.png" },
+  { id: 3, name: "UOB", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/UOB_Logo.svg/400px-UOB_Logo.svg.png" },
+  { id: 4, name: "Singtel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Singtel_logo_2021.svg/400px-Singtel_logo_2021.svg.png" },
+  { id: 5, name: "Grab", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Grab_Logo.svg/400px-Grab_Logo.svg.png" },
+  { id: 6, name: "Shopee", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/400px-Shopee.svg.png" },
+  { id: 7, name: "NTUC", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/NTUC_FairPrice_logo.svg/400px-NTUC_FairPrice_logo.svg.png" },
+  { id: 8, name: "GovTech", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/GovTech_Singapore_Logo.svg/400px-GovTech_Singapore_Logo.svg.png" },
+  { id: 9, name: "Sentosa", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/89/Sentosa_logo.svg/400px-Sentosa_logo.svg.png" },
+  { id: 10, name: "SP Group", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/SP_Group_logo.svg/400px-SP_Group_logo.svg.png" },
+  { id: 11, name: "SMRT", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SMRT_Corporation_Logo.svg/400px-SMRT_Corporation_Logo.svg.png" },
+  { id: 12, name: "Prudential", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Prudential_plc_logo.svg/400px-Prudential_plc_logo.svg.png" },
+  { id: 13, name: "Marina Bay Sands", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Marina_Bay_Sands_Logo.svg/400px-Marina_Bay_Sands_Logo.svg.png" },
+  { id: 14, name: "CapitaLand", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/CapitaLand_logo.svg/400px-CapitaLand_logo.svg.png" },
+  { id: 15, name: "Singapore Airlines", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Singapore_Airlines_Logo_2.svg/400px-Singapore_Airlines_Logo_2.svg.png" },
+  { id: 16, name: "Changi Airport", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Changi_Airport_Group_logo.svg/400px-Changi_Airport_Group_logo.svg.png" },
+  { id: 17, name: "StarHub", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/StarHub_Logo.svg/400px-StarHub_Logo.svg.png" },
+  { id: 18, name: "POSB", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/POSB_Bank_logo.svg/400px-POSB_Bank_logo.svg.png" },
+  { id: 19, name: "Great Eastern", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Great_Eastern_logo.svg/400px-Great_Eastern_logo.svg.png" },
+  { id: 20, name: "AIA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/AIA_Group_logo.svg/400px-AIA_Group_logo.svg.png" },
+  { id: 21, name: "HSBC", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/HSBC_logo_%282018%29.svg/400px-HSBC_logo_%282018%29.svg.png" },
+  { id: 22, name: "Standard Chartered", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Standard_Chartered_%282021%29.svg/400px-Standard_Chartered_%282021%29.svg.png" },
+  { id: 23, name: "Maybank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Maybank_logo.svg/400px-Maybank_logo.svg.png" },
+  { id: 24, name: "M1", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/M1_Limited_logo.svg/400px-M1_Limited_logo.svg.png" },
 ];
 
 const stats = [
@@ -45,9 +45,9 @@ const stats = [
   },
   {
     icon: Award,
-    number: "8 Years",
-    label: "of Excellence",
-    description: "Professional, innovative, dependable.",
+    number: "8+",
+    label: "Years Delivering",
+    description: "Consistent experiences for teams across Singapore.",
   },
 ];
 

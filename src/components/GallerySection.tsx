@@ -67,7 +67,7 @@ export const GallerySection = () => {
             Event <span className="text-primary">Gallery</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            A glimpse into the memorable experiences we've created for teams across Singapore.
+            A glimpse at the team building days, retreats, celebrations, and corporate moments we have brought to life.
           </p>
         </motion.div>
 

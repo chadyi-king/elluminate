@@ -99,7 +99,7 @@ export const CaseStudiesSection = () => {
             Case Studies
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Real results from Singapore's leading organizations. See how we illuminate teams.
+            A closer look at how we design experiences around different team goals, event formats, and group sizes.
           </p>
         </motion.div>
 

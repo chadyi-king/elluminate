@@ -173,7 +173,7 @@ const AboutPage = () => {
     <div className="min-h-screen bg-background">
       <SEO 
         title="About Us | Elluminate"
-        description="Learn about Elluminate - Singapore's most eccentric team building company. Since 2017, we've executed 1000+ events for 100,000+ participants with our Creative, Authentic, Lasting, Exceptional, Boundless, and Eccentric approach."
+        description="Learn how Elluminate designs team building, retreats, training, and corporate events that strengthen culture, energise teams, and create lasting impact across Singapore."
         keywords="about Elluminate, Singapore team building company, corporate team building, event specialists Singapore"
         canonical="https://elluminate.sg/about"
       />
@@ -227,7 +227,7 @@ const AboutPage = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg text-muted-foreground/90 font-sans mb-8 max-w-md leading-relaxed"
               >
-                Singapore's most eccentric team building company — crafting unforgettable corporate experiences since 2017.
+                We design team building, retreats, training, and corporate events that feel seamless to run and meaningful to attend.
               </motion.p>
 
               {/* Stats Badges */}
@@ -239,8 +239,8 @@ const AboutPage = () => {
               >
                 {[
                   { value: "1000+", label: "Events" },
-                  { value: "100K+", label: "Participants" },
-                  { value: "8", label: "Years" },
+                  { value: "100,000+", label: "Participants" },
+                  { value: "8+", label: "Years" },
                 ].map((stat, i) => (
                   <motion.div
                     key={stat.label}
@@ -264,7 +264,7 @@ const AboutPage = () => {
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-sky-500 text-primary-foreground font-display font-medium text-sm tracking-wider rounded-full shadow-blue hover:shadow-blue-intense transition-all duration-500 group"
               >
-                Plan Your Event With Us
+                Plan My Event
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </motion.a>
             </motion.div>
@@ -374,13 +374,13 @@ const AboutPage = () => {
               
               <div className="space-y-5 text-muted-foreground font-sans leading-relaxed">
                 <p>
-                  Elluminate was founded in Singapore with one belief: team building should ignite real connection — not just fill a program.
+                  Elluminate was founded in Singapore with one belief: great team experiences should create real connection, not just fill an agenda.
                 </p>
                 <p>
-                  Since 2017, we've transformed corporate gatherings into signature experiences through purposeful design, immersive engagement, and world-class facilitation.
+                  Since 2017, we have helped organisations turn team building, retreats, celebrations, and training days into experiences people genuinely remember.
                 </p>
                 <p>
-                  What began as a passionate team of creators has grown into one of Singapore's most trusted partners, delivering <span className="text-primary font-medium">1,000+ events</span> and engaging <span className="text-primary font-medium">100,000+ participants</span> across the region.
+                  Today, our team brings together creative design, facilitation, and on-ground execution to deliver <span className="text-primary font-medium">1,000+ events</span> for more than <span className="text-primary font-medium">100,000 participants</span> across Singapore and the region.
                 </p>
               </div>
             </motion.div>
@@ -440,10 +440,10 @@ const AboutPage = () => {
                   </div>
                   <h3 className="text-xl font-display font-medium text-foreground mb-3">Our Mission</h3>
                   <p className="text-muted-foreground font-sans leading-relaxed mb-3">
-                    To elevate every event into a masterpiece of emotion, energy, and excellence.
+                    To design experiences that bring people together, strengthen culture, and make every event feel worth attending.
                   </p>
                   <p className="text-muted-foreground/70 font-sans text-sm leading-relaxed">
-                    We're committed to transforming ordinary corporate gatherings into extraordinary experiences that inspire, connect, and leave lasting impressions.
+                    We combine thoughtful strategy, strong facilitation, and polished execution so teams leave more connected than when they arrived.
                   </p>
                 </div>
               </motion.div>
@@ -463,10 +463,10 @@ const AboutPage = () => {
                   </div>
                   <h3 className="text-xl font-display font-medium text-foreground mb-3">Our Vision</h3>
                   <p className="text-muted-foreground font-sans leading-relaxed mb-3">
-                    To be Asia's most trusted creator of transformative corporate experiences.
+                    To be the partner teams trust when the experience needs to feel engaging, well-run, and genuinely memorable.
                   </p>
                   <p className="text-muted-foreground/70 font-sans text-sm leading-relaxed">
-                    We envision a future where every organization recognizes the power of meaningful events to drive culture, engagement, and performance.
+                    We believe the best corporate events do more than entertain — they support culture, alignment, morale, and long-term team connection.
                   </p>
                 </div>
               </motion.div>
@@ -577,7 +577,56 @@ const AboutPage = () => {
       {/* Gold Divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-      {/* SECTION 5 - KEY METRICS */}
+      {/* SECTION 5 - IMAGE STRIP */}
+      <section className="py-20 relative overflow-hidden bg-primary/[0.02]">
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 max-w-2xl mx-auto"
+          >
+            <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
+              A Glimpse <span className="text-primary">Behind The Scenes</span>
+            </h2>
+            <p className="text-muted-foreground/80 font-sans text-sm md:text-base leading-relaxed">
+              From high-energy team building to polished evening celebrations, our work is designed to feel engaging in the moment and memorable after it ends.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {[
+              { src: teamCelebration, alt: "Team celebration moment" },
+              { src: dinnerDance, alt: "Dinner and dance experience" },
+              { src: teamBuildingOutdoor, alt: "Outdoor team building activity" },
+              { src: overseasRetreat, alt: "Retreat experience" },
+            ].map((image, index) => (
+              <motion.div
+                key={image.alt}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="group relative overflow-hidden rounded-2xl border border-border-gold/20 bg-card/30"
+              >
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/65 via-transparent to-transparent" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gold Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+      {/* SECTION 6 - KEY METRICS */}
       <section className="py-24 relative bg-gradient-to-br from-primary/[0.08] via-primary/[0.03] to-transparent">
         {/* Background */}
         <div className="absolute inset-0">
@@ -642,9 +691,9 @@ const AboutPage = () => {
               className="text-center"
             >
               <div className="text-4xl md:text-5xl font-display font-semibold text-primary mb-2">
-                {yearsCounter.count}
+                {yearsCounter.count}+
               </div>
-              <p className="text-muted-foreground/80 font-sans text-sm">Years of Excellence</p>
+              <p className="text-muted-foreground/80 font-sans text-sm">Years Delivering Experiences</p>
             </motion.div>
           </div>
         </div>
@@ -828,10 +877,10 @@ const AboutPage = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-2xl md:text-4xl font-display font-medium text-foreground mb-4">
-              Ready to <span className="text-primary">Illuminate</span> Your Next Event?
+              Ready to Plan Your Next <span className="text-primary">Team Experience</span>?
             </h2>
             <p className="text-muted-foreground/80 font-sans mb-8">
-              Let's turn your next gathering into an unforgettable experience of connection and impact.
+              Whether you are planning team building, a retreat, training, or a company celebration, we can help you shape the right format.
             </p>
             <motion.a
               href="/#contact"
@@ -839,7 +888,7 @@ const AboutPage = () => {
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-primary via-primary-ember to-primary text-primary-foreground font-display font-medium tracking-wider rounded-full shadow-gold hover:shadow-gold-intense hover:bg-background hover:text-primary border border-transparent hover:border-primary transition-all duration-500"
             >
-              Start Planning With Us
+              Plan My Event
             </motion.a>
           </motion.div>
         </div>

@@ -78,7 +78,7 @@ export const OurTeam = () => {
             Our <span className="text-primary">Team</span>
           </h2>
           <p className="text-muted-foreground/80 font-sans max-w-xl mx-auto text-sm">
-            The passionate professionals behind every masterpiece experience.
+            The planners, facilitators, and creative minds behind each Elluminate experience.
           </p>
         </motion.div>
 

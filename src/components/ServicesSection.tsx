@@ -1,12 +1,8 @@
 import { motion } from "framer-motion";
 import {
   Flag,
-  Search,
   Globe,
   Target,
-  Palette,
-  Leaf,
-  Mountain,
   Monitor,
   Gamepad2,
   BookOpen,
@@ -15,18 +11,11 @@ import {
   MapPin,
   Swords,
   Timer,
-  Gem,
-  Ghost,
-  Trophy,
   Footprints,
-  Dumbbell,
   Users,
   Skull,
   Crosshair,
   Dice5,
-  PersonStanding,
-  Crown,
-  Rabbit,
   Building,
 } from "lucide-react";
 import { ExpandableActivityCard } from "./ExpandableActivityCard";
@@ -59,7 +48,7 @@ const activityColors = {
 };
 
 const allActivities = [
-  // Physical Team Building
+  // Team Building
   { 
     name: "Amazing Race", 
     icon: Flag, 
@@ -91,53 +80,23 @@ const allActivities = [
     image: heroCulturalRace,
   },
   { 
-    name: "Amongst Us", 
-    icon: Ghost, 
-    slug: "amongst-us", 
-    color: activityColors.mystery, 
-    description: "Real-life version of the viral game. Find the imposters among your crew before it's too late!",
-    stats: "80+ games played",
-    clients: "Tech startups love this",
-    image: heroTeamCelebration,
-  },
-  { 
-    name: "Treasure Heist", 
-    icon: Gem, 
-    slug: "treasure-heist", 
-    color: activityColors.culturalRace, 
-    description: "Inspired by Money Heist. Plan and execute the perfect heist with your team in this thrilling adventure.",
-    stats: "60+ heists completed",
-    clients: "Popular for team bonding",
+    name: "Archery Tag", 
+    icon: Target, 
+    slug: "archery-tag", 
+    color: activityColors.archeryLaserTag, 
+    description: "Action-packed archery battles that sharpen team strategy, communication, and fast decision-making.",
+    stats: "120+ archery events",
+    clients: "Great for competitive teams",
     image: heroAdventureChallenge,
-  },
-  { 
-    name: "Sotong Game", 
-    icon: Gamepad2, 
-    slug: "sotong-game", 
-    color: activityColors.sotong,
-    description: "Squid Game-inspired challenges adapted for safe, exciting team competition. Can your team survive?",
-    stats: "100+ games organized",
-    clients: "Trending with all industries",
-    image: heroAmazingRace,
-  },
-  { 
-    name: "Alice in Motherland", 
-    icon: Rabbit, 
-    slug: "alice-in-motherland", 
-    color: activityColors.creativeWorkshops, 
-    description: "Whimsical wonderland adventure with themed challenges and creative problem-solving.",
-    stats: "40+ experiences created",
-    clients: "Great for creative teams",
-    image: heroCreativeWorkshop,
   },
   { 
     name: "Builder Cross", 
     icon: Building, 
     slug: "builder-cross", 
     color: activityColors.amazingRace, 
-    description: "Construction-themed challenges that test engineering, strategy, and teamwork skills.",
+    description: "Construction-themed challenges that test planning, collaboration, and hands-on problem solving.",
     stats: "70+ builds completed",
-    clients: "Engineering and construction firms",
+    clients: "Engineering and operations teams",
     image: heroAdventureChallenge,
   },
   { 
@@ -145,8 +104,8 @@ const allActivities = [
     icon: Crosshair, 
     slug: "gel-blitz", 
     color: activityColors.archeryLaserTag, 
-    description: "Action-packed gel blaster battles combining strategy, teamwork, and adrenaline-pumping fun.",
-    stats: "90+ battles organized",
+    description: "Fast-moving gel blaster battles built around teamwork, tactics, and adrenaline-filled fun.",
+    stats: "90+ battles organised",
     clients: "Sales teams and startups",
     image: heroAdventureChallenge,
   },
@@ -191,6 +150,16 @@ const allActivities = [
     image: heroCulturalRace,
   },
   {
+    name: "Sotong Game",
+    icon: Gamepad2,
+    slug: "sotong-game",
+    color: activityColors.sotong,
+    description: "Squid Game-inspired challenges adapted into a safe, high-energy format for team competition.",
+    stats: "100+ games organised",
+    clients: "Trending across industries",
+    image: heroAmazingRace,
+  },
+  {
     name: "Tag-tical Laser Teambuilding",
     icon: Crosshair,
     slug: "tag-tical-laser-teambuilding",
@@ -201,85 +170,65 @@ const allActivities = [
     image: heroAdventureChallenge,
   },
   { 
-    name: "Battle of the Olympians", 
-    icon: Crown, 
-    slug: "battle-olympians", 
-    color: activityColors.amazingRace, 
-    description: "Epic Olympic-style team competitions featuring various athletic and mental challenges.",
-    stats: "40+ battles fought",
-    clients: "Great for large groups",
+    name: "Treasure Heist", 
+    icon: Sparkles, 
+    slug: "treasure-heist", 
+    color: activityColors.culturalRace, 
+    description: "A cinematic heist-themed challenge where teams collaborate, plan, and race against the clock.",
+    stats: "60+ heists completed",
+    clients: "Popular for team bonding",
     image: heroAdventureChallenge,
   },
+  // Virtual & Hybrid
   { 
-    name: "Creative Workshops", 
-    icon: Palette, 
-    slug: "creative-workshops", 
-    color: activityColors.creativeWorkshops, 
-    description: "Hands-on art and craft sessions that spark creativity and bring out hidden talents.",
-    stats: "250+ workshops conducted",
-    clients: "Loved by creative agencies",
-    image: heroCreativeWorkshop,
-  },
-  { 
-    name: "Wellness Activities", 
-    icon: Leaf, 
-    slug: "wellness", 
-    color: activityColors.wellness, 
-    description: "Mindfulness, yoga, and wellness programs that promote team wellbeing and stress relief.",
-    stats: "100+ wellness retreats",
-    clients: "Healthcare and finance sectors",
-    image: heroWellnessActivity,
-  },
-  { 
-    name: "Archery Tag", 
-    icon: Target, 
-    slug: "archery-tag", 
-    color: activityColors.archeryLaserTag, 
-    description: "Action-packed archery battles that build team strategy and communication skills.",
-    stats: "120+ archery events",
-    clients: "Great for competitive teams",
-    image: heroAdventureChallenge,
-  },
-  // Virtual Team Building
-  { 
-    name: "Virtual Amazing Race", 
+    name: "Amazing Race Virtual", 
     icon: Monitor, 
-    slug: "virtual-amazing-race", 
+    slug: "amazing-race-virtual", 
     color: activityColors.csiInvestigation, 
-    description: "Online treasure hunt experience connecting remote teams through digital challenges worldwide.",
+    description: "A remote-friendly Amazing Race experience that keeps distributed teams engaged through live digital challenges.",
     stats: "150+ virtual races",
     clients: "Global tech companies",
     image: heroTeamCelebration,
   },
   { 
-    name: "Virtual Escape Room", 
-    icon: Search, 
-    slug: "virtual-escape-room", 
+    name: "Gameshow Experience", 
+    icon: Sparkles, 
+    slug: "the-gameshow-experience-virtual", 
     color: activityColors.mystery, 
-    description: "Collaborative online puzzle-solving where remote teams work together to escape.",
-    stats: "100+ virtual escapes",
+    description: "An interactive online game show format designed for fast laughs, remote participation, and easy engagement.",
+    stats: "120+ virtual game shows",
     clients: "Distributed teams worldwide",
     image: heroCsiInvestigation,
   },
   { 
-    name: "Online Team Games", 
+    name: "Fit In Your Team", 
     icon: Gamepad2, 
-    slug: "online-team-games", 
+    slug: "fit-in-your-team-virtual", 
     color: activityColors.archeryLaserTag, 
-    description: "Interactive multiplayer games designed for virtual team bonding and fun competition.",
-    stats: "200+ virtual events",
-    clients: "Global tech companies",
+    description: "A movement-based virtual session that helps remote teams bond through light fitness and shared energy.",
+    stats: "90+ virtual wellness sessions",
+    clients: "Hybrid and remote teams",
     image: heroTeamCelebration,
   },
   // Training
   { 
-    name: "Corporate Training", 
+    name: "Workshops", 
     icon: BookOpen, 
-    slug: "corporate-training", 
+    slug: "workshops", 
     color: activityColors.creativeWorkshops, 
-    description: "Interactive workshops covering leadership, communication, MBTI, DISC, and team dynamics.",
-    stats: "150+ training programs",
-    clients: "MNCs and government agencies",
+    description: "Interactive learning sessions built around communication, collaboration, leadership, and team development.",
+    stats: "150+ training programmes",
+    clients: "MNCs and public sector teams",
+    image: heroCreativeWorkshop,
+  },
+  { 
+    name: "MBTI Profiling", 
+    icon: Users, 
+    slug: "mbti", 
+    color: activityColors.wellness, 
+    description: "A practical profiling workshop that helps teams understand personality differences and work better together.",
+    stats: "100+ profiling sessions",
+    clients: "Leadership and HR teams",
     image: heroCreativeWorkshop,
   },
   // Retreats
@@ -302,16 +251,6 @@ const allActivities = [
     stats: "80+ local retreats",
     clients: "SMEs and startups",
     image: heroOverseasRetreat,
-  },
-  { 
-    name: "Team Celebrations", 
-    icon: Sparkles, 
-    slug: "team-celebrations", 
-    color: activityColors.amazingRace, 
-    description: "Organize memorable team milestones, anniversaries, and celebration events.",
-    stats: "100+ celebrations hosted",
-    clients: "All industries",
-    image: heroTeamCelebration,
   },
 ];
 
@@ -346,11 +285,14 @@ export const ServicesSection = () => {
             What We Do
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-6">
-            Our <span className="text-primary">Activities</span>
+            Signature <span className="text-primary">Experiences</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            From high-energy outdoor adventures to creative workshops and overseas retreats, 
-            we have the perfect activity for every team.
+            Explore the formats teams book us for most — from high-energy team building and immersive games
+            to retreats, workshops, and celebration-led corporate events.
+          </p>
+          <p className="text-muted-foreground/70 max-w-3xl mx-auto text-sm mt-4">
+            This is a curated starting point, so visitors can explore your most popular experiences without being overwhelmed.
           </p>
         </motion.div>
 

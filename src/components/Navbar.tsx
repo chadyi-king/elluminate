@@ -219,7 +219,7 @@ export const Navbar = () => {
               rel="noopener noreferrer"
               className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium"
             >
-              Large-Scale Events
+              Large-Scale
             </a>
             <a
               href="https://encompasse.org"
@@ -227,7 +227,7 @@ export const Navbar = () => {
               rel="noopener noreferrer"
               className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium"
             >
-              School Events
+              School
             </a>
             <Button 
               variant="primary" 
@@ -341,7 +341,7 @@ export const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className="block text-foreground hover:text-primary transition-colors py-2 font-medium"
                 >
-                  Large-Scale Events →
+                  Large-Scale →
                 </a>
                 <a
                   href="https://encompasse.org"
@@ -350,7 +350,7 @@ export const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className="block text-foreground hover:text-primary transition-colors py-2 font-medium"
                 >
-                  School Events →
+                  School →
                 </a>
               </div>
               

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import { useState, useCallback } from "react";
 import { ConfettiBurst } from "./ConfettiBurst";
@@ -119,8 +118,17 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1.1 }}
             className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mb-6 font-sans"
           >
-            Transform your team with Singapore's leading team building experiences. 
-            Over <span className="text-primary font-bold">1,000+ events</span> delivered.
+            Corporate team building, retreats, training, and event experiences designed to strengthen culture,
+            energise people, and bring teams closer together.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.15 }}
+            className="text-xs sm:text-sm text-foreground/70 max-w-2xl mb-8 font-sans tracking-wide uppercase"
+          >
+            Trusted by teams across Singapore with <span className="text-primary font-semibold">1,000+ events delivered</span>
           </motion.p>
 
           {/* CTA Buttons */}
@@ -128,7 +136,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="flex flex-col sm:flex-row items-center gap-4 mb-8"
+            className="flex flex-col sm:flex-row items-center gap-4 mb-10"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Button
@@ -154,7 +162,7 @@ export const HeroSection = () => {
                 asChild
                 className="bg-white/90 hover:bg-white border-2 border-primary/30 hover:border-primary text-base px-6 py-5"
               >
-                <Link to="/portfolio">View Our Work</Link>
+                <a href="#services">Explore Services</a>
               </Button>
             </motion.div>
           </motion.div>

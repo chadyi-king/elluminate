@@ -1,31 +1,31 @@
 import { motion } from "framer-motion";
-import { Users, GraduationCap, Plane, Target } from "lucide-react";
+import { Users, Plane, Target, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
   {
-    label: "Corporate Teambuilding",
+    label: "Team Building",
     icon: Users,
     color: "hsl(214, 100%, 56%)", // Blue
     href: "/services/team-building",
   },
   {
-    label: "School Programs",
-    icon: GraduationCap,
+    label: "Corporate Events",
+    icon: Sparkles,
     color: "hsl(340, 82%, 52%)", // Pink
-    href: "/services/school-programs",
+    href: "/services/dinner-and-dance",
   },
   {
-    label: "Overseas Retreats",
+    label: "Retreats",
     icon: Plane,
     color: "hsl(33, 100%, 50%)", // Orange
     href: "/services/overseas-retreats",
   },
   {
-    label: "Focused Trainings",
+    label: "Training",
     icon: Target,
     color: "hsl(160, 70%, 45%)", // Green
-    href: "/services/leadership-offsites",
+    href: "/services/workshops",
   },
 ];
 

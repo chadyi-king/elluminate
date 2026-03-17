@@ -38,7 +38,7 @@ export const CTASection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white mb-6"
           >
-            Ready to Illuminate Your Team?
+            Ready to Plan an Event Your Team Will Remember?
           </motion.h2>
           
           <motion.p
@@ -48,7 +48,7 @@ export const CTASection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white/90 text-xl mb-10"
           >
-            Let's create an unforgettable experience for your team. Get in touch today.
+            Tell us your goals, audience, and budget — we will help shape the right experience for your team.
           </motion.p>
 
           <motion.div
@@ -78,7 +78,7 @@ export const CTASection = () => {
               className="border-white text-white hover:bg-white/10 font-display font-bold bg-transparent" 
               onClick={openContactModal}
             >
-              Book a Consultation
+              Talk Through Your Brief
             </Button>
           </motion.div>
 
@@ -89,7 +89,7 @@ export const CTASection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-white/70 text-sm font-display"
           >
-            Our team responds within 24 hours.
+            Expect a response from our team within 24 hours.
           </motion.p>
         </motion.div>
       </div>
