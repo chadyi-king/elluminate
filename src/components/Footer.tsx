@@ -35,7 +35,7 @@ export const Footer = () => {
                 <Lightbulb className="w-6 h-6 text-primary-foreground" />
               </div>
               <span className="text-2xl font-display font-bold text-background">
-                <span className="text-primary">E</span>lluminate
+                <span className="text-yellow-300">E</span>lluminate
               </span>
             </Link>
             
