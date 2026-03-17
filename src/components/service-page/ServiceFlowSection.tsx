@@ -5,6 +5,7 @@ export interface FlowItem {
   icon: LucideIcon;
   title: string;
   description: string;
+  image?: string;
 }
 
 interface ServiceFlowSectionProps {
@@ -124,16 +125,26 @@ export const ServiceFlowSection = ({
                             </div>
                           )}
 
-                          {/* Icon */}
-                          <div 
-                            className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
-                            style={{ backgroundColor: `${accentColor}15` }}
-                          >
-                            <Icon 
-                              className="w-6 h-6" 
-                              style={{ color: accentColor }} 
-                            />
-                          </div>
+                          {/* Icon or Image */}
+                          {item.image ? (
+                            <div className="w-full h-28 rounded-lg mb-4 overflow-hidden">
+                              <img 
+                                src={item.image} 
+                                alt={item.title} 
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                              />
+                            </div>
+                          ) : (
+                            <div 
+                              className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+                              style={{ backgroundColor: `${accentColor}15` }}
+                            >
+                              <Icon 
+                                className="w-6 h-6" 
+                                style={{ color: accentColor }} 
+                              />
+                            </div>
+                          )}
 
                           {/* Title */}
                           <h3 className="text-lg font-display font-semibold text-foreground mb-2">

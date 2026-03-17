@@ -11,6 +11,10 @@ import { RouteStrip } from "@/components/service-page/dividers/RouteStrip";
 import { GelBeadsStrip } from "@/components/service-page/dividers/GelBeadsStrip";
 import { SquidStrip } from "@/components/service-page/dividers/SquidStrip";
 import { LaserStrip } from "@/components/service-page/dividers/LaserStrip";
+import { ConfettiStrip } from "@/components/service-page/dividers/ConfettiStrip";
+import { SpotlightStrip } from "@/components/service-page/dividers/SpotlightStrip";
+import { RibbonStrip } from "@/components/service-page/dividers/RibbonStrip";
+import { WaveStrip } from "@/components/service-page/dividers/WaveStrip";
 
 export type DividerVariant =
   | "raceTrack"
@@ -24,7 +28,11 @@ export type DividerVariant =
   | "route"
   | "gelBeads"
   | "squid"
-  | "laser";
+  | "laser"
+  | "confetti"
+  | "spotlight"
+  | "ribbon"
+  | "wave";
 
 export type DividerDirection = "downRight" | "downLeft";
 
@@ -64,6 +72,14 @@ export const ServiceDividerStrip = ({
       return <SquidStrip direction={direction} accentColor={accentColor} className={className} />;
     case "laser":
       return <LaserStrip direction={direction} accentColor={accentColor} className={className} />;
+    case "confetti":
+      return <ConfettiStrip direction={direction} accentColor={accentColor} className={className} />;
+    case "spotlight":
+      return <SpotlightStrip direction={direction} accentColor={accentColor} className={className} />;
+    case "ribbon":
+      return <RibbonStrip direction={direction} accentColor={accentColor} className={className} />;
+    case "wave":
+      return <WaveStrip direction={direction} accentColor={accentColor} className={className} />;
     case "raceTrack":
     default:
       return <RaceTrackStrip direction={direction} accentColor={accentColor} className={className} />;
