@@ -1450,7 +1450,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Unite Your Organization?",
       subtext: "Let's create town halls that inform, inspire, and energize your people."
-    }
+    },
+    dividerVariant: "spotlight",
+    recentEvents: [
+      { client: "Prudential Singapore", event: "Annual Town Hall", pax: 1200 },
+      { client: "AIA Singapore", event: "All-Hands Meeting", pax: 800 },
+      { client: "Great Eastern", event: "Quarterly Address", pax: 600 },
+      { client: "NTUC Income", event: "Company Town Hall", pax: 900 },
+      { client: "Manulife Singapore", event: "Strategy Launch", pax: 500 },
+      { client: "AXA Singapore", event: "Year-End Town Hall", pax: 700 },
+      { client: "Zurich Insurance", event: "Hybrid Town Hall", pax: 450 },
+      { client: "Tokio Marine", event: "Regional Conference", pax: 350 },
+      { client: "FWD Insurance", event: "Annual Address", pax: 550 },
+      { client: "Income Insurance", event: "CEO Town Hall", pax: 1000 },
+      { client: "Aviva Singapore", event: "All-Hands Hybrid", pax: 400 },
+      { client: "Prudential", event: "Mid-Year Update", pax: 650 },
+    ],
+    recentEventsHeadline: "Companies who've hosted Town Halls with Elluminate",
   },
   "immersive-experiences": {
     accentColor: "#43F0D8",
