@@ -548,7 +548,7 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: dinnerDanceHero
     },
     overview: {
-      description: "A premium, fully hosted Dinner & Dance experience crafted to celebrate your people with elegance, laughter, and unforgettable moments. Whether you're hosting a formal awards gala, a high-energy dance party, or a themed extravaganza, Elluminate brings cinematic production value, professional hosting, and crowd-driven engagement to make your night legendary.",
+      description: "A premium, fully hosted Dinner and Dance experience crafted to celebrate your people with elegance, laughter, and unforgettable moments. Whether you are hosting a formal awards gala, a high-energy dance party, or a themed extravaganza, Elluminate brings cinematic production value, professional hosting, and crowd-driven engagement to make your night legendary. Our team manages every detail from concept to execution: event storyline, stage and AV production, music programming, interactive games, lucky draws, and seamless run-sheet management so the night flows effortlessly. Choose from our library of signature themes like Great Gatsby Glamour, Hollywood Black and Gold, Masquerade Royale, or Futuristic Neon, or let us create a completely bespoke concept tailored to your brand. We work with Singapore's top venues, caterers, and entertainment acts to deliver a night your team will talk about for years. With over 200 D&D events produced, we have refined the art of balancing formality with fun, ensuring every guest from the CEO to the newest intern feels celebrated.",
       backgroundImage: dinnerDanceHero
     },
     features: [
