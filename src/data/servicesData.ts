@@ -307,7 +307,7 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: teamBuildingHero
     },
     overview: {
-      description: "Transform your team dynamics with our expertly crafted team building experiences. We design engaging activities that foster collaboration, communication, and trust among team members, creating lasting connections that enhance workplace productivity and morale. From outdoor adventures to creative challenges, every activity is designed to bring out the best in your people.",
+      description: "Transform your team dynamics with expertly crafted team building experiences designed to deliver measurable improvements in collaboration, communication, and trust. Our programmes range from high-energy outdoor adventures like the Amazing Race and Archery Tag to creative indoor challenges such as BuilderCross and Minute To Win It. Every session is facilitated by experienced game masters who adapt the format, difficulty, and debrief to match your team's size, goals, and energy level. Whether you need to break the ice with new hires, re-energise a veteran department, or align a cross-functional task force before a major project, we design an activity mix that fits. Groups of 20 to 2,000 are welcome. We handle venue sourcing, logistics, catering coordination, live scoring, photography, and post-event highlight reels so your HR or admin team can simply show up and enjoy the day alongside everyone else. With over 600 events delivered across Singapore, our track record speaks for itself: stronger teams, happier employees, and companies that keep coming back year after year.",
       backgroundImage: teamBuildingHero
     },
     features: [
@@ -391,7 +391,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Transform Your Team?",
       subtext: "Let's design an unforgettable team building experience that brings your people together."
-    }
+    },
+    dividerVariant: "confetti",
+    recentEvents: [
+      { client: "Google Singapore", event: "Innovation Team Day", pax: 200 },
+      { client: "DBS Bank", event: "Department Off-site", pax: 350 },
+      { client: "Shopee", event: "Cross-Team Challenge", pax: 280 },
+      { client: "Grab Holdings", event: "Team Building Day", pax: 180 },
+      { client: "Microsoft Singapore", event: "Quarterly Bonding", pax: 150 },
+      { client: "Amazon Singapore", event: "Operations Team Day", pax: 250 },
+      { client: "Singtel", event: "Annual Team Building", pax: 400 },
+      { client: "OCBC Bank", event: "Branch Team Building", pax: 300 },
+      { client: "Unilever Singapore", event: "Sales Kickoff", pax: 180 },
+      { client: "Standard Chartered", event: "New Hire Bonding", pax: 90 },
+      { client: "ST Engineering", event: "Engineering Team Day", pax: 220 },
+      { client: "CapitaLand", event: "Leadership Team Building", pax: 120 },
+    ],
+    recentEventsHeadline: "Companies who've experienced our Team Building",
   },
   "overseas-retreats": {
     accentColor: "#5AB7AE",
@@ -532,7 +548,7 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: dinnerDanceHero
     },
     overview: {
-      description: "A premium, fully hosted Dinner & Dance experience crafted to celebrate your people with elegance, laughter, and unforgettable moments. Whether you're hosting a formal awards gala, a high-energy dance party, or a themed extravaganza, Elluminate brings cinematic production value, professional hosting, and crowd-driven engagement to make your night legendary.",
+      description: "A premium, fully hosted Dinner and Dance experience crafted to celebrate your people with elegance, laughter, and unforgettable moments. Whether you are hosting a formal awards gala, a high-energy dance party, or a themed extravaganza, Elluminate brings cinematic production value, professional hosting, and crowd-driven engagement to make your night legendary. Our team manages every detail from concept to execution: event storyline, stage and AV production, music programming, interactive games, lucky draws, and seamless run-sheet management so the night flows effortlessly. Choose from our library of signature themes like Great Gatsby Glamour, Hollywood Black and Gold, Masquerade Royale, or Futuristic Neon, or let us create a completely bespoke concept tailored to your brand. We work with Singapore's top venues, caterers, and entertainment acts to deliver a night your team will talk about for years. With over 200 D&D events produced, we have refined the art of balancing formality with fun, ensuring every guest from the CEO to the newest intern feels celebrated.",
       backgroundImage: dinnerDanceHero
     },
     features: [
@@ -650,7 +666,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Create a Night Your Team Will Never Forget?",
       subtext: "Let's bring your Dinner & Dance vision to life with cinematic precision and unforgettable moments."
-    }
+    },
+    dividerVariant: "confetti",
+    recentEvents: [
+      { client: "SP Group", event: "Annual D&D Gala", pax: 500 },
+      { client: "DBS Bank", event: "Year-End D&D", pax: 800 },
+      { client: "Singtel", event: "Dinner & Dance", pax: 600 },
+      { client: "OCBC Bank", event: "Black Tie Gala", pax: 450 },
+      { client: "Standard Chartered", event: "Awards Night D&D", pax: 350 },
+      { client: "UBS Singapore", event: "Annual Dinner", pax: 300 },
+      { client: "CapitaLand", event: "Masquerade D&D", pax: 400 },
+      { client: "Keppel Corporation", event: "Golden Gala", pax: 550 },
+      { client: "Singapore Airlines", event: "Crew D&D Night", pax: 700 },
+      { client: "StarHub", event: "Neon Theme D&D", pax: 380 },
+      { client: "GIC", event: "Annual Dinner & Dance", pax: 200 },
+      { client: "Temasek Holdings", event: "Hollywood D&D", pax: 250 },
+    ],
+    recentEventsHeadline: "Companies who've celebrated with our Dinner & Dance",
   },
   "awards-ceremonies": {
     accentColor: "#D4AF37",
@@ -661,7 +693,7 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: awardsCeremonyHero
     },
     overview: {
-      description: "Honor your achievers with prestigious award ceremonies that leave lasting impressions. We design and execute ceremonies that spotlight excellence, inspire teams, and create moments of genuine recognition and pride. From intimate appreciation events to grand galas, we make every award moment unforgettable.",
+      description: "Honor your achievers with prestigious award ceremonies that leave lasting impressions on every attendee. We design and execute ceremonies that spotlight excellence, inspire teams, and create moments of genuine recognition and pride. Our end-to-end service covers award category development, nominee video production, trophy and plaque design, stage scripting, professional hosting, and full AV production including dramatic lighting reveals and cinematic walk-up sequences. Whether you are recognising Employee of the Year, Long Service milestones, Innovation Champions, or department-level achievements, we ensure every honouree feels like a superstar. Our ceremonies blend formality with entertainment, featuring red carpet arrivals, live audience voting, surprise musical acts, and confetti finales that make the night truly unforgettable. We have produced award ceremonies for groups ranging from 50 to 2,000 across Singapore's finest hotels and convention centres.",
       backgroundImage: awardsCeremonyHero
     },
     features: [
@@ -746,7 +778,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Celebrate Your Achievers?",
       subtext: "Let's create an awards ceremony that honors excellence and inspires greatness."
-    }
+    },
+    dividerVariant: "ribbon",
+    recentEvents: [
+      { client: "OCBC Bank", event: "Annual Awards Night", pax: 400 },
+      { client: "CapitaLand", event: "Excellence Awards", pax: 300 },
+      { client: "Marina Bay Sands", event: "Team Awards Gala", pax: 500 },
+      { client: "Singtel", event: "Innovation Awards", pax: 350 },
+      { client: "DBS Bank", event: "Star Performer Night", pax: 600 },
+      { client: "Standard Chartered", event: "Service Awards", pax: 250 },
+      { client: "PSA International", event: "Safety Awards", pax: 450 },
+      { client: "SIA Engineering", event: "Long Service Awards", pax: 200 },
+      { client: "Changi Airport Group", event: "Annual Recognition", pax: 550 },
+      { client: "ComfortDelGro", event: "Driver Awards Night", pax: 380 },
+      { client: "Sembcorp Industries", event: "Achievement Awards", pax: 280 },
+      { client: "Sats Ltd", event: "Employee of the Year", pax: 320 },
+    ],
+    recentEventsHeadline: "Companies who've hosted Awards Ceremonies with us",
   },
   "corporate-anniversaries": {
     accentColor: "#B03052",
@@ -842,7 +890,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Celebrate Your Milestone?",
       subtext: "Let's honor your company's journey with a celebration worthy of your achievements."
-    }
+    },
+    dividerVariant: "wave",
+    recentEvents: [
+      { client: "Keppel Corporation", event: "25th Anniversary Gala", pax: 500 },
+      { client: "ST Engineering", event: "50th Anniversary", pax: 800 },
+      { client: "ComfortDelGro", event: "10th Anniversary Dinner", pax: 350 },
+      { client: "Sembcorp Industries", event: "Silver Jubilee", pax: 400 },
+      { client: "SIA Engineering", event: "30th Anniversary", pax: 600 },
+      { client: "Neptune Orient Lines", event: "Anniversary Celebration", pax: 250 },
+      { client: "Olam International", event: "20th Anniversary", pax: 300 },
+      { client: "Wilmar International", event: "Corporate Milestone", pax: 450 },
+      { client: "Venture Corporation", event: "Anniversary Gala", pax: 200 },
+      { client: "Creative Technology", event: "40th Anniversary", pax: 180 },
+      { client: "Sats Ltd", event: "Golden Anniversary", pax: 550 },
+      { client: "Far East Organization", event: "Company Anniversary", pax: 350 },
+    ],
+    recentEventsHeadline: "Companies who've celebrated milestones with us",
   },
   "leadership-offsites": {
     accentColor: "#4FB3B3",
@@ -938,7 +1002,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Align Your Leadership Team?",
       subtext: "Let's design a strategic offsite that transforms vision into action."
-    }
+    },
+    dividerVariant: "spotlight",
+    recentEvents: [
+      { client: "Temasek Holdings", event: "Leadership Retreat", pax: 40 },
+      { client: "Singapore Airlines", event: "Executive Off-site", pax: 60 },
+      { client: "UOB Bank", event: "Strategy Retreat", pax: 35 },
+      { client: "CapitaLand", event: "Board Planning Day", pax: 25 },
+      { client: "Mapletree", event: "Leadership Alignment", pax: 30 },
+      { client: "GIC", event: "Annual Strategy Off-site", pax: 50 },
+      { client: "DBS Bank", event: "C-Suite Planning", pax: 20 },
+      { client: "OCBC Bank", event: "Executive Workshop", pax: 45 },
+      { client: "Singtel", event: "Leadership Forum", pax: 55 },
+      { client: "Keppel Corporation", event: "Vision Retreat", pax: 35 },
+      { client: "PSA International", event: "Senior Leadership Day", pax: 40 },
+      { client: "Sembcorp", event: "Strategy Offsite", pax: 30 },
+    ],
+    recentEventsHeadline: "Companies who've trusted us for Leadership Offsites",
   },
   "product-launch": {
     accentColor: "#9B51E0",
@@ -1034,7 +1114,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Launch with Impact?",
       subtext: "Let's create a product launch that captures attention and drives results."
-    }
+    },
+    dividerVariant: "spotlight",
+    recentEvents: [
+      { client: "Samsung Singapore", event: "Galaxy S Launch", pax: 300 },
+      { client: "Apple Southeast Asia", event: "Product Preview", pax: 200 },
+      { client: "Sony Singapore", event: "Console Launch Night", pax: 250 },
+      { client: "Huawei Singapore", event: "Flagship Reveal", pax: 350 },
+      { client: "OPPO Singapore", event: "Phone Launch", pax: 180 },
+      { client: "Dyson Singapore", event: "New Product Showcase", pax: 150 },
+      { client: "LG Electronics", event: "Home Appliance Launch", pax: 200 },
+      { client: "Panasonic Asia", event: "Innovation Reveal", pax: 120 },
+      { client: "BMW Asia", event: "New Model Launch", pax: 250 },
+      { client: "Porsche Singapore", event: "Exclusive Preview", pax: 100 },
+      { client: "Lululemon Singapore", event: "Collection Launch", pax: 180 },
+      { client: "Sephora Singapore", event: "Beauty Launch Event", pax: 220 },
+    ],
+    recentEventsHeadline: "Brands who've launched with Elluminate",
   },
   "brand-activations": {
     accentColor: "#F2C744",
@@ -1130,7 +1226,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Activate Your Brand?",
       subtext: "Let's create experiences that turn audiences into advocates."
-    }
+    },
+    dividerVariant: "confetti",
+    recentEvents: [
+      { client: "Nike Singapore", event: "Air Max Day Activation", pax: 500 },
+      { client: "Coca-Cola Singapore", event: "Mall Roadshow", pax: 800 },
+      { client: "Red Bull Asia", event: "Extreme Sports Activation", pax: 400 },
+      { client: "Adidas Singapore", event: "Originals Pop-Up", pax: 350 },
+      { client: "Unilever Singapore", event: "Brand Experience Day", pax: 600 },
+      { client: "P&G Singapore", event: "Consumer Activation", pax: 450 },
+      { client: "L'Oreal Singapore", event: "Beauty Activation", pax: 300 },
+      { client: "Nestlé Singapore", event: "Taste Tour", pax: 550 },
+      { client: "Tiger Beer", event: "Street Festival", pax: 700 },
+      { client: "Grab", event: "GrabPay Launch Activation", pax: 400 },
+      { client: "Lazada", event: "11.11 Countdown", pax: 900 },
+      { client: "Shopee", event: "Brand Festival Booth", pax: 650 },
+    ],
+    recentEventsHeadline: "Brands who've activated with Elluminate",
   },
   "client-appreciation": {
     accentColor: "#E4AFA3",
@@ -1226,7 +1338,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Appreciate Your Clients?",
       subtext: "Let's create experiences that turn clients into lifelong partners."
-    }
+    },
+    dividerVariant: "ribbon",
+    recentEvents: [
+      { client: "Credit Suisse", event: "VIP Client Dinner", pax: 80 },
+      { client: "Standard Chartered", event: "Top Client Evening", pax: 60 },
+      { client: "Julius Baer", event: "Private Client Event", pax: 50 },
+      { client: "HSBC Singapore", event: "Wealth Client Appreciation", pax: 100 },
+      { client: "Citi Singapore", event: "Platinum Client Night", pax: 70 },
+      { client: "Morgan Stanley", event: "Partner Appreciation", pax: 45 },
+      { client: "Goldman Sachs", event: "Client Awards Dinner", pax: 65 },
+      { client: "J.P. Morgan", event: "Annual Client Gala", pax: 90 },
+      { client: "Bank of America", event: "Key Client Event", pax: 55 },
+      { client: "Barclays Singapore", event: "Client Thank-You Night", pax: 75 },
+      { client: "BNP Paribas", event: "VIP Appreciation", pax: 40 },
+      { client: "Deutsche Bank", event: "Client Experience Night", pax: 60 },
+    ],
+    recentEventsHeadline: "Companies who've appreciated clients with Elluminate",
   },
   "town-halls": {
     accentColor: "#295CFF",
@@ -1322,7 +1450,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Unite Your Organization?",
       subtext: "Let's create town halls that inform, inspire, and energize your people."
-    }
+    },
+    dividerVariant: "spotlight",
+    recentEvents: [
+      { client: "Prudential Singapore", event: "Annual Town Hall", pax: 1200 },
+      { client: "AIA Singapore", event: "All-Hands Meeting", pax: 800 },
+      { client: "Great Eastern", event: "Quarterly Address", pax: 600 },
+      { client: "NTUC Income", event: "Company Town Hall", pax: 900 },
+      { client: "Manulife Singapore", event: "Strategy Launch", pax: 500 },
+      { client: "AXA Singapore", event: "Year-End Town Hall", pax: 700 },
+      { client: "Zurich Insurance", event: "Hybrid Town Hall", pax: 450 },
+      { client: "Tokio Marine", event: "Regional Conference", pax: 350 },
+      { client: "FWD Insurance", event: "Annual Address", pax: 550 },
+      { client: "Income Insurance", event: "CEO Town Hall", pax: 1000 },
+      { client: "Aviva Singapore", event: "All-Hands Hybrid", pax: 400 },
+      { client: "Prudential", event: "Mid-Year Update", pax: 650 },
+    ],
+    recentEventsHeadline: "Companies who've hosted Town Halls with Elluminate",
   },
   "immersive-experiences": {
     accentColor: "#43F0D8",
