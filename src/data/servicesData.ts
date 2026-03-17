@@ -2211,7 +2211,7 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "Mercer Singapore", event: "HR Summit", pax: 450 }
     ],
     recentEventsHeadline: "Organizations whose summits we've produced",
-    dividerVariant: "wave" as const,
+    dividerVariant: "wave",
   },
   "government-events": {
     accentColor: "#DC2626",
