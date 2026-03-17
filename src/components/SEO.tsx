@@ -11,8 +11,8 @@ interface SEOProps {
 
 export const SEO = ({
   title = "Elluminate | Singapore's Premier Team Building Specialists",
-  description = "Elluminate transforms visions into extraordinary team building experiences. Corporate events, retreats, training programs, and brand activations in Singapore. 1,000+ events delivered.",
-  keywords = "team building Singapore, corporate events, team building activities, corporate retreat, awards ceremony, brand activation, dinner and dance, event planning Singapore",
+  description = "Elluminate creates engaging team building experiences, corporate retreats, and training programs in Singapore. Physical & virtual activities for companies and schools. 1,000+ events delivered.",
+  keywords = "team building Singapore, corporate team building, virtual team building, team bonding activities, corporate retreat Singapore, training workshops Singapore, school programmes Singapore",
   ogImage = "https://elluminate.sg/og-image.jpg",
   canonical = "https://elluminate.sg",
   type = "website"

@@ -1,31 +1,31 @@
 import { motion } from "framer-motion";
-import { Users, Monitor, Target, GraduationCap } from "lucide-react";
+import { Users, Monitor, Plane, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
   {
-    label: "Team Building",
+    label: "Physical Team Building",
     icon: Users,
-    color: "hsl(214, 100%, 56%)", // Blue
-    href: "/services/team-building",
+    color: "hsl(45, 100%, 50%)",
+    href: "/services/amazing-race",
   },
   {
     label: "Virtual Team Building",
     icon: Monitor,
-    color: "hsl(340, 82%, 52%)", // Pink
+    color: "hsl(340, 82%, 52%)",
     href: "/services/amazing-race-virtual",
   },
   {
-    label: "Training",
-    icon: Target,
-    color: "hsl(33, 100%, 50%)", // Orange
-    href: "/services/workshops",
+    label: "Retreats",
+    icon: Plane,
+    color: "hsl(196, 100%, 45%)",
+    href: "/services/overseas-retreats",
   },
   {
-    label: "Youth Camps",
-    icon: GraduationCap,
-    color: "hsl(160, 70%, 45%)", // Green
-    href: "/services/youth-camps",
+    label: "Training",
+    icon: BookOpen,
+    color: "hsl(156, 72%, 42%)",
+    href: "/services/workshops",
   },
 ];
 

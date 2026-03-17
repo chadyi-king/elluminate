@@ -13,18 +13,12 @@ import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
 const eventCategories = [
-  "Physical Team Bonding",
-  "Virtual Team Bonding",
-  "Dinner & Dance",
-  "Awards Ceremony",
-  "Product Launch",
+  "Physical Team Building",
+  "Virtual Team Building",
   "Corporate Retreat",
-  "Brand Activation",
-  "Town Hall",
-  "Wellness Event",
-  "Immersive Experience",
-  "Family Fun Day",
-  "VIP Gala",
+  "Training Workshop",
+  "School Programme",
+  "Camp / Cohort Day",
   "Other",
 ];
 
@@ -199,9 +193,9 @@ export const ContactModal = () => {
                 <X className="w-6 h-6" />
               </button>
               <h2 className="text-xl sm:text-2xl font-display font-bold text-primary">
-                Let Our Team Elevate Your Experience
+                Let Us Elluminate Your Experience
               </h2>
-              <p className="text-gray-600 mt-1 text-sm sm:text-base">Let's create something extraordinary together</p>
+              <p className="text-gray-600 mt-1 text-sm sm:text-base">Tell us your goals and we'll shape the right experience.</p>
             </div>
 
             {/* Form */}

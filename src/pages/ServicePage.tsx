@@ -15,6 +15,7 @@ import { ServiceHowItWorksWithPricing } from "@/components/service-page/ServiceH
 import { ServiceOutcomes } from "@/components/service-page/ServiceOutcomes";
 import { ServicePillsSection } from "@/components/service-page/ServicePillsSection";
 import { servicesData } from "@/data/servicesData";
+import { allInScopeServiceSlugs, serviceCategoryLabels } from "@/data/siteScope";
 import { SEO } from "@/components/SEO";
 import { ServiceMiniGallery } from "@/components/service-page/ServiceMiniGallery";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -24,7 +25,7 @@ const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? servicesData[slug] : null;
 
-  if (!service) {
+  if (!service || !slug || !allInScopeServiceSlugs.has(slug)) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
@@ -38,25 +39,13 @@ const ServicePage = () => {
   }
 
   const serviceKeywords: Record<string, string> = {
-    "team-building": "team building Singapore, corporate team building, team bonding activities, outdoor team building",
-    "dinner-and-dance": "dinner and dance Singapore, D&D event, corporate gala dinner, company dinner dance",
-    "awards-ceremonies": "awards ceremony Singapore, corporate awards event, recognition ceremony, annual awards night",
-    "overseas-retreats": "overseas retreat Singapore, corporate retreat, company trip planning, team retreat overseas",
-    "corporate-anniversaries": "corporate anniversary event Singapore, company milestone celebration, anniversary dinner",
-    "leadership-offsites": "leadership offsite Singapore, executive retreat, strategic planning event, leadership development",
-    "product-launch": "product launch event Singapore, brand launch, new product reveal, launch party",
-    "brand-activations": "brand activation Singapore, experiential marketing, consumer engagement event",
-    "client-appreciation": "client appreciation event Singapore, VIP event, customer appreciation dinner",
-    "town-halls": "town hall event Singapore, corporate conference, company meeting, all-hands meeting",
-    "immersive-experiences": "immersive event Singapore, themed experience, interactive event, experiential event",
-    "wellness-events": "corporate wellness event Singapore, team wellness day, employee wellbeing program",
-    "event-concept": "event concept development Singapore, creative event design, event planning consultancy",
-    "stage-production": "stage production Singapore, AV production, event lighting sound, technical production",
-    "custom-themes": "custom theme event Singapore, themed party, venue transformation, event theming",
-    "emcee-media": "event emcee Singapore, event photography, corporate videography, MC services",
+    // Physical Team Building
     "amazing-race": "amazing race Singapore, corporate amazing race, team building race, outdoor race challenge",
     "csi-bones": "CSI team building Singapore, murder mystery event, detective team building, investigation game",
     "cultural-race": "cultural race Singapore, heritage team building, cultural exploration activity",
+    "amongst-us": "amongst us team building Singapore, social deduction game corporate, imposter team game Singapore",
+    "alice-in-motherland": "alice in motherland team building Singapore, immersive story adventure, themed team experience Singapore",
+    "battle-of-the-olympians": "battle of the olympians team building Singapore, tournament team competition, school sports day corporate",
     "archery-tag": "archery tag Singapore, combat archery, archery team building, foam arrow tag",
     "builder-cross": "builder cross Singapore, construction team building, building challenge corporate",
     "gel-blitz": "gel blitz Singapore, gel ball team building, outdoor combat game corporate",
@@ -67,6 +56,7 @@ const ServicePage = () => {
     "sotong-game": "squid game Singapore, sotong game team building, survival challenge corporate",
     "tag-tical-laser-teambuilding": "laser tag Singapore, tactical laser team building, combat laser game corporate",
     "treasure-heist": "treasure heist Singapore, heist team building, escape room outdoor corporate",
+    // Virtual Team Building
     "amazing-race-virtual": "virtual amazing race Singapore, online team building, remote amazing race",
     "fit-in-your-team-virtual": "virtual fitness team building, online wellness activity, remote team fitness",
     "the-gameshow-experience-virtual": "virtual game show Singapore, online corporate game show, remote trivia team building",
@@ -75,34 +65,27 @@ const ServicePage = () => {
     "the-patriot-act-virtual": "virtual Singapore games, patriot act team building, national day virtual event",
     "tomb-raider-king-treasure-hunt-virtual": "virtual treasure hunt Singapore, online adventure team building, tomb raider team event",
     "grand-christmas-delivery": "virtual Christmas party Singapore, online Christmas team building, remote holiday event",
+    // Retreats
+    "overseas-retreats": "overseas retreat Singapore, corporate retreat, company trip planning, team retreat overseas",
     "local-retreats": "local retreat Singapore, staycation team building, Singapore hotel retreat corporate",
+    // Training
     "mbti": "MBTI Singapore, Myers-Briggs team building, personality profiling corporate, MBTI workshop",
     "disc": "DISC assessment Singapore, DISC profiling corporate, communication training team building",
     "ocean": "OCEAN profiling Singapore, Big Five personality test, personality assessment corporate",
-    "mass-talks": "mass talk Singapore, corporate keynote speaker, large-scale presentation event",
+    "mass-talks": "corporate talk Singapore, keynote speaker, mass briefing, team presentation",
     "workshops": "corporate workshop Singapore, skill building workshop, training workshop team",
     "youth-camps": "youth camp Singapore, school camp, student leadership camp, CCA bonding camp",
     "corporate-days": "corporate day Singapore, company fun day, team day out, corporate event day",
-    "summits": "corporate summit Singapore, conference event, business summit planning",
-    "government-events": "government event Singapore, public sector event, government conference",
-    "private-events": "private event Singapore, exclusive event, intimate celebration",
-    "family-fun-days": "family fun day Singapore, corporate family event, family day company",
-    "corporate-carnivals": "corporate carnival Singapore, company carnival, fun fair corporate",
-    "vip-gala": "VIP gala Singapore, exclusive gala dinner, luxury corporate event",
-    "grand-opening": "grand opening Singapore, store opening event, launch ceremony",
   };
 
   // Check if this service has the new enhanced structure
   const hasEnhancedStructure = service.clientLogos || service.recentEvents || service.pricing;
 
   // Determine service category for breadcrumbs
-  const getCategory = () => {
-    if (slug?.includes("virtual") || slug === "grand-christmas-delivery") return { label: "Virtual Team Building", href: "/" };
-    if (["mbti", "disc", "ocean", "mass-talks", "workshops", "youth-camps", "corporate-days"].includes(slug || "")) return { label: "Training", href: "/" };
-    if (["overseas-retreats", "local-retreats"].includes(slug || "")) return { label: "Retreats", href: "/" };
-    if (["amazing-race", "csi-bones", "cultural-race", "archery-tag", "builder-cross", "gel-blitz", "minute-to-win-it", "monopoly-dash", "nerfwar", "running-man", "sotong-game", "tag-tical-laser-teambuilding", "treasure-heist"].includes(slug || "")) return { label: "Team Building", href: "/" };
-    return { label: "Services", href: "/" };
-  };
+  const getCategory = () => ({
+    label: serviceCategoryLabels[slug] ?? "Services",
+    href: "/",
+  });
 
   const category = getCategory();
 

@@ -4,52 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
-
-// Physical Team Building Activities
-const physicalActivities = [
-  { name: "Amazing Race", slug: "amazing-race" },
-  { name: "CSI-Bones", slug: "csi-bones" },
-  { name: "Cultural Race", slug: "cultural-race" },
-  { name: "Archery Tag", slug: "archery-tag" },
-  { name: "Builder Cross", slug: "builder-cross" },
-  { name: "GelBlitz", slug: "gel-blitz" },
-  { name: "Minute To Win It", slug: "minute-to-win-it" },
-  { name: "Monopoly Dash", slug: "monopoly-dash" },
-  { name: "Nerfwar", slug: "nerfwar" },
-  { name: "Running Man Adventure", slug: "running-man" },
-  { name: "Sotong Game", slug: "sotong-game" },
-  { name: "Tag-tical Laser", slug: "tag-tical-laser-teambuilding" },
-  { name: "Treasure Heist", slug: "treasure-heist" },
-];
-
-// Virtual Team Building Activities
-const virtualActivities = [
-  { name: "Amazing Race Virtual", slug: "amazing-race-virtual" },
-  { name: "Fit In Your Team", slug: "fit-in-your-team-virtual" },
-  { name: "Gameshow Experience", slug: "the-gameshow-experience-virtual" },
-  { name: "Great Zodiac Hunt", slug: "the-great-zodiac-hunt-virtual" },
-  { name: "Nuclear Fallout Escape Room", slug: "the-nuclear-fallout-escape-room-virtual" },
-  { name: "The Patriot Act", slug: "the-patriot-act-virtual" },
-  { name: "Tomb Raider King", slug: "tomb-raider-king-treasure-hunt-virtual" },
-  { name: "Grand Christmas Delivery", slug: "grand-christmas-delivery" },
-];
-
-// Retreats
-const retreatServices = [
-  { name: "Overseas Retreats", slug: "overseas-retreats" },
-  { name: "Local Retreats", slug: "local-retreats" },
-];
-
-// Training
-const trainingServices = [
-  { name: "MBTI Profiling", slug: "mbti" },
-  { name: "DISC Assessment", slug: "disc" },
-  { name: "OCEAN Profiling", slug: "ocean" },
-  { name: "Mass Talks", slug: "mass-talks" },
-  { name: "Workshops", slug: "workshops" },
-  { name: "Youth Camps", slug: "youth-camps" },
-  { name: "Corporate Days", slug: "corporate-days" },
-];
+import {
+  physicalTeamBuildingServices,
+  virtualTeamBuildingServices,
+  retreatServices,
+  trainingServices,
+} from "@/data/siteScope";
 
 interface DropdownProps {
   label: string;
@@ -92,7 +52,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: Dro
                   {subGroups.map((group) => (
                     <div key={group.title}>
                       <div className={`px-2 py-2 text-xs font-semibold uppercase tracking-wider ${
-                        group.title === "Physical" ? "text-primary" : group.title === "Virtual" ? "text-purple-600" : "text-muted-foreground"
+                        group.title === "Physical Team Building" ? "text-primary" : group.title === "Virtual Team Building" ? "text-purple-600" : "text-muted-foreground"
                       }`}>
                         {group.title}
                       </div>
@@ -181,8 +141,8 @@ export const Navbar = () => {
               onToggle={() => handleDropdownToggle('team-building')}
               onClose={handleDropdownClose}
               subGroups={[
-                { title: "Physical", items: physicalActivities },
-                { title: "Virtual", items: virtualActivities },
+                { title: "Physical Team Building", items: physicalTeamBuildingServices },
+                { title: "Virtual Team Building", items: virtualTeamBuildingServices },
               ]}
             />
             <NavDropdown
@@ -276,7 +236,7 @@ export const Navbar = () => {
               {/* Team Building Section */}
               <div className="border-t border-border pt-4">
                 <span className="text-primary text-sm font-semibold mb-2 block">Team Building - Physical</span>
-                {physicalActivities.map((item) => (
+                {physicalTeamBuildingServices.map((item) => (
                   <Link
                     key={item.slug}
                     to={`/services/${item.slug}`}
@@ -290,7 +250,7 @@ export const Navbar = () => {
 
               <div className="border-t border-border pt-4">
                 <span className="text-purple-600 text-sm font-semibold mb-2 block">Team Building - Virtual</span>
-                {virtualActivities.map((item) => (
+                {virtualTeamBuildingServices.map((item) => (
                   <Link
                     key={item.slug}
                     to={`/services/${item.slug}`}

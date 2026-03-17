@@ -7,17 +7,13 @@ import {
   Lightbulb
 } from "lucide-react";
 
-const topActivities = [
-  { name: "Amazing Race", path: "/services/amazing-race" },
-  { name: "CSI Investigation", path: "/services/csi-investigation" },
-  { name: "Treasure Heist", path: "/services/treasure-heist" },
-  { name: "Dinner & Dance", path: "/services/dinner-and-dance" },
-  { name: "Overseas Retreats", path: "/services/overseas-retreats" },
-  { name: "Team Building", path: "/services/team-building" },
-  { name: "Student Workshops", path: "/services/workshops" },
-  { name: "Teacher Workshops", path: "/services/workshops" },
-  { name: "Family Fun Day", path: "/services/family-fun-day" },
-  { name: "Corporate Carnival", path: "/services/corporate-carnival" },
+const quickLinks = [
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Team Building", path: "/services/amazing-race" },
+  { name: "Virtual Team Building", path: "/services/amazing-race-virtual" },
+  { name: "Retreats", path: "/services/overseas-retreats" },
+  { name: "Training Workshops", path: "/services/workshops" },
 ];
 
 // Social links removed - no active accounts for Elluminate yet
@@ -35,7 +31,7 @@ export const Footer = () => {
                 <Lightbulb className="w-6 h-6 text-primary-foreground" />
               </div>
               <span className="text-2xl font-display font-bold text-background">
-                <span className="text-yellow-300">E</span>lluminate
+                <span className="text-primary">E</span>lluminate
               </span>
             </Link>
             
@@ -44,14 +40,14 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Top Activities */}
+          {/* Quick Links */}
           <div>
             <h4 className="text-background font-display font-semibold text-lg mb-6">
-              Top Activities
+              Quick Links
             </h4>
-            <ul className="space-y-2">
-              {topActivities.map((link, index) => (
-                <li key={`${link.path}-${index}`}>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.path}>
                   <Link
                     to={link.path}
                     className="text-background/70 hover:text-primary text-sm transition-colors duration-300"

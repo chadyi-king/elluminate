@@ -78,38 +78,35 @@ const allActivities = [
   {
     name: "Amongst Us",
     icon: Ghost,
+    slug: "amongst-us",
     color: activityColors.mystery,
     description: "A live social-deduction concept where your group hunts for the imposters before the room turns on itself.",
     stats: "80+ games played",
     clients: "Popular for workplaces, camps, and student leaders",
     image: heroTeamCelebration,
     tag: "Physical",
-    href: "#contact",
-    ctaLabel: "Enquire Now",
   },
   {
     name: "Alice in Motherland",
     icon: Rabbit,
+    slug: "alice-in-motherland",
     color: activityColors.creativeWorkshops,
     description: "A whimsical, story-led journey packed with themed stations, playful puzzles, and immersive team moments.",
     stats: "40+ experiences created",
     clients: "Loved by creative brands, schools, and curated events",
     image: heroCreativeWorkshop,
     tag: "Physical",
-    href: "#contact",
-    ctaLabel: "Enquire Now",
   },
   {
     name: "Battle of the Olympians",
     icon: Crown,
+    slug: "battle-of-the-olympians",
     color: activityColors.amazingRace,
     description: "An epic competition format that blends athletic rounds, mental games, and all-out team pride.",
     stats: "40+ battles fought",
     clients: "Built for large cohorts, schools, and full-company showdowns",
     image: heroAdventureChallenge,
     tag: "Physical",
-    href: "#contact",
-    ctaLabel: "Enquire Now",
   },
   {
     name: "Archery Tag",
@@ -248,11 +245,10 @@ export const ServicesSection = () => {
             What We Do
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-6">
-            Team Building & <span className="text-primary">Training</span>
+            Team Building, Retreats & <span className="text-primary">Training</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Explore the formats clients, schools, and student groups book us for most, from standout signature concepts
-            and virtual games to profiling workshops, retreats, and youth programmes.
+            Explore physical team building, virtual team building, retreats, and training formats clients, schools, and student groups book us for most.
           </p>
           <p className="text-muted-foreground/70 max-w-3xl mx-auto text-sm mt-4">
             The mix below makes the offer clearer at a glance, while keeping your most distinctive experiences front and centre.
