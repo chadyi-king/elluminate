@@ -2307,7 +2307,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Plan Your Government Event?",
       subtext: "Partner with us for events that meet the highest standards of public sector excellence."
-    }
+    },
+    dividerVariant: "ribbon",
+    recentEvents: [
+      { client: "Ministry of Education", event: "National Day Observance", pax: 2000 },
+      { client: "Ministry of Health", event: "Healthcare Conference", pax: 800 },
+      { client: "MAS", event: "Financial Sector Summit", pax: 500 },
+      { client: "EDB Singapore", event: "Investor Forum", pax: 300 },
+      { client: "JTC Corporation", event: "Industry Day", pax: 600 },
+      { client: "HDB", event: "Community Event", pax: 1500 },
+      { client: "NEA", event: "Sustainability Forum", pax: 400 },
+      { client: "STB", event: "Tourism Conference", pax: 350 },
+      { client: "NParks", event: "National Day Celebration", pax: 1000 },
+      { client: "IMDA", event: "Digital Economy Summit", pax: 450 },
+      { client: "Enterprise Singapore", event: "SME Conference", pax: 700 },
+      { client: "A*STAR", event: "Research Symposium", pax: 250 }
+    ],
+    recentEventsHeadline: "Government agencies we've partnered with"
   },
   "private-events": {
     accentColor: "#EC4899",
