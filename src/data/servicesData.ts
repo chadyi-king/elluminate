@@ -2195,7 +2195,23 @@ export const servicesData: Record<string, ServiceData> = {
     cta: {
       headline: "Ready to Host an Impactful Summit?",
       subtext: "Let's create a summit that positions your organization as an industry leader."
-    }
+    },
+    recentEvents: [
+      { client: "McKinsey Singapore", event: "Leadership Summit", pax: 300 },
+      { client: "BCG Asia", event: "Partner Conference", pax: 200 },
+      { client: "Bain & Company", event: "Strategy Summit", pax: 150 },
+      { client: "Deloitte Singapore", event: "Industry Conference", pax: 500 },
+      { client: "PwC Singapore", event: "Annual Summit", pax: 400 },
+      { client: "EY Singapore", event: "Innovation Forum", pax: 350 },
+      { client: "KPMG Singapore", event: "Technology Summit", pax: 250 },
+      { client: "Accenture", event: "Digital Summit", pax: 600 },
+      { client: "Oliver Wyman", event: "Executive Roundtable", pax: 80 },
+      { client: "Roland Berger", event: "Regional Summit", pax: 120 },
+      { client: "A.T. Kearney", event: "Global Leadership Forum", pax: 180 },
+      { client: "Mercer Singapore", event: "HR Summit", pax: 450 }
+    ],
+    recentEventsHeadline: "Organizations whose summits we've produced",
+    dividerVariant: "wave" as const,
   },
   "government-events": {
     accentColor: "#DC2626",
