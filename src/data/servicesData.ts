@@ -5428,7 +5428,7 @@ export const servicesData: Record<string, ServiceData> = {
       destinations: [
         {
           country: "Sentosa Island",
-          image: "https://images.unsplash.com/photo-1464817739973-0128fe77aad1?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=800&q=80",
           tagline: "Island vibes just minutes from the CBD. Beach clubs, resort pools, and a world-class escape.",
           activities: ["Beach Activities", "Resort Pool", "Team Games", "Sunset Dinner"],
         },
