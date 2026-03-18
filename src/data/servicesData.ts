@@ -5458,7 +5458,7 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "Changi & Jewel",
-          image: "https://images.unsplash.com/photo-1711106434815-c446eb1cbc0b?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1554050857-c84a8abdb5e2?w=800&q=80",
           tagline: "Nature-meets-architecture retreats near the world's most celebrated airport.",
           activities: ["Jewel Tour", "Nature Walk", "Team Challenge", "Garden Dining"],
         },
