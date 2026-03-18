@@ -8,6 +8,7 @@ interface Destination {
   tagline: string;
   priceFrom?: string;
   duration?: string;
+  region?: string;
   activities: string[];
 }
 
