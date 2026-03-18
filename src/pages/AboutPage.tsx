@@ -483,10 +483,10 @@ const AboutPage = () => {
               className="mb-8"
             >
               <div className="text-center mb-10">
-                <h3 className="text-2xl md:text-3xl font-display font-medium text-white mb-3">
+                <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">
                   Our <span className="text-primary">Values</span>
                 </h3>
-                <p className="text-slate-300/80 font-sans max-w-xl mx-auto text-sm">
+                <p className="text-slate-200 font-sans max-w-xl mx-auto text-sm">
                   These are the principles that guide how we craft every experience for you.
                 </p>
               </div>
