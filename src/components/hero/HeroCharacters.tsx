@@ -2,55 +2,45 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Lightbulb } from "lucide-react";
 
-/**
- * HeroCharacters — 4 real character cutouts framing the hero.
- *
- * SETUP: Save your AI-generated 4-person image (black background) to:
- *   public/hero-characters.png
- *
- * The image should show all four characters side-by-side in a single frame.
- * CSS background-position is used to crop and display each person individually.
- * A CSS mask fades out the black background edges so figures blend into the hero.
- *
- * When you have proper transparent-background PNG cutouts (one per person),
- * swap in individual <img> tags instead — the hover logic is identical.
- */
-
-const MASK =
-  "radial-gradient(ellipse 64% 96% at 50% 44%, black 25%, rgba(0,0,0,0.9) 42%, rgba(0,0,0,0.45) 62%, transparent 82%)";
+import charBlueMan from "@/assets/hero/char-blue-man.png";
+import charRedWoman from "@/assets/hero/char-red-woman.png";
+import charGreenWoman from "@/assets/hero/char-green-woman.png";
+import charYellowBoy from "@/assets/hero/char-yellow-boy.png";
 
 interface CharacterProps {
+  image: string;
   posClass: string;
-  bgPosX: string;
   tone: string;
   glowColor: string;
   duotone: string;
   delay: number;
-  /** true = person points toward right (inner edge is right) */
-  pointsRight: boolean;
+  flip?: boolean;
+  size: { w: number; h: number };
 }
 
 const CharacterFigure = ({
+  image,
   posClass,
-  bgPosX,
   tone,
   glowColor,
   duotone,
   delay,
-  pointsRight,
+  flip = false,
+  size,
 }: CharacterProps) => {
   const [hovered, setHovered] = useState(false);
 
   return (
     <motion.div
-      className={`absolute bottom-0 z-20 hidden xl:block pointer-events-auto ${posClass}`}
-      initial={{ opacity: 0, y: 50 }}
+      className={`absolute z-20 hidden lg:block pointer-events-auto ${posClass}`}
+      initial={{ opacity: 0, y: 60 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.9, delay, ease: "easeOut" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      style={{ width: size.w, height: size.h }}
     >
-      {/* Radial glow behind figure — only visible on hover */}
+      {/* Radial glow behind figure */}
       <motion.div
         className="absolute inset-x-0 bottom-0 -z-10 h-[80%]"
         animate={{ opacity: hovered ? 1 : 0 }}
@@ -60,12 +50,12 @@ const CharacterFigure = ({
         }}
       />
 
-      {/* Lightbulb above the pointing hand */}
+      {/* Lightbulb near pointing finger */}
       <motion.div
         className="absolute z-30"
         style={{
-          [pointsRight ? "right" : "left"]: "8px",
-          top: "8%",
+          [flip ? "left" : "right"]: "12%",
+          top: "2%",
         }}
         animate={{
           y: hovered ? -10 : 0,
@@ -75,8 +65,8 @@ const CharacterFigure = ({
       >
         <Lightbulb
           style={{
-            width: 46,
-            height: 46,
+            width: 40,
+            height: 40,
             color: hovered ? "#FFD700" : "rgba(170, 170, 170, 0.6)",
             fill: hovered ? "#FFD700" : "transparent",
             filter: hovered
@@ -87,28 +77,23 @@ const CharacterFigure = ({
         />
       </motion.div>
 
-      {/* Character image with crop, mask, and duotone filter */}
+      {/* Character image with duotone filter */}
       <motion.div
-        style={{ width: 218, height: 590 }}
+        className="w-full h-full"
         animate={{
           filter: hovered
             ? "brightness(1.05) saturate(1.08)"
             : duotone,
-          scale: hovered ? 1.025 : 1,
+          scale: hovered ? 1.03 : 1,
         }}
         transition={{ duration: 0.45 }}
       >
-        <div
+        <img
+          src={image}
+          alt="Team member"
+          className="w-full h-full object-contain object-bottom"
           style={{
-            width: "100%",
-            height: "100%",
-            backgroundImage: "url('/hero-characters.png')",
-            backgroundSize: "400% auto",
-            backgroundPositionX: bgPosX,
-            backgroundPositionY: "top",
-            backgroundRepeat: "no-repeat",
-            WebkitMaskImage: MASK,
-            maskImage: MASK,
+            transform: flip ? "scaleX(-1)" : undefined,
           }}
         />
 
@@ -130,48 +115,50 @@ const CharacterFigure = ({
 
 export const HeroCharacters = () => (
   <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
-    {/* Man — navy suit, far left, angled slightly off-screen */}
+    {/* LEFT SIDE — Blue man (top) leaning inward */}
     <CharacterFigure
-      posClass="left-[0%] -translate-x-[6%]"
-      bgPosX="0%"
+      image={charBlueMan}
+      posClass="left-[-2%] xl:left-[0%] top-[6%]"
       tone="hsl(214, 85%, 50%)"
-      glowColor="hsla(214, 85%, 50%, 0.45)"
+      glowColor="hsla(214, 85%, 50%, 0.35)"
       duotone="grayscale(1) sepia(0.7) hue-rotate(175deg) saturate(2.5) brightness(0.86)"
       delay={0.1}
-      pointsRight={true}
+      size={{ w: 190, h: 340 }}
     />
 
-    {/* Woman in green polo — left of center text */}
+    {/* LEFT SIDE — Red woman (bottom) leaning inward */}
     <CharacterFigure
-      posClass="left-[13%]"
-      bgPosX="33%"
-      tone="hsl(145, 55%, 35%)"
-      glowColor="hsla(145, 55%, 35%, 0.4)"
-      duotone="grayscale(1) sepia(0.7) hue-rotate(100deg) saturate(2.5) brightness(0.84)"
-      delay={0.2}
-      pointsRight={true}
-    />
-
-    {/* Corporate trainer in red — right of center text */}
-    <CharacterFigure
-      posClass="right-[13%]"
-      bgPosX="66%"
+      image={charRedWoman}
+      posClass="left-[1%] xl:left-[4%] bottom-[2%]"
       tone="hsl(4, 80%, 50%)"
-      glowColor="hsla(4, 80%, 50%, 0.4)"
+      glowColor="hsla(4, 80%, 50%, 0.35)"
       duotone="grayscale(1) sepia(0.7) hue-rotate(315deg) saturate(2.5) brightness(0.84)"
-      delay={0.15}
-      pointsRight={false}
+      delay={0.2}
+      size={{ w: 180, h: 330 }}
     />
 
-    {/* School student in yellow — far right, angled slightly off-screen */}
+    {/* RIGHT SIDE — Green woman (top) flipped, leaning inward */}
     <CharacterFigure
-      posClass="right-[0%] translate-x-[6%]"
-      bgPosX="100%"
+      image={charGreenWoman}
+      posClass="right-[-2%] xl:right-[0%] top-[6%]"
+      tone="hsl(145, 55%, 35%)"
+      glowColor="hsla(145, 55%, 35%, 0.35)"
+      duotone="grayscale(1) sepia(0.7) hue-rotate(100deg) saturate(2.5) brightness(0.84)"
+      delay={0.15}
+      flip={true}
+      size={{ w: 180, h: 330 }}
+    />
+
+    {/* RIGHT SIDE — Yellow boy (bottom) flipped, leaning inward */}
+    <CharacterFigure
+      image={charYellowBoy}
+      posClass="right-[1%] xl:right-[4%] bottom-[2%]"
       tone="hsl(44, 95%, 52%)"
-      glowColor="hsla(44, 95%, 52%, 0.4)"
+      glowColor="hsla(44, 95%, 52%, 0.35)"
       duotone="grayscale(1) sepia(0.7) hue-rotate(6deg) saturate(2.1) brightness(0.88)"
       delay={0.25}
-      pointsRight={false}
+      flip={true}
+      size={{ w: 160, h: 300 }}
     />
   </div>
 );
