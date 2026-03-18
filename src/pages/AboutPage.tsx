@@ -5,6 +5,8 @@ import { Footer } from "@/components/Footer";
 import { FloatingBlobs } from "@/components/FloatingBlobs";
 import { OurTeam } from "@/components/OurTeam";
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { OrganizationSchema } from "@/components/StructuredData";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import { 
   Target, Eye, Heart, Sparkles, Award, Zap, 
