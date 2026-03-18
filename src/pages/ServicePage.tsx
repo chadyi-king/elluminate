@@ -131,7 +131,14 @@ const ServicePage = () => {
       />
 
       {/* 2. Video Section */}
-      {service.videoSection && (
+      {service.videoSection && service.videoSection.videos && service.videoSection.videos.length > 0 ? (
+        <ServiceVideoCarousel
+          title={service.videoSection.title}
+          subtitle={service.videoSection.subtitle}
+          videos={service.videoSection.videos}
+          accentColor={service.accentColor}
+        />
+      ) : service.videoSection ? (
         <ServiceVideoSection
           title={service.videoSection.title}
           subtitle={service.videoSection.subtitle}
@@ -139,7 +146,7 @@ const ServicePage = () => {
           thumbnailImage={service.videoSection.thumbnailImage}
           accentColor={service.accentColor}
         />
-      )}
+      ) : null}
 
       {/* 3. Recent Events Ticker */}
       {service.recentEvents && (
