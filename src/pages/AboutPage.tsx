@@ -808,7 +808,7 @@ const AboutPage = () => {
                       "{testimonial.quote}"
                     </p>
                     <div className="flex items-center justify-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-white/10 border border-white/10 p-2 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-white border border-white/20 p-2 flex items-center justify-center">
                         <img
                           src={testimonial.logo}
                           alt={testimonial.company}
