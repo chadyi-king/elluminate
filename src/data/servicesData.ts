@@ -559,7 +559,7 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "Cambodia",
-          image: "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?w=800&q=80",
+          image: "/images/destinations/cambodia-angkor-wat.jpg",
           tagline: "Angkor Wat at sunrise, rich history, and an experience that recalibrates perspective.",
           activities: ["Angkor Wat", "Village Tour", "Cooking Class", "Sunset Cruise"],
         },
