@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { GoldParticles } from "@/components/GoldParticles";
 import { ServiceHeroSplit } from "@/components/service-page/ServiceHeroSplit";
 import { ServiceVideoSection } from "@/components/service-page/ServiceVideoSection";
+import { ServiceVideoCarousel } from "@/components/service-page/ServiceVideoCarousel";
 import { ServiceOverviewNew } from "@/components/service-page/ServiceOverviewNew";
 import { ServiceCTANew } from "@/components/service-page/ServiceCTANew";
 import { ServiceTestimonialNew } from "@/components/service-page/ServiceTestimonialNew";
@@ -130,7 +131,14 @@ const ServicePage = () => {
       />
 
       {/* 2. Video Section */}
-      {service.videoSection && (
+      {service.videoSection && service.videoSection.videos && service.videoSection.videos.length > 0 ? (
+        <ServiceVideoCarousel
+          title={service.videoSection.title}
+          subtitle={service.videoSection.subtitle}
+          videos={service.videoSection.videos}
+          accentColor={service.accentColor}
+        />
+      ) : service.videoSection ? (
         <ServiceVideoSection
           title={service.videoSection.title}
           subtitle={service.videoSection.subtitle}
@@ -138,7 +146,7 @@ const ServicePage = () => {
           thumbnailImage={service.videoSection.thumbnailImage}
           accentColor={service.accentColor}
         />
-      )}
+      ) : null}
 
       {/* 3. Recent Events Ticker */}
       {service.recentEvents && (

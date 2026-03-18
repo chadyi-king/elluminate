@@ -8,6 +8,7 @@ interface Destination {
   tagline: string;
   priceFrom?: string;
   duration?: string;
+  region?: string;
   activities: string[];
 }
 
@@ -80,7 +81,7 @@ export const ServiceDestinationsGrid = ({
                   <div className="min-w-0">
                     <p className="text-white/50 text-xs uppercase tracking-widest mb-1 flex items-center gap-1">
                       <MapPin className="w-3 h-3 shrink-0" />
-                      Asia Pacific
+                      {dest.region || "Asia Pacific"}
                     </p>
                     <h3 className="text-white text-xl font-display font-bold leading-tight">
                       {dest.country}

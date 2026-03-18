@@ -194,6 +194,11 @@ export interface ServiceData {
     subtitle?: string;
     videoUrl?: string;
     thumbnailImage?: string;
+    videos?: {
+      title: string;
+      thumbnailImage?: string;
+      videoUrl?: string;
+    }[];
   };
   cta: {
     headline: string;
@@ -226,6 +231,7 @@ export interface ServiceData {
       tagline: string;
       priceFrom?: string;
       duration?: string;
+      region?: string;
       activities: string[];
     }[];
   };
@@ -436,6 +442,13 @@ export const servicesData: Record<string, ServiceData> = {
     videoSection: {
       title: "See Our Retreats in Action",
       subtitle: "From Bali villas to Japanese onsens, watch how we bring teams together across the globe.",
+      videos: [
+        { title: "Bali Team Retreat Highlights" },
+        { title: "Japan Cultural Experience" },
+        { title: "Thailand Beach Getaway" },
+        { title: "Vietnam Adventure Recap" },
+        { title: "Bintan Island Escape" },
+      ],
     },
     overview: {
       description: "Good interactions at corporate retreats and rewarding travel packages can help improve an employee's relationship with their company! Corporate retreats are the perfect place to start conversations with workers and imagine a better direction for influence and organization. We handle every detail from flights to activities, ensuring your team enjoys a seamless, unforgettable journey.",
@@ -516,13 +529,13 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "Vietnam",
-          image: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
           tagline: "Ha Long Bay cruises, lantern-lit old towns, and vibrant street food at every turn.",
           activities: ["Ha Long Bay Cruise", "Lantern Making", "Cyclo Tour", "Cooking Class"],
         },
         {
           country: "Japan",
-          image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80",
           tagline: "Ancient temples, futuristic cities, and a level of hospitality that sets the bar.",
           activities: ["Tea Ceremony", "Onsen", "TeamLab", "City Tour"],
         },
@@ -546,13 +559,13 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "Cambodia",
-          image: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=800&q=80",
           tagline: "Angkor Wat at sunrise, rich history, and an experience that recalibrates perspective.",
           activities: ["Angkor Wat", "Village Tour", "Cooking Class", "Sunset Cruise"],
         },
         {
           country: "Bintan, Indonesia",
-          image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80",
           tagline: "A 45-minute ferry from Singapore and a world away — beaches, golf, and real switch-off.",
           activities: ["Beach Golf", "Water Sports", "Spa", "Sunset Walk"],
         },
@@ -5410,12 +5423,12 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     cta: { headline: "Ready for a Local Escape?", subtext: "Discover Singapore's hidden gems with your team." },
     destinationsGrid: {
-      sectionTitle: "VENUES",
+      sectionTitle: "POPULAR VENUES",
       sectionSubtitle: "Where Will Your Team Stay?",
       destinations: [
         {
           country: "Sentosa Island",
-          image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1578469550956-0e16b69c6a3d?w=800&q=80",
           tagline: "Island vibes just minutes from the CBD. Beach clubs, resort pools, and a world-class escape.",
           activities: ["Beach Activities", "Resort Pool", "Team Games", "Sunset Dinner"],
         },
@@ -5433,19 +5446,19 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "East Coast",
-          image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1596786455417-be95e6b20400?w=800&q=80",
           tagline: "Seaside breezes, cycling paths, and the best seafood in Singapore.",
           activities: ["Cycling", "Seafood Dinner", "Beach Games", "Kayaking"],
         },
         {
           country: "Orchard / City Centre",
-          image: "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1565402170291-8491f14678db?w=800&q=80",
           tagline: "Urban luxury at its finest. Shopping, dining, and five-star comfort in the heart of the city.",
           activities: ["City Exploration", "Shopping Trail", "Rooftop Bar", "Spa Day"],
         },
         {
           country: "Changi & Jewel",
-          image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1562601579-599dec564e06?w=800&q=80",
           tagline: "Nature-meets-architecture retreats near the world's most celebrated airport.",
           activities: ["Jewel Tour", "Nature Walk", "Team Challenge", "Garden Dining"],
         },
@@ -6226,54 +6239,63 @@ export const servicesData: Record<string, ServiceData> = {
           country: "Bali, Indonesia",
           image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
           tagline: "Clifftop villas, private pool dinners, and the ultimate tropical reward.",
+          region: "Southeast Asia",
           activities: ["Villa Stay", "Private Dinner", "Rafting", "Temple Tour"],
         },
         {
           country: "Tokyo, Japan",
-          image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80",
           tagline: "Michelin stars, ancient culture, and a city that redefines what is possible.",
+          region: "East Asia",
           activities: ["Omakase Dinner", "Tea Ceremony", "TeamLab", "City Tour"],
         },
         {
           country: "Phuket, Thailand",
           image: "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80",
           tagline: "Turquoise waters, yacht charters, and nights your top earners will never forget.",
+          region: "Southeast Asia",
           activities: ["Yacht Charter", "Island Hopping", "Beach Gala", "Thai Cuisine"],
         },
         {
           country: "Rome, Italy",
           image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80",
           tagline: "The Eternal City. Colosseum walks, rooftop aperitivos, and la dolce vita for your best.",
+          region: "Europe",
           activities: ["Colosseum Tour", "Chef's Table", "Wine Tasting", "Vespa Tour"],
         },
         {
           country: "Swiss Alps",
           image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80",
           tagline: "Mountain lodges, panoramic trains, and the kind of luxury that feels earned.",
+          region: "Europe",
           activities: ["Alpine Hike", "Scenic Train", "Fondue Dinner", "Spa Retreat"],
         },
         {
           country: "Maldives",
           image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80",
           tagline: "Overwater villas, private island dining, and recognition at the highest level.",
+          region: "Indian Ocean",
           activities: ["Overwater Villa", "Snorkelling", "Sunset Cruise", "Private Beach"],
         },
         {
           country: "London, UK",
           image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
           tagline: "West End shows, private members' clubs, and a cosmopolitan reward experience.",
+          region: "Europe",
           activities: ["West End Show", "Private Club", "Thames Cruise", "Pub Crawl"],
         },
         {
           country: "Paris, France",
           image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
           tagline: "Eiffel Tower dinners, Champagne houses, and the world's most romantic city as a reward.",
+          region: "Europe",
           activities: ["Eiffel Tower", "Champagne Tasting", "Louvre Tour", "Gala Dinner"],
         },
         {
           country: "Santorini, Greece",
           image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80",
           tagline: "White-washed cliffs, Aegean sunsets, and a Mediterranean escape like no other.",
+          region: "Europe",
           activities: ["Catamaran Cruise", "Wine Tour", "Cliff Dining", "Volcano Hike"],
         },
       ],
