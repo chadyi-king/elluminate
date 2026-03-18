@@ -5452,7 +5452,7 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "Orchard / City Centre",
-          image: "https://images.unsplash.com/photo-1565402170291-8491f14678db?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?w=800&q=80",
           tagline: "Urban luxury at its finest. Shopping, dining, and five-star comfort in the heart of the city.",
           activities: ["City Exploration", "Shopping Trail", "Rooftop Bar", "Spa Day"],
         },
