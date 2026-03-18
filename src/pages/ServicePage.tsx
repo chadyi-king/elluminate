@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { GoldParticles } from "@/components/GoldParticles";
 import { ServiceHeroSplit } from "@/components/service-page/ServiceHeroSplit";
 import { ServiceVideoSection } from "@/components/service-page/ServiceVideoSection";
+import { ServiceVideoCarousel } from "@/components/service-page/ServiceVideoCarousel";
 import { ServiceOverviewNew } from "@/components/service-page/ServiceOverviewNew";
 import { ServiceCTANew } from "@/components/service-page/ServiceCTANew";
 import { ServiceTestimonialNew } from "@/components/service-page/ServiceTestimonialNew";
