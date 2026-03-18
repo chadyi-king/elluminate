@@ -194,6 +194,11 @@ export interface ServiceData {
     subtitle?: string;
     videoUrl?: string;
     thumbnailImage?: string;
+    videos?: {
+      title: string;
+      thumbnailImage?: string;
+      videoUrl?: string;
+    }[];
   };
   cta: {
     headline: string;
