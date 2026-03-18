@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import { Lightbulb, Monitor, Plane, GraduationCap, Users } from "lucide-react";
 
 type Side = "left" | "right";
+type Slot = "far-left" | "left" | "right" | "far-right";
 
 interface PlaceholderHumanProps {
-  side: Side;
+  slot: Slot;
   tone: string;
   glow: string;
   delay: number;
@@ -20,14 +21,18 @@ interface BulbChipProps {
 
 const bulbIconMap = [Users, Monitor, Plane, GraduationCap] as const;
 
-const sidePosition = {
-  left: "left-0 -translate-x-[10%] md:-translate-x-[6%]",
-  right: "right-0 translate-x-[10%] md:translate-x-[6%]",
+const slotPosition = {
+  "far-left": "left-[0%] sm:left-[3%] xl:left-[2%]",
+  left: "left-[14%] sm:left-[17%] xl:left-[15%]",
+  right: "right-[14%] sm:right-[17%] xl:right-[15%]",
+  "far-right": "right-[0%] sm:right-[3%] xl:right-[2%]",
 };
 
-const sideTilt = {
-  left: "-rotate-6",
-  right: "rotate-6",
+const slotTilt = {
+  "far-left": "-rotate-7",
+  left: "-rotate-4",
+  right: "rotate-4",
+  "far-right": "rotate-7",
 };
 
 const BulbChip = ({ icon: Icon, label, tone, delay }: BulbChipProps) => {
@@ -68,12 +73,12 @@ const BulbChip = ({ icon: Icon, label, tone, delay }: BulbChipProps) => {
   );
 };
 
-const PlaceholderHuman = ({ side, tone, glow, label, title, delay }: PlaceholderHumanProps) => {
+const PlaceholderHuman = ({ slot, tone, glow, delay }: PlaceholderHumanProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
-      className={`absolute top-[120px] z-20 hidden xl:block pointer-events-auto ${sidePosition[side]}`}
+      className={`absolute top-[110px] z-20 hidden xl:block pointer-events-auto ${slotPosition[slot]}`}
       initial={{ opacity: 0, y: 24, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.7, delay, ease: "easeOut" }}
@@ -92,16 +97,16 @@ const PlaceholderHuman = ({ side, tone, glow, label, title, delay }: Placeholder
         />
 
         <motion.div
-          className={`relative flex flex-col items-center ${sideTilt[side]} select-none`}
+          className={`relative flex flex-col items-center ${slotTilt[slot]} select-none`}
           animate={{ y: isHovered ? -8 : 0 }}
           transition={{ duration: 0.35 }}
         >
-          <div className="relative flex h-[250px] w-[220px] items-start justify-center sm:h-[300px] sm:w-[250px]">
+          <div className="relative flex h-[245px] w-[190px] items-start justify-center sm:h-[285px] sm:w-[230px]">
             <motion.div
               className="absolute top-2 flex items-center gap-2"
               animate={{
                 y: isHovered ? -7 : 0,
-                x: side === "left" ? 8 : -8,
+                x: slot.includes("left") ? 8 : -8,
               }}
               transition={{ duration: 0.35 }}
             >
@@ -142,12 +147,12 @@ const PlaceholderHuman = ({ side, tone, glow, label, title, delay }: Placeholder
 
               <motion.div
                 className="absolute left-[7px] top-[62px] h-3 w-[68px] origin-right rounded-full"
-                animate={{ rotate: isHovered ? 18 : 26, x: side === "left" ? 0 : 4 }}
+                animate={{ rotate: isHovered ? 18 : 26, x: slot.includes("left") ? 0 : 4 }}
                 style={{ backgroundColor: tone }}
               />
               <motion.div
                 className="absolute right-[7px] top-[62px] h-3 w-[68px] origin-left rounded-full"
-                animate={{ rotate: isHovered ? -18 : -26, x: side === "left" ? -4 : 0 }}
+                animate={{ rotate: isHovered ? -18 : -26, x: slot.includes("left") ? -4 : 0 }}
                 style={{ backgroundColor: tone }}
               />
 
@@ -164,7 +169,7 @@ const PlaceholderHuman = ({ side, tone, glow, label, title, delay }: Placeholder
 
               <motion.div
                 className="absolute top-[88px] h-1.5 w-20 rounded-full"
-                animate={{ x: side === "left" ? 6 : -6, opacity: isHovered ? 1 : 0.6 }}
+                animate={{ x: slot.includes("left") ? 6 : -6, opacity: isHovered ? 1 : 0.6 }}
                 style={{ backgroundColor: tone }}
               />
             </motion.div>
@@ -181,31 +186,31 @@ export const HeroPlaceholderHumans = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent_62%)]" />
 
       <PlaceholderHuman
-        side="left"
+        slot="far-left"
         tone="hsl(45, 100%, 50%)"
         glow="radial-gradient(circle, hsla(45, 100%, 50%, 0.35) 0%, transparent 70%)"
         delay={0.15}
       />
       <PlaceholderHuman
-        side="left"
+        slot="left"
         tone="hsl(340, 82%, 52%)"
         glow="radial-gradient(circle, hsla(340, 82%, 52%, 0.3) 0%, transparent 70%)"
         delay={0.25}
       />
       <PlaceholderHuman
-        side="right"
+        slot="right"
         tone="hsl(196, 100%, 45%)"
         glow="radial-gradient(circle, hsla(196, 100%, 45%, 0.3) 0%, transparent 70%)"
         delay={0.2}
       />
       <PlaceholderHuman
-        side="right"
+        slot="far-right"
         tone="hsl(156, 72%, 42%)"
         glow="radial-gradient(circle, hsla(156, 72%, 42%, 0.3) 0%, transparent 70%)"
         delay={0.3}
       />
 
-      <div className="absolute bottom-[18px] left-1/2 z-30 flex -translate-x-1/2 gap-3 rounded-full border border-white/70 bg-white/90 px-4 py-3 shadow-[0_14px_30px_rgba(15,23,42,0.1)] backdrop-blur-md xl:bottom-[24px] xl:gap-4 xl:px-5 pointer-events-auto">
+      <div className="absolute bottom-[18px] left-0 right-0 z-30 hidden xl:block pointer-events-auto">
         {bulbIconMap.map((Icon, index) => {
           const tones = [
             "hsl(45, 100%, 50%)",
@@ -213,15 +218,21 @@ export const HeroPlaceholderHumans = () => {
             "hsl(196, 100%, 45%)",
             "hsl(156, 72%, 42%)",
           ];
+          const positions = ["12%", "36%", "64%", "88%"];
 
           return (
-            <BulbChip
+            <motion.div
               key={index}
-              icon={Icon}
-              label={["Build", "Lead", "Move", "Learn"][index]}
-              tone={tones[index]}
-              delay={0.45 + index * 0.06}
-            />
+              className="absolute -translate-x-1/2"
+              style={{ left: positions[index] }}
+            >
+              <BulbChip
+                icon={Icon}
+                label={["Build", "Lead", "Move", "Learn"][index]}
+                tone={tones[index]}
+                delay={0.45 + index * 0.06}
+              />
+            </motion.div>
           );
         })}
       </div>
