@@ -8,7 +8,7 @@ import { SEO } from "@/components/SEO";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import { 
   Target, Eye, Heart, Sparkles, Award, Zap, 
-  Users, Lightbulb, Palette, Mic, Film, Star,
+  Users, Lightbulb, Mic, Star,
   Quote, Rocket, Globe, ArrowRight
 } from "lucide-react";
 
@@ -84,24 +84,24 @@ const values = [
 
 const features = [
   {
-    icon: Palette,
-    title: "Premium Event Craftsmanship",
-    description: "We design events with intention — blending storytelling, facilitation, and production to create unforgettable moments."
+    icon: Users,
+    title: "Team Building That Actually Works",
+    description: "We design activities that go beyond icebreakers. Every game, challenge, and debrief is built to strengthen real team dynamics and communication."
   },
   {
-    icon: Film,
-    title: "Immersive, Story-Driven Experiences",
-    description: "Our team builds unique team-building concepts inspired by film, theatre, and high-end game design."
+    icon: Lightbulb,
+    title: "Training With Real Takeaways",
+    description: "Our MBTI, DISC, and workshop sessions are practical, interactive, and tailored to your team's growth areas. No death-by-PowerPoint."
   },
   {
     icon: Mic,
-    title: "Professional Hosts & Facilitators",
-    description: "Engaging, charismatic, and trusted by top organisations across Singapore."
+    title: "Experienced Facilitators, Not Just Hosts",
+    description: "Our facilitators are trained to read the room, adapt on the fly, and bring out the best in every participant."
   },
   {
     icon: Sparkles,
-    title: "Cinematic Production Quality",
-    description: "Lighting, music, sound, visuals — all designed to elevate the experience."
+    title: "Customised to Your Team's Needs",
+    description: "No two teams are the same. We tailor every programme to your objectives, group size, and team culture."
   }
 ];
 
@@ -483,10 +483,10 @@ const AboutPage = () => {
               className="mb-8"
             >
               <div className="text-center mb-10">
-                <h3 className="text-2xl md:text-3xl font-display font-medium text-white mb-3">
+                <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">
                   Our <span className="text-primary">Values</span>
                 </h3>
-                <p className="text-slate-300/80 font-sans max-w-xl mx-auto text-sm">
+                <p className="text-slate-200 font-sans max-w-xl mx-auto text-sm">
                   These are the principles that guide how we craft every experience for you.
                 </p>
               </div>
@@ -499,7 +499,7 @@ const AboutPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.08 }}
-                    className="group relative bg-slate-900/80 backdrop-blur-md border border-white/15 rounded-xl p-5 hover:border-sky-400/40 hover:shadow-blue transition-all duration-500"
+                    className="group relative bg-slate-950/90 backdrop-blur-md border border-white/15 rounded-xl p-5 hover:border-sky-400/40 hover:shadow-blue transition-all duration-500"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-sky-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
                     <div className="relative z-10">
@@ -507,7 +507,7 @@ const AboutPage = () => {
                         <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-sky-500 flex items-center justify-center shadow-blue">
                           <value.icon className="w-5 h-5 text-primary-foreground" />
                         </div>
-                        <h4 className="text-lg font-display font-medium text-white">{value.name}</h4>
+                        <h4 className="text-lg font-display font-bold text-white">{value.name}</h4>
                       </div>
                       <p className="text-sky-200 font-sans text-sm mb-2">{value.description}</p>
                       <p className="text-slate-300/80 font-sans text-xs leading-relaxed">{value.details}</p>
@@ -548,7 +548,7 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
               What Makes Us <span className="text-primary">Different</span>
             </h2>
           </motion.div>
@@ -589,7 +589,7 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-10 max-w-2xl mx-auto"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
               A Glimpse <span className="text-primary">Behind The Scenes</span>
             </h2>
             <p className="text-muted-foreground/80 font-sans text-sm md:text-base leading-relaxed">
@@ -808,7 +808,7 @@ const AboutPage = () => {
                       "{testimonial.quote}"
                     </p>
                     <div className="flex items-center justify-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-white/10 border border-white/10 p-2 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-white border border-white/20 p-2 flex items-center justify-center">
                         <img
                           src={testimonial.logo}
                           alt={testimonial.company}
