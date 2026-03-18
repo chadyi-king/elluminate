@@ -529,13 +529,13 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "Vietnam",
-          image: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
           tagline: "Ha Long Bay cruises, lantern-lit old towns, and vibrant street food at every turn.",
           activities: ["Ha Long Bay Cruise", "Lantern Making", "Cyclo Tour", "Cooking Class"],
         },
         {
           country: "Japan",
-          image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80",
           tagline: "Ancient temples, futuristic cities, and a level of hospitality that sets the bar.",
           activities: ["Tea Ceremony", "Onsen", "TeamLab", "City Tour"],
         },
