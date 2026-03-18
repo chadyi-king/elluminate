@@ -18,6 +18,7 @@ import { servicesData } from "@/data/servicesData";
 import { allInScopeServiceSlugs, serviceCategoryLabels } from "@/data/siteScope";
 import { SEO } from "@/components/SEO";
 import { ServiceMiniGallery } from "@/components/service-page/ServiceMiniGallery";
+import { ServiceDestinationsGrid } from "@/components/service-page/ServiceDestinationsGrid";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/StructuredData";
 
@@ -68,6 +69,7 @@ const ServicePage = () => {
     // Retreats
     "overseas-retreats": "overseas retreat Singapore, corporate retreat, company trip planning, team retreat overseas",
     "local-retreats": "local retreat Singapore, staycation team building, Singapore hotel retreat corporate",
+    "incentive-travel": "incentive travel Singapore, corporate incentive trip, top performer reward trip, MICE Singapore, company trip planning",
     // Training
     "mbti": "MBTI Singapore, Myers-Briggs team building, personality profiling corporate, MBTI workshop",
     "disc": "DISC assessment Singapore, DISC profiling corporate, communication training team building",
@@ -147,6 +149,16 @@ const ServicePage = () => {
 
       {/* 4. What Is This Service? (Overview) */}
       <ServiceOverviewNew description={service.overview.description} accentColor={service.accentColor} accentColorSecondary={service.accentColorSecondary} />
+
+      {/* 4.5 Destinations Grid (for retreat/travel services) */}
+      {service.destinationsGrid && (
+        <ServiceDestinationsGrid
+          sectionTitle={service.destinationsGrid.sectionTitle}
+          sectionSubtitle={service.destinationsGrid.sectionSubtitle}
+          destinations={service.destinationsGrid.destinations}
+          accentColor={service.accentColor}
+        />
+      )}
 
       {/* 6. How It Works with Pricing & Add-ons (NEW - for enhanced structure) */}
       {hasEnhancedStructure && service.howItWorksFlow && service.pricing && service.addOns && (

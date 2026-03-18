@@ -36,6 +36,7 @@ export const virtualTeamBuildingServices: ServiceLink[] = [
 export const retreatServices: ServiceLink[] = [
   { name: "Overseas Retreats", slug: "overseas-retreats" },
   { name: "Local Retreats", slug: "local-retreats" },
+  { name: "Incentive Travel", slug: "incentive-travel" },
 ];
 
 export const trainingServices: ServiceLink[] = [

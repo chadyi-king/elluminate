@@ -216,6 +216,20 @@ export interface ServiceData {
   // Optional mini gallery shown under "Perfect For"
   miniGallery?: MiniGallery;
 
+  // Destinations photo grid (for retreat pages)
+  destinationsGrid?: {
+    sectionTitle: string;
+    sectionSubtitle: string;
+    destinations: {
+      country: string;
+      image: string;
+      tagline: string;
+      priceFrom: string;
+      duration: string;
+      activities: string[];
+    }[];
+  };
+
   // Page-level presentation controls (optional)
   hideOutcomes?: boolean;
   hideMidCta?: boolean;
@@ -468,22 +482,94 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
-      sectionSubtitle: "Popular Destinations",
-      itemsPerRow: 4,
-      showNumbers: false,
+      sectionSubtitle: "Your Retreat Journey, Start to Finish",
+      itemsPerRow: 3,
+      showNumbers: true,
       items: [
-        { icon: Palmtree, title: "Bali", description: "Forested volcanoes, rice paddies, beaches, and coral reefs." },
-        { icon: Building, title: "Hong Kong", description: "Cultural and modern landmark mix." },
-        { icon: Gem, title: "Kuala Lumpur", description: "Luxury at affordable rate." },
-        { icon: Mountain, title: "Taiwan", description: "Culture and modern landmarks." },
-        { icon: ShoppingBag, title: "Batam", description: "Intense affordable shopping." },
-        { icon: Trees, title: "Indonesia", description: "Nature and modern attractions." },
-        { icon: Compass, title: "Philippines", description: "Oceanic dives and boat rides." },
-        { icon: Wine, title: "Thailand", description: "Beaches, food and culture." },
-        { icon: Dumbbell, title: "Bintan", description: "Golf courses, water sports, secluded beaches." },
-        { icon: Gamepad2, title: "Johor Bahru", description: "Legoland and affordable travels." },
-        { icon: Building2, title: "Siem Reap", description: "Cultural haven of Cambodia." },
-        { icon: ShoppingBag, title: "Vietnam", description: "Attractions plus shopping." },
+        { icon: Phone, title: "Discovery Call", description: "Tell us your team size, budget, objectives, and preferred dates. We map the right destination and experience level." },
+        { icon: MapPin, title: "Destination & Itinerary", description: "We shortlist 2–3 destinations with day-by-day itineraries, accommodation options, and curated activity ideas." },
+        { icon: ClipboardList, title: "Proposal & Sign-off", description: "Review a detailed proposal with full costings and inclusions. Approve and we lock everything in." },
+        { icon: Plane, title: "Travel & Logistics", description: "We manage all flights, hotel bookings, airport transfers, and on-ground arrangements end to end." },
+        { icon: Star, title: "On-Trip Experience", description: "Your team enjoys a seamlessly executed retreat — we are present on the ground to ensure every moment flows." },
+        { icon: Trophy, title: "Post-Trip Package", description: "Receive a highlight reel, team photo album, and optional post-trip engagement report." },
+      ],
+    },
+    destinationsGrid: {
+      sectionTitle: "DESTINATIONS",
+      sectionSubtitle: "Where Will Your Team Go Next?",
+      destinations: [
+        {
+          country: "Bali, Indonesia",
+          image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
+          tagline: "Jungle villas, rice terraces, and a spiritual reset in Asia's most beloved escape.",
+          priceFrom: "From $650/pax",
+          duration: "4D3N",
+          activities: ["Jungle Trekking", "Temple Tour", "Rafting", "Cooking Class"],
+        },
+        {
+          country: "Thailand",
+          image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80",
+          tagline: "Golden temples, turquoise beaches, and world-class cuisine at unbeatable value.",
+          priceFrom: "From $700/pax",
+          duration: "4D3N",
+          activities: ["Island Hopping", "Thai Cooking", "Elephant Sanctuary", "Night Market"],
+        },
+        {
+          country: "Vietnam",
+          image: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80",
+          tagline: "Ha Long Bay cruises, lantern-lit old towns, and vibrant street food at every turn.",
+          priceFrom: "From $650/pax",
+          duration: "4D3N",
+          activities: ["Ha Long Bay Cruise", "Lantern Making", "Cyclo Tour", "Cooking Class"],
+        },
+        {
+          country: "Japan",
+          image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
+          tagline: "Ancient temples, futuristic cities, and a level of hospitality that sets the bar.",
+          priceFrom: "From $1,200/pax",
+          duration: "5D4N",
+          activities: ["Tea Ceremony", "Onsen", "TeamLab", "City Tour"],
+        },
+        {
+          country: "Hong Kong",
+          image: "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&q=80",
+          tagline: "Sky-high harbour views, relentless dining, and a city that never loses its charge.",
+          priceFrom: "From $800/pax",
+          duration: "3D2N",
+          activities: ["Harbour Cruise", "Dim Sum Trail", "Peak Hike", "Night Market"],
+        },
+        {
+          country: "Malaysia",
+          image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80",
+          tagline: "Heritage cities, rainforest canopies, and luxury at Southeast Asia's best value.",
+          priceFrom: "From $380/pax",
+          duration: "3D2N",
+          activities: ["Rainforest Walk", "Heritage Tour", "Zipline", "Seafood Dinner"],
+        },
+        {
+          country: "Philippines",
+          image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&q=80",
+          tagline: "Crystal-clear waters, island hopping, and a warmth that bonds any group.",
+          priceFrom: "From $750/pax",
+          duration: "4D3N",
+          activities: ["Island Hopping", "Snorkelling", "Kayaking", "Beach BBQ"],
+        },
+        {
+          country: "Cambodia",
+          image: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800&q=80",
+          tagline: "Angkor Wat at sunrise, rich history, and an experience that recalibrates perspective.",
+          priceFrom: "From $620/pax",
+          duration: "4D3N",
+          activities: ["Angkor Wat", "Village Tour", "Cooking Class", "Sunset Cruise"],
+        },
+        {
+          country: "Bintan, Indonesia",
+          image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80",
+          tagline: "A 45-minute ferry from Singapore and a world away — beaches, golf, and real switch-off.",
+          priceFrom: "From $350/pax",
+          duration: "2D1N",
+          activities: ["Beach Golf", "Water Sports", "Spa", "Sunset Walk"],
+        },
       ],
     },
     perfectForFlow: {
@@ -507,33 +593,37 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "KPMG", event: "Vietnam Adventure", pax: 50 },
       { client: "EY", event: "Bintan Getaway", pax: 40 },
     ],
-    pricing: { startingPrice: "From $300", unit: "per pax/night", minimumPax: 10, duration: "3-4 days", activityType: "outdoor" },
+    pricing: { startingPrice: "From $650", unit: "per pax", minimumPax: 10, duration: "3-5 days", activityType: "outdoor" },
     packages: [
       {
         color: "#26D07C",
         title: "Essential Package",
-        description: "Core retreat experience with accommodation, meals, and basic activities.",
-        price: "From $300/pax/night",
-        features: ["Accommodation", "Meals included", "Airport transfers", "Basic activities"],
+        description: "A well-rounded retreat to a regional destination. Includes economy flights, four-star accommodation, airport transfers, guided team activity, and group meals.",
+        price: "From $650/pax",
+        features: ["Economy flights included", "4-star accommodation", "Airport transfers", "Team activity", "Group meals"],
       },
       {
         color: "#FFC400",
         title: "Enhanced Package",
-        description: "Premium experiences with curated activities and team building.",
-        features: ["Premium accommodation", "Full board dining", "Cultural excursions", "Team building activities"],
+        description: "Elevated destinations and experiences — premium economy flights, five-star accommodation, two curated activities, and a group recognition dinner.",
+        price: "From $1,200/pax",
+        features: ["Premium economy flights", "5-star accommodation", "2 curated activities", "Recognition dinner", "Full itinerary management"],
       },
       {
         color: "#FF4F4F",
         title: "Luxury Package",
-        description: "All-inclusive VIP experience with exclusive venues and activities.",
-        features: ["5-star resort stay", "Private dining", "VIP experiences", "24/7 concierge support"],
+        description: "No ceiling, no compromise. Business class flights, private villa or luxury resort, exclusive local experiences, and white-glove end-to-end service.",
+        price: "Custom quote",
+        features: ["Business class flights", "Luxury villa / resort", "Private experiences", "Concierge service", "Custom programme design"],
       },
     ],
     addOns: [
-      { icon: "UtensilsCrossed", title: "Enhanced Catering", description: "Premium dining experiences" },
-      { icon: "Camera", title: "Photo & Video", description: "Professional event coverage" },
-      { icon: "Gamepad2", title: "Team Activities", description: "Custom bonding experiences" },
-      { icon: "Dumbbell", title: "Spa & Wellness", description: "Massage and wellness packages" },
+      { icon: "UtensilsCrossed", title: "Enhanced Dining", description: "Private restaurant buyouts, themed dinners, beachside barbecues, and welcome cocktail receptions." },
+      { icon: "Camera", title: "Photo & Video", description: "Dedicated photographer and videographer on the ground, plus a post-retreat highlight reel delivered within 5 days." },
+      { icon: "Gamepad2", title: "Team Building Activity", description: "Add an Elluminate-facilitated session — Amazing Race, cultural challenge, or custom outdoor programme — anywhere in the itinerary." },
+      { icon: "Dumbbell", title: "Spa & Wellness", description: "Group spa packages, resort yoga sessions, or curated wellness experiences for teams that need genuine rest." },
+      { icon: "Gift", title: "Branded Welcome Kits", description: "Custom luggage tags, branded notebooks, destination-specific snacks, and a welcome letter from leadership in every room." },
+      { icon: "Plane", title: "Flight Management", description: "Full group flight booking, travel insurance coordination, visa assistance, and airport transfer management." },
     ],
     hideOutcomes: true,
     hideMidCta: true,
@@ -5301,7 +5391,7 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: overseasRetreatHero,
     },
     overview: {
-      description: "The best ideal approach to engage communication among employees and their employer is to bond in a casual environment. For our local options, there are 3 themes: Staycation, Heritage or Luxury. Each tier is designed to match your team's needs and reward your people with a memorable getaway without leaving Singapore.",
+      description: "Not every great retreat requires a passport. Singapore's hotel scene delivers everything from affordable urban escapes to some of the most storied and architecturally celebrated properties in Asia — and we know exactly which ones perform for team retreats. We offer three distinct tiers: Staycation for whole-staff appreciation and casual connection, Heritage for a culturally rich stay in Singapore's most celebrated historical hotels, and Luxury for recognition-grade experiences that senior leaders and top earners genuinely value. You choose the tier; we handle room blocks, activities, dining, and every detail in between.",
       backgroundImage: overseasRetreatHero,
     },
     features: [
@@ -5372,24 +5462,24 @@ export const servicesData: Record<string, ServiceData> = {
     packages: [
       {
         color: "#26D07C",
-        title: "Staycation Tier",
-        description: "Affordable option for rewarding whole staff with a reasonable getaway.",
+        title: "Staycation",
+        description: "Relax, Recharge, Reconnect. The everyday hustle disappears the moment your team checks in. Staycation retreats are designed for whole-staff appreciation — a rewarding overnight experience at a well-appointed city hotel without the complexity of overseas travel. Expect a comfortable room, a shared team dinner, pool and facilities access, and one guided team activity that does the bonding heavy-lifting. Partner hotels include Novotel Clarke Quay, Village Hotel, Park Hotel, Holiday Inn and Mercure.",
         price: "From $200/pax/night",
-        features: ["Hotel accommodations", "Meals & refreshments", "Recreation activities", "Team bonding games"],
+        features: ["Hotel room night", "Team dinner", "Pool & facilities access", "1 team bonding activity", "Breakfast included"],
       },
       {
         color: "#FFC400",
-        title: "Heritage Tier",
-        description: "Unique twist with historical hotels like Goodwood Park, Capitol Kempinski, Raffles.",
+        title: "Heritage",
+        description: "A Story Worth Staying In. Not all hotels are built equal — some carry over a century of history in their walls. Heritage retreats use Singapore's most celebrated historical properties as the backdrop, which means the venue itself becomes a talking point before a single activity begins. Properties like Goodwood Park Hotel (built 1900), Fort Canning Hotel (a Napoleonic-era barracks), Capitol Kempinski (a 1929 landmark), and Raffles Singapore carry names that signal prestige and create events people remember. Ideal for leadership off-sites, milestone celebrations, and occasions where the visual calibre of the setting matters.",
         price: "From $300/pax/night",
-        features: ["Heritage hotel stay", "Premium dining", "Cultural experiences", "Special entertainment"],
+        features: ["Heritage hotel stay", "Premium dining experience", "Optional heritage tour", "Cultural team activity", "Curated itinerary"],
       },
       {
         color: "#FF4F4F",
-        title: "Luxury Tier",
-        description: "4-5 star hotels only for truly rewarding top performers.",
+        title: "Luxury",
+        description: "Recognition-Grade. The Luxury tier is not for everyone — and that is precisely the point. These are the retreats you book when the message you want to send is: you have earned this. Properties in this tier include Capella Sentosa, Marina Bay Sands, The Fullerton Bay, Andaz Singapore, and Shangri-La — Singapore's most aspirational addresses. Expect immaculate rooms, private dining experiences, spa treatment credits, concierge service, and exclusive facilities that most of your team will never have experienced elsewhere. Best for top performer reward trips, board strategy off-sites, and senior leadership retreats.",
         price: "From $500/pax/night",
-        features: ["Luxury accommodations", "Fine dining", "Spa & wellness", "VIP experiences"],
+        features: ["5-star luxury accommodation", "Private dining experience", "Spa treatment credit", "Concierge service", "Premium team programme"],
       },
     ],
     addOns: [
@@ -6057,5 +6147,120 @@ export const servicesData: Record<string, ServiceData> = {
     hideMidCta: true,
     perfectForVariant: "pills",
     recentEventsHeadline: "Companies we've celebrated with",
+  },
+
+  "incentive-travel": {
+    accentColor: "#D97706",
+    dividerVariant: "ribbon",
+    hero: {
+      title: "INCENTIVE TRAVEL",
+      subtitle: "Retreat",
+      tagline: "Reward your best people with the journey of a lifetime.",
+      backgroundImage: overseasRetreatHero,
+    },
+    overview: {
+      description: "Incentive travel is one of the most powerful non-cash rewards a company can offer its top performers, sales teams, and high-growth contributors. A well-designed incentive trip communicates something no bonus cheque can: we see what you did, and we want your experience to match it. Elluminate designs end-to-end incentive travel programmes for Singapore-based organisations — from defining the eligibility criteria and building the anticipation campaign, to executing the trip itself with on-ground facilitation, a private recognition dinner, and a polished post-trip highlight reel. Destinations range from regional gems like Bali and Japan to long-haul experiences in Europe and beyond. Every programme is built around your earners, your culture, and the level of recognition your organisation is committed to delivering.",
+      backgroundImage: overseasRetreatHero,
+    },
+    features: [
+      { icon: ClipboardList, title: "Criteria & Campaign Design", description: "We help you define who earns the trip, communicate it compellingly, and build the anticipation before departure." },
+      { icon: Plane, title: "Premium Flights", description: "Economy Plus, Business, or full Business Class depending on tier — booked, managed, and coordinated for the whole group." },
+      { icon: Building, title: "5-Star Accommodation", description: "Handpicked luxury hotels at each destination, chosen for ambience, team-suitability, and experience calibre." },
+      { icon: Award, title: "Private Recognition Dinner", description: "A gala dinner or intimate awards evening built into the programme — where leaders personally acknowledge each earner." },
+      { icon: Globe, title: "Exclusive Local Experiences", description: "Curated activities unavailable to the general public: private temple access, chef's table dinners, yacht charters, and more." },
+      { icon: Star, title: "Dedicated Travel Manager", description: "A dedicated Elluminate coordinator manages the entire trip on-ground so nothing is left to chance." },
+    ],
+    benefits: [
+      { icon: Trophy, title: "Performance-Driven Culture", description: "Incentive travel reinforces what good looks like and makes high performance aspirational across the organisation." },
+      { icon: Heart, title: "Retention Tool", description: "Earners who experience great incentive trips are significantly less likely to leave for a competitor." },
+      { icon: Users, title: "Cohesion at the Top", description: "Top performers from different regions or teams bond during the trip in ways the office never allows." },
+      { icon: Rocket, title: "Employer Brand Signal", description: "Word spreads internally. Earners share the trip on social media. It becomes a visible benchmark for what is possible." },
+    ],
+    alternatingSections: [],
+    gallery: [],
+    testimonials: [
+      { quote: "Our sales team still talks about the Japan incentive trip 18 months later. It genuinely drove Q3 performance.", author: "VP Sales", company: "SaaS Platform" },
+      { quote: "The private recognition dinner in Bali was the most meaningful moment of the year for our senior team.", author: "CEO", company: "Regional Bank" },
+      { quote: "Elluminate handled every detail — from visa letters to the gala dinner. We just showed up and celebrated.", author: "HR Director", company: "Consulting Firm" },
+      { quote: "The criteria campaign built so much energy before we even departed. The team was buzzing for months.", author: "Sales Director", company: "Tech Distributor" },
+    ],
+    faqs: [
+      { question: "What makes incentive travel different from a regular retreat?", answer: "Incentive travel is reward-based — only top performers qualify. The prestige of earning the trip is as important as the trip itself. It is explicitly designed to drive performance and recognise achievement, not just provide a getaway." },
+      { question: "What destinations work best?", answer: "Popular choices are Bali, Japan, Thailand, and Europe. The destination should feel aspirational relative to where your team usually travels — the stretch is what makes it feel earned." },
+      { question: "How far in advance do we need to book?", answer: "Minimum 3 months, ideally 6. Building the pre-trip campaign and anticipation period is part of the programme design, and that takes time to do well." },
+      { question: "Can you manage small groups?", answer: "Yes. Our typical incentive group ranges from 8 to 80. Smaller groups actually get more elevated, personalised experiences." },
+    ],
+    cta: { headline: "Design Your Incentive Programme", subtext: "Tell us your dates, destination, and how many earners you want to reward." },
+    howItWorksFlow: {
+      sectionTitle: "WHAT TO EXPECT",
+      sectionSubtitle: "From Criteria to Celebration",
+      itemsPerRow: 3,
+      showNumbers: true,
+      items: [
+        { icon: ClipboardList, title: "Criteria & Target Setting", description: "We help you define eligibility — who earns the trip, what the thresholds are, and how to communicate it to maximise motivation." },
+        { icon: MapPin, title: "Destination Selection", description: "We shortlist 2–3 destinations matching your budget, season, and the 'it feels earned' threshold your team needs to feel." },
+        { icon: PenTool, title: "Programme Design", description: "Craft a custom itinerary: arrival experience, team activities, private recognition dinner, and free time that still feels curated." },
+        { icon: Plane, title: "Travel & Logistics", description: "All flights, transfers, accommodation, visa documentation, and on-ground arrangements managed end to end." },
+        { icon: Star, title: "On-Trip Facilitation", description: "A dedicated Elluminate coordinator is present on the ground ensuring every moment — planned and spontaneous — runs smoothly." },
+        { icon: Trophy, title: "Post-Trip Recognition", description: "Receive a highlight reel, photo album, and optional post-trip engagement report to close the recognition loop internally." },
+      ],
+    },
+    perfectForFlow: {
+      sectionTitle: "PERFECT FOR",
+      sectionSubtitle: "High-Performance Organisations",
+      itemsPerRow: 4,
+      items: [
+        { icon: Target, title: "Sales Teams", description: "Reward top billers and quota crushers with a trip that matches their output." },
+        { icon: Trophy, title: "Top Performer Reward", description: "Annual earner recognition for your company's highest contributors." },
+        { icon: GraduationCap, title: "Leadership Development", description: "Combine incentive recognition with an offsite designed for senior growth." },
+        { icon: Handshake, title: "Partner & Distributor Trips", description: "Reward your top channel partners and distributors as a retention play." },
+        { icon: Rocket, title: "Launch Incentive", description: "Drive pre-launch momentum with a trip tied to a product cycle or campaign." },
+        { icon: Users, title: "Cross-Region Cohorts", description: "Bring top performers from different offices together in a meaningful setting." },
+        { icon: Star, title: "Annual Kickoff Reward", description: "Close the year strong — open the new one with a recognition trip for earners." },
+        { icon: Briefcase, title: "Client Appreciation Trips", description: "Take your most valuable clients on a curated experience that deepens the relationship." },
+      ],
+    },
+    recentEvents: [
+      { client: "Salesforce", event: "APAC Sales Incentive Trip — Bali", pax: 40 },
+      { client: "Standard Chartered", event: "Top Banker Reward Trip — Thailand", pax: 25 },
+      { client: "AIA Singapore", event: "Million Dollar Round Table Trip", pax: 30 },
+      { client: "Cisco Singapore", event: "Q4 Winners Trip — Japan", pax: 18 },
+    ],
+    pricing: { startingPrice: "From $800", unit: "per pax", minimumPax: 5, duration: "3-7 days", activityType: "outdoor" },
+    packages: [
+      {
+        color: "#26D07C",
+        title: "Regional Incentive",
+        description: "A well-executed 3-night incentive trip to a regional destination (Bali, Thailand, Malaysia). Includes round-trip economy flights, four-star accommodation, curated team activity, and a private recognition dinner.",
+        price: "From $800/pax",
+        features: ["Economy/Economy+ flights", "4-star accommodation", "Team activity", "Private recognition dinner", "Dedicated coordinator"],
+      },
+      {
+        color: "#FFC400",
+        title: "Signature Incentive",
+        description: "A 5-night premium experience to Japan, Hong Kong, or further afield. Premium economy flights or business class upgrade, 5-star accommodation, and a fully choreographed recognition evening.",
+        price: "From $2,000/pax",
+        features: ["Premium economy flights", "5-star accommodation", "2 curated experiences", "Gala recognition dinner", "Highlight reel included"],
+      },
+      {
+        color: "#FF4F4F",
+        title: "Ultra Premium",
+        description: "No ceiling, no compromise. Maldives, Swiss Alps, European capitals. Business class flights, private villa stays, chef experiences, and a fully custom programme designed from scratch.",
+        price: "Custom quote",
+        features: ["Business class flights", "Luxury villa / resort", "Private experiences", "Custom programme", "White-glove service"],
+      },
+    ],
+    addOns: [
+      { icon: "Plane", title: "Business Class Upgrade", description: "Upgrade the entire group to business class for a departure experience that sets the tone from gate to gate." },
+      { icon: "Gift", title: "Branded Welcome Kits", description: "Custom arrival kits in every hotel room: branded luggage tags, notebooks, local snacks, and a personalised note from leadership." },
+      { icon: "Trophy", title: "In-Trip Awards Gala", description: "A formal recognition ceremony with custom trophies, individual callouts, and a captured moment for every earner." },
+      { icon: "CalendarDays", title: "Extended Stay Option", description: "Allow earners to extend their stay personally at special room rates — a perk within a perk." },
+      { icon: "Gamepad2", title: "Team Activity Add-on", description: "Add an Elluminate team-building session or cultural activity to the itinerary on any day of the trip." },
+      { icon: "Camera", title: "Post-Trip Highlight Reel", description: "A professionally edited 3-minute video of the trip — perfect for internal comms, LinkedIn, and next year's incentive campaign." },
+    ],
+    hideOutcomes: true,
+    hideMidCta: true,
+    perfectForVariant: "pills",
+    recentEventsHeadline: "Companies who've run Incentive Travel with us",
   },
 };

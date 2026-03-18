@@ -16,6 +16,8 @@ import {
   Rabbit,
   Crown,
   Plane,
+  Building,
+  Award,
 } from "lucide-react";
 import { ExpandableActivityCard } from "./ExpandableActivityCard";
 import { WaveDivider } from "./WaveDivider";
@@ -171,6 +173,28 @@ const allActivities = [
     description: "Retreat experiences designed for deeper connection, offsite focus, and shared momentum outside the usual setting.",
     stats: "Regional retreats across Asia",
     clients: "Leadership teams, departments, and top performers",
+    image: heroOverseasRetreat,
+    tag: "Retreat",
+  },
+  {
+    name: "Local Retreats",
+    icon: Building,
+    slug: "local-retreats",
+    color: activityColors.wellness,
+    description: "Three tiers of Singapore hotel retreats — Staycation, Heritage, or Luxury — designed to reward your team without leaving the island.",
+    stats: "Staycation, Heritage & Luxury tiers",
+    clients: "Whole-staff, leadership teams, and top performers",
+    image: heroOverseasRetreat,
+    tag: "Retreat",
+  },
+  {
+    name: "Incentive Travel",
+    icon: Award,
+    slug: "incentive-travel",
+    color: activityColors.amazingRace,
+    description: "Reward-based travel programmes for top performers — fully managed from criteria design to on-ground execution and post-trip recognition.",
+    stats: "Regional & long-haul programmes",
+    clients: "Sales teams, top earners, and leadership cohorts",
     image: heroOverseasRetreat,
     tag: "Retreat",
   },
