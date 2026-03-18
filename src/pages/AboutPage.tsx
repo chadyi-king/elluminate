@@ -499,7 +499,7 @@ const AboutPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.08 }}
-                    className="group relative bg-slate-900/80 backdrop-blur-md border border-white/15 rounded-xl p-5 hover:border-sky-400/40 hover:shadow-blue transition-all duration-500"
+                    className="group relative bg-slate-950/90 backdrop-blur-md border border-white/15 rounded-xl p-5 hover:border-sky-400/40 hover:shadow-blue transition-all duration-500"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-sky-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
                     <div className="relative z-10">
