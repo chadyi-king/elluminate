@@ -559,7 +559,7 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "Cambodia",
-          image: "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1569321482225-532765e26b73?w=800&q=80",
           tagline: "Angkor Wat at sunrise, rich history, and an experience that recalibrates perspective.",
           activities: ["Angkor Wat", "Village Tour", "Cooking Class", "Sunset Cruise"],
         },
@@ -5428,7 +5428,7 @@ export const servicesData: Record<string, ServiceData> = {
       destinations: [
         {
           country: "Sentosa Island",
-          image: "https://images.unsplash.com/photo-1578469550956-0e16b69c6a3d?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1464817739973-0128fe77aad1?w=800&q=80",
           tagline: "Island vibes just minutes from the CBD. Beach clubs, resort pools, and a world-class escape.",
           activities: ["Beach Activities", "Resort Pool", "Team Games", "Sunset Dinner"],
         },
@@ -5440,25 +5440,25 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "Heritage District",
-          image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1576788903921-e9472ba43335?w=800&q=80",
           tagline: "Stay in buildings steeped in history. Shophouse charm meets modern luxury.",
           activities: ["Heritage Walk", "Cultural Tour", "Local Cuisine", "Art Gallery"],
         },
         {
           country: "East Coast",
-          image: "https://images.unsplash.com/photo-1596786455417-be95e6b20400?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=800&q=80",
           tagline: "Seaside breezes, cycling paths, and the best seafood in Singapore.",
           activities: ["Cycling", "Seafood Dinner", "Beach Games", "Kayaking"],
         },
         {
           country: "Orchard / City Centre",
-          image: "https://images.unsplash.com/photo-1565402170291-8491f14678db?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?w=800&q=80",
           tagline: "Urban luxury at its finest. Shopping, dining, and five-star comfort in the heart of the city.",
           activities: ["City Exploration", "Shopping Trail", "Rooftop Bar", "Spa Day"],
         },
         {
           country: "Changi & Jewel",
-          image: "https://images.unsplash.com/photo-1562601579-599dec564e06?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1559503369-1dd7bcd6d564?w=800&q=80",
           tagline: "Nature-meets-architecture retreats near the world's most celebrated airport.",
           activities: ["Jewel Tour", "Nature Walk", "Team Challenge", "Garden Dining"],
         },
