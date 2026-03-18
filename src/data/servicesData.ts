@@ -6206,8 +6206,10 @@ export const servicesData: Record<string, ServiceData> = {
     testimonials: [
       { quote: "Our sales team still talks about the Japan incentive trip 18 months later. It genuinely drove Q3 performance.", author: "VP Sales", company: "SaaS Platform" },
       { quote: "The private recognition dinner in Bali was the most meaningful moment of the year for our senior team.", author: "CEO", company: "Regional Bank" },
-      { quote: "Elluminate handled every detail — from visa letters to the gala dinner. We just showed up and celebrated.", author: "HR Director", company: "Consulting Firm" },
+      { quote: "Elluminate handled every detail from visa letters to the gala dinner. We just showed up and celebrated.", author: "HR Director", company: "Consulting Firm" },
       { quote: "The criteria campaign built so much energy before we even departed. The team was buzzing for months.", author: "Sales Director", company: "Tech Distributor" },
+      { quote: "Switzerland was beyond anything our top performers expected. They came back more loyal and motivated than ever.", author: "Regional Manager", company: "Insurance MNC" },
+      { quote: "The Rome trip set a new standard for how we recognise our best people. Applications for the next cycle tripled.", author: "Head of People", company: "FinTech Startup" },
     ],
     faqs: [
       { question: "What makes incentive travel different from a regular retreat?", answer: "Incentive travel is reward-based — only top performers qualify. The prestige of earning the trip is as important as the trip itself. It is explicitly designed to drive performance and recognise achievement, not just provide a getaway." },
