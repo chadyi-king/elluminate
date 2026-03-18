@@ -5446,7 +5446,7 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "East Coast",
-          image: "https://images.unsplash.com/photo-1596786455417-be95e6b20400?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=800&q=80",
           tagline: "Seaside breezes, cycling paths, and the best seafood in Singapore.",
           activities: ["Cycling", "Seafood Dinner", "Beach Games", "Kayaking"],
         },
