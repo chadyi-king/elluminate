@@ -5440,7 +5440,7 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "Heritage District",
-          image: "https://images.unsplash.com/photo-1576788903921-e9472ba43335?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1533422902779-aff35862e462?w=800&q=80",
           tagline: "Stay in buildings steeped in history. Shophouse charm meets modern luxury.",
           activities: ["Heritage Walk", "Cultural Tour", "Local Cuisine", "Art Gallery"],
         },
