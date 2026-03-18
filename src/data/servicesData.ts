@@ -433,6 +433,11 @@ export const servicesData: Record<string, ServiceData> = {
       tagline: "The world is your company's oyster! Time to open it up and enjoy!",
       backgroundImage: overseasRetreatHero
     },
+    videoSection: {
+      title: "See Our Retreats in Action",
+      subtitle: "From Bali villas to Japanese onsens, watch how we bring teams together across the globe.",
+      accentColor: "#5AB7AE",
+    },
     overview: {
       description: "Good interactions at corporate retreats and rewarding travel packages can help improve an employee's relationship with their company! Corporate retreats are the perfect place to start conversations with workers and imagine a better direction for influence and organization. We handle every detail from flights to activities, ensuring your team enjoys a seamless, unforgettable journey.",
       backgroundImage: overseasRetreatHero
