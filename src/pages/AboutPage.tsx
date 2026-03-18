@@ -181,7 +181,12 @@ const AboutPage = () => {
         keywords="about Elluminate, Singapore team building company, school programmes Singapore, training workshops Singapore"
         canonical="https://elluminate.sg/about"
       />
+      <OrganizationSchema />
       <Navbar />
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "About Us" },
+      ]} />
       
       {/* SECTION 1 - HERO BANNER - Dynamic Split Layout */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20 pb-16">

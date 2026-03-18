@@ -45,7 +45,7 @@ export const SEO = ({
       <link rel="canonical" href={canonical} />
       
       {/* Additional SEO */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={robots} />
       <meta name="author" content="Elluminate" />
       <meta name="geo.region" content="SG" />
       <meta name="geo.placename" content="Singapore" />
