@@ -7,6 +7,7 @@ interface SEOProps {
   ogImage?: string;
   canonical?: string;
   type?: string;
+  robots?: string;
 }
 
 export const SEO = ({
