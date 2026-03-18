@@ -8,7 +8,7 @@ import { SEO } from "@/components/SEO";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import { 
   Target, Eye, Heart, Sparkles, Award, Zap, 
-  Users, Lightbulb, Palette, Mic, Film, Star,
+  Users, Lightbulb, Mic, Star,
   Quote, Rocket, Globe, ArrowRight
 } from "lucide-react";
 
