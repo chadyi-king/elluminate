@@ -224,8 +224,8 @@ export interface ServiceData {
       country: string;
       image: string;
       tagline: string;
-      priceFrom: string;
-      duration: string;
+      priceFrom?: string;
+      duration?: string;
       activities: string[];
     }[];
   };
@@ -433,6 +433,10 @@ export const servicesData: Record<string, ServiceData> = {
       tagline: "The world is your company's oyster! Time to open it up and enjoy!",
       backgroundImage: overseasRetreatHero
     },
+    videoSection: {
+      title: "See Our Retreats in Action",
+      subtitle: "From Bali villas to Japanese onsens, watch how we bring teams together across the globe.",
+    },
     overview: {
       description: "Good interactions at corporate retreats and rewarding travel packages can help improve an employee's relationship with their company! Corporate retreats are the perfect place to start conversations with workers and imagine a better direction for influence and organization. We handle every detail from flights to activities, ensuring your team enjoys a seamless, unforgettable journey.",
       backgroundImage: overseasRetreatHero
@@ -502,72 +506,54 @@ export const servicesData: Record<string, ServiceData> = {
           country: "Bali, Indonesia",
           image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
           tagline: "Jungle villas, rice terraces, and a spiritual reset in Asia's most beloved escape.",
-          priceFrom: "From $650/pax",
-          duration: "4D3N",
           activities: ["Jungle Trekking", "Temple Tour", "Rafting", "Cooking Class"],
         },
         {
           country: "Thailand",
           image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80",
           tagline: "Golden temples, turquoise beaches, and world-class cuisine at unbeatable value.",
-          priceFrom: "From $700/pax",
-          duration: "4D3N",
           activities: ["Island Hopping", "Thai Cooking", "Elephant Sanctuary", "Night Market"],
         },
         {
           country: "Vietnam",
           image: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80",
           tagline: "Ha Long Bay cruises, lantern-lit old towns, and vibrant street food at every turn.",
-          priceFrom: "From $650/pax",
-          duration: "4D3N",
           activities: ["Ha Long Bay Cruise", "Lantern Making", "Cyclo Tour", "Cooking Class"],
         },
         {
           country: "Japan",
           image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
           tagline: "Ancient temples, futuristic cities, and a level of hospitality that sets the bar.",
-          priceFrom: "From $1,200/pax",
-          duration: "5D4N",
           activities: ["Tea Ceremony", "Onsen", "TeamLab", "City Tour"],
         },
         {
           country: "Hong Kong",
           image: "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=800&q=80",
           tagline: "Sky-high harbour views, relentless dining, and a city that never loses its charge.",
-          priceFrom: "From $800/pax",
-          duration: "3D2N",
           activities: ["Harbour Cruise", "Dim Sum Trail", "Peak Hike", "Night Market"],
         },
         {
           country: "Malaysia",
           image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=80",
           tagline: "Heritage cities, rainforest canopies, and luxury at Southeast Asia's best value.",
-          priceFrom: "From $380/pax",
-          duration: "3D2N",
           activities: ["Rainforest Walk", "Heritage Tour", "Zipline", "Seafood Dinner"],
         },
         {
           country: "Philippines",
           image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&q=80",
           tagline: "Crystal-clear waters, island hopping, and a warmth that bonds any group.",
-          priceFrom: "From $750/pax",
-          duration: "4D3N",
           activities: ["Island Hopping", "Snorkelling", "Kayaking", "Beach BBQ"],
         },
         {
           country: "Cambodia",
           image: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800&q=80",
           tagline: "Angkor Wat at sunrise, rich history, and an experience that recalibrates perspective.",
-          priceFrom: "From $620/pax",
-          duration: "4D3N",
           activities: ["Angkor Wat", "Village Tour", "Cooking Class", "Sunset Cruise"],
         },
         {
           country: "Bintan, Indonesia",
           image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80",
           tagline: "A 45-minute ferry from Singapore and a world away — beaches, golf, and real switch-off.",
-          priceFrom: "From $350/pax",
-          duration: "2D1N",
           activities: ["Beach Golf", "Water Sports", "Spa", "Sunset Walk"],
         },
       ],
@@ -5423,6 +5409,48 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "Can you customize the itinerary?", answer: "Absolutely! We tailor activities and timing to your team's preferences." },
     ],
     cta: { headline: "Ready for a Local Escape?", subtext: "Discover Singapore's hidden gems with your team." },
+    destinationsGrid: {
+      sectionTitle: "VENUES",
+      sectionSubtitle: "Where Will Your Team Stay?",
+      destinations: [
+        {
+          country: "Sentosa Island",
+          image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+          tagline: "Island vibes just minutes from the CBD. Beach clubs, resort pools, and a world-class escape.",
+          activities: ["Beach Activities", "Resort Pool", "Team Games", "Sunset Dinner"],
+        },
+        {
+          country: "Marina Bay",
+          image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&q=80",
+          tagline: "Singapore's iconic skyline as your backdrop. Luxury stays with unmatched city views.",
+          activities: ["Skyline Tour", "Fine Dining", "Infinity Pool", "Art Walk"],
+        },
+        {
+          country: "Heritage District",
+          image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?w=800&q=80",
+          tagline: "Stay in buildings steeped in history. Shophouse charm meets modern luxury.",
+          activities: ["Heritage Walk", "Cultural Tour", "Local Cuisine", "Art Gallery"],
+        },
+        {
+          country: "East Coast",
+          image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
+          tagline: "Seaside breezes, cycling paths, and the best seafood in Singapore.",
+          activities: ["Cycling", "Seafood Dinner", "Beach Games", "Kayaking"],
+        },
+        {
+          country: "Orchard / City Centre",
+          image: "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?w=800&q=80",
+          tagline: "Urban luxury at its finest. Shopping, dining, and five-star comfort in the heart of the city.",
+          activities: ["City Exploration", "Shopping Trail", "Rooftop Bar", "Spa Day"],
+        },
+        {
+          country: "Changi & Jewel",
+          image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
+          tagline: "Nature-meets-architecture retreats near the world's most celebrated airport.",
+          activities: ["Jewel Tour", "Nature Walk", "Team Challenge", "Garden Dining"],
+        },
+      ],
+    },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "Your Retreat Planning Journey",
@@ -5458,27 +5486,24 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "OCBC", event: "Team Retreat", pax: 60 },
       { client: "Standard Chartered", event: "Leadership Off-site", pax: 30 },
     ],
-    pricing: { startingPrice: "From $200", unit: "per pax/night", minimumPax: 10, duration: "1-3 nights", activityType: "indoor" },
+    pricing: { startingPrice: "Get a Quote", unit: "per pax/night", minimumPax: 10, duration: "1-3 nights", activityType: "indoor" },
     packages: [
       {
         color: "#26D07C",
         title: "Staycation",
         description: "Relax, Recharge, Reconnect. The everyday hustle disappears the moment your team checks in. Staycation retreats are designed for whole-staff appreciation — a rewarding overnight experience at a well-appointed city hotel without the complexity of overseas travel. Expect a comfortable room, a shared team dinner, pool and facilities access, and one guided team activity that does the bonding heavy-lifting. Partner hotels include Novotel Clarke Quay, Village Hotel, Park Hotel, Holiday Inn and Mercure.",
-        price: "From $200/pax/night",
         features: ["Hotel room night", "Team dinner", "Pool & facilities access", "1 team bonding activity", "Breakfast included"],
       },
       {
         color: "#FFC400",
         title: "Heritage",
         description: "A Story Worth Staying In. Not all hotels are built equal — some carry over a century of history in their walls. Heritage retreats use Singapore's most celebrated historical properties as the backdrop, which means the venue itself becomes a talking point before a single activity begins. Properties like Goodwood Park Hotel (built 1900), Fort Canning Hotel (a Napoleonic-era barracks), Capitol Kempinski (a 1929 landmark), and Raffles Singapore carry names that signal prestige and create events people remember. Ideal for leadership off-sites, milestone celebrations, and occasions where the visual calibre of the setting matters.",
-        price: "From $300/pax/night",
         features: ["Heritage hotel stay", "Premium dining experience", "Optional heritage tour", "Cultural team activity", "Curated itinerary"],
       },
       {
         color: "#FF4F4F",
         title: "Luxury",
         description: "Recognition-Grade. The Luxury tier is not for everyone — and that is precisely the point. These are the retreats you book when the message you want to send is: you have earned this. Properties in this tier include Capella Sentosa, Marina Bay Sands, The Fullerton Bay, Andaz Singapore, and Shangri-La — Singapore's most aspirational addresses. Expect immaculate rooms, private dining experiences, spa treatment credits, concierge service, and exclusive facilities that most of your team will never have experienced elsewhere. Best for top performer reward trips, board strategy off-sites, and senior leadership retreats.",
-        price: "From $500/pax/night",
         features: ["5-star luxury accommodation", "Private dining experience", "Spa treatment credit", "Concierge service", "Premium team programme"],
       },
     ],
@@ -6181,8 +6206,10 @@ export const servicesData: Record<string, ServiceData> = {
     testimonials: [
       { quote: "Our sales team still talks about the Japan incentive trip 18 months later. It genuinely drove Q3 performance.", author: "VP Sales", company: "SaaS Platform" },
       { quote: "The private recognition dinner in Bali was the most meaningful moment of the year for our senior team.", author: "CEO", company: "Regional Bank" },
-      { quote: "Elluminate handled every detail — from visa letters to the gala dinner. We just showed up and celebrated.", author: "HR Director", company: "Consulting Firm" },
+      { quote: "Elluminate handled every detail from visa letters to the gala dinner. We just showed up and celebrated.", author: "HR Director", company: "Consulting Firm" },
       { quote: "The criteria campaign built so much energy before we even departed. The team was buzzing for months.", author: "Sales Director", company: "Tech Distributor" },
+      { quote: "Switzerland was beyond anything our top performers expected. They came back more loyal and motivated than ever.", author: "Regional Manager", company: "Insurance MNC" },
+      { quote: "The Rome trip set a new standard for how we recognise our best people. Applications for the next cycle tripled.", author: "Head of People", company: "FinTech Startup" },
     ],
     faqs: [
       { question: "What makes incentive travel different from a regular retreat?", answer: "Incentive travel is reward-based — only top performers qualify. The prestige of earning the trip is as important as the trip itself. It is explicitly designed to drive performance and recognise achievement, not just provide a getaway." },
@@ -6191,6 +6218,66 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "Can you manage small groups?", answer: "Yes. Our typical incentive group ranges from 8 to 80. Smaller groups actually get more elevated, personalised experiences." },
     ],
     cta: { headline: "Design Your Incentive Programme", subtext: "Tell us your dates, destination, and how many earners you want to reward." },
+    destinationsGrid: {
+      sectionTitle: "DESTINATIONS",
+      sectionSubtitle: "Where Will Your Earners Go?",
+      destinations: [
+        {
+          country: "Bali, Indonesia",
+          image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
+          tagline: "Clifftop villas, private pool dinners, and the ultimate tropical reward.",
+          activities: ["Villa Stay", "Private Dinner", "Rafting", "Temple Tour"],
+        },
+        {
+          country: "Tokyo, Japan",
+          image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
+          tagline: "Michelin stars, ancient culture, and a city that redefines what is possible.",
+          activities: ["Omakase Dinner", "Tea Ceremony", "TeamLab", "City Tour"],
+        },
+        {
+          country: "Phuket, Thailand",
+          image: "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80",
+          tagline: "Turquoise waters, yacht charters, and nights your top earners will never forget.",
+          activities: ["Yacht Charter", "Island Hopping", "Beach Gala", "Thai Cuisine"],
+        },
+        {
+          country: "Rome, Italy",
+          image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80",
+          tagline: "The Eternal City. Colosseum walks, rooftop aperitivos, and la dolce vita for your best.",
+          activities: ["Colosseum Tour", "Chef's Table", "Wine Tasting", "Vespa Tour"],
+        },
+        {
+          country: "Swiss Alps",
+          image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80",
+          tagline: "Mountain lodges, panoramic trains, and the kind of luxury that feels earned.",
+          activities: ["Alpine Hike", "Scenic Train", "Fondue Dinner", "Spa Retreat"],
+        },
+        {
+          country: "Maldives",
+          image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80",
+          tagline: "Overwater villas, private island dining, and recognition at the highest level.",
+          activities: ["Overwater Villa", "Snorkelling", "Sunset Cruise", "Private Beach"],
+        },
+        {
+          country: "London, UK",
+          image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+          tagline: "West End shows, private members' clubs, and a cosmopolitan reward experience.",
+          activities: ["West End Show", "Private Club", "Thames Cruise", "Pub Crawl"],
+        },
+        {
+          country: "Paris, France",
+          image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
+          tagline: "Eiffel Tower dinners, Champagne houses, and the world's most romantic city as a reward.",
+          activities: ["Eiffel Tower", "Champagne Tasting", "Louvre Tour", "Gala Dinner"],
+        },
+        {
+          country: "Santorini, Greece",
+          image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80",
+          tagline: "White-washed cliffs, Aegean sunsets, and a Mediterranean escape like no other.",
+          activities: ["Catamaran Cruise", "Wine Tour", "Cliff Dining", "Volcano Hike"],
+        },
+      ],
+    },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "From Criteria to Celebration",
@@ -6226,27 +6313,24 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "AIA Singapore", event: "Million Dollar Round Table Trip", pax: 30 },
       { client: "Cisco Singapore", event: "Q4 Winners Trip — Japan", pax: 18 },
     ],
-    pricing: { startingPrice: "From $800", unit: "per pax", minimumPax: 5, duration: "3-7 days", activityType: "outdoor" },
+    pricing: { startingPrice: "Get a Quote", unit: "per pax", minimumPax: 5, duration: "3-7 days", activityType: "outdoor" },
     packages: [
       {
         color: "#26D07C",
         title: "Regional Incentive",
         description: "A well-executed 3-night incentive trip to a regional destination (Bali, Thailand, Malaysia). Includes round-trip economy flights, four-star accommodation, curated team activity, and a private recognition dinner.",
-        price: "From $800/pax",
         features: ["Economy/Economy+ flights", "4-star accommodation", "Team activity", "Private recognition dinner", "Dedicated coordinator"],
       },
       {
         color: "#FFC400",
         title: "Signature Incentive",
         description: "A 5-night premium experience to Japan, Hong Kong, or further afield. Premium economy flights or business class upgrade, 5-star accommodation, and a fully choreographed recognition evening.",
-        price: "From $2,000/pax",
         features: ["Premium economy flights", "5-star accommodation", "2 curated experiences", "Gala recognition dinner", "Highlight reel included"],
       },
       {
         color: "#FF4F4F",
         title: "Ultra Premium",
         description: "No ceiling, no compromise. Maldives, Swiss Alps, European capitals. Business class flights, private villa stays, chef experiences, and a fully custom programme designed from scratch.",
-        price: "Custom quote",
         features: ["Business class flights", "Luxury villa / resort", "Private experiences", "Custom programme", "White-glove service"],
       },
     ],
