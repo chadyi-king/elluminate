@@ -274,8 +274,6 @@ export const ServicesSection = () => {
                 clients={activity.clients}
                 image={activity.image}
                 tag={activity.tag}
-                href={activity.href}
-                ctaLabel={activity.ctaLabel}
               />
             </motion.div>
           ))}

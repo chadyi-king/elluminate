@@ -38,6 +38,7 @@ import heroAmazingRaceAlt from "@/assets/hero/amazing-race.jpg";
 import heroAdventureChallenge from "@/assets/hero/adventure-challenge.jpg";
 import heroTeamCelebration from "@/assets/hero/team-celebration.jpg";
 import teamBuildingOutdoor1 from "@/assets/events/team-building-outdoor-1.jpg";
+import heroCreativeWorkshop from "@/assets/hero/creative-workshop.jpg";
 
 export interface AlternatingSection {
   title: string;
