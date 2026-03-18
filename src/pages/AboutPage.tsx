@@ -507,7 +507,7 @@ const AboutPage = () => {
                         <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-sky-500 flex items-center justify-center shadow-blue">
                           <value.icon className="w-5 h-5 text-primary-foreground" />
                         </div>
-                        <h4 className="text-lg font-display font-medium text-white">{value.name}</h4>
+                        <h4 className="text-lg font-display font-bold text-white">{value.name}</h4>
                       </div>
                       <p className="text-sky-200 font-sans text-sm mb-2">{value.description}</p>
                       <p className="text-slate-300/80 font-sans text-xs leading-relaxed">{value.details}</p>
