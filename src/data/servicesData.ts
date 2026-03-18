@@ -5444,27 +5444,24 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "OCBC", event: "Team Retreat", pax: 60 },
       { client: "Standard Chartered", event: "Leadership Off-site", pax: 30 },
     ],
-    pricing: { startingPrice: "From $200", unit: "per pax/night", minimumPax: 10, duration: "1-3 nights", activityType: "indoor" },
+    pricing: { startingPrice: "Get a Quote", unit: "per pax/night", minimumPax: 10, duration: "1-3 nights", activityType: "indoor" },
     packages: [
       {
         color: "#26D07C",
         title: "Staycation",
         description: "Relax, Recharge, Reconnect. The everyday hustle disappears the moment your team checks in. Staycation retreats are designed for whole-staff appreciation — a rewarding overnight experience at a well-appointed city hotel without the complexity of overseas travel. Expect a comfortable room, a shared team dinner, pool and facilities access, and one guided team activity that does the bonding heavy-lifting. Partner hotels include Novotel Clarke Quay, Village Hotel, Park Hotel, Holiday Inn and Mercure.",
-        price: "From $200/pax/night",
         features: ["Hotel room night", "Team dinner", "Pool & facilities access", "1 team bonding activity", "Breakfast included"],
       },
       {
         color: "#FFC400",
         title: "Heritage",
         description: "A Story Worth Staying In. Not all hotels are built equal — some carry over a century of history in their walls. Heritage retreats use Singapore's most celebrated historical properties as the backdrop, which means the venue itself becomes a talking point before a single activity begins. Properties like Goodwood Park Hotel (built 1900), Fort Canning Hotel (a Napoleonic-era barracks), Capitol Kempinski (a 1929 landmark), and Raffles Singapore carry names that signal prestige and create events people remember. Ideal for leadership off-sites, milestone celebrations, and occasions where the visual calibre of the setting matters.",
-        price: "From $300/pax/night",
         features: ["Heritage hotel stay", "Premium dining experience", "Optional heritage tour", "Cultural team activity", "Curated itinerary"],
       },
       {
         color: "#FF4F4F",
         title: "Luxury",
         description: "Recognition-Grade. The Luxury tier is not for everyone — and that is precisely the point. These are the retreats you book when the message you want to send is: you have earned this. Properties in this tier include Capella Sentosa, Marina Bay Sands, The Fullerton Bay, Andaz Singapore, and Shangri-La — Singapore's most aspirational addresses. Expect immaculate rooms, private dining experiences, spa treatment credits, concierge service, and exclusive facilities that most of your team will never have experienced elsewhere. Best for top performer reward trips, board strategy off-sites, and senior leadership retreats.",
-        price: "From $500/pax/night",
         features: ["5-star luxury accommodation", "Private dining experience", "Spa treatment credit", "Concierge service", "Premium team programme"],
       },
     ],
