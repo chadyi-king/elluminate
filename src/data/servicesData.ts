@@ -6218,6 +6218,66 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "Can you manage small groups?", answer: "Yes. Our typical incentive group ranges from 8 to 80. Smaller groups actually get more elevated, personalised experiences." },
     ],
     cta: { headline: "Design Your Incentive Programme", subtext: "Tell us your dates, destination, and how many earners you want to reward." },
+    destinationsGrid: {
+      sectionTitle: "DESTINATIONS",
+      sectionSubtitle: "Where Will Your Earners Go?",
+      destinations: [
+        {
+          country: "Bali, Indonesia",
+          image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80",
+          tagline: "Clifftop villas, private pool dinners, and the ultimate tropical reward.",
+          activities: ["Villa Stay", "Private Dinner", "Rafting", "Temple Tour"],
+        },
+        {
+          country: "Tokyo, Japan",
+          image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
+          tagline: "Michelin stars, ancient culture, and a city that redefines what is possible.",
+          activities: ["Omakase Dinner", "Tea Ceremony", "TeamLab", "City Tour"],
+        },
+        {
+          country: "Phuket, Thailand",
+          image: "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80",
+          tagline: "Turquoise waters, yacht charters, and nights your top earners will never forget.",
+          activities: ["Yacht Charter", "Island Hopping", "Beach Gala", "Thai Cuisine"],
+        },
+        {
+          country: "Rome, Italy",
+          image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80",
+          tagline: "The Eternal City. Colosseum walks, rooftop aperitivos, and la dolce vita for your best.",
+          activities: ["Colosseum Tour", "Chef's Table", "Wine Tasting", "Vespa Tour"],
+        },
+        {
+          country: "Swiss Alps",
+          image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80",
+          tagline: "Mountain lodges, panoramic trains, and the kind of luxury that feels earned.",
+          activities: ["Alpine Hike", "Scenic Train", "Fondue Dinner", "Spa Retreat"],
+        },
+        {
+          country: "Maldives",
+          image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80",
+          tagline: "Overwater villas, private island dining, and recognition at the highest level.",
+          activities: ["Overwater Villa", "Snorkelling", "Sunset Cruise", "Private Beach"],
+        },
+        {
+          country: "London, UK",
+          image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+          tagline: "West End shows, private members' clubs, and a cosmopolitan reward experience.",
+          activities: ["West End Show", "Private Club", "Thames Cruise", "Pub Crawl"],
+        },
+        {
+          country: "Paris, France",
+          image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
+          tagline: "Eiffel Tower dinners, Champagne houses, and the world's most romantic city as a reward.",
+          activities: ["Eiffel Tower", "Champagne Tasting", "Louvre Tour", "Gala Dinner"],
+        },
+        {
+          country: "Santorini, Greece",
+          image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80",
+          tagline: "White-washed cliffs, Aegean sunsets, and a Mediterranean escape like no other.",
+          activities: ["Catamaran Cruise", "Wine Tour", "Cliff Dining", "Volcano Hike"],
+        },
+      ],
+    },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "From Criteria to Celebration",
