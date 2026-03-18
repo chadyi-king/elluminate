@@ -6313,27 +6313,24 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "AIA Singapore", event: "Million Dollar Round Table Trip", pax: 30 },
       { client: "Cisco Singapore", event: "Q4 Winners Trip — Japan", pax: 18 },
     ],
-    pricing: { startingPrice: "From $800", unit: "per pax", minimumPax: 5, duration: "3-7 days", activityType: "outdoor" },
+    pricing: { startingPrice: "Get a Quote", unit: "per pax", minimumPax: 5, duration: "3-7 days", activityType: "outdoor" },
     packages: [
       {
         color: "#26D07C",
         title: "Regional Incentive",
         description: "A well-executed 3-night incentive trip to a regional destination (Bali, Thailand, Malaysia). Includes round-trip economy flights, four-star accommodation, curated team activity, and a private recognition dinner.",
-        price: "From $800/pax",
         features: ["Economy/Economy+ flights", "4-star accommodation", "Team activity", "Private recognition dinner", "Dedicated coordinator"],
       },
       {
         color: "#FFC400",
         title: "Signature Incentive",
         description: "A 5-night premium experience to Japan, Hong Kong, or further afield. Premium economy flights or business class upgrade, 5-star accommodation, and a fully choreographed recognition evening.",
-        price: "From $2,000/pax",
         features: ["Premium economy flights", "5-star accommodation", "2 curated experiences", "Gala recognition dinner", "Highlight reel included"],
       },
       {
         color: "#FF4F4F",
         title: "Ultra Premium",
         description: "No ceiling, no compromise. Maldives, Swiss Alps, European capitals. Business class flights, private villa stays, chef experiences, and a fully custom programme designed from scratch.",
-        price: "Custom quote",
         features: ["Business class flights", "Luxury villa / resort", "Private experiences", "Custom programme", "White-glove service"],
       },
     ],
