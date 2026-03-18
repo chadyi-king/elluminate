@@ -548,7 +548,7 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
               What Makes Us <span className="text-primary">Different</span>
             </h2>
           </motion.div>
