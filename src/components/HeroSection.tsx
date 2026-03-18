@@ -6,7 +6,7 @@ import { ConfettiBurst } from "./ConfettiBurst";
 import { PhotoWall } from "./hero/PhotoWall";
 import { RotatingWord, wordData } from "./hero/RotatingWord";
 import { ServicePills } from "./hero/ServicePills";
-import { HeroPlaceholderHumans } from "./hero/HeroPlaceholderHumans";
+import { HeroCharacters } from "./hero/HeroCharacters";
 
 // SPARK letters
 const sparkLetters = [
@@ -39,8 +39,8 @@ export const HeroSection = () => {
       {/* Layer 1: Animated Photo Wall Background */}
       <PhotoWall />
 
-      {/* Placeholder overlay for testing the final composition before sourcing real cutouts */}
-      <HeroPlaceholderHumans />
+      {/* Character figures — left and right framing */}
+      <HeroCharacters />
 
       {/* Confetti */}
       <ConfettiBurst trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
