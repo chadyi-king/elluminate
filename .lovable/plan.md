@@ -1,59 +1,127 @@
 
 
-## Plan: SEO Enhancement + Google Ads Readiness
+# Comprehensive SEO Overhaul + Blog for elluminate.sg
 
-### What's Already Done
-- SEO component with meta tags on all pages (rebranded to Elluminate)
-- Structured data (Organization, LocalBusiness, WebSite, Service, FAQ, Breadcrumb schemas)
-- Sitemap.xml with all routes
-- robots.txt with sitemap directive
-- Breadcrumbs on service pages
-- Service-specific keywords for all slugs
+## Part 1: SEO Preparation (Comprehensive)
 
-### What's Missing
-1. **Google Analytics (GA4)** is not installed despite having tracking ID G-R4S0RLKQ67 in memory. No gtag script anywhere.
-2. **Google Ads conversion tracking** not set up (gtag for conversions).
-3. **About page** has no breadcrumbs or structured data.
-4. **Blog pages** have no structured data beyond what BlogPostPage adds.
-5. **NotFound page** has no SEO component (noindex needed).
-6. **Missing service slugs in sitemap**: `amongst-us`, `alice-in-motherland`, `battle-of-the-olympians` and other newer physical activities not listed.
-7. **No `blog` route in sitemap**.
-8. **Google Ads landing page best practices**: Need clear conversion tracking on CTA clicks (contact modal opens).
+### Current Gaps
+- All meta tags still say "Team Elevate" with old URLs (teamelevate.sg/teamelevate.com)
+- Zero structured data (JSON-LD) -- no Organization, LocalBusiness, Service, or BreadcrumbList schemas
+- No sitemap.xml
+- No FAQ schema on service pages (you have FAQ data in servicesData but it's not marked up)
+- No breadcrumbs component or markup
+- OG images point to lovable.dev placeholder
 
 ### Changes
 
-**1. Add Google Analytics 4 + Google Ads gtag (`index.html`)**
-- Add GA4 script with ID `G-R4S0RLKQ67` in `<head>`
-- Add gtag conversion tracking snippet for Google Ads readiness
-- Add `gtag('event', 'conversion', ...)` helper
-
-**2. Add conversion event tracking (`src/contexts/ContactModalContext.tsx`)**
-- Fire a `gtag` conversion event when the contact modal opens (this is the primary CTA across the site)
-- This gives Google Ads a conversion signal for optimization
-
-**3. About page SEO (`src/pages/AboutPage.tsx`)**
-- Add `<Breadcrumbs>` (Home > About Us)
-- Add `<OrganizationSchema>` structured data
-
-**4. NotFound page SEO (`src/pages/NotFound.tsx`)**
-- Add `<SEO>` with `robots: "noindex, nofollow"` to prevent indexing 404 pages
-
-**5. Update sitemap (`public/sitemap.xml`)**
-- Add missing service slugs: `amongst-us`, `alice-in-motherland`, `battle-of-the-olympians`
-- Add `/blog` route
-- Update `lastmod` dates to `2026-03-18`
-
-**6. SEO component enhancement (`src/components/SEO.tsx`)**
-- Add optional `robots` prop (defaults to `"index, follow"`) so NotFound can pass `"noindex, nofollow"`
-
-### Files Modified
+**1. Rebrand all meta tags to Elluminate / elluminate.sg**
 
 | File | Change |
-|---|---|
-| `index.html` | Add GA4 + Google Ads gtag script |
-| `src/components/SEO.tsx` | Add optional `robots` prop |
-| `src/contexts/ContactModalContext.tsx` | Fire gtag conversion event on modal open |
-| `src/pages/AboutPage.tsx` | Add Breadcrumbs + OrganizationSchema |
-| `src/pages/NotFound.tsx` | Add SEO with noindex |
-| `public/sitemap.xml` | Add missing slugs + blog route, update dates |
+|------|--------|
+| `index.html` | Title, description, author, OG, Twitter, canonical all to Elluminate + elluminate.sg |
+| `src/components/SEO.tsx` | Default props, `og:site_name`, author, `includes("Elluminate")` check |
+| `src/pages/Index.tsx` | Already says Elluminate -- just verify canonical |
+| `src/pages/PortfolioPage.tsx` | Canonical to elluminate.sg/portfolio |
+| `src/pages/AboutPage.tsx` | Canonical to elluminate.sg/about |
+
+**2. JSON-LD Structured Data (new component: `src/components/StructuredData.tsx`)**
+
+Inject schema.org markup for every page type:
+
+- **Organization schema** (global, on every page): name, url, logo, contactPoint, address, sameAs
+- **LocalBusiness schema** (homepage): extends Organization with geo coordinates, openingHours, priceRange
+- **Service schema** (each service page): name, description, provider, areaServed, offers (price from servicesData.pricing)
+- **FAQPage schema** (service pages with FAQs): question/answer pairs from servicesData.faqs
+- **BreadcrumbList schema** (all pages): Home > Services > {Service Name}
+- **WebSite schema** (homepage): potentialAction with SearchAction for site search
+
+**3. Sitemap generation (`public/sitemap.xml`)**
+
+Static XML sitemap listing all routes: homepage, about, portfolio, and every service slug from servicesData. Each entry has `<loc>`, `<lastmod>`, `<changefreq>`, `<priority>`.
+
+**4. Update `public/robots.txt`**
+
+Add `Sitemap: https://elluminate.sg/sitemap.xml` directive.
+
+**5. Breadcrumbs component (`src/components/Breadcrumbs.tsx`)**
+
+Lightweight breadcrumb nav rendered on service pages and about/portfolio. Visible to users AND marked up with BreadcrumbList JSON-LD. This is a top SEO signal used by Google's rich results.
+
+**6. Service page SEO enrichment**
+
+- Each service page already has keywords in ServicePage.tsx but they're incomplete. Expand the `serviceKeywords` record to cover ALL service slugs (treasure-heist, archery-tag, etc.)
+- Meta descriptions should be richer -- use the first 155 chars of overview but also append "Singapore" and key terms
+
+**7. Alt text audit on images**
+
+Many images use generic alt text like "Event photo 1". Update the PhotoWall and gallery components to use descriptive alt text with keywords (e.g., "Corporate team building amazing race activity in Singapore").
+
+---
+
+## Part 2: Blog for SEO
+
+Yes, a blog is one of the highest-impact SEO strategies. Team building competitors in Singapore (FunEmpire, Terrarium Singapore, Team Building Singapore) all rank heavily through blog content targeting long-tail keywords like "best team building activities Singapore 2025", "indoor team building ideas", etc.
+
+### Blog Implementation Plan
+
+**Database**: Create a `blog_posts` table in Lovable Cloud with fields: id, slug, title, excerpt, content (markdown), cover_image_url, author, published_at, category, tags, meta_description, is_published.
+
+**Pages**:
+- `/blog` -- Blog listing page with category filters, search, and pagination
+- `/blog/:slug` -- Individual blog post page with Article JSON-LD schema, OG tags, reading time, share buttons
+
+**Components**:
+- `BlogCard` -- Preview card for listing
+- `BlogPost` -- Full article renderer (markdown to HTML)
+- `BlogSidebar` -- Categories, recent posts, CTA
+
+**SEO value**: Each blog post generates a unique indexable URL with its own meta tags, Article schema, and internal links back to service pages. This is the primary way to capture long-tail search traffic.
+
+**Content strategy** (suggested initial posts):
+- "Top 10 Team Building Activities in Singapore 2026"
+- "How to Plan an Amazing Race for Your Company"
+- "Indoor vs Outdoor Team Building: Which Is Better?"
+- "Corporate Retreat Planning Guide: Singapore & Overseas"
+- "5 Benefits of Team Building for Employee Retention"
+
+---
+
+## Part 3: Image Generation
+
+Regarding your question about image generation capabilities:
+
+Lovable has built-in AI image generation using **Google Gemini 2.5 Flash Image** (called "Nano banana") and **Google Gemini 3 Pro Image Preview** for higher quality. These can generate images from text prompts and edit existing images.
+
+**How it works**: Images are generated via an edge function calling the Lovable AI Gateway. The model returns base64-encoded images that can be uploaded to storage.
+
+**Quality comparison with KIMI 2.5**: The Gemini models produce decent results for general imagery but may not match dedicated image generation models (like KIMI 2.5, Midjourney, or DALL-E 3) for photorealistic or highly stylized outputs. For website hero images and OG images, they're serviceable but for professional photography-quality results, you may want to generate externally and upload.
+
+**Practical use**: We could use the built-in generation to create OG images for each service page and blog posts, branded with Elluminate's colors and typography.
+
+---
+
+## Implementation Order
+
+1. Rebrand all meta tags (index.html, SEO.tsx, page-level SEO props)
+2. Create StructuredData.tsx with Organization, LocalBusiness, Service, FAQ, Breadcrumb schemas
+3. Create static sitemap.xml + update robots.txt
+4. Add Breadcrumbs component to service/about/portfolio pages
+5. Expand service keywords coverage
+6. Create blog database table + blog pages (Phase 2 -- larger task)
+
+## Files Modified/Created
+
+| File | Action |
+|------|--------|
+| `index.html` | Edit -- rebrand meta tags |
+| `src/components/SEO.tsx` | Edit -- rebrand defaults |
+| `src/components/StructuredData.tsx` | New -- JSON-LD schemas |
+| `src/components/Breadcrumbs.tsx` | New -- breadcrumb nav |
+| `public/sitemap.xml` | New -- static sitemap |
+| `public/robots.txt` | Edit -- add sitemap directive |
+| `src/pages/Index.tsx` | Edit -- add structured data |
+| `src/pages/ServicePage.tsx` | Edit -- add structured data, breadcrumbs, expand keywords |
+| `src/pages/AboutPage.tsx` | Edit -- canonical URL, breadcrumbs |
+| `src/pages/PortfolioPage.tsx` | Edit -- canonical URL, breadcrumbs |
+| Blog (Phase 2) | New table, new pages, new components |
 

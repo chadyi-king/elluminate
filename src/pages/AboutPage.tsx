@@ -5,6 +5,8 @@ import { Footer } from "@/components/Footer";
 import { FloatingBlobs } from "@/components/FloatingBlobs";
 import { OurTeam } from "@/components/OurTeam";
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { OrganizationSchema } from "@/components/StructuredData";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import { 
   Target, Eye, Heart, Sparkles, Award, Zap, 
@@ -179,7 +181,12 @@ const AboutPage = () => {
         keywords="about Elluminate, Singapore team building company, school programmes Singapore, training workshops Singapore"
         canonical="https://elluminate.sg/about"
       />
+      <OrganizationSchema />
       <Navbar />
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "About Us" },
+      ]} />
       
       {/* SECTION 1 - HERO BANNER - Dynamic Split Layout */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20 pb-16">

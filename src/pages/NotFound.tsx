@@ -2,6 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 import { ArrowLeft } from "lucide-react";
 
 const NotFound = () => {
@@ -13,6 +14,7 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen bg-background-deep flex items-center justify-center relative overflow-hidden">
+      <SEO title="Page Not Found | Elluminate" description="The page you're looking for doesn't exist." robots="noindex, nofollow" />
       {/* Background glow */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/10 rounded-full blur-3xl"

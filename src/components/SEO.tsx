@@ -7,6 +7,7 @@ interface SEOProps {
   ogImage?: string;
   canonical?: string;
   type?: string;
+  robots?: string;
 }
 
 export const SEO = ({
@@ -15,7 +16,8 @@ export const SEO = ({
   keywords = "team building Singapore, corporate team building, virtual team building, team bonding activities, corporate retreat Singapore, training workshops Singapore, school programmes Singapore",
   ogImage = "https://elluminate.sg/og-image.jpg",
   canonical = "https://elluminate.sg",
-  type = "website"
+  type = "website",
+  robots = "index, follow"
 }: SEOProps) => {
   const fullTitle = title.includes("Elluminate") ? title : `${title} | Elluminate`;
   
@@ -43,7 +45,7 @@ export const SEO = ({
       <link rel="canonical" href={canonical} />
       
       {/* Additional SEO */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={robots} />
       <meta name="author" content="Elluminate" />
       <meta name="geo.region" content="SG" />
       <meta name="geo.placename" content="Singapore" />

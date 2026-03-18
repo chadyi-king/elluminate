@@ -11,7 +11,16 @@ const ContactModalContext = createContext<ContactModalContextType | undefined>(u
 export const ContactModalProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const openContactModal = () => setIsOpen(true);
+  const openContactModal = () => {
+    setIsOpen(true);
+    // Fire Google Ads conversion event
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "conversion", {
+        event_category: "engagement",
+        event_label: "contact_modal_open",
+      });
+    }
+  };
   const closeContactModal = () => setIsOpen(false);
 
   return (
