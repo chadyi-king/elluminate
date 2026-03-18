@@ -196,7 +196,7 @@ export const ContactModal = () => {
                 <div className="w-10 h-0.5 bg-primary mt-3 rounded" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3 leading-snug">
-                Every team has a story.<br />Let us write the next chapter.
+                Let's build something your team won't stop talking about.
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-8">
                 Singapore's trusted partner for team building, corporate retreats, and impactful training programmes.
@@ -217,9 +217,9 @@ export const ContactModal = () => {
               </div>
               <div className="grid grid-cols-3 gap-2 mb-auto">
                 {[
-                  { value: "500+", label: "Events" },
-                  { value: "200+", label: "Clients" },
-                  { value: "15K+", label: "Participants" },
+                  { value: "1,000+", label: "Events" },
+                  { value: "100K+", label: "Participants" },
+                  { value: "8+", label: "Years" },
                 ].map(({ value, label }) => (
                   <div key={label} className="bg-white/5 rounded-xl p-3 text-center border border-white/10">
                     <div className="text-primary font-bold text-lg font-display leading-none">{value}</div>
