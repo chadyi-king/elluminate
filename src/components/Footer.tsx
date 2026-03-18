@@ -52,14 +52,14 @@ export const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="text-background font-display font-semibold text-lg mb-6">
-              Quick Links
+              Top Activities
             </h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
+            <ul className="space-y-2">
+              {topActivities.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-background/70 hover:text-primary text-sm transition-colors duration-300"
+                    className="text-background/70 hover:text-primary text-xs transition-colors duration-300"
                   >
                     {link.name}
                   </Link>

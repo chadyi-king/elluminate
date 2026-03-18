@@ -589,7 +589,7 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-10 max-w-2xl mx-auto"
           >
-            <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3">
               A Glimpse <span className="text-primary">Behind The Scenes</span>
             </h2>
             <p className="text-muted-foreground/80 font-sans text-sm md:text-base leading-relaxed">
