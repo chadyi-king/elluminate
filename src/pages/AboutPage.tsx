@@ -84,24 +84,24 @@ const values = [
 
 const features = [
   {
-    icon: Palette,
-    title: "Premium Event Craftsmanship",
-    description: "We design events with intention — blending storytelling, facilitation, and production to create unforgettable moments."
+    icon: Users,
+    title: "Team Building That Actually Works",
+    description: "We design activities that go beyond icebreakers. Every game, challenge, and debrief is built to strengthen real team dynamics and communication."
   },
   {
-    icon: Film,
-    title: "Immersive, Story-Driven Experiences",
-    description: "Our team builds unique team-building concepts inspired by film, theatre, and high-end game design."
+    icon: Lightbulb,
+    title: "Training With Real Takeaways",
+    description: "Our MBTI, DISC, and workshop sessions are practical, interactive, and tailored to your team's growth areas. No death-by-PowerPoint."
   },
   {
     icon: Mic,
-    title: "Professional Hosts & Facilitators",
-    description: "Engaging, charismatic, and trusted by top organisations across Singapore."
+    title: "Experienced Facilitators, Not Just Hosts",
+    description: "Our facilitators are trained to read the room, adapt on the fly, and bring out the best in every participant."
   },
   {
     icon: Sparkles,
-    title: "Cinematic Production Quality",
-    description: "Lighting, music, sound, visuals — all designed to elevate the experience."
+    title: "Customised to Your Team's Needs",
+    description: "No two teams are the same. We tailor every programme to your objectives, group size, and team culture."
   }
 ];
 
