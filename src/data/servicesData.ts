@@ -559,13 +559,13 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "Cambodia",
-          image: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=800&q=80",
           tagline: "Angkor Wat at sunrise, rich history, and an experience that recalibrates perspective.",
           activities: ["Angkor Wat", "Village Tour", "Cooking Class", "Sunset Cruise"],
         },
         {
           country: "Bintan, Indonesia",
-          image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80",
           tagline: "A 45-minute ferry from Singapore and a world away — beaches, golf, and real switch-off.",
           activities: ["Beach Golf", "Water Sports", "Spa", "Sunset Walk"],
         },
