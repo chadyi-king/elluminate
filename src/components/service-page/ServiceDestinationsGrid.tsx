@@ -85,11 +85,13 @@ export const ServiceDestinationsGrid = ({
                     <h3 className="text-white text-xl font-display font-bold leading-tight">
                       {dest.country}
                     </h3>
-                    <p className="text-white/55 text-xs mt-0.5">{dest.duration}</p>
+                    {dest.duration && <p className="text-white/55 text-xs mt-0.5">{dest.duration}</p>}
                   </div>
-                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/15 text-white backdrop-blur-sm shrink-0">
-                    {dest.priceFrom}
-                  </span>
+                  {dest.priceFrom && (
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/15 text-white backdrop-blur-sm shrink-0">
+                      {dest.priceFrom}
+                    </span>
+                  )}
                 </div>
               </div>
 
