@@ -7,13 +7,22 @@ import {
   Lightbulb
 } from "lucide-react";
 
-const quickLinks = [
-  { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
-  { name: "Team Building", path: "/services/amazing-race" },
-  { name: "Virtual Team Building", path: "/services/amazing-race-virtual" },
-  { name: "Retreats", path: "/services/overseas-retreats" },
-  { name: "Training Workshops", path: "/services/workshops" },
+const topActivities = [
+  { name: "Amazing Race", path: "/services/amazing-race" },
+  { name: "CSI-Bones", path: "/services/csi-bones" },
+  { name: "Cultural Race", path: "/services/cultural-race" },
+  { name: "Treasure Heist", path: "/services/treasure-heist" },
+  { name: "Sotong Game", path: "/services/sotong-game" },
+  { name: "Nerfwar", path: "/services/nerfwar" },
+  { name: "Archery Tag", path: "/services/archery-tag" },
+  { name: "Running Man", path: "/services/running-man" },
+  { name: "Amazing Race Virtual", path: "/services/amazing-race-virtual" },
+  { name: "Overseas Retreats", path: "/services/overseas-retreats" },
+  { name: "MBTI Profiling", path: "/services/mbti" },
+  { name: "DISC Assessment", path: "/services/disc" },
+  { name: "Workshops", path: "/services/workshops" },
+  { name: "Youth Camps", path: "/services/youth-camps" },
+  { name: "Student Workshops", path: "/services/student-workshops" },
 ];
 
 // Social links removed - no active accounts for Elluminate yet
