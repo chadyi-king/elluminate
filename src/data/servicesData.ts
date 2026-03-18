@@ -224,8 +224,8 @@ export interface ServiceData {
       country: string;
       image: string;
       tagline: string;
-      priceFrom: string;
-      duration: string;
+      priceFrom?: string;
+      duration?: string;
       activities: string[];
     }[];
   };
