@@ -5428,7 +5428,7 @@ export const servicesData: Record<string, ServiceData> = {
       destinations: [
         {
           country: "Sentosa Island",
-          image: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=800&q=80",
+          image: "/images/destinations/sentosa-island.jpg",
           tagline: "Island vibes just minutes from the CBD. Beach clubs, resort pools, and a world-class escape.",
           activities: ["Beach Activities", "Resort Pool", "Team Games", "Sunset Dinner"],
         },
@@ -5440,25 +5440,25 @@ export const servicesData: Record<string, ServiceData> = {
         },
         {
           country: "Heritage District",
-          image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800&q=80",
+          image: "/images/destinations/singapore-heritage-district.jpg",
           tagline: "Stay in buildings steeped in history. Shophouse charm meets modern luxury.",
           activities: ["Heritage Walk", "Cultural Tour", "Local Cuisine", "Art Gallery"],
         },
         {
           country: "East Coast",
-          image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+          image: "/images/destinations/east-coast-park.jpg",
           tagline: "Seaside breezes, cycling paths, and the best seafood in Singapore.",
           activities: ["Cycling", "Seafood Dinner", "Beach Games", "Kayaking"],
         },
         {
           country: "Orchard / City Centre",
-          image: "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?w=800&q=80",
+          image: "/images/destinations/orchard-road-singapore.jpg",
           tagline: "Urban luxury at its finest. Shopping, dining, and five-star comfort in the heart of the city.",
           activities: ["City Exploration", "Shopping Trail", "Rooftop Bar", "Spa Day"],
         },
         {
           country: "Changi & Jewel",
-          image: "https://images.unsplash.com/photo-1554050857-c84a8abdb5e2?w=800&q=80",
+          image: "/images/destinations/jewel-changi-rain-vortex.jpg",
           tagline: "Nature-meets-architecture retreats near the world's most celebrated airport.",
           activities: ["Jewel Tour", "Nature Walk", "Team Challenge", "Garden Dining"],
         },
