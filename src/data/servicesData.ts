@@ -5409,6 +5409,48 @@ export const servicesData: Record<string, ServiceData> = {
       { question: "Can you customize the itinerary?", answer: "Absolutely! We tailor activities and timing to your team's preferences." },
     ],
     cta: { headline: "Ready for a Local Escape?", subtext: "Discover Singapore's hidden gems with your team." },
+    destinationsGrid: {
+      sectionTitle: "VENUES",
+      sectionSubtitle: "Where Will Your Team Stay?",
+      destinations: [
+        {
+          country: "Sentosa Island",
+          image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+          tagline: "Island vibes just minutes from the CBD. Beach clubs, resort pools, and a world-class escape.",
+          activities: ["Beach Activities", "Resort Pool", "Team Games", "Sunset Dinner"],
+        },
+        {
+          country: "Marina Bay",
+          image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800&q=80",
+          tagline: "Singapore's iconic skyline as your backdrop. Luxury stays with unmatched city views.",
+          activities: ["Skyline Tour", "Fine Dining", "Infinity Pool", "Art Walk"],
+        },
+        {
+          country: "Heritage District",
+          image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?w=800&q=80",
+          tagline: "Stay in buildings steeped in history. Shophouse charm meets modern luxury.",
+          activities: ["Heritage Walk", "Cultural Tour", "Local Cuisine", "Art Gallery"],
+        },
+        {
+          country: "East Coast",
+          image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
+          tagline: "Seaside breezes, cycling paths, and the best seafood in Singapore.",
+          activities: ["Cycling", "Seafood Dinner", "Beach Games", "Kayaking"],
+        },
+        {
+          country: "Orchard / City Centre",
+          image: "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?w=800&q=80",
+          tagline: "Urban luxury at its finest. Shopping, dining, and five-star comfort in the heart of the city.",
+          activities: ["City Exploration", "Shopping Trail", "Rooftop Bar", "Spa Day"],
+        },
+        {
+          country: "Changi & Jewel",
+          image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80",
+          tagline: "Nature-meets-architecture retreats near the world's most celebrated airport.",
+          activities: ["Jewel Tour", "Nature Walk", "Team Challenge", "Garden Dining"],
+        },
+      ],
+    },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "Your Retreat Planning Journey",
