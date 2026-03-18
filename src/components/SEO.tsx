@@ -15,7 +15,8 @@ export const SEO = ({
   keywords = "team building Singapore, corporate team building, virtual team building, team bonding activities, corporate retreat Singapore, training workshops Singapore, school programmes Singapore",
   ogImage = "https://elluminate.sg/og-image.jpg",
   canonical = "https://elluminate.sg",
-  type = "website"
+  type = "website",
+  robots = "index, follow"
 }: SEOProps) => {
   const fullTitle = title.includes("Elluminate") ? title : `${title} | Elluminate`;
   
