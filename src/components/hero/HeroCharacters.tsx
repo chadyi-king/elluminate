@@ -109,7 +109,7 @@ export const HeroCharacters = () => (
     {/* BOTTOM-LEFT — Red woman: moved up ~15px, trimmed right 30px */}
     <CharacterFigure
       image={charRedWoman}
-      posClass="left-[-4%] xl:left-[-1%]"
+      posClass="left-[-4%] xl:left-[-1%] bottom-[-14%]"
       glowColor="hsla(4, 80%, 50%, 0.35)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(315deg) saturate(1.2) brightness(0.85)"
       delay={0.2}
