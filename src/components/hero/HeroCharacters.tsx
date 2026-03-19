@@ -77,45 +77,45 @@ const CharacterFigure = ({
 
 export const HeroCharacters = () => (
   <div className="pointer-events-none absolute inset-0 overflow-hidden">
-    {/* TOP-LEFT — Blue man: frames "IGNITE THE SPARK" text on left */}
+    {/* TOP-LEFT — Blue man: head at "IGNITE THE" text level */}
     <CharacterFigure
       image={charBlueMan}
-      posClass="left-[-6%] xl:left-[-2%] top-[-8%]"
+      posClass="left-[-4%] xl:left-[-1%] top-[-15%]"
       glowColor="hsla(214, 85%, 50%, 0.45)"
-      duotone="grayscale(1) sepia(0.4) hue-rotate(175deg) saturate(1.4) brightness(0.85)"
+      duotone="grayscale(0.8) sepia(0.3) hue-rotate(175deg) saturate(1.2) brightness(0.88)"
       delay={0.1}
       size={{ w: 500, h: 860 }}
       zIndex={20}
     />
 
-    {/* BOTTOM-LEFT — Red woman: head aligns near subtitle zone, pushed further left out of frame */}
+    {/* BOTTOM-LEFT — Red woman: head aligns near subtitle zone */}
     <CharacterFigure
       image={charRedWoman}
-      posClass="left-[-16%] xl:left-[-12%] bottom-[-18%]"
-      glowColor="hsla(4, 80%, 50%, 0.45)"
-      duotone="grayscale(1) sepia(0.4) hue-rotate(315deg) saturate(1.4) brightness(0.82)"
+      posClass="left-[-4%] xl:left-[-1%] bottom-[-18%]"
+      glowColor="hsla(4, 80%, 50%, 0.35)"
+      duotone="grayscale(0.8) sepia(0.3) hue-rotate(315deg) saturate(1.2) brightness(0.85)"
       delay={0.2}
       size={{ w: 480, h: 820 }}
       zIndex={25}
     />
 
-    {/* TOP-RIGHT — Green woman: frames "IGNITE THE SPARK" text on right */}
+    {/* TOP-RIGHT — Green woman: head at "IGNITE THE" text level */}
     <CharacterFigure
       image={charGreenWoman}
-      posClass="right-[-6%] xl:right-[-2%] top-[-8%]"
+      posClass="right-[-4%] xl:right-[-1%] top-[-15%]"
       glowColor="hsla(145, 55%, 35%, 0.45)"
-      duotone="grayscale(1) sepia(0.4) hue-rotate(100deg) saturate(1.4) brightness(0.82)"
+      duotone="grayscale(0.8) sepia(0.3) hue-rotate(100deg) saturate(1.2) brightness(0.85)"
       delay={0.15}
       size={{ w: 480, h: 840 }}
       zIndex={20}
     />
 
-    {/* BOTTOM-RIGHT — Yellow boy: head aligns near subtitle zone, pushed further right out of frame */}
+    {/* BOTTOM-RIGHT — Yellow boy: head aligns near subtitle zone */}
     <CharacterFigure
       image={charYellowBoy}
-      posClass="right-[-16%] xl:right-[-12%] bottom-[-18%]"
-      glowColor="hsla(44, 95%, 52%, 0.45)"
-      duotone="grayscale(1) sepia(0.4) hue-rotate(6deg) saturate(1.3) brightness(0.84)"
+      posClass="right-[-4%] xl:right-[-1%] bottom-[-18%]"
+      glowColor="hsla(44, 95%, 52%, 0.35)"
+      duotone="grayscale(0.8) sepia(0.3) hue-rotate(6deg) saturate(1.1) brightness(0.87)"
       delay={0.25}
       size={{ w: 440, h: 780 }}
       zIndex={25}

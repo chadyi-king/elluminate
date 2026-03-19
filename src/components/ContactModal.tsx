@@ -231,11 +231,11 @@ export const ContactModal = () => {
                   <span>Typically replies within 1 business day</span>
                 </div>
                 <a
-                  href="mailto:hello@elluminate.sg"
+                  href="mailto:info@elluminate.sg"
                   className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors text-sm"
                 >
                   <Mail className="w-4 h-4" />
-                  hello@elluminate.sg
+                  info@elluminate.sg
                 </a>
               </div>
             </div>
