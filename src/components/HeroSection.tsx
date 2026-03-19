@@ -171,8 +171,6 @@ export const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Service Pills - Circular icons */}
-          <ServicePills />
         </div>
       </div>
 
