@@ -4,8 +4,8 @@ import {
   Phone, 
   MapPin,
   MessageCircle,
-  Lightbulb
 } from "lucide-react";
+import elluminateLogo from "@/assets/logos/elluminate-logo.png";
 
 const topActivities = [
   { name: "Amazing Race", path: "/services/amazing-race" },
