@@ -30,7 +30,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: Dro
     >
       <button
         onClick={onToggle}
-        className="flex items-center gap-1.5 text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium py-2 uppercase"
+        className="flex items-center gap-1.5 text-foreground/70 hover:text-primary transition-colors duration-300 text-xs tracking-[0.15em] font-medium py-2 uppercase"
       >
         {label}
         <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
