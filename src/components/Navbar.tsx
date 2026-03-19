@@ -320,7 +320,7 @@ export const Navbar = () => {
                   openContactModal();
                 }}
               >
-                Plan My Event
+                PLAN MY EVENT
               </Button>
             </div>
           </motion.div>
