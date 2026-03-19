@@ -135,7 +135,7 @@ export const HeroCharacters = () => (
     {/* BOTTOM-RIGHT — Yellow boy: moved up ~30px, left ~8px, trimmed left 20px */}
     <CharacterFigure
       image={charYellowBoy}
-      posClass="right-[-4%] xl:right-[-1%]"
+      posClass="right-[-5%] xl:right-[-2%] bottom-[-12%]"
       glowColor="hsla(44, 95%, 52%, 0.35)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(6deg) saturate(1.1) brightness(0.87)"
       delay={0.25}
