@@ -17,7 +17,16 @@ interface CharacterProps {
   showBottomFade?: boolean;
 }
 
-const CharacterFigure = ({ image, posClass, glowColor, duotone, delay, size, zIndex, showBottomFade = true }: CharacterProps) => {
+const CharacterFigure = ({
+  image,
+  posClass,
+  glowColor,
+  duotone,
+  delay,
+  size,
+  zIndex,
+  showBottomFade = true,
+}: CharacterProps) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -34,9 +43,7 @@ const CharacterFigure = ({ image, posClass, glowColor, duotone, delay, size, zIn
       <motion.div
         className="w-full h-full"
         animate={{
-          filter: hovered
-            ? `drop-shadow(0 0 18px ${glowColor}) drop-shadow(0 0 40px ${glowColor})`
-            : duotone,
+          filter: hovered ? `drop-shadow(0 0 18px ${glowColor}) drop-shadow(0 0 40px ${glowColor})` : duotone,
           scale: hovered ? 1.05 : 1,
         }}
         transition={{ duration: 0.45 }}
@@ -85,7 +92,7 @@ export const HeroCharacters = () => (
     {/* TOP-RIGHT — Green woman */}
     <CharacterFigure
       image={charGreenWoman}
-      posClass="right-[-4%] xl:right-[-1%] top-[15%]"
+      posClass="right-[-4%] xl:right-[-1%] top-[18%]"
       glowColor="hsla(145, 55%, 35%, 0.45)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(100deg) saturate(1.2) brightness(0.85)"
       delay={0.15}
@@ -97,7 +104,7 @@ export const HeroCharacters = () => (
     {/* BOTTOM-RIGHT — Yellow boy */}
     <CharacterFigure
       image={charYellowBoy}
-      posClass="right-[-4%] xl:right-[-1%] bottom-[-3%]"
+      posClass="right-[-4%] xl:right-[-1%] bottom-[-1%]"
       glowColor="hsla(44, 95%, 52%, 0.35)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(6deg) saturate(1.1) brightness(0.87)"
       delay={0.25}
