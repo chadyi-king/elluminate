@@ -84,7 +84,7 @@ export const HeroCharacters = () => (
       glowColor="hsla(214, 85%, 50%, 0.45)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(175deg) saturate(1.2) brightness(0.88)"
       delay={0.1}
-      size={{ w: 500, h: 860 }}
+      size={{ w: 500, h: 500 }}
       zIndex={20}
     />
 
@@ -95,7 +95,7 @@ export const HeroCharacters = () => (
       glowColor="hsla(4, 80%, 50%, 0.35)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(315deg) saturate(1.2) brightness(0.85)"
       delay={0.2}
-      size={{ w: 480, h: 820 }}
+      size={{ w: 480, h: 500 }}
       zIndex={25}
     />
 
@@ -106,7 +106,7 @@ export const HeroCharacters = () => (
       glowColor="hsla(145, 55%, 35%, 0.45)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(100deg) saturate(1.2) brightness(0.85)"
       delay={0.15}
-      size={{ w: 480, h: 840 }}
+      size={{ w: 480, h: 500 }}
       zIndex={20}
     />
 
@@ -117,7 +117,7 @@ export const HeroCharacters = () => (
       glowColor="hsla(44, 95%, 52%, 0.35)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(6deg) saturate(1.1) brightness(0.87)"
       delay={0.25}
-      size={{ w: 440, h: 780 }}
+      size={{ w: 440, h: 480 }}
       zIndex={25}
     />
   </div>

@@ -30,7 +30,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: Dro
     >
       <button
         onClick={onToggle}
-        className="flex items-center gap-1.5 text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium py-2 uppercase"
+        className="flex items-center gap-1.5 text-foreground/70 hover:text-primary transition-colors duration-300 text-xs tracking-[0.15em] font-medium py-2 uppercase"
       >
         {label}
         <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -116,7 +116,7 @@ export const Navbar = () => {
   };
 
   const navLinkClass = (path: string) => 
-    `transition-colors duration-300 text-sm font-medium ${
+    `transition-colors duration-300 text-xs tracking-[0.15em] font-medium ${
       isActive(path) ? 'text-primary' : 'text-foreground/70 hover:text-primary'
     }`;
 
@@ -125,7 +125,7 @@ export const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-[10px] left-0 right-0 z-50 backdrop-blur-lg"
+      className="fixed top-0 left-0 right-0 z-50 bg-background pt-[10px]"
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
@@ -175,7 +175,7 @@ export const Navbar = () => {
               href="https://elluminate.sg"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium uppercase"
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-xs tracking-[0.15em] font-medium uppercase"
             >
               Large-Scale
             </a>
@@ -183,7 +183,7 @@ export const Navbar = () => {
               href="https://encompasse.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium uppercase"
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-xs tracking-[0.15em] font-medium uppercase"
             >
               School
             </a>
