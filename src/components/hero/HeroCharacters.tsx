@@ -56,7 +56,7 @@ const CharacterFigure = ({ image, posClass, glowColor, duotone, delay, size, zIn
       <div
         className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, transparent 0%, white 85%)",
+          background: "linear-gradient(to bottom, transparent 0%, white 35%)",
         }}
       />
     </motion.div>
