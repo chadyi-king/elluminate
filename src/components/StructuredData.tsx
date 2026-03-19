@@ -10,7 +10,7 @@ export const OrganizationSchema = ({ type = "Organization" }: OrganizationSchema
     "@type": type,
     name: "Elluminate",
     url: "https://elluminate.sg",
-    logo: "https://elluminate.sg/favicon.ico",
+    logo: "https://elluminate.sg/favicon.png",
     description: "Singapore's premier team building and corporate events company. Physical & virtual activities, retreats, and training programs.",
     contactPoint: {
       "@type": "ContactPoint",
