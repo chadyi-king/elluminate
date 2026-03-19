@@ -14,6 +14,8 @@ interface CharacterProps {
   delay: number;
   size: { w: number; h: number };
   zIndex: number;
+  showBottomFade?: boolean;
+  clipPadding?: { top?: number; right?: number; bottom?: number; left?: number };
 }
 
 const CharacterFigure = ({
@@ -24,8 +26,15 @@ const CharacterFigure = ({
   delay,
   size,
   zIndex,
+  showBottomFade = true,
+  clipPadding,
 }: CharacterProps) => {
   const [hovered, setHovered] = useState(false);
+
+  // Build clip-path inset to tighten the interactive area
+  const inset = clipPadding
+    ? `inset(${clipPadding.top ?? 0}px ${clipPadding.right ?? 0}px ${clipPadding.bottom ?? 0}px ${clipPadding.left ?? 0}px)`
+    : undefined;
 
   return (
     <motion.div
@@ -35,7 +44,12 @@ const CharacterFigure = ({
       transition={{ duration: 0.9, delay, ease: "easeOut" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ width: size.w, height: size.h, zIndex }}
+      style={{
+        width: size.w,
+        height: size.h,
+        zIndex,
+        clipPath: inset,
+      }}
     >
       {/* Radial glow behind figure on hover */}
       <motion.div
@@ -64,61 +78,71 @@ const CharacterFigure = ({
         />
       </motion.div>
 
-      {/* Fade-to-white gradient at bottom to mask cut-off */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none"
-        style={{
-          background: "linear-gradient(to bottom, transparent 0%, white 85%)",
-        }}
-      />
+      {/* Fade-to-white gradient at bottom — only if enabled */}
+      {showBottomFade && (
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none"
+          style={{
+            background: "linear-gradient(to bottom, transparent 0%, white 85%)",
+          }}
+        />
+      )}
     </motion.div>
   );
 };
 
 export const HeroCharacters = () => (
-  <div className="pointer-events-none absolute inset-0 overflow-hidden">
-    {/* TOP-LEFT — Blue man: head at "IGNITE THE" text level */}
+  <div className="pointer-events-none absolute inset-0 overflow-hidden" style={{ zIndex: 25 }}>
+    {/* TOP-LEFT — Blue man: shifted down 100px, no bottom fade, trimmed right 20px */}
     <CharacterFigure
       image={charBlueMan}
-      posClass="left-[-4%] xl:left-[-1%] top-[-15%]"
+      posClass="left-[-4%] xl:left-[-1%] top-[-5%]"
       glowColor="hsla(214, 85%, 50%, 0.45)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(175deg) saturate(1.2) brightness(0.88)"
       delay={0.1}
-      size={{ w: 500, h: 500 }}
+      size={{ w: 480, h: 500 }}
       zIndex={20}
+      showBottomFade={false}
+      clipPadding={{ right: 20 }}
     />
 
-    {/* BOTTOM-LEFT — Red woman: head aligns near subtitle zone */}
+    {/* BOTTOM-LEFT — Red woman: moved up ~15px, trimmed right 30px */}
     <CharacterFigure
       image={charRedWoman}
-      posClass="left-[-4%] xl:left-[-1%] bottom-[-18%]"
+      posClass="left-[-4%] xl:left-[-1%] bottom-[-14%]"
       glowColor="hsla(4, 80%, 50%, 0.35)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(315deg) saturate(1.2) brightness(0.85)"
       delay={0.2}
       size={{ w: 480, h: 500 }}
       zIndex={25}
+      showBottomFade={true}
+      clipPadding={{ right: 30 }}
     />
 
-    {/* TOP-RIGHT — Green woman: head at "IGNITE THE" text level */}
+    {/* TOP-RIGHT — Green woman: shifted down 100px, no bottom fade, trimmed left 15px */}
     <CharacterFigure
       image={charGreenWoman}
-      posClass="right-[-4%] xl:right-[-1%] top-[-15%]"
+      posClass="right-[-4%] xl:right-[-1%] top-[-5%]"
       glowColor="hsla(145, 55%, 35%, 0.45)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(100deg) saturate(1.2) brightness(0.85)"
       delay={0.15}
       size={{ w: 480, h: 500 }}
       zIndex={20}
+      showBottomFade={false}
+      clipPadding={{ left: 15 }}
     />
 
-    {/* BOTTOM-RIGHT — Yellow boy: head aligns near subtitle zone */}
+    {/* BOTTOM-RIGHT — Yellow boy: moved up ~30px, left ~8px, trimmed left 20px */}
     <CharacterFigure
       image={charYellowBoy}
-      posClass="right-[-4%] xl:right-[-1%] bottom-[-18%]"
+      posClass="right-[-5%] xl:right-[-2%] bottom-[-12%]"
       glowColor="hsla(44, 95%, 52%, 0.35)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(6deg) saturate(1.1) brightness(0.87)"
       delay={0.25}
       size={{ w: 440, h: 480 }}
       zIndex={25}
+      showBottomFade={true}
+      clipPadding={{ left: 20 }}
     />
   </div>
 );

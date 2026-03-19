@@ -45,8 +45,8 @@ export const HeroSection = () => {
       {/* Confetti */}
       <ConfettiBurst trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
 
-      {/* Layer 2: Main Content */}
-      <div className="container mx-auto px-4 relative z-20 pt-[120px] pb-24">
+      {/* Layer 2: Main Content — text behind characters, buttons on top */}
+      <div className="container mx-auto px-4 relative z-20 pt-[120px] pb-24 pointer-events-none">
         <div className="flex flex-col items-center text-center w-full">
           {/* Main Headline - Dramatic visual hierarchy */}
           <motion.h1
@@ -135,12 +135,12 @@ export const HeroSection = () => {
             Trusted by companies, schools, and public-sector teams with <span className="text-primary font-semibold">1,000+ events delivered</span>
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons — topmost layer */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="flex flex-col sm:flex-row items-center gap-4 mb-10"
+            className="relative z-30 flex flex-col sm:flex-row items-center gap-4 mb-10 pointer-events-auto"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Button
