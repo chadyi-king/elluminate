@@ -23,13 +23,14 @@ interface DropdownProps {
 
 const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: DropdownProps) => {
   return (
-    <div className="relative group">
+    <div
+      className="relative"
+      onMouseEnter={() => { if (!isOpen) onToggle(); }}
+      onMouseLeave={onClose}
+    >
       <button
         onClick={onToggle}
-        onMouseEnter={() => {
-          if (!isOpen) onToggle();
-        }}
-        className="flex items-center gap-1.5 text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium py-2"
+        className="flex items-center gap-1.5 text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium py-2 uppercase"
       >
         {label}
         <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -42,51 +43,52 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: Dro
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            onMouseLeave={onClose}
-            className={`absolute top-full left-0 mt-2 bg-background border border-border rounded-xl shadow-card overflow-hidden z-50 ${
-              subGroups ? "w-[860px]" : "w-64"
-            }`}
+            className={`absolute top-full left-0 mt-0 pt-2 z-50`}
           >
-            {subGroups ? (
-              <div className="p-4">
-                <div className="grid grid-cols-2 gap-8">
-                  {subGroups.map((group) => (
-                    <div key={group.title}>
-                      <div className={`px-2 py-2 text-xs font-semibold uppercase tracking-wider ${
-                        group.title === "Physical Team Building" ? "text-primary" : group.title === "Virtual Team Building" ? "text-purple-600" : "text-muted-foreground"
-                      }`}>
-                        {group.title}
+            <div className={`bg-background border border-border rounded-xl shadow-card overflow-hidden ${
+              subGroups ? "w-[860px]" : "w-64"
+            }`}>
+              {subGroups ? (
+                <div className="p-4">
+                  <div className="grid grid-cols-2 gap-8">
+                    {subGroups.map((group) => (
+                      <div key={group.title}>
+                        <div className={`px-2 py-2 text-xs font-semibold uppercase tracking-wider ${
+                          group.title === "Physical Team Building" ? "text-primary" : group.title === "Virtual Team Building" ? "text-purple-600" : "text-muted-foreground"
+                        }`}>
+                          {group.title}
+                        </div>
+                        <div className="grid grid-cols-2 gap-x-2">
+                          {group.items.map((item) => (
+                            <Link
+                              key={item.slug}
+                              to={`/services/${item.slug}`}
+                              onClick={onClose}
+                              className="block rounded-lg px-2 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                      <div className="grid grid-cols-2 gap-x-2">
-                        {group.items.map((item) => (
-                          <Link
-                            key={item.slug}
-                            to={`/services/${item.slug}`}
-                            onClick={onClose}
-                            className="block rounded-lg px-2 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="py-2 max-h-80 overflow-y-auto scrollbar-blue">
+                  {items.map((item) => (
+                    <Link
+                      key={item.slug}
+                      to={`/services/${item.slug}`}
+                      onClick={onClose}
+                      className="block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
+                    >
+                      {item.name}
+                    </Link>
                   ))}
                 </div>
-              </div>
-            ) : (
-              <div className="py-2 max-h-80 overflow-y-auto scrollbar-blue">
-                {items.map((item) => (
-                  <Link
-                    key={item.slug}
-                    to={`/services/${item.slug}`}
-                    onClick={onClose}
-                    className="block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            )}
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -123,16 +125,16 @@ export const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg"
+      className="fixed top-[10px] left-0 right-0 z-50 backdrop-blur-lg"
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Left Navigation */}
           <div className="hidden lg:flex items-center gap-6">
-            <Link to="/" className={navLinkClass('/')}>
+            <Link to="/" className={`${navLinkClass('/')} uppercase`}>
               Home
             </Link>
-            <Link to="/about" className={navLinkClass('/about')}>
+            <Link to="/about" className={`${navLinkClass('/about')} uppercase`}>
               About
             </Link>
             <NavDropdown
@@ -173,7 +175,7 @@ export const Navbar = () => {
               href="https://elluminate.sg"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium"
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium uppercase"
             >
               Large-Scale
             </a>
@@ -181,7 +183,7 @@ export const Navbar = () => {
               href="https://encompasse.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium"
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium uppercase"
             >
               School
             </a>
