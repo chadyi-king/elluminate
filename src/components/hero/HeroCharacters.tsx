@@ -96,7 +96,7 @@ export const HeroCharacters = () => (
     {/* TOP-LEFT — Blue man: shifted down 100px, no bottom fade, trimmed right 20px */}
     <CharacterFigure
       image={charBlueMan}
-      posClass="left-[-4%] xl:left-[-1%]"
+      posClass="left-[-4%] xl:left-[-1%] top-[-5%]"
       glowColor="hsla(214, 85%, 50%, 0.45)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(175deg) saturate(1.2) brightness(0.88)"
       delay={0.1}
