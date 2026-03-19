@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Mail, CalendarIcon, Zap, Monitor, GraduationCap, Clock } from "lucide-react";
+import elluminateWords from "@/assets/logos/elluminate-words.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
