@@ -126,7 +126,7 @@ export const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg"
     >
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Left Navigation */}
           <div className="hidden lg:flex items-center gap-6">
             <Link to="/" className={navLinkClass('/')}>
