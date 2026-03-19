@@ -96,11 +96,11 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:hello@elluminate.sg"
+                  href="mailto:info@elluminate.sg"
                   className="flex items-center gap-3 text-background/70 hover:text-primary text-sm transition-colors duration-300"
                 >
                   <Mail className="w-5 h-5 text-primary" />
-                  hello@elluminate.sg
+                  info@elluminate.sg
                 </a>
               </li>
               <li>

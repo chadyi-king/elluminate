@@ -77,48 +77,48 @@ const CharacterFigure = ({
 
 export const HeroCharacters = () => (
   <div className="pointer-events-none absolute inset-0 overflow-hidden">
-    {/* TOP-LEFT — Blue man (higher z-index, alongside SPARK text) */}
+    {/* TOP-LEFT — Blue man: frames "IGNITE THE SPARK" text on left */}
     <CharacterFigure
       image={charBlueMan}
-      posClass="left-[-8%] xl:left-[-4%] top-[-5%]"
+      posClass="left-[-6%] xl:left-[-2%] top-[-8%]"
       glowColor="hsla(214, 85%, 50%, 0.45)"
-      duotone="grayscale(1) sepia(0.5) hue-rotate(175deg) saturate(1.8) brightness(0.9)"
+      duotone="grayscale(1) sepia(0.4) hue-rotate(175deg) saturate(1.4) brightness(0.85)"
       delay={0.1}
-      size={{ w: 520, h: 880 }}
-      zIndex={25}
+      size={{ w: 500, h: 860 }}
+      zIndex={20}
     />
 
-    {/* BOTTOM-LEFT — Red woman (lower z-index, pushed further left out of frame) */}
+    {/* BOTTOM-LEFT — Red woman: head aligns near subtitle zone, pushed further left out of frame */}
     <CharacterFigure
       image={charRedWoman}
-      posClass="left-[-12%] xl:left-[-8%] bottom-[-15%]"
+      posClass="left-[-16%] xl:left-[-12%] bottom-[-18%]"
       glowColor="hsla(4, 80%, 50%, 0.45)"
-      duotone="grayscale(1) sepia(0.5) hue-rotate(315deg) saturate(1.8) brightness(0.88)"
+      duotone="grayscale(1) sepia(0.4) hue-rotate(315deg) saturate(1.4) brightness(0.82)"
       delay={0.2}
-      size={{ w: 500, h: 850 }}
-      zIndex={20}
-    />
-
-    {/* TOP-RIGHT — Green woman (higher z-index, alongside SPARK text) */}
-    <CharacterFigure
-      image={charGreenWoman}
-      posClass="right-[-8%] xl:right-[-4%] top-[-5%]"
-      glowColor="hsla(145, 55%, 35%, 0.45)"
-      duotone="grayscale(1) sepia(0.5) hue-rotate(100deg) saturate(1.8) brightness(0.88)"
-      delay={0.15}
-      size={{ w: 500, h: 860 }}
+      size={{ w: 480, h: 820 }}
       zIndex={25}
     />
 
-    {/* BOTTOM-RIGHT — Yellow boy (lower z-index, pushed further right out of frame) */}
+    {/* TOP-RIGHT — Green woman: frames "IGNITE THE SPARK" text on right */}
+    <CharacterFigure
+      image={charGreenWoman}
+      posClass="right-[-6%] xl:right-[-2%] top-[-8%]"
+      glowColor="hsla(145, 55%, 35%, 0.45)"
+      duotone="grayscale(1) sepia(0.4) hue-rotate(100deg) saturate(1.4) brightness(0.82)"
+      delay={0.15}
+      size={{ w: 480, h: 840 }}
+      zIndex={20}
+    />
+
+    {/* BOTTOM-RIGHT — Yellow boy: head aligns near subtitle zone, pushed further right out of frame */}
     <CharacterFigure
       image={charYellowBoy}
-      posClass="right-[-12%] xl:right-[-8%] bottom-[-15%]"
+      posClass="right-[-16%] xl:right-[-12%] bottom-[-18%]"
       glowColor="hsla(44, 95%, 52%, 0.45)"
-      duotone="grayscale(1) sepia(0.5) hue-rotate(6deg) saturate(1.6) brightness(0.9)"
+      duotone="grayscale(1) sepia(0.4) hue-rotate(6deg) saturate(1.3) brightness(0.84)"
       delay={0.25}
-      size={{ w: 460, h: 800 }}
-      zIndex={20}
+      size={{ w: 440, h: 780 }}
+      zIndex={25}
     />
   </div>
 );

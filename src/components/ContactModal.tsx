@@ -199,15 +199,15 @@ export const ContactModal = () => {
               <p className="text-gray-400 text-sm leading-relaxed mb-5">
                 Singapore's trusted partner for team building, corporate retreats, and impactful training programmes.
               </p>
-              <div className="flex flex-col gap-3 mb-8">
+              <div className="flex flex-col gap-2.5 mb-5">
                 {[
                   { icon: Zap, label: "Physical Team Building" },
                   { icon: Monitor, label: "Virtual Team Building" },
                   { icon: GraduationCap, label: "Training & Workshops" },
                 ].map(({ icon: Icon, label }) => (
                   <div key={label} className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-4 h-4 text-primary" />
+                    <div className="w-7 h-7 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-3.5 h-3.5 text-primary" />
                     </div>
                     <span className="text-gray-300 text-sm">{label}</span>
                   </div>
@@ -219,8 +219,8 @@ export const ContactModal = () => {
                   { value: "100K+", label: "Participants" },
                   { value: "8+", label: "Years" },
                 ].map(({ value, label }) => (
-                  <div key={label} className="bg-white/5 rounded-xl p-3 text-center border border-white/10">
-                    <div className="text-primary font-bold text-lg font-display leading-none">{value}</div>
+                  <div key={label} className="bg-white/5 rounded-xl p-2.5 text-center border border-white/10">
+                    <div className="text-primary font-bold text-base font-display leading-none">{value}</div>
                     <div className="text-gray-500 text-xs mt-1">{label}</div>
                   </div>
                 ))}
