@@ -191,7 +191,7 @@ export const ContactModal = () => {
             <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/10 rounded-full blur-3xl pointer-events-none" style={{ transform: "translate(-30%,30%)" }} />
             <div className="relative z-10 flex flex-col h-full">
               <div className="mb-6">
-                <img src={elluminateWords} alt="Elluminate - Take Flight & Shine" className="h-48 w-auto" />
+                <img src={elluminateWords} alt="Elluminate - Take Flight & Shine" className="h-48 w-auto object-contain" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3 leading-snug">
                 Let's build something your team won't stop talking about.

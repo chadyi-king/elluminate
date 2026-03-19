@@ -9,42 +9,43 @@ import charYellowBoy from "@/assets/hero/char-yellow-boy.png";
 interface CharacterProps {
   image: string;
   posClass: string;
-  tone: string;
   glowColor: string;
   duotone: string;
   delay: number;
   size: { w: number; h: number };
+  zIndex: number;
 }
 
 const CharacterFigure = ({
   image,
   posClass,
-  tone,
   glowColor,
   duotone,
   delay,
   size,
+  zIndex,
 }: CharacterProps) => {
   const [hovered, setHovered] = useState(false);
 
   return (
     <motion.div
-      className={`absolute z-20 hidden lg:block pointer-events-auto ${posClass}`}
+      className={`absolute hidden lg:block pointer-events-auto ${posClass}`}
       initial={{ opacity: 0, y: 60 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.9, delay, ease: "easeOut" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ width: size.w, height: size.h }}
+      style={{ width: size.w, height: size.h, zIndex }}
     >
       {/* Radial glow behind figure on hover */}
       <motion.div
-        className="absolute inset-x-0 bottom-0 -z-10 h-[90%]"
-        animate={{ opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.45 }}
+        className="absolute inset-x-0 bottom-0 h-[90%]"
         style={{
+          zIndex: -1,
           background: `radial-gradient(ellipse 90% 85% at 50% 80%, ${glowColor}, transparent 72%)`,
         }}
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: 0.45 }}
       />
 
       {/* Character image with duotone → full color on hover */}
@@ -65,9 +66,9 @@ const CharacterFigure = ({
 
       {/* Fade-to-white gradient at bottom to mask cut-off */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-[25%] pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, transparent 0%, white 90%)",
+          background: "linear-gradient(to bottom, transparent 0%, white 85%)",
         }}
       />
     </motion.div>
@@ -75,49 +76,49 @@ const CharacterFigure = ({
 };
 
 export const HeroCharacters = () => (
-  <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
-    {/* LEFT SIDE — Blue man (top) */}
+  <div className="pointer-events-none absolute inset-0 overflow-hidden">
+    {/* TOP-LEFT — Blue man (higher z-index, alongside SPARK text) */}
     <CharacterFigure
       image={charBlueMan}
-      posClass="left-[-6%] xl:left-[-3%] top-[2%]"
-      tone="hsl(214, 85%, 50%)"
-      glowColor="hsla(214, 85%, 50%, 0.4)"
-      duotone="grayscale(1) sepia(0.7) hue-rotate(175deg) saturate(2.5) brightness(0.86)"
+      posClass="left-[-8%] xl:left-[-4%] top-[-5%]"
+      glowColor="hsla(214, 85%, 50%, 0.45)"
+      duotone="grayscale(1) sepia(0.5) hue-rotate(175deg) saturate(1.8) brightness(0.9)"
       delay={0.1}
-      size={{ w: 480, h: 820 }}
+      size={{ w: 520, h: 880 }}
+      zIndex={25}
     />
 
-    {/* LEFT SIDE — Red woman (bottom, overlapping top) */}
+    {/* BOTTOM-LEFT — Red woman (lower z-index, pushed further left out of frame) */}
     <CharacterFigure
       image={charRedWoman}
-      posClass="left-[2%] xl:left-[6%] bottom-[-5%]"
-      tone="hsl(4, 80%, 50%)"
-      glowColor="hsla(4, 80%, 50%, 0.4)"
-      duotone="grayscale(1) sepia(0.7) hue-rotate(315deg) saturate(2.5) brightness(0.84)"
+      posClass="left-[-12%] xl:left-[-8%] bottom-[-15%]"
+      glowColor="hsla(4, 80%, 50%, 0.45)"
+      duotone="grayscale(1) sepia(0.5) hue-rotate(315deg) saturate(1.8) brightness(0.88)"
       delay={0.2}
-      size={{ w: 460, h: 800 }}
+      size={{ w: 500, h: 850 }}
+      zIndex={20}
     />
 
-    {/* RIGHT SIDE — Green woman (top) */}
+    {/* TOP-RIGHT — Green woman (higher z-index, alongside SPARK text) */}
     <CharacterFigure
       image={charGreenWoman}
-      posClass="right-[-6%] xl:right-[-3%] top-[2%]"
-      tone="hsl(145, 55%, 35%)"
-      glowColor="hsla(145, 55%, 35%, 0.4)"
-      duotone="grayscale(1) sepia(0.7) hue-rotate(100deg) saturate(2.5) brightness(0.84)"
+      posClass="right-[-8%] xl:right-[-4%] top-[-5%]"
+      glowColor="hsla(145, 55%, 35%, 0.45)"
+      duotone="grayscale(1) sepia(0.5) hue-rotate(100deg) saturate(1.8) brightness(0.88)"
       delay={0.15}
-      size={{ w: 460, h: 800 }}
+      size={{ w: 500, h: 860 }}
+      zIndex={25}
     />
 
-    {/* RIGHT SIDE — Yellow boy (bottom, overlapping top) */}
+    {/* BOTTOM-RIGHT — Yellow boy (lower z-index, pushed further right out of frame) */}
     <CharacterFigure
       image={charYellowBoy}
-      posClass="right-[2%] xl:right-[6%] bottom-[-5%]"
-      tone="hsl(44, 95%, 52%)"
-      glowColor="hsla(44, 95%, 52%, 0.4)"
-      duotone="grayscale(1) sepia(0.7) hue-rotate(6deg) saturate(2.1) brightness(0.88)"
+      posClass="right-[-12%] xl:right-[-8%] bottom-[-15%]"
+      glowColor="hsla(44, 95%, 52%, 0.45)"
+      duotone="grayscale(1) sepia(0.5) hue-rotate(6deg) saturate(1.6) brightness(0.9)"
       delay={0.25}
-      size={{ w: 420, h: 750 }}
+      size={{ w: 460, h: 800 }}
+      zIndex={20}
     />
   </div>
 );
