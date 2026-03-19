@@ -35,10 +35,16 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center mb-6">
+            <Link to="/" className="flex items-center mb-4">
               <img src={elluminateLogo} alt="Elluminate" className="h-56 w-auto" />
             </Link>
             
+            <p className="text-background/60 text-xs leading-relaxed mb-3">
+              We are the Corporate Events arm of<br />
+              <span className="text-background/80 font-semibold">EXSTATIC PTE LTD</span><br />
+              <span className="text-background/50">[UEN No. 202243915R]</span>
+            </p>
+
             <p className="text-background/70 text-sm leading-relaxed">
               Team building, retreats, training, and corporate event experiences designed to strengthen culture and create lasting connection.
             </p>
