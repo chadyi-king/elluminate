@@ -123,7 +123,7 @@ export const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg border-b border-border"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg"
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-16">
@@ -157,7 +157,7 @@ export const Navbar = () => {
 
           {/* Center Logo */}
           <Link to="/" className="flex items-center group">
-            <img src={elluminateLogo} alt="Elluminate" className="h-9 w-auto" />
+            <img src={elluminateLogo} alt="Elluminate" className="h-16 w-auto" />
           </Link>
 
           {/* Right Navigation */}

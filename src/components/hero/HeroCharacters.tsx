@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Lightbulb } from "lucide-react";
 
 import charBlueMan from "@/assets/hero/char-blue-man.png";
 import charRedWoman from "@/assets/hero/char-red-woman.png";
@@ -49,33 +48,6 @@ const CharacterFigure = ({
           background: `radial-gradient(ellipse 85% 80% at 50% 85%, ${glowColor}, transparent 72%)`,
         }}
       />
-
-      {/* Lightbulb near pointing finger */}
-      <motion.div
-        className="absolute z-30"
-        style={{
-          [flip ? "left" : "right"]: "12%",
-          top: "2%",
-        }}
-        animate={{
-          y: hovered ? -10 : 0,
-          scale: hovered ? 1.3 : 1,
-        }}
-        transition={{ duration: 0.35, type: "spring", stiffness: 280, damping: 16 }}
-      >
-        <Lightbulb
-          style={{
-            width: 40,
-            height: 40,
-            color: hovered ? "#FFD700" : "rgba(170, 170, 170, 0.6)",
-            fill: hovered ? "#FFD700" : "transparent",
-            filter: hovered
-              ? "drop-shadow(0 0 14px rgba(255, 218, 0, 1)) drop-shadow(0 0 32px rgba(255, 200, 0, 0.65))"
-              : "drop-shadow(0 0 3px rgba(170, 170, 170, 0.25))",
-            transition: "color 0.35s ease, fill 0.35s ease, filter 0.35s ease",
-          }}
-        />
-      </motion.div>
 
       {/* Character image with duotone filter */}
       <motion.div

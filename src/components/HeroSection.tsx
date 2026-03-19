@@ -46,7 +46,7 @@ export const HeroSection = () => {
       <ConfettiBurst trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
 
       {/* Layer 2: Main Content */}
-      <div className="container mx-auto px-4 relative z-20 pt-20 pb-24">
+      <div className="container mx-auto px-4 relative z-20 pt-[120px] pb-24">
         <div className="flex flex-col items-center text-center w-full">
           {/* Main Headline - Dramatic visual hierarchy */}
           <motion.h1
