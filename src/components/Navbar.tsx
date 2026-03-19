@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Lightbulb } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import elluminateLogo from "@/assets/logos/elluminate-logo.png";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import {
