@@ -106,7 +106,7 @@ export const HeroCharacters = () => (
       glowColor="hsla(145, 55%, 35%, 0.45)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(100deg) saturate(1.2) brightness(0.85)"
       delay={0.15}
-      size={{ w: 480, h: 840 }}
+      size={{ w: 480, h: 500 }}
       zIndex={20}
     />
 
