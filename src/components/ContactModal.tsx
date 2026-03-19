@@ -190,8 +190,8 @@ export const ContactModal = () => {
             <div className="absolute top-0 right-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl pointer-events-none" style={{ transform: "translate(50%,-50%)" }} />
             <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/10 rounded-full blur-3xl pointer-events-none" style={{ transform: "translate(-30%,30%)" }} />
             <div className="relative z-10 flex flex-col h-full">
-              <div className="mb-3 mt-2">
-                <img src={elluminateWords} alt="Elluminate - Take Flight & Shine" className="h-36 w-auto object-contain" />
+              <div className="mb-2 mt-1">
+                <img src={elluminateWords} alt="Elluminate - Take Flight & Shine" className="h-24 w-auto object-contain" />
               </div>
               <h3 className="text-lg font-bold text-white mb-2 leading-snug">
                 Let's build something your team won't stop talking about.
@@ -231,11 +231,11 @@ export const ContactModal = () => {
                   <span>Typically replies within 1 business day</span>
                 </div>
                 <a
-                  href="mailto:hello@elluminate.sg"
+                  href="mailto:info@elluminate.sg"
                   className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors text-sm"
                 >
                   <Mail className="w-4 h-4" />
-                  hello@elluminate.sg
+                  info@elluminate.sg
                 </a>
               </div>
             </div>

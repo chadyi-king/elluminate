@@ -192,7 +192,7 @@ export const Navbar = () => {
               size="sm"
               onClick={openContactModal}
             >
-              Plan My Event
+              PLAN MY EVENT
             </Button>
           </div>
 
@@ -320,7 +320,7 @@ export const Navbar = () => {
                   openContactModal();
                 }}
               >
-                Plan My Event
+                PLAN MY EVENT
               </Button>
             </div>
           </motion.div>
