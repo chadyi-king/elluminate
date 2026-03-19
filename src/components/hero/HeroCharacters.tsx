@@ -79,7 +79,7 @@ export const HeroCharacters = () => (
     {/* BOTTOM-LEFT — Red woman: head aligns near subtitle zone */}
     <CharacterFigure
       image={charRedWoman}
-      posClass="left-[-4%] xl:left-[-1%] bottom-[-18%]"
+      posClass="left-[-4%] xl:left-[-1%] bottom-[-8%]"
       glowColor="hsla(4, 80%, 50%, 0.35)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(315deg) saturate(1.2) brightness(0.85)"
       delay={0.2}
@@ -101,7 +101,7 @@ export const HeroCharacters = () => (
     {/* BOTTOM-RIGHT — Yellow boy: head aligns near subtitle zone */}
     <CharacterFigure
       image={charYellowBoy}
-      posClass="right-[-4%] xl:right-[-1%] bottom-[-18%]"
+      posClass="right-[-4%] xl:right-[-1%] bottom-[-8%]"
       glowColor="hsla(44, 95%, 52%, 0.35)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(6deg) saturate(1.1) brightness(0.87)"
       delay={0.25}
