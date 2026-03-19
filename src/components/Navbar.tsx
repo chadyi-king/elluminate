@@ -116,7 +116,7 @@ export const Navbar = () => {
   };
 
   const navLinkClass = (path: string) => 
-    `transition-colors duration-300 text-sm font-medium ${
+    `transition-colors duration-300 text-xs tracking-[0.15em] font-medium ${
       isActive(path) ? 'text-primary' : 'text-foreground/70 hover:text-primary'
     }`;
 
