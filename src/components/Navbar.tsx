@@ -157,7 +157,7 @@ export const Navbar = () => {
 
           {/* Center Logo */}
           <Link to="/" className="flex items-center group">
-            <img src={elluminateLogo} alt="Elluminate" className="h-16 w-auto" />
+            <img src={elluminateLogo} alt="Elluminate" className="h-32 w-auto" />
           </Link>
 
           {/* Right Navigation */}
