@@ -5,7 +5,7 @@ import { useState, useCallback } from "react";
 import { ConfettiBurst } from "./ConfettiBurst";
 import { PhotoWall } from "./hero/PhotoWall";
 import { RotatingWord, wordData } from "./hero/RotatingWord";
-import { ServicePills } from "./hero/ServicePills";
+
 import { HeroCharacters } from "./hero/HeroCharacters";
 
 // SPARK letters
