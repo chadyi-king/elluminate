@@ -14,9 +14,10 @@ interface CharacterProps {
   delay: number;
   size: { w: number; h: number };
   zIndex: number;
+  showBottomFade?: boolean;
 }
 
-const CharacterFigure = ({ image, posClass, glowColor, duotone, delay, size, zIndex }: CharacterProps) => {
+const CharacterFigure = ({ image, posClass, glowColor, duotone, delay, size, zIndex, showBottomFade = true }: CharacterProps) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -29,22 +30,13 @@ const CharacterFigure = ({ image, posClass, glowColor, duotone, delay, size, zIn
       onMouseLeave={() => setHovered(false)}
       style={{ width: size.w, height: size.h, zIndex }}
     >
-      {/* Radial glow behind figure on hover */}
-      <motion.div
-        className="absolute inset-x-0 bottom-0 h-[90%]"
-        style={{
-          zIndex: -1,
-          background: `radial-gradient(ellipse 90% 85% at 50% 80%, ${glowColor}, transparent 72%)`,
-        }}
-        animate={{ opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.45 }}
-      />
-
-      {/* Character image with duotone → full color on hover */}
+      {/* Character image with duotone → full color on hover + outline glow via drop-shadow */}
       <motion.div
         className="w-full h-full"
         animate={{
-          filter: hovered ? "none" : duotone,
+          filter: hovered
+            ? `drop-shadow(0 0 18px ${glowColor}) drop-shadow(0 0 40px ${glowColor})`
+            : duotone,
           scale: hovered ? 1.05 : 1,
         }}
         transition={{ duration: 0.45 }}
@@ -52,20 +44,22 @@ const CharacterFigure = ({ image, posClass, glowColor, duotone, delay, size, zIn
         <img src={image} alt="Team member" className="w-full h-full object-contain object-bottom" />
       </motion.div>
 
-      {/* Fade-to-white gradient at bottom to mask cut-off */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none"
-        style={{
-          background: "linear-gradient(to bottom, transparent 85%, white 95%)",
-        }}
-      />
+      {/* Fade-to-white gradient at bottom to mask cut-off — only for bottom characters */}
+      {showBottomFade && (
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none"
+          style={{
+            background: "linear-gradient(to bottom, transparent 85%, white 95%)",
+          }}
+        />
+      )}
     </motion.div>
   );
 };
 
 export const HeroCharacters = () => (
   <div className="pointer-events-none absolute inset-0 overflow-hidden">
-    {/* TOP-LEFT — Blue man: head at "IGNITE THE" text level */}
+    {/* TOP-LEFT — Blue man */}
     <CharacterFigure
       image={charBlueMan}
       posClass="left-[-4%] xl:left-[-1%] top-[15%]"
@@ -74,9 +68,10 @@ export const HeroCharacters = () => (
       delay={0.1}
       size={{ w: 500, h: 500 }}
       zIndex={20}
+      showBottomFade={false}
     />
 
-    {/* BOTTOM-LEFT — Red woman: head aligns near subtitle zone */}
+    {/* BOTTOM-LEFT — Red woman */}
     <CharacterFigure
       image={charRedWoman}
       posClass="left-[-4%] xl:left-[-1%] bottom-[-8%]"
@@ -87,7 +82,7 @@ export const HeroCharacters = () => (
       zIndex={25}
     />
 
-    {/* TOP-RIGHT — Green woman: head at "IGNITE THE" text level */}
+    {/* TOP-RIGHT — Green woman */}
     <CharacterFigure
       image={charGreenWoman}
       posClass="right-[-4%] xl:right-[-1%] top-[15%]"
@@ -96,9 +91,10 @@ export const HeroCharacters = () => (
       delay={0.15}
       size={{ w: 480, h: 500 }}
       zIndex={20}
+      showBottomFade={false}
     />
 
-    {/* BOTTOM-RIGHT — Yellow boy: head aligns near subtitle zone */}
+    {/* BOTTOM-RIGHT — Yellow boy */}
     <CharacterFigure
       image={charYellowBoy}
       posClass="right-[-4%] xl:right-[-1%] bottom-[-3%]"
