@@ -129,10 +129,10 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Left Navigation */}
           <div className="hidden lg:flex items-center gap-6">
-            <Link to="/" className={navLinkClass('/')}>
+            <Link to="/" className={`${navLinkClass('/')} uppercase`}>
               Home
             </Link>
-            <Link to="/about" className={navLinkClass('/about')}>
+            <Link to="/about" className={`${navLinkClass('/about')} uppercase`}>
               About
             </Link>
             <NavDropdown
