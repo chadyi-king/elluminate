@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Lightbulb } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import elluminateLogo from "@/assets/logos/elluminate-logo.png";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import {
@@ -155,13 +156,8 @@ export const Navbar = () => {
           </div>
 
           {/* Center Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center group-hover:shadow-blue transition-shadow">
-              <Lightbulb className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-display font-bold text-foreground">
-              <span className="text-primary">E</span>lluminate
-            </span>
+          <Link to="/" className="flex items-center group">
+            <img src={elluminateLogo} alt="Elluminate" className="h-9 w-auto" />
           </Link>
 
           {/* Right Navigation */}

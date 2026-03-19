@@ -4,8 +4,8 @@ import {
   Phone, 
   MapPin,
   MessageCircle,
-  Lightbulb
 } from "lucide-react";
+import elluminateLogo from "@/assets/logos/elluminate-logo.png";
 
 const topActivities = [
   { name: "Amazing Race", path: "/services/amazing-race" },
@@ -35,13 +35,8 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                <Lightbulb className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <span className="text-2xl font-display font-bold text-background">
-                <span className="text-primary">E</span>lluminate
-              </span>
+            <Link to="/" className="flex items-center mb-6">
+              <img src={elluminateLogo} alt="Elluminate" className="h-10 w-auto brightness-0 invert" />
             </Link>
             
             <p className="text-background/70 text-sm leading-relaxed">
