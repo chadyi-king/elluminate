@@ -36,7 +36,7 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center mb-6">
-              <img src={elluminateLogo} alt="Elluminate" className="h-10 w-auto brightness-0 invert" />
+              <img src={elluminateLogo} alt="Elluminate" className="h-28 w-auto" />
             </Link>
             
             <p className="text-background/70 text-sm leading-relaxed">
