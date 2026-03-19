@@ -69,7 +69,7 @@ export const HeroCharacters = () => (
     {/* TOP-LEFT — Blue man */}
     <CharacterFigure
       image={charBlueMan}
-      posClass="left-[-4%] xl:left-[-1%] top-[15%]"
+      posClass="left-[-4%] xl:left-[-1%] top-[18%]"
       glowColor="hsla(214, 85%, 50%, 0.45)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(175deg) saturate(1.2) brightness(0.88)"
       delay={0.1}
@@ -92,7 +92,7 @@ export const HeroCharacters = () => (
     {/* TOP-RIGHT — Green woman */}
     <CharacterFigure
       image={charGreenWoman}
-      posClass="right-[-4%] xl:right-[-1%] top-[22%]"
+      posClass="right-[-4%] xl:right-[-1%] top-[20%]"
       glowColor="hsla(145, 55%, 35%, 0.45)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(100deg) saturate(1.2) brightness(0.85)"
       delay={0.15}
