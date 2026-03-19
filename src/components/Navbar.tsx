@@ -175,7 +175,7 @@ export const Navbar = () => {
               href="https://elluminate.sg"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium"
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium uppercase"
             >
               Large-Scale
             </a>
@@ -183,7 +183,7 @@ export const Navbar = () => {
               href="https://encompasse.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium"
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium uppercase"
             >
               School
             </a>
