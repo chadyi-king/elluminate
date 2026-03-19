@@ -92,7 +92,7 @@ export const HeroCharacters = () => (
     {/* TOP-RIGHT — Green woman */}
     <CharacterFigure
       image={charGreenWoman}
-      posClass="right-[-4%] xl:right-[-1%] top-[18%]"
+      posClass="right-[-4%] xl:right-[-1%] top-[22%]"
       glowColor="hsla(145, 55%, 35%, 0.45)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(100deg) saturate(1.2) brightness(0.85)"
       delay={0.15}
