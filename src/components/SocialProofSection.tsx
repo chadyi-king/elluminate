@@ -104,10 +104,28 @@ export const SocialProofSection = () => {
         if (!data.assets || !Array.isArray(data.assets)) return;
         setClientLogos((prev) =>
           prev.map((brand) => {
-            const normalizedName = normalize(brand.name);
-            const match = data.assets.find((asset: any) => {
-              const publicId = asset.public_id?.split("/").pop() || "";
-              return normalize(publicId) === normalizedName;
+            const assets = data.assets as any[];
+            const explicitKey = brandToFilename[brand.name];
+
+            // Tier 1: explicit mapping
+            if (explicitKey) {
+              const nKey = normalize(explicitKey);
+              const match = assets.find((a) => {
+                const filename = normalize(a.public_id?.split("/").pop() || "");
+                return filename.includes(nKey) || nKey.includes(filename);
+              });
+              if (match) return { ...brand, logo: match.secure_url };
+            }
+
+            // Tier 2: fuzzy fallback
+            const strippedBrand = stripNoise(brand.name);
+            const match = assets.find((a) => {
+              const strippedFile = stripNoise(a.public_id?.split("/").pop() || "");
+              return (
+                strippedFile.length > 1 &&
+                strippedBrand.length > 1 &&
+                (strippedFile.includes(strippedBrand) || strippedBrand.includes(strippedFile))
+              );
             });
             return match ? { ...brand, logo: match.secure_url } : brand;
           })
