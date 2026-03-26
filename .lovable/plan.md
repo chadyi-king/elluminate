@@ -1,32 +1,30 @@
 
 
-## Plan: Create Cloudinary Folder API Endpoint
+## Plan: Replace Wikipedia Logo URLs with Cloudinary Assets
 
 ### Overview
-Create a backend function that securely fetches assets from a Cloudinary folder, keeping API credentials server-side only.
+Fetch logo images from the `website/client-logo` Cloudinary folder on mount, match them to brands by filename, and replace the hardcoded Wikipedia URLs — preserving the entire section layout, carousel, and fallback behavior.
 
 ### Steps
 
-**1. Add Cloudinary secrets**
-- Request three secrets via the secrets tool: `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`
-- These will be available as environment variables in the backend function
+**1. Add a `useEffect` to fetch Cloudinary logos on mount**
+- Call `supabase.functions.invoke('cloudinary-folder', { body: { folder: 'website/client-logo' } })` — wait, the function uses query params not body. Will use a direct fetch to the edge function URL with `?folder=website/client-logo`.
+- Store the returned assets array in state.
 
-**2. Create edge function `supabase/functions/cloudinary-folder/index.ts`**
-- Accept `folder` query parameter
-- Use Cloudinary's Admin API (`/resources/search`) via REST (since Deno doesn't support the Node.js SDK directly) to search assets by folder
-- Return only: `secure_url`, `public_id`, `width`, `height`, `format`
-- Include CORS headers for frontend access
-- Validate the `folder` parameter, return 400 if missing
+**2. Match Cloudinary assets to brands by `public_id`/filename**
+- For each brand in the `clientLogos` array, check if any Cloudinary asset's `public_id` contains a normalized version of the brand name (e.g., `dbs`, `ocbc`, `grab`, `singapore-airlines`, etc.).
+- If a match is found, override that brand's `logo` URL with the Cloudinary `secure_url`.
+- If no match is found, keep the existing Wikipedia URL as fallback.
 
-**3. Frontend usage pattern**
-- Call via `supabase.functions.invoke('cloudinary-folder', { body: { folder } })` or construct the URL using the project ID
-- No secrets exposed to the client
+**3. No layout/style changes**
+- The grid, card design, carousel dots, spacing, grayscale hover effect, `onError` text fallback — all stay exactly the same.
+- Only the `logo` URL string changes per brand where a Cloudinary match exists.
+
+### Files modified
+- `src/components/SocialProofSection.tsx` — add state + fetch logic + matching logic
 
 ### Technical details
-- **No Node.js SDK**: Edge functions run on Deno, so we'll use Cloudinary's REST API directly (`https://api.cloudinary.com/v1_1/{cloud}/resources/search`) with Basic Auth (`API_KEY:API_SECRET`)
-- The search expression will be `folder:{folderName}/*` with `max_results=500`
-- Response will be mapped to return only the five requested fields
-
-### Files
-- `supabase/functions/cloudinary-folder/index.ts` (new)
+- Matching will normalize both the brand name and the Cloudinary `public_id` (lowercase, strip spaces/hyphens) for fuzzy comparison.
+- The fetch runs once on mount; logos render from existing Wikipedia URLs until the Cloudinary data arrives, then swap in seamlessly.
+- Uses `VITE_SUPABASE_URL` env var to construct the edge function URL.
 
