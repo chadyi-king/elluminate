@@ -53,22 +53,46 @@ const stats = [
   },
 ];
 
-// Split logos into groups of 24 (4 rows x 6 columns) for carousel
-const logoGroups = [
-  clientLogos.slice(0, 24),
-  clientLogos.slice(0, 24),
-  clientLogos.slice(0, 24),
-];
-
 export const SocialProofSection = () => {
   const [currentGroup, setCurrentGroup] = useState(0);
+  const [clientLogos, setClientLogos] = useState(defaultClientLogos);
+
+  // Fetch Cloudinary logos and match to brands
+  useEffect(() => {
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    if (!supabaseUrl) return;
+
+    fetch(`${supabaseUrl}/functions/v1/cloudinary-folder?folder=website/client-logo`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.assets || !Array.isArray(data.assets)) return;
+        setClientLogos((prev) =>
+          prev.map((brand) => {
+            const normalizedName = normalize(brand.name);
+            const match = data.assets.find((asset: any) => {
+              const publicId = asset.public_id?.split("/").pop() || "";
+              return normalize(publicId) === normalizedName;
+            });
+            return match ? { ...brand, logo: match.secure_url } : brand;
+          })
+        );
+      })
+      .catch((err) => console.error("Failed to fetch Cloudinary logos:", err));
+  }, []);
+
+  // Split logos into groups of 24 (4 rows x 6 columns) for carousel
+  const logoGroups = [
+    clientLogos.slice(0, 24),
+    clientLogos.slice(0, 24),
+    clientLogos.slice(0, 24),
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentGroup((prev) => (prev + 1) % logoGroups.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [logoGroups.length]);
 
   return (
     <section className="py-20 relative overflow-hidden bg-gradient-to-b from-secondary/50 via-background to-secondary/30">
