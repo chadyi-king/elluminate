@@ -3,7 +3,7 @@ import { Star, Calendar, Users, Award } from "lucide-react";
 import { useState, useEffect } from "react";
 
 // Real client logos - aligned with brand list used across the site
-const clientLogos = [
+const defaultClientLogos = [
   { id: 1, name: "DBS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/DBS_Bank_Logo.svg/400px-DBS_Bank_Logo.svg.png" },
   { id: 2, name: "OCBC", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OCBC_Bank_logo.svg/400px-OCBC_Bank_logo.svg.png" },
   { id: 3, name: "UOB", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/UOB_Logo.svg/400px-UOB_Logo.svg.png" },
@@ -29,6 +29,8 @@ const clientLogos = [
   { id: 23, name: "Maybank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Maybank_logo.svg/400px-Maybank_logo.svg.png" },
   { id: 24, name: "M1", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/M1_Limited_logo.svg/400px-M1_Limited_logo.svg.png" },
 ];
+
+const normalize = (s: string) => s.toLowerCase().replace(/[\s\-_\.]/g, "");
 
 const stats = [
   {
