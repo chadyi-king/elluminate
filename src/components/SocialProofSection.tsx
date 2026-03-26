@@ -36,7 +36,7 @@ const noiseWords = ["logo", "bank", "group", "corporation", "limited", "plc", "s
 const stripNoise = (s: string) => {
   let result = normalize(s);
   for (const word of noiseWords) {
-    result = result.replaceAll(word, "");
+    result = result.split(word).join("");
   }
   return result;
 };
