@@ -1,57 +1,30 @@
 
 
-## Plan: Strengthen Cloudinary Logo Matching
+## Plan: Update Amazing Race Media Sources
 
-### Problem
-The current matching requires an exact normalized match between brand name and Cloudinary `public_id`, which fails for most logos since filenames contain extra words like "Bank", "Logo", "Corporation", etc.
+### Overview
+Replace the hero image, video URL, how-it-works image, add-ons image, and mini gallery images in the Amazing Race service data. All changes are in `src/data/servicesData.ts` — only swapping URLs, no layout or style changes.
 
-### Solution
-Replace the simple exact-match with a two-tier approach:
+### Changes (single file: `src/data/servicesData.ts`)
 
-1. **Explicit mapping table** — a hardcoded dictionary mapping each brand name to its known Cloudinary filename fragment (as provided by the user). This guarantees matches for all 24 brands.
+**1. Hero banner** (line ~2969)
+- Change `backgroundImage` from `amazingRaceHero` to the Cloudinary URL string
+- Also update `overview.backgroundImage` (line ~2973) to match
 
-2. **Fuzzy fallback** — for any brand not in the map, strip noise words (`logo`, `bank`, `group`, `corporation`, `limited`, `plc`, `singapore`) from both sides, then check if either normalized string contains the other (partial match both ways).
+**2. Video section** (line ~3134)
+- Add `videoUrl` to the existing `videoSection` object:
+  `videoUrl: "https://www.youtube.com/embed/m-YiH2zCxmE"`
+  (converted from youtu.be share link to embed format)
 
-### Changes
+**3. "Your Race Day Journey" image** (line ~2962 area)
+- Add `howItWorksImage` property to the amazing-race entry with the Cloudinary URL
 
-**File: `src/components/SocialProofSection.tsx`**
+**4. "Optional Add-ons" image**
+- Add `addOnsImage` property with the Cloudinary URL
 
-- Add an explicit brand-to-filename map:
-```ts
-const brandToFilename: Record<string, string> = {
-  "DBS": "dbs_bank_logo",
-  "OCBC": "logo-ocbc",
-  "UOB": "uob_logo",
-  "Singtel": "singtel_logo",
-  "Grab": "singapore-grab-logo",
-  "Shopee": "shopee",
-  "NTUC": "ntuc_logo",
-  "GovTech": "govtech_logo",
-  "Sentosa": "sentosa-logo",
-  "SP Group": "sp_group_logo",
-  "SMRT": "smrt_corporation_logo",
-  "Prudential": "prudentialgroup_logo",
-  "Marina Bay Sands": "marina_bay_sands_logo",
-  "CapitaLand": "capitaland_logo",
-  "Singapore Airlines": "singapore_airlines_logo",
-  "Changi Airport": "changi_logo",
-  "StarHub": "starhub_logo",
-  "POSB": "posb_logo",
-  "Great Eastern": "great_eastern_logo",
-  "AIA": "aia-logo",
-  "HSBC": "hsbc",
-  "Standard Chartered": "standard_chartered_logo",
-  "Maybank": "maybank_logo",
-  "M1": "m1_logo",
-};
-```
-
-- Replace the matching logic inside the `useEffect` with:
-  1. First try explicit map: normalize the map value and compare against normalized `public_id` filename (partial contains both ways).
-  2. If no explicit match, try fuzzy: strip noise words from both brand name and filename, then check partial containment.
-
-- No changes to layout, styling, carousel, or fallback behavior.
+**5. Mini gallery "Amazing Race in Action"** (lines ~3192-3198)
+- Replace the 3 existing images with the 6 provided Cloudinary URLs
 
 ### Files modified
-- `src/components/SocialProofSection.tsx` — matching logic only (lines 33, 67–78)
+- `src/data/servicesData.ts` — media URL replacements only
 
