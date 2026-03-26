@@ -1,47 +1,32 @@
 
-## Plan
 
-### What’s likely happening
-The project is pointing to `/favicon.png`, but the repo also still contains `public/favicon.ico`. Many browsers, crawlers, and search engines still request `/favicon.ico` directly, so if only the PNG was replaced, the old Lovable/lightbulb icon can keep showing.
+## Plan: Create Cloudinary Folder API Endpoint
 
-Also, the tab icon and the Google search icon are related but not exactly the same:
-- **Browser tab**: usually comes from `rel="icon"` and/or `/favicon.ico`
-- **Google search result icon**: often comes from the site favicon files and can lag due to caching/re-crawling
+### Overview
+Create a backend function that securely fetches assets from a Cloudinary folder, keeping API credentials server-side only.
 
-### Implementation plan
+### Steps
 
-1. **Audit all favicon references**
-- Check for every icon-related reference in `index.html` and any SEO/head components.
-- Confirm there are no leftover references to an old icon path.
+**1. Add Cloudinary secrets**
+- Request three secrets via the secrets tool: `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`
+- These will be available as environment variables in the backend function
 
-2. **Replace both favicon asset formats**
-- Update **both**:
-  - `public/favicon.png`
-  - `public/favicon.ico`
-- Use your uploaded latest logo for both so browsers and crawlers stop falling back to the old ICO file.
+**2. Create edge function `supabase/functions/cloudinary-folder/index.ts`**
+- Accept `folder` query parameter
+- Use Cloudinary's Admin API (`/resources/search`) via REST (since Deno doesn't support the Node.js SDK directly) to search assets by folder
+- Return only: `secure_url`, `public_id`, `width`, `height`, `format`
+- Include CORS headers for frontend access
+- Validate the `folder` parameter, return 400 if missing
 
-3. **Strengthen head tags in `index.html`**
-- Keep the main PNG favicon link.
-- Add/ensure explicit icon tags for broader compatibility, for example:
-  - standard favicon
-  - ICO fallback
-  - apple touch icon
-- If needed, add a small cache-busting version suffix so browsers stop serving the old cached icon.
+**3. Frontend usage pattern**
+- Call via `supabase.functions.invoke('cloudinary-folder', { body: { folder } })` or construct the URL using the project ID
+- No secrets exposed to the client
 
-4. **Align structured metadata**
-- Update any logo/favicon-related structured data references so the site consistently points to the correct brand icon/logo asset.
-- This helps avoid mixed branding across different surfaces.
+### Technical details
+- **No Node.js SDK**: Edge functions run on Deno, so we'll use Cloudinary's REST API directly (`https://api.cloudinary.com/v1_1/{cloud}/resources/search`) with Basic Auth (`API_KEY:API_SECRET`)
+- The search expression will be `folder:{folderName}/*` with `max_results=500`
+- Response will be mapped to return only the five requested fields
 
-5. **Verify expected behavior**
-- Confirm the preview loads the new favicon.
-- Note that Google search results may still take time to refresh even after the site is technically correct, because search engines cache favicons.
+### Files
+- `supabase/functions/cloudinary-folder/index.ts` (new)
 
-### Files likely involved
-- `index.html`
-- `public/favicon.png`
-- `public/favicon.ico`
-- `src/components/StructuredData.tsx`
-
-### Technical notes
-- The current code already points to `/favicon.png`, so the most likely root cause is the unchanged `favicon.ico` file still being picked up.
-- If the change was only made in preview and not pushed live yet, the published site can still show the old icon until the frontend is updated.
