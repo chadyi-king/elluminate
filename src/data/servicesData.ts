@@ -2966,11 +2966,13 @@ export const servicesData: Record<string, ServiceData> = {
       title: "THE AMAZING RACE",
       subtitle: "Team Building Adventure",
       tagline: "A fast-moving race across Singapore built for teams, schools, and student groups who want to move, solve, and win together.",
-      backgroundImage: amazingRaceHero
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360229/AmazingRace_2_hi89qz.jpg"
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361380/AmazingRace_20_pvj3jq.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361386/AmazingRace_24_r4bomr.heic",
     overview: {
       description: "The Amazing Race is our signature outdoor experience where teams race across Singapore completing missions, solving puzzles, and working together under pressure. It works brilliantly for corporate teams, school groups, leadership cohorts, and student leaders who need a format that feels active, inclusive, and genuinely memorable. Navigate through iconic locations, tackle physical and mental challenges, and compete against the clock in a high-energy adventure that brings out communication, strategy, and team spirit.",
-      backgroundImage: amazingRaceHero
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360229/AmazingRace_2_hi89qz.jpg"
     },
     features: [
       { icon: Navigation, title: "Multi-Checkpoint Adventure", description: "Navigate through strategically placed stations across your chosen venue." },
@@ -3133,7 +3135,8 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     videoSection: {
       title: "See the Race in Action",
-      subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks"
+      subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
+      videoUrl: "https://www.youtube.com/embed/m-YiH2zCxmE"
     },
     cta: {
       headline: "Ready for Your Amazing Race?",
@@ -3192,9 +3195,12 @@ export const servicesData: Record<string, ServiceData> = {
     miniGallery: {
       title: "Amazing Race in Action",
       images: [
-        { src: amazingRaceHero, alt: "Amazing Race team building checkpoint challenge" },
-        { src: heroAmazingRaceAlt, alt: "Teams racing during an Amazing Race activity" },
-        { src: teamBuildingOutdoor1, alt: "Outdoor team building moment during Amazing Race" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361379/AmazingRace_22_qnkeat.heic", alt: "Amazing Race team building checkpoint challenge" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360193/AmazingRace_16_mdu3de.jpg", alt: "Teams racing during an Amazing Race activity" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360193/AmazingRace_14_e5yt0c.heic", alt: "Amazing Race outdoor team challenge" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360192/AmazingRace_15_hspv90.heic", alt: "Teams solving puzzles during Amazing Race" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360190/AmazingRace_1_ig4gbv.heic", alt: "Amazing Race starting line team moment" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361385/AmazingRace_33_scwscr.jpg", alt: "Amazing Race celebration and finish line" },
       ],
     },
     outcomes: [
