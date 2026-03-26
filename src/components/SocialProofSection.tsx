@@ -32,6 +32,42 @@ const defaultClientLogos = [
 
 const normalize = (s: string) => s.toLowerCase().replace(/[\s\-_\.]/g, "");
 
+const noiseWords = ["logo", "bank", "group", "corporation", "limited", "plc", "singapore", "pte", "ltd"];
+const stripNoise = (s: string) => {
+  let result = normalize(s);
+  for (const word of noiseWords) {
+    result = result.split(word).join("");
+  }
+  return result;
+};
+
+const brandToFilename: Record<string, string> = {
+  "DBS": "dbs_bank_logo",
+  "OCBC": "logo-ocbc",
+  "UOB": "uob_logo",
+  "Singtel": "singtel_logo",
+  "Grab": "singapore-grab-logo",
+  "Shopee": "shopee",
+  "NTUC": "ntuc_logo",
+  "GovTech": "govtech_logo",
+  "Sentosa": "sentosa-logo",
+  "SP Group": "sp_group_logo",
+  "SMRT": "smrt_corporation_logo",
+  "Prudential": "prudentialgroup_logo",
+  "Marina Bay Sands": "marina_bay_sands_logo",
+  "CapitaLand": "capitaland_logo",
+  "Singapore Airlines": "singapore_airlines_logo",
+  "Changi Airport": "changi_logo",
+  "StarHub": "starhub_logo",
+  "POSB": "posb_logo",
+  "Great Eastern": "great_eastern_logo",
+  "AIA": "aia-logo",
+  "HSBC": "hsbc",
+  "Standard Chartered": "standard_chartered_logo",
+  "Maybank": "maybank_logo",
+  "M1": "m1_logo",
+};
+
 const stats = [
   {
     icon: Calendar,
@@ -68,10 +104,28 @@ export const SocialProofSection = () => {
         if (!data.assets || !Array.isArray(data.assets)) return;
         setClientLogos((prev) =>
           prev.map((brand) => {
-            const normalizedName = normalize(brand.name);
-            const match = data.assets.find((asset: any) => {
-              const publicId = asset.public_id?.split("/").pop() || "";
-              return normalize(publicId) === normalizedName;
+            const assets = data.assets as any[];
+            const explicitKey = brandToFilename[brand.name];
+
+            // Tier 1: explicit mapping
+            if (explicitKey) {
+              const nKey = normalize(explicitKey);
+              const match = assets.find((a) => {
+                const filename = normalize(a.public_id?.split("/").pop() || "");
+                return filename.includes(nKey) || nKey.includes(filename);
+              });
+              if (match) return { ...brand, logo: match.secure_url };
+            }
+
+            // Tier 2: fuzzy fallback
+            const strippedBrand = stripNoise(brand.name);
+            const match = assets.find((a) => {
+              const strippedFile = stripNoise(a.public_id?.split("/").pop() || "");
+              return (
+                strippedFile.length > 1 &&
+                strippedBrand.length > 1 &&
+                (strippedFile.includes(strippedBrand) || strippedBrand.includes(strippedFile))
+              );
             });
             return match ? { ...brand, logo: match.secure_url } : brand;
           })
