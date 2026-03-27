@@ -183,6 +183,7 @@ export interface ServiceData {
     author: string;
     company: string;
   }[];
+  testimonialBackgroundImage?: string;
   faqs: FAQ[];
   processFlow?: {
     icon: LucideIcon;
@@ -433,11 +434,14 @@ export const servicesData: Record<string, ServiceData> = {
   "overseas-retreats": {
     accentColor: "#5AB7AE",
     dividerVariant: "route",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579572/Overseas_11_droxvw.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579587/Overseas_6_d3fry4.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579575/Overseas_12_gvbqfw.jpg",
     hero: {
       title: "OVERSEAS RETREATS",
       subtitle: "Retreat",
       tagline: "The world is your company's oyster! Time to open it up and enjoy!",
-      backgroundImage: overseasRetreatHero
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579581/Overseas_5_o60d5r.jpg"
     },
     videoSection: {
       title: "See Our Retreats in Action",
@@ -452,7 +456,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     overview: {
       description: "Good interactions at corporate retreats and rewarding travel packages can help improve an employee's relationship with their company! Corporate retreats are the perfect place to start conversations with workers and imagine a better direction for influence and organization. We handle every detail from flights to activities, ensuring your team enjoys a seamless, unforgettable journey.",
-      backgroundImage: overseasRetreatHero
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579581/Overseas_5_o60d5r.jpg"
     },
     features: [
       { icon: Plane, title: "Full Travel Management", description: "Flights, transfers, and logistics handled end-to-end." },

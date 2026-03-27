@@ -10,6 +10,7 @@ interface Testimonial {
 interface ServiceTestimonialNewProps {
   testimonials: Testimonial[];
   accentColor: string;
+  backgroundImage?: string;
 }
 
 // Format "Michelle Goh" → "Michelle G."
@@ -19,14 +20,14 @@ const formatAuthorName = (name: string) => {
   return `${parts[0]} ${parts[parts.length - 1][0]}.`;
 };
 
-export const ServiceTestimonialNew = ({ testimonials, accentColor }: ServiceTestimonialNewProps) => {
+export const ServiceTestimonialNew = ({ testimonials, accentColor, backgroundImage }: ServiceTestimonialNewProps) => {
   return (
     <section className="py-24 relative overflow-hidden bg-gray-900">
       {/* Dark background with dim image */}
       <div className="absolute inset-0">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920)` }}
+          style={{ backgroundImage: `url(${backgroundImage || "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920"})` }}
         />
       </div>
       
