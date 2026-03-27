@@ -1,39 +1,22 @@
 
 
-## Plan: Add MP4 Video Support to ServiceVideoCarousel Modal
+## Plan: Add Poster Thumbnail for Vietnam Adventure Recap
 
-### What changes
-In `src/components/service-page/ServiceVideoCarousel.tsx`, lines 195-201 — the modal currently always renders an `<iframe>`. Add a check: if the URL ends with `.mp4` (or other video file extensions), render a `<video>` element instead.
+### What
+Add a `thumbnailImage` to the Vietnam Adventure Recap video item using Cloudinary's video-to-image transformation (extracting frame at 0 seconds).
 
-### Technical detail
+### Change (single line in `src/data/servicesData.ts`, line 453)
 
-Replace the single `<iframe>` block (lines 195-201) with a conditional:
+```ts
+// Before
+{ title: "Vietnam Adventure Recap", videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1774588080/Straits_Construction_1_rhyeyo.mp4" },
 
-```tsx
-{activeVideo.videoUrl ? (
-  activeVideo.videoUrl.includes('.mp4') || activeVideo.videoUrl.includes('.webm') || activeVideo.videoUrl.includes('.ogg') ? (
-    <video
-      src={activeVideo.videoUrl}
-      className="w-full h-full"
-      controls
-      autoPlay
-    />
-  ) : (
-    <iframe
-      src={activeVideo.videoUrl}
-      className="w-full h-full"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
-  )
-) : (
-  // existing "coming soon" fallback
-)}
+// After
+{ title: "Vietnam Adventure Recap", videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1774588080/Straits_Construction_1_rhyeyo.mp4", thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/v1774588080/Straits_Construction_1_rhyeyo.jpg" },
 ```
 
-Also update the `servicesData.ts` overseas-retreats entry to add the Cloudinary MP4 `videoUrl` to the "Vietnam Adventure Recap" video item.
+The `ServiceVideoCarousel` component already renders `thumbnailImage` as an `<img>` on the card when present — no component changes needed.
 
 ### Files modified
-- `src/components/service-page/ServiceVideoCarousel.tsx` — conditional `<video>` vs `<iframe>` in modal
-- `src/data/servicesData.ts` — add `videoUrl` to Vietnam Adventure Recap item
+- `src/data/servicesData.ts` — add `thumbnailImage` to one video item
 
