@@ -281,6 +281,7 @@ const ServicePage = () => {
       <ServiceTestimonialNew 
         testimonials={service.testimonials} 
         accentColor={service.accentColor}
+        backgroundImage={service.testimonialBackgroundImage}
       />
 
       {/* 11. Final CTA */}
