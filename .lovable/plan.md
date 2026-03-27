@@ -1,30 +1,32 @@
 
 
-## Plan: Update Amazing Race Media Sources
+## Plan: Update Overseas Retreats Media Sources
 
 ### Overview
-Replace the hero image, video URL, how-it-works image, add-ons image, and mini gallery images in the Amazing Race service data. All changes are in `src/data/servicesData.ts` — only swapping URLs, no layout or style changes.
+Swap 4 image URLs in the overseas-retreats service data entry. No layout, styling, or structural changes.
 
 ### Changes (single file: `src/data/servicesData.ts`)
 
-**1. Hero banner** (line ~2969)
-- Change `backgroundImage` from `amazingRaceHero` to the Cloudinary URL string
-- Also update `overview.backgroundImage` (line ~2973) to match
+**1. Hero banner** (line 440) + **Overview background** (line 455)
+- Replace `overseasRetreatHero` with:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579581/Overseas_5_o60d5r.jpg"`
 
-**2. Video section** (line ~3134)
-- Add `videoUrl` to the existing `videoSection` object:
-  `videoUrl: "https://www.youtube.com/embed/m-YiH2zCxmE"`
-  (converted from youtu.be share link to embed format)
+**2. "Your Retreat Journey" image** (~line 500 area)
+- Add `howItWorksImage` property to the overseas-retreats entry:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579572/Overseas_11_droxvw.jpg"`
 
-**3. "Your Race Day Journey" image** (line ~2962 area)
-- Add `howItWorksImage` property to the amazing-race entry with the Cloudinary URL
+**3. "Optional Add-ons" image**
+- Add `addOnsImage` property:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579587/Overseas_6_d3fry4.jpg"`
 
-**4. "Optional Add-ons" image**
-- Add `addOnsImage` property with the Cloudinary URL
-
-**5. Mini gallery "Amazing Race in Action"** (lines ~3192-3198)
-- Replace the 3 existing images with the 6 provided Cloudinary URLs
+**4. Testimonial background**
+- Add `testimonialBackgroundImage` property:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579575/Overseas_12_gvbqfw.jpg"`
+- Update `ServiceTestimonialNew` component to accept an optional `backgroundImage` prop (replacing the hardcoded Unsplash URL)
+- Pass it from `ServicePage.tsx`
 
 ### Files modified
-- `src/data/servicesData.ts` — media URL replacements only
+- `src/data/servicesData.ts` — add image URLs to overseas-retreats entry
+- `src/components/service-page/ServiceTestimonialNew.tsx` — accept optional `backgroundImage` prop
+- `src/pages/ServicePage.tsx` — pass `testimonialBackgroundImage` to testimonial component
 
