@@ -1,31 +1,37 @@
 
 
-## Plan: Update CSI-Bones Page — CTA Image, Testimonial Image, Gallery Expansion
+## Plan: Update Monopoly Dash Page Images
 
 ### Overview
-Three image updates across one data file and one component file. No layout/design changes.
+Replace image sources across 6 sections in the `monopoly-dash` entry. Single file change, no layout or component modifications.
 
-### Changes
+### Changes (`src/data/servicesData.ts`)
 
-**1. `src/components/service-page/ServiceCTANew.tsx`** — Add optional `backgroundImage` prop
-- Add `backgroundImage?: string` to the props interface
-- Replace the hardcoded Unsplash URL (line 25) with `backgroundImage || <existing fallback>`
+**1. Hero banner** (line 4173)
+- Replace `heroAmazingRaceAlt` in `backgroundImage` with:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_4_jkl1xu.jpg"`
 
-**2. `src/pages/ServicePage.tsx`** — Pass `backgroundImage` to `ServiceCTANew`
-- Add `backgroundImage={service.ctaBackgroundImage}` to the mid-CTA render
+**2. Overview background** (line 4176)
+- Replace `heroAmazingRaceAlt` with same URL
 
-**3. `src/data/servicesData.ts`** — CSI-Bones entry updates
+**3. "Your Monopoly Dash Journey"** — add `howItWorksImage`:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_5_msxabk.heic"`
 
-| Field | Value |
-|-------|-------|
-| `ctaBackgroundImage` | `CSI_2_slu6jv.jpg` URL |
-| `testimonialBackgroundImage` | `CSI_15_rxnuq4.heic` URL |
-| 5 new gallery images | `CSI_14`, `CSI_13`, `CSI_12`, `CSI_9`, `CSI_10` URLs appended to existing 3 |
+**4. "Optional Add-ons"** — add `addOnsImage`:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361421/MonopolyDash_2_sq8gpp.jpg"`
 
-**4. `src/data/servicesData.ts`** — Add `ctaBackgroundImage` to the ServiceData interface
+**5. "Ready to Dash?" CTA** — add `ctaBackgroundImage`:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361426/MonopolyDash_6_e304eq.heic"`
+
+**6. "What Our Clients Say"** — add `testimonialBackgroundImage`:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_3_kq2pxe.heic"`
+
+**7. Mini gallery** (line 4262) — replace 3 images with 4:
+  - `MonopolyDash_1_rlwgie.jpg`
+  - `MonopolyDash_9_k7krlz.jpg`
+  - `MonopolyDash_7_vgqtey.heic`
+  - `MonopolyDash_3_kq2pxe.heic`
 
 ### Files modified
-- `src/components/service-page/ServiceCTANew.tsx` — add optional `backgroundImage` prop
-- `src/pages/ServicePage.tsx` — pass prop through
-- `src/data/servicesData.ts` — interface + CSI-Bones data updates
+- `src/data/servicesData.ts` — Monopoly Dash entry image updates only
 
