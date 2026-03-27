@@ -1,22 +1,30 @@
 
 
-## Plan: Add Poster Thumbnail for Vietnam Adventure Recap
+## Plan: Update CSI-Bones Page Images
 
-### What
-Add a `thumbnailImage` to the Vietnam Adventure Recap video item using Cloudinary's video-to-image transformation (extracting frame at 0 seconds).
+### Overview
+Replace 6 image sources across 4 sections in the CSI-Bones service entry. Single file change, no layout or component modifications.
 
-### Change (single line in `src/data/servicesData.ts`, line 453)
+### Changes (`src/data/servicesData.ts`)
 
-```ts
-// Before
-{ title: "Vietnam Adventure Recap", videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1774588080/Straits_Construction_1_rhyeyo.mp4" },
+**1. Hero banner** (line 3235)
+- Replace `heroCsiInvestigation` with:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg"`
 
-// After
-{ title: "Vietnam Adventure Recap", videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1774588080/Straits_Construction_1_rhyeyo.mp4", thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/v1774588080/Straits_Construction_1_rhyeyo.jpg" },
-```
+**2. Overview background** (line 3239)
+- Replace `heroCsiInvestigation` with same URL (used as overview bg too)
 
-The `ServiceVideoCarousel` component already renders `thumbnailImage` as an `<img>` on the card when present — no component changes needed.
+**3. "Your Investigation Journey" section image** — add `howItWorksImage` property:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg"`
+
+**4. "Optional Add-ons" section image** — add `addOnsImage` property:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361411/CSI_6_y8pkaz.jpg"`
+
+**5. Mini gallery images** (lines 3323-3327) — replace all 3:
+  - `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg"`
+  - `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361409/CSI_5_t4xrjy.jpg"`
+  - `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361403/CSI_2_slu6jv.jpg"`
 
 ### Files modified
-- `src/data/servicesData.ts` — add `thumbnailImage` to one video item
+- `src/data/servicesData.ts` — update image URLs in `csi-bones` entry
 
