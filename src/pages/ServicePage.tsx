@@ -246,6 +246,7 @@ const ServicePage = () => {
           subtext={service.cta.subtext}
           accentColor={service.accentColor}
           accentColorSecondary={service.accentColorSecondary}
+          backgroundImage={service.ctaBackgroundImage}
         />
       )}
 
