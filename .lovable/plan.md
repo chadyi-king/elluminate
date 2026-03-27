@@ -1,32 +1,39 @@
 
 
-## Plan: Update Overseas Retreats Media Sources
+## Plan: Add MP4 Video Support to ServiceVideoCarousel Modal
 
-### Overview
-Swap 4 image URLs in the overseas-retreats service data entry. No layout, styling, or structural changes.
+### What changes
+In `src/components/service-page/ServiceVideoCarousel.tsx`, lines 195-201 — the modal currently always renders an `<iframe>`. Add a check: if the URL ends with `.mp4` (or other video file extensions), render a `<video>` element instead.
 
-### Changes (single file: `src/data/servicesData.ts`)
+### Technical detail
 
-**1. Hero banner** (line 440) + **Overview background** (line 455)
-- Replace `overseasRetreatHero` with:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579581/Overseas_5_o60d5r.jpg"`
+Replace the single `<iframe>` block (lines 195-201) with a conditional:
 
-**2. "Your Retreat Journey" image** (~line 500 area)
-- Add `howItWorksImage` property to the overseas-retreats entry:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579572/Overseas_11_droxvw.jpg"`
+```tsx
+{activeVideo.videoUrl ? (
+  activeVideo.videoUrl.includes('.mp4') || activeVideo.videoUrl.includes('.webm') || activeVideo.videoUrl.includes('.ogg') ? (
+    <video
+      src={activeVideo.videoUrl}
+      className="w-full h-full"
+      controls
+      autoPlay
+    />
+  ) : (
+    <iframe
+      src={activeVideo.videoUrl}
+      className="w-full h-full"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
+  )
+) : (
+  // existing "coming soon" fallback
+)}
+```
 
-**3. "Optional Add-ons" image**
-- Add `addOnsImage` property:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579587/Overseas_6_d3fry4.jpg"`
-
-**4. Testimonial background**
-- Add `testimonialBackgroundImage` property:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579575/Overseas_12_gvbqfw.jpg"`
-- Update `ServiceTestimonialNew` component to accept an optional `backgroundImage` prop (replacing the hardcoded Unsplash URL)
-- Pass it from `ServicePage.tsx`
+Also update the `servicesData.ts` overseas-retreats entry to add the Cloudinary MP4 `videoUrl` to the "Vietnam Adventure Recap" video item.
 
 ### Files modified
-- `src/data/servicesData.ts` — add image URLs to overseas-retreats entry
-- `src/components/service-page/ServiceTestimonialNew.tsx` — accept optional `backgroundImage` prop
-- `src/pages/ServicePage.tsx` — pass `testimonialBackgroundImage` to testimonial component
+- `src/components/service-page/ServiceVideoCarousel.tsx` — conditional `<video>` vs `<iframe>` in modal
+- `src/data/servicesData.ts` — add `videoUrl` to Vietnam Adventure Recap item
 
