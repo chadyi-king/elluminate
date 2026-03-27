@@ -4170,11 +4170,15 @@ export const servicesData: Record<string, ServiceData> = {
   "monopoly-dash": {
     accentColor: "#FF4F4F",
     dividerVariant: "money",
-    hero: { title: "MONOPOLY DASH", subtitle: "City Strategy Race", tagline: "A city race for teams and student groups who enjoy strategy, negotiation, and fast decisions on the move.", backgroundImage: heroAmazingRaceAlt },
+    hero: { title: "MONOPOLY DASH", subtitle: "City Strategy Race", tagline: "A city race for teams and student groups who enjoy strategy, negotiation, and fast decisions on the move.", backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_4_jkl1xu.jpg" },
     overview: {
       description: "Monopoly Dash is a city-wide strategy race inspired by the classic board game, brought to life on the streets of Singapore. Teams navigate real neighborhoods, landmarks, and hidden gems while earning virtual currency, purchasing properties, and completing trade missions. Unlike a standard Amazing Race, Monopoly Dash adds a layer of financial strategy: teams must decide when to invest, when to save, and when to negotiate with rival teams for property trades. That makes it a strong fit for workplace groups, older students, and leadership cohorts who enjoy competition with a more cerebral edge.",
-      backgroundImage: heroAmazingRaceAlt,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_4_jkl1xu.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_5_msxabk.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361421/MonopolyDash_2_sq8gpp.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361426/MonopolyDash_6_e304eq.heic",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_3_kq2pxe.heic",
     features: [
       { icon: Map, title: "Real-World Board Game", description: "Singapore neighborhoods become your game board with real locations as properties." },
       { icon: Handshake, title: "Negotiate & Trade", description: "Broker deals with rival teams to complete property sets and maximize value." },
@@ -4259,7 +4263,7 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: "Lightbulb", title: "Better Negotiation Confidence", description: "Participants get repeated practice making offers, reading leverage, and closing deals." },
       { icon: "Heart", title: "More Engaging Exploration", description: "The city route feels more purposeful because every stop connects to the wider game strategy." },
     ],
-    miniGallery: { title: "Monopoly Dash Highlights", images: [{ src: heroAmazingRaceAlt, alt: "Teams racing through Singapore during Monopoly Dash" }, { src: teamBuildingOutdoor1, alt: "Outdoor negotiation moment" }, { src: heroTeamCelebration, alt: "Champions celebrating Monopoly Dash victory" }] },
+    miniGallery: { title: "Monopoly Dash Highlights", images: [{ src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361419/MonopolyDash_1_rlwgie.jpg", alt: "Teams racing through Singapore during Monopoly Dash" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361427/MonopolyDash_9_k7krlz.jpg", alt: "Monopoly Dash street challenge" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361423/MonopolyDash_7_vgqtey.heic", alt: "Outdoor negotiation moment" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_3_kq2pxe.heic", alt: "Champions celebrating Monopoly Dash victory" }] },
     hideOutcomes: false,
     hideMidCta: false,
     perfectForVariant: "flow",
