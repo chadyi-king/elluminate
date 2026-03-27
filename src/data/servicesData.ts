@@ -237,6 +237,7 @@ export interface ServiceData {
     }[];
   };
 
+  ctaBackgroundImage?: string;
   // Page-level presentation controls (optional)
   hideOutcomes?: boolean;
   hideMidCta?: boolean;
@@ -3326,9 +3327,16 @@ export const servicesData: Record<string, ServiceData> = {
         { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg", alt: "CSI-Bones investigation briefing" },
         { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361409/CSI_5_t4xrjy.jpg", alt: "Teams collaborating during CSI-Bones" },
         { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361403/CSI_2_slu6jv.jpg", alt: "Team moment after completing CSI-Bones" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592600/CSI_14_z4eswb.heic", alt: "CSI-Bones team investigation scene" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592599/CSI_13_ferqyd.heic", alt: "CSI-Bones evidence analysis" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592598/CSI_12_dg3lo1.heic", alt: "CSI-Bones clue discovery" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic", alt: "CSI-Bones team collaboration" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_10_umoqpw.heic", alt: "CSI-Bones group solving mystery" },
       ],
     },
     hideOutcomes: false,
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361403/CSI_2_slu6jv.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592607/CSI_15_rxnuq4.heic",
     hideMidCta: false,
     perfectForVariant: "flow",
     recentEventsHeadline: "Companies who've experienced our CSI-Bones",

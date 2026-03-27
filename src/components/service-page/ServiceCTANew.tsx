@@ -7,12 +7,13 @@ interface ServiceCTANewProps {
   subtext: string;
   accentColor: string;
   accentColorSecondary?: string;
+  backgroundImage?: string;
 }
 
 const getAccentGradient = (primary: string, secondary?: string) => 
   secondary ? `linear-gradient(135deg, ${primary}, ${secondary})` : primary;
 
-export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecondary }: ServiceCTANewProps) => {
+export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecondary, backgroundImage }: ServiceCTANewProps) => {
   const { openContactModal } = useContactModal();
   const gradient = getAccentGradient(accentColor, accentColorSecondary);
   
@@ -22,7 +23,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecon
       <div className="absolute inset-0">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1920)` }}
+          style={{ backgroundImage: `url(${backgroundImage || 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1920'})` }}
         />
       </div>
       
