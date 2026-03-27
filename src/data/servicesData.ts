@@ -3232,12 +3232,14 @@ export const servicesData: Record<string, ServiceData> = {
       title: "CSI - BONES",
       subtitle: "Team Building Mystery",
       tagline: "A forensic mystery built for teams and school groups who love clues, deduction, and competitive problem-solving.",
-      backgroundImage: heroCsiInvestigation,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
     },
     overview: {
       description: "CSI-Bones is a forensic investigation experience where teams collaborate to solve a high-stakes mystery. Your group examines evidence, connects clues, and makes fast decisions together, making it a strong fit for both workplace teams and student groups who enjoy logic, communication, and immersive storytelling. It is a safe, indoor-friendly format that keeps everyone engaged without relying on pure physical intensity.",
-      backgroundImage: heroCsiInvestigation,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361411/CSI_6_y8pkaz.jpg",
     features: [
       { icon: Search, title: "Evidence-Based Gameplay", description: "Analyze clues, artifacts, and witness statements." },
       { icon: Brain, title: "Deduction & Logic", description: "Connect the dots and build a case as a team." },
@@ -3321,9 +3323,9 @@ export const servicesData: Record<string, ServiceData> = {
     miniGallery: {
       title: "CSI-Bones Highlights",
       images: [
-        { src: heroCsiInvestigation, alt: "CSI-Bones investigation briefing" },
-        { src: heroTeamCelebration, alt: "Teams collaborating during CSI-Bones" },
-        { src: teamBuildingOutdoor1, alt: "Team moment after completing CSI-Bones" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg", alt: "CSI-Bones investigation briefing" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361409/CSI_5_t4xrjy.jpg", alt: "Teams collaborating during CSI-Bones" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361403/CSI_2_slu6jv.jpg", alt: "Team moment after completing CSI-Bones" },
       ],
     },
     hideOutcomes: false,
