@@ -450,7 +450,7 @@ export const servicesData: Record<string, ServiceData> = {
         { title: "Bali Team Retreat Highlights" },
         { title: "Japan Cultural Experience" },
         { title: "Thailand Beach Getaway" },
-        { title: "Vietnam Adventure Recap" },
+        { title: "Vietnam Adventure Recap", videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1774588080/Straits_Construction_1_rhyeyo.mp4" },
         { title: "Bintan Island Escape" },
       ],
     },
