@@ -193,12 +193,21 @@ export const ServiceVideoCarousel = ({
                 <X className="w-6 h-6" />
               </button>
               {activeVideo.videoUrl ? (
-                <iframe
-                  src={activeVideo.videoUrl}
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+                activeVideo.videoUrl.match(/\.(mp4|webm|ogg)/) ? (
+                  <video
+                    src={activeVideo.videoUrl}
+                    className="w-full h-full"
+                    controls
+                    autoPlay
+                  />
+                ) : (
+                  <iframe
+                    src={activeVideo.videoUrl}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                )
               ) : (
                 <div className="w-full h-full bg-muted flex items-center justify-center">
                   <p className="text-muted-foreground">Video coming soon</p>
