@@ -450,7 +450,7 @@ export const servicesData: Record<string, ServiceData> = {
         { title: "Bali Team Retreat Highlights" },
         { title: "Japan Cultural Experience" },
         { title: "Thailand Beach Getaway" },
-        { title: "Vietnam Adventure Recap", videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1774588080/Straits_Construction_1_rhyeyo.mp4" },
+        { title: "Vietnam Adventure Recap", videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1774588080/Straits_Construction_1_rhyeyo.mp4", thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/v1774588080/Straits_Construction_1_rhyeyo.jpg" },
         { title: "Bintan Island Escape" },
       ],
     },
