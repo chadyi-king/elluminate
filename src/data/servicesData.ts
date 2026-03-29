@@ -4080,10 +4080,14 @@ export const servicesData: Record<string, ServiceData> = {
   "minute-to-win-it": {
     accentColor: "#2A8DFF",
     dividerVariant: "timer",
-    hero: { title: "MINUTE TO WIN IT", subtitle: "Team Party Games", tagline: "Quick-fire mini games for teams, classes, and cohorts that want instant laughs and full participation.", backgroundImage: heroTeamCelebration },
+    hero: { title: "MINUTE TO WIN IT", subtitle: "Team Party Games", tagline: "Quick-fire mini games for teams, classes, and cohorts that want instant laughs and full participation.", backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361435/MTWI_2_m57wuz.jpg" },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361427/MTWI_12_vui3ae.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361426/MTWI_10_ofjakc.heic",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361433/MTWI_4_e5fnzy.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361435/MTWI_3_hiohbs.jpg",
     overview: {
       description: "Minute To Win It is a high-energy party-style team building experience featuring dozens of fast-paced mini challenges, each lasting just 60 seconds. Inspired by the hit TV show, teams compete across multiple rounds of quirky, hilarious, and surprisingly challenging games that test dexterity, coordination, creativity, and teamwork. It works just as well for school cohorts and student groups as it does for workplace teams because the rules are simple, the energy is immediate, and everyone can take part. Minute To Win It works brilliantly as a standalone event, a celebration segment, or an energizer during workshops and camp programmes.",
-      backgroundImage: heroTeamCelebration,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361435/MTWI_2_m57wuz.jpg",
     },
     features: [
       { icon: Timer, title: "60-Second Challenges", description: "Fast, exciting rounds that keep everyone on their toes." },
@@ -4169,7 +4173,7 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: "Zap", title: "Lifted Room Energy", description: "This format is effective when the audience needs an instant reset or boost." },
       { icon: "Star", title: "Memorable Shared Moments", description: "The quick wins and funny fails make the session especially easy to remember." },
     ],
-    miniGallery: { title: "Minute To Win It Highlights", images: [{ src: heroTeamCelebration, alt: "Teams competing in Minute To Win It challenges" }, { src: heroAdventureChallenge, alt: "Exciting mini game moment" }, { src: teamBuildingOutdoor1, alt: "Team celebration after winning" }] },
+    miniGallery: { title: "Minute To Win It Highlights", images: [{ src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361426/MTWI_1_yi4zue.heic", alt: "Teams competing in Minute To Win It challenges" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361429/MTWI_11_tc1soi.jpg", alt: "Exciting mini game moment" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361435/MTWI_5_pzdfsb.jpg", alt: "Team celebration after winning" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361437/MTWI_7_vlabzw.heic", alt: "Minute To Win It game action" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361437/MTWI_9_qfxt3q.heic", alt: "Team challenge moment" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361438/MTWI_6_fydbkh.jpg", alt: "Fun team activity highlight" }] },
     hideOutcomes: false,
     hideMidCta: false,
     perfectForVariant: "flow",
