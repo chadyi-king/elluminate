@@ -4372,10 +4372,14 @@ export const servicesData: Record<string, ServiceData> = {
   "running-man": {
     accentColor: "#FFD400",
     dividerVariant: "route",
-    hero: { title: "RUNNING MAN ADVENTURE", subtitle: "Variety Show Games", tagline: "A fan-favourite challenge format for teams, classes, and student groups that want pure energy and big laughs.", backgroundImage: heroCulturalRace },
+    hero: { title: "RUNNING MAN ADVENTURE", subtitle: "Variety Show Games", tagline: "A fan-favourite challenge format for teams, classes, and student groups that want pure energy and big laughs.", backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361444/RunningMan_10_x6owst.heic" },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_19_os8wfv.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361442/RunningMan_6_esz34i.heic",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599625/RunningMan_16_tbkpld.jpg",
     overview: {
       description: "Running Man Adventure is inspired by the massively popular Korean variety show, bringing its signature blend of hilarious challenges, name-tag battles, and team missions to your event. Teams compete through multiple rounds of creative, physical, and strategic games that reward quick thinking, coordination, and plenty of laughter. It is one of our strongest crossover formats for workplace teams, school cohorts, and student groups because it feels familiar, inclusive, and instantly exciting. Suitable for outdoor parks, indoor venues, and resort settings.",
-      backgroundImage: heroCulturalRace,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361444/RunningMan_10_x6owst.heic",
     },
     features: [
       { icon: Gamepad2, title: "Variety Show Format", description: "Multiple game types inspired by the hit Korean show, adapted for team building." },
@@ -4461,7 +4465,7 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: "Users", title: "Broader Involvement", description: "Different games let sporty, strategic, and playful participants all have moments to shine." },
       { icon: "Star", title: "More Memorable Moments", description: "The name-tag finales and unexpected twists are the parts people keep talking about afterwards." },
     ],
-    miniGallery: { title: "Running Man Highlights", images: [{ src: heroCulturalRace, alt: "Running Man variety show team missions" }, { src: heroTeamCelebration, alt: "Team celebrating Running Man victory" }, { src: teamBuildingOutdoor1, alt: "Outdoor Running Man challenge moment" }] },
+    miniGallery: { title: "Running Man Highlights", images: [{ src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_17_dfqtds.heic", alt: "Running Man variety show team missions" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599637/RunningMan_21_ncjbhp.jpg", alt: "Team competing in Running Man challenge" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599640/RunningMan_22_f0ka8y.heic", alt: "Running Man name-tag battle action" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599624/RunningMan_13_m2kg4e.jpg", alt: "Running Man outdoor challenge moment" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic", alt: "Team celebrating Running Man victory" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_1_rqyx9i.jpg", alt: "Running Man team formation" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361443/RunningMan_7_bqkr2b.heic", alt: "Running Man finale showdown" }] },
     hideOutcomes: false,
     hideMidCta: false,
     perfectForVariant: "flow",
