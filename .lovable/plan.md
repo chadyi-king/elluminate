@@ -1,37 +1,39 @@
 
 
-## Plan: Update Builders Cross Page Images
+## Plan: Update Minute to Win It Page Images
 
 ### Overview
-Replace image sources across 6 sections in the `builder-cross` entry. Single file change.
+Replace image sources across 6 sections in the `minute-to-win-it` entry (lines 4080–4177). Single file change.
 
 ### Changes (`src/data/servicesData.ts`)
 
-**1. Hero banner** (line 3876)
-- Replace `heroAdventureChallenge` in `backgroundImage` with:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361397/BuilderCross_1_zkduwz.jpg"`
+**1. Hero banner** (line 4083)
+- Replace `heroTeamCelebration` in `backgroundImage` with:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361435/MTWI_2_m57wuz.jpg"`
 
-**2. Overview background** (line 3879)
-- Replace `heroAdventureChallenge` with same URL
+**2. Overview background** (line 4086)
+- Replace `heroTeamCelebration` with same URL
 
-**3. "Your Build Journey"** — add `howItWorksImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361400/BuilderCross_5_ilekr6.heic"`
+**3. "Your Game Night Flow"** — add `howItWorksImage`:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361427/MTWI_12_vui3ae.jpg"`
 
 **4. "Optional Add-ons"** — add `addOnsImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361399/BuilderCross_3_xq5fkd.heic"`
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361426/MTWI_10_ofjakc.heic"`
 
-**5. "Ready to Build Together?" CTA** — add `ctaBackgroundImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/BuilderCross_6_ibyshz.jpg"`
+**5. "Ready to Play?" CTA** — add `ctaBackgroundImage`:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361433/MTWI_4_e5fnzy.jpg"`
 
 **6. "What Our Clients Say"** — add `testimonialBackgroundImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/BuilderCross_9_fphwj5.jpg"`
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361435/MTWI_3_hiohbs.jpg"`
 
-**7. Mini gallery** (line 3965) — replace 3 images with 4:
-  - `BuilderCross_8_vovefn.jpg`
-  - `BuilderCross_2_m6lujd.heic`
-  - `BuilderCross_10_wvtpdm.jpg`
-  - `BuilderCross_7_cgexuc.jpg`
+**7. Mini gallery** (line 4172) — replace 3 images with 6:
+  - `MTWI_1_yi4zue.heic`
+  - `MTWI_11_tc1soi.jpg`
+  - `MTWI_5_pzdfsb.jpg`
+  - `MTWI_7_vlabzw.heic`
+  - `MTWI_9_qfxt3q.heic`
+  - `MTWI_6_fydbkh.jpg`
 
 ### Files modified
-- `src/data/servicesData.ts` — Builders Cross entry image updates only
+- `src/data/servicesData.ts` — Minute to Win It entry image updates only
 
