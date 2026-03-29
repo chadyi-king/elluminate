@@ -3873,10 +3873,10 @@ export const servicesData: Record<string, ServiceData> = {
   "builder-cross": {
     accentColor: "#FF8A3D",
     dividerVariant: "blueprint",
-    hero: { title: "BUILDERCROSS", subtitle: "Team Building Challenge", tagline: "A hands-on build challenge for teams, classes, and student leaders who learn best by making things together.", backgroundImage: heroAdventureChallenge },
+    hero: { title: "BUILDERCROSS", subtitle: "Team Building Challenge", tagline: "A hands-on build challenge for teams, classes, and student leaders who learn best by making things together.", backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361397/BuilderCross_1_zkduwz.jpg" },
     overview: {
       description: "BuilderCross is a hands-on construction challenge where teams design, plan, and build structures together under time pressure. Inspired by engineering and architecture challenges, participants work with provided materials to create functional builds that meet specific criteria. It is especially strong for workplace teams, school cohorts, and youth groups because it rewards planning, delegation, iteration, and communication without requiring high physical intensity. Whether your group is building bridges, towers, or themed creations, BuilderCross rewards ingenuity and collaboration over brute force.",
-      backgroundImage: heroAdventureChallenge,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361397/BuilderCross_1_zkduwz.jpg",
     },
     features: [
       { icon: Building, title: "Hands-On Construction", description: "Teams build physical structures using provided materials and tools." },
@@ -3962,7 +3962,16 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: "Target", title: "Stronger Execution", description: "The challenge rewards groups that can turn plans into workable output quickly." },
       { icon: "Award", title: "Visible Team Achievement", description: "The final builds give the group something concrete to feel proud of together." },
     ],
-    miniGallery: { title: "BuilderCross Highlights", images: [{ src: heroAdventureChallenge, alt: "Teams building structures during BuilderCross challenge" }, { src: heroTeamCelebration, alt: "Team celebrating after winning BuilderCross" }, { src: teamBuildingOutdoor1, alt: "Collaborative building moment" }] },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361400/BuilderCross_5_ilekr6.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361399/BuilderCross_3_xq5fkd.heic",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/BuilderCross_6_ibyshz.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/BuilderCross_9_fphwj5.jpg",
+    miniGallery: { title: "BuilderCross Highlights", images: [
+      { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/BuilderCross_8_vovefn.jpg", alt: "Teams building structures during BuilderCross challenge" },
+      { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/BuilderCross_2_m6lujd.heic", alt: "Team collaborating on BuilderCross design" },
+      { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361401/BuilderCross_10_wvtpdm.jpg", alt: "BuilderCross final showcase moment" },
+      { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361400/BuilderCross_7_cgexuc.jpg", alt: "Collaborative building moment" },
+    ] },
     hideOutcomes: false,
     hideMidCta: false,
     perfectForVariant: "flow",
