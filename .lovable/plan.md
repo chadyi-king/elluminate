@@ -1,37 +1,40 @@
 
 
-## Plan: Update Monopoly Dash Page Images
+## Plan: Update Running Man Adventure Page Images
 
 ### Overview
-Replace image sources across 6 sections in the `monopoly-dash` entry. Single file change, no layout or component modifications.
+Replace image sources across 6 sections in the `running-man` entry. Single file change, no layout or component modifications.
 
 ### Changes (`src/data/servicesData.ts`)
 
-**1. Hero banner** (line 4173)
-- Replace `heroAmazingRaceAlt` in `backgroundImage` with:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_4_jkl1xu.jpg"`
+**1. Hero banner** (line 4375)
+- Replace `heroCulturalRace` in `backgroundImage` with:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361444/RunningMan_10_x6owst.heic"`
 
-**2. Overview background** (line 4176)
-- Replace `heroAmazingRaceAlt` with same URL
+**2. Overview background** (line 4378)
+- Replace `heroCulturalRace` with same URL
 
-**3. "Your Monopoly Dash Journey"** — add `howItWorksImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_5_msxabk.heic"`
+**3. "Your Running Man Journey"** — add `howItWorksImage`:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg"`
 
 **4. "Optional Add-ons"** — add `addOnsImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361421/MonopolyDash_2_sq8gpp.jpg"`
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_19_os8wfv.jpg"`
 
-**5. "Ready to Dash?" CTA** — add `ctaBackgroundImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361426/MonopolyDash_6_e304eq.heic"`
+**5. "Ready for Running Man?" CTA** — add `ctaBackgroundImage`:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361442/RunningMan_6_esz34i.heic"`
 
 **6. "What Our Clients Say"** — add `testimonialBackgroundImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_3_kq2pxe.heic"`
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599625/RunningMan_16_tbkpld.jpg"`
 
-**7. Mini gallery** (line 4262) — replace 3 images with 4:
-  - `MonopolyDash_1_rlwgie.jpg`
-  - `MonopolyDash_9_k7krlz.jpg`
-  - `MonopolyDash_7_vgqtey.heic`
-  - `MonopolyDash_3_kq2pxe.heic`
+**7. Mini gallery** (line 4464) — replace 3 images with 7:
+  - `RunningMan_17_dfqtds.heic`
+  - `RunningMan_21_ncjbhp.jpg`
+  - `RunningMan_22_f0ka8y.heic`
+  - `RunningMan_13_m2kg4e.jpg`
+  - `RunningMan_8_afq55t.heic`
+  - `RunningMan_1_rqyx9i.jpg`
+  - `RunningMan_7_bqkr2b.heic`
 
 ### Files modified
-- `src/data/servicesData.ts` — Monopoly Dash entry image updates only
+- `src/data/servicesData.ts` — Running Man entry image updates only
 
