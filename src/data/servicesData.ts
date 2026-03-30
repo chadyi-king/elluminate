@@ -4488,10 +4488,14 @@ export const servicesData: Record<string, ServiceData> = {
   "sotong-game": {
     accentColor: "#D946EF",
     dividerVariant: "squid",
-    hero: { title: "SOTONG GAME", subtitle: "Squid-Style Survival Games", tagline: "Can Your Team Survive the Ultimate Challenge?", backgroundImage: heroTeamCelebration },
+    hero: { title: "SOTONG GAME", subtitle: "Squid-Style Survival Games", tagline: "Can Your Team Survive the Ultimate Challenge?", backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361478/SotongGame_7_cd8u9r.jpg" },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361474/SotongGame_8_hqiimv.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361472/SotongGame_6_m15tpn.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361469/SotongGame_5_yybybi.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361469/SotongGame_4_vphbd3.jpg",
     overview: {
       description: "Sotong Game is a themed team building experience inspired by the global phenomenon of Squid-style survival games, adapted into safe, inclusive, and thrilling team challenges. Participants enter the game world complete with themed briefings, dramatic music, and the unmistakable tension of elimination rounds. From Red Light Green Light to Dalgona challenges to the iconic Tug of War, every game is faithfully recreated with a team-building twist that keeps everyone safe while delivering maximum excitement. Teams must communicate, strategize, and support each other to survive each round and advance to the final showdown. Our facilitators dress the part and maintain the immersive atmosphere throughout, complete with dramatic commentary and live scoring. Sotong Game is consistently one of our most popular activities for groups that want something themed, competitive, and genuinely memorable.",
-      backgroundImage: heroTeamCelebration,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361478/SotongGame_7_cd8u9r.jpg",
     },
     features: [
       { icon: Gamepad2, title: "Iconic Game Recreations", description: "Red Light Green Light, Dalgona, Tug of War, Marbles, and more." },
@@ -4577,7 +4581,7 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: "Target", title: "Better Composure Under Pressure", description: "Short, high-stakes rounds reward teams that stay calm and make decisions together." },
       { icon: "Heart", title: "More Shared Memories", description: "The visual drama and reaction moments make this one of the easiest formats to remember and talk about." },
     ],
-    miniGallery: { title: "Sotong Game Highlights", images: [{ src: heroTeamCelebration, alt: "Sotong Game themed team challenge" }, { src: heroAdventureChallenge, alt: "Squid-style game in progress" }, { src: teamBuildingOutdoor1, alt: "Team survival moment" }] },
+    miniGallery: { title: "Sotong Game Highlights", images: [{ src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361464/SotongGame_19_gqbkjc.jpg", alt: "Sotong Game themed team challenge" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361447/SotongGame_1_evo52u.jpg", alt: "Squid-style game in progress" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361450/SotongGame_13_sabaqz.jpg", alt: "Team survival moment" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361450/SotongGame_11_r7nxph.heic", alt: "Sotong Game elimination round" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361476/SotongGame_9_wzdts3.heic", alt: "Sotong Game team moment" }] },
     hideOutcomes: false,
     hideMidCta: false,
     perfectForVariant: "flow",
