@@ -3118,7 +3118,7 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     testimonials: [
       {
-        quote: "We ran the Amazing Race across the CBD with 120 staff from three departments that rarely interact. The mix of checkpoint challenges — some physical, some riddle-based — meant everyone had a moment to shine regardless of fitness level. What stuck with me was watching the quieter team members step up and take charge when the pressure was on. Our managers still reference specific checkpoint moments in team meetings three months on.",
+        quote: "We ran the Amazing Race across the CBD with 120 staff from three departments that rarely interact. What stuck with me was watching the quieter team members step up and take charge when the pressure was on. Our managers still reference specific checkpoint moments in team meetings three months on.",
         author: "Wei Ling T.",
         company: "Senior HR Manager, CapitaLand"
       },
@@ -3128,7 +3128,7 @@ export const servicesData: Record<string, ServiceData> = {
         company: "Graduate Talent Lead, DBS Bank"
       },
       {
-        quote: "We had 200 people across four departments with very different fitness levels and I was nervous about keeping everyone engaged. The race format handled it really well — the puzzle stations gave the less active participants a way to anchor the team while others covered ground. Every group felt like they had a chance until the very end, which made the awards moment genuinely exciting. Will definitely book again for next year.",
+        quote: "We had 200 people across four departments with very different fitness levels and I was nervous about keeping everyone engaged. The race format handled it really well — the puzzle stations gave the less active participants a way to anchor the team while others covered ground. Every group felt like they had a chance until the very end, which made the awards moment genuinely exciting.",
         author: "Priya S.",
         company: "Head of People Experience, NTUC"
       },

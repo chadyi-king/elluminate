@@ -45,7 +45,7 @@ export const ServiceHeroSplit = ({
         />
       </div>
 
-      {/* Left side - Hero Photo Panel */}
+      {/* Left side - Hero Photo Panel with floating service card */}
       <div className="hidden lg:block absolute left-0 top-0 w-1/2 h-full">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -56,6 +56,91 @@ export const ServiceHeroSplit = ({
           className="absolute inset-0 opacity-20"
           style={{ background: `linear-gradient(135deg, ${accentColor}30 0%, transparent 60%)` }}
         />
+
+        {/* Floating stacked service card */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <motion.div
+            className="relative"
+            style={{ width: 256, height: 160 }}
+            initial={{ opacity: 0, scale: 0.85, rotate: -8 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              rotate: -4,
+              y: [0, -10, 0],
+            }}
+            transition={{
+              opacity: { duration: 0.9, delay: 0.4 },
+              scale: { duration: 0.9, delay: 0.4 },
+              rotate: { duration: 0.9, delay: 0.4 },
+              y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
+            }}
+            whileHover={{ scale: 1.06, rotate: -1, transition: { duration: 0.25 } }}
+          >
+            {/* Card 3 — back */}
+            <div
+              className="absolute rounded-2xl"
+              style={{
+                width: 256, height: 160,
+                background: accentColor,
+                opacity: 0.35,
+                transform: "rotate(10deg) translate(12px, 10px)",
+              }}
+            />
+            {/* Card 2 — middle */}
+            <div
+              className="absolute rounded-2xl"
+              style={{
+                width: 256, height: 160,
+                background: accentColor,
+                opacity: 0.65,
+                transform: "rotate(5deg) translate(6px, 5px)",
+              }}
+            />
+            {/* Card 1 — front */}
+            <div
+              className="absolute rounded-2xl overflow-hidden shadow-2xl"
+              style={{ width: 256, height: 160, background: "linear-gradient(180deg, #1c1c1c 0%, #0a0a0a 100%)" }}
+            >
+              {/* Accent band at top */}
+              <div
+                className="absolute top-0 left-0 right-0 h-[60px]"
+                style={{ background: `linear-gradient(135deg, ${accentColor}, ${accentColor}cc)` }}
+              />
+              {/* City skyline silhouette cutting across the accent band */}
+              <svg
+                className="absolute"
+                style={{ top: 28 }}
+                width="256"
+                height="40"
+                viewBox="0 0 256 40"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M0,40 L0,28 L9,28 L9,18 L18,18 L18,23 L27,23 L27,12 L36,12 L36,20 L45,20 L45,7 L54,7 L54,20 L63,20 L63,14 L72,14 L72,20 L81,20 L81,10 L90,10 L90,20 L99,20 L99,5 L108,5 L108,20 L117,20 L117,25 L126,25 L126,15 L135,15 L135,25 L144,25 L144,18 L153,18 L153,12 L162,12 L162,20 L171,20 L171,27 L180,27 L180,14 L189,14 L189,20 L198,20 L198,28 L207,28 L207,18 L216,18 L216,22 L225,22 L225,16 L234,16 L234,24 L243,24 L243,28 L256,28 L256,40 Z"
+                  fill="#0a0a0a"
+                />
+              </svg>
+              {/* Text */}
+              <div className="absolute bottom-0 left-0 right-0 px-5 pb-4">
+                <p
+                  className="text-[9px] tracking-[0.3em] uppercase font-medium mb-1"
+                  style={{ color: `${accentColor}99` }}
+                >
+                  Welcome to
+                </p>
+                <h3 className="font-display font-black text-white text-lg leading-tight">
+                  {title}
+                </h3>
+              </div>
+              {/* Bottom accent rail */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-[3px]"
+                style={{ background: accentColor }}
+              />
+            </div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Right side - Content */}

@@ -20,7 +20,6 @@ import { allInScopeServiceSlugs, serviceCategoryLabels } from "@/data/siteScope"
 import { SEO } from "@/components/SEO";
 import { ServiceMiniGallery } from "@/components/service-page/ServiceMiniGallery";
 import { ServiceDestinationsGrid } from "@/components/service-page/ServiceDestinationsGrid";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/StructuredData";
 
 const ServicePage = () => {
@@ -112,11 +111,11 @@ const ServicePage = () => {
       <GoldParticles />
       <Navbar />
 
-      {/* Breadcrumbs */}
-      <Breadcrumbs items={[
-        { label: "Home", href: "/" },
-        { label: category.label, href: category.href },
-        { label: service.hero.title },
+      {/* Breadcrumb schema for SEO — no visible bar on page */}
+      <BreadcrumbSchema items={[
+        { name: "Home", url: "https://elluminate.sg/" },
+        { name: category.label, url: "https://elluminate.sg/" },
+        { name: service.hero.title, url: `https://elluminate.sg/services/${slug}` },
       ]} />
 
       {/* 1. Hero Section */}
