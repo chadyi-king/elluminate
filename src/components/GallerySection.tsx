@@ -2,29 +2,19 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-// Import event images
-import eventAwardsCeremony from "@/assets/events/awards-ceremony-1.jpg";
-import eventBrandActivation from "@/assets/events/brand-activation-1.jpg";
-import eventDinnerDance from "@/assets/events/dinner-dance-1.jpg";
-import eventFamilyFunDay from "@/assets/events/family-fun-day-1.jpg";
-import eventImmersiveExperience from "@/assets/events/immersive-experience-1.jpg";
-import eventOverseasRetreat from "@/assets/events/overseas-retreat-1.jpg";
-import eventProductLaunch from "@/assets/events/product-launch-1.jpg";
-import eventTeamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
-import eventTeamCelebration from "@/assets/events/team-celebration-1.jpg";
-import eventTownHall from "@/assets/events/town-hall-1.jpg";
-
 const galleryImages = [
-  { src: eventAwardsCeremony, alt: "Awards Ceremony", category: "Celebrations" },
-  { src: eventBrandActivation, alt: "Brand Activation", category: "Corporate" },
-  { src: eventDinnerDance, alt: "Dinner & Dance", category: "Celebrations" },
-  { src: eventFamilyFunDay, alt: "Family Fun Day", category: "Team Building" },
-  { src: eventImmersiveExperience, alt: "Immersive Experience", category: "Events" },
-  { src: eventOverseasRetreat, alt: "Overseas Retreat", category: "Retreats" },
-  { src: eventProductLaunch, alt: "Product Launch", category: "Corporate" },
-  { src: eventTeamBuildingOutdoor, alt: "Outdoor Team Building", category: "Team Building" },
-  { src: eventTeamCelebration, alt: "Team Celebration", category: "Celebrations" },
-  { src: eventTownHall, alt: "Town Hall Meeting", category: "Corporate" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360229/AmazingRace_2_hi89qz.jpg", alt: "Amazing Race Team Challenge", category: "Team Building" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg", alt: "CSI Investigation Activity", category: "Team Building" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361392/BuilderCross_1_asbqjw.jpg", alt: "Builder Cross Workshop", category: "Team Building" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361424/MTWI_1_e6xqsz.jpg", alt: "Minute To Win It Showdown", category: "Team Building" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361432/MonopolyDash_1_oo1zfx.jpg", alt: "Monopoly Dash Competition", category: "Team Building" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579572/Overseas_11_droxvw.jpg", alt: "Overseas Retreat Experience", category: "Retreats" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg", alt: "Running Man Group Activity", category: "Team Building" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361447/SotongGame_7_pphdjy.jpg", alt: "Sotong Game Team Challenge", category: "Team Building" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg", alt: "The Game Show Virtual Event", category: "Virtual" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579587/Overseas_6_d3fry4.jpg", alt: "Overseas Team Retreat", category: "Retreats" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361379/AmazingRace_22_qnkeat.heic", alt: "Amazing Race Checkpoint", category: "Team Building" },
+  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic", alt: "CSI Team Debrief", category: "Team Building" },
 ];
 
 export const GallerySection = () => {

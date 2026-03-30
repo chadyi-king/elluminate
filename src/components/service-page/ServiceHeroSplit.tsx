@@ -16,82 +16,733 @@ interface ServiceHeroSplitProps {
 const getAccentGradient = (primary: string, secondary?: string) => 
   secondary ? `linear-gradient(135deg, ${primary}, ${secondary})` : primary;
 
-// Per-service themed silhouette SVG paths that cut across the accent band
-const getThemedSilhouette = (slug?: string): string => {
+// Per-service themed prop SVG rendered instead of a generic card
+const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string }) => {
+  const size = 280;
+  const common = { width: size, height: size, viewBox: "0 0 200 200", fill: "none", xmlns: "http://www.w3.org/2000/svg" };
+
   switch (slug) {
-    // Race flag pennants
+    /* ─── Amazing Race / Cultural Race: race card envelope ─── */
     case "amazing-race":
     case "amazing-race-virtual":
     case "cultural-race":
-      return "M0,60 L0,40 L24,40 L36,12 L48,40 L72,40 L84,8 L96,40 L120,40 L132,15 L144,40 L168,40 L180,10 L192,40 L216,40 L228,18 L240,40 L264,40 L276,6 L288,40 L312,40 L324,14 L336,40 L360,40 L372,20 L384,40 L384,60 Z";
-    // Skull/crossbones humps
+      return (
+        <svg {...common}>
+          {/* Envelope body */}
+          <rect x="30" y="60" width="140" height="100" rx="8" fill={accentColor} opacity="0.9" />
+          <rect x="30" y="60" width="140" height="100" rx="8" stroke="white" strokeWidth="2" fill="none" />
+          {/* Envelope flap */}
+          <path d="M30 68 L100 115 L170 68" stroke="white" strokeWidth="2" fill={`${accentColor}cc`} />
+          {/* Card poking out */}
+          <rect x="55" y="30" width="90" height="70" rx="6" fill="white" />
+          <text x="100" y="55" textAnchor="middle" fontSize="10" fontWeight="bold" fill={accentColor}>ROUTE</text>
+          <text x="100" y="72" textAnchor="middle" fontSize="10" fontWeight="bold" fill={accentColor}>CARD</text>
+          {/* Wax seal */}
+          <circle cx="100" cy="140" r="14" fill="#B22222" />
+          <text x="100" y="144" textAnchor="middle" fontSize="10" fontWeight="bold" fill="white">✦</text>
+        </svg>
+      );
+
+    /* ─── CSI Bones: chalk body outline ─── */
     case "csi-bones":
-      return "M0,60 L0,38 Q32,38 48,20 Q64,5 80,20 Q88,28 96,28 Q104,28 112,20 Q128,5 144,20 Q160,38 192,38 Q224,38 240,20 Q256,5 272,20 Q280,28 288,28 Q296,28 304,20 Q320,5 336,20 Q352,38 384,38 L384,60 Z";
-    // Money stack steps
+      return (
+        <svg {...common}>
+          {/* Tape strips */}
+          <rect x="20" y="15" width="60" height="12" rx="2" fill="#FFD700" opacity="0.7" transform="rotate(-15 50 21)" />
+          <rect x="130" y="170" width="55" height="12" rx="2" fill="#FFD700" opacity="0.7" transform="rotate(10 155 176)" />
+          {/* Chalk outline body */}
+          <g stroke="white" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.9">
+            {/* Head */}
+            <circle cx="100" cy="42" r="16" />
+            {/* Body */}
+            <line x1="100" y1="58" x2="100" y2="115" />
+            {/* Arms */}
+            <line x1="100" y1="72" x2="60" y2="52" />
+            <line x1="100" y1="72" x2="145" y2="90" />
+            {/* Legs */}
+            <line x1="100" y1="115" x2="65" y2="165" />
+            <line x1="100" y1="115" x2="140" y2="160" />
+          </g>
+          {/* Magnifying glass */}
+          <circle cx="152" cy="50" r="18" stroke={accentColor} strokeWidth="3" fill={`${accentColor}20`} />
+          <line x1="165" y1="63" x2="178" y2="76" stroke={accentColor} strokeWidth="3" strokeLinecap="round" />
+        </svg>
+      );
+
+    /* ─── Monopoly Dash: money bag ─── */
     case "monopoly-dash":
-      return "M0,60 L0,42 L32,42 L32,32 L64,32 L64,22 L96,22 L96,12 L144,12 L144,22 L160,22 L160,32 L176,32 L176,42 L208,42 L208,30 L240,30 L240,18 L272,18 L272,8 L320,8 L320,18 L336,18 L336,28 L352,28 L352,42 L384,42 L384,60 Z";
-    // Paint splatter blobs
+      return (
+        <svg {...common}>
+          {/* Money bag shape */}
+          <path d="M65 55 Q60 40 80 35 Q90 32 100 35 Q110 32 120 35 Q140 40 135 55 Q155 80 155 120 Q155 170 100 175 Q45 170 45 120 Q45 80 65 55Z" fill={accentColor} opacity="0.9" />
+          <path d="M65 55 Q60 40 80 35 Q90 32 100 35 Q110 32 120 35 Q140 40 135 55 Q155 80 155 120 Q155 170 100 175 Q45 170 45 120 Q45 80 65 55Z" stroke="white" strokeWidth="2" fill="none" />
+          {/* Tie */}
+          <path d="M80 55 Q100 65 120 55" stroke="white" strokeWidth="2.5" fill="none" />
+          {/* Dollar sign */}
+          <text x="100" y="130" textAnchor="middle" fontSize="48" fontWeight="bold" fill="white" opacity="0.95">$</text>
+          {/* Floating coins */}
+          <circle cx="38" cy="80" r="10" fill="#FFD700" stroke="#DAA520" strokeWidth="1.5" />
+          <text x="38" y="84" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#8B6914">$</text>
+          <circle cx="165" cy="95" r="8" fill="#FFD700" stroke="#DAA520" strokeWidth="1.5" />
+        </svg>
+      );
+
+    /* ─── Gel Blitz: gel blaster + splat ─── */
     case "gel-blitz":
-      return "M0,60 L0,35 Q20,30 30,18 Q40,5 60,15 Q75,25 85,10 Q95,0 115,12 Q130,22 145,38 Q155,30 170,15 Q185,2 200,18 Q210,28 225,22 Q240,15 260,8 Q275,18 285,30 Q295,25 310,14 Q325,5 345,20 Q360,32 375,38 L384,38 L384,60 Z";
-    // Dart/arrow points
+      return (
+        <svg {...common}>
+          {/* Splat background */}
+          <circle cx="100" cy="100" r="60" fill={`${accentColor}25`} />
+          <circle cx="60" cy="75" r="20" fill={`${accentColor}20`} />
+          <circle cx="145" cy="130" r="18" fill={`${accentColor}20`} />
+          {/* Blaster body */}
+          <rect x="40" y="85" width="100" height="24" rx="6" fill="#333" stroke="white" strokeWidth="1.5" />
+          {/* Barrel */}
+          <rect x="140" y="89" width="35" height="16" rx="4" fill="#444" stroke="white" strokeWidth="1.5" />
+          {/* Grip */}
+          <rect x="65" y="109" width="18" height="35" rx="4" fill="#333" stroke="white" strokeWidth="1.5" />
+          {/* Sight */}
+          <rect x="95" y="76" width="20" height="9" rx="3" fill={accentColor} />
+          {/* Splat hits */}
+          <circle cx="55" cy="55" r="12" fill={accentColor} opacity="0.7" />
+          <circle cx="150" cy="60" r="9" fill={accentColor} opacity="0.6" />
+          <circle cx="40" cy="155" r="10" fill={accentColor} opacity="0.5" />
+        </svg>
+      );
+
+    /* ─── Nerf War: foam dart ─── */
     case "nerfwar":
-      return "M0,60 L0,38 L48,38 L64,10 L80,38 L128,38 L152,14 L176,38 L224,38 L248,8 L272,38 L320,38 L340,16 L360,38 L384,38 L384,60 Z";
-    // Dynamic wave suggesting motion
+      return (
+        <svg {...common}>
+          {/* Dart body */}
+          <rect x="35" y="88" width="90" height="24" rx="12" fill={accentColor} stroke="white" strokeWidth="1.5" />
+          {/* Dart tip (suction cup) */}
+          <circle cx="135" cy="100" r="14" fill="#FF6B35" stroke="white" strokeWidth="1.5" />
+          <circle cx="135" cy="100" r="7" fill="#FF8C5A" />
+          {/* Tail fins */}
+          <polygon points="35,88 20,75 35,95" fill={`${accentColor}cc`} stroke="white" strokeWidth="1" />
+          <polygon points="35,100 20,125 35,105" fill={`${accentColor}cc`} stroke="white" strokeWidth="1" />
+          {/* Target */}
+          <circle cx="100" cy="100" r="55" stroke="white" strokeWidth="1" fill="none" opacity="0.3" strokeDasharray="8 4" />
+          <circle cx="100" cy="100" r="35" stroke="white" strokeWidth="1" fill="none" opacity="0.2" strokeDasharray="6 4" />
+          {/* Motion lines */}
+          <line x1="150" y1="92" x2="175" y2="86" stroke="white" strokeWidth="1.5" opacity="0.4" />
+          <line x1="150" y1="100" x2="180" y2="100" stroke="white" strokeWidth="1.5" opacity="0.4" />
+          <line x1="150" y1="108" x2="175" y2="114" stroke="white" strokeWidth="1.5" opacity="0.4" />
+        </svg>
+      );
+
+    /* ─── Running Man: name tag ─── */
     case "running-man":
-      return "M0,60 L0,32 Q48,10 96,28 Q144,46 192,18 Q240,0 288,24 Q336,44 384,22 L384,60 Z";
-    // Circle, triangle, square shapes
+      return (
+        <svg {...common}>
+          {/* Name tag */}
+          <rect x="35" y="40" width="130" height="120" rx="10" fill="white" />
+          <rect x="35" y="40" width="130" height="35" rx="10" fill={accentColor} />
+          <rect x="75" y="40" width="50" height="35" fill={accentColor} />
+          <text x="100" y="62" textAnchor="middle" fontSize="11" fontWeight="bold" fill="white">HELLO</text>
+          <text x="100" y="83" textAnchor="middle" fontSize="8" fill="#666">my name is</text>
+          {/* Running figure icon */}
+          <g transform="translate(75, 92) scale(0.55)" fill={accentColor}>
+            <circle cx="45" cy="10" r="10" />
+            <path d="M25 25 L45 40 L60 25 M45 40 L45 65 L30 85 M45 65 L65 80" stroke={accentColor} strokeWidth="5" strokeLinecap="round" fill="none" />
+          </g>
+          {/* Pin hole */}
+          <circle cx="100" cy="46" r="3" fill="white" opacity="0.5" />
+        </svg>
+      );
+
+    /* ─── Sotong Game: squid game shapes ─── */
     case "sotong-game":
-      return "M0,60 L0,42 L48,42 Q48,10 80,10 Q112,10 112,42 L160,42 L192,8 L224,42 L272,42 L272,10 L336,10 L336,42 L384,42 L384,60 Z";
-    // Angular laser grid
+      return (
+        <svg {...common}>
+          {/* Circle */}
+          <circle cx="55" cy="65" r="28" stroke={accentColor} strokeWidth="3" fill={`${accentColor}15`} />
+          {/* Triangle */}
+          <polygon points="145,37 175,93 115,93" stroke={accentColor} strokeWidth="3" fill={`${accentColor}15`} />
+          {/* Square */}
+          <rect x="72" y="110" width="56" height="56" stroke={accentColor} strokeWidth="3" fill={`${accentColor}15`} />
+          {/* Guard mask (centered, small) */}
+          <circle cx="100" cy="100" r="12" fill="#1a1a1a" stroke={accentColor} strokeWidth="2" />
+          <circle cx="100" cy="100" r="5" fill={accentColor} />
+        </svg>
+      );
+
+    /* ─── Tag-tical Laser: laser phaser ─── */
     case "tag-tical-laser":
-      return "M0,60 L0,35 L32,15 L64,35 L96,10 L128,35 L160,5 L192,35 L224,12 L256,35 L288,8 L320,35 L352,18 L384,35 L384,60 Z";
-    // Gear teeth
+      return (
+        <svg {...common}>
+          {/* Laser beams */}
+          <line x1="140" y1="85" x2="190" y2="50" stroke={accentColor} strokeWidth="2" opacity="0.6" />
+          <line x1="140" y1="95" x2="195" y2="80" stroke={accentColor} strokeWidth="1.5" opacity="0.4" />
+          <line x1="140" y1="105" x2="190" y2="120" stroke={accentColor} strokeWidth="1.5" opacity="0.4" />
+          {/* Phaser body */}
+          <path d="M30 80 L130 80 Q145 80 145 95 Q145 110 130 110 L80 110 L70 140 L55 140 L65 110 L30 110 Q20 110 20 95 Q20 80 30 80Z" fill="#333" stroke="white" strokeWidth="1.5" />
+          {/* Scope */}
+          <rect x="60" y="70" width="40" height="10" rx="3" fill={accentColor} opacity="0.8" />
+          {/* Trigger */}
+          <line x1="90" y1="110" x2="85" y2="125" stroke="#555" strokeWidth="3" strokeLinecap="round" />
+          {/* Muzzle glow */}
+          <circle cx="145" cy="95" r="6" fill={accentColor} opacity="0.6" />
+          <circle cx="145" cy="95" r="3" fill="white" opacity="0.8" />
+        </svg>
+      );
+
+    /* ─── Builder Cross: blueprint / wrench ─── */
     case "builder-cross":
-      return "M0,60 L0,38 L24,38 L24,18 L48,18 L48,38 L72,38 L72,14 L96,14 L96,38 L120,38 L120,20 L144,20 L144,38 L168,38 L168,10 L192,10 L192,38 L216,38 L216,16 L240,16 L240,38 L264,38 L264,14 L288,14 L288,38 L312,38 L312,20 L336,20 L336,38 L360,38 L360,18 L384,18 L384,60 Z";
-    // Stopwatch / clock dome
+      return (
+        <svg {...common}>
+          {/* Blueprint paper */}
+          <rect x="30" y="30" width="140" height="140" rx="4" fill="#1a3a5c" stroke="white" strokeWidth="1.5" />
+          {/* Grid lines */}
+          <g stroke="white" strokeWidth="0.5" opacity="0.2">
+            <line x1="30" y1="70" x2="170" y2="70" />
+            <line x1="30" y1="110" x2="170" y2="110" />
+            <line x1="30" y1="150" x2="170" y2="150" />
+            <line x1="70" y1="30" x2="70" y2="170" />
+            <line x1="110" y1="30" x2="110" y2="170" />
+            <line x1="150" y1="30" x2="150" y2="170" />
+          </g>
+          {/* Blueprint drawing */}
+          <rect x="55" y="55" width="60" height="40" stroke={accentColor} strokeWidth="2" fill="none" strokeDasharray="6 3" />
+          <line x1="55" y1="55" x2="85" y2="30" stroke={accentColor} strokeWidth="1.5" strokeDasharray="4 2" />
+          {/* Wrench */}
+          <g transform="translate(110,110) rotate(45)">
+            <rect x="-4" y="-30" width="8" height="50" rx="3" fill="#888" stroke="white" strokeWidth="1" />
+            <circle cx="0" cy="-30" r="10" stroke="white" strokeWidth="2" fill="none" />
+            <circle cx="0" cy="-30" r="4" fill="#888" />
+          </g>
+        </svg>
+      );
+
+    /* ─── Minute To Win It: stopwatch ─── */
     case "minute-to-win-it":
-      return "M0,60 L0,42 L48,42 L60,38 Q96,36 128,20 Q160,5 192,2 Q224,5 256,20 Q288,36 324,38 L336,42 L384,42 L384,60 Z";
-    // Concentric target arcs
+      return (
+        <svg {...common}>
+          {/* Watch body */}
+          <circle cx="100" cy="110" r="60" fill="#222" stroke={accentColor} strokeWidth="3" />
+          <circle cx="100" cy="110" r="54" fill="#111" stroke="white" strokeWidth="1" />
+          {/* Crown button */}
+          <rect x="93" y="42" width="14" height="12" rx="3" fill="#444" stroke={accentColor} strokeWidth="1.5" />
+          {/* Side buttons */}
+          <rect x="135" y="78" width="10" height="8" rx="2" fill="#444" stroke="white" strokeWidth="1" transform="rotate(30 140 82)" />
+          {/* Tick marks */}
+          {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
+            <line
+              key={deg}
+              x1={100 + 44 * Math.cos((deg - 90) * Math.PI / 180)}
+              y1={110 + 44 * Math.sin((deg - 90) * Math.PI / 180)}
+              x2={100 + 50 * Math.cos((deg - 90) * Math.PI / 180)}
+              y2={110 + 50 * Math.sin((deg - 90) * Math.PI / 180)}
+              stroke="white"
+              strokeWidth={deg % 90 === 0 ? "2" : "1"}
+            />
+          ))}
+          {/* Hands */}
+          <line x1="100" y1="110" x2="100" y2="70" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="100" y1="110" x2="130" y2="120" stroke="white" strokeWidth="2" strokeLinecap="round" />
+          {/* Center dot */}
+          <circle cx="100" cy="110" r="4" fill={accentColor} />
+          {/* 60 text */}
+          <text x="100" y="145" textAnchor="middle" fontSize="12" fontWeight="bold" fill={accentColor}>60s</text>
+        </svg>
+      );
+
+    /* ─── Archery Tag: bow and arrow ─── */
     case "archery-tag":
-      return "M0,60 L0,38 Q96,38 144,25 Q168,18 192,10 Q216,18 240,25 Q288,38 384,38 L384,60 Z M128,60 L128,42 Q160,30 192,24 Q224,30 256,42 L256,60 Z";
-    // Astronaut helmet dome
+      return (
+        <svg {...common}>
+          {/* Bow */}
+          <path d="M60 30 Q20 100 60 170" stroke={accentColor} strokeWidth="4" fill="none" strokeLinecap="round" />
+          {/* Bow string */}
+          <line x1="60" y1="30" x2="60" y2="170" stroke="white" strokeWidth="1.5" />
+          {/* Arrow shaft */}
+          <line x1="60" y1="100" x2="170" y2="100" stroke="#8B7355" strokeWidth="3" />
+          {/* Arrow head */}
+          <polygon points="170,100 155,90 155,110" fill={accentColor} />
+          {/* Arrow fletching */}
+          <polygon points="65,100 55,93 55,100" fill="white" opacity="0.7" />
+          <polygon points="65,100 55,107 55,100" fill="white" opacity="0.7" />
+          {/* Target in background */}
+          <circle cx="170" cy="100" r="25" fill="none" stroke="white" strokeWidth="1" opacity="0.3" />
+          <circle cx="170" cy="100" r="17" fill="none" stroke="white" strokeWidth="1" opacity="0.2" />
+          <circle cx="170" cy="100" r="9" fill="none" stroke={accentColor} strokeWidth="1" opacity="0.4" />
+        </svg>
+      );
+
+    /* ─── Amongst Us: astronaut helmet ─── */
     case "amongst-us":
-      return "M0,60 L0,42 L96,42 Q112,42 128,32 Q144,18 160,10 Q176,5 192,4 Q208,5 224,10 Q240,18 256,32 Q272,42 288,42 L384,42 L384,60 Z";
-    // Card suit peaks (heart, diamond, spade, club)
+      return (
+        <svg {...common}>
+          {/* Helmet body */}
+          <path d="M55 170 L55 80 Q55 30 100 30 Q145 30 145 80 L145 170 Q145 180 135 180 L65 180 Q55 180 55 170Z" fill={accentColor} opacity="0.9" />
+          <path d="M55 170 L55 80 Q55 30 100 30 Q145 30 145 80 L145 170 Q145 180 135 180 L65 180 Q55 180 55 170Z" stroke="white" strokeWidth="2" fill="none" />
+          {/* Visor */}
+          <path d="M65 75 Q65 50 95 50 L120 50 Q135 50 140 65 L140 100 Q140 115 125 115 L80 115 Q65 115 65 100Z" fill="#87CEEB" opacity="0.6" />
+          <path d="M65 75 Q65 50 95 50 L120 50 Q135 50 140 65 L140 100 Q140 115 125 115 L80 115 Q65 115 65 100Z" stroke="white" strokeWidth="1.5" fill="none" />
+          {/* Visor glare */}
+          <path d="M75 60 Q85 55 90 60" stroke="white" strokeWidth="2" fill="none" opacity="0.5" />
+          {/* Backpack */}
+          <rect x="145" y="80" width="25" height="55" rx="8" fill={`${accentColor}cc`} stroke="white" strokeWidth="1.5" />
+          {/* Suspicious eye */}
+          <ellipse cx="103" cy="85" rx="20" ry="12" fill="white" opacity="0.15" />
+        </svg>
+      );
+
+    /* ─── Alice in Motherland: playing card ─── */
     case "alice-in-motherland":
-      return "M0,60 L0,38 L48,38 Q60,38 66,28 Q72,18 78,10 Q84,18 90,28 Q96,38 108,38 L156,38 L168,10 L180,38 L228,38 Q234,28 240,22 Q246,14 252,10 Q264,16 270,24 Q276,30 282,38 L330,38 Q336,30 345,20 Q350,12 360,16 Q366,20 372,28 Q378,34 384,38 L384,60 Z";
-    // Olympic torch flame
+      return (
+        <svg {...common}>
+          {/* Card */}
+          <rect x="45" y="25" width="110" height="150" rx="10" fill="white" stroke={accentColor} strokeWidth="2" />
+          {/* Card inner border */}
+          <rect x="52" y="32" width="96" height="136" rx="6" fill="none" stroke={accentColor} strokeWidth="0.5" opacity="0.4" />
+          {/* Top corner */}
+          <text x="60" y="52" fontSize="16" fontWeight="bold" fill={accentColor}>A</text>
+          <text x="60" y="66" fontSize="12" fill={accentColor}>♠</text>
+          {/* Bottom corner (inverted) */}
+          <text x="140" y="158" fontSize="16" fontWeight="bold" fill={accentColor} textAnchor="end" transform="rotate(180 137 152)">A</text>
+          <text x="140" y="144" fontSize="12" fill={accentColor} textAnchor="end" transform="rotate(180 137 140)">♠</text>
+          {/* Center rabbit silhouette */}
+          <g transform="translate(100, 100)" fill={accentColor}>
+            {/* Rabbit ears */}
+            <ellipse cx="-8" cy="-38" rx="6" ry="18" />
+            <ellipse cx="8" cy="-38" rx="6" ry="18" />
+            {/* Head */}
+            <circle cx="0" cy="-15" r="12" />
+            {/* Body */}
+            <ellipse cx="0" cy="8" rx="14" ry="18" />
+          </g>
+        </svg>
+      );
+
+    /* ─── Battle of the Olympians: Olympic torch ─── */
     case "battle-of-the-olympians":
-      return "M0,60 L0,38 L144,38 L152,36 Q160,30 168,18 Q176,8 184,4 Q192,0 200,4 Q208,8 216,18 Q224,30 232,36 L240,38 L384,38 L384,60 Z";
-    // Vault door / theatrical mask outline
+      return (
+        <svg {...common}>
+          {/* Torch handle */}
+          <rect x="90" y="90" width="20" height="80" rx="4" fill="#8B7355" stroke="white" strokeWidth="1.5" />
+          {/* Torch crown */}
+          <path d="M75 90 L80 75 L90 85 L100 70 L110 85 L120 75 L125 90Z" fill={accentColor} stroke="white" strokeWidth="1.5" />
+          {/* Flame */}
+          <path d="M100 72 Q85 40 100 15 Q105 35 115 25 Q110 50 120 40 Q115 60 100 72Z" fill="#FF6B35" opacity="0.9" />
+          <path d="M100 72 Q90 50 100 30 Q106 45 112 38 Q108 58 100 72Z" fill="#FFD700" opacity="0.8" />
+          <path d="M100 72 Q95 58 100 45 Q105 55 100 72Z" fill="white" opacity="0.6" />
+          {/* Laurel wreath */}
+          <path d="M50 125 Q60 95 80 90" stroke="#4CAF50" strokeWidth="2" fill="none" />
+          <path d="M150 125 Q140 95 120 90" stroke="#4CAF50" strokeWidth="2" fill="none" />
+          {/* Leaves */}
+          <ellipse cx="58" cy="115" rx="6" ry="3" fill="#4CAF50" transform="rotate(-30 58 115)" />
+          <ellipse cx="65" cy="105" rx="6" ry="3" fill="#4CAF50" transform="rotate(-20 65 105)" />
+          <ellipse cx="142" cy="115" rx="6" ry="3" fill="#4CAF50" transform="rotate(30 142 115)" />
+          <ellipse cx="135" cy="105" rx="6" ry="3" fill="#4CAF50" transform="rotate(20 135 105)" />
+          {/* Gold ring */}
+          <circle cx="100" cy="168" r="6" fill="none" stroke="#FFD700" strokeWidth="2" />
+        </svg>
+      );
+
+    /* ─── Treasure Heist: vault door ─── */
     case "treasure-heist":
-      return "M0,60 L0,38 L64,38 Q80,38 96,30 Q112,20 128,14 Q144,8 160,10 Q168,14 176,22 Q184,14 192,10 Q200,8 216,10 Q232,14 248,22 Q264,30 280,36 Q296,38 320,38 L384,38 L384,60 Z";
-    // TV screen / game show buzzer
+      return (
+        <svg {...common}>
+          {/* Vault door */}
+          <circle cx="100" cy="100" r="70" fill="#333" stroke="#888" strokeWidth="4" />
+          <circle cx="100" cy="100" r="62" fill="#2a2a2a" stroke="#666" strokeWidth="2" />
+          {/* Handle wheel */}
+          <circle cx="100" cy="100" r="25" fill="none" stroke={accentColor} strokeWidth="3" />
+          <line x1="100" y1="75" x2="100" y2="125" stroke={accentColor} strokeWidth="2" />
+          <line x1="75" y1="100" x2="125" y2="100" stroke={accentColor} strokeWidth="2" />
+          {/* Center bolt */}
+          <circle cx="100" cy="100" r="6" fill={accentColor} />
+          {/* Bolts */}
+          {[0, 60, 120, 180, 240, 300].map((deg) => (
+            <circle
+              key={deg}
+              cx={100 + 55 * Math.cos(deg * Math.PI / 180)}
+              cy={100 + 55 * Math.sin(deg * Math.PI / 180)}
+              r="4"
+              fill="#888"
+              stroke="#555"
+              strokeWidth="1"
+            />
+          ))}
+          {/* Gold bars peek */}
+          <rect x="55" y="155" width="18" height="10" rx="2" fill="#FFD700" opacity="0.6" />
+          <rect x="78" y="158" width="15" height="8" rx="2" fill="#FFD700" opacity="0.4" />
+        </svg>
+      );
+
+    /* ─── Overseas Retreats: plane ─── */
+    case "overseas-retreats":
+    case "local-retreats":
+    case "incentive-travel":
+      return (
+        <svg {...common}>
+          {/* Plane body */}
+          <ellipse cx="100" cy="95" rx="65" ry="14" fill="white" opacity="0.9" />
+          {/* Cockpit */}
+          <path d="M162 95 Q180 93 180 95 Q180 97 162 95Z" fill="#87CEEB" stroke="white" strokeWidth="1" />
+          {/* Tail */}
+          <path d="M40 95 L25 60 L45 80" fill={accentColor} stroke="white" strokeWidth="1" />
+          <path d="M40 95 L25 130 L45 110" fill={accentColor} stroke="white" strokeWidth="1" />
+          {/* Wings */}
+          <path d="M90 82 L120 45 L125 48 L100 82Z" fill={accentColor} opacity="0.8" />
+          <path d="M90 108 L120 145 L125 142 L100 108Z" fill={accentColor} opacity="0.8" />
+          {/* Windows */}
+          {[70, 82, 94, 106, 118, 130, 142].map((x) => (
+            <circle key={x} cx={x} cy="92" r="2" fill="#87CEEB" opacity="0.7" />
+          ))}
+          {/* Contrail */}
+          <line x1="20" y1="95" x2="0" y2="95" stroke="white" strokeWidth="2" opacity="0.3" />
+          <line x1="15" y1="88" x2="0" y2="85" stroke="white" strokeWidth="1.5" opacity="0.2" />
+          <line x1="15" y1="102" x2="0" y2="105" stroke="white" strokeWidth="1.5" opacity="0.2" />
+        </svg>
+      );
+
+    /* ─── The Game Show: TV screen / buzzer ─── */
     case "the-gameshow-experience-virtual":
-      return "M0,60 L0,42 L48,42 L48,10 L336,10 L336,42 L384,42 L384,60 Z";
-    // Dumbbell
+      return (
+        <svg {...common}>
+          {/* TV body */}
+          <rect x="25" y="30" width="150" height="105" rx="8" fill="#222" stroke="white" strokeWidth="2" />
+          {/* Screen */}
+          <rect x="35" y="40" width="130" height="80" rx="4" fill="#0a2a4a" />
+          {/* Screen content */}
+          <text x="100" y="72" textAnchor="middle" fontSize="14" fontWeight="bold" fill={accentColor}>GAME</text>
+          <text x="100" y="92" textAnchor="middle" fontSize="14" fontWeight="bold" fill="white">SHOW</text>
+          <text x="100" y="112" textAnchor="middle" fontSize="8" fill={accentColor}>★ ★ ★</text>
+          {/* Stand */}
+          <rect x="85" y="135" width="30" height="8" rx="2" fill="#444" />
+          <rect x="75" y="143" width="50" height="6" rx="3" fill="#555" />
+          {/* Buzzer */}
+          <circle cx="100" cy="178" r="16" fill="#B22222" stroke="#8B0000" strokeWidth="2" />
+          <circle cx="100" cy="175" r="12" fill="#FF3333" />
+          <ellipse cx="100" cy="173" rx="8" ry="4" fill="white" opacity="0.3" />
+        </svg>
+      );
+
+    /* ─── Fit In Your Team: dumbbell ─── */
     case "fit-in-your-team-virtual":
-      return "M0,60 L0,38 L48,38 L48,14 L96,14 L96,28 L288,28 L288,14 L336,14 L336,38 L384,38 L384,60 Z";
-    // Zodiac dragon curve
+      return (
+        <svg {...common}>
+          {/* Left weight */}
+          <rect x="25" y="70" width="25" height="60" rx="4" fill={accentColor} stroke="white" strokeWidth="1.5" />
+          <rect x="15" y="80" width="15" height="40" rx="3" fill={`${accentColor}cc`} stroke="white" strokeWidth="1" />
+          {/* Right weight */}
+          <rect x="150" y="70" width="25" height="60" rx="4" fill={accentColor} stroke="white" strokeWidth="1.5" />
+          <rect x="170" y="80" width="15" height="40" rx="3" fill={`${accentColor}cc`} stroke="white" strokeWidth="1" />
+          {/* Bar */}
+          <rect x="50" y="93" width="100" height="14" rx="7" fill="#888" stroke="white" strokeWidth="1.5" />
+          {/* Grip texture */}
+          <line x1="75" y1="95" x2="75" y2="105" stroke="#666" strokeWidth="1" />
+          <line x1="85" y1="95" x2="85" y2="105" stroke="#666" strokeWidth="1" />
+          <line x1="115" y1="95" x2="115" y2="105" stroke="#666" strokeWidth="1" />
+          <line x1="125" y1="95" x2="125" y2="105" stroke="#666" strokeWidth="1" />
+          {/* Sweat drops */}
+          <circle cx="50" cy="55" r="3" fill="#87CEEB" opacity="0.5" />
+          <circle cx="155" cy="50" r="2.5" fill="#87CEEB" opacity="0.4" />
+        </svg>
+      );
+
+    /* ─── Zodiac Hunt: zodiac wheel ─── */
     case "the-great-zodiac-hunt-virtual":
-      return "M0,60 L0,35 Q24,25 48,30 Q72,35 96,20 Q120,8 144,15 Q168,22 192,12 Q216,5 240,15 Q264,25 288,18 Q312,10 336,22 Q360,32 384,28 L384,60 Z";
-    // Radiation/biohazard trefoil
+      return (
+        <svg {...common}>
+          {/* Outer ring */}
+          <circle cx="100" cy="100" r="70" fill="none" stroke={accentColor} strokeWidth="2" />
+          <circle cx="100" cy="100" r="60" fill={`${accentColor}10`} stroke={accentColor} strokeWidth="1" />
+          {/* Inner circle */}
+          <circle cx="100" cy="100" r="20" fill={accentColor} opacity="0.3" />
+          {/* Zodiac symbols around the wheel */}
+          {["🐀", "🐂", "🐅", "🐇", "🐉", "🐍", "🐎", "🐑", "🐒", "🐓", "🐕", "🐖"].map((emoji, i) => {
+            const angle = (i * 30 - 90) * Math.PI / 180;
+            return (
+              <text
+                key={i}
+                x={100 + 48 * Math.cos(angle)}
+                y={100 + 48 * Math.sin(angle) + 5}
+                textAnchor="middle"
+                fontSize="14"
+              >
+                {emoji}
+              </text>
+            );
+          })}
+          {/* Compass needle */}
+          <polygon points="100,82 95,100 100,96 105,100" fill={accentColor} />
+          <polygon points="100,118 95,100 100,104 105,100" fill="white" opacity="0.5" />
+        </svg>
+      );
+
+    /* ─── Nuclear Fallout: radiation symbol ─── */
     case "the-nuclear-fallout-escape-room-virtual":
-      return "M0,60 L0,38 L64,38 Q80,38 96,28 Q112,15 128,8 L144,38 L168,38 L168,12 Q184,5 192,4 Q200,5 216,12 L216,38 L240,38 L256,8 Q272,15 288,28 Q304,38 320,38 L384,38 L384,60 Z";
-    // Singapore Merlion / lion head silhouette
+      return (
+        <svg {...common}>
+          {/* Warning triangle */}
+          <polygon points="100,20 180,170 20,170" fill="none" stroke="#FFD700" strokeWidth="3" />
+          {/* Radiation trefoil */}
+          <circle cx="100" cy="110" r="10" fill={accentColor} />
+          {[0, 120, 240].map((deg) => (
+            <path
+              key={deg}
+              d={`M100,110 L${100 + 40 * Math.cos((deg - 30) * Math.PI / 180)},${110 + 40 * Math.sin((deg - 30) * Math.PI / 180)} A40,40 0 0,1 ${100 + 40 * Math.cos((deg + 30) * Math.PI / 180)},${110 + 40 * Math.sin((deg + 30) * Math.PI / 180)} Z`}
+              fill={accentColor}
+              opacity="0.7"
+            />
+          ))}
+          {/* Center ring */}
+          <circle cx="100" cy="110" r="15" fill="none" stroke="#111" strokeWidth="5" />
+          <circle cx="100" cy="110" r="7" fill="#111" />
+        </svg>
+      );
+
+    /* ─── Patriot Act: Singapore Merlion ─── */
     case "the-patriot-act-virtual":
-      return "M0,60 L0,38 L120,38 Q136,38 148,30 Q156,24 160,16 Q164,10 172,6 Q180,4 188,6 Q196,10 200,18 Q204,28 216,34 Q228,38 244,38 Q252,36 260,30 Q268,24 272,38 L384,38 L384,60 Z";
-    // Treasure map / compass rose
+      return (
+        <svg {...common}>
+          {/* SG flag stripes */}
+          <rect x="30" y="30" width="140" height="70" rx="4" fill="#EE2536" />
+          <rect x="30" y="100" width="140" height="70" rx="4" fill="white" />
+          {/* Crescent */}
+          <circle cx="65" cy="65" r="18" fill="white" />
+          <circle cx="72" cy="62" r="16" fill="#EE2536" />
+          {/* Stars */}
+          {[[80, 45], [92, 50], [98, 60], [92, 70], [80, 75]].map(([x, y], i) => (
+            <text key={i} x={x} y={y} fontSize="8" fill="white">★</text>
+          ))}
+          {/* Merlion silhouette */}
+          <g transform="translate(100, 140) scale(0.6)" fill={accentColor}>
+            <path d="M0 0 Q-10 -20 -5 -40 Q0 -55 10 -60 L15 -55 Q20 -50 20 -40 L20 -25 Q25 -30 30 -25 L25 -15 Q20 -10 20 0Z" />
+            {/* Water spout */}
+            <path d="M25 -25 Q40 -30 50 -20 Q45 -25 55 -18" stroke={accentColor} strokeWidth="2" fill="none" />
+          </g>
+        </svg>
+      );
+
+    /* ─── Tomb Raider: treasure chest ─── */
     case "tomb-raider-king-treasure-hunt-virtual":
-      return "M0,60 L0,38 L128,38 L148,30 L168,38 L180,8 L192,38 L204,30 L224,38 L384,38 L384,60 Z";
-    // Training / workshop - open book shape
+      return (
+        <svg {...common}>
+          {/* Chest body */}
+          <rect x="35" y="100" width="130" height="70" rx="4" fill="#8B6914" stroke="#6B4F12" strokeWidth="2" />
+          {/* Chest lid */}
+          <path d="M35 100 Q35 60 100 55 Q165 60 165 100Z" fill="#A67C2E" stroke="#6B4F12" strokeWidth="2" />
+          {/* Metal bands */}
+          <rect x="35" y="96" width="130" height="8" fill="#888" stroke="#666" strokeWidth="1" />
+          <line x1="70" y1="60" x2="70" y2="170" stroke="#888" strokeWidth="2" opacity="0.4" />
+          <line x1="130" y1="60" x2="130" y2="170" stroke="#888" strokeWidth="2" opacity="0.4" />
+          {/* Lock */}
+          <rect x="90" y="92" width="20" height="16" rx="3" fill="#FFD700" stroke="#DAA520" strokeWidth="1" />
+          <circle cx="100" cy="100" r="3" fill="#8B6914" />
+          {/* Gold glow from inside */}
+          <ellipse cx="100" cy="88" rx="40" ry="10" fill="#FFD700" opacity="0.3" />
+          {/* Coins spilling */}
+          <circle cx="50" cy="85" r="6" fill="#FFD700" stroke="#DAA520" strokeWidth="1" />
+          <circle cx="145" cy="80" r="5" fill="#FFD700" stroke="#DAA520" strokeWidth="1" />
+          <circle cx="60" cy="78" r="4" fill="#FFD700" stroke="#DAA520" strokeWidth="1" opacity="0.7" />
+        </svg>
+      );
+
+    /* ─── Grand Christmas Delivery: gift box ─── */
+    case "grand-christmas-delivery":
+      return (
+        <svg {...common}>
+          {/* Gift box */}
+          <rect x="40" y="85" width="120" height="90" rx="4" fill="#DC2626" stroke="white" strokeWidth="2" />
+          {/* Lid */}
+          <rect x="35" y="70" width="130" height="20" rx="4" fill="#B91C1C" stroke="white" strokeWidth="2" />
+          {/* Ribbon vertical */}
+          <rect x="92" y="70" width="16" height="105" fill="#26D07C" />
+          {/* Ribbon horizontal */}
+          <rect x="35" y="74" width="130" height="12" fill="#26D07C" />
+          {/* Bow */}
+          <ellipse cx="88" cy="62" rx="18" ry="12" fill="#26D07C" stroke="white" strokeWidth="1" />
+          <ellipse cx="112" cy="62" rx="18" ry="12" fill="#26D07C" stroke="white" strokeWidth="1" />
+          <circle cx="100" cy="64" r="6" fill="#FFD700" />
+          {/* Star on top */}
+          <text x="100" y="40" textAnchor="middle" fontSize="20" fill="#FFD700">★</text>
+        </svg>
+      );
+
+    /* ─── MBTI / DISC / OCEAN: brain ─── */
     case "mbti":
     case "disc":
     case "ocean":
-      return "M0,60 L0,38 L48,38 Q96,38 144,22 Q168,14 192,10 Q216,14 240,22 Q288,38 336,38 L384,38 L384,60 Z";
-    // Default city skyline
+      return (
+        <svg {...common}>
+          {/* Brain outline */}
+          <path d="M100 165 L100 140 Q60 140 50 115 Q40 95 55 75 Q45 60 60 45 Q75 30 95 35 Q100 28 110 35 Q130 30 145 45 Q160 60 150 75 Q165 95 155 115 Q145 140 100 140Z" fill={`${accentColor}20`} stroke={accentColor} strokeWidth="2.5" />
+          {/* Brain wrinkles */}
+          <path d="M85 55 Q100 65 115 55" stroke={accentColor} strokeWidth="1.5" fill="none" opacity="0.6" />
+          <path d="M75 80 Q95 90 120 78" stroke={accentColor} strokeWidth="1.5" fill="none" opacity="0.6" />
+          <path d="M80 105 Q100 115 125 103" stroke={accentColor} strokeWidth="1.5" fill="none" opacity="0.6" />
+          {/* Center line */}
+          <line x1="100" y1="35" x2="100" y2="140" stroke={accentColor} strokeWidth="1" opacity="0.4" />
+          {/* Left colored sections */}
+          <circle cx="75" cy="65" r="8" fill={accentColor} opacity="0.3" />
+          <circle cx="70" cy="95" r="10" fill="#FF6B35" opacity="0.3" />
+          {/* Right colored sections */}
+          <circle cx="125" cy="65" r="8" fill="#4CAF50" opacity="0.3" />
+          <circle cx="130" cy="95" r="10" fill="#2196F3" opacity="0.3" />
+          {/* Stem */}
+          <rect x="96" y="140" width="8" height="25" rx="4" fill={accentColor} opacity="0.5" />
+        </svg>
+      );
+
+    /* ─── Mass Talks: microphone ─── */
+    case "mass-talks":
+      return (
+        <svg {...common}>
+          {/* Mic head */}
+          <rect x="78" y="30" width="44" height="65" rx="22" fill="#333" stroke={accentColor} strokeWidth="2" />
+          {/* Grille */}
+          {[42, 50, 58, 66, 74].map((y) => (
+            <line key={y} x1="84" y1={y} x2="116" y2={y} stroke={accentColor} strokeWidth="0.8" opacity="0.5" />
+          ))}
+          {/* Stem */}
+          <rect x="95" y="95" width="10" height="70" rx="5" fill="#555" stroke="white" strokeWidth="1" />
+          {/* Base */}
+          <ellipse cx="100" cy="170" rx="30" ry="8" fill="#444" stroke="white" strokeWidth="1" />
+          {/* Sound waves */}
+          <path d="M125 50 Q140 60 125 75" stroke={accentColor} strokeWidth="1.5" fill="none" opacity="0.5" />
+          <path d="M135 40 Q155 60 135 85" stroke={accentColor} strokeWidth="1.5" fill="none" opacity="0.3" />
+        </svg>
+      );
+
+    /* ─── Workshops: open book / whiteboard ─── */
+    case "workshops":
+      return (
+        <svg {...common}>
+          {/* Left page */}
+          <path d="M100 40 L30 50 L30 160 L100 150Z" fill="white" stroke="#ddd" strokeWidth="1.5" />
+          {/* Right page */}
+          <path d="M100 40 L170 50 L170 160 L100 150Z" fill="white" stroke="#ddd" strokeWidth="1.5" />
+          {/* Spine */}
+          <line x1="100" y1="40" x2="100" y2="150" stroke="#aaa" strokeWidth="2" />
+          {/* Left text lines */}
+          <line x1="45" y1="70" x2="90" y2="65" stroke="#ccc" strokeWidth="2" />
+          <line x1="45" y1="85" x2="85" y2="80" stroke="#ccc" strokeWidth="2" />
+          <line x1="45" y1="100" x2="90" y2="95" stroke={accentColor} strokeWidth="2" />
+          <line x1="45" y1="115" x2="80" y2="112" stroke="#ccc" strokeWidth="2" />
+          {/* Right diagram */}
+          <circle cx="135" cy="85" r="18" fill="none" stroke={accentColor} strokeWidth="1.5" />
+          <line x1="135" y1="85" x2="150" y2="75" stroke={accentColor} strokeWidth="1.5" />
+          <circle cx="135" cy="85" r="3" fill={accentColor} />
+          {/* Pen */}
+          <line x1="155" y1="130" x2="175" y2="170" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
+          <polygon points="175,170 178,175 172,175" fill={accentColor} />
+        </svg>
+      );
+
+    /* ─── Youth Camps: campfire ─── */
+    case "youth-camps":
+      return (
+        <svg {...common}>
+          {/* Logs */}
+          <rect x="50" y="140" width="100" height="14" rx="7" fill="#8B6914" stroke="#6B4F12" strokeWidth="1" transform="rotate(-10 100 147)" />
+          <rect x="50" y="148" width="100" height="14" rx="7" fill="#A67C2E" stroke="#6B4F12" strokeWidth="1" transform="rotate(10 100 155)" />
+          {/* Fire */}
+          <path d="M100 145 Q80 110 90 80 Q95 95 100 70 Q105 90 110 80 Q120 110 100 145Z" fill="#FF6B35" opacity="0.9" />
+          <path d="M100 145 Q85 115 95 90 Q100 100 105 88 Q115 115 100 145Z" fill="#FFD700" opacity="0.8" />
+          <path d="M100 145 Q92 125 100 105 Q108 125 100 145Z" fill="white" opacity="0.5" />
+          {/* Sparks */}
+          <circle cx="85" cy="65" r="2" fill="#FF6B35" opacity="0.6" />
+          <circle cx="115" cy="58" r="1.5" fill="#FFD700" opacity="0.5" />
+          <circle cx="95" cy="50" r="1.5" fill="#FF6B35" opacity="0.4" />
+          {/* Tent in background */}
+          <polygon points="155,100 185,155 125,155" fill="none" stroke={accentColor} strokeWidth="1.5" opacity="0.4" />
+          {/* Stars */}
+          <text x="40" y="40" fontSize="10" fill="white" opacity="0.3">★</text>
+          <text x="160" y="35" fontSize="8" fill="white" opacity="0.3">★</text>
+          <text x="75" y="25" fontSize="6" fill="white" opacity="0.2">★</text>
+        </svg>
+      );
+
+    /* ─── Corporate Days: podium / trophy ─── */
+    case "corporate-days":
+      return (
+        <svg {...common}>
+          {/* Trophy cup */}
+          <path d="M75 55 L75 100 Q75 130 100 135 Q125 130 125 100 L125 55Z" fill="#FFD700" stroke="#DAA520" strokeWidth="2" />
+          {/* Handles */}
+          <path d="M75 65 Q55 65 55 82 Q55 98 75 98" stroke="#FFD700" strokeWidth="3" fill="none" />
+          <path d="M125 65 Q145 65 145 82 Q145 98 125 98" stroke="#FFD700" strokeWidth="3" fill="none" />
+          {/* Base */}
+          <rect x="90" y="135" width="20" height="15" fill="#DAA520" />
+          <rect x="75" y="150" width="50" height="10" rx="3" fill="#333" stroke="#555" strokeWidth="1" />
+          {/* Star on trophy */}
+          <text x="100" y="95" textAnchor="middle" fontSize="22" fill="white" opacity="0.9">★</text>
+          {/* Confetti */}
+          <rect x="45" y="30" width="8" height="4" rx="1" fill={accentColor} opacity="0.6" transform="rotate(20 49 32)" />
+          <rect x="150" y="25" width="8" height="4" rx="1" fill="#FF6B35" opacity="0.6" transform="rotate(-15 154 27)" />
+          <rect x="60" y="18" width="6" height="3" rx="1" fill="#4CAF50" opacity="0.5" transform="rotate(35 63 19)" />
+          <rect x="140" y="40" width="6" height="3" rx="1" fill="#2196F3" opacity="0.5" transform="rotate(-25 143 41)" />
+        </svg>
+      );
+
+    /* ─── Event Management categories: spotlight ─── */
+    case "dinner-dance":
+    case "awards-ceremonies":
+    case "celebrations":
+    case "leadership-offsites":
+    case "product-launches":
+    case "brand-activations":
+    case "client-appreciation":
+    case "town-halls":
+    case "summits":
+    case "festivals":
+    case "private-events":
+      return (
+        <svg {...common}>
+          {/* Spotlight body */}
+          <rect x="80" y="20" width="40" height="50" rx="6" fill="#333" stroke="white" strokeWidth="1.5" />
+          {/* Lens */}
+          <circle cx="100" cy="75" r="18" fill="#444" stroke={accentColor} strokeWidth="2" />
+          <circle cx="100" cy="75" r="10" fill={accentColor} opacity="0.4" />
+          <circle cx="100" cy="75" r="5" fill="white" opacity="0.3" />
+          {/* Light beam */}
+          <polygon points="82,90 30,175 170,175 118,90" fill={accentColor} opacity="0.12" />
+          <polygon points="88,90 55,175 145,175 112,90" fill={accentColor} opacity="0.08" />
+          {/* Mount */}
+          <line x1="100" y1="20" x2="100" y2="10" stroke="#888" strokeWidth="3" />
+          <line x1="85" y1="10" x2="115" y2="10" stroke="#888" strokeWidth="3" strokeLinecap="round" />
+          {/* Sparkles in beam */}
+          <circle cx="80" cy="140" r="2" fill="white" opacity="0.3" />
+          <circle cx="120" cy="150" r="1.5" fill="white" opacity="0.2" />
+          <circle cx="100" cy="130" r="1.5" fill="white" opacity="0.25" />
+        </svg>
+      );
+
+    /* ─── Default fallback: lightbulb ─── */
     default:
-      return "M0,60 L0,42 L14,42 L14,27 L27,27 L27,35 L41,35 L41,18 L54,18 L54,30 L68,30 L68,10 L81,10 L81,30 L95,30 L95,21 L108,21 L108,30 L122,30 L122,15 L135,15 L135,30 L149,30 L149,7 L162,7 L162,30 L176,30 L176,38 L189,38 L189,23 L202,23 L202,38 L216,38 L216,27 L229,27 L229,18 L243,18 L243,30 L256,30 L256,41 L270,41 L270,21 L283,21 L283,30 L297,30 L297,42 L311,42 L311,27 L324,27 L324,33 L338,33 L338,24 L351,24 L351,36 L365,36 L365,42 L384,42 L384,60 Z";
+      return (
+        <svg {...common}>
+          {/* Bulb */}
+          <circle cx="100" cy="80" r="45" fill={`${accentColor}20`} stroke={accentColor} strokeWidth="2.5" />
+          {/* Filament */}
+          <path d="M88 80 Q95 65 100 80 Q105 95 112 80" stroke={accentColor} strokeWidth="2" fill="none" />
+          {/* Base */}
+          <rect x="85" y="122" width="30" height="6" rx="3" fill="#888" />
+          <rect x="87" y="128" width="26" height="5" rx="2" fill="#777" />
+          <rect x="89" y="133" width="22" height="5" rx="2" fill="#666" />
+          {/* Screw bottom */}
+          <path d="M92 138 Q100 145 108 138" stroke="#555" strokeWidth="2" fill="none" />
+          {/* Rays */}
+          {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+            <line
+              key={deg}
+              x1={100 + 52 * Math.cos(deg * Math.PI / 180)}
+              y1={80 + 52 * Math.sin(deg * Math.PI / 180)}
+              x2={100 + 62 * Math.cos(deg * Math.PI / 180)}
+              y2={80 + 62 * Math.sin(deg * Math.PI / 180)}
+              stroke={accentColor}
+              strokeWidth="2"
+              strokeLinecap="round"
+              opacity="0.5"
+            />
+          ))}
+        </svg>
+      );
   }
 };
 
@@ -136,88 +787,26 @@ export const ServiceHeroSplit = ({
           style={{ background: `linear-gradient(135deg, ${accentColor}30 0%, transparent 60%)` }}
         />
 
-        {/* Floating stacked service card */}
+        {/* Floating themed prop */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <motion.div
-            className="relative"
-            style={{ width: 384, height: 240 }}
-            initial={{ opacity: 0, scale: 0.85, rotate: -8 }}
+            className="relative drop-shadow-2xl"
+            initial={{ opacity: 0, scale: 0.7, rotate: -12 }}
             animate={{
               opacity: 1,
               scale: 1,
-              rotate: -4,
-              y: [0, -10, 0],
+              rotate: [-4, 2, -4],
+              y: [0, -14, 0],
             }}
             transition={{
-              opacity: { duration: 0.9, delay: 0.4 },
-              scale: { duration: 0.9, delay: 0.4 },
-              rotate: { duration: 0.9, delay: 0.4 },
-              y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
+              opacity: { duration: 0.8, delay: 0.3 },
+              scale: { duration: 0.8, delay: 0.3, type: "spring", stiffness: 100 },
+              rotate: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+              y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 },
             }}
-            whileHover={{ scale: 1.06, rotate: -1, transition: { duration: 0.25 } }}
+            whileHover={{ scale: 1.12, transition: { duration: 0.25 } }}
           >
-            {/* Card 3 — back */}
-            <div
-              className="absolute rounded-2xl"
-              style={{
-                width: 384, height: 240,
-                background: accentColor,
-                opacity: 0.35,
-                transform: "rotate(10deg) translate(18px, 15px)",
-              }}
-            />
-            {/* Card 2 — middle */}
-            <div
-              className="absolute rounded-2xl"
-              style={{
-                width: 384, height: 240,
-                background: accentColor,
-                opacity: 0.65,
-                transform: "rotate(5deg) translate(9px, 7px)",
-              }}
-            />
-            {/* Card 1 — front */}
-            <div
-              className="absolute rounded-2xl overflow-hidden shadow-2xl"
-              style={{ width: 384, height: 240, background: "linear-gradient(180deg, #1c1c1c 0%, #0a0a0a 100%)" }}
-            >
-              {/* Accent band at top */}
-              <div
-                className="absolute top-0 left-0 right-0 h-[90px]"
-                style={{ background: `linear-gradient(135deg, ${accentColor}, ${accentColor}cc)` }}
-              />
-              {/* Themed silhouette cutting across the accent band */}
-              <svg
-                className="absolute"
-                style={{ top: 42 }}
-                width="384"
-                height="60"
-                viewBox="0 0 384 60"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d={getThemedSilhouette(slug)}
-                  fill="#0a0a0a"
-                />
-              </svg>
-              {/* Text */}
-              <div className="absolute bottom-0 left-0 right-0 px-6 pb-6">
-                <p
-                  className="text-[10px] tracking-[0.3em] uppercase font-medium mb-1.5"
-                  style={{ color: `${accentColor}99` }}
-                >
-                  Welcome to
-                </p>
-                <h3 className="font-display font-black text-white text-2xl leading-tight">
-                  {title}
-                </h3>
-              </div>
-              {/* Bottom accent rail */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-[4px]"
-                style={{ background: accentColor }}
-              />
-            </div>
+            <ServiceProp slug={slug} accentColor={accentColor} />
           </motion.div>
         </div>
       </div>
