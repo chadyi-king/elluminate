@@ -16,6 +16,85 @@ interface ServiceHeroSplitProps {
 const getAccentGradient = (primary: string, secondary?: string) => 
   secondary ? `linear-gradient(135deg, ${primary}, ${secondary})` : primary;
 
+// Per-service themed silhouette SVG paths that cut across the accent band
+const getThemedSilhouette = (slug?: string): string => {
+  switch (slug) {
+    // Race flag pennants
+    case "amazing-race":
+    case "amazing-race-virtual":
+    case "cultural-race":
+      return "M0,60 L0,40 L24,40 L36,12 L48,40 L72,40 L84,8 L96,40 L120,40 L132,15 L144,40 L168,40 L180,10 L192,40 L216,40 L228,18 L240,40 L264,40 L276,6 L288,40 L312,40 L324,14 L336,40 L360,40 L372,20 L384,40 L384,60 Z";
+    // Skull/crossbones humps
+    case "csi-bones":
+      return "M0,60 L0,38 Q32,38 48,20 Q64,5 80,20 Q88,28 96,28 Q104,28 112,20 Q128,5 144,20 Q160,38 192,38 Q224,38 240,20 Q256,5 272,20 Q280,28 288,28 Q296,28 304,20 Q320,5 336,20 Q352,38 384,38 L384,60 Z";
+    // Money stack steps
+    case "monopoly-dash":
+      return "M0,60 L0,42 L32,42 L32,32 L64,32 L64,22 L96,22 L96,12 L144,12 L144,22 L160,22 L160,32 L176,32 L176,42 L208,42 L208,30 L240,30 L240,18 L272,18 L272,8 L320,8 L320,18 L336,18 L336,28 L352,28 L352,42 L384,42 L384,60 Z";
+    // Paint splatter blobs
+    case "gel-blitz":
+      return "M0,60 L0,35 Q20,30 30,18 Q40,5 60,15 Q75,25 85,10 Q95,0 115,12 Q130,22 145,38 Q155,30 170,15 Q185,2 200,18 Q210,28 225,22 Q240,15 260,8 Q275,18 285,30 Q295,25 310,14 Q325,5 345,20 Q360,32 375,38 L384,38 L384,60 Z";
+    // Dart/arrow points
+    case "nerfwar":
+      return "M0,60 L0,38 L48,38 L64,10 L80,38 L128,38 L152,14 L176,38 L224,38 L248,8 L272,38 L320,38 L340,16 L360,38 L384,38 L384,60 Z";
+    // Dynamic wave suggesting motion
+    case "running-man":
+      return "M0,60 L0,32 Q48,10 96,28 Q144,46 192,18 Q240,0 288,24 Q336,44 384,22 L384,60 Z";
+    // Circle, triangle, square shapes
+    case "sotong-game":
+      return "M0,60 L0,42 L48,42 Q48,10 80,10 Q112,10 112,42 L160,42 L192,8 L224,42 L272,42 L272,10 L336,10 L336,42 L384,42 L384,60 Z";
+    // Angular laser grid
+    case "tag-tical-laser":
+      return "M0,60 L0,35 L32,15 L64,35 L96,10 L128,35 L160,5 L192,35 L224,12 L256,35 L288,8 L320,35 L352,18 L384,35 L384,60 Z";
+    // Gear teeth
+    case "builder-cross":
+      return "M0,60 L0,38 L24,38 L24,18 L48,18 L48,38 L72,38 L72,14 L96,14 L96,38 L120,38 L120,20 L144,20 L144,38 L168,38 L168,10 L192,10 L192,38 L216,38 L216,16 L240,16 L240,38 L264,38 L264,14 L288,14 L288,38 L312,38 L312,20 L336,20 L336,38 L360,38 L360,18 L384,18 L384,60 Z";
+    // Stopwatch / clock dome
+    case "minute-to-win-it":
+      return "M0,60 L0,42 L48,42 L60,38 Q96,36 128,20 Q160,5 192,2 Q224,5 256,20 Q288,36 324,38 L336,42 L384,42 L384,60 Z";
+    // Concentric target arcs
+    case "archery-tag":
+      return "M0,60 L0,38 Q96,38 144,25 Q168,18 192,10 Q216,18 240,25 Q288,38 384,38 L384,60 Z M128,60 L128,42 Q160,30 192,24 Q224,30 256,42 L256,60 Z";
+    // Astronaut helmet dome
+    case "amongst-us":
+      return "M0,60 L0,42 L96,42 Q112,42 128,32 Q144,18 160,10 Q176,5 192,4 Q208,5 224,10 Q240,18 256,32 Q272,42 288,42 L384,42 L384,60 Z";
+    // Card suit peaks (heart, diamond, spade, club)
+    case "alice-in-motherland":
+      return "M0,60 L0,38 L48,38 Q60,38 66,28 Q72,18 78,10 Q84,18 90,28 Q96,38 108,38 L156,38 L168,10 L180,38 L228,38 Q234,28 240,22 Q246,14 252,10 Q264,16 270,24 Q276,30 282,38 L330,38 Q336,30 345,20 Q350,12 360,16 Q366,20 372,28 Q378,34 384,38 L384,60 Z";
+    // Olympic torch flame
+    case "battle-of-the-olympians":
+      return "M0,60 L0,38 L144,38 L152,36 Q160,30 168,18 Q176,8 184,4 Q192,0 200,4 Q208,8 216,18 Q224,30 232,36 L240,38 L384,38 L384,60 Z";
+    // Vault door / theatrical mask outline
+    case "treasure-heist":
+      return "M0,60 L0,38 L64,38 Q80,38 96,30 Q112,20 128,14 Q144,8 160,10 Q168,14 176,22 Q184,14 192,10 Q200,8 216,10 Q232,14 248,22 Q264,30 280,36 Q296,38 320,38 L384,38 L384,60 Z";
+    // TV screen / game show buzzer
+    case "the-gameshow-experience-virtual":
+      return "M0,60 L0,42 L48,42 L48,10 L336,10 L336,42 L384,42 L384,60 Z";
+    // Dumbbell
+    case "fit-in-your-team-virtual":
+      return "M0,60 L0,38 L48,38 L48,14 L96,14 L96,28 L288,28 L288,14 L336,14 L336,38 L384,38 L384,60 Z";
+    // Zodiac dragon curve
+    case "the-great-zodiac-hunt-virtual":
+      return "M0,60 L0,35 Q24,25 48,30 Q72,35 96,20 Q120,8 144,15 Q168,22 192,12 Q216,5 240,15 Q264,25 288,18 Q312,10 336,22 Q360,32 384,28 L384,60 Z";
+    // Radiation/biohazard trefoil
+    case "the-nuclear-fallout-escape-room-virtual":
+      return "M0,60 L0,38 L64,38 Q80,38 96,28 Q112,15 128,8 L144,38 L168,38 L168,12 Q184,5 192,4 Q200,5 216,12 L216,38 L240,38 L256,8 Q272,15 288,28 Q304,38 320,38 L384,38 L384,60 Z";
+    // Singapore Merlion / lion head silhouette
+    case "the-patriot-act-virtual":
+      return "M0,60 L0,38 L120,38 Q136,38 148,30 Q156,24 160,16 Q164,10 172,6 Q180,4 188,6 Q196,10 200,18 Q204,28 216,34 Q228,38 244,38 Q252,36 260,30 Q268,24 272,38 L384,38 L384,60 Z";
+    // Treasure map / compass rose
+    case "tomb-raider-king-treasure-hunt-virtual":
+      return "M0,60 L0,38 L128,38 L148,30 L168,38 L180,8 L192,38 L204,30 L224,38 L384,38 L384,60 Z";
+    // Training / workshop - open book shape
+    case "mbti":
+    case "disc":
+    case "ocean":
+      return "M0,60 L0,38 L48,38 Q96,38 144,22 Q168,14 192,10 Q216,14 240,22 Q288,38 336,38 L384,38 L384,60 Z";
+    // Default city skyline
+    default:
+      return "M0,60 L0,42 L14,42 L14,27 L27,27 L27,35 L41,35 L41,18 L54,18 L54,30 L68,30 L68,10 L81,10 L81,30 L95,30 L95,21 L108,21 L108,30 L122,30 L122,15 L135,15 L135,30 L149,30 L149,7 L162,7 L162,30 L176,30 L176,38 L189,38 L189,23 L202,23 L202,38 L216,38 L216,27 L229,27 L229,18 L243,18 L243,30 L256,30 L256,41 L270,41 L270,21 L283,21 L283,30 L297,30 L297,42 L311,42 L311,27 L324,27 L324,33 L338,33 L338,24 L351,24 L351,36 L365,36 L365,42 L384,42 L384,60 Z";
+  }
+};
+
 export const ServiceHeroSplit = ({ 
   title, 
   subtitle, 
@@ -107,7 +186,7 @@ export const ServiceHeroSplit = ({
                 className="absolute top-0 left-0 right-0 h-[90px]"
                 style={{ background: `linear-gradient(135deg, ${accentColor}, ${accentColor}cc)` }}
               />
-              {/* City skyline silhouette cutting across the accent band */}
+              {/* Themed silhouette cutting across the accent band */}
               <svg
                 className="absolute"
                 style={{ top: 42 }}
@@ -117,7 +196,7 @@ export const ServiceHeroSplit = ({
                 preserveAspectRatio="none"
               >
                 <path
-                  d="M0,60 L0,42 L14,42 L14,27 L27,27 L27,35 L41,35 L41,18 L54,18 L54,30 L68,30 L68,10 L81,10 L81,30 L95,30 L95,21 L108,21 L108,30 L122,30 L122,15 L135,15 L135,30 L149,30 L149,7 L162,7 L162,30 L176,30 L176,38 L189,38 L189,23 L202,23 L202,38 L216,38 L216,27 L229,27 L229,18 L243,18 L243,30 L256,30 L256,41 L270,41 L270,21 L283,21 L283,30 L297,30 L297,42 L311,42 L311,27 L324,27 L324,33 L338,33 L338,24 L351,24 L351,36 L365,36 L365,42 L384,42 L384,60 Z"
+                  d={getThemedSilhouette(slug)}
                   fill="#0a0a0a"
                 />
               </svg>
