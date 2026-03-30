@@ -42,7 +42,7 @@ const ServicePage = () => {
 
   const serviceKeywords: Record<string, string> = {
     // Physical Team Building
-    "amazing-race": "amazing race Singapore, corporate amazing race, team building race, outdoor race challenge",
+    "amazing-race": "amazing race team building Singapore, corporate amazing race Singapore, outdoor team building Singapore, amazing race corporate event, team building race activity, amazing race school camp Singapore, corporate treasure hunt Singapore, team building adventure Singapore",
     "csi-bones": "CSI team building Singapore, murder mystery event, detective team building, investigation game",
     "cultural-race": "cultural race Singapore, heritage team building, cultural exploration activity",
     "amongst-us": "amongst us team building Singapore, social deduction game corporate, imposter team game Singapore",

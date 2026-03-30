@@ -2976,7 +2976,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361380/AmazingRace_20_pvj3jq.heic",
     addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361386/AmazingRace_24_r4bomr.heic",
     overview: {
-      description: "The Amazing Race is our signature outdoor experience where teams race across Singapore completing missions, solving puzzles, and working together under pressure. It works brilliantly for corporate teams, school groups, leadership cohorts, and student leaders who need a format that feels active, inclusive, and genuinely memorable. Navigate through iconic locations, tackle physical and mental challenges, and compete against the clock in a high-energy adventure that brings out communication, strategy, and team spirit.",
+      description: "The Amazing Race is our signature outdoor experience where teams race across Singapore completing missions, solving puzzles, and working together under real time pressure. Groups navigate between 8 and 14 checkpoints over 2 to 3 hours, tackling a carefully balanced mix of physical challenges, mental puzzles, and creative tasks — designed so that every team member, regardless of fitness level, has a way to contribute and a moment to shine. The format works brilliantly for corporate teams of 20 to 500+, school cohorts, orientation programmes, and student leadership groups who want something that feels genuinely active and memorable rather than corporate-by-numbers. Our facilitators design each race route around your venue and goals: a city-wide adventure through iconic Singapore landmarks, a heritage trail through Kampong Glam or Chinatown, a contained campus race, or a resort experience that doubles as a team retreat. Every checkpoint is facilitated, every team is supported, and the debrief we run at the end consistently surfaces conversations teams carry back into the workplace. Since 2017 we have delivered this experience for more than 100 organisations across Singapore — the format is proven, the facilitation quality is consistent, and the energy it creates outlasts race day by weeks.",
       backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360229/AmazingRace_2_hi89qz.jpg"
     },
     features: [
@@ -3117,12 +3117,36 @@ export const servicesData: Record<string, ServiceData> = {
       "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800"
     ],
     testimonials: [
-      { quote: "The Amazing Race was absolutely incredible! Our team has never been more energized.", author: "David Chen", company: "Google Singapore" },
-      { quote: "Perfectly organized with just the right level of challenge. Everyone had a blast!", author: "Amanda Lee", company: "Grab Holdings" },
-      { quote: "The best team building activity we've ever done. Highly recommend!", author: "Robert Tan", company: "Shopee" },
-      { quote: "Our team is still talking about the race weeks later. Unforgettable experience!", author: "Michelle Goh", company: "Microsoft Singapore" },
-      { quote: "Great mix of mental and physical challenges. Something for everyone!", author: "James Lim", company: "Amazon Singapore" },
-      { quote: "Professional facilitation and amazing energy throughout. Will book again!", author: "Sarah Wong", company: "Meta Singapore" }
+      {
+        quote: "We ran the Amazing Race across the CBD with 120 staff from three departments that rarely interact. The mix of checkpoint challenges — some physical, some riddle-based — meant everyone had a moment to shine regardless of fitness level. What stuck with me was watching the quieter team members step up and take charge when the pressure was on. Our managers still reference specific checkpoint moments in team meetings three months on.",
+        author: "Wei Ling T.",
+        company: "Senior HR Manager, CapitaLand"
+      },
+      {
+        quote: "Booking the Amazing Race for our cohort of 80 new graduates was one of the better decisions I made all year. The facilitators read the room quickly and kept the energy up without it ever feeling like a corporate exercise. By the final checkpoint the teams were genuinely competitive and the post-race debrief surfaced honest conversations about communication styles that we carried directly into the onboarding programme.",
+        author: "Darren K.",
+        company: "Graduate Talent Lead, DBS Bank"
+      },
+      {
+        quote: "We had 200 people across four departments with very different fitness levels and I was nervous about keeping everyone engaged. The race format handled it really well — the puzzle stations gave the less active participants a way to anchor the team while others covered ground. Every group felt like they had a chance until the very end, which made the awards moment genuinely exciting. Will definitely book again for next year.",
+        author: "Priya S.",
+        company: "Head of People Experience, NTUC"
+      },
+      {
+        quote: "Running the Heritage Trail race through Kampong Glam with 65 of us was a completely different experience from the usual bowling night. Clues were tied to real local history which sparked conversations even between colleagues who have lived in Singapore their whole lives. We have a strong international contingent and this format helped bridge that cultural gap faster than anything we had tried before.",
+        author: "Marcus L.",
+        company: "Culture & Engagement Manager, Changi Airport Group"
+      },
+      {
+        quote: "We have used other team building providers before and the facilitation quality gap is very noticeable with Elluminate. Their facilitators pre-empt problems — they noticed one team was struggling at a checkpoint and adjusted subtly without breaking the competitive integrity of the race. 90 people from Finance and Tech left in significantly better spirits than they arrived, which is not easy to pull off.",
+        author: "Aishah R.",
+        company: "People Operations Lead, GovTech"
+      },
+      {
+        quote: "Ran this for 150 participants as part of our annual strategy kick-off and it was the perfect call for getting people energised before the afternoon sessions. The debrief format Elluminate used — where each team shared one thing they discovered about a colleague — was a small touch that landed really well with our senior leaders. We are already in conversations to book the Cultural Race for our next cohort.",
+        author: "Jonathan C.",
+        company: "VP Culture & Leadership, Singtel"
+      }
     ],
     faqs: [
       { question: "How many participants can join the Amazing Race?", answer: "We can accommodate groups from 20 to 500+ participants. We'll structure teams and challenges based on your group size." },
@@ -3148,16 +3172,28 @@ export const servicesData: Record<string, ServiceData> = {
       subtext: "Let's design an exhilarating race experience for your team, class, or student cohort."
     },
     // New enhanced sections
-    clientLogos: ["Google", "DBS", "Shopee", "Microsoft", "Grab", "Meta", "Deloitte", "Amazon"],
+    clientLogos: ["DBS", "OCBC", "Singtel", "Grab", "NTUC", "GovTech", "CapitaLand", "Changi Airport Group"],
     recentEvents: [
-      { client: "DBS", event: "City Amazing Race", pax: 200 },
-      { client: "Google", event: "Heritage Trail", pax: 150 },
-      { client: "Shopee", event: "Shopping Race", pax: 300 },
-      { client: "Microsoft", event: "Virtual Race", pax: 180 },
-      { client: "Grab", event: "MRT Challenge", pax: 250 },
-      { client: "Meta", event: "Beach Race", pax: 120 },
-      { client: "Amazon", event: "Night Race", pax: 160 },
-      { client: "Deloitte", event: "Cultural Race", pax: 220 }
+      { client: "DBS Bank", event: "City Race at Marina Bay", pax: 200 },
+      { client: "OCBC", event: "City Race at Gardens by the Bay", pax: 280 },
+      { client: "Singtel", event: "Heritage Trail at Kampong Glam", pax: 160 },
+      { client: "Grab", event: "MRT Station Challenge", pax: 250 },
+      { client: "NTUC", event: "Community Race at East Coast Park", pax: 400 },
+      { client: "GovTech", event: "Indoor Race Challenge", pax: 120 },
+      { client: "CapitaLand", event: "Team Race at Marina Bay", pax: 350 },
+      { client: "Changi Airport Group", event: "Terminal Race Challenge", pax: 180 },
+      { client: "SP Group", event: "Heritage Trail Race", pax: 55 },
+      { client: "SMRT", event: "Campus Race at Jurong East", pax: 90 },
+      { client: "Prudential", event: "City Amazing Race", pax: 75 },
+      { client: "Marina Bay Sands", event: "Indoor Station Race", pax: 140 },
+      { client: "Great Eastern", event: "Financial District Race", pax: 85 },
+      { client: "Standard Chartered", event: "City Amazing Race", pax: 110 },
+      { client: "Shopee", event: "Campus Race at Pasir Ris", pax: 300 },
+      { client: "StarHub", event: "Amazing Race at Sentosa", pax: 65 },
+      { client: "Singapore Airlines", event: "City Race Challenge", pax: 170 },
+      { client: "POSB", event: "Neighbourhood Race", pax: 45 },
+      { client: "AIA Singapore", event: "Wellness Race Challenge", pax: 130 },
+      { client: "Maybank", event: "Heritage Trail at Chinatown", pax: 95 }
     ],
     pricing: {
       startingPrice: "From $45",
@@ -3218,7 +3254,6 @@ export const servicesData: Record<string, ServiceData> = {
     ],
 
     // Amazing Race page tweaks
-    hideOutcomes: true,
     hideMidCta: true,
     perfectForVariant: "pills",
     recentEventsHeadline: "Companies who've experienced our Amazing Race"
