@@ -4997,12 +4997,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "GAMESHOW EXPERIENCE",
       subtitle: "Virtual Team Building",
       tagline: "6 in 1 Gameshows to play and challenge your colleagues",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579600/TheGameShow_VTB_4_weyhxy.png",
     },
     overview: {
       description: "Bring the excitement of TV gameshows to your virtual team event! With 6 different gameshow formats in one experience, teams compete through trivia, challenges, and hilarious moments. This high-energy virtual experience is perfect for large groups looking for entertainment and friendly competition via Zoom.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579600/TheGameShow_VTB_4_weyhxy.png",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579600/TheGameShow_VTB_7_swbfoo.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579597/TheGameShow_VTB_11_ye3umr.png",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579596/TheGameShow_VTB_1_mbuxzv.png",
     features: [
       { icon: Gamepad2, title: "6 Gameshows", description: "Multiple formats keep things fresh and exciting." },
       { icon: Trophy, title: "Points Competition", description: "Teams compete for the highest score." },
