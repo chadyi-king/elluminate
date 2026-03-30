@@ -61,7 +61,7 @@ export const ServiceHeroSplit = ({
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <motion.div
             className="relative"
-            style={{ width: 256, height: 160 }}
+            style={{ width: 384, height: 240 }}
             initial={{ opacity: 0, scale: 0.85, rotate: -8 }}
             animate={{
               opacity: 1,
@@ -81,61 +81,61 @@ export const ServiceHeroSplit = ({
             <div
               className="absolute rounded-2xl"
               style={{
-                width: 256, height: 160,
+                width: 384, height: 240,
                 background: accentColor,
                 opacity: 0.35,
-                transform: "rotate(10deg) translate(12px, 10px)",
+                transform: "rotate(10deg) translate(18px, 15px)",
               }}
             />
             {/* Card 2 — middle */}
             <div
               className="absolute rounded-2xl"
               style={{
-                width: 256, height: 160,
+                width: 384, height: 240,
                 background: accentColor,
                 opacity: 0.65,
-                transform: "rotate(5deg) translate(6px, 5px)",
+                transform: "rotate(5deg) translate(9px, 7px)",
               }}
             />
             {/* Card 1 — front */}
             <div
               className="absolute rounded-2xl overflow-hidden shadow-2xl"
-              style={{ width: 256, height: 160, background: "linear-gradient(180deg, #1c1c1c 0%, #0a0a0a 100%)" }}
+              style={{ width: 384, height: 240, background: "linear-gradient(180deg, #1c1c1c 0%, #0a0a0a 100%)" }}
             >
               {/* Accent band at top */}
               <div
-                className="absolute top-0 left-0 right-0 h-[60px]"
+                className="absolute top-0 left-0 right-0 h-[90px]"
                 style={{ background: `linear-gradient(135deg, ${accentColor}, ${accentColor}cc)` }}
               />
               {/* City skyline silhouette cutting across the accent band */}
               <svg
                 className="absolute"
-                style={{ top: 28 }}
-                width="256"
-                height="40"
-                viewBox="0 0 256 40"
+                style={{ top: 42 }}
+                width="384"
+                height="60"
+                viewBox="0 0 384 60"
                 preserveAspectRatio="none"
               >
                 <path
-                  d="M0,40 L0,28 L9,28 L9,18 L18,18 L18,23 L27,23 L27,12 L36,12 L36,20 L45,20 L45,7 L54,7 L54,20 L63,20 L63,14 L72,14 L72,20 L81,20 L81,10 L90,10 L90,20 L99,20 L99,5 L108,5 L108,20 L117,20 L117,25 L126,25 L126,15 L135,15 L135,25 L144,25 L144,18 L153,18 L153,12 L162,12 L162,20 L171,20 L171,27 L180,27 L180,14 L189,14 L189,20 L198,20 L198,28 L207,28 L207,18 L216,18 L216,22 L225,22 L225,16 L234,16 L234,24 L243,24 L243,28 L256,28 L256,40 Z"
+                  d="M0,60 L0,42 L14,42 L14,27 L27,27 L27,35 L41,35 L41,18 L54,18 L54,30 L68,30 L68,10 L81,10 L81,30 L95,30 L95,21 L108,21 L108,30 L122,30 L122,15 L135,15 L135,30 L149,30 L149,7 L162,7 L162,30 L176,30 L176,38 L189,38 L189,23 L202,23 L202,38 L216,38 L216,27 L229,27 L229,18 L243,18 L243,30 L256,30 L256,41 L270,41 L270,21 L283,21 L283,30 L297,30 L297,42 L311,42 L311,27 L324,27 L324,33 L338,33 L338,24 L351,24 L351,36 L365,36 L365,42 L384,42 L384,60 Z"
                   fill="#0a0a0a"
                 />
               </svg>
               {/* Text */}
-              <div className="absolute bottom-0 left-0 right-0 px-5 pb-4">
+              <div className="absolute bottom-0 left-0 right-0 px-6 pb-6">
                 <p
-                  className="text-[9px] tracking-[0.3em] uppercase font-medium mb-1"
+                  className="text-[10px] tracking-[0.3em] uppercase font-medium mb-1.5"
                   style={{ color: `${accentColor}99` }}
                 >
                   Welcome to
                 </p>
-                <h3 className="font-display font-black text-white text-lg leading-tight">
+                <h3 className="font-display font-black text-white text-2xl leading-tight">
                   {title}
                 </h3>
               </div>
               {/* Bottom accent rail */}
               <div
-                className="absolute bottom-0 left-0 right-0 h-[3px]"
+                className="absolute bottom-0 left-0 right-0 h-[4px]"
                 style={{ background: accentColor }}
               />
             </div>
