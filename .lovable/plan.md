@@ -1,38 +1,32 @@
 
 
-## Plan: Update Sotong Game Page Images
+## Plan: Update Gameshow Experience Virtual Page Images
 
 ### Overview
-Replace image sources across 6 sections in the `sotong-game` entry (lines 4488–4585). Single file change, no layout or component modifications.
+Replace image sources across 4 sections in the `the-gameshow-experience-virtual` entry (lines 4993–5063). Single file change, no layout or component modifications.
 
 ### Changes (`src/data/servicesData.ts`)
 
-**1. Hero banner** (line 4491)
-- Replace `heroTeamCelebration` in `backgroundImage` with:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361478/SotongGame_7_cd8u9r.jpg"`
+**1. Hero banner** (line 5000)
+- Replace `virtualPlaceholderHero` with:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579600/TheGameShow_VTB_4_weyhxy.png"`
 
-**2. Overview background** (line 4494)
-- Replace `heroTeamCelebration` with same URL
+**2. Overview background** (line 5004)
+- Replace `virtualPlaceholderHero` with same URL
 
-**3. "Your Survival Journey"** — add `howItWorksImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361474/SotongGame_8_hqiimv.jpg"`
+**3. "Your Gameshow Experience"** — add `howItWorksImage` property:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579600/TheGameShow_VTB_7_swbfoo.png"`
 
-**4. "Optional Add-ons"** — add `addOnsImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361472/SotongGame_6_m15tpn.jpg"`
+**4. "Optional Add-ons"** — add `addOnsImage` property:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579597/TheGameShow_VTB_11_ye3umr.png"`
 
-**5. "Ready for Sotong Game?" CTA** — add `ctaBackgroundImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361469/SotongGame_5_yybybi.jpg"`
+**5. "What Our Clients Say"** — add `testimonialBackgroundImage` property:
+  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579596/TheGameShow_VTB_1_mbuxzv.png"`
 
-**6. "What Our Clients Say"** — add `testimonialBackgroundImage`:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361469/SotongGame_4_vphbd3.jpg"`
-
-**7. Mini gallery** (line 4580) — replace 3 images with 5:
-  - `SotongGame_19_gqbkjc.jpg`
-  - `SotongGame_1_evo52u.jpg`
-  - `SotongGame_13_sabaqz.jpg`
-  - `SotongGame_11_r7nxph.heic`
-  - `SotongGame_9_wzdts3.heic`
+### Notes
+- No CTA or mini gallery changes requested (service has `hideMidCta: true` and no `miniGallery`)
+- Only image sources change; all text, layout, and structure remain identical
 
 ### Files modified
-- `src/data/servicesData.ts` — Sotong Game entry image updates only
+- `src/data/servicesData.ts` — Gameshow Experience Virtual entry only
 
