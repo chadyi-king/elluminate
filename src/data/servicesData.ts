@@ -31,14 +31,6 @@ import treasureHeistHero from "@/assets/services/physical/treasure-heist-hero.jp
 import treasureHeistMask from "@/assets/services/physical/treasure-heist-mask.png";
 import treasureHeistGallery1 from "@/assets/services/physical/treasure-heist-gallery-1.jpg";
 
-// Activity / gallery images (used for mini galleries)
-import heroCsiInvestigation from "@/assets/hero/csi-investigation.jpg";
-import heroCulturalRace from "@/assets/hero/cultural-race.jpg";
-import heroAmazingRaceAlt from "@/assets/hero/amazing-race.jpg";
-import heroAdventureChallenge from "@/assets/hero/adventure-challenge.jpg";
-import heroTeamCelebration from "@/assets/hero/team-celebration.jpg";
-import teamBuildingOutdoor1 from "@/assets/events/team-building-outdoor-1.jpg";
-import heroCreativeWorkshop from "@/assets/hero/creative-workshop.jpg";
 
 export interface AlternatingSection {
   title: string;
@@ -316,9 +308,6 @@ const defaultVirtualPerfectFor: FlowSection = {
     { icon: Target, title: "Sales Kickoffs", description: "Energize sales teams with competitive virtual challenges." },
   ],
 };
-
-// Placeholder hero for virtual services
-const virtualPlaceholderHero = "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=1920";
 
 export const servicesData: Record<string, ServiceData> = {
   "team-building": {
@@ -3384,11 +3373,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "CULTURAL RACE",
       subtitle: "Team Building Adventure",
       tagline: "Explore, laugh, and compete through Singapore’s culture with challenges built for teamwork, curiosity, and shared discovery.",
-      backgroundImage: heroCulturalRace,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360229/AmazingRace_2_hi89qz.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361380/AmazingRace_20_pvj3jq.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361386/AmazingRace_24_r4bomr.heic",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360193/AmazingRace_16_mdu3de.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360190/AmazingRace_1_ig4gbv.heic",
     overview: {
       description: "Cultural Race is a high-energy heritage adventure where teams complete interactive missions across Singapore's cultural landmarks. It works well for corporate teams, school groups, and youth cohorts who want a format that combines exploration, teamwork, and local discovery. Explore Chinatown, Little India, Kampong Glam, and more while solving puzzles, completing creative tasks, and racing against rival teams.",
-      backgroundImage: heroCulturalRace,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360229/AmazingRace_2_hi89qz.jpg",
     },
     features: [
       { icon: MapPin, title: "Landmark Checkpoints", description: "Routes tailored to your venue or district." },
@@ -3473,9 +3466,10 @@ export const servicesData: Record<string, ServiceData> = {
     miniGallery: {
       title: "Cultural Race Highlights",
       images: [
-        { src: heroCulturalRace, alt: "Teams racing through cultural checkpoints" },
-        { src: heroTeamCelebration, alt: "Team celebrating during Cultural Race" },
-        { src: teamBuildingOutdoor1, alt: "Outdoor team moment during Cultural Race" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360229/AmazingRace_2_hi89qz.jpg", alt: "Teams racing through cultural checkpoints" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361379/AmazingRace_22_qnkeat.heic", alt: "Team celebrating during Cultural Race" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360193/AmazingRace_16_mdu3de.jpg", alt: "Outdoor team moment during Cultural Race" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360192/AmazingRace_15_hspv90.heic", alt: "Cultural Race checkpoint challenge" },
       ],
     },
     hideOutcomes: false,
@@ -3491,11 +3485,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "AMONGST US",
       subtitle: "Physical Team Building",
       tagline: "Inspired by the viral hit game Among Us — a live social-deduction showdown where your crew finds imposters, defends the mission, and outplays the opposition.",
-      backgroundImage: heroTeamCelebration,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361411/CSI_6_y8pkaz.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592600/CSI_14_z4eswb.heic",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592607/CSI_15_rxnuq4.heic",
     overview: {
       description: "Amongst Us is a live team-building adaptation of the viral hit game Among Us, brought off the screen and into a fully facilitated physical experience. Participants move through missions, suspicion rounds, secret roles, and timed reveals while trying to complete objectives without letting the imposters sabotage the team. It works especially well for workplaces, student leaders, camps, and mixed groups because the format rewards observation, persuasion, teamwork, and a good sense of humour rather than fitness alone.",
-      backgroundImage: heroTeamCelebration,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
     },
     features: [
       { icon: Ghost, title: "Hidden Role Gameplay", description: "Secret imposters, mission-based crew tasks, and live accusation rounds." },
@@ -3581,9 +3579,10 @@ export const servicesData: Record<string, ServiceData> = {
     miniGallery: {
       title: "Amongst Us Highlights",
       images: [
-        { src: heroTeamCelebration, alt: "Amongst Us team reveal moment" },
-        { src: heroCsiInvestigation, alt: "Players analysing who the imposter might be" },
-        { src: teamBuildingOutdoor1, alt: "Participants reacting during a live discussion round" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg", alt: "Amongst Us team reveal moment" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg", alt: "Players analysing who the imposter might be" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592599/CSI_13_ferqyd.heic", alt: "Participants reacting during a live discussion round" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592598/CSI_12_dg3lo1.heic", alt: "Amongst Us accusation round" },
       ],
     },
     hideOutcomes: false,
@@ -3599,11 +3598,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "ALICE IN MOTHERLAND",
       subtitle: "Physical Team Building",
       tagline: "Inspired by the Netflix hit Alice in Borderland — a surreal live adventure where teams navigate themed stations, crack curious puzzles, and find their way through a world of playful challenges.",
-      backgroundImage: heroCreativeWorkshop,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_10_umoqpw.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361409/CSI_5_t4xrjy.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361403/CSI_2_slu6jv.jpg",
     overview: {
       description: "Alice in Motherland is a team-building adventure inspired by Alice in Borderland, the acclaimed Netflix series, adapted into a live and fully facilitated group experience. Teams journey through themed stations, complete curious missions, solve imaginative puzzles, and collaborate their way through a surreal format that rewards creativity and team observation. It works especially well for clients or schools looking for something visually distinctive, story-driven, and genuinely memorable.",
-      backgroundImage: heroCreativeWorkshop,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
     },
     features: [
       { icon: Rabbit, title: "Story-Led Journey", description: "Each stage feels like a chapter in a larger adventure rather than a disconnected game list." },
@@ -3689,9 +3692,10 @@ export const servicesData: Record<string, ServiceData> = {
     miniGallery: {
       title: "Alice in Motherland Highlights",
       images: [
-        { src: heroCreativeWorkshop, alt: "Team entering a themed Alice in Motherland station" },
-        { src: heroTeamCelebration, alt: "Participants reacting during a story-led mission" },
-        { src: teamBuildingOutdoor1, alt: "Group celebrating after completing the final challenge" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic", alt: "Team entering a themed Alice in Motherland station" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_10_umoqpw.heic", alt: "Participants reacting during a story-led mission" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361409/CSI_5_t4xrjy.jpg", alt: "Group celebrating after completing the final challenge" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg", alt: "Alice in Motherland puzzle station" },
       ],
     },
     hideOutcomes: false,
@@ -3707,11 +3711,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "BATTLE OF THE OLYMPIANS",
       subtitle: "Physical Team Building",
       tagline: "A bold team tournament that blends athletic rounds, strategy games, and full-group energy into one epic showdown.",
-      backgroundImage: heroAdventureChallenge,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599640/RunningMan_22_f0ka8y.heic",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599625/RunningMan_16_tbkpld.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361442/RunningMan_6_esz34i.heic",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361443/RunningMan_7_bqkr2b.heic",
     overview: {
       description: "Battle of the Olympians is a large-format team competition built for groups that want scale, energy, and a sense of event. Teams move through a mix of athletic relays, tactical tasks, mental rounds, and showpiece finales while earning points for consistency, teamwork, and determination. It works especially well for larger corporate groups, school cohorts, student camps, and department-wide offsites that need something competitive, highly visible, and easy for people to rally around.",
-      backgroundImage: heroAdventureChallenge,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599640/RunningMan_22_f0ka8y.heic",
     },
     features: [
       { icon: Crown, title: "Epic Tournament Format", description: "A clear competition arc with heats, points, momentum swings, and a strong finale." },
@@ -3797,9 +3805,10 @@ export const servicesData: Record<string, ServiceData> = {
     miniGallery: {
       title: "Battle of the Olympians Highlights",
       images: [
-        { src: heroAdventureChallenge, alt: "Teams competing during Battle of the Olympians" },
-        { src: heroTeamCelebration, alt: "Olympian teams celebrating after the final round" },
-        { src: teamBuildingOutdoor1, alt: "Large group tournament layout during a team showdown" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599640/RunningMan_22_f0ka8y.heic", alt: "Teams competing during Battle of the Olympians" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg", alt: "Olympian teams celebrating after the final round" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599625/RunningMan_16_tbkpld.jpg", alt: "Large group tournament layout during a team showdown" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361442/RunningMan_6_esz34i.heic", alt: "Battle of the Olympians relay challenge" },
       ],
     },
     hideOutcomes: false,
@@ -3816,11 +3825,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "ARCHERY TAG",
       subtitle: "Team Battle",
       tagline: "A safe, high-energy battle format for teams and student groups who want action, teamwork, and fast decisions.",
-      backgroundImage: heroAdventureChallenge,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_19_os8wfv.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361444/RunningMan_10_x6owst.heic",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361443/RunningMan_7_bqkr2b.heic",
     overview: {
       description: "Archery Tag is a team battle experience that blends movement, strategy, and communication. It is designed to be safe, inclusive, and easy to run for workplace teams, school groups, and student leaders who want something active without losing structure. Clear rules, protective equipment, and professional facilitation keep the format fun and accessible.",
-      backgroundImage: heroAdventureChallenge,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg",
     },
     features: [
       { icon: Target, title: "Tactical Team Play", description: "Coordinate roles and communicate to win rounds." },
@@ -3894,9 +3907,10 @@ export const servicesData: Record<string, ServiceData> = {
     miniGallery: {
       title: "Archery Tag Highlights",
       images: [
-        { src: heroAdventureChallenge, alt: "Archery Tag team battle" },
-        { src: teamBuildingOutdoor1, alt: "Outdoor team building moment" },
-        { src: heroTeamCelebration, alt: "Team celebrating after Archery Tag" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg", alt: "Archery Tag team battle" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_19_os8wfv.jpg", alt: "Outdoor team building moment" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361444/RunningMan_10_x6owst.heic", alt: "Team celebrating after Archery Tag" },
+        { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic", alt: "Archery Tag squad formation" },
       ],
     },
     hideOutcomes: false,
@@ -4016,10 +4030,14 @@ export const servicesData: Record<string, ServiceData> = {
   "gel-blitz": {
     accentColor: "#FF8A3D",
     dividerVariant: "gelBeads",
-    hero: { title: "GELBLITZ", subtitle: "Team Battle", tagline: "A fast, tactical battle format built for teams and student groups that want action without the admin headache.", backgroundImage: heroAdventureChallenge },
+    hero: { title: "GELBLITZ", subtitle: "Team Battle", tagline: "A fast, tactical battle format built for teams and student groups that want action without the admin headache.", backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_17_dfqtds.heic" },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599637/RunningMan_21_ncjbhp.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599624/RunningMan_13_m2kg4e.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_1_rqyx9i.jpg",
     overview: {
       description: "GelBlitz is a high-energy gel blaster team battle experience designed for safe, exciting team bonding. Using specially designed gel blasters that fire soft, biodegradable gel beads, teams compete in structured tactical rounds with clear objectives. It is a strong fit for both workplace teams and older student groups because it combines action, teamwork, and facilitation in a format that feels exciting but remains well-controlled. Whether your group prefers tactical strategy or all-out action, GelBlitz delivers an adrenaline rush that gets people communicating fast.",
-      backgroundImage: heroAdventureChallenge,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_17_dfqtds.heic",
     },
     features: [
       { icon: Crosshair, title: "Tactical Game Modes", description: "Capture the flag, base defense, VIP escort, and elimination rounds." },
@@ -4105,7 +4123,7 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: "Target", title: "Smarter Tactical Execution", description: "Teams improve at adjusting plans in real time as the game shifts." },
       { icon: "Heart", title: "Inclusive Shared Fun", description: "Even non-sporty participants stay engaged because strategy matters as much as movement." },
     ],
-    miniGallery: { title: "GelBlitz Highlights", images: [{ src: heroAdventureChallenge, alt: "GelBlitz tactical team battle" }, { src: heroTeamCelebration, alt: "Team celebrating GelBlitz victory" }, { src: teamBuildingOutdoor1, alt: "Outdoor GelBlitz action" }] },
+    miniGallery: { title: "GelBlitz Highlights", images: [{ src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_17_dfqtds.heic", alt: "GelBlitz tactical team battle" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599637/RunningMan_21_ncjbhp.jpg", alt: "Team celebrating GelBlitz victory" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599624/RunningMan_13_m2kg4e.jpg", alt: "Outdoor GelBlitz action" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic", alt: "GelBlitz team strategy huddle" }] },
     hideOutcomes: false,
     hideMidCta: false,
     perfectForVariant: "flow",
@@ -4321,10 +4339,14 @@ export const servicesData: Record<string, ServiceData> = {
   "nerfwar": {
     accentColor: "#FF8A3D",
     dividerVariant: "foamDart",
-    hero: { title: "NERFWAR", subtitle: "Foam Dart Battles", tagline: "A safe, fast, and hilarious battle format for teams and school groups who want action with structure.", backgroundImage: heroAdventureChallenge },
+    hero: { title: "NERFWAR", subtitle: "Foam Dart Battles", tagline: "A safe, fast, and hilarious battle format for teams and school groups who want action with structure.", backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599637/RunningMan_21_ncjbhp.jpg" },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_17_dfqtds.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_1_rqyx9i.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599624/RunningMan_13_m2kg4e.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic",
     overview: {
       description: "Nerfwar is a high-energy foam dart battle experience that transforms your outing into an action-packed tactical adventure. Equipped with Nerf blasters and foam darts, teams compete in structured match formats designed to encourage communication, strategy, and good old-fashioned fun. It is especially useful for mixed groups, schools, and student cohorts because the format is safe, easy to pick up, and full of movement without feeling intimidating. Whether you are hosting a casual team day or an energetic kickoff event, Nerfwar delivers guaranteed laughs and memorable team moments.",
-      backgroundImage: heroAdventureChallenge,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599637/RunningMan_21_ncjbhp.jpg",
     },
     features: [
       { icon: Swords, title: "Multiple Battle Modes", description: "Elimination, capture the flag, VIP protection, and custom objective rounds." },
@@ -4410,7 +4432,7 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: "Target", title: "Improved Tactical Thinking", description: "The format rewards teams that can plan, adapt, and support each other." },
       { icon: "Heart", title: "Low-Barrier Participation", description: "Because the rules are easy and the gear is familiar, people jump in quickly." },
     ],
-    miniGallery: { title: "Nerfwar Highlights", images: [{ src: heroAdventureChallenge, alt: "Nerfwar foam dart team battle in action" }, { src: heroTeamCelebration, alt: "Team celebrating Nerfwar victory" }, { src: teamBuildingOutdoor1, alt: "Outdoor Nerfwar moment" }] },
+    miniGallery: { title: "Nerfwar Highlights", images: [{ src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599637/RunningMan_21_ncjbhp.jpg", alt: "Nerfwar foam dart team battle in action" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_17_dfqtds.heic", alt: "Team celebrating Nerfwar victory" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599624/RunningMan_13_m2kg4e.jpg", alt: "Outdoor Nerfwar moment" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_1_rqyx9i.jpg", alt: "Nerfwar squad formation" }] },
     hideOutcomes: false,
     hideMidCta: false,
     perfectForVariant: "flow",
@@ -4626,10 +4648,14 @@ export const servicesData: Record<string, ServiceData> = {
   "tag-tical-laser-teambuilding": {
     accentColor: "#FFC400",
     dividerVariant: "laser",
-    hero: { title: "TAG-TICAL LASER TAG", subtitle: "Laser Team Battles", tagline: "Gear Up for the Ultimate Laser Tag Showdown!", backgroundImage: heroAdventureChallenge },
+    hero: { title: "TAG-TICAL LASER TAG", subtitle: "Laser Team Battles", tagline: "Gear Up for the Ultimate Laser Tag Showdown!", backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361478/SotongGame_7_cd8u9r.jpg" },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361474/SotongGame_8_hqiimv.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361472/SotongGame_6_m15tpn.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361469/SotongGame_5_yybybi.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361469/SotongGame_4_vphbd3.jpg",
     overview: {
       description: "Tag-tical Laser Teambuilding is a premium laser tag experience designed specifically for corporate team building. Using state-of-the-art infrared laser tag equipment, teams compete in structured tactical rounds that reward strategy, communication, and coordination. Unlike casual laser tag, our corporate format features objective-based game modes including capture the base, escort missions, king of the hill, and team elimination. Each participant receives a laser tag vest and phaser with real-time hit tracking and scoring. Our facilitators design the battlefield layout, manage game flow, and provide tactical briefings between rounds. The technology is completely safe with no projectiles involved, making it suitable for all participants regardless of age or fitness level. Tag-tical Laser is perfect for teams that want a competitive, active experience with a strong strategic element.",
-      backgroundImage: heroAdventureChallenge,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361478/SotongGame_7_cd8u9r.jpg",
     },
     features: [
       { icon: Crosshair, title: "Infrared Technology", description: "Safe laser tag equipment with real-time hit tracking and scoring." },
@@ -4715,7 +4741,7 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: "Zap", title: "Premium Competitive Energy", description: "The technology adds intensity without creating unnecessary physical strain." },
       { icon: "Heart", title: "Higher Group Confidence", description: "Participants feel more comfortable joining because the format is safe, structured, and easy to read." },
     ],
-    miniGallery: { title: "Laser Tag Highlights", images: [{ src: heroAdventureChallenge, alt: "Tactical laser tag team battle" }, { src: heroTeamCelebration, alt: "Team celebrating laser tag victory" }, { src: teamBuildingOutdoor1, alt: "Outdoor laser tag moment" }] },
+    miniGallery: { title: "Laser Tag Highlights", images: [{ src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361478/SotongGame_7_cd8u9r.jpg", alt: "Tactical laser tag team battle" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361464/SotongGame_19_gqbkjc.jpg", alt: "Team celebrating laser tag victory" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361447/SotongGame_1_evo52u.jpg", alt: "Outdoor laser tag moment" }, { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361450/SotongGame_13_sabaqz.jpg", alt: "Laser tag strategy session" }] },
     hideOutcomes: false,
     hideMidCta: false,
     perfectForVariant: "flow",
@@ -4888,11 +4914,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "AMAZING RACE VIRTUAL",
       subtitle: "Virtual Team Building",
       tagline: "The World is waiting for you. Good Luck. Travel Safe and Go!",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
     overview: {
       description: "Journey across the globe without leaving your seat! In this high-energy virtual adventure, teams race through countries, solve puzzles, and complete challenges inspired by destinations worldwide. Perfect for remote teams who want excitement, strategy, and bonding—all through Zoom. Requires only a laptop/desktop with camera and internet.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
     },
     features: [
       { icon: Globe, title: "World Adventure", description: "Travel virtually to exciting destinations around the globe." },
@@ -4960,11 +4990,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "FIT IN YOUR TEAM",
       subtitle: "Virtual Team Building",
       tagline: "A Fun and Competitive Workout Teambuilding Activity made for Your Team to get Energized!",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
     overview: {
       description: "Get your team moving with this high-energy virtual workout experience! Combining fitness challenges with team competition, Fit In Your Team promotes physical wellness, mental clarity, and social connection—all from the comfort of home. Perfect for teams looking to energize, bond, and prioritize wellbeing together via Zoom.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
     },
     features: [
       { icon: Dumbbell, title: "Fitness Challenges", description: "Fun workout activities for all fitness levels." },
@@ -5107,11 +5141,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "GREAT ZODIAC HUNT",
       subtitle: "Virtual Team Building",
       tagline: "The Zodiac Animals have all escaped! It is up to you the Celestial Vanguards to get them all back!",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
     overview: {
       description: "Celebrate Chinese New Year virtually with this themed team adventure! The 12 Zodiac animals have escaped and your team must work together to bring them back. Through puzzles, challenges, and cultural trivia, teams race to capture all the animals and restore harmony. Perfect for CNY celebrations via Zoom.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
     },
     features: [
       { icon: Search, title: "Zodiac Hunt", description: "Track down all 12 escaped zodiac animals." },
@@ -5179,11 +5217,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "NUCLEAR FALLOUT ESCAPE ROOM",
       subtitle: "Virtual Team Building",
       tagline: "To save the world, your team needs to work together to stop the Nuclear Countdown.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
     overview: {
       description: "The clock is ticking! In this intense virtual escape room, teams must work together to stop a nuclear countdown. Communication, logic, and teamwork are crucial as you solve puzzles and crack codes under pressure. This adrenaline-pumping experience is perfect for teams who thrive on intellectual challenges via Zoom.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
     },
     features: [
       { icon: Lock, title: "Escape Room", description: "Solve puzzles and crack codes under pressure." },
@@ -5251,11 +5293,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "THE PATRIOT ACT",
       subtitle: "Virtual Team Building",
       tagline: "Salute to our Great Nation by playing activities mixed of the old and new of Singapore",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
     overview: {
       description: "Celebrate Singapore's heritage with this patriotic virtual team experience! Teams compete through activities that blend old-school Singapore nostalgia with modern challenges. From traditional games to national trivia, this experience is perfect for National Day celebrations or any time you want to celebrate Singapore's spirit via Zoom.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
     },
     features: [
       { icon: Flag, title: "National Pride", description: "Celebrate Singapore's heritage and culture." },
@@ -5323,11 +5369,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "TOMB RAIDER KING",
       subtitle: "Virtual Team Building",
       tagline: "The Grand Treasure Hunt Game made to push your team to the limit!",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
     overview: {
       description: "Embark on an epic virtual treasure hunt across 5 ancient tombs! Teams race to collect the most gold by solving puzzles, overcoming obstacles, and raiding tombs before competitors. This adventure-packed experience combines strategy, speed, and teamwork for an unforgettable virtual journey via Zoom.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
     },
     features: [
       { icon: Crown, title: "Treasure Hunting", description: "Raid 5 tombs for gold and glory." },
@@ -5396,11 +5446,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "THE GRAND CHRISTMAS DELIVERY",
       subtitle: "Virtual Team Building",
       tagline: "Santa's Village is under attack! You are the Elite Elf Force that will save Christmas!",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
     overview: {
       description: "Santa needs your help! In this festive virtual adventure, teams become the Elite Elf Force on a mission to save Christmas. Battle through party games, team challenges, and boss battles to deliver presents and defeat the forces threatening the holiday season. The team that delivers the most presents wins! Perfect for year-end celebrations via Zoom.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
     },
     features: [
       { icon: Gift, title: "Christmas Mission", description: "Save Christmas as the Elite Elf Force." },
@@ -5626,11 +5680,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MBTI PERSONALITY PROFILING",
       subtitle: "Training",
       tagline: "Personality has the power to uplift, depress, curse and to bless.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361392/BuilderCross_1_asbqjw.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361393/BuilderCross_2_oivxho.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361394/BuilderCross_3_mxumco.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361396/BuilderCross_5_ww5m3l.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361392/BuilderCross_1_asbqjw.jpg",
     overview: {
       description: "Looking to find out more about who you are and how you work with others? What's your Type? breaks down your entire personality to figure out what drives you and which types you are able to get along with! This activity is designed as a team building event, where teams will discover the frameworks of the mind, energy, nature and tactics within us. By pushing values such as exploration, awareness and insightfulness, we aim to give your group a reflective event filled with diverse growth!",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361392/BuilderCross_1_asbqjw.jpg",
     },
     features: [
       { icon: Brain, title: "Personality Discovery", description: "Understand what drives you and others." },
@@ -5719,11 +5777,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "DISC ASSESSMENT",
       subtitle: "Training",
       tagline: "The biggest communication problem is that we do not listen to understand. We only listen to reply.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361403/CSI_2_slu6jv.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
     overview: {
       description: "Are you compatible with others? What's your personality type? We will help you break down your entire core personality and figure out what makes you, well you. Since everyone is special, we believe this exercise will help with self-awareness and tell you about your specialty. This activity should be done with team members, where teams will find out each member's mind, energy, and nature.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
     },
     features: [
       { icon: Brain, title: "Core Personality", description: "Discover what makes you unique." },
@@ -5812,11 +5874,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "O.C.E.A.N PROFILING",
       subtitle: "Training",
       tagline: "All great changes into Order is preceded always by Chaos.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361409/CSI_5_t4xrjy.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361411/CSI_6_y8pkaz.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
     overview: {
       description: "Rated as one of the top most accurate personality tests in the world! OCEAN Big Five are the domains that represent the basic structure behind all individual personality traits. By diving in deeper, this will allow your team to identify predictive behaviors for real-life scenarios! Gain insights into different office environment situations and how various personalities deal with them.",
-      backgroundImage: virtualPlaceholderHero,
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
     },
     features: [
       { icon: Brain, title: "Scientific Accuracy", description: "One of the most validated personality models." },
