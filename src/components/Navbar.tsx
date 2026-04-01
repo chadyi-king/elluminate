@@ -175,7 +175,7 @@ export const Navbar = () => {
               href="https://teamelevate.sg"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-xs tracking-[0.15em] font-medium uppercase">
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-[8.4px] tracking-[0.15em] font-medium uppercase">
               
               Large-Scale
             </a>
