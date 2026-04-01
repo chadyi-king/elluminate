@@ -1,32 +1,24 @@
 
 
-## Plan: Update Gameshow Experience Virtual Page Images
+## Plan: Fix Favicon — Replace with Bird Logo
 
-### Overview
-Replace image sources across 4 sections in the `the-gameshow-experience-virtual` entry (lines 4993–5063). Single file change, no layout or component modifications.
+### Root Cause
+The `index.html` references (`/favicon.png?v=2`, `/favicon.ico?v=2`) are correct, but the actual image files at `public/favicon.png` and `public/favicon.ico` still contain the old lightbulb graphic. They were never overwritten with the bird logo.
 
-### Changes (`src/data/servicesData.ts`)
+### Fix (2 steps)
 
-**1. Hero banner** (line 5000)
-- Replace `virtualPlaceholderHero` with:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579600/TheGameShow_VTB_4_weyhxy.png"`
+**Step 1 — Replace favicon files**
+- Copy `src/assets/logos/elluminate-logo.png` (the bird logo used in Navbar/Footer) to both `public/favicon.png` and `public/favicon.ico`
+- This overwrites the old lightbulb image files with the correct bird logo
 
-**2. Overview background** (line 5004)
-- Replace `virtualPlaceholderHero` with same URL
-
-**3. "Your Gameshow Experience"** — add `howItWorksImage` property:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579600/TheGameShow_VTB_7_swbfoo.png"`
-
-**4. "Optional Add-ons"** — add `addOnsImage` property:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579597/TheGameShow_VTB_11_ye3umr.png"`
-
-**5. "What Our Clients Say"** — add `testimonialBackgroundImage` property:
-  `"https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579596/TheGameShow_VTB_1_mbuxzv.png"`
-
-### Notes
-- No CTA or mini gallery changes requested (service has `hideMidCta: true` and no `miniGallery`)
-- Only image sources change; all text, layout, and structure remain identical
+**Step 2 — Bump cache-buster in `index.html`**
+- Change `?v=2` to `?v=3` on all three favicon references (lines 22-24) to force browsers to re-fetch the new image and bypass cached versions
 
 ### Files modified
-- `src/data/servicesData.ts` — Gameshow Experience Virtual entry only
+- `public/favicon.png` — replaced with bird logo
+- `public/favicon.ico` — replaced with bird logo
+- `index.html` — cache-buster bump `v=2` → `v=3`
+
+### No other changes
+- "Explore Services" button stays as-is (confirmed fine by you)
 
