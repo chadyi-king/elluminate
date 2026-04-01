@@ -30,7 +30,7 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: Dro
       
       <button
         onClick={onToggle}
-        className="flex items-center gap-1.5 text-foreground/70 hover:text-primary transition-colors duration-300 text-xs tracking-[0.15em] font-medium py-2 uppercase">
+        className="flex items-center gap-1.5 text-foreground/70 hover:text-primary transition-colors duration-300 text-[8.4px] tracking-[0.15em] font-medium py-2 uppercase">
         
         {label}
         <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -116,7 +116,7 @@ export const Navbar = () => {
   };
 
   const navLinkClass = (path: string) =>
-  `transition-colors duration-300 text-xs tracking-[0.15em] font-medium ${
+  `transition-colors duration-300 text-[8.4px] tracking-[0.15em] font-medium ${
   isActive(path) ? 'text-primary' : 'text-foreground/70 hover:text-primary'}`;
 
 
@@ -175,7 +175,7 @@ export const Navbar = () => {
               href="https://teamelevate.sg"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-xs tracking-[0.15em] font-medium uppercase">
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-[8.4px] tracking-[0.15em] font-medium uppercase">
               
               Large-Scale
             </a>
@@ -183,7 +183,7 @@ export const Navbar = () => {
               href="https://encompasse.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-xs tracking-[0.15em] font-medium uppercase">
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-[8.4px] tracking-[0.15em] font-medium uppercase">
               
               School
             </a>
