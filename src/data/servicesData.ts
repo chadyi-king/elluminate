@@ -11164,6 +11164,8 @@ export const servicesData: Record<string, ServiceData> = {
       sectionTitle: "WHAT TO EXPECT",
       sectionSubtitle: "Your Retreat Planning Journey",
       itemsPerRow: 3,
+      backgroundImage:
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_42_rhm0bt.jpg",
       showNumbers: true,
       items: [
         {
