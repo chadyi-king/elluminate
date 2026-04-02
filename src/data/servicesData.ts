@@ -11063,6 +11063,11 @@ export const servicesData: Record<string, ServiceData> = {
         "Not every great retreat requires a passport. Singapore's hotel scene delivers everything from affordable urban escapes to some of the most storied and architecturally celebrated properties in Asia — and we know exactly which ones perform for team retreats. We offer three distinct tiers: Staycation for whole-staff appreciation and casual connection, Heritage for a culturally rich stay in Singapore's most celebrated historical hotels, and Luxury for recognition-grade experiences that senior leaders and top earners genuinely value. You choose the tier; we handle room blocks, activities, dining, and every detail in between.",
       backgroundImage: overseasRetreatHero,
     },
+    howItWorksImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_42_rhm0bt.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_47_up0edg.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023139/Overseas_28_c1mqho.heic",
     features: [
       { icon: Building, title: "Curated Venues", description: "Handpicked hotels across Singapore." },
       { icon: Wine, title: "Meals Included", description: "Breakfast, lunch, and dinner options." },
