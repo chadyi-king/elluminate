@@ -1,9 +1,21 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const VideoSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+
+    // Wait for the video element to mount, then play it
+    setTimeout(() => {
+      videoRef.current?.play().catch((err) => {
+        console.error("Video play failed:", err);
+      });
+    }, 50);
+  };
 
   return (
     <section className="py-16 relative overflow-hidden bg-gradient-to-b from-background via-secondary/20 to-background">
@@ -29,7 +41,6 @@ export const VideoSection = () => {
           </p>
         </motion.div>
 
-        {/* Video Container */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -47,14 +58,14 @@ export const VideoSection = () => {
                       'url("https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg/v1775443680/Elevate-Home-Video_stionp.jpg")',
                   }}
                 >
-                  {/* 50% dark overlay */}
                   <div className="absolute inset-0 bg-black/50" />
-                  <div className="text-center text-white">
+                  <div className="relative z-10 text-center text-white">
                     <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }}>
                       <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6 cursor-pointer">
                         <Play className="w-10 h-10 text-white ml-1" />
                       </div>
                     </motion.div>
+
                     <h3 className="text-2xl md:text-3xl font-display font-bold mb-2 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                       Elluminate Showreel
                     </h3>
@@ -65,17 +76,13 @@ export const VideoSection = () => {
                   </div>
                 </div>
 
-                <button
-                  onClick={() => setIsPlaying(true)}
-                  className="absolute inset-0 w-full h-full"
-                  aria-label="Play video"
-                />
+                <button onClick={handlePlay} className="absolute inset-0 w-full h-full" aria-label="Play video" />
               </>
             ) : (
               <div className="absolute inset-0">
                 <video
+                  ref={videoRef}
                   className="w-full h-full object-cover"
-                  autoPlay
                   controls
                   playsInline
                   poster="https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg/v1775443680/Elevate-Home-Video_stionp.jpg"
