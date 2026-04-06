@@ -7313,20 +7313,20 @@ export const servicesData: Record<string, ServiceData> = {
       tagline:
         "A fast, tactical battle format built for teams and student groups that want action without the admin headache.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_17_dfqtds.heic",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455356/gelblitz_6_akebbh.jpg",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599637/RunningMan_21_ncjbhp.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599624/RunningMan_13_m2kg4e.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455295/gelblitz_9_ilhw6b.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456395/gelblitz_4_vphes5.jpg",
     ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456394/gelblitz_3_yjahdx.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_1_rqyx9i.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456396/gelblitz_10_cgvrna.jpg",
     overview: {
       description:
         "GelBlitz is a high-energy gel blaster team battle experience designed for safe, exciting team bonding. Using specially designed gel blasters that fire soft, biodegradable gel beads, teams compete in structured tactical rounds with clear objectives. It is a strong fit for both workplace teams and older student groups because it combines action, teamwork, and facilitation in a format that feels exciting but remains well-controlled. Whether your group prefers tactical strategy or all-out action, GelBlitz delivers an adrenaline rush that gets people communicating fast.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_17_dfqtds.heic",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455356/gelblitz_6_akebbh.jpg",
     },
     features: [
       {
@@ -7601,19 +7601,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "GelBlitz Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_17_dfqtds.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456395/gelblitz_7_joe2js.jpg",
           alt: "GelBlitz tactical team battle",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599637/RunningMan_21_ncjbhp.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455574/gelblitz_8_dp0uc8.jpg",
           alt: "Team celebrating GelBlitz victory",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599624/RunningMan_13_m2kg4e.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455296/gelblitz_1_jejkkh.jpg",
           alt: "Outdoor GelBlitz action",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455155/gelblitz_11_vnr0qx.jpg",
           alt: "GelBlitz team strategy huddle",
         },
       ],
