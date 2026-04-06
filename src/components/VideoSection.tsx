@@ -56,7 +56,7 @@ export const VideoSection = () => {
                       </div>
                     </motion.div>
                     <h3 className="text-xl md:text-2xl font-display font-bold mb-2">Elluminate Showreel</h3>
-                    <p className="text-white/80">1,000+ Events | 100,000+ Participants | 8+ Years</p>
+                    <p className="text-white">1,000+ Events | 100,000+ Participants | 8+ Years</p>
                   </div>
                 </div>
 
