@@ -6761,21 +6761,21 @@ export const servicesData: Record<string, ServiceData> = {
       tagline:
         "A safe, high-energy battle format for teams and student groups who want action, teamwork, and fast decisions.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944044/archery_tag_8_c6r61v.heic",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_19_os8wfv.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944033/archery_tag_5_hg7csc.heic",
     addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361444/RunningMan_10_x6owst.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944029/archery_tag_6_v4lahk.heic",
     ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944007/archery_tag_12_ctqza6.heic",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361443/RunningMan_7_bqkr2b.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944025/archery_tag_3_jcem57.heic",
     overview: {
       description:
         "Archery Tag is a team battle experience that blends movement, strategy, and communication. It is designed to be safe, inclusive, and easy to run for workplace teams, school groups, and student leaders who want something active without losing structure. Clear rules, protective equipment, and professional facilitation keep the format fun and accessible.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944044/archery_tag_8_c6r61v.heic",
     },
     features: [
       { icon: Target, title: "Tactical Team Play", description: "Coordinate roles and communicate to win rounds." },
@@ -6952,20 +6952,28 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Archery Tag Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944022/archery_tag_2_p8bmvz.heic",
           alt: "Archery Tag team battle",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_19_os8wfv.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944011/archery_tag_14_oqagpn.jpg",
           alt: "Outdoor team building moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361444/RunningMan_10_x6owst.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944051/archery_tag_13_dadl82.jpg",
           alt: "Team celebrating after Archery Tag",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944047/archery_tag_1_uvgseb.jpg",
           alt: "Archery Tag squad formation",
+        },
+        {
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944040/archery_tag_9_cmhgr2.heic",
+          alt: "Archery Tag Singapore",
+        },
+        {
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944037/archery_tag_7_ggtac1.heic",
+          alt: "Archery Tag Game",
         },
       ],
     },
