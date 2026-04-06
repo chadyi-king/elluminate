@@ -12164,7 +12164,7 @@ export const servicesData: Record<string, ServiceData> = {
         "Our interactive workshops go beyond passive learning to create immersive skill-building experiences. With hands-on activities, real-world scenarios, and expert facilitation, participants don't just learn concepts - they practice and internalize them. From communication and leadership to creativity and problem-solving, our workshops transform knowledge into actionable skills that drive immediate results in the workplace.",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579623/Workshop_4_ocszix.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579617/Workshop_14_rvws0z.jpg",
     addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579625/Workshop_7_h0likd.jpg",
     testimonialBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579615/Workshop_11_iunqpi.jpg",
