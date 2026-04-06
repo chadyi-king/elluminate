@@ -11559,17 +11559,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "DISC ASSESSMENT",
       subtitle: "Training",
       tagline: "The biggest communication problem is that we do not listen to understand. We only listen to reply.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775469812/disc_11_o3izak.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361403/CSI_2_slu6jv.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775469812/disc_5_pyuont.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775469803/disc_14_rb0mbj.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775469815/disc_1_vaehl6.jpg",
     overview: {
       description:
         "Are you compatible with others? What's your personality type? We will help you break down your entire core personality and figure out what makes you, well you. Since everyone is special, we believe this exercise will help with self-awareness and tell you about your specialty. This activity should be done with team members, where teams will find out each member's mind, energy, and nature.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
     },
     features: [
       { icon: Brain, title: "Core Personality", description: "Discover what makes you unique." },
