@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 interface ServiceOverviewProps {
   description: string;
-  backgroundImage: string;
+  backgroundImage?: string;
 }
 
 export const ServiceOverview = ({ description, backgroundImage }: ServiceOverviewProps) => {
