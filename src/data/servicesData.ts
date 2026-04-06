@@ -12717,7 +12717,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "INCENTIVE TRAVEL",
       subtitle: "Retreat",
       tagline: "Reward your best people with the journey of a lifetime.",
-      backgroundImage: overseasRetreatHero,
+      backgroundImage:
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_40_jfae9l.heic",
     },
     overview: {
       description:
