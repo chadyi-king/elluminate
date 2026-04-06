@@ -8295,12 +8295,12 @@ export const servicesData: Record<string, ServiceData> = {
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599624/RunningMan_13_m2kg4e.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456498/nerfwar_10_tg6ss6.jpg",
     overview: {
       description:
         "Nerfwar is a high-energy foam dart battle experience that transforms your outing into an action-packed tactical adventure. Equipped with Nerf blasters and foam darts, teams compete in structured match formats designed to encourage communication, strategy, and good old-fashioned fun. It is especially useful for mixed groups, schools, and student cohorts because the format is safe, easy to pick up, and full of movement without feeling intimidating. Whether you are hosting a casual team day or an energetic kickoff event, Nerfwar delivers guaranteed laughs and memorable team moments.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599637/RunningMan_21_ncjbhp.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456495/nerfwar_5_oqmjf3.jpg",
     },
     features: [
       {
@@ -8575,20 +8575,24 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Nerfwar Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599637/RunningMan_21_ncjbhp.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456499/nerfwar_11_aezyzx.jpg",
           alt: "Nerfwar foam dart team battle in action",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_17_dfqtds.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456494/nerfwar_12_ykj5sp.jpg",
           alt: "Team celebrating Nerfwar victory",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599624/RunningMan_13_m2kg4e.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456489/nerfwar_8_kel39u.jpg",
           alt: "Outdoor Nerfwar moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_1_rqyx9i.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456502/nerfwar_4_lgyzz6.jpg",
           alt: "Nerfwar squad formation",
+        },
+        {
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456501/nerfwar_7_pzpskn.jpg",
+          alt: "Nerfwar activity",
         },
       ],
     },
