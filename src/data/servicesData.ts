@@ -195,7 +195,7 @@ export interface ServiceData {
   };
   overview: {
     description: string;
-    backgroundImage: string;
+    backgroundImage?: string;
   };
   features: {
     icon: LucideIcon;
