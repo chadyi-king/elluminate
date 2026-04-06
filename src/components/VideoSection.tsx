@@ -59,9 +59,10 @@ export const VideoSection = () => {
                   }}
                 >
                   <div className="absolute inset-0 bg-black/50" />
-                  <div className="relative z-10 text-center text-white">
+
+                  <div className="relative z-10 text-center text-white pointer-events-none">
                     <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }}>
-                      <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6 cursor-pointer">
+                      <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6">
                         <Play className="w-10 h-10 text-white ml-1" />
                       </div>
                     </motion.div>
@@ -76,7 +77,7 @@ export const VideoSection = () => {
                   </div>
                 </div>
 
-                <button onClick={handlePlay} className="absolute inset-0 w-full h-full" aria-label="Play video" />
+                <button onClick={handlePlay} className="absolute inset-0 z-20 w-full h-full" aria-label="Play video" />
               </>
             ) : (
               <div className="absolute inset-0">
