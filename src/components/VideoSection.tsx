@@ -40,11 +40,16 @@ export const VideoSection = () => {
           <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-border">
             {!isPlaying ? (
               <>
-                {/* Placeholder thumbnail */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary to-primary/90 flex items-center justify-center">
+                <div
+                  className="absolute inset-0 bg-center bg-cover bg-no-repeat flex items-center justify-center"
+                  style={{
+                    backgroundImage:
+                      'url("https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg/v1775443680/Elevate-Home-Video_stionp.jpg")',
+                  }}
+                >
                   <div className="text-center text-white">
                     <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }}>
-                      <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6 cursor-pointer hover:bg-white/30 transition-colors">
+                      <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6 cursor-pointer">
                         <Play className="w-10 h-10 text-white ml-1" />
                       </div>
                     </motion.div>
@@ -52,7 +57,7 @@ export const VideoSection = () => {
                     <p className="text-white/80">1,000+ Events | 100,000+ Participants | 8+ Years</p>
                   </div>
                 </div>
-                {/* Play button overlay */}
+
                 <button
                   onClick={() => setIsPlaying(true)}
                   className="absolute inset-0 w-full h-full"
@@ -60,8 +65,14 @@ export const VideoSection = () => {
                 />
               </>
             ) : (
-              <div className="absolute inset-0 bg-foreground flex items-center justify-center">
-                <video className="w-full h-full object-cover" autoPlay muted loop playsInline controls>
+              <div className="absolute inset-0">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  controls
+                  playsInline
+                  poster="https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg/v1775443680/Elevate-Home-Video_stionp.jpg"
+                >
                   <source
                     src="https://res.cloudinary.com/dw1q8nz8z/video/upload/f_auto,q_auto/v1775443680/Elevate-Home-Video_stionp.mp4"
                     type="video/mp4"
