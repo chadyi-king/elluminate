@@ -47,6 +47,8 @@ export const VideoSection = () => {
                       'url("https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg/v1775443680/Elevate-Home-Video_stionp.jpg")',
                   }}
                 >
+                  {/* 50% dark overlay */}
+                  <div className="absolute inset-0 bg-black/50" />
                   <div className="text-center text-white">
                     <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }}>
                       <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6 cursor-pointer">
