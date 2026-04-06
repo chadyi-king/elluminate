@@ -55,8 +55,13 @@ export const VideoSection = () => {
                         <Play className="w-10 h-10 text-white ml-1" />
                       </div>
                     </motion.div>
-                    <h3 className="text-xl md:text-2xl font-display font-bold mb-2">Elluminate Showreel</h3>
-                    <p className="text-white">1,000+ Events | 100,000+ Participants | 8+ Years</p>
+                    <h3 className="text-2xl md:text-3xl font-display font-bold mb-2 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                      Elluminate Showreel
+                    </h3>
+
+                    <p className="text-white text-sm md:text-base font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                      1,000+ Events | 100,000+ Participants | 8+ Years
+                    </p>
                   </div>
                 </div>
 
