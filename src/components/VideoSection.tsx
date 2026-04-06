@@ -55,7 +55,7 @@ export const VideoSection = () => {
                   className="absolute inset-0 bg-center bg-cover bg-no-repeat flex items-center justify-center"
                   style={{
                     backgroundImage:
-                      'url("https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg/v1775443680/Elevate-Home-Video_stionp.jpg")',
+                      'url("https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg/v1775474506/teambuilding-video_tp5kfu.jpg")',
                   }}
                 >
                   <div className="absolute inset-0 bg-black/50" />
@@ -86,10 +86,10 @@ export const VideoSection = () => {
                   className="w-full h-full object-cover"
                   controls
                   playsInline
-                  poster="https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg/v1775443680/Elevate-Home-Video_stionp.jpg"
+                  poster="https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg/v1775474506/teambuilding-video_tp5kfu.jpg"
                 >
                   <source
-                    src="https://res.cloudinary.com/dw1q8nz8z/video/upload/f_auto,q_auto/v1775443680/Elevate-Home-Video_stionp.mp4"
+                    src="https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto/f_auto/v1775474506/teambuilding-video_tp5kfu.mp4"
                     type="video/mp4"
                   />
                 </video>
