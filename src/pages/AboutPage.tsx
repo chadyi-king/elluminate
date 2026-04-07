@@ -602,7 +602,11 @@ const AboutPage = () => {
       <section className="py-24 relative bg-slate-950">
         {/* Background */}
         <div className="absolute inset-0">
-          <img src={dinnerDance} alt="Event Background" className="w-full h-full object-cover" />
+          <img
+            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773823919/20230206_175035-scaled_us5gpm.jpg"
+            alt="Event Background"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-slate-950/92" />
         </div>
 
@@ -971,7 +975,7 @@ const AboutPage = () => {
             alt="Event"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-slate-950/92" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
