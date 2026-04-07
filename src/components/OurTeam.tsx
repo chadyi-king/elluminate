@@ -9,6 +9,10 @@ import kevinLee from "@/assets/team/kevin-lee.jpg";
 import michelleChen from "@/assets/team/michelle-chen.jpg";
 import jasonNg from "@/assets/team/jason-ng.jpg";
 import sarahGoh from "@/assets/team/sarah-goh.jpg";
+import louiseCabales from "@/assets/team/louise-cabales.jpg";
+import peggyHar from "@/assets/team/peggy-har.jpg";
+import peaceChan from "@/assets/team/peace-chan.jpg";
+import christianJeSuis from "@/assets/team/christian-je-suis.jpg";
 import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
 
 const teamMembers = [
@@ -40,12 +44,12 @@ const teamMembers = [
   {
     name: "Louise Cabales",
     title: "Admin Manager",
-    image: "https://randomuser.me/api/portraits/men/44.jpg"
+    image: louiseCabales
   },
   {
     name: "Peggy Har",
     title: "Finance Manager",
-    image: "https://randomuser.me/api/portraits/women/55.jpg"
+    image: peggyHar
   },
   {
     name: "Jencen Ramos",
@@ -60,7 +64,7 @@ const teamMembers = [
   {
     name: "Peace Chan",
     title: "Marketing & Sales Executive",
-    image: "https://randomuser.me/api/portraits/women/33.jpg"
+    image: peaceChan
   },
   {
     name: "Caleb E",
@@ -70,7 +74,7 @@ const teamMembers = [
   {
     name: "Christian Je Suis",
     title: "Head of Team Morale & Wellness",
-    image: "https://randomuser.me/api/portraits/men/67.jpg"
+    image: christianJeSuis
   }
 ];
 
