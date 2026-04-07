@@ -6459,7 +6459,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773823919/20230206_175032-scaled_wje7eb.jpg",
     addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773823997/20230208_163149-scaled_xvpc2r.jpgg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773823997/20230208_163149-scaled_xvpc2r.jpg",
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361442/RunningMan_6_esz34i.heic",
     testimonialBackgroundImage:
