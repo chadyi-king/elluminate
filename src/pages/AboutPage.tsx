@@ -582,7 +582,11 @@ const AboutPage = () => {
               className="relative"
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-sky-500/20 shadow-blue">
-                <img src={teamBuildingOutdoor} alt="Asian Team Celebration" className="w-full h-full object-cover" />
+                <img
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775545183/About-Us_ai3ync.webp"
+                  alt="Asian Team Celebration"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
               </div>
               <div className="absolute -inset-4 bg-gradient-to-r from-sky-500/20 via-transparent to-primary/15 blur-2xl -z-10" />
