@@ -12565,6 +12565,11 @@ export const servicesData: Record<string, ServiceData> = {
         "Transform ordinary workdays into extraordinary team experiences with our Corporate Days program. These specially designed full-day or half-day events blend professional development with engaging activities, creating the perfect balance of learning and fun. Whether you're celebrating milestones, reinforcing company culture, or simply giving your team a well-deserved break, Corporate Days deliver memorable experiences that boost morale and strengthen team bonds.",
       backgroundImage: corporateCarnivalHero,
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361414/MBTI_2_xjlhhy.jpg",
+    addOnsImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579608/WellnessGamesDay_3_crrqna.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579607/WellnessGamesDay_11_ibpwvh.heic",
     features: [
       {
         icon: CalendarDays,
