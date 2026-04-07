@@ -5838,7 +5838,7 @@ export const servicesData: Record<string, ServiceData> = {
     addOnsImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361423/MonopolyDash_7_vgqtey.heic",
     ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592600/CSI_14_z4eswb.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774599631/RunningMan_18_rhufwc.jpg",
     testimonialBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361422/MonopolyDash_4_jkl1xu.jpg",
     overview: {
