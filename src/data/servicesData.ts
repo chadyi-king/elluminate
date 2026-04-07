@@ -9618,13 +9618,20 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Strategy Adventure",
       tagline:
         "Inspired by Money Heist — assemble your crew, crack the defences, and steal the most gold before the clock runs out.",
-      backgroundImage: treasureHeistHero,
+      backgroundImage:
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361439/RunningMan_3_kdfmqs.jpg",
     },
     overview: {
       description:
         "Taking inspiration from the global phenomenon Money Heist (La Casa de Papel), Treasure Heist is a fully facilitated team strategy adventure where crews plan and execute a gold heist against the pirates. Teams compete to steal the most gold by completing challenges, solving heist puzzles, and outmanoeuvring rival crews — while the defences get harder with each round. As the stakes rise, only the most coordinated and creative crew takes home the ultimate haul.",
-      backgroundImage: treasureHeistHero,
+      backgroundImage:
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361439/RunningMan_3_kdfmqs.jpg",
     },
+    howItWorksImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361440/RunningMan_5_gots06.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361476/SotongGame_9_wzdts3.heic",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361469/SotongGame_5_yybybi.jpg",
     features: [
       { icon: Gem, title: "Heist Theme", description: "A playful pirate storyline that keeps teams locked-in." },
       {
@@ -9795,9 +9802,18 @@ export const servicesData: Record<string, ServiceData> = {
     miniGallery: {
       title: "Treasure Heist Highlights",
       images: [
-        { src: treasureHeistHero, alt: "Treasure Heist team-building session" },
-        { src: treasureHeistGallery1, alt: "Outdoor team-building moment" },
-        { src: treasureHeistMask, alt: "Treasure Heist mask key art" },
+        {
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361461/SotongGame_16_ibfasz.jpg",
+          alt: "Treasure Heist team-building session",
+        },
+        {
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361447/SotongGame_12_dcztep.heic",
+          alt: "Outdoor team-building moment",
+        },
+        {
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361450/SotongGame_10_vqaxaw.jpg",
+          alt: "Treasure Heist mask key art",
+        },
       ],
     },
     hideOutcomes: true,
