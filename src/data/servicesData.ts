@@ -6134,17 +6134,20 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "Inspired by the Netflix hit Alice in Borderland — a surreal live adventure where teams navigate themed stations, crack curious puzzles, and find their way through a world of playful challenges.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
+      backgroundImage:
+        "hhttps://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361450/SotongGame_13_sabaqz.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_10_umoqpw.heic",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361409/CSI_5_t4xrjy.jpg",
+    howItWorksImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361445/SotongGame_1_vys6t8.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361450/SotongGame_10_vqaxaw.jpg",
     ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361403/CSI_2_slu6jv.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361447/SotongGame_1_evo52u.jpg",
     overview: {
       description:
         "Alice in Motherland is a team-building adventure inspired by Alice in Borderland, the acclaimed Netflix series, adapted into a live and fully facilitated group experience. Teams journey through themed stations, complete curious missions, solve imaginative puzzles, and collaborate their way through a surreal format that rewards creativity and team observation. It works especially well for clients or schools looking for something visually distinctive, story-driven, and genuinely memorable.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
+      backgroundImage:
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361450/SotongGame_13_sabaqz.jpg",
     },
     features: [
       {
@@ -6421,19 +6424,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Alice in Motherland Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579614/WellnessGamesDay_8_ehxdom.jpg",
           alt: "Team entering a themed Alice in Motherland station",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_10_umoqpw.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579607/WellnessGamesDay_11_ibpwvh.heic",
           alt: "Participants reacting during a story-led mission",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361409/CSI_5_t4xrjy.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775461643/MBTI_13_x7begb.heic",
           alt: "Group celebrating after completing the final challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361427/MBTI_3_iwmon5.jpg",
           alt: "Alice in Motherland puzzle station",
         },
       ],
