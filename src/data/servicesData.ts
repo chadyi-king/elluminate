@@ -11749,17 +11749,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "O.C.E.A.N PROFILING",
       subtitle: "Training",
       tagline: "All great changes into Order is preceded always by Chaos.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775540553/ocean_3_vinql4.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361409/CSI_5_t4xrjy.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361411/CSI_6_y8pkaz.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775540545/ocean_18_rhykhh.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775540530/ocean_11_apispg.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775540544/ocean_17_ydjwvz.jpg",
     overview: {
       description:
         "Rated as one of the top most accurate personality tests in the world! OCEAN Big Five are the domains that represent the basic structure behind all individual personality traits. By diving in deeper, this will allow your team to identify predictive behaviors for real-life scenarios! Gain insights into different office environment situations and how various personalities deal with them.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775540553/ocean_3_vinql4.jpg",
     },
     features: [
       { icon: Brain, title: "Scientific Accuracy", description: "One of the most validated personality models." },
