@@ -9,6 +9,10 @@ import kevinLee from "@/assets/team/kevin-lee.jpg";
 import michelleChen from "@/assets/team/michelle-chen.jpg";
 import jasonNg from "@/assets/team/jason-ng.jpg";
 import sarahGoh from "@/assets/team/sarah-goh.jpg";
+import louiseCabales from "@/assets/team/louise-cabales.jpg";
+import peggyHar from "@/assets/team/peggy-har.jpg";
+import peaceChan from "@/assets/team/peace-chan.jpg";
+import christianJeSuis from "@/assets/team/christian-je-suis.jpg";
 import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
 
 const teamMembers = [
