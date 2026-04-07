@@ -5830,10 +5830,13 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "Inspired by the viral hit game Among Us — a live social-deduction showdown where your crew finds imposters, defends the mission, and outplays the opposition.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
+      backgroundImage:
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361421/MonopolyDash_2_sq8gpp.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361411/CSI_6_y8pkaz.jpg",
+    howItWorksImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361424/MonopolyDash_8_nvfim2.heic",
+    addOnsImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361423/MonopolyDash_7_vgqtey.heic",
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592600/CSI_14_z4eswb.heic",
     testimonialBackgroundImage:
@@ -5841,7 +5844,8 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       description:
         "Amongst Us is a live team-building adaptation of the viral hit game Among Us, brought off the screen and into a fully facilitated physical experience. Participants move through missions, suspicion rounds, secret roles, and timed reveals while trying to complete objectives without letting the imposters sabotage the team. It works especially well for workplaces, student leaders, camps, and mixed groups because the format rewards observation, persuasion, teamwork, and a good sense of humour rather than fitness alone.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
+      backgroundImage:
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361421/MonopolyDash_2_sq8gpp.jpg",
     },
     features: [
       {
