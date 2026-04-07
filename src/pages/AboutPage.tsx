@@ -468,7 +468,11 @@ const AboutPage = () => {
                 initial={{ rotate: 2 }}
                 animate={{ rotate: 2 }}
               >
-                <img src={teamCelebration} alt="Team Celebration" className="w-full h-full object-cover" />
+                <img
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773824034/photo_2023-06-28_14-02-04_bx1oal.jpg"
+                  alt="Team Celebration"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </motion.div>
 
@@ -479,7 +483,11 @@ const AboutPage = () => {
                 initial={{ rotate: -3 }}
                 animate={{ rotate: -3 }}
               >
-                <img src={teamBuildingOutdoor} alt="Outdoor Team Building" className="w-full h-full object-cover" />
+                <img
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773824011/photo_2023-06-28_14-02-00_anwttt.jpg"
+                  alt="Outdoor Team Building"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-sky-500/20 to-transparent" />
               </motion.div>
 
@@ -490,7 +498,11 @@ const AboutPage = () => {
                 initial={{ rotate: -2 }}
                 animate={{ rotate: -2 }}
               >
-                <img src={dinnerDance} alt="Dinner & Dance" className="w-full h-full object-cover" />
+                <img
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773824016/photo_2023-06-28_14-02-02-2_xghvi6.jpg"
+                  alt="Dinner & Dance"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/15 to-transparent" />
               </motion.div>
 
@@ -501,7 +513,11 @@ const AboutPage = () => {
                 initial={{ rotate: 3 }}
                 animate={{ rotate: 3 }}
               >
-                <img src={overseasRetreat} alt="Overseas Retreat" className="w-full h-full object-cover" />
+                <img
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773824009/IMG_2246-scaled_dp6pbh.jpg"
+                  alt="Overseas Retreat"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-sky-500/15 to-transparent" />
               </motion.div>
 
@@ -519,7 +535,11 @@ const AboutPage = () => {
       <section className="py-24 relative">
         {/* Background Image - Asian corporate setting */}
         <div className="absolute inset-0">
-          <img src={overseasRetreat} alt="Asian Corporate Team" className="w-full h-full object-cover" />
+          <img
+            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775545183/About-Us_ai3ync.webp"
+            alt="Asian Corporate Team"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
         </div>
 
