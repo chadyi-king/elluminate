@@ -5837,7 +5837,7 @@ export const servicesData: Record<string, ServiceData> = {
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592600/CSI_14_z4eswb.heic",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592607/CSI_15_rxnuq4.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361422/MonopolyDash_4_jkl1xu.jpg",
     overview: {
       description:
         "Amongst Us is a live team-building adaptation of the viral hit game Among Us, brought off the screen and into a fully facilitated physical experience. Participants move through missions, suspicion rounds, secret roles, and timed reveals while trying to complete objectives without letting the imposters sabotage the team. It works especially well for workplaces, student leaders, camps, and mixed groups because the format rewards observation, persuasion, teamwork, and a good sense of humour rather than fitness alone.",
@@ -6103,19 +6103,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Amongst Us Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774599624/RunningMan_13_m2kg4e.jpg",
           alt: "Amongst Us team reveal moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774599611/RunningMan_11_l2a2xo.jpg",
           alt: "Players analysing who the imposter might be",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592599/CSI_13_ferqyd.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361445/RunningMan_1_rqyx9i.jpg",
           alt: "Participants reacting during a live discussion round",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592598/CSI_12_dg3lo1.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361441/RunningMan_4_rc9wu9.heic",
           alt: "Amongst Us accusation round",
         },
       ],
