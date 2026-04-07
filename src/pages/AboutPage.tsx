@@ -8,10 +8,21 @@ import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { OrganizationSchema } from "@/components/StructuredData";
 import { useContactModal } from "@/contexts/ContactModalContext";
-import { 
-  Target, Eye, Heart, Sparkles, Award, Zap, 
-  Users, Lightbulb, Mic, Star,
-  Quote, Rocket, Globe, ArrowRight
+import {
+  Target,
+  Eye,
+  Heart,
+  Sparkles,
+  Award,
+  Zap,
+  Users,
+  Lightbulb,
+  Mic,
+  Star,
+  Quote,
+  Rocket,
+  Globe,
+  ArrowRight,
 } from "lucide-react";
 
 // Import generated event photos
@@ -46,41 +57,46 @@ const useCountUp = (end: number, duration: number = 2000, startOnView: boolean =
 
 // Values (CALEBE without spelling it out)
 const values = [
-  { 
-    name: "Creative", 
-    icon: Lightbulb, 
+  {
+    name: "Creative",
+    icon: Lightbulb,
     description: "Cinematic, memorable concepts that tell your brand's story",
-    details: "We approach every event as a blank canvas, designing experiences that are visually stunning, emotionally resonant, and uniquely tailored to your objectives."
+    details:
+      "We approach every event as a blank canvas, designing experiences that are visually stunning, emotionally resonant, and uniquely tailored to your objectives.",
   },
-  { 
-    name: "Authentic", 
-    icon: Heart, 
+  {
+    name: "Authentic",
+    icon: Heart,
     description: "Genuine human connection at the heart of every experience",
-    details: "We believe the best events create real moments between real people. Our facilitation style prioritizes authentic interactions over scripted activities."
+    details:
+      "We believe the best events create real moments between real people. Our facilitation style prioritizes authentic interactions over scripted activities.",
   },
-  { 
-    name: "Lasting", 
-    icon: Globe, 
+  {
+    name: "Lasting",
+    icon: Globe,
     description: "Enduring impact that extends far beyond the event day",
-    details: "The measure of a great event isn't just the applause at the end—it's the conversations that happen weeks later."
+    details:
+      "The measure of a great event isn't just the applause at the end—it's the conversations that happen weeks later.",
   },
-  { 
-    name: "Exceptional", 
-    icon: Award, 
+  {
+    name: "Exceptional",
+    icon: Award,
     description: "Flawless execution and premium quality in every detail",
-    details: "From the first handshake to the final farewell, every touchpoint is crafted to exceed expectations."
+    details: "From the first handshake to the final farewell, every touchpoint is crafted to exceed expectations.",
   },
-  { 
-    name: "Boundless", 
-    icon: Rocket, 
+  {
+    name: "Boundless",
+    icon: Rocket,
     description: "Whatever you dream, we deliver—no limits, no boundaries",
-    details: "We don't believe in 'impossible.' Whether it's transforming a warehouse into a tropical paradise or orchestrating a 5,000-person conference, we bring any idea to life."
+    details:
+      "We don't believe in 'impossible.' Whether it's transforming a warehouse into a tropical paradise or orchestrating a 5,000-person conference, we bring any idea to life.",
   },
-  { 
-    name: "Eccentric", 
-    icon: Sparkles, 
+  {
+    name: "Eccentric",
+    icon: Sparkles,
     description: "A splash of creative fun and uniqueness in every event",
-    details: "We embrace the unexpected. Our events have personality—surprise moments, playful twists, and delightful details."
+    details:
+      "We embrace the unexpected. Our events have personality—surprise moments, playful twists, and delightful details.",
   },
 ];
 
@@ -88,73 +104,232 @@ const features = [
   {
     icon: Users,
     title: "Team Building That Actually Works",
-    description: "We design activities that go beyond icebreakers. Every game, challenge, and debrief is built to strengthen real team dynamics and communication."
+    description:
+      "We design activities that go beyond icebreakers. Every game, challenge, and debrief is built to strengthen real team dynamics and communication.",
   },
   {
     icon: Lightbulb,
     title: "Training With Real Takeaways",
-    description: "Our MBTI, DISC, and workshop sessions are practical, interactive, and tailored to your team's growth areas. No death-by-PowerPoint."
+    description:
+      "Our MBTI, DISC, and workshop sessions are practical, interactive, and tailored to your team's growth areas. No death-by-PowerPoint.",
   },
   {
     icon: Mic,
     title: "Experienced Facilitators, Not Just Hosts",
-    description: "Our facilitators are trained to read the room, adapt on the fly, and bring out the best in every participant."
+    description:
+      "Our facilitators are trained to read the room, adapt on the fly, and bring out the best in every participant.",
   },
   {
     icon: Sparkles,
     title: "Customised to Your Team's Needs",
-    description: "No two teams are the same. We tailor every programme to your objectives, group size, and team culture."
-  }
+    description:
+      "No two teams are the same. We tailor every programme to your objectives, group size, and team culture.",
+  },
 ];
 
 const clientLogos = [
-  { name: "DBS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/DBS_Bank_Logo.svg/400px-DBS_Bank_Logo.svg.png" },
-  { name: "OCBC", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OCBC_Bank_logo.svg/400px-OCBC_Bank_logo.svg.png" },
-  { name: "UOB", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/UOB_Logo.svg/400px-UOB_Logo.svg.png" },
-  { name: "Singtel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Singtel_logo_2021.svg/400px-Singtel_logo_2021.svg.png" },
-  { name: "Grab", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Grab_Logo.svg/400px-Grab_Logo.svg.png" },
+  {
+    name: "DBS",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/DBS_Bank_Logo.svg/400px-DBS_Bank_Logo.svg.png",
+  },
+  {
+    name: "OCBC",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OCBC_Bank_logo.svg/400px-OCBC_Bank_logo.svg.png",
+  },
+  {
+    name: "UOB",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/UOB_Logo.svg/400px-UOB_Logo.svg.png",
+  },
+  {
+    name: "Singtel",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Singtel_logo_2021.svg/400px-Singtel_logo_2021.svg.png",
+  },
+  {
+    name: "Grab",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Grab_Logo.svg/400px-Grab_Logo.svg.png",
+  },
   { name: "Shopee", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/400px-Shopee.svg.png" },
-  { name: "NTUC", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/NTUC_FairPrice_logo.svg/400px-NTUC_FairPrice_logo.svg.png" },
-  { name: "GovTech", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/GovTech_Singapore_Logo.svg/400px-GovTech_Singapore_Logo.svg.png" },
-  { name: "Sentosa", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/89/Sentosa_logo.svg/400px-Sentosa_logo.svg.png" },
-  { name: "SP Group", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/SP_Group_logo.svg/400px-SP_Group_logo.svg.png" },
-  { name: "SMRT", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SMRT_Corporation_Logo.svg/400px-SMRT_Corporation_Logo.svg.png" },
-  { name: "Prudential", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Prudential_plc_logo.svg/400px-Prudential_plc_logo.svg.png" },
-  { name: "Marina Bay Sands", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Marina_Bay_Sands_Logo.svg/400px-Marina_Bay_Sands_Logo.svg.png" },
-  { name: "CapitaLand", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/CapitaLand_logo.svg/400px-CapitaLand_logo.svg.png" },
-  { name: "Singapore Airlines", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Singapore_Airlines_Logo_2.svg/400px-Singapore_Airlines_Logo_2.svg.png" },
-  { name: "Changi Airport", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Changi_Airport_Group_logo.svg/400px-Changi_Airport_Group_logo.svg.png" },
-  { name: "StarHub", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/StarHub_Logo.svg/400px-StarHub_Logo.svg.png" },
-  { name: "M1", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/M1_Limited_logo.svg/400px-M1_Limited_logo.svg.png" },
-  { name: "POSB", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/POSB_Bank_logo.svg/400px-POSB_Bank_logo.svg.png" },
-  { name: "Great Eastern", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Great_Eastern_logo.svg/400px-Great_Eastern_logo.svg.png" },
-  { name: "AIA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/AIA_Group_logo.svg/400px-AIA_Group_logo.svg.png" },
-  { name: "HSBC", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/HSBC_logo_%282018%29.svg/400px-HSBC_logo_%282018%29.svg.png" },
-  { name: "Standard Chartered", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Standard_Chartered_%282021%29.svg/400px-Standard_Chartered_%282021%29.svg.png" },
-  { name: "Maybank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Maybank_logo.svg/400px-Maybank_logo.svg.png" },
+  {
+    name: "NTUC",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/NTUC_FairPrice_logo.svg/400px-NTUC_FairPrice_logo.svg.png",
+  },
+  {
+    name: "GovTech",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/GovTech_Singapore_Logo.svg/400px-GovTech_Singapore_Logo.svg.png",
+  },
+  {
+    name: "Sentosa",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/89/Sentosa_logo.svg/400px-Sentosa_logo.svg.png",
+  },
+  {
+    name: "SP Group",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/SP_Group_logo.svg/400px-SP_Group_logo.svg.png",
+  },
+  {
+    name: "SMRT",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SMRT_Corporation_Logo.svg/400px-SMRT_Corporation_Logo.svg.png",
+  },
+  {
+    name: "Prudential",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Prudential_plc_logo.svg/400px-Prudential_plc_logo.svg.png",
+  },
+  {
+    name: "Marina Bay Sands",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Marina_Bay_Sands_Logo.svg/400px-Marina_Bay_Sands_Logo.svg.png",
+  },
+  {
+    name: "CapitaLand",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/CapitaLand_logo.svg/400px-CapitaLand_logo.svg.png",
+  },
+  {
+    name: "Singapore Airlines",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Singapore_Airlines_Logo_2.svg/400px-Singapore_Airlines_Logo_2.svg.png",
+  },
+  {
+    name: "Changi Airport",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Changi_Airport_Group_logo.svg/400px-Changi_Airport_Group_logo.svg.png",
+  },
+  {
+    name: "StarHub",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/StarHub_Logo.svg/400px-StarHub_Logo.svg.png",
+  },
+  {
+    name: "M1",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/M1_Limited_logo.svg/400px-M1_Limited_logo.svg.png",
+  },
+  {
+    name: "POSB",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/POSB_Bank_logo.svg/400px-POSB_Bank_logo.svg.png",
+  },
+  {
+    name: "Great Eastern",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Great_Eastern_logo.svg/400px-Great_Eastern_logo.svg.png",
+  },
+  {
+    name: "AIA",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/AIA_Group_logo.svg/400px-AIA_Group_logo.svg.png",
+  },
+  {
+    name: "HSBC",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/HSBC_logo_%282018%29.svg/400px-HSBC_logo_%282018%29.svg.png",
+  },
+  {
+    name: "Standard Chartered",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Standard_Chartered_%282021%29.svg/400px-Standard_Chartered_%282021%29.svg.png",
+  },
+  {
+    name: "Maybank",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Maybank_logo.svg/400px-Maybank_logo.svg.png",
+  },
 ];
 
 const testimonials = [
-  { quote: "Elluminate delivered the best team-building event we've ever had. The energy was incredible and our team is still talking about it months later.", company: "Shopee Singapore", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/400px-Shopee.svg.png" },
-  { quote: "Professional, energetic, and flawless execution. They understood our corporate culture perfectly and designed an experience that resonated with everyone.", company: "SP Group", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/SP_Group_logo.svg/400px-SP_Group_logo.svg.png" },
-  { quote: "Immersive activities with meaningful takeaways. Our employees left feeling connected and inspired. Highly recommend for any corporate event.", company: "NTUC Enterprise", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/NTUC_FairPrice_logo.svg/400px-NTUC_FairPrice_logo.svg.png" },
-  { quote: "The attention to detail was extraordinary. Every moment was carefully crafted to engage and inspire our team.", company: "DBS Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/DBS_Bank_Logo.svg/400px-DBS_Bank_Logo.svg.png" },
-  { quote: "Our D&D was transformed into an unforgettable night. The production quality was cinema-level!", company: "Singtel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Singtel_logo_2021.svg/400px-Singtel_logo_2021.svg.png" },
-  { quote: "They brought creativity and professionalism in equal measure. Our team bonding has never been stronger.", company: "Grab", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Grab_Logo.svg/400px-Grab_Logo.svg.png" },
-  { quote: "From concept to execution, everything was seamless. The facilitators were absolutely phenomenal.", company: "GovTech Singapore", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/GovTech_Singapore_Logo.svg/400px-GovTech_Singapore_Logo.svg.png" },
-  { quote: "The best investment we made for our company retreat. Every activity had purpose and every moment counted.", company: "OCBC Bank", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OCBC_Bank_logo.svg/400px-OCBC_Bank_logo.svg.png" },
-  { quote: "Elluminate exceeded all expectations. Our 500-person event ran like clockwork with incredible energy throughout.", company: "UOB", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/UOB_Logo.svg/400px-UOB_Logo.svg.png" },
-  { quote: "Creative, organized, and truly memorable. This was the highlight of our corporate calendar.", company: "Marina Bay Sands", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Marina_Bay_Sands_Logo.svg/400px-Marina_Bay_Sands_Logo.svg.png" },
-  { quote: "The immersive experience they created was unlike anything we'd seen before. Absolutely world-class.", company: "Singapore Airlines", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Singapore_Airlines_Logo_2.svg/400px-Singapore_Airlines_Logo_2.svg.png" },
-  { quote: "Professional hosts who kept our entire team engaged from start to finish. Highly recommended!", company: "Prudential", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Prudential_plc_logo.svg/400px-Prudential_plc_logo.svg.png" },
-  { quote: "Our town hall was transformed into an inspiring experience. The production quality was outstanding.", company: "CapitaLand", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/CapitaLand_logo.svg/400px-CapitaLand_logo.svg.png" },
-  { quote: "They took our vague ideas and turned them into a spectacular reality. Creative geniuses!", company: "StarHub", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/StarHub_Logo.svg/400px-StarHub_Logo.svg.png" },
-  { quote: "The team building activities were fun yet meaningful. Our staff couldn't stop talking about it.", company: "SMRT", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SMRT_Corporation_Logo.svg/400px-SMRT_Corporation_Logo.svg.png" },
-  { quote: "Exceptional service from planning to execution. They made our anniversary celebration truly special.", company: "Great Eastern", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Great_Eastern_logo.svg/400px-Great_Eastern_logo.svg.png" },
-  { quote: "The level of customization and creativity was impressive. Every detail was perfectly aligned with our brand.", company: "AIA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/AIA_Group_logo.svg/400px-AIA_Group_logo.svg.png" },
-  { quote: "Our product launch was a massive success thanks to Elluminate's vision and execution.", company: "M1", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/M1_Limited_logo.svg/400px-M1_Limited_logo.svg.png" },
-  { quote: "From the initial consultation to the final bow, professionalism and passion were evident at every step.", company: "HSBC", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/HSBC_logo_%282018%29.svg/400px-HSBC_logo_%282018%29.svg.png" },
-  { quote: "They understand corporate events like no one else. Our leadership offsite was transformative.", company: "Standard Chartered", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Standard_Chartered_%282021%29.svg/400px-Standard_Chartered_%282021%29.svg.png" },
+  {
+    quote:
+      "Elluminate delivered the best team-building event we've ever had. The energy was incredible and our team is still talking about it months later.",
+    company: "Shopee Singapore",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/400px-Shopee.svg.png",
+  },
+  {
+    quote:
+      "Professional, energetic, and flawless execution. They understood our corporate culture perfectly and designed an experience that resonated with everyone.",
+    company: "SP Group",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/SP_Group_logo.svg/400px-SP_Group_logo.svg.png",
+  },
+  {
+    quote:
+      "Immersive activities with meaningful takeaways. Our employees left feeling connected and inspired. Highly recommend for any corporate event.",
+    company: "NTUC Enterprise",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/NTUC_FairPrice_logo.svg/400px-NTUC_FairPrice_logo.svg.png",
+  },
+  {
+    quote:
+      "The attention to detail was extraordinary. Every moment was carefully crafted to engage and inspire our team.",
+    company: "DBS Bank",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/DBS_Bank_Logo.svg/400px-DBS_Bank_Logo.svg.png",
+  },
+  {
+    quote: "Our D&D was transformed into an unforgettable night. The production quality was cinema-level!",
+    company: "Singtel",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Singtel_logo_2021.svg/400px-Singtel_logo_2021.svg.png",
+  },
+  {
+    quote: "They brought creativity and professionalism in equal measure. Our team bonding has never been stronger.",
+    company: "Grab",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Grab_Logo.svg/400px-Grab_Logo.svg.png",
+  },
+  {
+    quote: "From concept to execution, everything was seamless. The facilitators were absolutely phenomenal.",
+    company: "GovTech Singapore",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/GovTech_Singapore_Logo.svg/400px-GovTech_Singapore_Logo.svg.png",
+  },
+  {
+    quote: "The best investment we made for our company retreat. Every activity had purpose and every moment counted.",
+    company: "OCBC Bank",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OCBC_Bank_logo.svg/400px-OCBC_Bank_logo.svg.png",
+  },
+  {
+    quote:
+      "Elluminate exceeded all expectations. Our 500-person event ran like clockwork with incredible energy throughout.",
+    company: "UOB",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/UOB_Logo.svg/400px-UOB_Logo.svg.png",
+  },
+  {
+    quote: "Creative, organized, and truly memorable. This was the highlight of our corporate calendar.",
+    company: "Marina Bay Sands",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Marina_Bay_Sands_Logo.svg/400px-Marina_Bay_Sands_Logo.svg.png",
+  },
+  {
+    quote: "The immersive experience they created was unlike anything we'd seen before. Absolutely world-class.",
+    company: "Singapore Airlines",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Singapore_Airlines_Logo_2.svg/400px-Singapore_Airlines_Logo_2.svg.png",
+  },
+  {
+    quote: "Professional hosts who kept our entire team engaged from start to finish. Highly recommended!",
+    company: "Prudential",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Prudential_plc_logo.svg/400px-Prudential_plc_logo.svg.png",
+  },
+  {
+    quote: "Our town hall was transformed into an inspiring experience. The production quality was outstanding.",
+    company: "CapitaLand",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/CapitaLand_logo.svg/400px-CapitaLand_logo.svg.png",
+  },
+  {
+    quote: "They took our vague ideas and turned them into a spectacular reality. Creative geniuses!",
+    company: "StarHub",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/StarHub_Logo.svg/400px-StarHub_Logo.svg.png",
+  },
+  {
+    quote: "The team building activities were fun yet meaningful. Our staff couldn't stop talking about it.",
+    company: "SMRT",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SMRT_Corporation_Logo.svg/400px-SMRT_Corporation_Logo.svg.png",
+  },
+  {
+    quote: "Exceptional service from planning to execution. They made our anniversary celebration truly special.",
+    company: "Great Eastern",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Great_Eastern_logo.svg/400px-Great_Eastern_logo.svg.png",
+  },
+  {
+    quote:
+      "The level of customization and creativity was impressive. Every detail was perfectly aligned with our brand.",
+    company: "AIA",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/AIA_Group_logo.svg/400px-AIA_Group_logo.svg.png",
+  },
+  {
+    quote: "Our product launch was a massive success thanks to Elluminate's vision and execution.",
+    company: "M1",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/M1_Limited_logo.svg/400px-M1_Limited_logo.svg.png",
+  },
+  {
+    quote: "From the initial consultation to the final bow, professionalism and passion were evident at every step.",
+    company: "HSBC",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/HSBC_logo_%282018%29.svg/400px-HSBC_logo_%282018%29.svg.png",
+  },
+  {
+    quote: "They understand corporate events like no one else. Our leadership offsite was transformative.",
+    company: "Standard Chartered",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Standard_Chartered_%282021%29.svg/400px-Standard_Chartered_%282021%29.svg.png",
+  },
 ];
 
 const AboutPage = () => {
@@ -175,7 +350,7 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
+      <SEO
         title="About Us | Elluminate"
         description="Learn how Elluminate designs team building, school programmes, retreats, and training that strengthen culture, energise people, and create lasting impact across Singapore."
         keywords="about Elluminate, Singapore team building company, school programmes Singapore, training workshops Singapore"
@@ -183,22 +358,19 @@ const AboutPage = () => {
       />
       <OrganizationSchema />
       <Navbar />
-      <Breadcrumbs items={[
-        { label: "Home", href: "/" },
-        { label: "About Us" },
-      ]} />
-      
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
+
       {/* SECTION 1 - HERO BANNER - Dynamic Split Layout */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20 pb-16">
         {/* Animated gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.08] via-background to-sky-500/[0.06]" />
         <FloatingBlobs opacity={0.08} className="z-0" />
-        
+
         {/* Large lightbulb watermark */}
         <div className="absolute left-[5%] top-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none z-0">
           <Lightbulb className="w-[400px] h-[400px] md:w-[500px] md:h-[500px] text-primary" strokeWidth={0.5} />
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
             {/* Left Side - Text Content */}
@@ -215,11 +387,11 @@ const AboutPage = () => {
               >
                 About Elluminate
               </motion.p>
-              
+
               {/* Gradient accent bar */}
               <div className="w-16 h-1 bg-gradient-to-r from-primary via-sky-400 to-primary rounded-full mb-6" />
-              
-              <motion.h1 
+
+              <motion.h1
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -227,16 +399,19 @@ const AboutPage = () => {
               >
                 <span className="text-foreground">Where Teams</span>
                 <br />
-                <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">Come Alive</span>
+                <span className="bg-gradient-to-r from-primary via-sky-400 to-primary bg-clip-text text-transparent">
+                  Come Alive
+                </span>
               </motion.h1>
-              
+
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg text-muted-foreground/90 font-sans mb-8 max-w-md leading-relaxed"
               >
-                We design team building, school programmes, retreats, and training that feel seamless to run and meaningful to attend.
+                We design team building, school programmes, retreats, and training that feel seamless to run and
+                meaningful to attend.
               </motion.p>
 
               {/* Stats Badges */}
@@ -263,7 +438,7 @@ const AboutPage = () => {
                   </motion.div>
                 ))}
               </motion.div>
-              
+
               <motion.button
                 type="button"
                 initial={{ opacity: 0, y: 10 }}
@@ -293,11 +468,7 @@ const AboutPage = () => {
                 initial={{ rotate: 2 }}
                 animate={{ rotate: 2 }}
               >
-                <img
-                  src={teamCelebration}
-                  alt="Team Celebration"
-                  className="w-full h-full object-cover"
-                />
+                <img src={teamCelebration} alt="Team Celebration" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </motion.div>
 
@@ -308,11 +479,7 @@ const AboutPage = () => {
                 initial={{ rotate: -3 }}
                 animate={{ rotate: -3 }}
               >
-                <img
-                  src={teamBuildingOutdoor}
-                  alt="Outdoor Team Building"
-                  className="w-full h-full object-cover"
-                />
+                <img src={teamBuildingOutdoor} alt="Outdoor Team Building" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-sky-500/20 to-transparent" />
               </motion.div>
 
@@ -323,11 +490,7 @@ const AboutPage = () => {
                 initial={{ rotate: -2 }}
                 animate={{ rotate: -2 }}
               >
-                <img
-                  src={dinnerDance}
-                  alt="Dinner & Dance"
-                  className="w-full h-full object-cover"
-                />
+                <img src={dinnerDance} alt="Dinner & Dance" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/15 to-transparent" />
               </motion.div>
 
@@ -338,11 +501,7 @@ const AboutPage = () => {
                 initial={{ rotate: 3 }}
                 animate={{ rotate: 3 }}
               >
-                <img
-                  src={overseasRetreat}
-                  alt="Overseas Retreat"
-                  className="w-full h-full object-cover"
-                />
+                <img src={overseasRetreat} alt="Overseas Retreat" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-sky-500/15 to-transparent" />
               </motion.div>
 
@@ -360,14 +519,10 @@ const AboutPage = () => {
       <section className="py-24 relative">
         {/* Background Image - Asian corporate setting */}
         <div className="absolute inset-0">
-          <img
-            src={overseasRetreat}
-            alt="Asian Corporate Team"
-            className="w-full h-full object-cover"
-          />
+          <img src={overseasRetreat} alt="Asian Corporate Team" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             {/* Text Column */}
@@ -377,20 +532,23 @@ const AboutPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-2">
-                Our Story
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-display font-medium text-foreground mb-2">Our Story</h2>
               <div className="w-20 h-0.5 bg-gradient-to-r from-primary to-primary-ember mb-8" />
-              
+
               <div className="space-y-5 text-muted-foreground font-sans leading-relaxed">
                 <p>
-                  Elluminate was founded in Singapore with one belief: great team experiences should create real connection, not just fill an agenda.
+                  Elluminate was founded in Singapore with one belief: great team experiences should create real
+                  connection, not just fill an agenda.
                 </p>
                 <p>
-                  Since 2017, we have helped organisations, schools, and student groups turn team building, retreats, celebrations, and training days into experiences people genuinely remember.
+                  Since 2017, we have helped organisations, schools, and student groups turn team building, retreats,
+                  celebrations, and training days into experiences people genuinely remember.
                 </p>
                 <p>
-                  Today, our team brings together creative design, facilitation, and on-ground execution to deliver <span className="text-primary font-medium">1,000+ events</span> for more than <span className="text-primary font-medium">100,000 participants</span> across Singapore and the region.
+                  Today, our team brings together creative design, facilitation, and on-ground execution to deliver{" "}
+                  <span className="text-primary font-medium">1,000+ events</span> for more than{" "}
+                  <span className="text-primary font-medium">100,000 participants</span> across Singapore and the
+                  region.
                 </p>
               </div>
             </motion.div>
@@ -404,11 +562,7 @@ const AboutPage = () => {
               className="relative"
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-sky-500/20 shadow-blue">
-                <img
-                  src={teamBuildingOutdoor}
-                  alt="Asian Team Celebration"
-                  className="w-full h-full object-cover"
-                />
+                <img src={teamBuildingOutdoor} alt="Asian Team Celebration" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
               </div>
               <div className="absolute -inset-4 bg-gradient-to-r from-sky-500/20 via-transparent to-primary/15 blur-2xl -z-10" />
@@ -424,14 +578,10 @@ const AboutPage = () => {
       <section className="py-24 relative bg-slate-950">
         {/* Background */}
         <div className="absolute inset-0">
-          <img
-            src={dinnerDance}
-            alt="Event Background"
-            className="w-full h-full object-cover"
-          />
+          <img src={dinnerDance} alt="Event Background" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-slate-950/92" />
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             {/* Mission, Vision Cards */}
@@ -450,10 +600,12 @@ const AboutPage = () => {
                   </div>
                   <h3 className="text-xl font-display font-medium text-white mb-3">Our Mission</h3>
                   <p className="text-slate-200 font-sans leading-relaxed mb-3">
-                    To design experiences that bring people together, strengthen culture, and make every event feel worth attending.
+                    To design experiences that bring people together, strengthen culture, and make every event feel
+                    worth attending.
                   </p>
                   <p className="text-slate-300/80 font-sans text-sm leading-relaxed">
-                    We combine thoughtful strategy, strong facilitation, and polished execution so teams leave more connected than when they arrived.
+                    We combine thoughtful strategy, strong facilitation, and polished execution so teams leave more
+                    connected than when they arrived.
                   </p>
                 </div>
               </motion.div>
@@ -473,10 +625,12 @@ const AboutPage = () => {
                   </div>
                   <h3 className="text-xl font-display font-medium text-white mb-3">Our Vision</h3>
                   <p className="text-slate-200 font-sans leading-relaxed mb-3">
-                    To be the partner teams trust when the experience needs to feel engaging, well-run, and genuinely memorable.
+                    To be the partner teams trust when the experience needs to feel engaging, well-run, and genuinely
+                    memorable.
                   </p>
                   <p className="text-slate-300/80 font-sans text-sm leading-relaxed">
-                    We believe the best experiences do more than entertain. They support culture, confidence, leadership, and long-term connection across workplaces and classrooms.
+                    We believe the best experiences do more than entertain. They support culture, confidence,
+                    leadership, and long-term connection across workplaces and classrooms.
                   </p>
                 </div>
               </motion.div>
@@ -497,7 +651,7 @@ const AboutPage = () => {
                   These are the principles that guide how we craft every experience for you.
                 </p>
               </div>
-              
+
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {values.map((value, index) => (
                   <motion.div
@@ -547,7 +701,7 @@ const AboutPage = () => {
           />
           <div className="absolute inset-0 bg-background/95" />
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -600,16 +754,29 @@ const AboutPage = () => {
               A Glimpse <span className="text-primary">Behind The Scenes</span>
             </h2>
             <p className="text-muted-foreground/80 font-sans text-sm md:text-base leading-relaxed">
-              From high-energy team building and training to school programmes and retreats, our work is designed to feel engaging in the moment and memorable after it ends.
+              From high-energy team building and training to school programmes and retreats, our work is designed to
+              feel engaging in the moment and memorable after it ends.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {[
-              { src: teamCelebration, alt: "Team celebration moment" },
-              { src: dinnerDance, alt: "Dinner and dance experience" },
-              { src: teamBuildingOutdoor, alt: "Outdoor team building activity" },
-              { src: overseasRetreat, alt: "Retreat experience" },
+              {
+                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361398/AmazingRace_4_ehjyb5.jpg",
+                alt: "Team celebration moment",
+              },
+              {
+                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361396/AmazingRace_9_rpn4ys.jpg",
+                alt: "Dinner and dance experience",
+              },
+              {
+                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361395/AmazingRace_8_s4xwfc.jpg",
+                alt: "Outdoor team building activity",
+              },
+              {
+                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774360192/AmazingRace_15_hspv90.heic",
+                alt: "Retreat experience",
+              },
             ].map((image, index) => (
               <motion.div
                 key={image.alt}
@@ -648,7 +815,7 @@ const AboutPage = () => {
           <div className="absolute inset-0 bg-background/90" />
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-gradient-to-r from-primary/15 via-primary/10 to-primary/15 blur-3xl" />
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <motion.div
@@ -722,7 +889,7 @@ const AboutPage = () => {
           />
           <div className="absolute inset-0 bg-background/95" />
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -739,7 +906,7 @@ const AboutPage = () => {
           <div className="relative">
             <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
             <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
-            
+
             <motion.div
               className="flex gap-6"
               animate={{ x: [0, -100 * clientLogos.length] }}
@@ -776,13 +943,13 @@ const AboutPage = () => {
       <section className="py-24 relative bg-slate-950">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1920&h=1080&fit=crop"
+            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361385/AmazingRace_33_scwscr.jpg"
             alt="Event"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-slate-950/92" />
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -807,7 +974,7 @@ const AboutPage = () => {
                     scale: currentTestimonial === index ? 1 : 0.95,
                   }}
                   transition={{ duration: 0.5 }}
-                  className={`absolute inset-0 ${currentTestimonial === index ? 'block' : 'hidden'}`}
+                  className={`absolute inset-0 ${currentTestimonial === index ? "block" : "hidden"}`}
                 >
                   <div className="bg-slate-900/80 backdrop-blur-md border border-white/15 rounded-xl p-8 text-center h-full flex flex-col justify-center">
                     <Quote className="w-10 h-10 text-primary/30 mx-auto mb-4" />
@@ -836,9 +1003,7 @@ const AboutPage = () => {
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    currentTestimonial === index 
-                      ? 'bg-primary w-5' 
-                      : 'bg-primary/30 hover:bg-primary/50'
+                    currentTestimonial === index ? "bg-primary w-5" : "bg-primary/30 hover:bg-primary/50"
                   }`}
                 />
               ))}
@@ -857,9 +1022,7 @@ const AboutPage = () => {
                 <Star key={i} className="w-6 h-6 fill-primary text-primary" />
               ))}
             </div>
-            <p className="text-lg font-display font-medium text-foreground">
-              600+ Reviews • 4.8-Star Google Rating
-            </p>
+            <p className="text-lg font-display font-medium text-foreground">600+ Reviews • 4.8-Star Google Rating</p>
           </motion.div>
         </div>
       </section>
@@ -878,7 +1041,7 @@ const AboutPage = () => {
           <div className="absolute inset-0 bg-background/85" />
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-t from-primary/25 via-primary/10 to-transparent blur-3xl" />
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -890,7 +1053,8 @@ const AboutPage = () => {
               Ready to Plan Your Next <span className="text-primary">Team or School Experience</span>?
             </h2>
             <p className="text-muted-foreground/80 font-sans mb-8">
-              Whether you are planning team building, training, a retreat, or a school programme, we can help you shape the right format.
+              Whether you are planning team building, training, a retreat, or a school programme, we can help you shape
+              the right format.
             </p>
             <motion.button
               type="button"
