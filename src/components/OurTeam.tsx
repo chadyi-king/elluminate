@@ -68,12 +68,12 @@ const teamMembers = [
   },
   {
     name: "Caleb E",
-    title: "Chief Vibe Officer",
+    title: "Basement Worker",
     image: kevinLee
   },
   {
     name: "Christian Je Suis",
-    title: "Head of Team Morale & Wellness",
+    title: "Spiritual Advisor",
     image: christianJeSuis
   }
 ];
