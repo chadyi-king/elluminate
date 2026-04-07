@@ -44,12 +44,12 @@ const teamMembers = [
   {
     name: "Louise Cabales",
     title: "Admin Manager",
-    image: "https://randomuser.me/api/portraits/men/44.jpg"
+    image: louiseCabales
   },
   {
     name: "Peggy Har",
     title: "Finance Manager",
-    image: "https://randomuser.me/api/portraits/women/55.jpg"
+    image: peggyHar
   },
   {
     name: "Jencen Ramos",
@@ -64,7 +64,7 @@ const teamMembers = [
   {
     name: "Peace Chan",
     title: "Marketing & Sales Executive",
-    image: "https://randomuser.me/api/portraits/women/33.jpg"
+    image: peaceChan
   },
   {
     name: "Caleb E",
@@ -74,7 +74,7 @@ const teamMembers = [
   {
     name: "Christian Je Suis",
     title: "Head of Team Morale & Wellness",
-    image: "https://randomuser.me/api/portraits/men/67.jpg"
+    image: christianJeSuis
   }
 ];
 
