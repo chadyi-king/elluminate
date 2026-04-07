@@ -6135,7 +6135,7 @@ export const servicesData: Record<string, ServiceData> = {
       tagline:
         "Inspired by the Netflix hit Alice in Borderland — a surreal live adventure where teams navigate themed stations, crack curious puzzles, and find their way through a world of playful challenges.",
       backgroundImage:
-        "hhttps://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361450/SotongGame_13_sabaqz.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361450/SotongGame_13_sabaqz.jpg",
     },
     howItWorksImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361445/SotongGame_1_vys6t8.heic",
@@ -6146,8 +6146,6 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       description:
         "Alice in Motherland is a team-building adventure inspired by Alice in Borderland, the acclaimed Netflix series, adapted into a live and fully facilitated group experience. Teams journey through themed stations, complete curious missions, solve imaginative puzzles, and collaborate their way through a surreal format that rewards creativity and team observation. It works especially well for clients or schools looking for something visually distinctive, story-driven, and genuinely memorable.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361450/SotongGame_13_sabaqz.jpg",
     },
     features: [
       {
