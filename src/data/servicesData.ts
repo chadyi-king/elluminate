@@ -6457,8 +6457,9 @@ export const servicesData: Record<string, ServiceData> = {
         "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599640/RunningMan_22_f0ka8y.heic",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599625/RunningMan_16_tbkpld.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773823919/20230206_175032-scaled_wje7eb.jpg",
+    addOnsImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773823997/20230208_163149-scaled_xvpc2r.jpgg",
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361442/RunningMan_6_esz34i.heic",
     testimonialBackgroundImage:
@@ -6730,15 +6731,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Battle of the Olympians Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599640/RunningMan_22_f0ka8y.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361382/AmazingRace_29_hp1ikz.jpg",
           alt: "Teams competing during Battle of the Olympians",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361381/AmazingRace_23_v7yeo6.heic",
           alt: "Olympian teams celebrating after the final round",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599625/RunningMan_16_tbkpld.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774360200/AmazingRace_17_jiiczx.heic",
           alt: "Large group tournament layout during a team showdown",
         },
         {
