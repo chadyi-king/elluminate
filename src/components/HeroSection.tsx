@@ -48,8 +48,12 @@ export const HeroSection = () => {
       {/* Layer 2: Main Content — text behind characters, buttons on top */}
       <div className="container mx-auto px-4 relative z-20 pt-[120px] pb-24 pointer-events-none">
         <div className="flex flex-col items-center text-center w-full">
+          {/* SEO H1 — visually hidden, readable by Google */}
+          <h1 className="sr-only">Team Building Singapore — Energise Your Team With Elluminate</h1>
+
           {/* Main Headline - Dramatic visual hierarchy */}
-          <motion.h1
+          <motion.div
+            aria-hidden="true"
             className="font-display font-black leading-[0.95] mb-6 w-full"
           >
             {/* IGNITE THE - Much smaller */}
@@ -113,7 +117,7 @@ export const HeroSection = () => {
                 <RotatingWord onWordChange={handleWordChange} />
               </motion.div>
             </motion.div>
-          </motion.h1>
+          </motion.div>
 
           {/* Subtitle */}
           <motion.p

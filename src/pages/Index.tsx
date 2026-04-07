@@ -15,10 +15,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Elluminate | Ignite the Spark in Your Teams | Corporate Team Building Singapore"
-        description="Transform your workforce with engaging team building experiences. Physical & virtual activities, retreats, and training programs. 1,000+ events delivered in Singapore."
+        title="Team Building Singapore | Corporate Events & Retreats | Elluminate"
+        description="Singapore's trusted team building company. 1,000+ events delivered for Fortune 500 companies, schools, and government teams. Get a free quote today."
         keywords="team building Singapore, corporate team building, virtual team building, amazing race, company retreats, corporate training"
-        canonical="https://elluminate.sg"
+        canonical="https://elluminate.sg/"
       />
       <OrganizationSchema type="LocalBusiness" />
       <WebSiteSchema />

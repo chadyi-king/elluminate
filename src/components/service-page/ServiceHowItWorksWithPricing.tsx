@@ -123,7 +123,7 @@ export const ServiceHowItWorksWithPricing = ({
   return (
     <section className="py-20 px-4 relative overflow-hidden bg-background">
       {/* Background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
+      <div className="absolute inset-0 opacity-[0.04]">
         <div 
           className="absolute inset-0" 
           style={{ 
@@ -133,11 +133,17 @@ export const ServiceHowItWorksWithPricing = ({
         />
       </div>
 
+      {/* Accent gradient overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{ background: `linear-gradient(180deg, ${accentColor}20, transparent 40%, transparent 60%, ${accentColor}15)` }}
+      />
+
       {/* Dynamic glow */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[150px] pointer-events-none"
-        style={{ background: getAccentStyle(accentColor + "10", accentColorSecondary ? accentColorSecondary + "10" : undefined) }}
-        animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
+        style={{ background: getAccentStyle(accentColor + "18", accentColorSecondary ? accentColorSecondary + "18" : undefined) }}
+        animate={{ opacity: [0.4, 0.6, 0.4], scale: [1, 1.1, 1] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
 

@@ -23,8 +23,14 @@ export const ServiceOverviewNew = ({ description, accentColor, accentColorSecond
         />
       </div>
 
+      {/* Accent-tinted gradient overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.06]"
+        style={{ background: `linear-gradient(135deg, ${accentColor}40, transparent 60%, ${accentColorSecondary || accentColor}30)` }}
+      />
+
       {/* Background pattern with accent color */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-[0.08]">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, ${accentColor} 1px, transparent 0)`,
           backgroundSize: '40px 40px'
@@ -34,8 +40,8 @@ export const ServiceOverviewNew = ({ description, accentColor, accentColorSecond
       {/* Subtle glow */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[100px]"
-        style={{ backgroundColor: `${accentColor}10` }}
-        animate={{ opacity: [0.2, 0.4, 0.2] }}
+        style={{ backgroundColor: `${accentColor}18` }}
+        animate={{ opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
 

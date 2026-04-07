@@ -13,44 +13,64 @@ import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
 
 const teamMembers = [
   {
-    name: "Marcus Tan",
-    title: "Founder & Creative Director",
+    name: "Edmund Sim",
+    title: "Director",
     image: marcusTan
   },
   {
-    name: "Rachel Lim",
-    title: "Head of Operations",
-    image: rachelLim
-  },
-  {
-    name: "Daniel Wong",
-    title: "Lead Event Producer",
-    image: danielWong
-  },
-  {
-    name: "Priya Sharma",
-    title: "Senior Experience Designer",
+    name: "Afifah Camut",
+    title: "Senior Sales Manager",
     image: priyaSharma
   },
   {
-    name: "Kevin Lee",
-    title: "Technical Director",
-    image: kevinLee
+    name: "Lisa Ong",
+    title: "Senior Events Manager",
+    image: rachelLim
   },
   {
-    name: "Michelle Chen",
-    title: "Client Relations Manager",
+    name: "MJ",
+    title: "Operations & Design Executive",
     image: michelleChen
   },
   {
-    name: "Jason Ng",
-    title: "Lead Facilitator",
+    name: "Ayume",
+    title: "Operations Executive",
+    image: sarahGoh
+  },
+  {
+    name: "Louise Cabales",
+    title: "Admin Manager",
+    image: "https://randomuser.me/api/portraits/men/44.jpg"
+  },
+  {
+    name: "Peggy Har",
+    title: "Finance Manager",
+    image: "https://randomuser.me/api/portraits/women/55.jpg"
+  },
+  {
+    name: "Jencen Ramos",
+    title: "Finance Executive",
+    image: danielWong
+  },
+  {
+    name: "Jemwell Ramos",
+    title: "IT Executive",
     image: jasonNg
   },
   {
-    name: "Sarah Goh",
-    title: "Creative Producer",
-    image: sarahGoh
+    name: "Peace Chan",
+    title: "Marketing & Sales Executive",
+    image: "https://randomuser.me/api/portraits/women/33.jpg"
+  },
+  {
+    name: "Caleb E",
+    title: "Chief Vibe Officer",
+    image: kevinLee
+  },
+  {
+    name: "Christian Je Suis",
+    title: "Head of Team Morale & Wellness",
+    image: "https://randomuser.me/api/portraits/men/67.jpg"
   }
 ];
 
@@ -82,7 +102,7 @@ export const OurTeam = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}

@@ -35,7 +35,7 @@ export const ServiceOutcomes = ({
   return (
     <section className="py-20 px-4 relative overflow-hidden bg-background">
       {/* Background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
+      <div className="absolute inset-0 opacity-[0.04]">
         <div 
           className="absolute inset-0" 
           style={{ 
@@ -45,11 +45,17 @@ export const ServiceOutcomes = ({
         />
       </div>
 
+      {/* Accent-tinted gradient overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.04]"
+        style={{ background: `radial-gradient(ellipse at center, ${accentColor}30, transparent 70%)` }}
+      />
+
       {/* Dynamic glow */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-[120px] pointer-events-none"
-        style={{ backgroundColor: `${accentColor}08` }}
-        animate={{ opacity: [0.4, 0.6, 0.4] }}
+        style={{ backgroundColor: `${accentColor}12` }}
+        animate={{ opacity: [0.4, 0.7, 0.4] }}
         transition={{ duration: 5, repeat: Infinity }}
       />
 

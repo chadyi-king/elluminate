@@ -30,8 +30,8 @@ export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecon
       {/* Accent spotlight behind text */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-[150px]"
-        style={{ backgroundColor: `${accentColor}15` }}
-        animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
+        style={{ backgroundColor: `${accentColor}20` }}
+        animate={{ opacity: [0.4, 0.6, 0.4], scale: [1, 1.1, 1] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
 

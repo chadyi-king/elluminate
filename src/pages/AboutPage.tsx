@@ -350,9 +350,9 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO
-        title="About Us | Elluminate"
-        description="Learn how Elluminate designs team building, school programmes, retreats, and training that strengthen culture, energise people, and create lasting impact across Singapore."
+      <SEO 
+        title="About Elluminate | Singapore's Corporate Team Building Experts"
+        description="8+ years delivering team building, retreats, and training across Singapore. Meet the team behind 1,000+ events and 100,000+ participants."
         keywords="about Elluminate, Singapore team building company, school programmes Singapore, training workshops Singapore"
         canonical="https://elluminate.sg/about"
       />

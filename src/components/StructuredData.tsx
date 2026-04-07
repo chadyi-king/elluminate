@@ -10,15 +10,16 @@ export const OrganizationSchema = ({ type = "Organization" }: OrganizationSchema
     "@type": type,
     name: "Elluminate",
     url: "https://elluminate.sg",
-    logo: "https://elluminate.sg/favicon.png",
-    description: "Singapore's premier team building and corporate events company. Physical & virtual activities, retreats, and training programs.",
+    logo: "https://elluminate.sg/logo.png",
+    description: "Singapore's trusted corporate team building company. Specialists in physical and virtual team building, retreats, and training for companies, schools, and government teams.",
+    telephone: "+6588062446",
+    email: "info@elluminate.sg",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+65-8806-2446",
+      telephone: "+6588062446",
       contactType: "customer service",
-      email: "hello@elluminate.sg",
       areaServed: "SG",
-      availableLanguage: ["English", "Chinese"],
+      availableLanguage: "English",
     },
     address: {
       "@type": "PostalAddress",
@@ -27,9 +28,15 @@ export const OrganizationSchema = ({ type = "Organization" }: OrganizationSchema
       postalCode: "150165",
       addressCountry: "SG",
     },
-    sameAs: [],
+    areaServed: "Singapore",
+    priceRange: "$$",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      reviewCount: "600",
+      bestRating: "5",
+    },
     foundingDate: "2017",
-    numberOfEmployees: { "@type": "QuantitativeValue", minValue: 10 },
   };
 
   if (type === "LocalBusiness") {
@@ -38,7 +45,6 @@ export const OrganizationSchema = ({ type = "Organization" }: OrganizationSchema
       latitude: 1.2834,
       longitude: 103.8277,
     };
-    schema.priceRange = "$$-$$$";
     schema.openingHoursSpecification = {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
