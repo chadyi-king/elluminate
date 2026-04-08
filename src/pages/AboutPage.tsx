@@ -583,7 +583,7 @@ const AboutPage = () => {
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-sky-500/20 shadow-blue">
                 <img
-                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775545183/About-Us_ai3ync.webp"
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1775615791/about_us_0_g9cu3r.jpg"
                   alt="Asian Team Celebration"
                   className="w-full h-full object-cover"
                 />
