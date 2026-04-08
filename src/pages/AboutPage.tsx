@@ -1050,7 +1050,9 @@ const AboutPage = () => {
                 <Star key={i} className="w-6 h-6 fill-primary text-primary" />
               ))}
             </div>
-            <p className="text-lg font-display font-medium text-foreground">600+ Reviews • 4.8-Star Google Rating</p>
+            <p className="text-lg font-display font-medium text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+              600+ Reviews • 4.8-Star Google Rating
+            </p>
           </motion.div>
         </div>
       </section>
