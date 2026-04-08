@@ -535,11 +535,7 @@ const AboutPage = () => {
       <section className="py-24 relative">
         {/* Background Image - Asian corporate setting */}
         <div className="absolute inset-0">
-          <img
-            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615791/about_us_0_g9cu3r.jpg"
-            alt="Asian Corporate Team"
-            className="w-full h-full object-cover"
-          />
+          <img src="" alt="Asian Corporate Team" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
         </div>
 
