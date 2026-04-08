@@ -536,7 +536,7 @@ const AboutPage = () => {
         {/* Background Image - Asian corporate setting */}
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615791/about_us_0_g9cu3r.jpg"
+            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1775615791/about_us_0_g9cu3r.jpg"
             alt="Asian Corporate Team"
             className="w-full h-full object-cover"
           />
