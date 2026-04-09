@@ -127,7 +127,7 @@ export const ContactModal = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
   }, [formData, selectedDate]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.privacyConsent) {
       toast({
@@ -137,6 +137,17 @@ export const ContactModal = () => {
       });
       return;
     }
+
+    // Fire Google Ads conversion event on actual form submission
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "conversion", {
+        event_category: "engagement",
+        event_label: "contact_form_submit",
+        // Uncomment and replace with your Google Ads conversion ID:
+        // send_to: 'AW-XXXXXXXXX/XXXXXXX',
+      });
+    }
+
     toast({
       title: "Message Sent!",
       description: "We'll get back to you within 24 hours.",
@@ -157,6 +168,7 @@ export const ContactModal = () => {
       privacyConsent: false,
     });
     setSelectedDate(undefined);
+    localStorage.removeItem(STORAGE_KEY);
   };
 
   const toggleAddOnService = (service: string) => {
