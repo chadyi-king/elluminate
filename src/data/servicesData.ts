@@ -637,14 +637,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "See Our Retreats in Action",
       subtitle: "From Bali villas to Japanese onsens, watch how we bring teams together across the globe.",
       videos: [
-        { title: "Bali Team Retreat Highlights" },
+        {
+          title: "Bali Team Retreat Highlights",
+          videoUrl:
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto/f_auto/v1775543735/Edrington_Overseas_Video_mtm4bv.mov",
+          thumbnailImage:
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/v1775543735/Edrington_Overseas_Video_mtm4bv.jpg",
+        },
         { title: "Japan Cultural Experience" },
         { title: "Thailand Beach Getaway" },
         {
           title: "Vietnam Adventure Recap",
-          videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1774588080/Straits_Construction_1_rhyeyo.mp4",
-          thumbnailImage:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/v1774588080/Straits_Construction_1_rhyeyo.jpg",
         },
         { title: "Bintan Island Escape" },
       ],
