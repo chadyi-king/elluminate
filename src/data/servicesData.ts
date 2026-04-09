@@ -13243,7 +13243,7 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Training",
       tagline: "Building Tomorrow's Leaders Today",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579615/Workshop_11_iunqpi.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775539489/youth_camp_21_iplbqd.jpg",
     },
     howItWorksImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775539489/youth_camp_21_iplbqd.jpg",
@@ -13255,7 +13255,7 @@ export const servicesData: Record<string, ServiceData> = {
       description:
         "Our Youth Camps combine adventure, learning, and personal growth to create transformative experiences for young people. Designed for schools, CCAs, and youth organizations, these programs develop leadership, teamwork, and resilience through carefully structured activities and challenges. From day camps to multi-day adventures, we create safe yet challenging environments where youth discover their potential and forge lasting friendships.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579615/Workshop_11_iunqpi.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775539489/youth_camp_21_iplbqd.jpg",
     },
     features: [
       { icon: Flag, title: "Adventure Activities", description: "Exciting challenges that push comfort zones safely." },
