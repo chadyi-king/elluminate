@@ -11869,12 +11869,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "LOCAL RETREATS",
       subtitle: "Retreat",
       tagline: "Singapore may be small, but not all of it has been explored!",
-      backgroundImage: overseasRetreatHero,
+      backgroundImage:
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023177/Overseas_48_g0woao.jpg",
     },
+    howItWorksImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_42_rhm0bt.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_47_up0edg.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023139/Overseas_28_c1mqho.heic",
     overview: {
       description:
         "Not every great retreat requires a passport. Singapore's hotel scene delivers everything from affordable urban escapes to some of the most storied and architecturally celebrated properties in Asia — and we know exactly which ones perform for team retreats. We offer three distinct tiers: Staycation for whole-staff appreciation and casual connection, Heritage for a culturally rich stay in Singapore's most celebrated historical hotels, and Luxury for recognition-grade experiences that senior leaders and top earners genuinely value. You choose the tier; we handle room blocks, activities, dining, and every detail in between.",
-      backgroundImage: overseasRetreatHero,
+      backgroundImage:
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023177/Overseas_48_g0woao.jpg",
     },
     features: [
       { icon: Building, title: "Curated Venues", description: "Handpicked hotels across Singapore." },
@@ -13694,12 +13701,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "INCENTIVE TRAVEL",
       subtitle: "Retreat",
       tagline: "Reward your best people with the journey of a lifetime.",
-      backgroundImage: overseasRetreatHero,
+      backgroundImage:
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_40_jfae9l.heic",
     },
+    howItWorksImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579578/Overseas_17_yjcpsf.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579578/Overseas_16_znupnb.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579572/Overseas_11_droxvw.jpg",
     overview: {
       description:
         "Incentive travel is one of the most powerful non-cash rewards a company can offer its top performers, sales teams, and high-growth contributors. A well-designed incentive trip communicates something no bonus cheque can: we see what you did, and we want your experience to match it. Elluminate designs end-to-end incentive travel programmes for Singapore-based organisations — from defining the eligibility criteria and building the anticipation campaign, to executing the trip itself with on-ground facilitation, a private recognition dinner, and a polished post-trip highlight reel. Destinations range from regional gems like Bali and Japan to long-haul experiences in Europe and beyond. Every programme is built around your earners, your culture, and the level of recognition your organisation is committed to delivering.",
-      backgroundImage: overseasRetreatHero,
+      backgroundImage:
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_40_jfae9l.heic",
     },
     features: [
       {
