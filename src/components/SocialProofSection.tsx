@@ -28,7 +28,7 @@ const defaultClientLogos = [
   { id: 21, name: "M1", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502548/M1_Logo_afkqiy.svg" },
   { id: 22, name: "Google", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636130/google-logo_zypuwu.webp" },
   { id: 23, name: "Meta", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636126/meta-logo_frbmem.jpg" },
-  { id: 24, name: "Amazon", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636120/amazon-logo_r27lcf.webp" }
+  { id: 24, name: "Amazon", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636120/amazon-logo_r27lcf.webp" },
   { id: 25, name: "Microsoft", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636108/microsoft-logo_w9xb9x.webp" },
   { id: 26, name: "Deloitte", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636106/deloitte-logo_d9hhkg.png" },
   { id: 27, name: "PwC", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636101/pwc-logo_b0c7pi.png" },
