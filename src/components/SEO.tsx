@@ -47,6 +47,7 @@ export const SEO = ({
       {/* Additional SEO */}
       <meta name="robots" content={robots} />
       <meta name="author" content="Elluminate" />
+      <meta property="og:locale" content="en_SG" />
       <meta name="geo.region" content="SG" />
       <meta name="geo.placename" content="Singapore" />
     </Helmet>
