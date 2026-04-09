@@ -46,7 +46,11 @@ const defaultClientLogos = [
   { id: 38, name: "Citibank", logo: "https://logo.clearbit.com/citigroup.com" },
   { id: 39, name: "Shell", logo: "https://logo.clearbit.com/shell.com" },
   { id: 40, name: "Unilever", logo: "https://logo.clearbit.com/unilever.com" },
-  { id: 41, name: "P&G", logo: "https://logo.clearbit.com/pg.com" },
+  {
+    id: 41,
+    name: "P&G",
+    logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634688/p_g-logo_j9lgmw.jpg",
+  },
   { id: 42, name: "Nestlé", logo: "https://logo.clearbit.com/nestle.com" },
   { id: 43, name: "3M", logo: "https://logo.clearbit.com/3m.com" },
   { id: 44, name: "Visa", logo: "https://logo.clearbit.com/visa.com" },
@@ -93,30 +97,30 @@ const stripNoise = (s: string) => {
 };
 
 const brandToFilename: Record<string, string> = {
-  "DBS": "dbs_bank_logo",
-  "OCBC": "logo-ocbc",
-  "UOB": "uob_logo",
-  "Singtel": "singtel_logo",
-  "Grab": "singapore-grab-logo",
-  "Shopee": "shopee",
-  "NTUC": "ntuc_logo",
-  "GovTech": "govtech_logo",
-  "CapitaLand": "capitaland_logo",
+  DBS: "dbs_bank_logo",
+  OCBC: "logo-ocbc",
+  UOB: "uob_logo",
+  Singtel: "singtel_logo",
+  Grab: "singapore-grab-logo",
+  Shopee: "shopee",
+  NTUC: "ntuc_logo",
+  GovTech: "govtech_logo",
+  CapitaLand: "capitaland_logo",
   "Singapore Airlines": "singapore_airlines_logo",
   "Changi Airport": "changi_logo",
-  "StarHub": "starhub_logo",
-  "POSB": "posb_logo",
-  "Prudential": "prudentialgroup_logo",
+  StarHub: "starhub_logo",
+  POSB: "posb_logo",
+  Prudential: "prudentialgroup_logo",
   "Marina Bay Sands": "marina_bay_sands_logo",
   "Great Eastern": "great_eastern_logo",
-  "HSBC": "hsbc",
+  HSBC: "hsbc",
   "Standard Chartered": "standard_chartered_logo",
-  "AIA": "aia-logo",
-  "Maybank": "maybank_logo",
-  "M1": "m1_logo",
-  "Sentosa": "sentosa-logo",
+  AIA: "aia-logo",
+  Maybank: "maybank_logo",
+  M1: "m1_logo",
+  Sentosa: "sentosa-logo",
   "SP Group": "sp_group_logo",
-  "SMRT": "smrt_corporation_logo",
+  SMRT: "smrt_corporation_logo",
 };
 
 const stats = [
@@ -179,18 +183,14 @@ export const SocialProofSection = () => {
               );
             });
             return match ? { ...brand, logo: match.secure_url } : brand;
-          })
+          }),
         );
       })
       .catch((err) => console.error("Failed to fetch Cloudinary logos:", err));
   }, []);
 
   // Split logos into groups of 24 (4 rows x 6 columns) for carousel
-  const logoGroups = [
-    clientLogos.slice(0, 24),
-    clientLogos.slice(24, 48),
-    clientLogos.slice(48, 72),
-  ];
+  const logoGroups = [clientLogos.slice(0, 24), clientLogos.slice(24, 48), clientLogos.slice(48, 72)];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -233,16 +233,14 @@ export const SocialProofSection = () => {
                     key={logo.id}
                     className="group aspect-[3/2] bg-white border border-border rounded-xl flex items-center justify-center hover:border-primary/40 hover:shadow-lg transition-all duration-300 p-3 relative overflow-hidden"
                   >
-                    <motion.div 
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                    />
-                    <img 
-                      src={logo.logo} 
+                    <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    <img
+                      src={logo.logo}
                       alt={logo.name}
                       className="max-w-full max-h-full object-contain relative z-10 grayscale group-hover:grayscale-0 transition-all duration-300"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
+                        target.style.display = "none";
                         target.parentElement!.innerHTML = `<span class="text-foreground text-xs font-display font-bold relative z-10">${logo.name}</span>`;
                       }}
                     />
@@ -259,9 +257,7 @@ export const SocialProofSection = () => {
                 key={i}
                 onClick={() => setCurrentGroup(i)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === currentGroup 
-                    ? "bg-primary w-6" 
-                    : "bg-primary/30 hover:bg-primary/50"
+                  i === currentGroup ? "bg-primary w-6" : "bg-primary/30 hover:bg-primary/50"
                 }`}
               />
             ))}
@@ -288,24 +284,20 @@ export const SocialProofSection = () => {
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + i * 0.1, duration: 0.3 }}
                   >
-                    <Star
-                      className="w-10 h-10 text-yellow-400 fill-yellow-400"
-                    />
+                    <Star className="w-10 h-10 text-yellow-400 fill-yellow-400" />
                   </motion.div>
                 ))}
               </div>
 
               {/* Rating text below stars */}
               <div className="mb-2">
-                <span className="text-4xl md:text-5xl font-display font-black text-foreground">
-                  4.8 / 5.0
-                </span>
+                <span className="text-4xl md:text-5xl font-display font-black text-foreground">4.8 / 5.0</span>
               </div>
-              
+
               <p className="text-muted-foreground font-display">
                 Based on <span className="text-primary font-bold">600+</span> Google Reviews
               </p>
-              
+
               <p className="text-muted-foreground/80 text-sm font-display">
                 Trusted by companies all across Singapore.
               </p>
@@ -336,15 +328,13 @@ export const SocialProofSection = () => {
                     <stat.icon className="w-6 h-6 text-primary" />
                   </div>
                 </div>
-                
+
                 <div className="relative inline-block mb-3">
                   <span className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-primary">
                     {stat.number}
                   </span>
                 </div>
-                <h4 className="text-lg md:text-xl font-display font-bold text-foreground mb-2">
-                  {stat.label}
-                </h4>
+                <h4 className="text-lg md:text-xl font-display font-bold text-foreground mb-2">{stat.label}</h4>
                 <p className="text-muted-foreground text-sm font-display">{stat.description}</p>
               </motion.div>
             ))}
