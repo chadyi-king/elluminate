@@ -65,7 +65,7 @@ const allActivities = [
       "Forensic investigation experience where teams solve mysteries using clues, evidence, and deduction skills.",
     stats: "150+ CSI events delivered",
     clients: "Popular with banks, schools, and tech companies",
-    image: heroCsiInvestigation,
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
     tag: "Physical",
   },
   {
@@ -76,7 +76,7 @@ const allActivities = [
     description: "Explore Singapore's rich heritage through interactive challenges in historic districts.",
     stats: "200+ Cultural Races completed",
     clients: "Perfect for multinational teams and student groups",
-    image: heroCulturalRace,
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360229/AmazingRace_2_hi89qz.jpg",
     tag: "Physical",
   },
   {
