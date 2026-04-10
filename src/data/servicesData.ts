@@ -7733,8 +7733,8 @@ export const servicesData: Record<string, ServiceData> = {
         "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455356/gelblitz_6_akebbh.jpg",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455295/gelblitz_9_ilhw6b.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456395/gelblitz_4_vphes5.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456399/gelblitz_5_yaoi3h.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456396/gelblitz_10_cgvrna.jpg",
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456394/gelblitz_3_yjahdx.jpg",
     testimonialBackgroundImage:
