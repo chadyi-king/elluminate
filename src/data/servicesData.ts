@@ -11123,7 +11123,7 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Virtual Team Building",
       tagline: "To save the world, your team needs to work together to stop the Nuclear Countdown.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775810506/nuclear_fallout_12_nzmm54.png",
     },
     howItWorksImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775810521/nuclear_fallout_14_onliru.png",
@@ -11137,7 +11137,7 @@ export const servicesData: Record<string, ServiceData> = {
       description:
         "The clock is ticking! In this intense virtual escape room, teams must work together to stop a nuclear countdown. Communication, logic, and teamwork are crucial as you solve puzzles and crack codes under pressure. This adrenaline-pumping experience is perfect for teams who thrive on intellectual challenges via Zoom.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775810506/nuclear_fallout_12_nzmm54.png",
     },
     features: [
       { icon: Lock, title: "Escape Room", description: "Solve puzzles and crack codes under pressure." },
@@ -11522,7 +11522,7 @@ export const servicesData: Record<string, ServiceData> = {
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811016/tomb_raider_5_dimic8.png",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811016/tomb_raider_5_dimic8.png",
     overview: {
       description:
         "Embark on an epic virtual treasure hunt across 5 ancient tombs! Teams race to collect the most gold by solving puzzles, overcoming obstacles, and raiding tombs before competitors. This adventure-packed experience combines strategy, speed, and teamwork for an unforgettable virtual journey via Zoom.",
