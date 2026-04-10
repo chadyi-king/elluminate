@@ -644,6 +644,28 @@ export const servicesData: Record<string, ServiceData> = {
           thumbnailImage:
             "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/v1775543735/Edrington_Overseas_Video_mtm4bv.jpg",
         },
+        {
+          title: "Bintan Team Retreat Highlights",
+          videoUrl:
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto/f_auto/v1775785840/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y.mp4",
+          thumbnailImage:
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/v1775785840/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y.jpg",
+        },
+        {
+          title: "Batam Team Retreat Highlights",
+          videoUrl:
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto/f_auto/v1775785846/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj.mp4",
+          thumbnailImage:
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj.jpg",
+        },
+        {
+          title: "Kuala Lumpur Team Retreat Highlights",
+          videoUrl:
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto/f_auto/v1775785855/Overseas_Retreat_Kuala_Lumpur_pvy2gn.mp4v",
+          thumbnailImage:
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/Overseas_Retreat_Kuala_Lumpur_pvy2gn.jpg",
+        },
+
         { title: "Japan Cultural Experience" },
         { title: "Thailand Beach Getaway" },
         {
