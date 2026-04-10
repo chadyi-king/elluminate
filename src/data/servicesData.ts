@@ -10339,9 +10339,9 @@ export const servicesData: Record<string, ServiceData> = {
         "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774943872/amazing_race_vtb_2_o1rkl5.png",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774943870/amazing_race_vtb_5_wonwjk.png",
-    addOnsImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774943865/amazing_race_vtb_1_dvpp57.png",
+    addOnsImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774943852/amazing_race_vtb_8_x08c9l.jpg",
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
     testimonialBackgroundImage:
