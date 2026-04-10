@@ -10531,21 +10531,19 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Virtual Team Building",
       tagline: "A Fun and Competitive Workout Teambuilding Activity made for Your Team to get Energized!",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812266/Main-Pic_ve8cxp.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
-    addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812263/FIYT-3_kmv7zw.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812259/FIYT-2_seyqrv.png",
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811085/vtb_ar_9_nbnbst.png",
     overview: {
       description:
         "Get your team moving with this high-energy virtual workout experience! Combining fitness challenges with team competition, Fit In Your Team promotes physical wellness, mental clarity, and social connection—all from the comfort of home. Perfect for teams looking to energize, bond, and prioritize wellbeing together via Zoom.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812266/Main-Pic_ve8cxp.jpg",
     },
     features: [
       { icon: Dumbbell, title: "Fitness Challenges", description: "Fun workout activities for all fitness levels." },
@@ -10924,21 +10922,19 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Virtual Team Building",
       tagline: "The Zodiac Animals have all escaped! It is up to you the Celestial Vanguards to get them all back!",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812236/Team-4.4_wekgjq.png",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
-    addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812232/Team-5.2_rlqotg.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812228/Team-4.2_x38yzu.png",
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812228/Team-4.2_x38yzu.png",
     overview: {
       description:
         "Celebrate Chinese New Year virtually with this themed team adventure! The 12 Zodiac animals have escaped and your team must work together to bring them back. Through puzzles, challenges, and cultural trivia, teams race to capture all the animals and restore harmony. Perfect for CNY celebrations via Zoom.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812236/Team-4.4_wekgjq.png",
     },
     features: [
       { icon: Search, title: "Zodiac Hunt", description: "Track down all 12 escaped zodiac animals." },
@@ -11320,21 +11316,19 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Virtual Team Building",
       tagline: "Salute to our Great Nation by playing activities mixed of the old and new of Singapore",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812243/Main-Pic_1_xhrueu.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
-    addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812248/Picture1_dcrds3.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812243/Main-Pic_1_xhrueu.jpg",
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812241/Main-Page_asc3hb.png",
     overview: {
       description:
         "Celebrate Singapore's heritage with this patriotic virtual team experience! Teams compete through activities that blend old-school Singapore nostalgia with modern challenges. From traditional games to national trivia, this experience is perfect for National Day celebrations or any time you want to celebrate Singapore's spirit via Zoom.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812243/Main-Pic_1_xhrueu.jpg",
     },
     features: [
       { icon: Flag, title: "National Pride", description: "Celebrate Singapore's heritage and culture." },
@@ -11710,21 +11704,19 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Virtual Team Building",
       tagline: "Santa's Village is under attack! You are the Elite Elf Force that will save Christmas!",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812223/Main-Pic_2_cuwiih.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
-    addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812216/CD-2_htt8la.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812214/CD-1_furajs.png",
     ctaBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811010/tomb_raider_1_mziqut.png",
     overview: {
       description:
         "Santa needs your help! In this festive virtual adventure, teams become the Elite Elf Force on a mission to save Christmas. Battle through party games, team challenges, and boss battles to deliver presents and defeat the forces threatening the holiday season. The team that delivers the most presents wins! Perfect for year-end celebrations via Zoom.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812223/Main-Pic_2_cuwiih.jpg",
     },
     features: [
       { icon: Gift, title: "Christmas Mission", description: "Save Christmas as the Elite Elf Force." },
