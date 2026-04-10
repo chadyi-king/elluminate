@@ -5389,7 +5389,7 @@ export const servicesData: Record<string, ServiceData> = {
     videoSection: {
       title: "See the Race in Action",
       subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
-      videoUrl: "https://www.youtube.com/embed/m-YiH2zCxmE",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/f_auto,q_auto/v1775788768/Decathlon_cztrri.mp4",
     },
     cta: {
       headline: "Ready for Your Amazing Race?",
