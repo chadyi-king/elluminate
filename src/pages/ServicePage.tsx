@@ -78,6 +78,8 @@ const ServicePage = () => {
     "workshops": "corporate workshop Singapore, skill building workshop, training workshop team",
     "youth-camps": "youth camp Singapore, school camp, student leadership camp, CCA bonding camp",
     "corporate-days": "corporate day Singapore, company fun day, team day out, corporate event day",
+    "wellness-events": "corporate wellness Singapore, wellness day team building, mindfulness corporate event, employee wellbeing programme",
+    "leadership-offsites": "leadership offsite Singapore, executive retreat, strategy offsite corporate, management team retreat Singapore",
   };
 
   const serviceSEO: Record<string, { title: string; description: string; canonical: string }> = {
@@ -119,6 +121,8 @@ const ServicePage = () => {
     "workshops": { title: "Corporate Workshops Singapore | Team Development Training | Elluminate", description: "Interactive corporate workshops in Singapore covering communication, leadership, collaboration, and team development. Customised for your team's goals.", canonical: "https://elluminate.sg/services/workshops" },
     "corporate-days": { title: "Corporate Day Singapore | Company Family Day Planning | Elluminate", description: "Full-day corporate event planning for company days and family days in Singapore. Activities, logistics, catering, and facilitation — all handled by Elluminate.", canonical: "https://elluminate.sg/services/corporate-days" },
     "youth-camps": { title: "Youth Camp Singapore | School Team Building Programme | Elluminate", description: "High-energy youth camps and school programmes in Singapore. Designed for student bonding, leadership development, and cohort-building experiences.", canonical: "https://elluminate.sg/services/youth-camps" },
+    "wellness-events": { title: "Corporate Wellness Events Singapore | Elluminate", description: "Wellness days for corporate teams in Singapore. Yoga, mindfulness, nutrition, and team reset experiences. Fully facilitated by Elluminate.", canonical: "https://elluminate.sg/services/wellness-events" },
+    "leadership-offsites": { title: "Leadership Offsite Singapore | Executive Team Retreat | Elluminate", description: "Strategy-focused leadership offsites for senior teams in Singapore. Premium venues, expert facilitation, and structured alignment sessions. Book with Elluminate.", canonical: "https://elluminate.sg/services/leadership-offsites" },
   };
 
   const seoData = serviceSEO[slug || ""];

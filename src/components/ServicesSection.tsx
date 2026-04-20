@@ -18,6 +18,8 @@ import {
   Plane,
   Building,
   Award,
+  Heart,
+  Briefcase,
 } from "lucide-react";
 import { ExpandableActivityCard } from "./ExpandableActivityCard";
 import { WaveDivider } from "./WaveDivider";
@@ -241,6 +243,28 @@ const allActivities = [
     clients: "Schools, student leaders, and youth groups",
     image: heroTeamCelebration,
     tag: "School",
+  },
+  {
+    name: "Wellness Events",
+    icon: Heart,
+    slug: "wellness-events",
+    color: activityColors.wellness,
+    description: "Corporate wellness days that combine movement, mindfulness, and nutrition into a shared team reset.",
+    stats: "Mind, body & spirit formats",
+    clients: "HR teams, leadership groups, and whole-staff",
+    image: heroCreativeWorkshop,
+    tag: "Training",
+  },
+  {
+    name: "Leadership Offsites",
+    icon: Briefcase,
+    slug: "leadership-offsites",
+    color: activityColors.archeryLaserTag,
+    description: "Focused offsite experiences for senior teams — blending strategy facilitation, team alignment, and premium hospitality.",
+    stats: "1.5 to 3-day programmes",
+    clients: "C-suite, directors, and management teams",
+    image: heroOverseasRetreat,
+    tag: "Training",
   },
 ];
 

@@ -169,7 +169,7 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
       );
 
     /* ─── Tag-tical Laser: laser phaser ─── */
-    case "tag-tical-laser":
+    case "tag-tical-laser-teambuilding":
       return (
         <svg {...common}>
           {/* Laser beams */}
@@ -372,30 +372,89 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
         </svg>
       );
 
-    /* ─── Overseas Retreats: plane ─── */
+    /* ─── Overseas Retreats: commercial airplane ─── */
     case "overseas-retreats":
+      return (
+        <svg {...common}>
+          {/* Fuselage */}
+          <path d="M32 92 Q35 79 52 77 L152 74 Q167 74 175 83 Q181 88 181 90 Q181 92 175 97 L152 106 L52 109 Q35 107 32 92Z" fill="white" opacity="0.92" />
+          {/* Cockpit */}
+          <path d="M152 77 L163 81 Q174 85 177 90 Q174 95 163 99 L152 103Z" fill="#87CEEB" opacity="0.7" />
+          {/* Vertical tail fin */}
+          <path d="M46 77 L41 45 L64 56 L64 77Z" fill={accentColor} />
+          {/* Horizontal stabilizers */}
+          <path d="M38 79 L17 67 L40 75Z" fill={accentColor} opacity="0.85" />
+          <path d="M38 101 L17 113 L40 105Z" fill={accentColor} opacity="0.85" />
+          {/* Main swept wing below fuselage */}
+          <path d="M100 107 L94 109 L130 163 L145 158 L112 107Z" fill={accentColor} />
+          {/* Engine pod */}
+          <rect x="122" y="155" width="28" height="10" rx="5" fill="#555" stroke="white" strokeWidth="1" />
+          {/* Passenger windows */}
+          {[68, 82, 96, 110, 124, 138].map((x) => (
+            <ellipse key={x} cx={x} cy="90" rx="4.5" ry="3.5" fill="#87CEEB" opacity="0.75" />
+          ))}
+          {/* Contrails */}
+          <line x1="22" y1="90" x2="5" y2="90" stroke="white" strokeWidth="2" opacity="0.35" />
+          <line x1="18" y1="84" x2="5" y2="82" stroke="white" strokeWidth="1.5" opacity="0.22" />
+          <line x1="18" y1="96" x2="5" y2="98" stroke="white" strokeWidth="1.5" opacity="0.22" />
+        </svg>
+      );
+
+    /* ─── Local Retreats: hotel building ─── */
     case "local-retreats":
+      return (
+        <svg {...common}>
+          {/* 5-star rating above */}
+          <text x="100" y="40" textAnchor="middle" fontSize="9" fill="#FFD700">★ ★ ★ ★ ★</text>
+          {/* Building body */}
+          <rect x="48" y="48" width="104" height="122" rx="3" fill="#1e2d45" stroke="white" strokeWidth="1.5" />
+          {/* Accent roof band */}
+          <rect x="44" y="42" width="112" height="13" rx="3" fill={accentColor} />
+          {/* HOTEL text on band */}
+          <text x="100" y="53" textAnchor="middle" fontSize="6" fontWeight="bold" fill="white" letterSpacing="1.5">HOTEL</text>
+          {/* Windows — 4 rows × 4 columns */}
+          {[
+            [60,66],[80,66],[100,66],[120,66],
+            [60,84],[80,84],[100,84],[120,84],
+            [60,102],[80,102],[100,102],[120,102],
+            [60,120],[80,120],[100,120],[120,120],
+          ].map(([x, y], i) => (
+            <rect
+              key={i} x={x} y={y} width="14" height="11" rx="1.5"
+              fill={[0,2,5,7,9,11,14].includes(i) ? "#FFEEA0" : [1,6,10,13].includes(i) ? "#87CEEB" : "#0f1c30"}
+              opacity="0.95"
+            />
+          ))}
+          {/* Entrance door */}
+          <rect x="84" y="143" width="32" height="27" rx="2" fill={accentColor} opacity="0.8" />
+          <line x1="100" y1="143" x2="100" y2="170" stroke="#0f1c30" strokeWidth="1.5" />
+          {/* Canopy above door */}
+          <path d="M78 143 L122 143 L117 134 L83 134Z" fill={accentColor} opacity="0.9" />
+        </svg>
+      );
+
+    /* ─── Incentive Travel: passport with stamps ─── */
     case "incentive-travel":
       return (
         <svg {...common}>
-          {/* Plane body */}
-          <ellipse cx="100" cy="95" rx="65" ry="14" fill="white" opacity="0.9" />
-          {/* Cockpit */}
-          <path d="M162 95 Q180 93 180 95 Q180 97 162 95Z" fill="#87CEEB" stroke="white" strokeWidth="1" />
-          {/* Tail */}
-          <path d="M40 95 L25 60 L45 80" fill={accentColor} stroke="white" strokeWidth="1" />
-          <path d="M40 95 L25 130 L45 110" fill={accentColor} stroke="white" strokeWidth="1" />
-          {/* Wings */}
-          <path d="M90 82 L120 45 L125 48 L100 82Z" fill={accentColor} opacity="0.8" />
-          <path d="M90 108 L120 145 L125 142 L100 108Z" fill={accentColor} opacity="0.8" />
-          {/* Windows */}
-          {[70, 82, 94, 106, 118, 130, 142].map((x) => (
-            <circle key={x} cx={x} cy="92" r="2" fill="#87CEEB" opacity="0.7" />
-          ))}
-          {/* Contrail */}
-          <line x1="20" y1="95" x2="0" y2="95" stroke="white" strokeWidth="2" opacity="0.3" />
-          <line x1="15" y1="88" x2="0" y2="85" stroke="white" strokeWidth="1.5" opacity="0.2" />
-          <line x1="15" y1="102" x2="0" y2="105" stroke="white" strokeWidth="1.5" opacity="0.2" />
+          {/* Passport cover */}
+          <rect x="55" y="30" width="90" height="130" rx="8" fill={accentColor} opacity="0.92" stroke="white" strokeWidth="1.5" />
+          {/* Inner inlay */}
+          <rect x="63" y="38" width="74" height="114" rx="5" fill="white" opacity="0.1" />
+          {/* Emblem circle */}
+          <circle cx="100" cy="95" r="24" fill="none" stroke="white" strokeWidth="2" opacity="0.7" />
+          <circle cx="100" cy="95" r="15" fill="white" opacity="0.08" />
+          <text x="100" y="101" textAnchor="middle" fontSize="20" fill="white" opacity="0.8">★</text>
+          {/* Labels */}
+          <text x="100" y="50" textAnchor="middle" fontSize="5" fill="white" opacity="0.6" letterSpacing="1">REPUBLIC OF SINGAPORE</text>
+          <text x="100" y="152" textAnchor="middle" fontSize="7" fontWeight="bold" fill="white" letterSpacing="2">PASSPORT</text>
+          {/* Entry stamps around the outside */}
+          <rect x="18" y="50" width="24" height="15" rx="2" fill="none" stroke="#FFD700" strokeWidth="1.5" opacity="0.8" transform="rotate(-20 30 57)" />
+          <text x="20" y="61" fontSize="5" fill="#FFD700" opacity="0.8" transform="rotate(-20 30 57)">ENTRY</text>
+          <rect x="158" y="62" width="24" height="15" rx="2" fill="none" stroke="#FF6B35" strokeWidth="1.5" opacity="0.7" transform="rotate(15 170 69)" />
+          <text x="160" y="73" fontSize="5" fill="#FF6B35" opacity="0.7" transform="rotate(15 170 69)">ENTRY</text>
+          <rect x="15" y="140" width="24" height="15" rx="2" fill="none" stroke="#4CAF50" strokeWidth="1.5" opacity="0.6" transform="rotate(-10 27 147)" />
+          <rect x="160" y="135" width="24" height="15" rx="2" fill="none" stroke="#87CEEB" strokeWidth="1.5" opacity="0.55" transform="rotate(18 172 142)" />
         </svg>
       );
 
@@ -680,36 +739,49 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
         </svg>
       );
 
-    /* ─── Event Management categories: spotlight ─── */
-    case "dinner-dance":
-    case "awards-ceremonies":
-    case "celebrations":
+    /* ─── Leadership Offsites: podium with mic ─── */
     case "leadership-offsites":
-    case "product-launches":
-    case "brand-activations":
-    case "client-appreciation":
-    case "town-halls":
-    case "summits":
-    case "festivals":
-    case "private-events":
       return (
         <svg {...common}>
-          {/* Spotlight body */}
-          <rect x="80" y="20" width="40" height="50" rx="6" fill="#333" stroke="white" strokeWidth="1.5" />
-          {/* Lens */}
-          <circle cx="100" cy="75" r="18" fill="#444" stroke={accentColor} strokeWidth="2" />
-          <circle cx="100" cy="75" r="10" fill={accentColor} opacity="0.4" />
-          <circle cx="100" cy="75" r="5" fill="white" opacity="0.3" />
-          {/* Light beam */}
-          <polygon points="82,90 30,175 170,175 118,90" fill={accentColor} opacity="0.12" />
-          <polygon points="88,90 55,175 145,175 112,90" fill={accentColor} opacity="0.08" />
-          {/* Mount */}
-          <line x1="100" y1="20" x2="100" y2="10" stroke="#888" strokeWidth="3" />
-          <line x1="85" y1="10" x2="115" y2="10" stroke="#888" strokeWidth="3" strokeLinecap="round" />
-          {/* Sparkles in beam */}
-          <circle cx="80" cy="140" r="2" fill="white" opacity="0.3" />
-          <circle cx="120" cy="150" r="1.5" fill="white" opacity="0.2" />
-          <circle cx="100" cy="130" r="1.5" fill="white" opacity="0.25" />
+          {/* Podium */}
+          <rect x="70" y="75" width="60" height="80" rx="4" fill="#2a3a55" stroke="white" strokeWidth="1.5" />
+          <rect x="65" y="68" width="70" height="12" rx="3" fill={accentColor} />
+          {/* Microphone */}
+          <line x1="100" y1="52" x2="100" y2="68" stroke="#888" strokeWidth="2" />
+          <rect x="93" y="42" width="14" height="14" rx="7" fill="#333" stroke={accentColor} strokeWidth="1.5" />
+          {/* Notes on podium */}
+          <rect x="80" y="90" width="18" height="24" rx="2" fill="white" opacity="0.85" />
+          <line x1="84" y1="97" x2="94" y2="97" stroke="#ccc" strokeWidth="1" />
+          <line x1="84" y1="101" x2="92" y2="101" stroke="#ccc" strokeWidth="1" />
+          <line x1="84" y1="105" x2="94" y2="105" stroke="#ccc" strokeWidth="1" />
+          {/* Star / vision emblem */}
+          <text x="100" y="38" textAnchor="middle" fontSize="16" fill={accentColor} opacity="0.7">★</text>
+          {/* Audience silhouettes */}
+          <circle cx="55" cy="170" r="7" fill="white" opacity="0.25" />
+          <circle cx="80" cy="175" r="6" fill="white" opacity="0.2" />
+          <circle cx="120" cy="175" r="6" fill="white" opacity="0.2" />
+          <circle cx="145" cy="170" r="7" fill="white" opacity="0.25" />
+        </svg>
+      );
+
+    /* ─── Wellness Events: lotus flower ─── */
+    case "wellness-events":
+      return (
+        <svg {...common}>
+          {/* Lotus petals */}
+          <ellipse cx="100" cy="88" rx="18" ry="38" fill={accentColor} opacity="0.35" />
+          <ellipse cx="100" cy="88" rx="18" ry="38" fill={accentColor} opacity="0.3" transform="rotate(36 100 88)" />
+          <ellipse cx="100" cy="88" rx="18" ry="38" fill={accentColor} opacity="0.3" transform="rotate(-36 100 88)" />
+          <ellipse cx="100" cy="88" rx="18" ry="38" fill={accentColor} opacity="0.25" transform="rotate(72 100 88)" />
+          <ellipse cx="100" cy="88" rx="18" ry="38" fill={accentColor} opacity="0.25" transform="rotate(-72 100 88)" />
+          {/* Center circle */}
+          <circle cx="100" cy="88" r="12" fill={accentColor} opacity="0.6" />
+          <circle cx="100" cy="88" r="6" fill="white" opacity="0.4" />
+          {/* Subtle glow */}
+          <circle cx="100" cy="88" r="50" fill={accentColor} opacity="0.06" />
+          {/* Ripples below */}
+          <path d="M60 140 Q80 132 100 140 Q120 148 140 140" stroke="white" strokeWidth="1.5" fill="none" opacity="0.3" />
+          <path d="M55 152 Q77 144 100 152 Q123 160 145 152" stroke="white" strokeWidth="1" fill="none" opacity="0.2" />
         </svg>
       );
 

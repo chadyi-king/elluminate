@@ -47,6 +47,8 @@ export const trainingServices: ServiceLink[] = [
   { name: "Workshops", slug: "workshops" },
   { name: "Youth Camps", slug: "youth-camps" },
   { name: "Corporate Days", slug: "corporate-days" },
+  { name: "Wellness Events", slug: "wellness-events" },
+  { name: "Leadership Offsites", slug: "leadership-offsites" },
 ];
 
 export const allInScopeServiceSlugs = new Set([
