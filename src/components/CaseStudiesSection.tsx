@@ -14,10 +14,11 @@ const caseStudies = [
       "Live leaderboard and real-time team tracking",
       "Post-event team celebration with prizes",
     ],
-    quote: "Elluminate created an unforgettable experience that had our entire team talking for weeks. The Amazing Race format was perfect for building connections across departments.",
+    quote:
+      "Elluminate created an unforgettable experience that had our entire team talking for weeks. The Amazing Race format was perfect for building connections across departments.",
     industry: "Technology",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361395/AmazingRace_7_jbnxyz.jpg",
     accentColor: "#FFC400",
   },
   {
@@ -32,10 +33,12 @@ const caseStudies = [
       "Leadership development activities",
       "Beach activities and team bonding",
     ],
-    quote: "The level of creativity and attention to detail was impressive. Our teams were fully engaged from start to finish. A truly world-class team building experience.",
+    quote:
+      "The level of creativity and attention to detail was impressive. Our teams were fully engaged from start to finish. A truly world-class team building experience.",
     industry: "Banking & Finance",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800",
+    image:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773823918/20230203_100000-scaled_rmzoo4.jpg",
     accentColor: "#26D07C",
   },
   {
@@ -50,10 +53,11 @@ const caseStudies = [
       "Adventure activities and beach games",
       "Evening team dinners and celebrations",
     ],
-    quote: "Elluminate understood exactly what our healthcare workers needed – a rejuvenating experience that brought our teams closer together while promoting wellbeing.",
+    quote:
+      "Elluminate understood exactly what our healthcare workers needed – a rejuvenating experience that brought our teams closer together while promoting wellbeing.",
     industry: "Healthcare",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800",
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579618/WellnessGamesDay_6_pmmu3v.jpg",
     accentColor: "#62E2C4",
   },
   {
@@ -68,10 +72,11 @@ const caseStudies = [
       "Interactive cultural activities",
       "Team bonding through shared experiences",
     ],
-    quote: "The Cultural Race was a brilliant way to help our international team connect with Singapore's rich heritage while building stronger bonds with each other.",
+    quote:
+      "The Cultural Race was a brilliant way to help our international team connect with Singapore's rich heritage while building stronger bonds with each other.",
     industry: "Technology Startup",
     year: "2023",
-    image: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800",
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361435/MTWI_2_m57wuz.jpg",
     accentColor: "#FF4F4F",
   },
 ];
@@ -117,14 +122,11 @@ export const CaseStudiesSection = () => {
               {/* Card */}
               <div className="relative bg-white border border-border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 h-full flex flex-col">
                 {/* Accent bar */}
-                <div 
-                  className="h-1 w-full"
-                  style={{ backgroundColor: study.accentColor }}
-                />
-                
+                <div className="h-1 w-full" style={{ backgroundColor: study.accentColor }} />
+
                 {/* Image */}
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <div 
+                  <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-110"
                     style={{ backgroundImage: `url(${study.image})` }}
                   />
@@ -134,7 +136,7 @@ export const CaseStudiesSection = () => {
                 {/* Content */}
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex items-center gap-2 mb-2">
-                    <span 
+                    <span
                       className="text-xs font-display font-semibold px-2 py-1 rounded-full"
                       style={{ backgroundColor: `${study.accentColor}20`, color: study.accentColor }}
                     >
@@ -142,9 +144,7 @@ export const CaseStudiesSection = () => {
                     </span>
                     <span className="text-muted-foreground text-xs font-display">{study.year}</span>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4">
-                    {study.title}
-                  </h3>
+                  <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4">{study.title}</h3>
 
                   {/* Meta info */}
                   <div className="flex flex-wrap gap-4 mb-4 text-sm">
@@ -183,9 +183,7 @@ export const CaseStudiesSection = () => {
                   {/* Quote */}
                   <div className="relative mt-auto pt-4 border-t border-border">
                     <Quote className="w-6 h-6 text-primary/30 mb-2" />
-                    <p className="text-muted-foreground text-sm italic leading-relaxed font-display">
-                      "{study.quote}"
-                    </p>
+                    <p className="text-muted-foreground text-sm italic leading-relaxed font-display">"{study.quote}"</p>
                   </div>
                 </div>
               </div>

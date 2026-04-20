@@ -65,6 +65,57 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_submissions: {
+        Row: {
+          add_on_services: string[] | null
+          additional_customisation: string | null
+          additional_details: string | null
+          created_at: string
+          email: string
+          event_category: string | null
+          expected_attendees: string | null
+          expected_date: string | null
+          game_customisation: string | null
+          id: string
+          name: string
+          organisation: string | null
+          organisation_type: string | null
+          phone: string | null
+        }
+        Insert: {
+          add_on_services?: string[] | null
+          additional_customisation?: string | null
+          additional_details?: string | null
+          created_at?: string
+          email: string
+          event_category?: string | null
+          expected_attendees?: string | null
+          expected_date?: string | null
+          game_customisation?: string | null
+          id?: string
+          name: string
+          organisation?: string | null
+          organisation_type?: string | null
+          phone?: string | null
+        }
+        Update: {
+          add_on_services?: string[] | null
+          additional_customisation?: string | null
+          additional_details?: string | null
+          created_at?: string
+          email?: string
+          event_category?: string | null
+          expected_attendees?: string | null
+          expected_date?: string | null
+          game_customisation?: string | null
+          id?: string
+          name?: string
+          organisation?: string | null
+          organisation_type?: string | null
+          phone?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

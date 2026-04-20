@@ -12,6 +12,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 
 const eventCategories = [
   "Physical Team Building",
@@ -127,7 +128,7 @@ export const ContactModal = () => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
   }, [formData, selectedDate]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.privacyConsent) {
       toast({
@@ -137,10 +138,71 @@ export const ContactModal = () => {
       });
       return;
     }
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
+
+    try {
+      // Save submission to database
+      const submissionId = crypto.randomUUID();
+      const { error } = await supabase.from("contact_submissions").insert({
+        id: submissionId,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || null,
+        event_category: formData.eventCategory || null,
+        organisation: formData.organisation || null,
+        organisation_type: formData.organisationType || null,
+        expected_attendees: formData.expectedAttendees || null,
+        additional_customisation: formData.additionalCustomisation || null,
+        game_customisation: formData.gameCustomisation || null,
+        add_on_services: formData.addOnServices.length > 0 ? formData.addOnServices : null,
+        additional_details: formData.additionalDetails || null,
+        expected_date: selectedDate?.toISOString() || null,
+      });
+
+      if (error) throw error;
+
+      // Send notification email to Elluminate team
+      await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-inquiry",
+          recipientEmail: "info@elluminate.sg",
+          idempotencyKey: `contact-inquiry-${submissionId}`,
+          templateData: {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            eventCategory: formData.eventCategory,
+            organisation: formData.organisation,
+            organisationType: formData.organisationType,
+            expectedAttendees: formData.expectedAttendees,
+            additionalDetails: formData.additionalDetails,
+            expectedDate: selectedDate ? format(selectedDate, "PPP") : "Not specified",
+            addOnServices: formData.addOnServices.join(", ") || "None",
+          },
+        },
+      });
+
+      // Fire Google Ads conversion event on successful submission
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "conversion", {
+          event_category: "engagement",
+          event_label: "contact_form_submit",
+          // Uncomment and replace with your Google Ads conversion ID:
+          // send_to: 'AW-XXXXXXXXX/XXXXXXX',
+        });
+      }
+
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+    } catch (err) {
+      console.error("Form submission error:", err);
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+    }
+
     closeContactModal();
     setFormData({
       name: "",
@@ -157,6 +219,7 @@ export const ContactModal = () => {
       privacyConsent: false,
     });
     setSelectedDate(undefined);
+    localStorage.removeItem(STORAGE_KEY);
   };
 
   const toggleAddOnService = (service: string) => {

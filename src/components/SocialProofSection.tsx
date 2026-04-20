@@ -5,80 +5,78 @@ import { useState, useEffect } from "react";
 // Real client logos - 72 companies across 3 carousel pages
 const defaultClientLogos = [
   // Page 1 — Financial & Tech
-  { id: 1, name: "DBS", logo: "https://logo.clearbit.com/dbs.com.sg" },
-  { id: 2, name: "OCBC", logo: "https://logo.clearbit.com/ocbc.com" },
-  { id: 3, name: "UOB", logo: "https://logo.clearbit.com/uobgroup.com" },
-  { id: 4, name: "Singtel", logo: "https://logo.clearbit.com/singtel.com" },
-  { id: 5, name: "Grab", logo: "https://logo.clearbit.com/grab.com" },
-  { id: 6, name: "Shopee", logo: "https://logo.clearbit.com/shopee.sg" },
-  { id: 7, name: "NTUC", logo: "https://logo.clearbit.com/fairprice.com.sg" },
-  { id: 8, name: "GovTech", logo: "https://logo.clearbit.com/tech.gov.sg" },
-  { id: 9, name: "CapitaLand", logo: "https://logo.clearbit.com/capitaland.com" },
-  { id: 10, name: "Singapore Airlines", logo: "https://logo.clearbit.com/singaporeair.com" },
-  { id: 11, name: "Changi Airport", logo: "https://logo.clearbit.com/changiairport.com" },
-  { id: 12, name: "StarHub", logo: "https://logo.clearbit.com/starhub.com" },
-  { id: 13, name: "POSB", logo: "https://logo.clearbit.com/posb.com.sg" },
-  { id: 14, name: "Prudential", logo: "https://logo.clearbit.com/prudential.com.sg" },
-  { id: 15, name: "Marina Bay Sands", logo: "https://logo.clearbit.com/marinabaysands.com" },
-  { id: 16, name: "Great Eastern", logo: "https://logo.clearbit.com/greateasternlife.com" },
-  { id: 17, name: "HSBC", logo: "https://logo.clearbit.com/hsbc.com.sg" },
-  { id: 18, name: "Standard Chartered", logo: "https://logo.clearbit.com/sc.com" },
-  { id: 19, name: "AIA", logo: "https://logo.clearbit.com/aia.com.sg" },
-  { id: 20, name: "Maybank", logo: "https://logo.clearbit.com/maybank.com" },
-  { id: 21, name: "M1", logo: "https://logo.clearbit.com/m1.com.sg" },
-  { id: 22, name: "Google", logo: "https://logo.clearbit.com/google.com" },
-  { id: 23, name: "Meta", logo: "https://logo.clearbit.com/meta.com" },
-  { id: 24, name: "Amazon", logo: "https://logo.clearbit.com/amazon.sg" },
-  // Page 2 — MNCs & Consulting
-  { id: 25, name: "Microsoft", logo: "https://logo.clearbit.com/microsoft.com" },
-  { id: 26, name: "Deloitte", logo: "https://logo.clearbit.com/deloitte.com" },
-  { id: 27, name: "PwC", logo: "https://logo.clearbit.com/pwc.com" },
-  { id: 28, name: "EY", logo: "https://logo.clearbit.com/ey.com" },
-  { id: 29, name: "KPMG", logo: "https://logo.clearbit.com/kpmg.com" },
-  { id: 30, name: "Accenture", logo: "https://logo.clearbit.com/accenture.com" },
-  { id: 31, name: "SAP", logo: "https://logo.clearbit.com/sap.com" },
-  { id: 32, name: "Salesforce", logo: "https://logo.clearbit.com/salesforce.com" },
-  { id: 33, name: "IBM", logo: "https://logo.clearbit.com/ibm.com" },
-  { id: 34, name: "Cisco", logo: "https://logo.clearbit.com/cisco.com" },
-  { id: 35, name: "Samsung", logo: "https://logo.clearbit.com/samsung.com" },
-  { id: 36, name: "JP Morgan", logo: "https://logo.clearbit.com/jpmorgan.com" },
-  { id: 37, name: "Goldman Sachs", logo: "https://logo.clearbit.com/goldmansachs.com" },
-  { id: 38, name: "Citibank", logo: "https://logo.clearbit.com/citigroup.com" },
-  { id: 39, name: "Shell", logo: "https://logo.clearbit.com/shell.com" },
-  { id: 40, name: "Unilever", logo: "https://logo.clearbit.com/unilever.com" },
-  { id: 41, name: "P&G", logo: "https://logo.clearbit.com/pg.com" },
-  { id: 42, name: "Nestlé", logo: "https://logo.clearbit.com/nestle.com" },
-  { id: 43, name: "3M", logo: "https://logo.clearbit.com/3m.com" },
-  { id: 44, name: "Visa", logo: "https://logo.clearbit.com/visa.com" },
-  { id: 45, name: "Mastercard", logo: "https://logo.clearbit.com/mastercard.com" },
-  { id: 46, name: "PayPal", logo: "https://logo.clearbit.com/paypal.com" },
-  { id: 47, name: "Stripe", logo: "https://logo.clearbit.com/stripe.com" },
-  { id: 48, name: "Dyson", logo: "https://logo.clearbit.com/dyson.com" },
-  // Page 3 — Singapore & Regional
-  { id: 49, name: "ST Engineering", logo: "https://logo.clearbit.com/stengg.com" },
-  { id: 50, name: "Keppel", logo: "https://logo.clearbit.com/kepcorp.com" },
-  { id: 51, name: "ComfortDelGro", logo: "https://logo.clearbit.com/comfortdelgro.com" },
-  { id: 52, name: "Mapletree", logo: "https://logo.clearbit.com/mapletree.com.sg" },
-  { id: 53, name: "Frasers", logo: "https://logo.clearbit.com/frasersproperty.com" },
-  { id: 54, name: "NUS", logo: "https://logo.clearbit.com/nus.edu.sg" },
-  { id: 55, name: "NTU", logo: "https://logo.clearbit.com/ntu.edu.sg" },
-  { id: 56, name: "SMU", logo: "https://logo.clearbit.com/smu.edu.sg" },
-  { id: 57, name: "DHL", logo: "https://logo.clearbit.com/dhl.com" },
-  { id: 58, name: "FedEx", logo: "https://logo.clearbit.com/fedex.com" },
-  { id: 59, name: "Lazada", logo: "https://logo.clearbit.com/lazada.sg" },
-  { id: 60, name: "Razer", logo: "https://logo.clearbit.com/razer.com" },
-  { id: 61, name: "Siemens", logo: "https://logo.clearbit.com/siemens.com" },
-  { id: 62, name: "Bosch", logo: "https://logo.clearbit.com/bosch.com" },
-  { id: 63, name: "Mediacorp", logo: "https://logo.clearbit.com/mediacorp.sg" },
-  { id: 64, name: "Income Insurance", logo: "https://logo.clearbit.com/income.com.sg" },
-  { id: 65, name: "SMRT", logo: "https://logo.clearbit.com/smrt.com.sg" },
-  { id: 66, name: "SP Group", logo: "https://logo.clearbit.com/spgroup.com.sg" },
-  { id: 67, name: "Sentosa", logo: "https://logo.clearbit.com/sentosa.com.sg" },
-  { id: 68, name: "Manulife", logo: "https://logo.clearbit.com/manulife.com.sg" },
-  { id: 69, name: "Zurich Insurance", logo: "https://logo.clearbit.com/zurich.com" },
-  { id: 70, name: "Roche", logo: "https://logo.clearbit.com/roche.com" },
-  { id: 71, name: "Pfizer", logo: "https://logo.clearbit.com/pfizer.com" },
-  { id: 72, name: "GlaxoSmithKline", logo: "https://logo.clearbit.com/gsk.com" },
+{ id: 1, name: "DBS", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502548/DBS_Bank_Logo_x3zgww.png" },
+  { id: 2, name: "OCBC", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502548/Logo-ocbc.svg_dtotvs.png" }, 
+  { id: 3, name: "UOB", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502557/UOB_logo_fzw5j3.png" }, 
+  { id: 4, name: "Singtel", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502554/Singtel_logo_em8n32.svg" }, 
+  { id: 5, name: "Grab", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502554/singapore-grab-logo_tfaehm.jpg" }, 
+  { id: 6, name: "Shopee", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636113/shopee-logo_sce8bs.png" }, 
+  { id: 7, name: "NTUC", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502549/ntuc_logo_jokz8h.png" }, 
+  { id: 8, name: "GovTech", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502547/GovTech_logo_e1mjqf.png" }, 
+  { id: 9, name: "CapitaLand", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502548/capitaland_logo_i1iqas.png" },
+  { id: 10, name: "Singapore Airlines", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636115/Singapore-Airlines-Logo_jzs3bh.png" },
+  { id: 11, name: "Changi Airport", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502547/Changi_logo_qvpfnh.svg" },
+  { id: 12, name: "StarHub", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502557/StarHub_logo_lv5crp.svg" },
+  { id: 13, name: "POSB", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502553/POSB_logo_hd82z7.png" },
+  { id: 14, name: "Prudential", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502553/PrudentialGroup_Logo_s415c9.png" },
+  { id: 15, name: "Marina Bay Sands", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502549/marina_bay_sands_logo_obu2yv.png" },
+  { id: 16, name: "Great Eastern", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502548/Great_Eastern_logo_inaisy.png" },
+  { id: 17, name: "HSBC", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636123/hsbc-logo_clxve1.png" },
+  { id: 18, name: "Standard Chartered", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502556/Standard_Chartered_Logo_rtemgx.png" },
+  { id: 19, name: "AIA", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502547/AIA-logo_xb3bxb.png" },
+  { id: 20, name: "Maybank", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502549/MAYBANK_LOGO_bn1roa.png" },
+  { id: 21, name: "M1", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502548/M1_Logo_afkqiy.svg" },
+  { id: 22, name: "Google", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636130/google-logo_zypuwu.webp" },
+  { id: 23, name: "Meta", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636126/meta-logo_frbmem.jpg" },
+  { id: 24, name: "Amazon", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636120/amazon-logo_r27lcf.webp" },
+  { id: 25, name: "Microsoft", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636108/microsoft-logo_w9xb9x.webp" },
+  { id: 26, name: "Deloitte", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636106/deloitte-logo_d9hhkg.png" },
+  { id: 27, name: "PwC", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636101/pwc-logo_b0c7pi.png" },
+  { id: 28, name: "EY", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636100/EY-logo_r64589.png" },
+  { id: 29, name: "KPMG", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636095/kpmg-logo_trr6d6.png" },
+  { id: 30, name: "Accenture", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636094/accenture-logo_onhlui.png" },
+  { id: 31, name: "SAP", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636090/SAP-logo_kpsn8q.png" },
+  { id: 32, name: "Salesforce", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636085/Salesforce-logo_qlfsey.png" },
+  { id: 33, name: "IBM", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636083/IBM-logo_hzdojh.png" },
+  { id: 34, name: "Cisco", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634686/cisco-logo_puvl3g.png" },
+{ id: 35, name: "Samsung", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636078/Samsung-logo_hquoqv.avif" }, 
+{ id: 36, name: "JP Morgan", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636077/JP-Morgan-Logo_hvz1dp.jpg" }, 
+{ id: 37, name: "Goldman Sachs", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636073/Goldman-Sachs-logo_eteb8p.png" },
+{ id: 38, name: "Citibank", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634685/citibank-logo_hh76yw.jpg" },
+{ id: 39, name: "Shell", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636068/Shell-logo_y1mpac.png" }, 
+{ id: 40, name: "Unilever", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636067/Unilever-logo_p9nxah.svg" },
+{ id: 41, name: "P&G", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634688/p_g-logo_j9lgmw.jpg" }, 
+{ id: 42, name: "Nestlé", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636063/Nestle-logo_sm96rt.png" }, 
+{ id: 43, name: "3M", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634691/3m-logo_twgmit.jpg" }, 
+{ id: 44, name: "Visa", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636060/Visa-logo_pxsjvr.jpg" }, 
+{ id: 45, name: "Mastercard", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636056/Mastercard-logo_astrll.png" },
+{ id: 46, name: "PayPal", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636051/paypal-logo_eg16l2.png" },
+{ id: 47, name: "Stripe", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636050/stripe-logo_nx0y1j.png" }, 
+{ id: 48, name: "Dyson", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636046/dyson-logo_yatver.png" },
+{ id: 49, name: "ST Engineering", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636043/ST-Engineering-logo_ck91he.png" },
+{ id: 50, name: "Keppel", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636040/Keppel-logo_lvhzwm.png" },
+{ id: 51, name: "ComfortDelGro", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636037/ComfortDelGro-logo_orksye.png" },
+{ id: 52, name: "Mapletree", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636033/MapleTree-logo_xjzaml.png" },
+{ id: 53, name: "Frasers", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636031/Fraserz-logo_r3pqwz.jpg" },
+{ id: 54, name: "NUS", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636028/NUS-logo_aizbz0.jpg" },
+{ id: 55, name: "NTU", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775638826/ntu-logo_efg9g4.svg" },
+{ id: 56, name: "SMU", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636025/SMU-logo_e2sjc5.png" }, 
+{ id: 57, name: "DHL", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636022/DHL-logo_qpghdi.png" }, 
+{ id: 58, name: "FedEx", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636018/FedEx-logo_hpsfr9.png" },
+{ id: 59, name: "Lazada", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636016/Lazada-logo_apzklm.svg" }, 
+{ id: 60, name: "Razer", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775636013/Razer-logo_cazk3v.png" }, 
+{ id: 61, name: "Siemens", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775635969/Siemens-logo_ulbkot.svg" },
+{ id: 62, name: "Bosch", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634710/Bosch-logo_jbsqnp.png" }, 
+{ id: 63, name: "Mediacorp", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634709/Mediacorp-logo_bmb774.svg" }, 
+{ id: 64, name: "Income Insurance", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634706/Income-Insurance-logo_ulqioe.png" }, 
+{ id: 65, name: "SMRT", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502554/SMRT_Corporation_logo_uroevw.png" },
+{ id: 66, name: "SP Group", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502555/SP_Group_Logo_nq9nzl.svg" }, 
+{ id: 67, name: "Sentosa", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774502554/sentosa-logo_hok03k.webp" },
+{ id: 68, name: "Manulife", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634703/Manulife-logo_nq6poz.png" }, 
+{ id: 69, name: "Zurich Insurance", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634701/Zurich-Insurance-logo_laalyc.png" }, 
+{ id: 70, name: "Roche", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634698/Roche-logo_l4erol.png" }, 
+{ id: 71, name: "Pfizer", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634696/Pfizer-logo_icifpm.png" }, 
+{ id: 72, name: "GlaxoSmithKline", logo: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775634693/Glaxo-SmithKline-logo_re8fe7.png" }, 
 ];
 
 const normalize = (s: string) => s.toLowerCase().replace(/[\s\-_\.]/g, "");
@@ -93,30 +91,30 @@ const stripNoise = (s: string) => {
 };
 
 const brandToFilename: Record<string, string> = {
-  "DBS": "dbs_bank_logo",
-  "OCBC": "logo-ocbc",
-  "UOB": "uob_logo",
-  "Singtel": "singtel_logo",
-  "Grab": "singapore-grab-logo",
-  "Shopee": "shopee",
-  "NTUC": "ntuc_logo",
-  "GovTech": "govtech_logo",
-  "CapitaLand": "capitaland_logo",
+  DBS: "dbs_bank_logo",
+  OCBC: "logo-ocbc",
+  UOB: "uob_logo",
+  Singtel: "singtel_logo",
+  Grab: "singapore-grab-logo",
+  Shopee: "shopee",
+  NTUC: "ntuc_logo",
+  GovTech: "govtech_logo",
+  CapitaLand: "capitaland_logo",
   "Singapore Airlines": "singapore_airlines_logo",
   "Changi Airport": "changi_logo",
-  "StarHub": "starhub_logo",
-  "POSB": "posb_logo",
-  "Prudential": "prudentialgroup_logo",
+  StarHub: "starhub_logo",
+  POSB: "posb_logo",
+  Prudential: "prudentialgroup_logo",
   "Marina Bay Sands": "marina_bay_sands_logo",
   "Great Eastern": "great_eastern_logo",
-  "HSBC": "hsbc",
+  HSBC: "hsbc",
   "Standard Chartered": "standard_chartered_logo",
-  "AIA": "aia-logo",
-  "Maybank": "maybank_logo",
-  "M1": "m1_logo",
-  "Sentosa": "sentosa-logo",
+  AIA: "aia-logo",
+  Maybank: "maybank_logo",
+  M1: "m1_logo",
+  Sentosa: "sentosa-logo",
   "SP Group": "sp_group_logo",
-  "SMRT": "smrt_corporation_logo",
+  SMRT: "smrt_corporation_logo",
 };
 
 const stats = [
@@ -179,18 +177,14 @@ export const SocialProofSection = () => {
               );
             });
             return match ? { ...brand, logo: match.secure_url } : brand;
-          })
+          }),
         );
       })
       .catch((err) => console.error("Failed to fetch Cloudinary logos:", err));
   }, []);
 
   // Split logos into groups of 24 (4 rows x 6 columns) for carousel
-  const logoGroups = [
-    clientLogos.slice(0, 24),
-    clientLogos.slice(24, 48),
-    clientLogos.slice(48, 72),
-  ];
+  const logoGroups = [clientLogos.slice(0, 24), clientLogos.slice(24, 48), clientLogos.slice(48, 72)];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -233,16 +227,14 @@ export const SocialProofSection = () => {
                     key={logo.id}
                     className="group aspect-[3/2] bg-white border border-border rounded-xl flex items-center justify-center hover:border-primary/40 hover:shadow-lg transition-all duration-300 p-3 relative overflow-hidden"
                   >
-                    <motion.div 
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                    />
-                    <img 
-                      src={logo.logo} 
+                    <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    <img
+                      src={logo.logo}
                       alt={logo.name}
                       className="max-w-full max-h-full object-contain relative z-10 grayscale group-hover:grayscale-0 transition-all duration-300"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
+                        target.style.display = "none";
                         target.parentElement!.innerHTML = `<span class="text-foreground text-xs font-display font-bold relative z-10">${logo.name}</span>`;
                       }}
                     />
@@ -259,9 +251,7 @@ export const SocialProofSection = () => {
                 key={i}
                 onClick={() => setCurrentGroup(i)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === currentGroup 
-                    ? "bg-primary w-6" 
-                    : "bg-primary/30 hover:bg-primary/50"
+                  i === currentGroup ? "bg-primary w-6" : "bg-primary/30 hover:bg-primary/50"
                 }`}
               />
             ))}
@@ -288,24 +278,20 @@ export const SocialProofSection = () => {
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + i * 0.1, duration: 0.3 }}
                   >
-                    <Star
-                      className="w-10 h-10 text-yellow-400 fill-yellow-400"
-                    />
+                    <Star className="w-10 h-10 text-yellow-400 fill-yellow-400" />
                   </motion.div>
                 ))}
               </div>
 
               {/* Rating text below stars */}
               <div className="mb-2">
-                <span className="text-4xl md:text-5xl font-display font-black text-foreground">
-                  4.8 / 5.0
-                </span>
+                <span className="text-4xl md:text-5xl font-display font-black text-foreground">4.8 / 5.0</span>
               </div>
-              
+
               <p className="text-muted-foreground font-display">
                 Based on <span className="text-primary font-bold">600+</span> Google Reviews
               </p>
-              
+
               <p className="text-muted-foreground/80 text-sm font-display">
                 Trusted by companies all across Singapore.
               </p>
@@ -336,15 +322,13 @@ export const SocialProofSection = () => {
                     <stat.icon className="w-6 h-6 text-primary" />
                   </div>
                 </div>
-                
+
                 <div className="relative inline-block mb-3">
                   <span className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-primary">
                     {stat.number}
                   </span>
                 </div>
-                <h4 className="text-lg md:text-xl font-display font-bold text-foreground mb-2">
-                  {stat.label}
-                </h4>
+                <h4 className="text-lg md:text-xl font-display font-bold text-foreground mb-2">{stat.label}</h4>
                 <p className="text-muted-foreground text-sm font-display">{stat.description}</p>
               </motion.div>
             ))}

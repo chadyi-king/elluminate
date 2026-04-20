@@ -3,18 +3,66 @@ import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360229/AmazingRace_2_hi89qz.jpg", alt: "Amazing Race Team Challenge", category: "Team Building" },
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg", alt: "CSI Investigation Activity", category: "Team Building" },
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361392/BuilderCross_1_asbqjw.jpg", alt: "Builder Cross Workshop", category: "Team Building" },
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361424/MTWI_1_e6xqsz.jpg", alt: "Minute To Win It Showdown", category: "Team Building" },
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361432/MonopolyDash_1_oo1zfx.jpg", alt: "Monopoly Dash Competition", category: "Team Building" },
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579572/Overseas_11_droxvw.jpg", alt: "Overseas Retreat Experience", category: "Retreats" },
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg", alt: "Running Man Group Activity", category: "Team Building" },
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361447/SotongGame_7_pphdjy.jpg", alt: "Sotong Game Team Challenge", category: "Team Building" },
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg", alt: "The Game Show Virtual Event", category: "Virtual" },
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579587/Overseas_6_d3fry4.jpg", alt: "Overseas Team Retreat", category: "Retreats" },
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361379/AmazingRace_22_qnkeat.heic", alt: "Amazing Race Checkpoint", category: "Team Building" },
-  { src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic", alt: "CSI Team Debrief", category: "Team Building" },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360229/AmazingRace_2_hi89qz.jpg",
+    alt: "Amazing Race Team Challenge",
+    category: "Team Building",
+  },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
+    alt: "CSI Investigation Activity",
+    category: "Team Building",
+  },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361402/BuilderCross_2_m6lujd.heic",
+    alt: "Builder Cross Workshop",
+    category: "Team Building",
+  },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361437/MTWI_9_qfxt3q.heic",
+    alt: "Minute To Win It Showdown",
+    category: "Team Building",
+  },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361422/MonopolyDash_5_msxabk.heic",
+    alt: "Monopoly Dash Competition",
+    category: "Team Building",
+  },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579572/Overseas_11_droxvw.jpg",
+    alt: "Overseas Retreat Experience",
+    category: "Retreats",
+  },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg",
+    alt: "Running Man Group Activity",
+    category: "Team Building",
+  },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361478/SotongGame_7_cd8u9r.jpg",
+    alt: "Sotong Game Team Challenge",
+    category: "Team Building",
+  },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579600/TheGameShow_VTB_4_weyhxy.png",
+    alt: "The Game Show Virtual Event",
+    category: "Virtual",
+  },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579587/Overseas_6_d3fry4.jpg",
+    alt: "Overseas Team Retreat",
+    category: "Retreats",
+  },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361379/AmazingRace_22_qnkeat.heic",
+    alt: "Amazing Race Checkpoint",
+    category: "Team Building",
+  },
+  {
+    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
+    alt: "CSI Team Debrief",
+    category: "Team Building",
+  },
 ];
 
 export const GallerySection = () => {
@@ -22,13 +70,13 @@ export const GallerySection = () => {
 
   const openLightbox = (index: number) => setSelectedImage(index);
   const closeLightbox = () => setSelectedImage(null);
-  
+
   const nextImage = () => {
     if (selectedImage !== null) {
       setSelectedImage((selectedImage + 1) % galleryImages.length);
     }
   };
-  
+
   const prevImage = () => {
     if (selectedImage !== null) {
       setSelectedImage((selectedImage - 1 + galleryImages.length) % galleryImages.length);
@@ -87,9 +135,7 @@ export const GallerySection = () => {
                     <span className="text-xs font-display font-semibold px-2 py-1 rounded-full bg-primary/20 text-primary-foreground mb-2 inline-block">
                       {image.category}
                     </span>
-                    <h4 className="text-white font-display font-bold text-sm md:text-base">
-                      {image.alt}
-                    </h4>
+                    <h4 className="text-white font-display font-bold text-sm md:text-base">{image.alt}</h4>
                   </div>
                 </div>
               </div>
@@ -118,13 +164,19 @@ export const GallerySection = () => {
           {/* Navigation */}
           <button
             className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
-            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              prevImage();
+            }}
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
-            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              nextImage();
+            }}
           >
             <ChevronRight className="w-6 h-6" />
           </button>

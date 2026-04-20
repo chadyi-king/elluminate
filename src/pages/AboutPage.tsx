@@ -350,7 +350,7 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
+      <SEO
         title="About Elluminate | Singapore's Corporate Team Building Experts"
         description="8+ years delivering team building, retreats, and training across Singapore. Meet the team behind 1,000+ events and 100,000+ participants."
         keywords="about Elluminate, Singapore team building company, school programmes Singapore, training workshops Singapore"
@@ -536,7 +536,7 @@ const AboutPage = () => {
         {/* Background Image - Asian corporate setting */}
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775545183/About-Us_ai3ync.webp"
+            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1775615791/about_us_0_g9cu3r.jpg"
             alt="Asian Corporate Team"
             className="w-full h-full object-cover"
           />
@@ -583,7 +583,7 @@ const AboutPage = () => {
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-sky-500/20 shadow-blue">
                 <img
-                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775545183/About-Us_ai3ync.webp"
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1775615791/about_us_0_g9cu3r.jpg"
                   alt="Asian Team Celebration"
                   className="w-full h-full object-cover"
                 />
@@ -1050,7 +1050,9 @@ const AboutPage = () => {
                 <Star key={i} className="w-6 h-6 fill-primary text-primary" />
               ))}
             </div>
-            <p className="text-lg font-display font-medium text-foreground">600+ Reviews • 4.8-Star Google Rating</p>
+            <p className="text-lg font-display font-medium text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+              600+ Reviews • 4.8-Star Google Rating
+            </p>
           </motion.div>
         </div>
       </section>
