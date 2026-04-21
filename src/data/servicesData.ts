@@ -1817,12 +1817,37 @@ export const servicesData: Record<string, ServiceData> = {
       itemsPerRow: 3,
       showNumbers: true,
       items: [
-        { icon: Phone, title: "Discovery Call", description: "We learn your team dynamics, strategic goals, and what success looks like for the offsite." },
-        { icon: ClipboardList, title: "Agenda Design", description: "A custom programme that balances facilitated strategy sessions, team activities, and downtime." },
-        { icon: MapPin, title: "Venue Selection", description: "We shortlist premium venues that match your group size, style, and budget." },
-        { icon: Users, title: "Facilitated Sessions", description: "Expert facilitators guide strategic discussions, alignment exercises, and leadership development." },
-        { icon: Heart, title: "Team Bonding", description: "Curated social and recreational experiences that strengthen leadership team connections." },
-        { icon: Target, title: "Action Planning", description: "Close with clear priorities, accountabilities, and a 90-day follow-through framework." },
+        {
+          icon: Phone,
+          title: "Discovery Call",
+          description: "We learn your team dynamics, strategic goals, and what success looks like for the offsite.",
+        },
+        {
+          icon: ClipboardList,
+          title: "Agenda Design",
+          description: "A custom programme that balances facilitated strategy sessions, team activities, and downtime.",
+        },
+        {
+          icon: MapPin,
+          title: "Venue Selection",
+          description: "We shortlist premium venues that match your group size, style, and budget.",
+        },
+        {
+          icon: Users,
+          title: "Facilitated Sessions",
+          description:
+            "Expert facilitators guide strategic discussions, alignment exercises, and leadership development.",
+        },
+        {
+          icon: Heart,
+          title: "Team Bonding",
+          description: "Curated social and recreational experiences that strengthen leadership team connections.",
+        },
+        {
+          icon: Target,
+          title: "Action Planning",
+          description: "Close with clear priorities, accountabilities, and a 90-day follow-through framework.",
+        },
       ],
     },
     perfectForFlow: {
@@ -1830,44 +1855,109 @@ export const servicesData: Record<string, ServiceData> = {
       sectionSubtitle: "Leadership Development Needs",
       itemsPerRow: 4,
       items: [
-        { icon: Target, title: "Annual Strategy", description: "Set direction and align the leadership team on priorities for the year ahead." },
-        { icon: Users, title: "New Leadership Team", description: "Accelerate trust and alignment when senior composition changes." },
-        { icon: Rocket, title: "Quarterly Kickoffs", description: "Reset focus and energise leadership momentum every quarter." },
-        { icon: Brain, title: "Innovation Sprints", description: "Step away from BAU to tackle big-picture challenges with fresh thinking." },
-        { icon: Handshake, title: "Merger Integration", description: "Align cultures and leadership styles after M&A activity." },
-        { icon: GraduationCap, title: "Leadership Development", description: "Build capability and cohesion among high-potential managers." },
-        { icon: Heart, title: "Executive Wellness", description: "Recharge senior leaders with curated R&R alongside productive sessions." },
-        { icon: Flag, title: "Vision & Values", description: "Define or refresh company purpose, mission, and cultural principles." },
+        {
+          icon: Target,
+          title: "Annual Strategy",
+          description: "Set direction and align the leadership team on priorities for the year ahead.",
+        },
+        {
+          icon: Users,
+          title: "New Leadership Team",
+          description: "Accelerate trust and alignment when senior composition changes.",
+        },
+        {
+          icon: Rocket,
+          title: "Quarterly Kickoffs",
+          description: "Reset focus and energise leadership momentum every quarter.",
+        },
+        {
+          icon: Brain,
+          title: "Innovation Sprints",
+          description: "Step away from BAU to tackle big-picture challenges with fresh thinking.",
+        },
+        {
+          icon: Handshake,
+          title: "Merger Integration",
+          description: "Align cultures and leadership styles after M&A activity.",
+        },
+        {
+          icon: GraduationCap,
+          title: "Leadership Development",
+          description: "Build capability and cohesion among high-potential managers.",
+        },
+        {
+          icon: Heart,
+          title: "Executive Wellness",
+          description: "Recharge senior leaders with curated R&R alongside productive sessions.",
+        },
+        {
+          icon: Flag,
+          title: "Vision & Values",
+          description: "Define or refresh company purpose, mission, and cultural principles.",
+        },
       ],
     },
-    pricing: { startingPrice: "Get a Quote", unit: "per pax", minimumPax: 8, duration: "1.5-3 days", activityType: "hybrid" },
+    pricing: {
+      startingPrice: "Get a Quote",
+      unit: "per pax",
+      minimumPax: 8,
+      duration: "1.5-3 days",
+      activityType: "hybrid",
+    },
     packages: [
       {
         color: "#26D07C",
         title: "Day Offsite",
-        description: "A focused single-day experience at a premium venue. Facilitated strategy session, group lunch, and one team activity. Ideal for quarterly check-ins.",
+        description:
+          "A focused single-day experience at a premium venue. Facilitated strategy session, group lunch, and one team activity. Ideal for quarterly check-ins.",
         features: ["Premium venue", "Facilitated strategy session", "Team lunch", "1 bonding activity"],
       },
       {
         color: "#FFC400",
         title: "Overnight Offsite",
-        description: "Two days, one night. Enough time for deep strategic work plus an evening social that builds trust beyond the boardroom.",
+        description:
+          "Two days, one night. Enough time for deep strategic work plus an evening social that builds trust beyond the boardroom.",
         features: ["2D1N at premium venue", "Full facilitation", "Evening dinner programme", "2 team activities"],
       },
       {
         color: "#FF4F4F",
         title: "Executive Retreat",
-        description: "The full leadership reset. Multi-day programme at a luxury property with executive coaching, wellness, and strategic facilitation woven together.",
+        description:
+          "The full leadership reset. Multi-day programme at a luxury property with executive coaching, wellness, and strategic facilitation woven together.",
         features: ["3D2N luxury accommodation", "Executive coaching", "Wellness sessions", "Full programme design"],
       },
     ],
     addOns: [
-      { icon: "Brain", title: "Executive Coaching", description: "One-on-one or small-group coaching sessions with a certified leadership coach." },
-      { icon: "Dumbbell", title: "Wellness Programme", description: "Morning yoga, guided meditation, or spa sessions built into the offsite schedule." },
-      { icon: "Camera", title: "Event Documentation", description: "Professional photography and videography to capture key moments and outputs." },
-      { icon: "UtensilsCrossed", title: "Premium Dining", description: "Private chef experience, wine pairing dinner, or themed culinary evening." },
-      { icon: "FileText", title: "Pre-Offsite Surveys", description: "Anonymous stakeholder interviews and team health surveys to inform the agenda." },
-      { icon: "Target", title: "Post-Offsite Follow-Up", description: "A 90-day accountability check-in session to track progress on commitments made." },
+      {
+        icon: "Brain",
+        title: "Executive Coaching",
+        description: "One-on-one or small-group coaching sessions with a certified leadership coach.",
+      },
+      {
+        icon: "Dumbbell",
+        title: "Wellness Programme",
+        description: "Morning yoga, guided meditation, or spa sessions built into the offsite schedule.",
+      },
+      {
+        icon: "Camera",
+        title: "Event Documentation",
+        description: "Professional photography and videography to capture key moments and outputs.",
+      },
+      {
+        icon: "UtensilsCrossed",
+        title: "Premium Dining",
+        description: "Private chef experience, wine pairing dinner, or themed culinary evening.",
+      },
+      {
+        icon: "FileText",
+        title: "Pre-Offsite Surveys",
+        description: "Anonymous stakeholder interviews and team health surveys to inform the agenda.",
+      },
+      {
+        icon: "Target",
+        title: "Post-Offsite Follow-Up",
+        description: "A 90-day accountability check-in session to track progress on commitments made.",
+      },
     ],
     hideOutcomes: true,
     hideMidCta: true,
@@ -2929,7 +3019,7 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     cta: {
       headline: "Ready to Invest in Your Team's Wellbeing?",
-      subtext: "Let's create wellness experiences that nurture and energize your people."
+      subtext: "Let's create wellness experiences that nurture and energize your people.",
     },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",
@@ -2937,12 +3027,36 @@ export const servicesData: Record<string, ServiceData> = {
       itemsPerRow: 3,
       showNumbers: true,
       items: [
-        { icon: Phone, title: "Wellness Consultation", description: "We discuss your team's needs, energy levels, and any wellness goals or themes." },
-        { icon: ClipboardList, title: "Programme Design", description: "A custom mix of movement, mindfulness, nutrition, and social activities for your group." },
-        { icon: MapPin, title: "Venue & Setup", description: "We handle venue selection, equipment, mats, facilitators, and catering." },
-        { icon: Heart, title: "Guided Sessions", description: "Certified instructors lead each activity with warmth and inclusivity." },
-        { icon: Users, title: "Group Reflection", description: "A closing circle that brings the team together with intention and shared commitment." },
-        { icon: Gift, title: "Take-Home Kit", description: "Wellness resources, guides, or small gifts so the benefits continue beyond the day." },
+        {
+          icon: Phone,
+          title: "Wellness Consultation",
+          description: "We discuss your team's needs, energy levels, and any wellness goals or themes.",
+        },
+        {
+          icon: ClipboardList,
+          title: "Programme Design",
+          description: "A custom mix of movement, mindfulness, nutrition, and social activities for your group.",
+        },
+        {
+          icon: MapPin,
+          title: "Venue & Setup",
+          description: "We handle venue selection, equipment, mats, facilitators, and catering.",
+        },
+        {
+          icon: Heart,
+          title: "Guided Sessions",
+          description: "Certified instructors lead each activity with warmth and inclusivity.",
+        },
+        {
+          icon: Users,
+          title: "Group Reflection",
+          description: "A closing circle that brings the team together with intention and shared commitment.",
+        },
+        {
+          icon: Gift,
+          title: "Take-Home Kit",
+          description: "Wellness resources, guides, or small gifts so the benefits continue beyond the day.",
+        },
       ],
     },
     perfectForFlow: {
@@ -2950,14 +3064,46 @@ export const servicesData: Record<string, ServiceData> = {
       sectionSubtitle: "Wellbeing Occasions",
       itemsPerRow: 4,
       items: [
-        { icon: Heart, title: "Mental Health Day", description: "A full-team reset focused on stress relief, mindfulness, and rest." },
-        { icon: Users, title: "Employee Appreciation", description: "Show your people you value them beyond productivity." },
-        { icon: Dumbbell, title: "Fitness Challenge", description: "Energising movement-based sessions that get everyone involved." },
-        { icon: Sparkles, title: "Year-End Wind Down", description: "Close the year with relaxation rather than another party." },
-        { icon: Brain, title: "Resilience Building", description: "Equip your team with practical tools for managing pressure." },
-        { icon: Target, title: "Post-Project Recovery", description: "Help teams decompress after a high-intensity sprint or launch." },
-        { icon: GraduationCap, title: "Wellness Workshops", description: "Nutrition, sleep, breathwork, or ergonomics education sessions." },
-        { icon: Building, title: "Office Wellness Series", description: "Regular in-office sessions like lunchtime yoga or meditation." },
+        {
+          icon: Heart,
+          title: "Mental Health Day",
+          description: "A full-team reset focused on stress relief, mindfulness, and rest.",
+        },
+        {
+          icon: Users,
+          title: "Employee Appreciation",
+          description: "Show your people you value them beyond productivity.",
+        },
+        {
+          icon: Dumbbell,
+          title: "Fitness Challenge",
+          description: "Energising movement-based sessions that get everyone involved.",
+        },
+        {
+          icon: Sparkles,
+          title: "Year-End Wind Down",
+          description: "Close the year with relaxation rather than another party.",
+        },
+        {
+          icon: Brain,
+          title: "Resilience Building",
+          description: "Equip your team with practical tools for managing pressure.",
+        },
+        {
+          icon: Target,
+          title: "Post-Project Recovery",
+          description: "Help teams decompress after a high-intensity sprint or launch.",
+        },
+        {
+          icon: GraduationCap,
+          title: "Wellness Workshops",
+          description: "Nutrition, sleep, breathwork, or ergonomics education sessions.",
+        },
+        {
+          icon: Building,
+          title: "Office Wellness Series",
+          description: "Regular in-office sessions like lunchtime yoga or meditation.",
+        },
       ],
     },
     recentEvents: [
@@ -2978,29 +3124,61 @@ export const servicesData: Record<string, ServiceData> = {
       {
         color: "#26D07C",
         title: "Wellness Lite",
-        description: "A 3-hour guided session at your office or a nearby venue. One lead activity (yoga, meditation, or breathwork) plus a group reflection to close.",
+        description:
+          "A 3-hour guided session at your office or a nearby venue. One lead activity (yoga, meditation, or breathwork) plus a group reflection to close.",
         features: ["3-hour programme", "1 lead wellness activity", "Certified instructor", "Group closing reflection"],
       },
       {
         color: "#FFC400",
         title: "Wellness Day",
-        description: "A half-day programme with two to three rotating wellness stations, a nutrition talk, and a catered healthy lunch.",
+        description:
+          "A half-day programme with two to three rotating wellness stations, a nutrition talk, and a catered healthy lunch.",
         features: ["Half-day programme", "2-3 wellness stations", "Nutrition talk", "Healthy catered lunch"],
       },
       {
         color: "#FF4F4F",
         title: "Wellness Retreat",
-        description: "A full-day or overnight experience at a resort or wellness venue. Multiple sessions, spa access, and a complete mind-body reset for your team.",
-        features: ["Full-day or overnight", "Multiple wellness sessions", "Spa or nature access", "Complete wellness programme"],
+        description:
+          "A full-day or overnight experience at a resort or wellness venue. Multiple sessions, spa access, and a complete mind-body reset for your team.",
+        features: [
+          "Full-day or overnight",
+          "Multiple wellness sessions",
+          "Spa or nature access",
+          "Complete wellness programme",
+        ],
       },
     ],
     addOns: [
-      { icon: "Dumbbell", title: "Spa Credits", description: "Individual spa treatment vouchers for every participant at partner wellness centres." },
-      { icon: "UtensilsCrossed", title: "Healthy Catering", description: "Nutritionist-curated menus with plant-based, gluten-free, and balanced meal options." },
-      { icon: "Gift", title: "Wellness Kits", description: "Take-home bundles with essential oils, resistance bands, journals, and guided meditation cards." },
-      { icon: "Camera", title: "Photo & Video", description: "Professional documentation of the wellness day for internal comms and social media." },
-      { icon: "Brain", title: "1-on-1 Coaching", description: "Private 15-minute wellness coaching sessions with a certified practitioner." },
-      { icon: "CalendarDays", title: "Monthly Wellness Series", description: "Recurring lunchtime or after-work sessions delivered weekly or monthly at your office." },
+      {
+        icon: "Dumbbell",
+        title: "Spa Credits",
+        description: "Individual spa treatment vouchers for every participant at partner wellness centres.",
+      },
+      {
+        icon: "UtensilsCrossed",
+        title: "Healthy Catering",
+        description: "Nutritionist-curated menus with plant-based, gluten-free, and balanced meal options.",
+      },
+      {
+        icon: "Gift",
+        title: "Wellness Kits",
+        description: "Take-home bundles with essential oils, resistance bands, journals, and guided meditation cards.",
+      },
+      {
+        icon: "Camera",
+        title: "Photo & Video",
+        description: "Professional documentation of the wellness day for internal comms and social media.",
+      },
+      {
+        icon: "Brain",
+        title: "1-on-1 Coaching",
+        description: "Private 15-minute wellness coaching sessions with a certified practitioner.",
+      },
+      {
+        icon: "CalendarDays",
+        title: "Monthly Wellness Series",
+        description: "Recurring lunchtime or after-work sessions delivered weekly or monthly at your office.",
+      },
     ],
     hideOutcomes: true,
     hideMidCta: true,
@@ -5525,7 +5703,9 @@ export const servicesData: Record<string, ServiceData> = {
     videoSection: {
       title: "See the Race in Action",
       subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/f_auto,q_auto/v1775788768/Decathlon_cztrri.mp4",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776741980/Amazing_Race_jdt9ya.mov",
+      thumbnailImage:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776741980/Amazing_Race_jdt9ya.jpg",
     },
     cta: {
       headline: "Ready for Your Amazing Race?",
@@ -12244,20 +12424,41 @@ export const servicesData: Record<string, ServiceData> = {
       {
         color: "#26D07C",
         title: "Staycation",
-        description: "A full team reset without leaving Singapore. City hotel stay with pool access, a shared team dinner, and one guided bonding activity. Great for whole-staff appreciation. Partner hotels include Novotel Clarke Quay, Village Hotel, Park Hotel, Holiday Inn and Mercure.",
-        features: ["Hotel room night", "Team dinner", "Pool & facilities access", "1 team bonding activity", "Breakfast included"],
+        description:
+          "A full team reset without leaving Singapore. City hotel stay with pool access, a shared team dinner, and one guided bonding activity. Great for whole-staff appreciation. Partner hotels include Novotel Clarke Quay, Village Hotel, Park Hotel, Holiday Inn and Mercure.",
+        features: [
+          "Hotel room night",
+          "Team dinner",
+          "Pool & facilities access",
+          "1 team bonding activity",
+          "Breakfast included",
+        ],
       },
       {
         color: "#FFC400",
         title: "Heritage",
-        description: "Singapore's most celebrated historical properties as your backdrop. Goodwood Park Hotel, Fort Canning Hotel, Capitol Kempinski, and Raffles Singapore. The venue itself becomes a talking point before a single activity begins. Ideal for leadership off-sites and milestone celebrations.",
-        features: ["Heritage hotel stay", "Premium dining experience", "Optional heritage tour", "Cultural team activity", "Curated itinerary"],
+        description:
+          "Singapore's most celebrated historical properties as your backdrop. Goodwood Park Hotel, Fort Canning Hotel, Capitol Kempinski, and Raffles Singapore. The venue itself becomes a talking point before a single activity begins. Ideal for leadership off-sites and milestone celebrations.",
+        features: [
+          "Heritage hotel stay",
+          "Premium dining experience",
+          "Optional heritage tour",
+          "Cultural team activity",
+          "Curated itinerary",
+        ],
       },
       {
         color: "#FF4F4F",
         title: "Luxury",
-        description: "Reserved for teams that have earned it. Capella Sentosa, Marina Bay Sands, The Fullerton Bay, Andaz Singapore, and Shangri-La. Immaculate rooms, private dining, spa credits, and concierge service throughout. Best for top performer reward trips and senior leadership retreats.",
-        features: ["5-star luxury accommodation", "Private dining experience", "Spa treatment credit", "Concierge service", "Premium team programme"],
+        description:
+          "Reserved for teams that have earned it. Capella Sentosa, Marina Bay Sands, The Fullerton Bay, Andaz Singapore, and Shangri-La. Immaculate rooms, private dining, spa credits, and concierge service throughout. Best for top performer reward trips and senior leadership retreats.",
+        features: [
+          "5-star luxury accommodation",
+          "Private dining experience",
+          "Spa treatment credit",
+          "Concierge service",
+          "Premium team programme",
+        ],
       },
     ],
     addOns: [
