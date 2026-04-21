@@ -1791,7 +1791,6 @@ export const servicesData: Record<string, ServiceData> = {
       headline: "Ready to Align Your Leadership Team?",
       subtext: "Let's design a strategic offsite that transforms vision into action.",
     },
-    dividerVariant: "route",
     recentEvents: [
       { client: "Olam International", event: "Q1 Leadership Summit", pax: 313 },
       { client: "Nanyang Polytechnic", event: "Senior Leaders Retreat", pax: 332 },
