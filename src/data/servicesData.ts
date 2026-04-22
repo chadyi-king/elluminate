@@ -8503,6 +8503,15 @@ export const servicesData: Record<string, ServiceData> = {
           "Yes. We tailor the game selection and hosting style to match your event tone, from casual team days to more formal gala entertainment.",
       },
     ],
+    videoSection: {
+      title: "Quick Challenges, Big Fun!",
+      subtitle:
+        "Watch teams race against the clock in a series of exciting 60-second challenges. Speed, skill, and creativity are key to winning in this fast-paced, high-energy game!",
+      videoUrl:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1773887140/Minute-To-Win-It-Team-Building_i0cajb.mp4",
+      thumbnailImage:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1773887140/Minute-To-Win-It-Team-Building_i0cajb.jpg",
+    },
     cta: {
       headline: "Ready to Play?",
       subtext:
