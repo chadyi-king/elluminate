@@ -8880,6 +8880,14 @@ export const servicesData: Record<string, ServiceData> = {
           "Yes. We can incorporate company trivia, branded properties, and custom missions aligned with your event theme or company values.",
       },
     ],
+    videoSection: {
+      title: "Race to the Finish Line!",
+      subtitle:
+        "Watch teams race through fast-paced challenges inspired by the classic board game. Complete tasks, collect points, and outsmart your opponents in this exciting and competitive game of strategy and speed!",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776838228/Monopoly_Dash_d8mjjz.mov",
+      thumbnailImage:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776838228/Monopoly_Dash_d8mjjz.jpg",
+    },
     cta: {
       headline: "Ready to Dash?",
       subtext:
