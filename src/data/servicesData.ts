@@ -10314,6 +10314,14 @@ export const servicesData: Record<string, ServiceData> = {
         },
       ],
     },
+    videoSection: {
+      title: "See the Race in Action",
+      subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
+      videoUrl:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1773887139/Laser-Tag-Team-Building-1_wjhrle.mp4",
+      thumbnailImage:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1773887139/Laser-Tag-Team-Building-1_wjhrle.jpg",
+    },
     clientLogos: ["Thales", "BAE Systems", "ST Aerospace", "Dassault", "Bosch", "Sembcorp"],
     recentEvents: [
       { client: "Samsung Electronics SG", event: "Laser Tag Battle", pax: 374 },
