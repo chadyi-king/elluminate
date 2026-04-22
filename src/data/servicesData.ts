@@ -10315,8 +10315,9 @@ export const servicesData: Record<string, ServiceData> = {
       ],
     },
     videoSection: {
-      title: "See the Race in Action",
-      subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
+      title: "The Ultimate Battle of Strategy",
+      subtitle:
+        "Watch teams compete in fast-paced laser tag challenges, testing their strategy and teamwork across dynamic arenas.",
       videoUrl:
         "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1773887139/Laser-Tag-Team-Building-1_wjhrle.mp4",
       thumbnailImage:
