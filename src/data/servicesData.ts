@@ -9555,6 +9555,14 @@ export const servicesData: Record<string, ServiceData> = {
           "Absolutely. We have hosted Running Man for groups of up to 300+ with multiple simultaneous game stations and a central scoring system.",
       },
     ],
+    videoSection: {
+      title: "The Ultimate Team Challenge",
+      subtitle:
+        "Watch teams compete in exciting and unpredictable challenges inspired by the hit show Running Man. From name tag elimination to thrilling obstacle courses, teamwork and strategy are key to outsmarting your opponents and winning!",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776837783/RunningMan_oxkjdu.mov",
+      thumbnailImage:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776837783/RunningMan_oxkjdu.jpg",
+    },
     cta: {
       headline: "Ready for Running Man?",
       subtext:
