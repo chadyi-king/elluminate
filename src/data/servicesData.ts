@@ -9921,6 +9921,14 @@ export const servicesData: Record<string, ServiceData> = {
           "We accommodate groups from 20 to 300+. Larger groups are divided into zones with simultaneous games running in parallel.",
       },
     ],
+    videoSection: {
+      title: "Tense Challenges, Teamwork Wins!",
+      subtitle:
+        "Watch teams tackle unique and fun challenges in this exciting game of strategy and teamwork. From blind paths to pressure puzzles, every challenge tests your group's ability to think fast and work together!",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776838226/Sotong_Game_qqx1d3.mov",
+      thumbnailImage:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776838226/Sotong_Game_qqx1d3.jpg",
+    },
     cta: {
       headline: "Ready for Sotong Game?",
       subtext:
