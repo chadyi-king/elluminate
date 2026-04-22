@@ -5940,6 +5940,15 @@ export const servicesData: Record<string, ServiceData> = {
       },
     ],
     faqs: [],
+
+    videoSection: {
+      title: "Unravel the Mystery!",
+      subtitle:
+        "Watch teams dive into a thrilling mystery as they piece together clues to solve a crime. With sharp observation and teamwork, uncover the truth in this exciting detective challenge!",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776838441/CSI-Bones_lzx6cy.mp4",
+      thumbnailImage:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776838441/CSI-Bones_lzx6cy.jpg",
+    },
     cta: {
       headline: "Ready to Solve the Case?",
       subtext:
