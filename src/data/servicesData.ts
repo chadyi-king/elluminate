@@ -7831,6 +7831,14 @@ export const servicesData: Record<string, ServiceData> = {
           "Standard sessions run 2 to 3 hours. We can adjust the number of rounds and difficulty to fit your schedule.",
       },
     ],
+    videoSection: {
+      title: "Build, Create, Compete!",
+      subtitle:
+        "Watch teams race against the clock to build the tallest and most creative structure while overcoming exciting challenges. Teamwork and innovation are essential in this fun and competitive building showdown!",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776837616/Builder-Cross_sll8i8.mov",
+      thumbnailImage:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776837616/Builder-Cross_sll8i8.jpg",
+    },
     cta: {
       headline: "Ready to Build Together?",
       subtext:
