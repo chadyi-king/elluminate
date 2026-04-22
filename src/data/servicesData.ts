@@ -7507,6 +7507,15 @@ export const servicesData: Record<string, ServiceData> = {
       },
     ],
     faqs: [],
+    videoSection: {
+      title: "Aim, Shoot, Win!",
+      subtitle:
+        "Watch teams compete in this thrilling mix of archery and tag, where precision and strategy are key. Dodge, shoot, and outsmart your opponents to claim victory in this action-packed battle!",
+      videoUrl:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1773887135/Archery-Tag-Team-Building-1_ssgv9f.mp4",
+      thumbnailImage:
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1773887135/Archery-Tag-Team-Building-1_ssgv9f.jpg",
+    },
     cta: {
       headline: "Ready to Battle?",
       subtext: "Share your pax count and venue and we’ll propose the best format for your team or school group.",
