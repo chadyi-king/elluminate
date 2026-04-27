@@ -31,6 +31,31 @@ function json(body: unknown, status = 200) {
   })
 }
 
+// Templates that may be invoked by anonymous (unauthenticated) callers.
+// All other templates require a valid Authorization bearer token.
+const PUBLIC_TEMPLATES: Record<string, { fixedRecipient?: string }> = {
+  'contact-inquiry': { fixedRecipient: 'info@elluminate.sg' },
+  'contact-confirmation': {},
+}
+
+// Naive in-memory rate limiter per edge instance. Best-effort spam mitigation
+// for the public contact flow; combined with template/recipient locking.
+const rateBuckets = new Map<string, { count: number; resetAt: number }>()
+const RATE_LIMIT_WINDOW_MS = 60_000
+const RATE_LIMIT_MAX = 5
+
+function checkRateLimit(key: string): boolean {
+  const now = Date.now()
+  const bucket = rateBuckets.get(key)
+  if (!bucket || bucket.resetAt < now) {
+    rateBuckets.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS })
+    return true
+  }
+  if (bucket.count >= RATE_LIMIT_MAX) return false
+  bucket.count++
+  return true
+}
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
@@ -41,7 +66,8 @@ Deno.serve(async (req) => {
 
   const supabaseUrl = Deno.env.get('SUPABASE_URL')
   const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
-  if (!supabaseUrl || !supabaseServiceKey) {
+  const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')
+  if (!supabaseUrl || !supabaseServiceKey || !supabaseAnonKey) {
     console.error('Missing required environment variables')
     return json({ error: 'Server configuration error' }, 500)
   }
@@ -62,6 +88,38 @@ Deno.serve(async (req) => {
   const entry = TEMPLATES[templateName]
   if (!entry) {
     return json({ error: `Unknown template: ${templateName}` }, 400)
+  }
+
+  // Authorize: public allow-list templates skip auth but are recipient-locked
+  // and rate-limited; everything else requires a valid bearer token.
+  const publicEntry = PUBLIC_TEMPLATES[templateName]
+  if (!publicEntry) {
+    const authHeader = req.headers.get('Authorization')
+    if (!authHeader?.startsWith('Bearer ')) {
+      return json({ error: 'Unauthorized' }, 401)
+    }
+    const authClient = createClient(supabaseUrl, supabaseAnonKey, {
+      global: { headers: { Authorization: authHeader } },
+    })
+    const token = authHeader.replace('Bearer ', '')
+    const { data: claimsData, error: claimsErr } = await authClient.auth.getClaims(token)
+    if (claimsErr || !claimsData?.claims) {
+      return json({ error: 'Unauthorized' }, 401)
+    }
+  } else {
+    if (
+      publicEntry.fixedRecipient &&
+      recipientEmail.toLowerCase() !== publicEntry.fixedRecipient.toLowerCase()
+    ) {
+      return json({ error: 'Recipient not allowed for this template' }, 403)
+    }
+    const ip =
+      req.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+      req.headers.get('cf-connecting-ip') ||
+      'unknown'
+    if (!checkRateLimit(`${ip}:${templateName}`)) {
+      return json({ error: 'Rate limit exceeded' }, 429)
+    }
   }
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
