@@ -75,12 +75,23 @@ export type Database = {
           event_category: string | null
           expected_attendees: string | null
           expected_date: string | null
+          form_name: string | null
           game_customisation: string | null
+          gclid: string | null
           id: string
+          landing_page: string | null
           name: string
           organisation: string | null
           organisation_type: string | null
           phone: string | null
+          recaptcha_score: number | null
+          referrer: string | null
+          submission_page: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
         }
         Insert: {
           add_on_services?: string[] | null
@@ -91,12 +102,23 @@ export type Database = {
           event_category?: string | null
           expected_attendees?: string | null
           expected_date?: string | null
+          form_name?: string | null
           game_customisation?: string | null
+          gclid?: string | null
           id?: string
+          landing_page?: string | null
           name: string
           organisation?: string | null
           organisation_type?: string | null
           phone?: string | null
+          recaptcha_score?: number | null
+          referrer?: string | null
+          submission_page?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Update: {
           add_on_services?: string[] | null
@@ -107,12 +129,23 @@ export type Database = {
           event_category?: string | null
           expected_attendees?: string | null
           expected_date?: string | null
+          form_name?: string | null
           game_customisation?: string | null
+          gclid?: string | null
           id?: string
+          landing_page?: string | null
           name?: string
           organisation?: string | null
           organisation_type?: string | null
           phone?: string | null
+          recaptcha_score?: number | null
+          referrer?: string | null
+          submission_page?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Relationships: []
       }
