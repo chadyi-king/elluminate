@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Mail, CalendarIcon, Zap, Monitor, GraduationCap, Clock } from "lucide-react";
 import elluminateWords from "@/assets/logos/elluminate-words.png";
@@ -13,6 +14,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
+import { getAttribution } from "@/lib/attribution";
 
 const eventCategories = [
   "Physical Team Building",
@@ -116,6 +118,8 @@ const getInitialDate = () => {
 export const ContactModal = () => {
   const { isOpen, closeContactModal } = useContactModal();
   const { toast } = useToast();
+  const navigate = useNavigate();
+  const honeypotRef = useRef<HTMLInputElement>(null);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(getInitialDate);
   const [formData, setFormData] = useState(getInitialFormData);
 
@@ -139,8 +143,18 @@ export const ContactModal = () => {
       return;
     }
 
+    // Honeypot — bots fill hidden fields. Silently drop and behave as success.
+    if (honeypotRef.current?.value) {
+      closeContactModal();
+      navigate("/thank-you-contact");
+      return;
+    }
+
+    const attribution = getAttribution();
+    const submissionPage =
+      typeof window !== "undefined" ? window.location.pathname + window.location.search : null;
+
     try {
-      // Save submission to database
       const submissionId = crypto.randomUUID();
       const { error } = await supabase.from("contact_submissions").insert({
         id: submissionId,
@@ -156,16 +170,28 @@ export const ContactModal = () => {
         add_on_services: formData.addOnServices.length > 0 ? formData.addOnServices : null,
         additional_details: formData.additionalDetails || null,
         expected_date: selectedDate?.toISOString() || null,
+        // attribution
+        gclid: attribution.gclid || null,
+        utm_source: attribution.utm_source || null,
+        utm_medium: attribution.utm_medium || null,
+        utm_campaign: attribution.utm_campaign || null,
+        utm_term: attribution.utm_term || null,
+        utm_content: attribution.utm_content || null,
+        referrer: attribution.referrer || null,
+        landing_page: attribution.landing_page || null,
+        submission_page: submissionPage,
+        form_name: "contact",
       });
 
       if (error) throw error;
 
-      // Send notification email to Elluminate team
-      await supabase.functions.invoke("send-transactional-email", {
+      // Send notification email + auto-reply (fire-and-forget; failures shouldn't block the user)
+      void supabase.functions.invoke("send-transactional-email", {
         body: {
           templateName: "contact-inquiry",
           recipientEmail: "info@elluminate.sg",
           idempotencyKey: `contact-inquiry-${submissionId}`,
+          replyTo: formData.email,
           templateData: {
             name: formData.name,
             email: formData.email,
@@ -174,52 +200,77 @@ export const ContactModal = () => {
             organisation: formData.organisation,
             organisationType: formData.organisationType,
             expectedAttendees: formData.expectedAttendees,
+            additionalCustomisation: formData.additionalCustomisation,
+            gameCustomisation: formData.gameCustomisation,
             additionalDetails: formData.additionalDetails,
             expectedDate: selectedDate ? format(selectedDate, "PPP") : "Not specified",
             addOnServices: formData.addOnServices.join(", ") || "None",
+            gclid: attribution.gclid,
+            utm_source: attribution.utm_source,
+            utm_medium: attribution.utm_medium,
+            utm_campaign: attribution.utm_campaign,
+            utm_term: attribution.utm_term,
+            utm_content: attribution.utm_content,
+            referrer: attribution.referrer,
+            landing_page: attribution.landing_page,
+            submission_page: submissionPage,
           },
         },
       });
 
-      // Fire Google Ads conversion event on successful submission
-      if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "conversion", {
-          event_category: "engagement",
-          event_label: "contact_form_submit",
-          // Uncomment and replace with your Google Ads conversion ID:
-          // send_to: 'AW-XXXXXXXXX/XXXXXXX',
+      void supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-confirmation",
+          recipientEmail: formData.email,
+          idempotencyKey: `contact-confirmation-${submissionId}`,
+          templateData: { name: formData.name },
+        },
+      });
+
+      // Push form_submit event to dataLayer for GTM (will route to GA4 + Ads via container)
+      if (typeof window !== "undefined") {
+        const w = window as any;
+        w.dataLayer = w.dataLayer || [];
+        w.dataLayer.push({
+          event: "form_submit",
+          form_name: "contact",
+          form_location: submissionPage,
+          gclid: attribution.gclid,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          utm_term: attribution.utm_term,
+          utm_content: attribution.utm_content,
         });
       }
 
-      toast({
-        title: "Message Sent!",
-        description: "We'll get back to you within 24 hours.",
+      // Reset and redirect to thank-you page (where conversion event fires)
+      closeContactModal();
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        eventCategory: "",
+        organisation: "",
+        organisationType: "",
+        expectedAttendees: "",
+        additionalCustomisation: "",
+        gameCustomisation: "",
+        addOnServices: [],
+        additionalDetails: "",
+        privacyConsent: false,
       });
+      setSelectedDate(undefined);
+      localStorage.removeItem(STORAGE_KEY);
+      navigate("/thank-you-contact");
     } catch (err) {
       console.error("Form submission error:", err);
       toast({
-        title: "Message Sent!",
-        description: "We'll get back to you within 24 hours.",
+        title: "Something went wrong",
+        description: "Please try again, or email us at info@elluminate.sg.",
+        variant: "destructive",
       });
     }
-
-    closeContactModal();
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      eventCategory: "",
-      organisation: "",
-      organisationType: "",
-      expectedAttendees: "",
-      additionalCustomisation: "",
-      gameCustomisation: "",
-      addOnServices: [],
-      additionalDetails: "",
-      privacyConsent: false,
-    });
-    setSelectedDate(undefined);
-    localStorage.removeItem(STORAGE_KEY);
   };
 
   const toggleAddOnService = (service: string) => {
@@ -321,6 +372,16 @@ export const ContactModal = () => {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5 overflow-y-auto flex-1 scrollbar-gold">
+              {/* Honeypot — hidden from real users, bots fill it. Do not remove. */}
+              <input
+                ref={honeypotRef}
+                type="text"
+                name="website_url"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{ position: "absolute", left: "-10000px", width: 1, height: 1, opacity: 0 }}
+              />
               {/* Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
