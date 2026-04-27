@@ -53,8 +53,8 @@ export function getAttribution(): Attribution {
 }
 
 /**
- * Run on app load. Reads ?utm_*/?gclid from URL, merges into cookie,
- * and stores landing page on first visit.
+ * Run on app load. Reads UTM params and gclid from the URL, merges into
+ * the attribution cookie, and stores the landing page on first visit.
  */
 export function captureAttribution() {
   if (typeof window === "undefined") return;
