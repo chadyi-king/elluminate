@@ -235,7 +235,14 @@ export const SocialProofSection = () => {
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = "none";
-                        target.parentElement!.innerHTML = `<span class="text-foreground text-xs font-display font-bold relative z-10">${logo.name}</span>`;
+                        const parent = target.parentElement;
+                        if (parent && !parent.querySelector("[data-logo-fallback]")) {
+                          const fallback = document.createElement("span");
+                          fallback.className = "text-foreground text-xs font-display font-bold relative z-10";
+                          fallback.dataset.logoFallback = "true";
+                          fallback.textContent = logo.name;
+                          parent.appendChild(fallback);
+                        }
                       }}
                     />
                   </div>
