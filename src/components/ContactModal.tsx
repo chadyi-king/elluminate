@@ -372,6 +372,16 @@ export const ContactModal = () => {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5 overflow-y-auto flex-1 scrollbar-gold">
+              {/* Honeypot — hidden from real users, bots fill it. Do not remove. */}
+              <input
+                ref={honeypotRef}
+                type="text"
+                name="website_url"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{ position: "absolute", left: "-10000px", width: 1, height: 1, opacity: 0 }}
+              />
               {/* Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
