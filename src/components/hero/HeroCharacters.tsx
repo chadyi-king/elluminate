@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-import charBlueMan from "@/assets/hero/char-blue-man.png";
-import charRedWoman from "@/assets/hero/char-red-woman.png";
-import charGreenWoman from "@/assets/hero/char-green-woman.png";
-import charYellowBoy from "@/assets/hero/char-yellow-boy.png";
+import charBlueMan from "@/assets/hero/char-blue-man.webp";
+import charRedWoman from "@/assets/hero/char-red-woman.webp";
+import charGreenWoman from "@/assets/hero/char-green-woman.webp";
+import charYellowBoy from "@/assets/hero/char-yellow-boy.webp";
 
 interface CharacterProps {
   image: string;
@@ -15,6 +15,7 @@ interface CharacterProps {
   size: { w: number; h: number };
   zIndex: number;
   showBottomFade?: boolean;
+  isLCP?: boolean;
 }
 
 const CharacterFigure = ({
@@ -26,6 +27,7 @@ const CharacterFigure = ({
   size,
   zIndex,
   showBottomFade = true,
+  isLCP = false,
 }: CharacterProps) => {
   const [hovered, setHovered] = useState(false);
 
@@ -48,7 +50,16 @@ const CharacterFigure = ({
         }}
         transition={{ duration: 0.45 }}
       >
-        <img src={image} alt="Team member" className="w-full h-full object-contain object-bottom" />
+        <img
+          src={image}
+          alt="Team member"
+          width={size.w}
+          height={size.h}
+          className="w-full h-full object-contain object-bottom"
+          {...(isLCP
+            ? { loading: "eager" as const, fetchPriority: "high" as any, decoding: "sync" as const }
+            : { loading: "lazy" as const, decoding: "async" as const })}
+        />
       </motion.div>
 
       {/* Fade-to-white gradient at bottom to mask cut-off — only for bottom characters */}
@@ -66,7 +77,7 @@ const CharacterFigure = ({
 
 export const HeroCharacters = () => (
   <div className="pointer-events-none absolute inset-0 overflow-hidden">
-    {/* TOP-LEFT — Blue man */}
+    {/* TOP-LEFT — Blue man (LCP element) */}
     <CharacterFigure
       image={charBlueMan}
       posClass="left-[-4%] xl:left-[-1%] top-[18%]"
@@ -76,6 +87,7 @@ export const HeroCharacters = () => (
       size={{ w: 500, h: 500 }}
       zIndex={20}
       showBottomFade={false}
+      isLCP
     />
 
     {/* BOTTOM-LEFT — Red woman */}
