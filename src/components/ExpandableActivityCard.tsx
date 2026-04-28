@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { LucideIcon } from "lucide-react";
+import { cld } from "@/lib/cloudinaryUrl";
 
 interface ExpandableActivityCardProps {
   name: string;
