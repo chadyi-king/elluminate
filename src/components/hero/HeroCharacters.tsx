@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-import charBlueMan from "@/assets/hero/char-blue-man.png";
-import charRedWoman from "@/assets/hero/char-red-woman.png";
-import charGreenWoman from "@/assets/hero/char-green-woman.png";
-import charYellowBoy from "@/assets/hero/char-yellow-boy.png";
+import charBlueMan from "@/assets/hero/char-blue-man.webp";
+import charRedWoman from "@/assets/hero/char-red-woman.webp";
+import charGreenWoman from "@/assets/hero/char-green-woman.webp";
+import charYellowBoy from "@/assets/hero/char-yellow-boy.webp";
 
 interface CharacterProps {
   image: string;
@@ -15,6 +15,7 @@ interface CharacterProps {
   size: { w: number; h: number };
   zIndex: number;
   showBottomFade?: boolean;
+  isLCP?: boolean;
 }
 
 const CharacterFigure = ({
