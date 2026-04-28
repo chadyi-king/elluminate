@@ -77,7 +77,7 @@ const CharacterFigure = ({
 
 export const HeroCharacters = () => (
   <div className="pointer-events-none absolute inset-0 overflow-hidden">
-    {/* TOP-LEFT — Blue man */}
+    {/* TOP-LEFT — Blue man (LCP element) */}
     <CharacterFigure
       image={charBlueMan}
       posClass="left-[-4%] xl:left-[-1%] top-[18%]"
@@ -87,6 +87,7 @@ export const HeroCharacters = () => (
       size={{ w: 500, h: 500 }}
       zIndex={20}
       showBottomFade={false}
+      isLCP
     />
 
     {/* BOTTOM-LEFT — Red woman */}
