@@ -27,6 +27,7 @@ const CharacterFigure = ({
   size,
   zIndex,
   showBottomFade = true,
+  isLCP = false,
 }: CharacterProps) => {
   const [hovered, setHovered] = useState(false);
 
@@ -49,7 +50,16 @@ const CharacterFigure = ({
         }}
         transition={{ duration: 0.45 }}
       >
-        <img src={image} alt="Team member" className="w-full h-full object-contain object-bottom" />
+        <img
+          src={image}
+          alt="Team member"
+          width={size.w}
+          height={size.h}
+          className="w-full h-full object-contain object-bottom"
+          {...(isLCP
+            ? { loading: "eager" as const, fetchPriority: "high" as any, decoding: "sync" as const }
+            : { loading: "lazy" as const, decoding: "async" as const })}
+        />
       </motion.div>
 
       {/* Fade-to-white gradient at bottom to mask cut-off — only for bottom characters */}
