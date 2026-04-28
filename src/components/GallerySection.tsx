@@ -126,8 +126,12 @@ export const GallerySection = () => {
             >
               <div className={`aspect-square ${index === 0 || index === 5 ? "md:aspect-square" : ""}`}>
                 <img
-                  src={image.src}
+                  src={cld(image.src, { width: 600 })}
                   alt={image.alt}
+                  loading="lazy"
+                  decoding="async"
+                  width={600}
+                  height={600}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Overlay */}
