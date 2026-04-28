@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { cld } from "@/lib/cloudinaryUrl";
 
 const galleryImages = [
   {
@@ -125,8 +126,12 @@ export const GallerySection = () => {
             >
               <div className={`aspect-square ${index === 0 || index === 5 ? "md:aspect-square" : ""}`}>
                 <img
-                  src={image.src}
+                  src={cld(image.src, { width: 600 })}
                   alt={image.alt}
+                  loading="lazy"
+                  decoding="async"
+                  width={600}
+                  height={600}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Overlay */}
@@ -184,7 +189,7 @@ export const GallerySection = () => {
           {/* Image */}
           <motion.img
             key={selectedImage}
-            src={galleryImages[selectedImage].src}
+            src={cld(galleryImages[selectedImage].src, { width: 1600 })}
             alt={galleryImages[selectedImage].alt}
             className="max-w-full max-h-[85vh] object-contain rounded-lg"
             initial={{ scale: 0.9, opacity: 0 }}

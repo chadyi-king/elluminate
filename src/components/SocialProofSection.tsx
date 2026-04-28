@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, Calendar, Users, Award } from "lucide-react";
 import { useState, useEffect } from "react";
+import { cld } from "@/lib/cloudinaryUrl";
 
 // Real client logos - 72 companies across 3 carousel pages
 const defaultClientLogos = [
@@ -229,8 +230,12 @@ export const SocialProofSection = () => {
                   >
                     <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                     <img
-                      src={logo.logo}
+                      src={cld(logo.logo, { width: 240, crop: "fit" })}
                       alt={logo.name}
+                      loading="lazy"
+                      decoding="async"
+                      width={240}
+                      height={160}
                       className="max-w-full max-h-full object-contain relative z-10 grayscale group-hover:grayscale-0 transition-all duration-300"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;

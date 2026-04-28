@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Quote, MapPin, Users, CheckCircle } from "lucide-react";
+import { cld } from "@/lib/cloudinaryUrl";
 
 const caseStudies = [
   {
@@ -128,7 +129,7 @@ export const CaseStudiesSection = () => {
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${study.image})` }}
+                    style={{ backgroundImage: `url(${cld(study.image, { width: 800 })})` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
                 </div>

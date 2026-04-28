@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { LucideIcon } from "lucide-react";
+import { cld } from "@/lib/cloudinaryUrl";
 
 interface ExpandableActivityCardProps {
   name: string;
@@ -59,8 +60,12 @@ export const ExpandableActivityCard = ({
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={image}
+            src={typeof image === "string" ? cld(image, { width: 640 }) : image}
             alt={name}
+            loading="lazy"
+            decoding="async"
+            width={640}
+            height={480}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
           {/* Color overlay */}
