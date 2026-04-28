@@ -35,7 +35,7 @@ export const HeroSection = () => {
   const currentColor = wordData[currentWordIndex].color;
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white">
+    <section className="relative min-h-[85vh] flex flex-col items-center justify-start overflow-hidden bg-white">
       {/* Layer 1: Animated Photo Wall Background */}
       <PhotoWall />
 
@@ -46,7 +46,7 @@ export const HeroSection = () => {
       <ConfettiBurst trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
 
       {/* Layer 2: Main Content — text behind characters, buttons on top */}
-      <div className="container mx-auto px-4 relative z-20 pt-[95px] pb-24 pointer-events-none">
+      <div className="container mx-auto px-4 relative z-20 pt-[85px] pb-12 pointer-events-none">
         <div className="flex flex-col items-center text-center w-full">
           {/* SEO H1 — visually hidden, readable by Google */}
           <h1 className="sr-only">Team Building Singapore — Energise Your Team With Elluminate</h1>

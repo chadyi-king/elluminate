@@ -80,7 +80,7 @@ export const HeroCharacters = () => (
     {/* TOP-LEFT — Blue man (LCP element) */}
     <CharacterFigure
       image={charBlueMan}
-      posClass="left-[-4%] xl:left-[-1%] top-[6%]"
+      posClass="left-[-4%] xl:left-[-1%] top-[calc(6%+5px)]"
       glowColor="hsla(214, 85%, 50%, 0.45)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(175deg) saturate(1.2) brightness(0.88)"
       delay={0.1}
@@ -93,7 +93,7 @@ export const HeroCharacters = () => (
     {/* BOTTOM-LEFT — Red woman */}
     <CharacterFigure
       image={charRedWoman}
-      posClass="left-[-4%] xl:left-[-1%] bottom-[-8%]"
+      posClass="left-[-4%] xl:left-[-1%] bottom-[2%]"
       glowColor="hsla(4, 80%, 50%, 0.35)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(315deg) saturate(1.2) brightness(0.85)"
       delay={0.2}
@@ -116,7 +116,7 @@ export const HeroCharacters = () => (
     {/* BOTTOM-RIGHT — Yellow boy */}
     <CharacterFigure
       image={charYellowBoy}
-      posClass="right-[-4%] xl:right-[-1%] bottom-[-1%]"
+      posClass="right-[-4%] xl:right-[-1%] bottom-[6%]"
       glowColor="hsla(44, 95%, 52%, 0.35)"
       duotone="grayscale(0.8) sepia(0.3) hue-rotate(6deg) saturate(1.1) brightness(0.87)"
       delay={0.25}
