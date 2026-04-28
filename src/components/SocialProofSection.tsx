@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, Calendar, Users, Award } from "lucide-react";
 import { useState, useEffect } from "react";
+import { cld } from "@/lib/cloudinaryUrl";
 
 // Real client logos - 72 companies across 3 carousel pages
 const defaultClientLogos = [
