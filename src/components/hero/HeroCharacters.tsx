@@ -14,7 +14,6 @@ interface CharacterProps {
   delay: number;
   size: { w: number; h: number };
   zIndex: number;
-  showBottomFade?: boolean;
   isLCP?: boolean;
 }
 
@@ -26,7 +25,6 @@ const CharacterFigure = ({
   delay,
   size,
   zIndex,
-  showBottomFade = true,
   isLCP = false,
 }: CharacterProps) => {
   const [hovered, setHovered] = useState(false);
@@ -61,16 +59,6 @@ const CharacterFigure = ({
             : { loading: "lazy" as const, decoding: "async" as const })}
         />
       </motion.div>
-
-      {/* Fade-to-white gradient at bottom to mask cut-off — only for bottom characters */}
-      {showBottomFade && (
-        <div
-          className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none"
-          style={{
-            background: "linear-gradient(to bottom, transparent 85%, white 95%)",
-          }}
-        />
-      )}
     </motion.div>
   );
 };
@@ -86,7 +74,6 @@ export const HeroCharacters = () => (
       delay={0.1}
       size={{ w: 500, h: 500 }}
       zIndex={20}
-      showBottomFade={false}
       isLCP
     />
 
@@ -110,7 +97,6 @@ export const HeroCharacters = () => (
       delay={0.15}
       size={{ w: 480, h: 500 }}
       zIndex={20}
-      showBottomFade={false}
     />
 
     {/* BOTTOM-RIGHT — Yellow boy */}
@@ -122,6 +108,13 @@ export const HeroCharacters = () => (
       delay={0.25}
       size={{ w: 440, h: 480 }}
       zIndex={25}
+    />
+
+    <div
+      className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none z-[26]"
+      style={{
+        background: "linear-gradient(to bottom, transparent 55%, white 100%)",
+      }}
     />
   </div>
 );
