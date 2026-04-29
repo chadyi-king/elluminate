@@ -5307,8 +5307,10 @@ export const servicesData: Record<string, ServiceData> = {
         "A fast-moving race across Singapore built for teams, schools, and student groups who want to move, solve, and win together.",
       backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360229/AmazingRace_2_hi89qz.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361380/AmazingRace_20_pvj3jq.heic",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361386/AmazingRace_24_r4bomr.heic",
+    howItWorksImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361380/AmazingRace_20_pvj3jq.heic",
+    addOnsImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361386/AmazingRace_24_r4bomr.heic",
     overview: {
       description:
         "The Amazing Race is our signature outdoor experience where teams race across Singapore completing missions, solving puzzles, and working together under real time pressure.\n\nGroups navigate between 8 and 14 checkpoints over 2 to 3 hours, tackling a mix of physical challenges, mental puzzles, and creative tasks designed so every team member has a way to contribute and a moment to shine.\n\nThe format works for corporate teams of 20 to 500+, school cohorts, orientation programmes, and student leadership groups who want something that feels genuinely active and memorable.\n\nOur facilitators design each race route around your venue and goals, from a city-wide adventure through iconic Singapore landmarks to a heritage trail, a campus race, or a resort experience.\n\nEvery checkpoint is facilitated, every team is supported, and the debrief we run at the end consistently surfaces conversations teams carry back into the workplace.",
