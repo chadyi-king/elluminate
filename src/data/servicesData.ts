@@ -6431,15 +6431,12 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615880/12-1_ys7sfz.png",
     addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615852/4-3_jcfcl7.png",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592600/CSI_14_z4eswb.heic",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615852/2-2_yuoolq.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592600/CSI_14_z4eswb.heic",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615852/2-2_yuoolq.png",
     overview: {
       description:
         "Amongst Us is a live team-building adaptation of the viral hit game Among Us, brought off the screen and into a fully facilitated physical experience. Participants move through missions, suspicion rounds, secret roles, and timed reveals while trying to complete objectives without letting the imposters sabotage the team. It works especially well for workplaces, student leaders, camps, and mixed groups because the format rewards observation, persuasion, teamwork, and a good sense of humour rather than fitness alone.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615859/exstatic-71_nf1hy4.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615859/exstatic-71_nf1hy4.png",
     },
     features: [
       {
@@ -6764,15 +6761,14 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361472/SotongGame_6_m15tpn.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361472/SotongGame_6_m15tpn.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/SotongGame_6_m15tpn.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361413/CSI_4_mezxfu.jpg",
     testimonialBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361424/MonopolyDash_8_nvfim2.heic",
     overview: {
       description:
         "Alice in Motherland is a team-building adventure inspired by Alice in Borderland, the acclaimed Netflix series, adapted into a live and fully facilitated group experience. Teams journey through themed stations, complete curious missions, solve imaginative puzzles, and collaborate their way through a surreal format that rewards creativity and team observation. It works especially well for clients or schools looking for something visually distinctive, story-driven, and genuinely memorable.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361422/MonopolyDash_3_kq2pxe.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_3_kq2pxe.heic",
     },
     features: [
       {
@@ -7715,14 +7711,12 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Building Challenge",
       tagline:
         "A hands-on build challenge for teams, classes, and student leaders who learn best by making things together.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361397/BuilderCross_1_zkduwz.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361397/BuilderCross_1_zkduwz.jpg",
     },
     overview: {
       description:
         "BuilderCross is a hands-on construction challenge where teams design, plan, and build structures together under time pressure. Inspired by engineering and architecture challenges, participants work with provided materials to create functional builds that meet specific criteria. It is especially strong for workplace teams, school cohorts, and youth groups because it rewards planning, delegation, iteration, and communication without requiring high physical intensity. Whether your group is building bridges, towers, or themed creations, BuilderCross rewards ingenuity and collaboration over brute force.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361397/BuilderCross_1_zkduwz.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361397/BuilderCross_1_zkduwz.jpg",
     },
     features: [
       {
@@ -8394,7 +8388,7 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MINUTE TO WIN IT",
       subtitle: "Team Party Games",
       tagline: "Quick-fire mini games for teams, classes, and cohorts that want instant laughs and full participation.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361435/MTWI_2_m57wuz.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_2_m57wuz.jpg",
     },
     howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361427/MTWI_12_vui3ae.jpg",
     addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361426/MTWI_10_ofjakc.heic",
@@ -9063,19 +9057,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Monopoly Dash Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361419/MonopolyDash_1_rlwgie.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361419/MonopolyDash_1_rlwgie.jpg",
           alt: "Teams racing through Singapore during Monopoly Dash",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361427/MonopolyDash_9_k7krlz.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361427/MonopolyDash_9_k7krlz.jpg",
           alt: "Monopoly Dash street challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361423/MonopolyDash_7_vgqtey.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361423/MonopolyDash_7_vgqtey.heic",
           alt: "Outdoor negotiation moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_3_kq2pxe.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_3_kq2pxe.heic",
           alt: "Champions celebrating Monopoly Dash victory",
         },
       ],
@@ -9093,20 +9087,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "NERFWAR",
       subtitle: "Foam Dart Battles",
       tagline: "A safe, fast, and hilarious battle format for teams and school groups who want action with structure.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456495/nerfwar_5_oqmjf3.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456495/nerfwar_5_oqmjf3.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456504/nerfwar_2_nxll52.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456497/nerfwar_1_dzcjh4.jpg",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456506/nerfwar_3_pxba6f.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456498/nerfwar_10_tg6ss6.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/f_auto/v1775456504/nerfwar_2_nxll52.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456497/nerfwar_1_dzcjh4.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456506/nerfwar_3_pxba6f.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456498/nerfwar_10_tg6ss6.jpg",
     overview: {
       description:
         "Nerfwar is a high-energy foam dart battle experience that transforms your outing into an action-packed tactical adventure. Equipped with Nerf blasters and foam darts, teams compete in structured match formats designed to encourage communication, strategy, and good old-fashioned fun. It is especially useful for mixed groups, schools, and student cohorts because the format is safe, easy to pick up, and full of movement without feeling intimidating. Whether you are hosting a casual team day or an energetic kickoff event, Nerfwar delivers guaranteed laughs and memorable team moments.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456495/nerfwar_5_oqmjf3.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456495/nerfwar_5_oqmjf3.jpg",
     },
     features: [
       {
@@ -9427,21 +9417,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Variety Show Games",
       tagline:
         "A fan-favourite challenge format for teams, classes, and student groups that want pure energy and big laughs.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361444/RunningMan_10_x6owst.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361444/RunningMan_10_x6owst.heic",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361441/RunningMan_2_h7dp74.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_19_os8wfv.jpg",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361442/RunningMan_6_esz34i.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361441/RunningMan_2_h7dp74.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599632/RunningMan_19_os8wfv.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361442/RunningMan_6_esz34i.heic",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599625/RunningMan_16_tbkpld.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599625/RunningMan_16_tbkpld.jpg",
     overview: {
       description:
         "Running Man Adventure is inspired by the massively popular Korean variety show, bringing its signature blend of hilarious challenges, name-tag battles, and team missions to your event. Teams compete through multiple rounds of creative, physical, and strategic games that reward quick thinking, coordination, and plenty of laughter. It is one of our strongest crossover formats for workplace teams, school cohorts, and student groups because it feels familiar, inclusive, and instantly exciting. Suitable for outdoor parks, indoor venues, and resort settings.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361444/RunningMan_10_x6owst.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361444/RunningMan_10_x6owst.heic",
     },
     features: [
       {
