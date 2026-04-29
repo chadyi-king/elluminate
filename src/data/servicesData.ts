@@ -9711,32 +9711,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Running Man Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599632/RunningMan_17_dfqtds.heic",
-          alt: "Running Man variety show team missions",
-        },
-        {
           src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599637/RunningMan_21_ncjbhp.jpg",
           alt: "Team competing in Running Man challenge",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599640/RunningMan_22_f0ka8y.heic",
-          alt: "Running Man name-tag battle action",
         },
         {
           src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599624/RunningMan_13_m2kg4e.jpg",
           alt: "Running Man outdoor challenge moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361445/RunningMan_8_afq55t.heic",
-          alt: "Team celebrating Running Man victory",
-        },
-        {
           src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361445/RunningMan_1_rqyx9i.jpg",
           alt: "Running Man team formation",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361443/RunningMan_7_bqkr2b.heic",
-          alt: "Running Man finale showdown",
         },
       ],
     },
