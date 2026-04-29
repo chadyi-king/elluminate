@@ -8738,9 +8738,8 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361419/MonopolyDash_1_rlwgie.jpg",
     addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361421/MonopolyDash_2_sq8gpp.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361426/MonopolyDash_6_e304eq.heic",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_3_kq2pxe.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361427/MonopolyDash_9_k7krlz.jpg",
     features: [
       {
         icon: Map,
