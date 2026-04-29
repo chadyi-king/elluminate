@@ -9399,7 +9399,7 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Variety Show Games",
       tagline:
         "A fan-favourite challenge format for teams, classes, and student groups that want pure energy and big laughs.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361444/RunningMan_10_x6owst.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361439/RunningMan_3_kdfmqs.jpg",
     },
     howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361441/RunningMan_2_h7dp74.jpg",
     addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599632/RunningMan_19_os8wfv.jpg",
@@ -9409,7 +9409,7 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       description:
         "Running Man Adventure is inspired by the massively popular Korean variety show, bringing its signature blend of hilarious challenges, name-tag battles, and team missions to your event. Teams compete through multiple rounds of creative, physical, and strategic games that reward quick thinking, coordination, and plenty of laughter. It is one of our strongest crossover formats for workplace teams, school cohorts, and student groups because it feels familiar, inclusive, and instantly exciting. Suitable for outdoor parks, indoor venues, and resort settings.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361444/RunningMan_10_x6owst.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361439/RunningMan_3_kdfmqs.jpg",
     },
     features: [
       {
