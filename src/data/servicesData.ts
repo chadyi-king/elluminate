@@ -621,8 +621,7 @@ export const servicesData: Record<string, ServiceData> = {
   "overseas-retreats": {
     accentColor: "#5AB7AE",
     dividerVariant: "route",
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579572/Overseas_11_droxvw.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579572/Overseas_11_droxvw.jpg",
     addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579587/Overseas_6_d3fry4.jpg",
     testimonialBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579575/Overseas_12_gvbqfw.jpg",
@@ -5802,7 +5801,7 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Amazing Race in Action",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361379/AmazingRace_22_qnkeat.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361379/AmazingRace_22_qnkeat.heic",
           alt: "Amazing Race team building checkpoint challenge",
         },
         {
