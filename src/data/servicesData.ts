@@ -5810,10 +5810,6 @@ export const servicesData: Record<string, ServiceData> = {
           src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361382/AmazingRace_29_hp1ikz.jpg",
           alt: "Amazing Race starting line team moment",
         },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361385/AmazingRace_33_scwscr.jpg",
-          alt: "Amazing Race celebration and finish line",
-        },
       ],
     },
     outcomes: [
