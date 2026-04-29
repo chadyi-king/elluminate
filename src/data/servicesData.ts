@@ -10080,23 +10080,23 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Sotong Game Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361464/SotongGame_19_gqbkjc.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361464/SotongGame_19_gqbkjc.jpg",
           alt: "Sotong Game themed team challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361447/SotongGame_1_evo52u.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361447/SotongGame_1_evo52u.jpg",
           alt: "Squid-style game in progress",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361450/SotongGame_13_sabaqz.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361450/SotongGame_13_sabaqz.jpg",
           alt: "Team survival moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361450/SotongGame_11_r7nxph.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361450/SotongGame_11_r7nxph.heic",
           alt: "Sotong Game elimination round",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361476/SotongGame_9_wzdts3.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361476/SotongGame_9_wzdts3.heic",
           alt: "Sotong Game team moment",
         },
       ],
@@ -10114,22 +10114,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "TAG-TICAL LASER TAG",
       subtitle: "Laser Team Battles",
       tagline: "Gear Up for the Ultimate Laser Tag Showdown!",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944229/tagtical_laser_4_r9rbfn.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944229/tagtical_laser_4_r9rbfn.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944221/tagtical_laser_5_muhsev.heic",
-    addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944202/tagtical_laser_15_db28az.jpg",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944206/tagtical_laser_13_ree6hf.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944221/tagtical_laser_5_muhsev.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944202/tagtical_laser_15_db28az.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944206/tagtical_laser_13_ree6hf.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944206/tagtical_laser_13_ree6hf.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944206/tagtical_laser_13_ree6hf.jpg",
     overview: {
       description:
         "Tag-tical Laser Teambuilding is a premium laser tag experience designed specifically for corporate team building. Using state-of-the-art infrared laser tag equipment, teams compete in structured tactical rounds that reward strategy, communication, and coordination. Unlike casual laser tag, our corporate format features objective-based game modes including capture the base, escort missions, king of the hill, and team elimination. Each participant receives a laser tag vest and phaser with real-time hit tracking and scoring. Our facilitators design the battlefield layout, manage game flow, and provide tactical briefings between rounds. The technology is completely safe with no projectiles involved, making it suitable for all participants regardless of age or fitness level. Tag-tical Laser is perfect for teams that want a competitive, active experience with a strong strategic element.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944229/tagtical_laser_4_r9rbfn.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944229/tagtical_laser_4_r9rbfn.jpg",
     },
     features: [
       {
@@ -11065,21 +11060,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "GAMESHOW EXPERIENCE",
       subtitle: "Virtual Team Building",
       tagline: "6 in 1 Gameshows to play and challenge your colleagues",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579600/TheGameShow_VTB_4_weyhxy.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/TheGameShow_VTB_4_weyhxy.png",
     },
     overview: {
       description:
         "Bring the excitement of TV gameshows to your virtual team event! With 6 different gameshow formats in one experience, teams compete through trivia, challenges, and hilarious moments. This high-energy virtual experience is perfect for large groups looking for entertainment and friendly competition via Zoom.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579600/TheGameShow_VTB_4_weyhxy.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/TheGameShow_VTB_4_weyhxy.png",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579600/TheGameShow_VTB_7_swbfoo.png",
-    addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579597/TheGameShow_VTB_11_ye3umr.png",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/TheGameShow_VTB_7_swbfoo.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579597/TheGameShow_VTB_11_ye3umr.png",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579596/TheGameShow_VTB_1_mbuxzv.png",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579596/TheGameShow_VTB_1_mbuxzv.png",
     features: [
       { icon: Gamepad2, title: "6 Gameshows", description: "Multiple formats keep things fresh and exciting." },
       { icon: Trophy, title: "Points Competition", description: "Teams compete for the highest score." },
@@ -11264,20 +11255,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "GREAT ZODIAC HUNT",
       subtitle: "Virtual Team Building",
       tagline: "The Zodiac Animals have all escaped! It is up to you the Celestial Vanguards to get them all back!",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812236/Team-4.4_wekgjq.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812236/Team-4.4_wekgjq.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812232/Team-5.2_rlqotg.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812228/Team-4.2_x38yzu.png",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812228/Team-4.2_x38yzu.png",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/v1775812232/Team-5.2_rlqotg.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/v1775812228/Team-4.2_x38yzu.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812228/Team-4.2_x38yzu.png",
     overview: {
       description:
         "Celebrate Chinese New Year virtually with this themed team adventure! The 12 Zodiac animals have escaped and your team must work together to bring them back. Through puzzles, challenges, and cultural trivia, teams race to capture all the animals and restore harmony. Perfect for CNY celebrations via Zoom.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812236/Team-4.4_wekgjq.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812236/Team-4.4_wekgjq.png",
     },
     features: [
       { icon: Search, title: "Zodiac Hunt", description: "Track down all 12 escaped zodiac animals." },
@@ -13406,20 +13393,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "WORKSHOPS",
       subtitle: "Training",
       tagline: "Learn by Doing, Grow by Practicing",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579623/Workshop_4_ocszix.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579623/Workshop_4_ocszix.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579617/Workshop_14_rvws0z.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579625/Workshop_7_h0likd.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579615/Workshop_11_iunqpi.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579617/Workshop_14_rvws0z.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579625/Workshop_7_h0likd.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579615/Workshop_11_iunqpi.jpg",
     overview: {
       description:
         "Our interactive workshops go beyond passive learning to create immersive skill-building experiences. With hands-on activities, real-world scenarios, and expert facilitation, participants don't just learn concepts - they practice and internalize them. From communication and leadership to creativity and problem-solving, our workshops transform knowledge into actionable skills that drive immediate results in the workplace.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579623/Workshop_4_ocszix.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579623/Workshop_4_ocszix.jpg",
     },
     features: [
       {
@@ -13854,18 +13837,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "CORPORATE DAYS",
       subtitle: "Training",
       tagline: "Where Work Meets Play, Teams Thrive",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775469803/disc_12_y4afhh.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469803/disc_12_y4afhh.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361414/MBTI_2_xjlhhy.jpg",
-    addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579608/WellnessGamesDay_3_crrqna.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361414/MBTI_2_xjlhhy.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579608/WellnessGamesDay_3_crrqna.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579607/WellnessGamesDay_11_ibpwvh.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579607/WellnessGamesDay_11_ibpwvh.heic",
     overview: {
       description:
         "Transform ordinary workdays into extraordinary team experiences with our Corporate Days program. These specially designed full-day or half-day events blend professional development with engaging activities, creating the perfect balance of learning and fun. Whether you're celebrating milestones, reinforcing company culture, or simply giving your team a well-deserved break, Corporate Days deliver memorable experiences that boost morale and strengthen team bonds.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775469803/disc_12_y4afhh.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469803/disc_12_y4afhh.jpg",
     },
     features: [
       {
