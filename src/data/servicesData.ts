@@ -10861,20 +10861,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "FIT IN YOUR TEAM",
       subtitle: "Virtual Team Building",
       tagline: "A Fun and Competitive Workout Teambuilding Activity made for Your Team to get Energized!",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812266/Main-Pic_ve8cxp.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload//v1775812266/Main-Pic_ve8cxp.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812263/FIYT-3_kmv7zw.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812259/FIYT-2_seyqrv.png",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811085/vtb_ar_9_nbnbst.png",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812263/FIYT-3_kmv7zw.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812259/FIYT-2_seyqrv.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811085/vtb_ar_9_nbnbst.png",
     overview: {
       description:
         "Get your team moving with this high-energy virtual workout experience! Combining fitness challenges with team competition, Fit In Your Team promotes physical wellness, mental clarity, and social connection—all from the comfort of home. Perfect for teams looking to energize, bond, and prioritize wellbeing together via Zoom.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812266/Main-Pic_ve8cxp.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812266/Main-Pic_ve8cxp.jpg",
     },
     features: [
       { icon: Dumbbell, title: "Fitness Challenges", description: "Fun workout activities for all fitness levels." },
@@ -11638,20 +11634,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "THE PATRIOT ACT",
       subtitle: "Virtual Team Building",
       tagline: "Salute to our Great Nation by playing activities mixed of the old and new of Singapore",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812243/Main-Pic_1_xhrueu.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812243/Main-Pic_1_xhrueu.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812248/Picture1_dcrds3.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812243/Main-Pic_1_xhrueu.jpg",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812241/Main-Page_asc3hb.png",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812248/Picture1_dcrds3.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812243/Main-Pic_1_xhrueu.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812241/Main-Page_asc3hb.png",
     overview: {
       description:
         "Celebrate Singapore's heritage with this patriotic virtual team experience! Teams compete through activities that blend old-school Singapore nostalgia with modern challenges. From traditional games to national trivia, this experience is perfect for National Day celebrations or any time you want to celebrate Singapore's spirit via Zoom.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812243/Main-Pic_1_xhrueu.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812243/Main-Pic_1_xhrueu.jpg",
     },
     features: [
       { icon: Flag, title: "National Pride", description: "Celebrate Singapore's heritage and culture." },
@@ -12929,17 +12921,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "O.C.E.A.N PROFILING",
       subtitle: "Training",
       tagline: "All great changes into Order is preceded always by Chaos.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775540553/ocean_3_vinql4.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775540553/ocean_3_vinql4.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775540545/ocean_18_rhykhh.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775540530/ocean_11_apispg.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775540530/ocean_11_apispg.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775540545/ocean_18_rhykhh.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775540530/ocean_11_apispg.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775540530/ocean_11_apispg.jpg",
     overview: {
       description:
         "Rated as one of the top most accurate personality tests in the world! OCEAN Big Five are the domains that represent the basic structure behind all individual personality traits. By diving in deeper, this will allow your team to identify predictive behaviors for real-life scenarios! Gain insights into different office environment situations and how various personalities deal with them.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775540553/ocean_3_vinql4.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775540553/ocean_3_vinql4.jpg",
     },
     features: [
       { icon: Brain, title: "Scientific Accuracy", description: "One of the most validated personality models." },
@@ -13598,20 +13589,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "YOUTH CAMPS",
       subtitle: "Training",
       tagline: "Building Tomorrow's Leaders Today",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775539489/youth_camp_21_iplbqd.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775539489/youth_camp_21_iplbqd.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775539474/youth_camp_1_xruiit.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775539503/youth_camp_15_ni24wa.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775539474/youth_camp_1_xruiit.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775539503/youth_camp_15_ni24wa.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775539492/youth_camp_23_xh5bhs.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775539492/youth_camp_23_xh5bhs.jpg",
     overview: {
       description:
         "Our Youth Camps combine adventure, learning, and personal growth to create transformative experiences for young people. Designed for schools, CCAs, and youth organizations, these programs develop leadership, teamwork, and resilience through carefully structured activities and challenges. From day camps to multi-day adventures, we create safe yet challenging environments where youth discover their potential and forge lasting friendships.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775539489/youth_camp_21_iplbqd.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775539489/youth_camp_21_iplbqd.jpg",
     },
     features: [
       { icon: Flag, title: "Adventure Activities", description: "Exciting challenges that push comfort zones safely." },
