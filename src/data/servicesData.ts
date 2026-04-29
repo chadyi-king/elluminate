@@ -8736,7 +8736,7 @@ export const servicesData: Record<string, ServiceData> = {
         "Monopoly Dash is a city-wide strategy race inspired by the classic board game, brought to life on the streets of Singapore. Teams navigate real neighborhoods, landmarks, and hidden gems while earning virtual currency, purchasing properties, and completing trade missions. Unlike a standard Amazing Race, Monopoly Dash adds a layer of financial strategy: teams must decide when to invest, when to save, and when to negotiate with rival teams for property trades. That makes it a strong fit for workplace groups, older students, and leadership cohorts who enjoy competition with a more cerebral edge.",
       backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_4_jkl1xu.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_5_msxabk.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361419/MonopolyDash_1_rlwgie.jpg",
     addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361421/MonopolyDash_2_sq8gpp.jpg",
     ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361426/MonopolyDash_6_e304eq.heic",
     testimonialBackgroundImage:
@@ -9052,12 +9052,8 @@ export const servicesData: Record<string, ServiceData> = {
           alt: "Monopoly Dash street challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361423/MonopolyDash_7_vgqtey.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361421/MonopolyDash_2_sq8gpp.jpg",
           alt: "Outdoor negotiation moment",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_3_kq2pxe.heic",
-          alt: "Champions celebrating Monopoly Dash victory",
         },
       ],
     },
