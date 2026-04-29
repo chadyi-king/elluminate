@@ -622,15 +622,13 @@ export const servicesData: Record<string, ServiceData> = {
     accentColor: "#5AB7AE",
     dividerVariant: "route",
     howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579572/Overseas_11_droxvw.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579587/Overseas_6_d3fry4.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579575/Overseas_12_gvbqfw.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579587/Overseas_6_d3fry4.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579575/Overseas_12_gvbqfw.jpg",
     hero: {
       title: "OVERSEAS RETREATS",
       subtitle: "Retreat",
       tagline: "The world is your company's oyster! Time to open it up and enjoy!",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579581/Overseas_5_o60d5r.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579581/Overseas_5_o60d5r.jpg",
     },
     videoSection: {
       title: "See Our Retreats in Action",
@@ -675,8 +673,7 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       description:
         "Good interactions at corporate retreats and rewarding travel packages can help improve an employee's relationship with their company! Corporate retreats are the perfect place to start conversations with workers and imagine a better direction for influence and organization. We handle every detail from flights to activities, ensuring your team enjoys a seamless, unforgettable journey.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579581/Overseas_5_o60d5r.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579581/Overseas_5_o60d5r.jpg",
     },
     features: [
       {
@@ -5801,23 +5798,23 @@ export const servicesData: Record<string, ServiceData> = {
           alt: "Amazing Race team building checkpoint challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360193/AmazingRace_16_mdu3de.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360193/AmazingRace_16_mdu3de.jpg",
           alt: "Teams racing during an Amazing Race activity",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360193/AmazingRace_14_e5yt0c.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360193/AmazingRace_14_e5yt0c.heic",
           alt: "Amazing Race outdoor team challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360192/AmazingRace_15_hspv90.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360192/AmazingRace_15_hspv90.heic",
           alt: "Teams solving puzzles during Amazing Race",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360190/AmazingRace_1_ig4gbv.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360190/AmazingRace_1_ig4gbv.heic",
           alt: "Amazing Race starting line team moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361385/AmazingRace_33_scwscr.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361385/AmazingRace_33_scwscr.jpg",
           alt: "Amazing Race celebration and finish line",
         },
       ],
@@ -5859,15 +5856,15 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Building Mystery",
       tagline:
         "A forensic mystery built for teams and school groups who love clues, deduction, and competitive problem-solving.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/CSI_3_tt9yqa.jpg",
     },
     overview: {
       description:
         "CSI-Bones is a forensic investigation experience where teams collaborate to solve a high-stakes mystery. Your group examines evidence, connects clues, and makes fast decisions together, making it a strong fit for both workplace teams and student groups who enjoy logic, communication, and immersive storytelling. It is a safe, indoor-friendly format that keeps everyone engaged without relying on pure physical intensity.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/CSI_3_tt9yqa.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/CSI_3_tt9yqa.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/CSI_1_myrtls.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361411/CSI_6_y8pkaz.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/CSI_1_myrtls.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361411/CSI_6_y8pkaz.jpg",
     features: [
       {
         icon: Search,
@@ -6110,43 +6107,42 @@ export const servicesData: Record<string, ServiceData> = {
       title: "CSI-Bones Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361413/CSI_4_mezxfu.jpg",
           alt: "CSI-Bones investigation briefing",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361409/CSI_5_t4xrjy.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361409/CSI_5_t4xrjy.jpg",
           alt: "Teams collaborating during CSI-Bones",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361403/CSI_2_slu6jv.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361403/CSI_2_slu6jv.jpg",
           alt: "Team moment after completing CSI-Bones",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592600/CSI_14_z4eswb.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592600/CSI_14_z4eswb.heic",
           alt: "CSI-Bones team investigation scene",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592599/CSI_13_ferqyd.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592599/CSI_13_ferqyd.heic",
           alt: "CSI-Bones evidence analysis",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592598/CSI_12_dg3lo1.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592598/CSI_12_dg3lo1.heic",
           alt: "CSI-Bones clue discovery",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
           alt: "CSI-Bones team collaboration",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_10_umoqpw.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_10_umoqpw.heic",
           alt: "CSI-Bones group solving mystery",
         },
       ],
     },
     hideOutcomes: false,
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361403/CSI_2_slu6jv.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592607/CSI_15_rxnuq4.heic",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361403/CSI_2_slu6jv.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592607/CSI_15_rxnuq4.heic",
     hideMidCta: false,
     perfectForVariant: "pills",
     recentEventsHeadline: "Companies who've experienced our CSI-Bones",
@@ -8022,31 +8018,28 @@ export const servicesData: Record<string, ServiceData> = {
           "Having a physical result from the session gives the group something to connect around beyond just the activity.",
       },
     ],
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361400/BuilderCross_5_ilekr6.heic",
-    addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361399/BuilderCross_3_xq5fkd.heic",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361406/BuilderCross_6_ibyshz.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361400/BuilderCross_5_ilekr6.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361399/BuilderCross_3_xq5fkd.heic",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/BuilderCross_6_ibyshz.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/BuilderCross_9_fphwj5.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_9_fphwj5.jpg",
     miniGallery: {
       title: "BuilderCross Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/BuilderCross_8_vovefn.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_8_vovefn.jpg",
           alt: "Teams building structures during BuilderCross challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361402/BuilderCross_2_m6lujd.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_2_m6lujd.heic",
           alt: "Team collaborating on BuilderCross design",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361401/BuilderCross_10_wvtpdm.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361401/BuilderCross_10_wvtpdm.jpg",
           alt: "BuilderCross final showcase moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361400/BuilderCross_7_cgexuc.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361400/BuilderCross_7_cgexuc.jpg",
           alt: "Collaborative building moment",
         },
       ],
@@ -8371,19 +8364,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "GelBlitz Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456395/gelblitz_7_joe2js.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456395/gelblitz_7_joe2js.jpg",
           alt: "GelBlitz tactical team battle",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455574/gelblitz_8_dp0uc8.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775455574/gelblitz_8_dp0uc8.jpg",
           alt: "Team celebrating GelBlitz victory",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455296/gelblitz_1_jejkkh.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775455296/gelblitz_1_jejkkh.jpg",
           alt: "Outdoor GelBlitz action",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455155/gelblitz_11_vnr0qx.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775455155/gelblitz_11_vnr0qx.jpg",
           alt: "GelBlitz team strategy huddle",
         },
       ],
@@ -8403,15 +8396,14 @@ export const servicesData: Record<string, ServiceData> = {
       tagline: "Quick-fire mini games for teams, classes, and cohorts that want instant laughs and full participation.",
       backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361435/MTWI_2_m57wuz.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361427/MTWI_12_vui3ae.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361426/MTWI_10_ofjakc.heic",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361433/MTWI_4_e5fnzy.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361435/MTWI_3_hiohbs.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361427/MTWI_12_vui3ae.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361426/MTWI_10_ofjakc.heic",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361433/MTWI_4_e5fnzy.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_3_hiohbs.jpg",
     overview: {
       description:
         "Minute To Win It is a high-energy party-style team building experience featuring dozens of fast-paced mini challenges, each lasting just 60 seconds. Inspired by the hit TV show, teams compete across multiple rounds of quirky, hilarious, and surprisingly challenging games that test dexterity, coordination, creativity, and teamwork. It works just as well for school cohorts and student groups as it does for workplace teams because the rules are simple, the energy is immediate, and everyone can take part. Minute To Win It works brilliantly as a standalone event, a celebration segment, or an energizer during workshops and camp programmes.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361435/MTWI_2_m57wuz.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_2_m57wuz.jpg",
     },
     features: [
       {
@@ -8717,27 +8709,27 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Minute To Win It Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361426/MTWI_1_yi4zue.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361426/MTWI_1_yi4zue.heic",
           alt: "Teams competing in Minute To Win It challenges",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361429/MTWI_11_tc1soi.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361429/MTWI_11_tc1soi.jpg",
           alt: "Exciting mini game moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361435/MTWI_5_pzdfsb.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_5_pzdfsb.jpg",
           alt: "Team celebration after winning",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361437/MTWI_7_vlabzw.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361437/MTWI_7_vlabzw.heic",
           alt: "Minute To Win It game action",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361437/MTWI_9_qfxt3q.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361437/MTWI_9_qfxt3q.heic",
           alt: "Team challenge moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361438/MTWI_6_fydbkh.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361438/MTWI_6_fydbkh.jpg",
           alt: "Fun team activity highlight",
         },
       ],
@@ -8756,23 +8748,18 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "City Strategy Race",
       tagline:
         "A city race for teams and student groups who enjoy strategy, negotiation, and fast decisions on the move.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_4_jkl1xu.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_4_jkl1xu.jpg",
     },
     overview: {
       description:
         "Monopoly Dash is a city-wide strategy race inspired by the classic board game, brought to life on the streets of Singapore. Teams navigate real neighborhoods, landmarks, and hidden gems while earning virtual currency, purchasing properties, and completing trade missions. Unlike a standard Amazing Race, Monopoly Dash adds a layer of financial strategy: teams must decide when to invest, when to save, and when to negotiate with rival teams for property trades. That makes it a strong fit for workplace groups, older students, and leadership cohorts who enjoy competition with a more cerebral edge.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_4_jkl1xu.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_4_jkl1xu.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_5_msxabk.heic",
-    addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361421/MonopolyDash_2_sq8gpp.jpg",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361426/MonopolyDash_6_e304eq.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_5_msxabk.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361421/MonopolyDash_2_sq8gpp.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361426/MonopolyDash_6_e304eq.heic",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361422/MonopolyDash_3_kq2pxe.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_3_kq2pxe.heic",
     features: [
       {
         icon: Map,
