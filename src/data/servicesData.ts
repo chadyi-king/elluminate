@@ -6157,20 +6157,18 @@ export const servicesData: Record<string, ServiceData> = {
       tagline:
         "Explore, laugh, and compete through Singapore’s culture with challenges built for teamwork, curiosity, and shared discovery.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615806/photo_2023-06-28_14-02-17-2_flckfz.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615806/photo_2023-06-28_14-02-17-2_flckfz.jpg",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615776/photo_2023-06-28_14-02-42_dhhf8q.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615772/7-4_rruqw7.png",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774360193/AmazingRace_16_mdu3de.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615772/18-1_k5snvf.png",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615776/photo_2023-06-28_14-02-42_dhhf8q.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615772/7-4_rruqw7.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360193/AmazingRace_16_mdu3de.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615772/18-1_k5snvf.png",
     overview: {
       description:
         "Cultural Race is a high-energy heritage adventure where teams complete interactive missions across Singapore's cultural landmarks. It works well for corporate teams, school groups, and youth cohorts who want a format that combines exploration, teamwork, and local discovery. Explore Chinatown, Little India, Kampong Glam, and more while solving puzzles, completing creative tasks, and racing against rival teams.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615806/photo_2023-06-28_14-02-17-2_flckfz.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615806/photo_2023-06-28_14-02-17-2_flckfz.jpg",
     },
     features: [
       { icon: MapPin, title: "Landmark Checkpoints", description: "Routes tailored to your venue or district." },
@@ -10461,19 +10459,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Strategy Adventure",
       tagline:
         "Inspired by Money Heist — assemble your crew, crack the defences, and steal the most gold before the clock runs out.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615814/13_wvbhdx.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615814/13_wvbhdx.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615814/13_wvbhdx.png",
-    addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615800/photo_2023-06-28_14-02-08_wcnzfo.jpg",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361469/SotongGame_5_yybybi.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615814/13_wvbhdx.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615800/photo_2023-06-28_14-02-08_wcnzfo.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361469/SotongGame_5_yybybi.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615791/photo_2023-06-28_14-20-10_qsrb9h.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615791/photo_2023-06-28_14-20-10_qsrb9h.jpg",
     overview: {
       description:
         "Taking inspiration from the global phenomenon Money Heist (La Casa de Papel), Treasure Heist is a fully facilitated team strategy adventure where crews plan and execute a gold heist against the pirates. Teams compete to steal the most gold by completing challenges, solving heist puzzles, and outmanoeuvring rival crews — while the defences get harder with each round. As the stakes rise, only the most coordinated and creative crew takes home the ultimate haul.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615814/13_wvbhdx.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615814/13_wvbhdx.png",
     },
     features: [
       { icon: Gem, title: "Heist Theme", description: "A playful pirate storyline that keeps teams locked-in." },
@@ -10673,20 +10669,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "AMAZING RACE VIRTUAL",
       subtitle: "Virtual Team Building",
       tagline: "The World is waiting for you. Good Luck. Travel Safe and Go!",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811071/vtb_ar_6_jzyr6a.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload//v1775811071/vtb_ar_6_jzyr6a.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811085/vtb_ar_9_nbnbst.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811082/vtb_ar_1_jglmti.png",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811085/vtb_ar_9_nbnbst.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811082/vtb_ar_1_jglmti.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774943858/amazing_race_vtb_6_xqokaj.png",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774943858/amazing_race_vtb_6_xqokaj.png",
     overview: {
       description:
         "Journey across the globe without leaving your seat! In this high-energy virtual adventure, teams race through countries, solve puzzles, and complete challenges inspired by destinations worldwide. Perfect for remote teams who want excitement, strategy, and bonding—all through Zoom. Requires only a laptop/desktop with camera and internet.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811071/vtb_ar_6_jzyr6a.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811071/vtb_ar_6_jzyr6a.png",
     },
     features: [
       {
@@ -12033,20 +12026,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "THE GRAND CHRISTMAS DELIVERY",
       subtitle: "Virtual Team Building",
       tagline: "Santa's Village is under attack! You are the Elite Elf Force that will save Christmas!",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812223/Main-Pic_2_cuwiih.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812223/Main-Pic_2_cuwiih.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812216/CD-2_htt8la.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812214/CD-1_furajs.png",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812216/CD-2_htt8la.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812214/CD-1_furajs.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811010/tomb_raider_1_mziqut.png",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811010/tomb_raider_1_mziqut.png",
     overview: {
       description:
         "Santa needs your help! In this festive virtual adventure, teams become the Elite Elf Force on a mission to save Christmas. Battle through party games, team challenges, and boss battles to deliver presents and defeat the forces threatening the holiday season. The team that delivers the most presents wins! Perfect for year-end celebrations via Zoom.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775812223/Main-Pic_2_cuwiih.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812223/Main-Pic_2_cuwiih.jpg",
     },
     features: [
       { icon: Gift, title: "Christmas Mission", description: "Save Christmas as the Elite Elf Force." },
