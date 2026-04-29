@@ -158,7 +158,7 @@ const allActivities = [
       "A remote-friendly Amazing Race experience that keeps distributed teams engaged through live digital challenges.",
     stats: "150+ virtual races",
     clients: "Global teams and hybrid cohorts",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811075/vtb_ar_7_vqhkqm.png",
     tag: "Virtual",
   },
   {
