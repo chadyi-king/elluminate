@@ -5791,7 +5791,7 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Amazing Race in Action",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361379/AmazingRace_22_qnkeat.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361391/AmazingRace_30_idmukn.jpg",
           alt: "Amazing Race team building checkpoint challenge",
         },
         {
@@ -5799,15 +5799,15 @@ export const servicesData: Record<string, ServiceData> = {
           alt: "Teams racing during an Amazing Race activity",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360193/AmazingRace_14_e5yt0c.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361390/AmazingRace_5_w7wpal.jpg",
           alt: "Amazing Race outdoor team challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360192/AmazingRace_15_hspv90.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361385/AmazingRace_33_scwscr.jpg",
           alt: "Teams solving puzzles during Amazing Race",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360190/AmazingRace_1_ig4gbv.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361382/AmazingRace_29_hp1ikz.jpg",
           alt: "Amazing Race starting line team moment",
         },
         {
