@@ -7100,21 +7100,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "A bold team tournament that blends athletic rounds, strategy games, and full-group energy into one epic showdown.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615834/Exstatic-83_dm6mhz.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615834/Exstatic-83_dm6mhz.png",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615840/Exstatic-82_amkre4.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615840/Exstatic-82_amkre4.png",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361442/RunningMan_6_esz34i.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615840/Exstatic-82_amkre4.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615840/Exstatic-82_amkre4.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361442/RunningMan_6_esz34i.heic",
     testimonialBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615832/exstatic-75-2_ozcdef.png",
     overview: {
       description:
         "Battle of the Olympians is a large-format team competition built for groups that want scale, energy, and a sense of event. Teams move through a mix of athletic relays, tactical tasks, mental rounds, and showpiece finales while earning points for consistency, teamwork, and determination. It works especially well for larger corporate groups, school cohorts, student camps, and department-wide offsites that need something competitive, highly visible, and easy for people to rally around.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615834/Exstatic-83_dm6mhz.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615834/Exstatic-83_dm6mhz.png",
     },
     features: [
       {
@@ -9729,31 +9725,31 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Running Man Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599632/RunningMan_17_dfqtds.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599632/RunningMan_17_dfqtds.heic",
           alt: "Running Man variety show team missions",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599637/RunningMan_21_ncjbhp.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599637/RunningMan_21_ncjbhp.jpg",
           alt: "Team competing in Running Man challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599640/RunningMan_22_f0ka8y.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599640/RunningMan_22_f0ka8y.heic",
           alt: "Running Man name-tag battle action",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774599624/RunningMan_13_m2kg4e.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599624/RunningMan_13_m2kg4e.jpg",
           alt: "Running Man outdoor challenge moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_8_afq55t.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361445/RunningMan_8_afq55t.heic",
           alt: "Team celebrating Running Man victory",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361445/RunningMan_1_rqyx9i.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361445/RunningMan_1_rqyx9i.jpg",
           alt: "Running Man team formation",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361443/RunningMan_7_bqkr2b.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361443/RunningMan_7_bqkr2b.heic",
           alt: "Running Man finale showdown",
         },
       ],
@@ -9771,21 +9767,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "SOTONG GAME",
       subtitle: "Squid-Style Survival Games",
       tagline: "Can Your Team Survive the Ultimate Challenge?",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361478/SotongGame_7_cd8u9r.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361478/SotongGame_7_cd8u9r.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361474/SotongGame_8_hqiimv.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361472/SotongGame_6_m15tpn.jpg",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361469/SotongGame_5_yybybi.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361469/SotongGame_4_vphbd3.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361474/SotongGame_8_hqiimv.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361472/SotongGame_6_m15tpn.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361469/SotongGame_5_yybybi.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361469/SotongGame_4_vphbd3.jpg",
     overview: {
       description:
         "Sotong Game is a themed team building experience inspired by the global phenomenon of Squid-style survival games, adapted into safe, inclusive, and thrilling team challenges. Participants enter the game world complete with themed briefings, dramatic music, and the unmistakable tension of elimination rounds. From Red Light Green Light to Dalgona challenges to the iconic Tug of War, every game is faithfully recreated with a team-building twist that keeps everyone safe while delivering maximum excitement. Teams must communicate, strategize, and support each other to survive each round and advance to the final showdown. Our facilitators dress the part and maintain the immersive atmosphere throughout, complete with dramatic commentary and live scoring. Sotong Game is consistently one of our most popular activities for groups that want something themed, competitive, and genuinely memorable.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361478/SotongGame_7_cd8u9r.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361478/SotongGame_7_cd8u9r.jpg",
     },
     features: [
       {
