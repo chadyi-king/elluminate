@@ -5610,14 +5610,11 @@ export const servicesData: Record<string, ServiceData> = {
       },
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800",
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800",
-      "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800",
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800",
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800",
-      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800",
-      "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361391/AmazingRace_30_idmukn.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361390/AmazingRace_5_w7wpal.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361385/AmazingRace_33_scwscr.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361382/AmazingRace_29_hp1ikz.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361381/AmazingRace_23_v7yeo6.heic",
     ],
     testimonials: [
       {
