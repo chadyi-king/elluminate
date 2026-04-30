@@ -7804,6 +7804,11 @@ export const servicesData: Record<string, ServiceData> = {
       thumbnailImage:
         "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776837616/Builder-Cross_sll8i8.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361400/BuilderCross_7_cgexuc.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361397/BuilderCross_1_zkduwz.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/BuilderCross_6_ibyshz.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_9_fphwj5.jpg",
     cta: {
       headline: "Ready to Build Together?",
       subtext:
@@ -7983,21 +7988,13 @@ export const servicesData: Record<string, ServiceData> = {
           "Having a physical result from the session gives the group something to connect around beyond just the activity.",
       },
     ],
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361400/BuilderCross_5_ilekr6.heic",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361399/BuilderCross_3_xq5fkd.heic",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/BuilderCross_6_ibyshz.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_9_fphwj5.jpg",
+
     miniGallery: {
       title: "BuilderCross Highlights",
       images: [
         {
           src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_8_vovefn.jpg",
           alt: "Teams building structures during BuilderCross challenge",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_2_m6lujd.heic",
-          alt: "Team collaborating on BuilderCross design",
         },
         {
           src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361401/BuilderCross_10_wvtpdm.jpg",
