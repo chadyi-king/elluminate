@@ -7983,8 +7983,8 @@ export const servicesData: Record<string, ServiceData> = {
           "Having a physical result from the session gives the group something to connect around beyond just the activity.",
       },
     ],
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361400/BuilderCross_5_ilekr6.heic",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361399/BuilderCross_3_xq5fkd.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/BuilderCross_6_ibyshz.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361400/BuilderCross_7_cgexuc.jpg",
     ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/BuilderCross_6_ibyshz.jpg",
     testimonialBackgroundImage:
       "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_9_fphwj5.jpg",
@@ -7994,10 +7994,6 @@ export const servicesData: Record<string, ServiceData> = {
         {
           src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_8_vovefn.jpg",
           alt: "Teams building structures during BuilderCross challenge",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_2_m6lujd.heic",
-          alt: "Team collaborating on BuilderCross design",
         },
         {
           src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361401/BuilderCross_10_wvtpdm.jpg",
