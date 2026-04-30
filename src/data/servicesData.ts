@@ -8362,7 +8362,7 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_2_m57wuz.jpg",
     },
     howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361427/MTWI_12_vui3ae.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361426/MTWI_10_ofjakc.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_3_hiohbs.jpg",
     ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361433/MTWI_4_e5fnzy.jpg",
     testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_3_hiohbs.jpg",
     overview: {
@@ -8674,7 +8674,7 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Minute To Win It Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361426/MTWI_1_yi4zue.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_3_hiohbs.jpg",
           alt: "Teams competing in Minute To Win It challenges",
         },
         {
@@ -8684,14 +8684,6 @@ export const servicesData: Record<string, ServiceData> = {
         {
           src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_5_pzdfsb.jpg",
           alt: "Team celebration after winning",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361437/MTWI_7_vlabzw.heic",
-          alt: "Minute To Win It game action",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361437/MTWI_9_qfxt3q.heic",
-          alt: "Team challenge moment",
         },
         {
           src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361438/MTWI_6_fydbkh.jpg",
