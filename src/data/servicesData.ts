@@ -6112,24 +6112,8 @@ export const servicesData: Record<string, ServiceData> = {
           alt: "Team moment after completing CSI-Bones",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592600/CSI_14_z4eswb.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/CSI_3_tt9yqa.jpg",
           alt: "CSI-Bones team investigation scene",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592599/CSI_13_ferqyd.heic",
-          alt: "CSI-Bones evidence analysis",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592598/CSI_12_dg3lo1.heic",
-          alt: "CSI-Bones clue discovery",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
-          alt: "CSI-Bones team collaboration",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_10_umoqpw.heic",
-          alt: "CSI-Bones group solving mystery",
         },
       ],
     },
