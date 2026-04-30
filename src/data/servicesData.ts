@@ -10070,7 +10070,7 @@ export const servicesData: Record<string, ServiceData> = {
       tagline: "Gear Up for the Ultimate Laser Tag Showdown!",
       backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944229/tagtical_laser_4_r9rbfn.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944221/tagtical_laser_5_muhsev.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944225/tagtical_laser_12_esfxnw.jpg",
     addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944202/tagtical_laser_15_db28az.jpg",
     ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944206/tagtical_laser_13_ree6hf.jpg",
     testimonialBackgroundImage:
