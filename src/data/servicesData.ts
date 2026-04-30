@@ -10037,14 +10037,6 @@ export const servicesData: Record<string, ServiceData> = {
           src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361450/SotongGame_13_sabaqz.jpg",
           alt: "Team survival moment",
         },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361450/SotongGame_11_r7nxph.heic",
-          alt: "Sotong Game elimination round",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361476/SotongGame_9_wzdts3.heic",
-          alt: "Sotong Game team moment",
-        },
       ],
     },
     hideOutcomes: false,
