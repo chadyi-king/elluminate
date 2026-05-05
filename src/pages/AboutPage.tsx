@@ -469,7 +469,7 @@ const AboutPage = () => {
                 animate={{ rotate: 2 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773824034/photo_2023-06-28_14-02-04_bx1oal.jpg"
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/v1773824034/photo_2023-06-28_14-02-04_bx1oal.jpg"
                   alt="Team Celebration"
                   className="w-full h-full object-cover"
                 />
@@ -484,7 +484,7 @@ const AboutPage = () => {
                 animate={{ rotate: -3 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773824011/photo_2023-06-28_14-02-00_anwttt.jpg"
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/v1773824011/photo_2023-06-28_14-02-00_anwttt.jpg"
                   alt="Outdoor Team Building"
                   className="w-full h-full object-cover"
                 />
@@ -499,7 +499,7 @@ const AboutPage = () => {
                 animate={{ rotate: -2 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773824016/photo_2023-06-28_14-02-02-2_xghvi6.jpg"
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/v1773824016/photo_2023-06-28_14-02-02-2_xghvi6.jpg"
                   alt="Dinner & Dance"
                   className="w-full h-full object-cover"
                 />
@@ -514,7 +514,7 @@ const AboutPage = () => {
                 animate={{ rotate: 3 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773824009/IMG_2246-scaled_dp6pbh.jpg"
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/v1773824009/IMG_2246-scaled_dp6pbh.jpg"
                   alt="Overseas Retreat"
                   className="w-full h-full object-cover"
                 />
@@ -536,7 +536,7 @@ const AboutPage = () => {
         {/* Background Image - Asian corporate setting */}
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1775615791/about_us_0_g9cu3r.jpg"
+            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615791/about_us_0_g9cu3r.jpg"
             alt="Asian Corporate Team"
             className="w-full h-full object-cover"
           />
@@ -583,7 +583,7 @@ const AboutPage = () => {
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-sky-500/20 shadow-blue">
                 <img
-                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1775615791/about_us_0_g9cu3r.jpg"
+                  src="https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615791/about_us_0_g9cu3r.jpg"
                   alt="Asian Team Celebration"
                   className="w-full h-full object-cover"
                 />
@@ -603,7 +603,7 @@ const AboutPage = () => {
         {/* Background */}
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773823919/20230206_175035-scaled_us5gpm.jpg"
+            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/v1773823919/20230206_175035-scaled_us5gpm.jpg"
             alt="Event Background"
             className="w-full h-full object-cover"
           />
@@ -790,19 +790,19 @@ const AboutPage = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {[
               {
-                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361398/AmazingRace_4_ehjyb5.jpg",
+                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361398/AmazingRace_4_ehjyb5.jpg",
                 alt: "Team celebration moment",
               },
               {
-                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361396/AmazingRace_9_rpn4ys.jpg",
+                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361396/AmazingRace_9_rpn4ys.jpg",
                 alt: "Dinner and dance experience",
               },
               {
-                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361395/AmazingRace_8_s4xwfc.jpg",
+                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361395/AmazingRace_8_s4xwfc.jpg",
                 alt: "Outdoor team building activity",
               },
               {
-                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774360192/AmazingRace_15_hspv90.heic",
+                src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360192/AmazingRace_15_hspv90.heic",
                 alt: "Retreat experience",
               },
             ].map((image, index) => (
@@ -971,7 +971,7 @@ const AboutPage = () => {
       <section className="py-24 relative bg-slate-950">
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361385/AmazingRace_33_scwscr.jpg"
+            src="https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361385/AmazingRace_33_scwscr.jpg"
             alt="Event"
             className="w-full h-full object-cover"
           />
