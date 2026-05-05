@@ -19,7 +19,7 @@ const caseStudies = [
       "Elluminate created an unforgettable experience that had our entire team talking for weeks. The Amazing Race format was perfect for building connections across departments.",
     industry: "Technology",
     year: "2024",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361395/AmazingRace_7_jbnxyz.jpg",
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361395/AmazingRace_7_jbnxyz.jpg",
     accentColor: "#FFC400",
   },
   {
@@ -38,8 +38,7 @@ const caseStudies = [
       "The level of creativity and attention to detail was impressive. Our teams were fully engaged from start to finish. A truly world-class team building experience.",
     industry: "Banking & Finance",
     year: "2024",
-    image:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1773823918/20230203_100000-scaled_rmzoo4.jpg",
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1773823918/20230203_100000-scaled_rmzoo4.jpg",
     accentColor: "#26D07C",
   },
   {
@@ -58,7 +57,7 @@ const caseStudies = [
       "Elluminate understood exactly what our healthcare workers needed – a rejuvenating experience that brought our teams closer together while promoting wellbeing.",
     industry: "Healthcare",
     year: "2023",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579618/WellnessGamesDay_6_pmmu3v.jpg",
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579618/WellnessGamesDay_6_pmmu3v.jpg",
     accentColor: "#62E2C4",
   },
   {
@@ -77,7 +76,7 @@ const caseStudies = [
       "The Cultural Race was a brilliant way to help our international team connect with Singapore's rich heritage while building stronger bonds with each other.",
     industry: "Technology Startup",
     year: "2023",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361435/MTWI_2_m57wuz.jpg",
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_2_m57wuz.jpg",
     accentColor: "#FF4F4F",
   },
 ];
