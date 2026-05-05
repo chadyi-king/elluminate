@@ -7793,9 +7793,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Build, Create, Compete!",
       subtitle:
         "Watch teams race against the clock to build the tallest and most creative structure while overcoming exciting challenges. Teamwork and innovation are essential in this fun and competitive building showdown!",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776837616/Builder-Cross_sll8i8.mov",
-      thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776837616/Builder-Cross_sll8i8.jpg",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776837616/Builder-Cross_sll8i8.mov",
+      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776837616/Builder-Cross_sll8i8.jpg",
     },
     cta: {
       headline: "Ready to Build Together?",
@@ -8470,9 +8469,9 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle:
         "Watch teams race against the clock in a series of exciting 60-second challenges. Speed, skill, and creativity are key to winning in this fast-paced, high-energy game!",
       videoUrl:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1773887140/Minute-To-Win-It-Team-Building_i0cajb.mp4",
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887140/Minute-To-Win-It-Team-Building_i0cajb.mp4",
       thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1773887140/Minute-To-Win-It-Team-Building_i0cajb.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887140/Minute-To-Win-It-Team-Building_i0cajb.jpg",
     },
     cta: {
       headline: "Ready to Play?",
@@ -8815,9 +8814,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Race to the Finish Line!",
       subtitle:
         "Watch teams race through fast-paced challenges inspired by the classic board game. Complete tasks, collect points, and outsmart your opponents in this exciting and competitive game of strategy and speed!",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776838228/Monopoly_Dash_d8mjjz.mov",
-      thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776838228/Monopoly_Dash_d8mjjz.jpg",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838228/Monopoly_Dash_d8mjjz.mov",
+      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838228/Monopoly_Dash_d8mjjz.jpg",
     },
     cta: {
       headline: "Ready to Dash?",
@@ -9328,19 +9326,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Nerfwar Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456498/nerfwar_10_tg6ss6.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456498/nerfwar_10_tg6ss6.jpg",
           alt: "Nerfwar foam dart team battle in action",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456494/nerfwar_12_ykj5sp.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456494/nerfwar_12_ykj5sp.jpg",
           alt: "Team celebrating Nerfwar victory",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456489/nerfwar_8_kel39u.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456489/nerfwar_8_kel39u.jpg",
           alt: "Outdoor Nerfwar moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456502/nerfwar_4_lgyzz6.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456502/nerfwar_4_lgyzz6.jpg",
           alt: "Nerfwar squad formation",
         },
       ],
@@ -9486,9 +9484,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "The Ultimate Team Challenge",
       subtitle:
         "Watch teams compete in exciting and unpredictable challenges inspired by the hit show Running Man. From name tag elimination to thrilling obstacle courses, teamwork and strategy are key to outsmarting your opponents and winning!",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776837783/RunningMan_oxkjdu.mov",
-      thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776837783/RunningMan_oxkjdu.jpg",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776837783/RunningMan_oxkjdu.mov",
+      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776837783/RunningMan_oxkjdu.jpg",
     },
     cta: {
       headline: "Ready for Running Man?",
@@ -9823,9 +9820,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Tense Challenges, Teamwork Wins!",
       subtitle:
         "Watch teams tackle unique and fun challenges in this exciting game of strategy and teamwork. From blind paths to pressure puzzles, every challenge tests your group's ability to think fast and work together!",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776838226/Sotong_Game_qqx1d3.mov",
-      thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776838226/Sotong_Game_qqx1d3.jpg",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838226/Sotong_Game_qqx1d3.mov",
+      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838226/Sotong_Game_qqx1d3.jpg",
     },
     cta: {
       headline: "Ready for Sotong Game?",
@@ -10253,10 +10249,9 @@ export const servicesData: Record<string, ServiceData> = {
       title: "The Ultimate Battle of Strategy",
       subtitle:
         "Watch teams compete in fast-paced laser tag challenges, testing their strategy and teamwork across dynamic arenas.",
-      videoUrl:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1773887139/Laser-Tag-Team-Building-1_wjhrle.mp4",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887139/Laser-Tag-Team-Building-1_wjhrle.mp4",
       thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1773887139/Laser-Tag-Team-Building-1_wjhrle.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887139/Laser-Tag-Team-Building-1_wjhrle.jpg",
     },
     clientLogos: ["Thales", "BAE Systems", "ST Aerospace", "Dassault", "Bosch", "Sembcorp"],
     recentEvents: [
@@ -12414,18 +12409,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MBTI PERSONALITY PROFILING",
       subtitle: "Training",
       tagline: "Personality has the power to uplift, depress, curse and to bless.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775461597/MBTI_7_a2vsjt.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775461597/MBTI_7_a2vsjt.heic",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361413/MBTI_1_n46m74.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775462160/MBTI_11_mt5v5y.heic",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361396/BuilderCross_5_ww5m3l.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775462160/MBTI_10_zci3dp.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361413/MBTI_1_n46m74.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775462160/MBTI_11_mt5v5y.heic",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361396/BuilderCross_5_ww5m3l.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775462160/MBTI_10_zci3dp.heic",
     overview: {
       description:
         "Looking to find out more about who you are and how you work with others? What's your Type? breaks down your entire personality to figure out what drives you and which types you are able to get along with! This activity is designed as a team building event, where teams will discover the frameworks of the mind, energy, nature and tactics within us. By pushing values such as exploration, awareness and insightfulness, we aim to give your group a reflective event filled with diverse growth!",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775461597/MBTI_7_a2vsjt.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775461597/MBTI_7_a2vsjt.heic",
     },
     features: [
       { icon: Brain, title: "Personality Discovery", description: "Understand what drives you and others." },
@@ -12626,17 +12619,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "DISC ASSESSMENT",
       subtitle: "Training",
       tagline: "The biggest communication problem is that we do not listen to understand. We only listen to reply.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775469812/disc_11_o3izak.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469812/disc_11_o3izak.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775469812/disc_5_pyuont.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775469803/disc_14_rb0mbj.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774361413/CSI_4_mezxfu.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775469815/disc_1_vaehl6.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469812/disc_5_pyuont.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469803/disc_14_rb0mbj.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361413/CSI_4_mezxfu.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469815/disc_1_vaehl6.jpg",
     overview: {
       description:
         "Are you compatible with others? What's your personality type? We will help you break down your entire core personality and figure out what makes you, well you. Since everyone is special, we believe this exercise will help with self-awareness and tell you about your specialty. This activity should be done with team members, where teams will find out each member's mind, energy, and nature.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775469812/disc_11_o3izak.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469812/disc_11_o3izak.jpg",
     },
     features: [
       { icon: Brain, title: "Core Personality", description: "Discover what makes you unique." },
@@ -13047,20 +13039,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MASS TALKS",
       subtitle: "Training",
       tagline: "Inspire Hundreds, Impact Thousands",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579600/ParentsTalk_1_ilfr1u.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/ParentsTalk_1_ilfr1u.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579597/ParentsTalk_7_braym0.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579590/ParentsTalk_2_kpyxks.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774592593/CSI_9_a26htk.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579597/ParentsTalk_7_braym0.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579590/ParentsTalk_2_kpyxks.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579598/ParentsTalk_8_ygibz7.jpg",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579598/ParentsTalk_8_ygibz7.jpg",
     overview: {
       description:
         "Transform your large-scale gatherings into unforgettable moments of inspiration and learning. Our Mass Talks bring together captivating speakers, engaging content, and professional production to deliver powerful messages that resonate with audiences of any size. Whether it's a company-wide town hall, industry conference keynote, or motivational assembly, we craft experiences that inform, inspire, and ignite action across your entire organization.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579600/ParentsTalk_1_ilfr1u.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/ParentsTalk_1_ilfr1u.jpg",
     },
     features: [
       {
@@ -13945,19 +13934,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "INCENTIVE TRAVEL",
       subtitle: "Retreat",
       tagline: "Reward your best people with the journey of a lifetime.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_40_jfae9l.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023137/Overseas_40_jfae9l.heic",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579578/Overseas_17_yjcpsf.heic",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579578/Overseas_16_znupnb.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774579572/Overseas_11_droxvw.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579578/Overseas_17_yjcpsf.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579578/Overseas_16_znupnb.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579572/Overseas_11_droxvw.jpg",
     overview: {
       description:
         "Incentive travel is one of the most powerful non-cash rewards a company can offer its top performers, sales teams, and high-growth contributors. A well-designed incentive trip communicates something no bonus cheque can: we see what you did, and we want your experience to match it. Elluminate designs end-to-end incentive travel programmes for Singapore-based organisations — from defining the eligibility criteria and building the anticipation campaign, to executing the trip itself with on-ground facilitation, a private recognition dinner, and a polished post-trip highlight reel. Destinations range from regional gems like Bali and Japan to long-haul experiences in Europe and beyond. Every programme is built around your earners, your culture, and the level of recognition your organisation is committed to delivering.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_40_jfae9l.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023137/Overseas_40_jfae9l.heic",
     },
     features: [
       {
