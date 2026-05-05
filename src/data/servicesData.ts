@@ -6726,15 +6726,13 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "Inspired by the Netflix hit Alice in Borderland — a surreal live adventure where teams navigate themed stations, crack curious puzzles, and find their way through a world of playful challenges.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361422/MonopolyDash_3_kq2pxe.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_3_kq2pxe.heic",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361472/SotongGame_6_m15tpn.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/SotongGame_6_m15tpn.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361472/SotongGame_6_m15tpn.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/SotongGame_6_m15tpn.jpg",
     ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361413/CSI_4_mezxfu.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774361424/MonopolyDash_8_nvfim2.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361424/MonopolyDash_8_nvfim2.heic",
     overview: {
       description:
         "Alice in Motherland is a team-building adventure inspired by Alice in Borderland, the acclaimed Netflix series, adapted into a live and fully facilitated group experience. Teams journey through themed stations, complete curious missions, solve imaginative puzzles, and collaborate their way through a surreal format that rewards creativity and team observation. It works especially well for clients or schools looking for something visually distinctive, story-driven, and genuinely memorable.",
@@ -7076,7 +7074,7 @@ export const servicesData: Record<string, ServiceData> = {
     addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615840/Exstatic-82_amkre4.png",
     ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361442/RunningMan_6_esz34i.heic",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615832/exstatic-75-2_ozcdef.png",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615832/exstatic-75-2_ozcdef.png",
     overview: {
       description:
         "Battle of the Olympians is a large-format team competition built for groups that want scale, energy, and a sense of event. Teams move through a mix of athletic relays, tactical tasks, mental rounds, and showpiece finales while earning points for consistency, teamwork, and determination. It works especially well for larger corporate groups, school cohorts, student camps, and department-wide offsites that need something competitive, highly visible, and easy for people to rally around.",
@@ -7369,19 +7367,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Battle of the Olympians Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615830/exstatic-90_izg9jw.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615830/exstatic-90_izg9jw.png",
           alt: "Teams competing during Battle of the Olympians",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615824/exstatic-78-2_i4fdzh.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615824/exstatic-78-2_i4fdzh.png",
           alt: "Olympian teams celebrating after the final round",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615823/6-1_sobayd.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615823/6-1_sobayd.png",
           alt: "Large group tournament layout during a team showdown",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615819/7-3_reercq.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615819/7-3_reercq.png",
           alt: "Battle of the Olympians relay challenge",
         },
       ],
@@ -7646,19 +7644,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Archery Tag Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944022/archery_tag_2_p8bmvz.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944022/archery_tag_2_p8bmvz.heic",
           alt: "Archery Tag team battle",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944022/archery_tag_2_p8bmvz.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944022/archery_tag_2_p8bmvz.heic",
           alt: "Outdoor team building moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944051/archery_tag_13_dadl82.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944051/archery_tag_13_dadl82.jpg",
           alt: "Team celebrating after Archery Tag",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944047/archery_tag_1_uvgseb.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944047/archery_tag_1_uvgseb.jpg",
           alt: "Archery Tag squad formation",
         },
       ],
@@ -8014,21 +8012,16 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Battle",
       tagline:
         "A fast, tactical battle format built for teams and student groups that want action without the admin headache.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455356/gelblitz_6_akebbh.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775455356/gelblitz_6_akebbh.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455295/gelblitz_9_ilhw6b.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456395/gelblitz_4_vphes5.jpg",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456394/gelblitz_3_yjahdx.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775456396/gelblitz_10_cgvrna.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775455295/gelblitz_9_ilhw6b.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456395/gelblitz_4_vphes5.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456394/gelblitz_3_yjahdx.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456396/gelblitz_10_cgvrna.jpg",
     overview: {
       description:
         "GelBlitz is a high-energy gel blaster team battle experience designed for safe, exciting team bonding. Using specially designed gel blasters that fire soft, biodegradable gel beads, teams compete in structured tactical rounds with clear objectives. It is a strong fit for both workplace teams and older student groups because it combines action, teamwork, and facilitation in a format that feels exciting but remains well-controlled. Whether your group prefers tactical strategy or all-out action, GelBlitz delivers an adrenaline rush that gets people communicating fast.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775455356/gelblitz_6_akebbh.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775455356/gelblitz_6_akebbh.jpg",
     },
     features: [
       {
@@ -10359,19 +10352,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Laser Tag Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944194/tagtical_laser_17_hy3dms.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944194/tagtical_laser_17_hy3dms.jpg",
           alt: "Tactical laser tag team battle",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944210/tagtical_laser_7_arripn.heic",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944210/tagtical_laser_7_arripn.heic",
           alt: "Team celebrating laser tag victory",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944214/tagtical_laser_2_m4tsmu.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944214/tagtical_laser_2_m4tsmu.jpg",
           alt: "Outdoor laser tag moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944225/tagtical_laser_12_esfxnw.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944225/tagtical_laser_12_esfxnw.jpg",
           alt: "Laser tag strategy session",
         },
       ],
@@ -10570,15 +10563,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Treasure Heist Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615791/photo_2023-06-28_14-20-38_dc598l.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615791/photo_2023-06-28_14-20-38_dc598l.jpg",
           alt: "Treasure Heist team-building session",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615778/photo_2023-06-28_14-02-17_ys0vmu.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615778/photo_2023-06-28_14-02-17_ys0vmu.jpg",
           alt: "Outdoor team-building moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615777/photo_2023-06-28_14-02-20_dfdisl.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615777/photo_2023-06-28_14-02-20_dfdisl.jpg",
           alt: "Treasure Heist mask key art",
         },
       ],
@@ -11748,21 +11741,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "TOMB RAIDER KING",
       subtitle: "Virtual Team Building",
       tagline: "The Grand Treasure Hunt Game made to push your team to the limit!",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775810999/tomb_raider_0_cbsqzh.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775810999/tomb_raider_0_cbsqzh.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811020/tomb_raider_8_znhc3s.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811014/tomb_raider_6_zg2lkt.png",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811016/tomb_raider_5_dimic8.png",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811020/tomb_raider_8_znhc3s.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811014/tomb_raider_6_zg2lkt.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811016/tomb_raider_5_dimic8.png",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775811016/tomb_raider_5_dimic8.png",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811016/tomb_raider_5_dimic8.png",
     overview: {
       description:
         "Embark on an epic virtual treasure hunt across 5 ancient tombs! Teams race to collect the most gold by solving puzzles, overcoming obstacles, and raiding tombs before competitors. This adventure-packed experience combines strategy, speed, and teamwork for an unforgettable virtual journey via Zoom.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775810999/tomb_raider_0_cbsqzh.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775810999/tomb_raider_0_cbsqzh.jpg",
     },
     features: [
       { icon: Crown, title: "Treasure Hunting", description: "Raid 5 tombs for gold and glory." },
@@ -12137,19 +12126,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "LOCAL RETREATS",
       subtitle: "Retreat",
       tagline: "Singapore may be small, but not all of it has been explored!",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023177/Overseas_48_g0woao.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023177/Overseas_48_g0woao.jpg",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_42_rhm0bt.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023137/Overseas_47_up0edg.jpg",
-    testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023139/Overseas_28_c1mqho.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023137/Overseas_42_rhm0bt.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023137/Overseas_47_up0edg.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023139/Overseas_28_c1mqho.heic",
     overview: {
       description:
         "Not every great retreat requires a passport. Singapore's hotel scene delivers everything from affordable urban escapes to some of the most storied and architecturally celebrated properties in Asia — and we know exactly which ones perform for team retreats. We offer three distinct tiers: Staycation for whole-staff appreciation and casual connection, Heritage for a culturally rich stay in Singapore's most celebrated historical hotels, and Luxury for recognition-grade experiences that senior leaders and top earners genuinely value. You choose the tier; we handle room blocks, activities, dining, and every detail in between.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775023177/Overseas_48_g0woao.jpg",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023177/Overseas_48_g0woao.jpg",
     },
     features: [
       { icon: Building, title: "Curated Venues", description: "Handpicked hotels across Singapore." },
