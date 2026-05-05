@@ -7399,22 +7399,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Battle",
       tagline:
         "A safe, high-energy battle format for teams and student groups who want action, teamwork, and fast decisions.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944044/archery_tag_8_c6r61v.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944044/archery_tag_8_c6r61v.heic",
     },
-    howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944033/archery_tag_5_hg7csc.heic",
-    addOnsImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944029/archery_tag_6_v4lahk.heic",
-    ctaBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944007/archery_tag_12_ctqza6.heic",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944033/archery_tag_5_hg7csc.heic",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944029/archery_tag_6_v4lahk.heic",
+    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944007/archery_tag_12_ctqza6.heic",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944025/archery_tag_3_jcem57.heic",
+      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944025/archery_tag_3_jcem57.heic",
     overview: {
       description:
         "Archery Tag is a team battle experience that blends movement, strategy, and communication. It is designed to be safe, inclusive, and easy to run for workplace teams, school groups, and student leaders who want something active without losing structure. Clear rules, protective equipment, and professional facilitation keep the format fun and accessible.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1774944044/archery_tag_8_c6r61v.heic",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944044/archery_tag_8_c6r61v.heic",
     },
     features: [
       { icon: Target, title: "Tactical Team Play", description: "Coordinate roles and communicate to win rounds." },
@@ -7471,10 +7466,9 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Aim, Shoot, Win!",
       subtitle:
         "Watch teams compete in this thrilling mix of archery and tag, where precision and strategy are key. Dodge, shoot, and outsmart your opponents to claim victory in this action-packed battle!",
-      videoUrl:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1773887135/Archery-Tag-Team-Building-1_ssgv9f.mp4",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887135/Archery-Tag-Team-Building-1_ssgv9f.mp4",
       thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1773887135/Archery-Tag-Team-Building-1_ssgv9f.jpg",
+        "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887135/Archery-Tag-Team-Building-1_ssgv9f.jpg",
     },
     cta: {
       headline: "Ready to Battle?",
