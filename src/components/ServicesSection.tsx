@@ -170,7 +170,7 @@ const allActivities = [
       "An interactive online game show format designed for fast laughs, remote participation, and easy engagement.",
     stats: "120+ virtual game shows",
     clients: "Distributed teams worldwide",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579600/TheGameShow_VTB_4_weyhxy.png",
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/TheGameShow_VTB_4_weyhxy.png",
     tag: "Virtual",
   },
   {
@@ -182,7 +182,7 @@ const allActivities = [
       "Retreat experiences designed for deeper connection, offsite focus, and shared momentum outside the usual setting.",
     stats: "Regional retreats across Asia",
     clients: "Leadership teams, departments, and top performers",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/f_auto,q_auto/v1774579581/Overseas_5_o60d5r.jpg",
+    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579581/Overseas_5_o60d5r.jpg",
     tag: "Retreat",
   },
   {
