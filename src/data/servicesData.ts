@@ -636,31 +636,29 @@ export const servicesData: Record<string, ServiceData> = {
       videos: [
         {
           title: "Bali Team Retreat Highlights",
-          videoUrl:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto/f_auto/v1775543735/Edrington_Overseas_Video_mtm4bv.mov",
+          videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775543735/Edrington_Overseas_Video_mtm4bv.mov",
           thumbnailImage:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/v1775543735/Edrington_Overseas_Video_mtm4bv.jpg",
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775543735/Edrington_Overseas_Video_mtm4bv.jpg",
         },
         {
           title: "Bintan Team Retreat Highlights",
           videoUrl:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto/f_auto/v1775785840/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y.mp4",
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775785840/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y.mp4",
           thumbnailImage:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/v1775785840/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y.jpg",
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775785840/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y.jpg",
         },
         {
           title: "Batam Team Retreat Highlights",
           videoUrl:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto/f_auto/v1775785846/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj.mp4",
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775785846/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj.mp4",
           thumbnailImage:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj.jpg",
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj.jpg",
         },
         {
           title: "Kuala Lumpur Team Retreat Highlights",
           videoUrl:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto/f_auto/v1775785855/Overseas_Retreat_Kuala_Lumpur_pvy2gn.mp4v",
-          thumbnailImage:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_0,w_800,h_450,c_fill,f_auto,q_auto/Overseas_Retreat_Kuala_Lumpur_pvy2gn.jpg",
+            "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775785855/Overseas_Retreat_Kuala_Lumpur_pvy2gn.mp4v",
+          thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/Overseas_Retreat_Kuala_Lumpur_pvy2gn.jpg",
         },
 
         { title: "Japan Cultural Experience" },
@@ -5691,9 +5689,8 @@ export const servicesData: Record<string, ServiceData> = {
     videoSection: {
       title: "See the Race in Action",
       subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776741980/Amazing_Race_jdt9ya.mov",
-      thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776741980/Amazing_Race_jdt9ya.jpg",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776741980/Amazing_Race_jdt9ya.mov",
+      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776741980/Amazing_Race_jdt9ya.jpg",
     },
     cta: {
       headline: "Ready for Your Amazing Race?",
@@ -5930,9 +5927,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Unravel the Mystery!",
       subtitle:
         "Watch teams dive into a thrilling mystery as they piece together clues to solve a crime. With sharp observation and teamwork, uncover the truth in this exciting detective challenge!",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/q_auto,f_auto/v1776838441/CSI-Bones_lzx6cy.mp4",
-      thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/so_1,f_jpg,q_auto/v1776838441/CSI-Bones_lzx6cy.jpg",
+      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838441/CSI-Bones_lzx6cy.mp4",
+      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838441/CSI-Bones_lzx6cy.jpg",
     },
     cta: {
       headline: "Ready to Solve the Case?",
@@ -6370,19 +6366,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Cultural Race Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615772/18-1_k5snvf.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615772/18-1_k5snvf.png",
           alt: "Teams racing through cultural checkpoints",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615773/14-1_d5cxly.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615773/14-1_d5cxly.png",
           alt: "Team celebrating during Cultural Race",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615775/photo_2023-06-28_14-02-48_axzgyz.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615775/photo_2023-06-28_14-02-48_axzgyz.jpg",
           alt: "Outdoor team moment during Cultural Race",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615775/photo_2023-06-28_14-02-48_axzgyz.jpg",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615775/photo_2023-06-28_14-02-48_axzgyz.jpg",
           alt: "Cultural Race checkpoint challenge",
         },
       ],
@@ -6401,11 +6397,10 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "Inspired by the viral hit game Among Us — a live social-deduction showdown where your crew finds imposters, defends the mission, and outplays the opposition.",
-      backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615859/exstatic-71_nf1hy4.png",
+      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615859/exstatic-71_nf1hy4.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615880/12-1_ys7sfz.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615852/4-3_jcfcl7.png",
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615880/12-1_ys7sfz.png",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615852/4-3_jcfcl7.png",
     ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592600/CSI_14_z4eswb.heic",
     testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615852/2-2_yuoolq.png",
     overview: {
@@ -6700,19 +6695,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Amongst Us Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615841/exstatic-77_qz783y.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615841/exstatic-77_qz783y.png",
           alt: "Amongst Us team reveal moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615841/5_n9hjyr.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615841/5_n9hjyr.png",
           alt: "Players analysing who the imposter might be",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615840/exstatic-92_iesvlu.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615840/exstatic-92_iesvlu.png",
           alt: "Participants reacting during a live discussion round",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615840/3-2_ylq4ub.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615840/3-2_ylq4ub.png",
           alt: "Amongst Us accusation round",
         },
       ],
@@ -7044,19 +7039,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Alice in Motherland Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615879/exstatic-78-1_xhgvab.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615879/exstatic-78-1_xhgvab.png",
           alt: "Team entering a themed Alice in Motherland station",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615871/exstatic-94_nqnjxj.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615871/exstatic-94_nqnjxj.png",
           alt: "Participants reacting during a story-led mission",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615873/TE-51_cbrxsh.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615873/TE-51_cbrxsh.png",
           alt: "Group celebrating after completing the final challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/q_auto/f_auto/v1775615871/exstatic-75-1_iq18k4.png",
+          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615871/exstatic-75-1_iq18k4.png",
           alt: "Alice in Motherland puzzle station",
         },
       ],
