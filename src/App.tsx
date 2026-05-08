@@ -41,7 +41,8 @@ const App = () => (
             <Route path="/services/:slug" element={<ServicePage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
-            <Route path="/thank-you-:formName" element={<ThankYouPage />} />
+            <Route path="/thank-you-contact" element={<ThankYouPage />} />
+            <Route path="/thank-you/:formName" element={<ThankYouPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
