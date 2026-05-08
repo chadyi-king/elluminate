@@ -1,31 +1,46 @@
-## Goal
+## Issue 1 — 404 on `/thank-you-contact`
 
-Form submissions go to `info@exstatic.one` as a clean, professional email containing all the filled-in form fields. The website continues to display `info@elluminate.sg` as the public contact address (that mailbox is already on Google Workspace and works for direct customer emails).
+The route IS defined in code (`src/App.tsx`):
+```
+<Route path="/thank-you-:formName" element={<ThankYouPage />} />
+```
 
-## What's already in place (no changes needed)
+So it works on the live preview, but you hit 404 on the **published** `elluminate.sg` site. That means the live published build is older than the code that added the thank-you route. The fix is simply to **republish** the site so the latest build (with the route) goes live.
 
-- Form sends a notification email triggered on submit
-- Email template (`contact-inquiry`) already formats every field nicely: contact info, organisation, event details, customisation, add-ons, additional details, plus marketing attribution (UTM, gclid, referrer, landing page)
-- Reply-To is set to the customer's email, so hitting "Reply" replies directly to the lead
-- Customer also receives a confirmation email
-- Submission is also saved to the database as a backup
+No code changes needed for this.
 
-## The single change
+After republish I'll verify by visiting `https://elluminate.sg/thank-you-contact` and confirming the success page loads.
 
-Update the recipient address from `info@elluminate.sg` to `info@exstatic.one` in two places:
+## Issue 2 — How the bot filter works (and why real enquiries won't be blocked)
 
-1. **`src/components/ContactModal.tsx`** — change `recipientEmail: "info@elluminate.sg"` to `recipientEmail: "info@exstatic.one"` in the `send-transactional-email` invocation
-2. **`supabase/functions/send-transactional-email/index.ts`** — update the `PUBLIC_TEMPLATES['contact-inquiry'].fixedRecipient` allowlist from `info@elluminate.sg` to `info@exstatic.one` (this server-side guard rejects sends to any other address for spam protection)
+The form uses a **honeypot field**, not a CAPTCHA. Here's the field in `ContactModal.tsx`:
 
-Then redeploy the `send-transactional-email` edge function.
+```html
+<input name="website_url" tabIndex={-1} aria-hidden="true"
+       autoComplete="off"
+       style="position:absolute; left:-10000px; width:1px; height:1px; opacity:0" />
+```
 
-## What stays the same
+How it works:
+- The field is **invisible** to humans (positioned 10,000px off-screen, 1×1px, opacity 0).
+- It's **skipped by keyboard** (`tabIndex={-1}`) and **hidden from screen readers** (`aria-hidden`).
+- Browser autofill is told to ignore it (`autoComplete="off"`).
+- Real users never see or touch it, so they leave it empty.
+- Spam bots blindly fill every field they find in the HTML, so they fill `website_url`.
+- On submit, if that field has any value → submission is silently dropped (treated as fake success so the bot doesn't retry).
 
-- All public-facing `info@elluminate.sg` mailto links and footer references on the website
-- The email template content, subject line, formatting, and Reply-To behaviour
-- The customer confirmation email
-- Database backup of every submission
+**Will a real enquiry ever be counted as a bot?**
+Effectively no. The only edge case is if a password manager or aggressive autofill extension forced a value into a field named `website_url`, which is extremely rare because:
+1. The field is hidden + aria-hidden + tabIndex -1.
+2. `autoComplete="off"` is set.
+3. The field name `website_url` doesn't match any standard autofill profile (name, email, phone, address, etc.).
 
-## Verification
+So real customers fill the visible Name / Email / Phone / etc. and submit normally. Honeypots are the industry-standard low-friction approach precisely because they don't annoy users like CAPTCHAs do.
 
-After deploying, I'll submit a test inquiry and check that the email arrives at `info@exstatic.one` with all fields properly formatted.
+If you ever want extra safety, we can add Cloudflare Turnstile (invisible CAPTCHA, no user interaction) later — but it's not needed today.
+
+## Plan
+
+1. Republish the site so the `/thank-you-:formName` route goes live and the 404 disappears.
+2. (No code changes.) Honeypot bot filter stays as-is — confirmed safe for real enquiries.
+3. Verify by visiting `https://elluminate.sg/thank-you-contact` after republish.
