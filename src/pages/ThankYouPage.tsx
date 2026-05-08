@@ -15,7 +15,8 @@ const FRIENDLY_NAMES: Record<string, string> = {
 
 export default function ThankYouPage() {
   const { formName = "contact" } = useParams<{ formName: string }>();
-  const friendly = FRIENDLY_NAMES[formName] ?? "Submission";
+  const normalizedFormName = formName === "contact" || !formName ? "contact" : formName;
+  const friendly = FRIENDLY_NAMES[normalizedFormName] ?? "Submission";
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -23,10 +24,10 @@ export default function ThankYouPage() {
     w.dataLayer = w.dataLayer || [];
     w.dataLayer.push({
       event: "lead_conversion",
-      form_name: formName,
+      form_name: normalizedFormName,
       page_path: window.location.pathname,
     });
-  }, [formName]);
+  }, [normalizedFormName]);
 
   return (
     <>
