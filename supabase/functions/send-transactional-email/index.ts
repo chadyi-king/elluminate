@@ -145,19 +145,20 @@ Deno.serve(async (req) => {
   }
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
+  const normalizedRecipientEmail = recipientEmail.trim().toLowerCase()
 
   // 1. Suppression check
   const { data: suppressed } = await supabase
     .from('suppressed_emails')
     .select('email')
-    .eq('email', recipientEmail.toLowerCase())
+    .eq('email', normalizedRecipientEmail)
     .maybeSingle()
 
   if (suppressed) {
     await supabase.from('email_send_log').insert({
       message_id: idempotencyKey,
       template_name: templateName,
-      recipient_email: recipientEmail,
+      recipient_email: normalizedRecipientEmail,
       status: 'suppressed',
       error_message: 'Recipient is on suppression list',
     })
@@ -172,10 +173,11 @@ Deno.serve(async (req) => {
   const text = await render(element, { plainText: true })
   const subject =
     typeof entry.subject === 'function' ? entry.subject(data) : entry.subject
+  const unsubscribeToken = await getOrCreateUnsubscribeToken(supabase, normalizedRecipientEmail)
 
   // 3. Enqueue (process-email-queue actually sends)
   const queuePayload = {
-    to: recipientEmail,
+    to: normalizedRecipientEmail,
     from: `${fromName ?? FROM_NAME} <noreply@${FROM_DOMAIN}>`,
     sender_domain: SENDER_DOMAIN,
     subject,
@@ -186,6 +188,7 @@ Deno.serve(async (req) => {
     idempotency_key: idempotencyKey,
     message_id: idempotencyKey,
     queued_at: new Date().toISOString(),
+    unsubscribe_token: unsubscribeToken,
     reply_to: replyTo,
   }
 
@@ -202,7 +205,7 @@ Deno.serve(async (req) => {
   await supabase.from('email_send_log').insert({
     message_id: idempotencyKey,
     template_name: templateName,
-    recipient_email: recipientEmail,
+    recipient_email: normalizedRecipientEmail,
     status: 'pending',
   })
 
