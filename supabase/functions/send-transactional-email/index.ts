@@ -34,7 +34,7 @@ function json(body: unknown, status = 200) {
 // Templates that may be invoked by anonymous (unauthenticated) callers.
 // All other templates require a valid Authorization bearer token.
 const PUBLIC_TEMPLATES: Record<string, { fixedRecipient?: string }> = {
-  'contact-inquiry': { fixedRecipient: 'info@elluminate.sg' },
+  'contact-inquiry': { fixedRecipient: 'info@exstatic.one' },
   'contact-confirmation': {},
 }
 
