@@ -34,7 +34,7 @@ function json(body: unknown, status = 200) {
 // Templates that may be invoked by anonymous (unauthenticated) callers.
 // All other templates require a valid Authorization bearer token.
 const PUBLIC_TEMPLATES: Record<string, { fixedRecipient?: string }> = {
-  'contact-inquiry': { fixedRecipient: 'info@exstatic.one' },
+  'contact-inquiry': { fixedRecipient: 'info@elluminate.sg' },
   'contact-confirmation': {},
 }
 
@@ -54,6 +54,28 @@ function checkRateLimit(key: string): boolean {
   if (bucket.count >= RATE_LIMIT_MAX) return false
   bucket.count++
   return true
+}
+
+async function getOrCreateUnsubscribeToken(
+  supabase: ReturnType<typeof createClient>,
+  email: string,
+) {
+  const { data: existingToken, error: existingTokenError } = await supabase
+    .from('email_unsubscribe_tokens')
+    .select('token')
+    .eq('email', email)
+    .maybeSingle()
+
+  if (existingTokenError) throw existingTokenError
+  if (existingToken?.token) return existingToken.token
+
+  const token = crypto.randomUUID()
+  const { error: insertTokenError } = await supabase
+    .from('email_unsubscribe_tokens')
+    .insert({ email, token })
+
+  if (insertTokenError) throw insertTokenError
+  return token
 }
 
 Deno.serve(async (req) => {
@@ -123,19 +145,20 @@ Deno.serve(async (req) => {
   }
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
+  const normalizedRecipientEmail = recipientEmail.trim().toLowerCase()
 
   // 1. Suppression check
   const { data: suppressed } = await supabase
     .from('suppressed_emails')
     .select('email')
-    .eq('email', recipientEmail.toLowerCase())
+    .eq('email', normalizedRecipientEmail)
     .maybeSingle()
 
   if (suppressed) {
     await supabase.from('email_send_log').insert({
       message_id: idempotencyKey,
       template_name: templateName,
-      recipient_email: recipientEmail,
+      recipient_email: normalizedRecipientEmail,
       status: 'suppressed',
       error_message: 'Recipient is on suppression list',
     })
@@ -150,10 +173,11 @@ Deno.serve(async (req) => {
   const text = await render(element, { plainText: true })
   const subject =
     typeof entry.subject === 'function' ? entry.subject(data) : entry.subject
+  const unsubscribeToken = await getOrCreateUnsubscribeToken(supabase, normalizedRecipientEmail)
 
   // 3. Enqueue (process-email-queue actually sends)
   const queuePayload = {
-    to: recipientEmail,
+    to: normalizedRecipientEmail,
     from: `${fromName ?? FROM_NAME} <noreply@${FROM_DOMAIN}>`,
     sender_domain: SENDER_DOMAIN,
     subject,
@@ -164,6 +188,7 @@ Deno.serve(async (req) => {
     idempotency_key: idempotencyKey,
     message_id: idempotencyKey,
     queued_at: new Date().toISOString(),
+    unsubscribe_token: unsubscribeToken,
     reply_to: replyTo,
   }
 
@@ -180,7 +205,7 @@ Deno.serve(async (req) => {
   await supabase.from('email_send_log').insert({
     message_id: idempotencyKey,
     template_name: templateName,
-    recipient_email: recipientEmail,
+    recipient_email: normalizedRecipientEmail,
     status: 'pending',
   })
 
