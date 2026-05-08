@@ -34,7 +34,7 @@ function json(body: unknown, status = 200) {
 // Templates that may be invoked by anonymous (unauthenticated) callers.
 // All other templates require a valid Authorization bearer token.
 const PUBLIC_TEMPLATES: Record<string, { fixedRecipient?: string }> = {
-  'contact-inquiry': { fixedRecipient: 'info@exstatic.one' },
+  'contact-inquiry': { fixedRecipient: 'info@elluminate.sg' },
   'contact-confirmation': {},
 }
 
@@ -54,6 +54,28 @@ function checkRateLimit(key: string): boolean {
   if (bucket.count >= RATE_LIMIT_MAX) return false
   bucket.count++
   return true
+}
+
+async function getOrCreateUnsubscribeToken(
+  supabase: ReturnType<typeof createClient>,
+  email: string,
+) {
+  const { data: existingToken, error: existingTokenError } = await supabase
+    .from('email_unsubscribe_tokens')
+    .select('token')
+    .eq('email', email)
+    .maybeSingle()
+
+  if (existingTokenError) throw existingTokenError
+  if (existingToken?.token) return existingToken.token
+
+  const token = crypto.randomUUID()
+  const { error: insertTokenError } = await supabase
+    .from('email_unsubscribe_tokens')
+    .insert({ email, token })
+
+  if (insertTokenError) throw insertTokenError
+  return token
 }
 
 Deno.serve(async (req) => {
