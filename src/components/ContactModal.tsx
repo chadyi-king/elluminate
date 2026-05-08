@@ -189,7 +189,7 @@ export const ContactModal = () => {
       void supabase.functions.invoke("send-transactional-email", {
         body: {
           templateName: "contact-inquiry",
-          recipientEmail: "info@exstatic.one",
+          recipientEmail: "info@elluminate.sg",
           idempotencyKey: `contact-inquiry-${submissionId}`,
           replyTo: formData.email,
           templateData: {
