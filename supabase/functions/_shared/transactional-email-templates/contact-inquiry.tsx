@@ -30,19 +30,67 @@ interface ContactInquiryProps {
   referrer?: string
   landing_page?: string
   submission_page?: string
+  user_agent?: string
+  submitted_at?: string
 }
 
-const Row = ({ label, value }: { label: string; value?: string }) =>
-  value ? (
-    <Text style={row}>
-      <strong style={rowLabel}>{label}:</strong> {value}
-    </Text>
-  ) : null
+const Row = ({ label, value }: { label: string; value?: string }) => (
+  <Text style={row}>
+    <strong style={rowLabel}>{label}:</strong> {value && value.trim() ? value : '—'}
+  </Text>
+)
+
+const hostFromUrl = (url?: string) => {
+  if (!url) return undefined
+  try {
+    return new URL(url).hostname.replace(/^www\./, '')
+  } catch {
+    return url
+  }
+}
+
+const sourceSummary = (p: ContactInquiryProps) => {
+  if (p.gclid) return 'Google Ads (paid click)'
+  if (p.utm_source) return `${p.utm_source}${p.utm_medium ? ` / ${p.utm_medium}` : ''}${p.utm_campaign ? ` — ${p.utm_campaign}` : ''}`
+  const refHost = hostFromUrl(p.referrer)
+  if (refHost) return `Referral — ${refHost}`
+  return 'Direct / Organic'
+}
+
+const parseUA = (ua?: string) => {
+  if (!ua) return undefined
+  let device = 'Desktop'
+  if (/iPhone/i.test(ua)) device = 'iPhone'
+  else if (/iPad/i.test(ua)) device = 'iPad'
+  else if (/Android/i.test(ua)) device = /Mobile/i.test(ua) ? 'Android phone' : 'Android tablet'
+  else if (/Macintosh/i.test(ua)) device = 'Mac'
+  else if (/Windows/i.test(ua)) device = 'Windows'
+
+  let browser = 'Browser'
+  if (/Edg\//i.test(ua)) browser = 'Edge'
+  else if (/Chrome\//i.test(ua) && !/Chromium/i.test(ua)) browser = 'Chrome'
+  else if (/Firefox\//i.test(ua)) browser = 'Firefox'
+  else if (/Safari\//i.test(ua) && !/Chrome\//i.test(ua)) browser = 'Safari'
+  return `${device} · ${browser}`
+}
+
+const formatSGTime = (iso?: string) => {
+  if (!iso) return undefined
+  try {
+    return new Date(iso).toLocaleString('en-SG', {
+      timeZone: 'Asia/Singapore',
+      dateStyle: 'medium',
+      timeStyle: 'short',
+    }) + ' SGT'
+  } catch {
+    return iso
+  }
+}
 
 const ContactInquiryEmail = (props: ContactInquiryProps) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>New inquiry from {props.name ?? 'a website visitor'}</Preview>
+    <Preview>New inquiry from {props.name ?? 'a website visitor'} — {sourceSummary(props)}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>New {SITE_NAME} Inquiry</Heading>
@@ -75,20 +123,21 @@ const ContactInquiryEmail = (props: ContactInquiryProps) => (
           ) : null}
         </Section>
 
-        {(props.gclid || props.utm_source || props.referrer || props.landing_page) && (
-          <Section style={attribCard}>
-            <Heading as="h2" style={h2}>Marketing Attribution</Heading>
-            <Row label="Google Click ID" value={props.gclid} />
-            <Row label="UTM Source" value={props.utm_source} />
-            <Row label="UTM Medium" value={props.utm_medium} />
-            <Row label="UTM Campaign" value={props.utm_campaign} />
-            <Row label="UTM Term" value={props.utm_term} />
-            <Row label="UTM Content" value={props.utm_content} />
-            <Row label="Referrer" value={props.referrer} />
-            <Row label="Landing Page" value={props.landing_page} />
-            <Row label="Submitted From" value={props.submission_page} />
-          </Section>
-        )}
+        <Section style={attribCard}>
+          <Heading as="h2" style={h2}>Marketing Attribution</Heading>
+          <Text style={sourcePill}>Source: {sourceSummary(props)}</Text>
+          <Row label="Google Click ID" value={props.gclid} />
+          <Row label="UTM Source" value={props.utm_source} />
+          <Row label="UTM Medium" value={props.utm_medium} />
+          <Row label="UTM Campaign" value={props.utm_campaign} />
+          <Row label="UTM Term" value={props.utm_term} />
+          <Row label="UTM Content" value={props.utm_content} />
+          <Row label="Referrer" value={props.referrer} />
+          <Row label="Landing Page" value={props.landing_page} />
+          <Row label="Submitted From" value={props.submission_page} />
+          <Row label="Device / Browser" value={parseUA(props.user_agent)} />
+          <Row label="Submitted At" value={formatSGTime(props.submitted_at)} />
+        </Section>
 
         <Hr style={hr} />
         <Text style={footer}>
@@ -118,6 +167,8 @@ export const template = {
     utm_medium: 'cpc',
     utm_campaign: 'team-building-sg',
     gclid: 'Cj0KCQiA...',
+    user_agent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Safari/604.1',
+    submitted_at: new Date().toISOString(),
   },
 } satisfies TemplateEntry
 
@@ -128,6 +179,7 @@ const h2 = { fontSize: '15px', fontWeight: 700, color: '#0f172a', margin: '0 0 1
 const lead = { fontSize: '14px', color: '#475569', margin: '0 0 24px' }
 const card = { backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '10px', padding: '18px 20px', margin: '0 0 16px' }
 const attribCard = { ...card, backgroundColor: '#eff6ff', borderColor: '#bfdbfe' }
+const sourcePill = { display: 'inline-block', backgroundColor: BRAND, color: '#ffffff', fontSize: '13px', fontWeight: 700 as const, padding: '6px 12px', borderRadius: '999px', margin: '0 0 12px' }
 const row = { fontSize: '14px', color: '#0f172a', lineHeight: 1.55, margin: '0 0 6px' }
 const rowLabel = { color: '#475569', fontWeight: 600 as const }
 const detailBlock = { fontSize: '14px', color: '#0f172a', lineHeight: 1.55, margin: '4px 0 0', whiteSpace: 'pre-wrap' as const }
