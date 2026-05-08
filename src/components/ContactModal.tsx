@@ -214,6 +214,8 @@ export const ContactModal = () => {
             referrer: attribution.referrer,
             landing_page: attribution.landing_page,
             submission_page: submissionPage,
+            user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
+            submitted_at: new Date().toISOString(),
           },
         },
       });
