@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Quote, MapPin, Users, CheckCircle } from "lucide-react";
-import { cld } from "@/lib/cloudinaryUrl";
 
 const caseStudies = [
   {
