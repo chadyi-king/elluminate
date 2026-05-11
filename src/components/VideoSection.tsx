@@ -55,7 +55,7 @@ export const VideoSection = () => {
                   className="absolute inset-0 bg-center bg-cover bg-no-repeat flex items-center justify-center"
                   style={{
                     backgroundImage:
-                      'url("https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775474506/teambuilding-video_tp5kfu.jpg")',
+                      'url("https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465454/teambuilding-video_tp5kfu_l8jfdl.jpg")',
                   }}
                 >
                   <div className="absolute inset-0 bg-black/50" />
