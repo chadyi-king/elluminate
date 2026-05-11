@@ -5857,6 +5857,8 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467095/CSI_3_tt9yqa_itd4ln.jpg",
     addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467096/CSI_4_mezxfu_dkkeax.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467095/CSI_3_tt9yqa_itd4ln.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467098/CSI_5_t4xrjy_frldop.jpg",
     features: [
       {
         icon: Search,
@@ -6108,10 +6110,6 @@ export const servicesData: Record<string, ServiceData> = {
         {
           src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467098/CSI_5_t4xrjy_frldop.jpg",
           alt: "Team moment after completing CSI-Bones",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/CSI_3_tt9yqa.jpg",
-          alt: "CSI-Bones team investigation scene",
         },
       ],
     },
