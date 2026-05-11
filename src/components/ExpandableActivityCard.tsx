@@ -59,7 +59,7 @@ export const ExpandableActivityCard = ({
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src={typeof image === "string" ? cld(image, { width: 640 }) : image}
+            src={image}
             alt={name}
             loading="lazy"
             decoding="async"
