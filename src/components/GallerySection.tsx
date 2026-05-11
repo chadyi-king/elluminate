@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { cld } from "@/lib/cloudinaryUrl";
 
 const galleryImages = [
   {
