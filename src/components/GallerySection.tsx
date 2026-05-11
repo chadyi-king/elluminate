@@ -188,7 +188,7 @@ export const GallerySection = () => {
           {/* Image */}
           <motion.img
             key={selectedImage}
-            src={cld(galleryImages[selectedImage].src, { width: 1600 })}
+            src={galleryImages[selectedImage].src}
             alt={galleryImages[selectedImage].alt}
             className="max-w-full max-h-[85vh] object-contain rounded-lg"
             initial={{ scale: 0.9, opacity: 0 }}
