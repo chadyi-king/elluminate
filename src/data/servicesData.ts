@@ -5303,14 +5303,14 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Building Adventure",
       tagline:
         "A fast-moving race across Singapore built for teams, schools, and student groups who want to move, solve, and win together.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360229/AmazingRace_2_hi89qz.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467187/AmazingRace_12_g0r1sy_xprkhh.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361395/AmazingRace_7_jbnxyz.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361393/AmazingRace_6_q4rlam.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466936/AmazingRace_7_jbnxyz_pxa8xj.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467003/AmazingRace_11_zdhaa2_cf2cvs.jpg",
     overview: {
       description:
         "The Amazing Race is our signature outdoor experience where teams race across Singapore completing missions, solving puzzles, and working together under real time pressure.\n\nGroups navigate between 8 and 14 checkpoints over 2 to 3 hours, tackling a mix of physical challenges, mental puzzles, and creative tasks designed so every team member has a way to contribute and a moment to shine.\n\nThe format works for corporate teams of 20 to 500+, school cohorts, orientation programmes, and student leadership groups who want something that feels genuinely active and memorable.\n\nOur facilitators design each race route around your venue and goals, from a city-wide adventure through iconic Singapore landmarks to a heritage trail, a campus race, or a resort experience.\n\nEvery checkpoint is facilitated, every team is supported, and the debrief we run at the end consistently surfaces conversations teams carry back into the workplace.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360229/AmazingRace_2_hi89qz.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467187/AmazingRace_12_g0r1sy_xprkhh.jpg",
     },
     features: [
       {
@@ -5608,11 +5608,11 @@ export const servicesData: Record<string, ServiceData> = {
       },
     ],
     gallery: [
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361391/AmazingRace_30_idmukn.jpg",
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361390/AmazingRace_5_w7wpal.jpg",
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361385/AmazingRace_33_scwscr.jpg",
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361382/AmazingRace_29_hp1ikz.jpg",
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360192/AmazingRace_12_g0r1sy.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467001/AmazingRace_10_jpsgec_ixbcth.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466929/AmazingRace_32_bqxdeg_cpcinj.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466923/AmazingRace_16_mdu3de_cnmayi.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467267/AmazingRace_5_w7wpal_kza00c.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467266/AmazingRace_8_s4xwfc_izkt2c.jpg",
     ],
     testimonials: [
       {
@@ -5689,8 +5689,8 @@ export const servicesData: Record<string, ServiceData> = {
     videoSection: {
       title: "See the Race in Action",
       subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776741980/Amazing_Race_jdt9ya.mov",
-      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776741980/Amazing_Race_jdt9ya.jpg",
+      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465592/Amazing_Race_jdt9ya_c0bmnq.mov",
+      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465592/Amazing_Race_jdt9ya_c0bmnq.jpg",
     },
     cta: {
       headline: "Ready for Your Amazing Race?",
@@ -5788,23 +5788,23 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Amazing Race in Action",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361391/AmazingRace_30_idmukn.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467001/AmazingRace_10_jpsgec_ixbcth.jpg",
           alt: "Amazing Race team building checkpoint challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360193/AmazingRace_16_mdu3de.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466929/AmazingRace_32_bqxdeg_cpcinj.jpg",
           alt: "Teams racing during an Amazing Race activity",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361390/AmazingRace_5_w7wpal.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466923/AmazingRace_16_mdu3de_cnmayi.jpg",
           alt: "Amazing Race outdoor team challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361385/AmazingRace_33_scwscr.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467267/AmazingRace_5_w7wpal_kza00c.jpg",
           alt: "Teams solving puzzles during Amazing Race",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361382/AmazingRace_29_hp1ikz.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467266/AmazingRace_8_s4xwfc_izkt2c.jpg",
           alt: "Amazing Race starting line team moment",
         },
       ],
