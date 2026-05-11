@@ -7397,17 +7397,18 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Battle",
       tagline:
         "A safe, high-energy battle format for teams and student groups who want action, teamwork, and fast decisions.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944044/archery_tag_8_c6r61v.heic",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486366/archery_tag_8_c6r61v_q50s6q.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944033/archery_tag_5_hg7csc.heic",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944029/archery_tag_6_v4lahk.heic",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944007/archery_tag_12_ctqza6.heic",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486354/archery_tag_5_hg7csc_nmmv8o.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486357/archery_tag_6_v4lahk_muur5j.jpg",
+    ctaBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486345/archery_tag_12_ctqza6_gsxpk4.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944025/archery_tag_3_jcem57.heic",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486348/archery_tag_3_jcem57_oruc0z.jpg",
     overview: {
       description:
         "Archery Tag is a team battle experience that blends movement, strategy, and communication. It is designed to be safe, inclusive, and easy to run for workplace teams, school groups, and student leaders who want something active without losing structure. Clear rules, protective equipment, and professional facilitation keep the format fun and accessible.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944044/archery_tag_8_c6r61v.heic",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486366/archery_tag_8_c6r61v_q50s6q.jpg",
     },
     features: [
       { icon: Target, title: "Tactical Team Play", description: "Coordinate roles and communicate to win rounds." },
@@ -7464,9 +7465,10 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Aim, Shoot, Win!",
       subtitle:
         "Watch teams compete in this thrilling mix of archery and tag, where precision and strategy are key. Dodge, shoot, and outsmart your opponents to claim victory in this action-packed battle!",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887135/Archery-Tag-Team-Building-1_ssgv9f.mp4",
+      videoUrl:
+        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465419/Archery-Tag-Team-Building-1_ssgv9f_xshzna.mp4",
       thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887135/Archery-Tag-Team-Building-1_ssgv9f.jpg",
+        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465419/Archery-Tag-Team-Building-1_ssgv9f_xshzna.jpg",
     },
     cta: {
       headline: "Ready to Battle?",
@@ -7636,19 +7638,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Archery Tag Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944022/archery_tag_2_p8bmvz.heic",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486373/archery_tag_10_skwlpk_pkvdlp.jpg",
           alt: "Archery Tag team battle",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944022/archery_tag_2_p8bmvz.heic",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486354/archery_tag_5_hg7csc_nmmv8o.jpg",
           alt: "Outdoor team building moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944051/archery_tag_13_dadl82.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486348/archery_tag_3_jcem57_oruc0z.jpg",
           alt: "Team celebrating after Archery Tag",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944047/archery_tag_1_uvgseb.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467269/archery_tag_13_dadl82_vvh94v.jpg",
           alt: "Archery Tag squad formation",
         },
       ],
