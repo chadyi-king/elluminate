@@ -5848,15 +5848,15 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Building Mystery",
       tagline:
         "A forensic mystery built for teams and school groups who love clues, deduction, and competitive problem-solving.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/CSI_3_tt9yqa.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467092/CSI_1_myrtls_zxl8in.jpg",
     },
     overview: {
       description:
         "CSI-Bones is a forensic investigation experience where teams collaborate to solve a high-stakes mystery. Your group examines evidence, connects clues, and makes fast decisions together, making it a strong fit for both workplace teams and student groups who enjoy logic, communication, and immersive storytelling. It is a safe, indoor-friendly format that keeps everyone engaged without relying on pure physical intensity.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/CSI_3_tt9yqa.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467092/CSI_1_myrtls_zxl8in.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/CSI_1_myrtls.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361411/CSI_6_y8pkaz.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467095/CSI_3_tt9yqa_itd4ln.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467096/CSI_4_mezxfu_dkkeax.jpg",
     features: [
       {
         icon: Search,
@@ -5929,8 +5929,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Unravel the Mystery!",
       subtitle:
         "Watch teams dive into a thrilling mystery as they piece together clues to solve a crime. With sharp observation and teamwork, uncover the truth in this exciting detective challenge!",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838441/CSI-Bones_lzx6cy.mp4",
-      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838441/CSI-Bones_lzx6cy.jpg",
+      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465434/CSI-Bones_lzx6cy_mixn03.mp4",
+      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465434/CSI-Bones_lzx6cy_mixn03.jpg",
     },
     cta: {
       headline: "Ready to Solve the Case?",
@@ -6098,15 +6098,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "CSI-Bones Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361413/CSI_4_mezxfu.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466954/CSI_6_y8pkaz_gr3kpc.jpg",
           alt: "CSI-Bones investigation briefing",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361409/CSI_5_t4xrjy.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467093/CSI_2_slu6jv_j2agx2.jpg",
           alt: "Teams collaborating during CSI-Bones",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361403/CSI_2_slu6jv.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467098/CSI_5_t4xrjy_frldop.jpg",
           alt: "Team moment after completing CSI-Bones",
         },
         {
@@ -6116,8 +6116,6 @@ export const servicesData: Record<string, ServiceData> = {
       ],
     },
     hideOutcomes: false,
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361403/CSI_2_slu6jv.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592607/CSI_15_rxnuq4.heic",
     hideMidCta: false,
     perfectForVariant: "pills",
     recentEventsHeadline: "Companies who've experienced our CSI-Bones",
