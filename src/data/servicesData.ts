@@ -7669,12 +7669,12 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Building Challenge",
       tagline:
         "A hands-on build challenge for teams, classes, and student leaders who learn best by making things together.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361397/BuilderCross_1_zkduwz.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466949/BuilderCross_1_zkduwz_w7jxhb.jpg",
     },
     overview: {
       description:
         "BuilderCross is a hands-on construction challenge where teams design, plan, and build structures together under time pressure. Inspired by engineering and architecture challenges, participants work with provided materials to create functional builds that meet specific criteria. It is especially strong for workplace teams, school cohorts, and youth groups because it rewards planning, delegation, iteration, and communication without requiring high physical intensity. Whether your group is building bridges, towers, or themed creations, BuilderCross rewards ingenuity and collaboration over brute force.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361397/BuilderCross_1_zkduwz.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466949/BuilderCross_1_zkduwz_w7jxhb.jpg",
     },
     features: [
       {
@@ -7787,8 +7787,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Build, Create, Compete!",
       subtitle:
         "Watch teams race against the clock to build the tallest and most creative structure while overcoming exciting challenges. Teamwork and innovation are essential in this fun and competitive building showdown!",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776837616/Builder-Cross_sll8i8.mov",
-      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776837616/Builder-Cross_sll8i8.jpg",
+      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465639/Builder-Cross_sll8i8_ujqwtw.mp4",
+      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465639/Builder-Cross_sll8i8_ujqwtw.jpg",
     },
     cta: {
       headline: "Ready to Build Together?",
@@ -7969,24 +7969,25 @@ export const servicesData: Record<string, ServiceData> = {
           "Having a physical result from the session gives the group something to connect around beyond just the activity.",
       },
     ],
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/BuilderCross_6_ibyshz.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361400/BuilderCross_7_cgexuc.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/BuilderCross_6_ibyshz.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467081/BuilderCross_6_ibyshz_p3dhj7.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467082/BuilderCross_7_cgexuc_eq0ylr.jpg",
+    ctaBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778487720/BuilderCross_2_m6lujd_hajts0.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_9_fphwj5.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467085/BuilderCross_9_fphwj5_fva0ez.jpg",
     miniGallery: {
       title: "BuilderCross Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_8_vovefn.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467083/BuilderCross_8_vovefn_x0dw22.jpg",
           alt: "Teams building structures during BuilderCross challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361401/BuilderCross_10_wvtpdm.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778487720/BuilderCross_2_m6lujd_hajts0.jpg",
           alt: "BuilderCross final showcase moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361400/BuilderCross_7_cgexuc.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467083/BuilderCross_8_vovefn_x0dw22.jpg",
           alt: "Collaborative building moment",
         },
       ],
