@@ -125,7 +125,7 @@ export const GallerySection = () => {
             >
               <div className={`aspect-square ${index === 0 || index === 5 ? "md:aspect-square" : ""}`}>
                 <img
-                  src={cld(image.src, { width: 600 })}
+                  src={image.src}
                   alt={image.alt}
                   loading="lazy"
                   decoding="async"
