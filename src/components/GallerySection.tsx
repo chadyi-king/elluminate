@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { cld } from "@/lib/cloudinaryUrl";
 
 const galleryImages = [
   {
@@ -126,7 +125,7 @@ export const GallerySection = () => {
             >
               <div className={`aspect-square ${index === 0 || index === 5 ? "md:aspect-square" : ""}`}>
                 <img
-                  src={cld(image.src, { width: 600 })}
+                  src={image.src}
                   alt={image.alt}
                   loading="lazy"
                   decoding="async"
@@ -189,7 +188,7 @@ export const GallerySection = () => {
           {/* Image */}
           <motion.img
             key={selectedImage}
-            src={cld(galleryImages[selectedImage].src, { width: 1600 })}
+            src={galleryImages[selectedImage].src}
             alt={galleryImages[selectedImage].alt}
             className="max-w-full max-h-[85vh] object-contain rounded-lg"
             initial={{ scale: 0.9, opacity: 0 }}

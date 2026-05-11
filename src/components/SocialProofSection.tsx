@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, Calendar, Users, Award } from "lucide-react";
 import { useState, useEffect } from "react";
-import { cld } from "@/lib/cloudinaryUrl";
 
 // Real client logos - 72 companies across 3 carousel pages
 const defaultClientLogos = [
@@ -348,43 +347,6 @@ const defaultClientLogos = [
   },
 ];
 
-const normalize = (s: string) => s.toLowerCase().replace(/[\s\-_\.]/g, "");
-
-const noiseWords = ["logo", "bank", "group", "corporation", "limited", "plc", "singapore", "pte", "ltd"];
-const stripNoise = (s: string) => {
-  let result = normalize(s);
-  for (const word of noiseWords) {
-    result = result.split(word).join("");
-  }
-  return result;
-};
-
-const brandToFilename: Record<string, string> = {
-  DBS: "dbs_bank_logo",
-  OCBC: "logo-ocbc",
-  UOB: "uob_logo",
-  Singtel: "singtel_logo",
-  Grab: "singapore-grab-logo",
-  Shopee: "shopee",
-  NTUC: "ntuc_logo",
-  GovTech: "govtech_logo",
-  CapitaLand: "capitaland_logo",
-  "Singapore Airlines": "singapore_airlines_logo",
-  "Changi Airport": "changi_logo",
-  StarHub: "starhub_logo",
-  POSB: "posb_logo",
-  Prudential: "prudentialgroup_logo",
-  "Marina Bay Sands": "marina_bay_sands_logo",
-  "Great Eastern": "great_eastern_logo",
-  HSBC: "hsbc",
-  "Standard Chartered": "standard_chartered_logo",
-  AIA: "aia-logo",
-  Maybank: "maybank_logo",
-  M1: "m1_logo",
-  Sentosa: "sentosa-logo",
-  "SP Group": "sp_group_logo",
-  SMRT: "smrt_corporation_logo",
-};
 
 const stats = [
   {
@@ -409,48 +371,7 @@ const stats = [
 
 export const SocialProofSection = () => {
   const [currentGroup, setCurrentGroup] = useState(0);
-  const [clientLogos, setClientLogos] = useState(defaultClientLogos);
-
-  // Fetch Cloudinary logos and match to brands
-  useEffect(() => {
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    if (!supabaseUrl) return;
-
-    fetch(`${supabaseUrl}/functions/v1/cloudinary-folder?folder=website/client-logo`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (!data.assets || !Array.isArray(data.assets)) return;
-        setClientLogos((prev) =>
-          prev.map((brand) => {
-            const assets = data.assets as any[];
-            const explicitKey = brandToFilename[brand.name];
-
-            // Tier 1: explicit mapping
-            if (explicitKey) {
-              const nKey = normalize(explicitKey);
-              const match = assets.find((a) => {
-                const filename = normalize(a.public_id?.split("/").pop() || "");
-                return filename.includes(nKey) || nKey.includes(filename);
-              });
-              if (match) return { ...brand, logo: match.secure_url };
-            }
-
-            // Tier 2: fuzzy fallback
-            const strippedBrand = stripNoise(brand.name);
-            const match = assets.find((a) => {
-              const strippedFile = stripNoise(a.public_id?.split("/").pop() || "");
-              return (
-                strippedFile.length > 1 &&
-                strippedBrand.length > 1 &&
-                (strippedFile.includes(strippedBrand) || strippedBrand.includes(strippedFile))
-              );
-            });
-            return match ? { ...brand, logo: match.secure_url } : brand;
-          }),
-        );
-      })
-      .catch((err) => console.error("Failed to fetch Cloudinary logos:", err));
-  }, []);
+  const clientLogos = defaultClientLogos;
 
   // Split logos into groups of 24 (4 rows x 6 columns) for carousel
   const logoGroups = [clientLogos.slice(0, 24), clientLogos.slice(24, 48), clientLogos.slice(48, 72)];
@@ -498,7 +419,7 @@ export const SocialProofSection = () => {
                   >
                     <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                     <img
-                      src={cld(logo.logo, { width: 240, crop: "fit" })}
+                      src={logo.logo}
                       alt={logo.name}
                       loading="lazy"
                       decoding="async"
