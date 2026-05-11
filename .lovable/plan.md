@@ -1,33 +1,47 @@
-## Update Cloudinary Credentials
+## Goal
 
-Your old Cloudinary account was deleted, causing the "disabled customer" 401 errors. We'll swap in the credentials from your new Cloudinary account.
+Strip all dynamic Cloudinary integration (edge function, folder fetching, URL transformation helper) from the site. Keep every existing static `res.cloudinary.com/...` URL exactly as-is so images/videos still load directly. No design, layout, copy, or section changes.
 
-### What I'll do
+## Findings
 
-1. **Trigger the secure secret-update form** for the three existing Cloudinary secrets:
-   - `CLOUDINARY_CLOUD_NAME`
-   - `CLOUDINARY_API_KEY`
-   - `CLOUDINARY_API_SECRET`
+Dynamic Cloudinary code is concentrated in three places:
 
-   You'll get a popup to paste each new value. Lovable stores them encrypted — I never see them.
+1. **Edge function** — `supabase/functions/cloudinary-folder/index.ts` (calls Cloudinary API with `CLOUDINARY_*` secrets).
+2. **`SocialProofSection.tsx`** — `useEffect` at lines ~414–453 calls `fetch('${supabaseUrl}/functions/v1/cloudinary-folder?folder=website/client-logo')` and overwrites `clientLogos` with matched assets. Helpers `brandToFilename`, `normalize`, `stripNoise` exist only to support that fetch.
+3. **`src/lib/cloudinaryUrl.ts`** — `cld()` helper that injects `f_auto,q_auto,w_,dpr_` transformations. Used in `CaseStudiesSection.tsx`, `ExpandableActivityCard.tsx`, `GallerySection.tsx`, `SocialProofSection.tsx`. The user explicitly forbids `f_auto` / `q_auto`, so this helper is removed entirely.
 
-2. **Verify** by calling the `cloudinary-folder` edge function (e.g. `?folder=website/client-logo`) and confirming it returns assets instead of a 401.
+All actual asset URLs (in `servicesData.ts`, `AboutPage.tsx`, `VideoSection.tsx`, `GallerySection.tsx`, `CaseStudiesSection.tsx`, `ServicesSection.tsx`, `SocialProofSection.tsx` `defaultClientLogos`) are already hardcoded `https://res.cloudinary.com/...` strings — they stay untouched.
 
-3. **No code changes needed.** The edge function already reads these from environment variables, so once updated, everything works immediately (no redeploy required).
+## Changes
 
-### What you'll need ready
+### 1. Delete the edge function
+- Delete `supabase/functions/cloudinary-folder/` directory.
+- Call `supabase--delete_edge_functions` with `["cloudinary-folder"]` to remove the deployed function.
+- Cloudinary secrets (`CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`) are left in the secret store untouched (no code reads them anymore); user can manually delete them in Cloud settings if desired. Mention this in the closing note.
 
-From your new Cloudinary console (https://cloudinary.com/console), grab from the Dashboard:
-- **Cloud name** (top of dashboard)
-- **API Key**
-- **API Secret** (click "reveal")
+### 2. Delete the helper
+- Delete `src/lib/cloudinaryUrl.ts`.
 
-### Important note about asset URLs
+### 3. Replace `cld(url, {...})` with the raw `url` and drop the import
 
-If the new Cloudinary account has a **different cloud name**, all hardcoded image URLs in the codebase that point to `res.cloudinary.com/<OLD_CLOUD_NAME>/...` will 404 until the assets are re-uploaded to the new account under matching folder paths (e.g. `website/client-logo`, etc.). The folder-listing function will work, but individual asset URLs won't unless:
-- (a) the new cloud name is the same, OR
-- (b) you re-upload assets into the new account using the same folder structure.
+In each of:
+- `src/components/CaseStudiesSection.tsx` — remove `import { cld } ...`; change `url(${cld(study.image, { width: 800 })})` → `url(${study.image})`.
+- `src/components/ExpandableActivityCard.tsx` — remove import; change `cld(image, { width: 640 })` → `image`.
+- `src/components/GallerySection.tsx` — remove import; change `cld(image.src, { width: 600 })` → `image.src`, and `cld(galleryImages[selectedImage].src, { width: 1600 })` → `galleryImages[selectedImage].src`.
+- `src/components/SocialProofSection.tsx` — remove import (any `cld(...)` usages, if present, swap to raw URL).
 
-Let me know if the cloud name is changing — if so, after credentials are updated I can do a sweep of hardcoded `res.cloudinary.com/<old>/...` references and update them to the new cloud name.
+### 4. Strip dynamic logo fetching from `SocialProofSection.tsx`
+- Remove the entire `useEffect` block (lines ~414–453) that calls `fetch('/functions/v1/cloudinary-folder...')`.
+- Change `useState(defaultClientLogos)` → keep state but it just initializes once; can simplify to `const clientLogos = defaultClientLogos`.
+- Remove now-unused helpers: `brandToFilename`, `normalize`, `stripNoise` (only if no other reference remains — verify with a grep before deleting).
+- Remove `useEffect`/`useState` from React imports if no longer used elsewhere in the file.
 
-Click **Implement plan** to proceed and I'll open the secret-update form.
+### 5. Verify
+- Grep for `cloudinary-folder`, `cld(`, `cloudinaryUrl`, `fetchCloudinaryFolder` to confirm zero remaining matches in `src/` and `supabase/`.
+- Confirm build still passes (the harness runs typecheck automatically).
+
+## Out of scope / preserved
+
+- All static `https://res.cloudinary.com/...` image and video URLs across the codebase remain unchanged.
+- No design, layout, copy, or section removals.
+- Cloudinary secrets are not deleted from the secret store by this change (just no longer referenced).
