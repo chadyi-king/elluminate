@@ -5689,7 +5689,7 @@ export const servicesData: Record<string, ServiceData> = {
     videoSection: {
       title: "See the Race in Action",
       subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
-      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465592/Amazing_Race_jdt9ya_c0bmnq.mov",
+      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465592/Amazing_Race_jdt9ya_c0bmnq.mp4",
       thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465592/Amazing_Race_jdt9ya_c0bmnq.jpg",
     },
     cta: {
