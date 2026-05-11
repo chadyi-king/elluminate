@@ -86,10 +86,10 @@ export const VideoSection = () => {
                   className="w-full h-full object-cover"
                   controls
                   playsInline
-                  poster="https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775474506/teambuilding-video_tp5kfu.jpg"
+                  poster="https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465454/teambuilding-video_tp5kfu_l8jfdl.jpg"
                 >
                   <source
-                    src="https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775474506/teambuilding-video_tp5kfu.mp4"
+                    src="https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465454/teambuilding-video_tp5kfu_l8jfdl.mp4"
                     type="video/mp4"
                   />
                 </video>
