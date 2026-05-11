@@ -419,7 +419,7 @@ export const SocialProofSection = () => {
                   >
                     <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                     <img
-                      src={cld(logo.logo, { width: 240, crop: "fit" })}
+                      src={logo.logo}
                       alt={logo.name}
                       loading="lazy"
                       decoding="async"
