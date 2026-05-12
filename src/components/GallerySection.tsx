@@ -4,42 +4,42 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360229/AmazingRace_2_hi89qz.jpg",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467263/AmazingRace_2_hi89qz_nbf5om.jpg",
     alt: "Amazing Race Team Challenge",
     category: "Team Building",
   },
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/CSI_1_myrtls.jpg",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467092/CSI_1_myrtls_zxl8in.jpg",
     alt: "CSI Investigation Activity",
     category: "Team Building",
   },
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361402/BuilderCross_2_m6lujd.heic",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467085/BuilderCross_9_fphwj5_fva0ez.jpg",
     alt: "Builder Cross Workshop",
     category: "Team Building",
   },
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361437/MTWI_9_qfxt3q.heic",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466988/MTWI_12_vui3ae_zajass.jpg",
     alt: "Minute To Win It Showdown",
     category: "Team Building",
   },
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_5_msxabk.heic",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467284/MonopolyDash_4_jkl1xu_dxlali.jpg",
     alt: "Monopoly Dash Competition",
     category: "Team Building",
   },
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579572/Overseas_11_droxvw.jpg",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467189/Overseas_11_droxvw_iabreh.jpg",
     alt: "Overseas Retreat Experience",
     category: "Retreats",
   },
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361441/RunningMan_2_h7dp74.jpg",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467239/RunningMan_2_h7dp74_vswmms.jpg",
     alt: "Running Man Group Activity",
     category: "Team Building",
   },
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361478/SotongGame_7_cd8u9r.jpg",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467338/SotongGame_7_cd8u9r_eglqfx.jpg",
     alt: "Sotong Game Team Challenge",
     category: "Team Building",
   },
@@ -49,17 +49,17 @@ const galleryImages = [
     category: "Virtual",
   },
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579587/Overseas_6_d3fry4.jpg",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467325/Overseas_6_d3fry4_sinduw.jpg",
     alt: "Overseas Team Retreat",
     category: "Retreats",
   },
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361379/AmazingRace_22_qnkeat.heic",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467054/AmazingRace_29_hp1ikz_jv1ch2.jpg",
     alt: "Amazing Race Checkpoint",
     category: "Team Building",
   },
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467098/CSI_5_t4xrjy_frldop.jpg",
     alt: "CSI Team Debrief",
     category: "Team Building",
   },
