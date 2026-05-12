@@ -44,7 +44,7 @@ const galleryImages = [
     category: "Team Building",
   },
   {
-    src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/TheGameShow_VTB_4_weyhxy.png",
+    src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572196/ultimate_gameshow_1_fifqhu.png",
     alt: "The Game Show Virtual Event",
     category: "Virtual",
   },
