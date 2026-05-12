@@ -11939,17 +11939,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "THE GRAND CHRISTMAS DELIVERY",
       subtitle: "Virtual Team Building",
       tagline: "Santa's Village is under attack! You are the Elite Elf Force that will save Christmas!",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812223/Main-Pic_2_cuwiih.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466978/Main-Pic_2_cuwiih_x8mrp6.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812216/CD-2_htt8la.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812214/CD-1_furajs.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361455/TheGameShow_VTB_11_xz8yel.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466977/CD-2_htt8la_bytu6v.png",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466980/CD-1_furajs_mtku7s.png",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811010/tomb_raider_1_mziqut.png",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466942/amazing_race_vtb_6_xqokaj_d5v7yp.png",
     overview: {
       description:
         "Santa needs your help! In this festive virtual adventure, teams become the Elite Elf Force on a mission to save Christmas. Battle through party games, team challenges, and boss battles to deliver presents and defeat the forces threatening the holiday season. The team that delivers the most presents wins! Perfect for year-end celebrations via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812223/Main-Pic_2_cuwiih.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466978/Main-Pic_2_cuwiih_x8mrp6.jpg",
     },
     features: [
       { icon: Gift, title: "Christmas Mission", description: "Save Christmas as the Elite Elf Force." },
