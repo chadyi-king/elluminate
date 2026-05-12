@@ -10031,17 +10031,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "TAG-TICAL LASER TAG",
       subtitle: "Laser Team Battles",
       tagline: "Gear Up for the Ultimate Laser Tag Showdown!",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944229/tagtical_laser_4_r9rbfn.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555344/tagtical_laser_4_seudw9.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944225/tagtical_laser_12_esfxnw.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944202/tagtical_laser_15_db28az.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944206/tagtical_laser_13_ree6hf.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555330/tagtical_laser_12_skhlu3.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555328/tagtical_laser_15_lxkaqc.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555337/tagtical_laser_13_qljgfn.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944206/tagtical_laser_13_ree6hf.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555337/tagtical_laser_13_qljgfn.jpg",
     overview: {
       description:
         "Tag-tical Laser Teambuilding is a premium laser tag experience designed specifically for corporate team building. Using state-of-the-art infrared laser tag equipment, teams compete in structured tactical rounds that reward strategy, communication, and coordination. Unlike casual laser tag, our corporate format features objective-based game modes including capture the base, escort missions, king of the hill, and team elimination. Each participant receives a laser tag vest and phaser with real-time hit tracking and scoring. Our facilitators design the battlefield layout, manage game flow, and provide tactical briefings between rounds. The technology is completely safe with no projectiles involved, making it suitable for all participants regardless of age or fitness level. Tag-tical Laser is perfect for teams that want a competitive, active experience with a strong strategic element.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944229/tagtical_laser_4_r9rbfn.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555344/tagtical_laser_4_seudw9.jpg",
     },
     features: [
       {
@@ -10248,9 +10248,10 @@ export const servicesData: Record<string, ServiceData> = {
       title: "The Ultimate Battle of Strategy",
       subtitle:
         "Watch teams compete in fast-paced laser tag challenges, testing their strategy and teamwork across dynamic arenas.",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887139/Laser-Tag-Team-Building-1_wjhrle.mp4",
+      videoUrl:
+        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465417/Laser-Tag-Team-Building-1_wjhrle_abuip5.mp4",
       thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887139/Laser-Tag-Team-Building-1_wjhrle.jpg",
+        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465417/Laser-Tag-Team-Building-1_wjhrle_abuip5.jpg",
     },
     clientLogos: ["Thales", "BAE Systems", "ST Aerospace", "Dassault", "Bosch", "Sembcorp"],
     recentEvents: [
@@ -10346,19 +10347,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Laser Tag Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944194/tagtical_laser_17_hy3dms.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555337/tagtical_laser_17_iyas47.jpg",
           alt: "Tactical laser tag team battle",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944210/tagtical_laser_7_arripn.heic",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555328/tagtical_laser_15_lxkaqc.jpg",
           alt: "Team celebrating laser tag victory",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944214/tagtical_laser_2_m4tsmu.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555346/tagtical_laser_2_toigam.jpg",
           alt: "Outdoor laser tag moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774944225/tagtical_laser_12_esfxnw.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555330/tagtical_laser_12_skhlu3.jpg",
           alt: "Laser tag strategy session",
         },
       ],
