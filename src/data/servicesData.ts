@@ -13503,17 +13503,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "YOUTH CAMPS",
       subtitle: "Training",
       tagline: "Building Tomorrow's Leaders Today",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775539489/youth_camp_21_iplbqd.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573497/youth_camps_1_xk3ibv.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775539474/youth_camp_1_xruiit.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775539503/youth_camp_15_ni24wa.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573574/youth_camps_10_asbakl.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573542/youth_camps_16_vyyekp.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573527/youth_camps_13_cggsut.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775539492/youth_camp_23_xh5bhs.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573582/youth_camps_6_tocem7.jpg",
     overview: {
       description:
         "Our Youth Camps combine adventure, learning, and personal growth to create transformative experiences for young people. Designed for schools, CCAs, and youth organizations, these programs develop leadership, teamwork, and resilience through carefully structured activities and challenges. From day camps to multi-day adventures, we create safe yet challenging environments where youth discover their potential and forge lasting friendships.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775539489/youth_camp_21_iplbqd.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573497/youth_camps_1_xk3ibv.jpg",
     },
     features: [
       { icon: Flag, title: "Adventure Activities", description: "Exciting challenges that push comfort zones safely." },
