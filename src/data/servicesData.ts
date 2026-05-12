@@ -10594,7 +10594,7 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572647/vtb_ar_4_ieuq95.png",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466943/amazing_race_vtb_5_wonwjk_gkd3fb.png",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466943/amazing_race_vtb_7_b6nquc_znls4u.jpg",
     addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572621/vtb_ar_6_zsksme.png",
     ctaBackgroundImage:
       "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466936/amazing_race_vtb_2_o1rkl5_jgqleq.png",
