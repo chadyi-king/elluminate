@@ -2872,6 +2872,9 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage:
         "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778557811/wellnes_event_3_sct4ie_ysbonv.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570738/wellness_9_hx8ut0.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778557815/wellnes_event_2_a1jacj_nm6reo.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570692/wellness_10_qbgaiu.jpg",
     features: [
       {
         icon: Dumbbell,
