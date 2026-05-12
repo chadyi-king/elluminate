@@ -219,7 +219,7 @@ const allActivities = [
       "Interactive learning sessions built around communication, collaboration, leadership, and team development.",
     stats: "150+ training programmes",
     clients: "MNCs, public sector teams, and schools",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579623/Workshop_4_ocszix.jpg",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570971/workshop_8_bzitew.jpg",
     tag: "Training",
   },
   {
@@ -231,7 +231,7 @@ const allActivities = [
       "A practical profiling workshop that helps teams understand personality differences and work better together.",
     stats: "100+ profiling sessions",
     clients: "Leadership, HR, and student leaders",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466983/MBTI_7_a2vsjt_or8jiv.heic",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563124/MBTI_7_a2vsjt_hkcg8c.jpg",
     tag: "Training",
   },
   {
