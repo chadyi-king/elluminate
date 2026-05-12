@@ -11559,16 +11559,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "THE PATRIOT ACT",
       subtitle: "Virtual Team Building",
       tagline: "Salute to our Great Nation by playing activities mixed of the old and new of Singapore",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812243/Main-Pic_1_xhrueu.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467038/Main-Pic_1_xhrueu_wdknz7.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812248/Picture1_dcrds3.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812243/Main-Pic_1_xhrueu.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812241/Main-Page_asc3hb.png",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467037/Main-Page_asc3hb_jwixzf.png",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467039/Picture1_dcrds3_hcvnr0.png",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572196/ultimate_gameshow_1_fifqhu.png",
     overview: {
       description:
         "Celebrate Singapore's heritage with this patriotic virtual team experience! Teams compete through activities that blend old-school Singapore nostalgia with modern challenges. From traditional games to national trivia, this experience is perfect for National Day celebrations or any time you want to celebrate Singapore's spirit via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812243/Main-Pic_1_xhrueu.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467038/Main-Pic_1_xhrueu_wdknz7.jpg",
     },
     features: [
       { icon: Flag, title: "National Pride", description: "Celebrate Singapore's heritage and culture." },
