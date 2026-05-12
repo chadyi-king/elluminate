@@ -6128,18 +6128,19 @@ export const servicesData: Record<string, ServiceData> = {
       tagline:
         "Explore, laugh, and compete through Singapore’s culture with challenges built for teamwork, curiosity, and shared discovery.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615806/photo_2023-06-28_14-02-17-2_flckfz.jpg",
+        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466360/photo_2023-06-28_14-02-17-2_flckfz_bzinuy.jpg",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615776/photo_2023-06-28_14-02-42_dhhf8q.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615772/7-4_rruqw7.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360193/AmazingRace_16_mdu3de.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615772/18-1_k5snvf.png",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466383/photo_2023-06-28_14-02-42_dhhf8q_jvvxvk.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466271/7-4_rruqw7_lmixum.png",
+    ctaBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466923/AmazingRace_16_mdu3de_cnmayi.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466228/18-1_k5snvf_uxukje.png",
     overview: {
       description:
         "Cultural Race is a high-energy heritage adventure where teams complete interactive missions across Singapore's cultural landmarks. It works well for corporate teams, school groups, and youth cohorts who want a format that combines exploration, teamwork, and local discovery. Explore Chinatown, Little India, Kampong Glam, and more while solving puzzles, completing creative tasks, and racing against rival teams.",
       backgroundImage:
-        "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615806/photo_2023-06-28_14-02-17-2_flckfz.jpg",
+        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466360/photo_2023-06-28_14-02-17-2_flckfz_bzinuy.jpg",
     },
     features: [
       { icon: MapPin, title: "Landmark Checkpoints", description: "Routes tailored to your venue or district." },
@@ -6364,20 +6365,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Cultural Race Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615772/18-1_k5snvf.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466228/18-1_k5snvf_uxukje.png",
           alt: "Teams racing through cultural checkpoints",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615773/14-1_d5cxly.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466197/14-1_d5cxly_gmnro3.png",
           alt: "Team celebrating during Cultural Race",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615775/photo_2023-06-28_14-02-48_axzgyz.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466390/photo_2023-06-28_14-02-48_axzgyz_lnnueb.jpg",
           alt: "Outdoor team moment during Cultural Race",
-        },
-        {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615775/photo_2023-06-28_14-02-48_axzgyz.jpg",
-          alt: "Cultural Race checkpoint challenge",
         },
       ],
     },
