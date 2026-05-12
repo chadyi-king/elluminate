@@ -11361,17 +11361,21 @@ export const servicesData: Record<string, ServiceData> = {
       title: "NUCLEAR FALLOUT ESCAPE ROOM",
       subtitle: "Virtual Team Building",
       tagline: "To save the world, your team needs to work together to stop the Nuclear Countdown.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775810506/nuclear_fallout_12_nzmm54.png",
+      backgroundImage:
+        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467297/nuclear_fallout_2_mgthv7_qykrsn.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775810521/nuclear_fallout_14_onliru.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775810517/nuclear_fallout_8_vylqyx.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775810512/nuclear_fallout_1_ywsy3v.png",
+    howItWorksImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467294/nuclear_fallout_14_onliru_qetkpr.png",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467168/nuclear_fallout_7_hbyfj5_waewgb.png",
+    ctaBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467298/nuclear_fallout_16_wrmhcc_r8yjah.png",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775810528/nuclear_fallout_15_xflgao.png",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467298/nuclear_fallout_16_wrmhcc_r8yjah.png",
     overview: {
       description:
         "The clock is ticking! In this intense virtual escape room, teams must work together to stop a nuclear countdown. Communication, logic, and teamwork are crucial as you solve puzzles and crack codes under pressure. This adrenaline-pumping experience is perfect for teams who thrive on intellectual challenges via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775810506/nuclear_fallout_12_nzmm54.png",
+      backgroundImage:
+        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467297/nuclear_fallout_2_mgthv7_qykrsn.png",
     },
     features: [
       { icon: Lock, title: "Escape Room", description: "Solve puzzles and crack codes under pressure." },
