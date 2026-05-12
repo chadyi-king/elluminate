@@ -12624,16 +12624,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "DISC ASSESSMENT",
       subtitle: "Training",
       tagline: "The biggest communication problem is that we do not listen to understand. We only listen to reply.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469812/disc_11_o3izak.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467272/disc_11_o3izak_roxmew.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469812/disc_5_pyuont.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469803/disc_14_rb0mbj.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361413/CSI_4_mezxfu.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469815/disc_1_vaehl6.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467109/disc_5_pyuont_pck7kj.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466960/disc_14_rb0mbj_enxoyf.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467108/disc_4_cyelqi_aisi43.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467103/disc_1_vaehl6_wm0ggr.jpg",
     overview: {
       description:
         "Are you compatible with others? What's your personality type? We will help you break down your entire core personality and figure out what makes you, well you. Since everyone is special, we believe this exercise will help with self-awareness and tell you about your specialty. This activity should be done with team members, where teams will find out each member's mind, energy, and nature.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469812/disc_11_o3izak.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467272/disc_11_o3izak_roxmew.jpg",
     },
     features: [
       { icon: Brain, title: "Core Personality", description: "Discover what makes you unique." },
@@ -12829,16 +12830,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "O.C.E.A.N PROFILING",
       subtitle: "Training",
       tagline: "All great changes into Order is preceded always by Chaos.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775540553/ocean_3_vinql4.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467307/ocean_3_vinql4_vu7f2f.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775540545/ocean_18_rhykhh.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775540530/ocean_11_apispg.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775540530/ocean_11_apispg.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467182/ocean_18_rhykhh_kpa1t3.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466997/ocean_11_apispg_ttt5pj.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467185/ocean_2_vmstax_ecb8la.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466997/ocean_11_apispg_ttt5pj.jpg",
     overview: {
       description:
         "Rated as one of the top most accurate personality tests in the world! OCEAN Big Five are the domains that represent the basic structure behind all individual personality traits. By diving in deeper, this will allow your team to identify predictive behaviors for real-life scenarios! Gain insights into different office environment situations and how various personalities deal with them.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775540553/ocean_3_vinql4.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467307/ocean_3_vinql4_vu7f2f.jpg",
     },
     features: [
       { icon: Brain, title: "Scientific Accuracy", description: "One of the most validated personality models." },
