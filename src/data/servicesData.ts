@@ -11169,16 +11169,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "GREAT ZODIAC HUNT",
       subtitle: "Virtual Team Building",
       tagline: "The Zodiac Animals have all escaped! It is up to you the Celestial Vanguards to get them all back!",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812236/Team-4.4_wekgjq.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467127/Main-Picture_csduqp_dti86s.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812232/Team-5.2_rlqotg.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812228/Team-4.2_x38yzu.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361454/TheGameShow_VTB_7_aabuyd.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812228/Team-4.2_x38yzu.png",
+    howItWorksImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466936/amazing_race_vtb_2_o1rkl5_jgqleq.png",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466935/amazing_race_vtb_1_dvpp57_jhn3bv.png",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466942/amazing_race_vtb_6_xqokaj_d5v7yp.png",
     overview: {
       description:
         "Celebrate Chinese New Year virtually with this themed team adventure! The 12 Zodiac animals have escaped and your team must work together to bring them back. Through puzzles, challenges, and cultural trivia, teams race to capture all the animals and restore harmony. Perfect for CNY celebrations via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812236/Team-4.4_wekgjq.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467127/Main-Picture_csduqp_dti86s.png",
     },
     features: [
       { icon: Search, title: "Zodiac Hunt", description: "Track down all 12 escaped zodiac animals." },
