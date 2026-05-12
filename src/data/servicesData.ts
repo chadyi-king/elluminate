@@ -10380,7 +10380,8 @@ export const servicesData: Record<string, ServiceData> = {
         "Inspired by Money Heist — assemble your crew, crack the defences, and steal the most gold before the clock runs out.",
       backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466250/13_wvbhdx_i8mwpk.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466250/13_wvbhdx_i8mwpk.png",
+    howItWorksImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466364/photo_2023-06-28_14-02-20_dfdisl_f1bewg.jpg",
     addOnsImage:
       "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466345/photo_2023-06-28_14-02-08_wcnzfo_ul5qhh.jpg",
     ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467035/SotongGame_5_yybybi_ifpvdw.jpg",
