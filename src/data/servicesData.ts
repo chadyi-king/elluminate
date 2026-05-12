@@ -9355,17 +9355,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Variety Show Games",
       tagline:
         "A fan-favourite challenge format for teams, classes, and student groups that want pure energy and big laughs.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361439/RunningMan_3_kdfmqs.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467240/RunningMan_3_kdfmqs_oeu3zl.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361441/RunningMan_2_h7dp74.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599632/RunningMan_19_os8wfv.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361442/RunningMan_6_esz34i.heic",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467239/RunningMan_2_h7dp74_vswmms.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467233/RunningMan_19_os8wfv_ddj1p1.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467026/RunningMan_21_ncjbhp_jigkml.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599625/RunningMan_16_tbkpld.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467331/RunningMan_16_tbkpld_ki4lrw.jpg",
     overview: {
       description:
         "Running Man Adventure is inspired by the massively popular Korean variety show, bringing its signature blend of hilarious challenges, name-tag battles, and team missions to your event. Teams compete through multiple rounds of creative, physical, and strategic games that reward quick thinking, coordination, and plenty of laughter. It is one of our strongest crossover formats for workplace teams, school cohorts, and student groups because it feels familiar, inclusive, and instantly exciting. Suitable for outdoor parks, indoor venues, and resort settings.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361439/RunningMan_3_kdfmqs.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467240/RunningMan_3_kdfmqs_oeu3zl.jpg",
     },
     features: [
       {
@@ -9482,8 +9482,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "The Ultimate Team Challenge",
       subtitle:
         "Watch teams compete in exciting and unpredictable challenges inspired by the hit show Running Man. From name tag elimination to thrilling obstacle courses, teamwork and strategy are key to outsmarting your opponents and winning!",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776837783/RunningMan_oxkjdu.mov",
-      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776837783/RunningMan_oxkjdu.jpg",
+      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465863/RunningMan_oxkjdu_mka8wt.mov",
+      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465863/RunningMan_oxkjdu_mka8wt.jpg",
     },
     cta: {
       headline: "Ready for Running Man?",
@@ -9666,15 +9666,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Running Man Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599637/RunningMan_21_ncjbhp.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467026/RunningMan_21_ncjbhp_jigkml.jpg",
           alt: "Team competing in Running Man challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774599624/RunningMan_13_m2kg4e.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467228/RunningMan_13_m2kg4e_akw47g.jpg",
           alt: "Running Man outdoor challenge moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361445/RunningMan_1_rqyx9i.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467235/RunningMan_1_rqyx9i_qfghzz.jpg",
           alt: "Running Man team formation",
         },
       ],
