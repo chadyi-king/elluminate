@@ -8685,17 +8685,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "City Strategy Race",
       tagline:
         "A city race for teams and student groups who enjoy strategy, negotiation, and fast decisions on the move.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_4_jkl1xu.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467284/MonopolyDash_4_jkl1xu_dxlali.jpg",
     },
     overview: {
       description:
         "Monopoly Dash is a city-wide strategy race inspired by the classic board game, brought to life on the streets of Singapore. Teams navigate real neighborhoods, landmarks, and hidden gems while earning virtual currency, purchasing properties, and completing trade missions. Unlike a standard Amazing Race, Monopoly Dash adds a layer of financial strategy: teams must decide when to invest, when to save, and when to negotiate with rival teams for property trades. That makes it a strong fit for workplace groups, older students, and leadership cohorts who enjoy competition with a more cerebral edge.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_4_jkl1xu.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467284/MonopolyDash_4_jkl1xu_dxlali.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361419/MonopolyDash_1_rlwgie.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361421/MonopolyDash_2_sq8gpp.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467140/MonopolyDash_1_rlwgie_mtxttl.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467283/MonopolyDash_2_sq8gpp_zbhss7.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361427/MonopolyDash_9_k7krlz.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467147/MonopolyDash_9_k7krlz_akzpya.jpg",
     features: [
       {
         icon: Map,
@@ -8811,8 +8811,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Race to the Finish Line!",
       subtitle:
         "Watch teams race through fast-paced challenges inspired by the classic board game. Complete tasks, collect points, and outsmart your opponents in this exciting and competitive game of strategy and speed!",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838228/Monopoly_Dash_d8mjjz.mov",
-      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838228/Monopoly_Dash_d8mjjz.jpg",
+      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465822/Monopoly_Dash_d8mjjz_nqqwzs.mp4",
+      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465822/Monopoly_Dash_d8mjjz_nqqwzs.jpg",
     },
     cta: {
       headline: "Ready to Dash?",
@@ -8998,15 +8998,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Monopoly Dash Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361419/MonopolyDash_1_rlwgie.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467140/MonopolyDash_1_rlwgie_mtxttl.jpg",
           alt: "Teams racing through Singapore during Monopoly Dash",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361427/MonopolyDash_9_k7krlz.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467147/MonopolyDash_9_k7krlz_akzpya.jpg",
           alt: "Monopoly Dash street challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361421/MonopolyDash_2_sq8gpp.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467283/MonopolyDash_2_sq8gpp_zbhss7.jpg",
           alt: "Outdoor negotiation moment",
         },
       ],
