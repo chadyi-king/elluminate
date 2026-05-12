@@ -673,9 +673,10 @@ export const servicesData: Record<string, ServiceData> = {
         "Good interactions at corporate retreats and rewarding travel packages can help improve an employee's relationship with their company! Corporate retreats are the perfect place to start conversations with workers and imagine a better direction for influence and organization. We handle every detail from flights to activities, ensuring your team enjoys a seamless, unforgettable journey.",
       backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467324/Overseas_5_o60d5r_c3xu0f.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579572/Overseas_11_droxvw.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579587/Overseas_6_d3fry4.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579575/Overseas_12_gvbqfw.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467189/Overseas_11_droxvw_iabreh.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467325/Overseas_6_d3fry4_sinduw.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467316/Overseas_12_gvbqfw_hpamzj.jpg",
     features: [
       {
         icon: Plane,
