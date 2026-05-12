@@ -10378,17 +10378,18 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Strategy Adventure",
       tagline:
         "Inspired by Money Heist — assemble your crew, crack the defences, and steal the most gold before the clock runs out.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615814/13_wvbhdx.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466250/13_wvbhdx_i8mwpk.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615814/13_wvbhdx.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615800/photo_2023-06-28_14-02-08_wcnzfo.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361469/SotongGame_5_yybybi.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466250/13_wvbhdx_i8mwpk.png",
+    addOnsImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466345/photo_2023-06-28_14-02-08_wcnzfo_ul5qhh.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467035/SotongGame_5_yybybi_ifpvdw.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615791/photo_2023-06-28_14-20-10_qsrb9h.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466396/photo_2023-06-28_14-20-10_qsrb9h_jz6bdp.jpg",
     overview: {
       description:
         "Taking inspiration from the global phenomenon Money Heist (La Casa de Papel), Treasure Heist is a fully facilitated team strategy adventure where crews plan and execute a gold heist against the pirates. Teams compete to steal the most gold by completing challenges, solving heist puzzles, and outmanoeuvring rival crews — while the defences get harder with each round. As the stakes rise, only the most coordinated and creative crew takes home the ultimate haul.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615814/13_wvbhdx.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466250/13_wvbhdx_i8mwpk.png",
     },
     features: [
       { icon: Gem, title: "Heist Theme", description: "A playful pirate storyline that keeps teams locked-in." },
@@ -10558,15 +10559,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Treasure Heist Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615791/photo_2023-06-28_14-20-38_dc598l.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466400/photo_2023-06-28_14-20-38_dc598l_bm2a1s.jpg",
           alt: "Treasure Heist team-building session",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615778/photo_2023-06-28_14-02-17_ys0vmu.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466361/photo_2023-06-28_14-02-17_ys0vmu_s63p5r.jpg",
           alt: "Outdoor team-building moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615777/photo_2023-06-28_14-02-20_dfdisl.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466364/photo_2023-06-28_14-02-20_dfdisl_f1bewg.jpg",
           alt: "Treasure Heist mask key art",
         },
       ],
