@@ -1629,13 +1629,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "LEADERSHIP OFFSITES",
       subtitle: "Training",
       tagline: "Where vision meets strategy in inspiring settings.",
-      backgroundImage: leadershipOffsiteHero,
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563406/MBTI_9_bjvw30_jmkv5p.jpg",
     },
     overview: {
       description:
         "Empower your leadership team with focused offsite experiences designed for strategic thinking and team alignment. Our executive retreats combine productive sessions with premium hospitality for maximum impact. Step away from the office to gain fresh perspectives and align on your organization's future.",
-      backgroundImage: leadershipOffsiteHero,
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563406/MBTI_9_bjvw30_jmkv5p.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467054/AmazingRace_29_hp1ikz_jv1ch2.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467057/AmazingRace_4_ehjyb5_ooamin.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467150/MTWI_4_e5fnzy_d4hldt.jpg",
     features: [
       {
         icon: MapPin,
