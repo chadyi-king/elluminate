@@ -628,7 +628,7 @@ export const servicesData: Record<string, ServiceData> = {
       title: "OVERSEAS RETREATS",
       subtitle: "Retreat",
       tagline: "The world is your company's oyster! Time to open it up and enjoy!",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579581/Overseas_5_o60d5r.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467324/Overseas_5_o60d5r_c3xu0f.jpg",
     },
     videoSection: {
       title: "See Our Retreats in Action",
@@ -636,29 +636,31 @@ export const servicesData: Record<string, ServiceData> = {
       videos: [
         {
           title: "Bali Team Retreat Highlights",
-          videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775543735/Edrington_Overseas_Video_mtm4bv.mov",
+          videoUrl:
+            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465791/Edrington_Overseas_Video_mtm4bv_phh6bj.mp4",
           thumbnailImage:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775543735/Edrington_Overseas_Video_mtm4bv.jpg",
+            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465791/Edrington_Overseas_Video_mtm4bv_phh6bj.jpg",
         },
         {
           title: "Bintan Team Retreat Highlights",
           videoUrl:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775785840/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y.mp4",
+            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465429/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y_wfuuax.mp4",
           thumbnailImage:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775785840/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y.jpg",
+            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465429/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y_wfuuax.jpg",
         },
         {
           title: "Batam Team Retreat Highlights",
           videoUrl:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775785846/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj.mp4",
+            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465434/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj_ommxaz.mp4",
           thumbnailImage:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj.jpg",
+            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465434/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj_ommxaz.jpg",
         },
         {
           title: "Kuala Lumpur Team Retreat Highlights",
           videoUrl:
-            "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1775785855/Overseas_Retreat_Kuala_Lumpur_pvy2gn.mp4v",
-          thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/Overseas_Retreat_Kuala_Lumpur_pvy2gn.jpg",
+            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465435/Overseas_Retreat_Kuala_Lumpur_pvy2gn_thcxas.mp4",
+          thumbnailImage:
+            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465435/Overseas_Retreat_Kuala_Lumpur_pvy2gn_thcxas.jpg",
         },
 
         { title: "Japan Cultural Experience" },
@@ -671,7 +673,7 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       description:
         "Good interactions at corporate retreats and rewarding travel packages can help improve an employee's relationship with their company! Corporate retreats are the perfect place to start conversations with workers and imagine a better direction for influence and organization. We handle every detail from flights to activities, ensuring your team enjoys a seamless, unforgettable journey.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579581/Overseas_5_o60d5r.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467324/Overseas_5_o60d5r_c3xu0f.jpg",
     },
     features: [
       {
