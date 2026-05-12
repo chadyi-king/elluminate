@@ -11173,7 +11173,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage:
       "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466936/amazing_race_vtb_2_o1rkl5_jgqleq.png",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466935/amazing_race_vtb_1_dvpp57_jhn3bv.png",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572203/ultimate_gameshow_2_o8xrf4.png",
     testimonialBackgroundImage:
       "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466942/amazing_race_vtb_6_xqokaj_d5v7yp.png",
     overview: {
