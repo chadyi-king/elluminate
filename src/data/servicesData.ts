@@ -13722,17 +13722,18 @@ export const servicesData: Record<string, ServiceData> = {
       title: "CORPORATE DAYS",
       subtitle: "Training",
       tagline: "Where Work Meets Play, Teams Thrive",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469803/disc_12_y4afhh.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466957/disc_12_y4afhh_oe9twz.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361414/MBTI_2_xjlhhy.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579608/WellnessGamesDay_3_crrqna.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467346/MBTI_2_xjlhhy_svh1ji.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466923/AmazingRace_16_mdu3de_cnmayi.jpg",
+    ctaBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467003/AmazingRace_11_zdhaa2_cf2cvs.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579607/WellnessGamesDay_11_ibpwvh.heic",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467262/AmazingRace_30_idmukn_sn0dzw.jpg",
     overview: {
       description:
         "Transform ordinary workdays into extraordinary team experiences with our Corporate Days program. These specially designed full-day or half-day events blend professional development with engaging activities, creating the perfect balance of learning and fun. Whether you're celebrating milestones, reinforcing company culture, or simply giving your team a well-deserved break, Corporate Days deliver memorable experiences that boost morale and strengthen team bonds.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469803/disc_12_y4afhh.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466957/disc_12_y4afhh_oe9twz.jpg",
     },
     features: [
       {
