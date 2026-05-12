@@ -171,7 +171,7 @@ const allActivities = [
       "An interactive online game show format designed for fast laughs, remote participation, and easy engagement.",
     stats: "120+ virtual game shows",
     clients: "Distributed teams worldwide",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/TheGameShow_VTB_4_weyhxy.png",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572196/ultimate_gameshow_1_fifqhu.png",
     tag: "Virtual",
   },
   {
@@ -255,7 +255,7 @@ const allActivities = [
       "High-energy school and youth experiences designed for bonding, leadership, and memorable cohort moments.",
     stats: "120+ school and youth programmes",
     clients: "Schools, student leaders, and youth groups",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775539489/youth_camp_21_iplbqd.jpg",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573542/youth_camps_16_vyyekp.jpg",
     tag: "School",
   },
   {
@@ -266,7 +266,7 @@ const allActivities = [
     description: "Corporate wellness days that combine movement, mindfulness, and nutrition into a shared team reset.",
     stats: "Mind, body & spirit formats",
     clients: "HR teams, leadership groups, and whole-staff",
-    image: heroCreativeWorkshop,
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778557811/wellnes_event_3_sct4ie_ysbonv.jpg",
     tag: "Training",
   },
   {
@@ -278,7 +278,7 @@ const allActivities = [
       "Focused offsite experiences for senior teams — blending strategy facilitation, team alignment, and premium hospitality.",
     stats: "1.5 to 3-day programmes",
     clients: "C-suite, directors, and management teams",
-    image: heroOverseasRetreat,
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570725/wellness_7_hc5bdg.jpg",
     tag: "Training",
   },
 ];
