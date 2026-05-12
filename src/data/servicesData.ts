@@ -621,15 +621,15 @@ export const servicesData: Record<string, ServiceData> = {
   "overseas-retreats": {
     accentColor: "#5AB7AE",
     dividerVariant: "route",
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579572/Overseas_11_droxvw.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579587/Overseas_6_d3fry4.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579575/Overseas_12_gvbqfw.jpg",
     hero: {
       title: "OVERSEAS RETREATS",
       subtitle: "Retreat",
       tagline: "The world is your company's oyster! Time to open it up and enjoy!",
       backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467324/Overseas_5_o60d5r_c3xu0f.jpg",
     },
+    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579572/Overseas_11_droxvw.jpg",
+    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579587/Overseas_6_d3fry4.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579575/Overseas_12_gvbqfw.jpg",
     videoSection: {
       title: "See Our Retreats in Action",
       subtitle: "From Bali villas to Japanese onsens, watch how we bring teams together across the globe.",
