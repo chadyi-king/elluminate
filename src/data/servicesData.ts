@@ -13046,17 +13046,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MASS TALKS",
       subtitle: "Training",
       tagline: "Inspire Hundreds, Impact Thousands",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/ParentsTalk_1_ilfr1u.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467366/ParentsTalk_1_ilfr1u_hiqc7e.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579597/ParentsTalk_7_braym0.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579590/ParentsTalk_2_kpyxks.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467373/ParentsTalk_7_braym0_ic2eos.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467368/ParentsTalk_2_kpyxks_zrxito.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467372/ParentsTalk_4_aucuaf_cuzaxo.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579598/ParentsTalk_8_ygibz7.jpg",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467375/ParentsTalk_8_ygibz7_nlzxd1.jpg",
     overview: {
       description:
         "Transform your large-scale gatherings into unforgettable moments of inspiration and learning. Our Mass Talks bring together captivating speakers, engaging content, and professional production to deliver powerful messages that resonate with audiences of any size. Whether it's a company-wide town hall, industry conference keynote, or motivational assembly, we craft experiences that inform, inspire, and ignite action across your entire organization.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/ParentsTalk_1_ilfr1u.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467366/ParentsTalk_1_ilfr1u_hiqc7e.jpg",
     },
     features: [
       {
