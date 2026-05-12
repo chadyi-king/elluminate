@@ -10785,16 +10785,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "FIT IN YOUR TEAM",
       subtitle: "Virtual Team Building",
       tagline: "A Fun and Competitive Workout Teambuilding Activity made for Your Team to get Energized!",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload//v1775812266/Main-Pic_ve8cxp.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466974/Main-Pic_ve8cxp_sgarxw.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812263/FIYT-3_kmv7zw.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812259/FIYT-2_seyqrv.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361452/TheGameShow_VTB_4_u1o2gy.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811085/vtb_ar_9_nbnbst.png",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466973/FIYT-3_kmv7zw_ulpegr.png",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466972/FIYT-2_seyqrv_ufphwd.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466974/Main-Pic_ve8cxp_sgarxw.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466974/Main-Pic_ve8cxp_sgarxw.jpg",
     overview: {
       description:
         "Get your team moving with this high-energy virtual workout experience! Combining fitness challenges with team competition, Fit In Your Team promotes physical wellness, mental clarity, and social connection—all from the comfort of home. Perfect for teams looking to energize, bond, and prioritize wellbeing together via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775812266/Main-Pic_ve8cxp.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466974/Main-Pic_ve8cxp_sgarxw.jpg",
     },
     features: [
       { icon: Dumbbell, title: "Fitness Challenges", description: "Fun workout activities for all fitness levels." },
