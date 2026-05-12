@@ -11747,7 +11747,7 @@ export const servicesData: Record<string, ServiceData> = {
       tagline: "The Grand Treasure Hunt Game made to push your team to the limit!",
       backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572458/tomb_raider_2_pylaig.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811020/tomb_raider_8_znhc3s.png",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572509/tomb_raider_7_rhhcm3.png",
     addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572500/tomb_raider_8_f6badp.png",
     ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572466/tomb_raider_3_nxcsek.png",
     testimonialBackgroundImage:
