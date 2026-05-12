@@ -12124,15 +12124,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "LOCAL RETREATS",
       subtitle: "Retreat",
       tagline: "Singapore may be small, but not all of it has been explored!",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023177/Overseas_48_g0woao.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467380/Overseas_48_g0woao_a2hf7n.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023137/Overseas_42_rhm0bt.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023137/Overseas_47_up0edg.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023139/Overseas_28_c1mqho.heic",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467017/Overseas_42_rhm0bt_byrrjc.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467018/Overseas_47_up0edg_qccmc8.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467007/Overseas_22_y5pcey_rslihk.jpg",
     overview: {
       description:
         "Not every great retreat requires a passport. Singapore's hotel scene delivers everything from affordable urban escapes to some of the most storied and architecturally celebrated properties in Asia — and we know exactly which ones perform for team retreats. We offer three distinct tiers: Staycation for whole-staff appreciation and casual connection, Heritage for a culturally rich stay in Singapore's most celebrated historical hotels, and Luxury for recognition-grade experiences that senior leaders and top earners genuinely value. You choose the tier; we handle room blocks, activities, dining, and every detail in between.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023177/Overseas_48_g0woao.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467380/Overseas_48_g0woao_a2hf7n.jpg",
     },
     features: [
       { icon: Building, title: "Curated Venues", description: "Handpicked hotels across Singapore." },
