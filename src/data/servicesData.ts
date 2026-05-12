@@ -9692,16 +9692,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "SOTONG GAME",
       subtitle: "Squid-Style Survival Games",
       tagline: "Can Your Team Survive the Ultimate Challenge?",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361478/SotongGame_7_cd8u9r.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467338/SotongGame_7_cd8u9r_eglqfx.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361474/SotongGame_8_hqiimv.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361472/SotongGame_6_m15tpn.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361469/SotongGame_5_yybybi.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361469/SotongGame_4_vphbd3.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467339/SotongGame_8_hqiimv_byefdp.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467336/SotongGame_6_m15tpn_pe7l2c.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467035/SotongGame_5_yybybi_ifpvdw.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467259/SotongGame_4_vphbd3_dfd1tv.jpg",
     overview: {
       description:
         "Sotong Game is a themed team building experience inspired by the global phenomenon of Squid-style survival games, adapted into safe, inclusive, and thrilling team challenges. Participants enter the game world complete with themed briefings, dramatic music, and the unmistakable tension of elimination rounds. From Red Light Green Light to Dalgona challenges to the iconic Tug of War, every game is faithfully recreated with a team-building twist that keeps everyone safe while delivering maximum excitement. Teams must communicate, strategize, and support each other to survive each round and advance to the final showdown. Our facilitators dress the part and maintain the immersive atmosphere throughout, complete with dramatic commentary and live scoring. Sotong Game is consistently one of our most popular activities for groups that want something themed, competitive, and genuinely memorable.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361478/SotongGame_7_cd8u9r.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467338/SotongGame_7_cd8u9r_eglqfx.jpg",
     },
     features: [
       {
@@ -9818,8 +9819,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Tense Challenges, Teamwork Wins!",
       subtitle:
         "Watch teams tackle unique and fun challenges in this exciting game of strategy and teamwork. From blind paths to pressure puzzles, every challenge tests your group's ability to think fast and work together!",
-      videoUrl: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838226/Sotong_Game_qqx1d3.mov",
-      thumbnailImage: "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1776838226/Sotong_Game_qqx1d3.jpg",
+      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465975/Sotong_Game_qqx1d3_dayqvg.mp4",
+      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465975/Sotong_Game_qqx1d3_dayqvg.jpg",
     },
     cta: {
       headline: "Ready for Sotong Game?",
@@ -10004,15 +10005,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Sotong Game Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361464/SotongGame_19_gqbkjc.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467031/SotongGame_19_gqbkjc_aqglp0.jpg",
           alt: "Sotong Game themed team challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361447/SotongGame_1_evo52u.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467257/SotongGame_1_evo52u_zhu2ks.jpg",
           alt: "Squid-style game in progress",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361450/SotongGame_13_sabaqz.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467252/SotongGame_13_sabaqz_kps70w.jpg",
           alt: "Team survival moment",
         },
       ],
