@@ -6721,19 +6721,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "Inspired by the Netflix hit Alice in Borderland — a surreal live adventure where teams navigate themed stations, crack curious puzzles, and find their way through a world of playful challenges.",
-      backgroundImage:
-        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467141/MonopolyDash_3_kq2pxe_zx0ukz.heic",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467140/MonopolyDash_1_rlwgie_mtxttl.jpg",
     },
     howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467336/SotongGame_6_m15tpn_pe7l2c.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467336/SotongGame_6_m15tpn_pe7l2c.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467284/MonopolyDash_4_jkl1xu_dxlali.jpg",
     ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467096/CSI_4_mezxfu_dkkeax.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467146/MonopolyDash_8_nvfim2_h2ix6l.heic",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467379/AmazingRace_6_q4rlam_npouzf.jpg",
     overview: {
       description:
         "Alice in Motherland is a team-building adventure inspired by Alice in Borderland, the acclaimed Netflix series, adapted into a live and fully facilitated group experience. Teams journey through themed stations, complete curious missions, solve imaginative puzzles, and collaborate their way through a surreal format that rewards creativity and team observation. It works especially well for clients or schools looking for something visually distinctive, story-driven, and genuinely memorable.",
-      backgroundImage:
-        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467141/MonopolyDash_3_kq2pxe_zx0ukz.heic",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467140/MonopolyDash_1_rlwgie_mtxttl.jpg",
     },
     features: [
       {
@@ -7068,8 +7066,8 @@ export const servicesData: Record<string, ServiceData> = {
       backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466298/Exstatic-83_dm6mhz_aucsk2.png",
     },
     howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466297/Exstatic-82_amkre4_hwfkj9.png",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466297/Exstatic-82_amkre4_hwfkj9.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467235/RunningMan_1_rqyx9i_qfghzz.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467235/RunningMan_1_rqyx9i_qfghzz.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466297/Exstatic-82_amkre4_hwfkj9.png",
     testimonialBackgroundImage:
       "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466290/exstatic-75-2_ozcdef_fjmiu4.png",
     overview: {
