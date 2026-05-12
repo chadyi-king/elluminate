@@ -12413,16 +12413,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MBTI PERSONALITY PROFILING",
       subtitle: "Training",
       tagline: "Personality has the power to uplift, depress, curse and to bless.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775461597/MBTI_7_a2vsjt.heic",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563124/MBTI_7_a2vsjt_hkcg8c.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361413/MBTI_1_n46m74.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775462160/MBTI_11_mt5v5y.heic",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361396/BuilderCross_5_ww5m3l.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775462160/MBTI_10_zci3dp.heic",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467344/MBTI_1_n46m74_nughso.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563426/MBTI_11_mt5v5y_fjgxz8.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563132/MBTI_8_gpocu9_jh5j4v.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563420/MBTI_10_zci3dp_ixpupn.jpg",
     overview: {
       description:
         "Looking to find out more about who you are and how you work with others? What's your Type? breaks down your entire personality to figure out what drives you and which types you are able to get along with! This activity is designed as a team building event, where teams will discover the frameworks of the mind, energy, nature and tactics within us. By pushing values such as exploration, awareness and insightfulness, we aim to give your group a reflective event filled with diverse growth!",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775461597/MBTI_7_a2vsjt.heic",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563124/MBTI_7_a2vsjt_hkcg8c.jpg",
     },
     features: [
       { icon: Brain, title: "Personality Discovery", description: "Understand what drives you and others." },
