@@ -11745,17 +11745,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "TOMB RAIDER KING",
       subtitle: "Virtual Team Building",
       tagline: "The Grand Treasure Hunt Game made to push your team to the limit!",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775810999/tomb_raider_0_cbsqzh.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572458/tomb_raider_2_pylaig.png",
     },
     howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811020/tomb_raider_8_znhc3s.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811014/tomb_raider_6_zg2lkt.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811016/tomb_raider_5_dimic8.png",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572500/tomb_raider_8_f6badp.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572466/tomb_raider_3_nxcsek.png",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811016/tomb_raider_5_dimic8.png",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572449/tomb_raider_0_e3mraf.jpg",
     overview: {
       description:
         "Embark on an epic virtual treasure hunt across 5 ancient tombs! Teams race to collect the most gold by solving puzzles, overcoming obstacles, and raiding tombs before competitors. This adventure-packed experience combines strategy, speed, and teamwork for an unforgettable virtual journey via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775810999/tomb_raider_0_cbsqzh.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572458/tomb_raider_2_pylaig.png",
     },
     features: [
       { icon: Crown, title: "Treasure Hunting", description: "Raid 5 tombs for gold and glory." },
