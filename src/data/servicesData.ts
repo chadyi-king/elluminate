@@ -6392,16 +6392,16 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "Inspired by the viral hit game Among Us — a live social-deduction showdown where your crew finds imposters, defends the mission, and outplays the opposition.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615859/exstatic-71_nf1hy4.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466436/exstatic-71_nf1hy4_q0wthm.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615880/12-1_ys7sfz.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615852/4-3_jcfcl7.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592600/CSI_14_z4eswb.heic",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615852/2-2_yuoolq.png",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466247/12-1_ys7sfz_lytwth.png",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466418/4-3_jcfcl7_bogpmh.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467106/disc_3_uesqco_xaluze.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466256/2-2_yuoolq_og3iyb.png",
     overview: {
       description:
         "Amongst Us is a live team-building adaptation of the viral hit game Among Us, brought off the screen and into a fully facilitated physical experience. Participants move through missions, suspicion rounds, secret roles, and timed reveals while trying to complete objectives without letting the imposters sabotage the team. It works especially well for workplaces, student leaders, camps, and mixed groups because the format rewards observation, persuasion, teamwork, and a good sense of humour rather than fitness alone.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615859/exstatic-71_nf1hy4.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466436/exstatic-71_nf1hy4_q0wthm.png",
     },
     features: [
       {
@@ -6690,19 +6690,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Amongst Us Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615841/exstatic-77_qz783y.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466293/exstatic-77_qz783y_imgm8o.png",
           alt: "Amongst Us team reveal moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615841/5_n9hjyr.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466266/5_n9hjyr_jmbzfn.png",
           alt: "Players analysing who the imposter might be",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615840/exstatic-92_iesvlu.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466305/exstatic-92_iesvlu_dxo2ag.png",
           alt: "Participants reacting during a live discussion round",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615840/3-2_ylq4ub.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466242/3-2_ylq4ub_jwk9rk.png",
           alt: "Amongst Us accusation round",
         },
       ],
