@@ -6721,17 +6721,19 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "Inspired by the Netflix hit Alice in Borderland — a surreal live adventure where teams navigate themed stations, crack curious puzzles, and find their way through a world of playful challenges.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_3_kq2pxe.heic",
+      backgroundImage:
+        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467141/MonopolyDash_3_kq2pxe_zx0ukz.heic",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361472/SotongGame_6_m15tpn.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/SotongGame_6_m15tpn.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361413/CSI_4_mezxfu.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467336/SotongGame_6_m15tpn_pe7l2c.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467336/SotongGame_6_m15tpn_pe7l2c.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467096/CSI_4_mezxfu_dkkeax.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361424/MonopolyDash_8_nvfim2.heic",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467146/MonopolyDash_8_nvfim2_h2ix6l.heic",
     overview: {
       description:
         "Alice in Motherland is a team-building adventure inspired by Alice in Borderland, the acclaimed Netflix series, adapted into a live and fully facilitated group experience. Teams journey through themed stations, complete curious missions, solve imaginative puzzles, and collaborate their way through a surreal format that rewards creativity and team observation. It works especially well for clients or schools looking for something visually distinctive, story-driven, and genuinely memorable.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_3_kq2pxe.heic",
+      backgroundImage:
+        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467141/MonopolyDash_3_kq2pxe_zx0ukz.heic",
     },
     features: [
       {
@@ -7032,19 +7034,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Alice in Motherland Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615879/exstatic-78-1_xhgvab.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466452/exstatic-78-1_xhgvab_i4fb2k.png",
           alt: "Team entering a themed Alice in Motherland station",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615871/exstatic-94_nqnjxj.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466464/exstatic-94_nqnjxj_ogfmqu.png",
           alt: "Participants reacting during a story-led mission",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615873/TE-51_cbrxsh.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466471/TE-51_cbrxsh_jjqaex.png",
           alt: "Group celebrating after completing the final challenge",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615871/exstatic-75-1_iq18k4.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466445/exstatic-75-1_iq18k4_brs37x.png",
           alt: "Alice in Motherland puzzle station",
         },
       ],
@@ -7063,17 +7065,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "A bold team tournament that blends athletic rounds, strategy games, and full-group energy into one epic showdown.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615834/Exstatic-83_dm6mhz.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466298/Exstatic-83_dm6mhz_aucsk2.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615840/Exstatic-82_amkre4.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615840/Exstatic-82_amkre4.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361442/RunningMan_6_esz34i.heic",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466297/Exstatic-82_amkre4_hwfkj9.png",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466297/Exstatic-82_amkre4_hwfkj9.png",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467235/RunningMan_1_rqyx9i_qfghzz.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615832/exstatic-75-2_ozcdef.png",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466290/exstatic-75-2_ozcdef_fjmiu4.png",
     overview: {
       description:
         "Battle of the Olympians is a large-format team competition built for groups that want scale, energy, and a sense of event. Teams move through a mix of athletic relays, tactical tasks, mental rounds, and showpiece finales while earning points for consistency, teamwork, and determination. It works especially well for larger corporate groups, school cohorts, student camps, and department-wide offsites that need something competitive, highly visible, and easy for people to rally around.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615834/Exstatic-83_dm6mhz.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466298/Exstatic-83_dm6mhz_aucsk2.png",
     },
     features: [
       {
@@ -7362,19 +7364,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Battle of the Olympians Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615830/exstatic-90_izg9jw.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466304/exstatic-90_izg9jw_zsywaf.png",
           alt: "Teams competing during Battle of the Olympians",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615824/exstatic-78-2_i4fdzh.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466294/exstatic-78-2_i4fdzh_hllc2b.png",
           alt: "Olympian teams celebrating after the final round",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615823/6-1_sobayd.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466264/6-1_sobayd_lt2bfx.png",
           alt: "Large group tournament layout during a team showdown",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615819/7-3_reercq.png",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466423/7-3_reercq_xkldkk.png",
           alt: "Battle of the Olympians relay challenge",
         },
       ],
