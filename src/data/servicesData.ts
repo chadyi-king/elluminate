@@ -13288,16 +13288,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "WORKSHOPS",
       subtitle: "Training",
       tagline: "Learn by Doing, Grow by Practicing",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579623/Workshop_4_ocszix.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570951/workshop_1_petybv.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579617/Workshop_14_rvws0z.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579625/Workshop_7_h0likd.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774592593/CSI_9_a26htk.heic",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579615/Workshop_11_iunqpi.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570907/workshop_12_lfss9k.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570957/workshop_5_qo8tr7.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570943/workshop_4_urisot.jpg",
+    testimonialBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570922/workshop_11_q1tnqb.jpg",
     overview: {
       description:
         "Our interactive workshops go beyond passive learning to create immersive skill-building experiences. With hands-on activities, real-world scenarios, and expert facilitation, participants don't just learn concepts - they practice and internalize them. From communication and leadership to creativity and problem-solving, our workshops transform knowledge into actionable skills that drive immediate results in the workplace.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579623/Workshop_4_ocszix.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570951/workshop_1_petybv.jpg",
     },
     features: [
       {
