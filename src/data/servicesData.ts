@@ -10591,17 +10591,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "AMAZING RACE VIRTUAL",
       subtitle: "Virtual Team Building",
       tagline: "The World is waiting for you. Good Luck. Travel Safe and Go!",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload//v1775811071/vtb_ar_6_jzyr6a.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572647/vtb_ar_4_ieuq95.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811085/vtb_ar_9_nbnbst.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811082/vtb_ar_1_jglmti.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361451/TheGameShow_VTB_1_ueolfs.jpg",
+    howItWorksImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466943/amazing_race_vtb_5_wonwjk_gkd3fb.png",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572621/vtb_ar_6_zsksme.png",
+    ctaBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466936/amazing_race_vtb_2_o1rkl5_jgqleq.png",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774943858/amazing_race_vtb_6_xqokaj.png",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466935/amazing_race_vtb_1_dvpp57_jhn3bv.png",
     overview: {
       description:
         "Journey across the globe without leaving your seat! In this high-energy virtual adventure, teams race through countries, solve puzzles, and complete challenges inspired by destinations worldwide. Perfect for remote teams who want excitement, strategy, and bonding—all through Zoom. Requires only a laptop/desktop with camera and internet.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811071/vtb_ar_6_jzyr6a.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572647/vtb_ar_4_ieuq95.png",
     },
     features: [
       {
