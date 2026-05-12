@@ -2863,12 +2863,14 @@ export const servicesData: Record<string, ServiceData> = {
       title: "WELLNESS EVENTS",
       subtitle: "Training",
       tagline: "Nurturing wellbeing, inspiring balance, elevating your team.",
-      backgroundImage: wellnessEventHero,
+      backgroundImage:
+        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778557811/wellnes_event_3_sct4ie_ysbonv.jpg",
     },
     overview: {
       description:
         "Promote employee wellbeing with thoughtfully designed wellness events that nurture mind, body, and spirit. From meditation sessions to fitness challenges, we create experiences that support holistic health and demonstrate your commitment to your team's wellness.",
-      backgroundImage: wellnessEventHero,
+      backgroundImage:
+        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778557811/wellnes_event_3_sct4ie_ysbonv.jpg",
     },
     features: [
       {
