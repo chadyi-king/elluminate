@@ -55,7 +55,7 @@ const allActivities = [
       "Exciting city-wide treasure hunts with challenges and puzzles that test teamwork and problem-solving.",
     stats: "300+ Amazing Races organized",
     clients: "For Google, DBS, Shopee, and more",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774360229/AmazingRace_2_hi89qz.jpg",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467263/AmazingRace_2_hi89qz_nbf5om.jpg",
     tag: "Physical",
   },
   {
@@ -67,7 +67,7 @@ const allActivities = [
       "Forensic investigation experience where teams solve mysteries using clues, evidence, and deduction skills.",
     stats: "150+ CSI events delivered",
     clients: "Popular with banks, schools, and tech companies",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361406/CSI_3_tt9yqa.jpg",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467095/CSI_3_tt9yqa_itd4ln.jpg",
     tag: "Physical",
   },
   {
@@ -78,7 +78,8 @@ const allActivities = [
     description: "Explore Singapore's rich heritage through interactive challenges in historic districts.",
     stats: "200+ Cultural Races completed",
     clients: "Perfect for multinational teams and student groups",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615806/photo_2023-06-28_14-02-17-2_flckfz.jpg",
+    image:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466360/photo_2023-06-28_14-02-17-2_flckfz_bzinuy.jpg",
     tag: "Physical",
   },
   {
@@ -90,7 +91,7 @@ const allActivities = [
       "A live social-deduction concept where your group hunts for the imposters before the room turns on itself.",
     stats: "80+ games played",
     clients: "Popular for workplaces, camps, and student leaders",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615859/exstatic-71_nf1hy4.png",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466436/exstatic-71_nf1hy4_q0wthm.png",
     tag: "Physical",
   },
   {
@@ -102,7 +103,7 @@ const allActivities = [
       "A whimsical, story-led journey packed with themed stations, playful puzzles, and immersive team moments.",
     stats: "40+ experiences created",
     clients: "Loved by creative brands, schools, and curated events",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361422/MonopolyDash_4_jkl1xu.jpg",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467284/MonopolyDash_4_jkl1xu_dxlali.jpg",
     tag: "Physical",
   },
   {
@@ -113,7 +114,7 @@ const allActivities = [
     description: "An epic competition format that blends athletic rounds, mental games, and all-out team pride.",
     stats: "40+ battles fought",
     clients: "Built for large cohorts, schools, and full-company showdowns",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775615834/Exstatic-83_dm6mhz.png",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466298/Exstatic-83_dm6mhz_aucsk2.png",
     tag: "Physical",
   },
   {
@@ -124,7 +125,7 @@ const allActivities = [
     description: "Action-packed archery battles that sharpen team strategy, communication, and fast decision-making.",
     stats: "120+ archery events",
     clients: "Great for competitive teams and student cohorts",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361441/RunningMan_2_h7dp74.jpg",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486357/archery_tag_6_v4lahk_muur5j.jpg",
     tag: "Physical",
   },
   {
@@ -135,7 +136,7 @@ const allActivities = [
     description: "Fast-paced one-minute challenges that bring out competitive spirit and lots of laughter.",
     stats: "200+ events hosted",
     clients: "Perfect for D&D, schools, and celebrations",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_2_m57wuz.jpg",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467363/MTWI_2_m57wuz_dsdpf5.jpg",
     tag: "Physical",
   },
   {
@@ -146,7 +147,7 @@ const allActivities = [
     description: "Korean Running Man-inspired games with name tag ripping, missions, and hilarious challenges.",
     stats: "120+ adventures ran",
     clients: "Popular with K-culture fans and youth groups",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361444/RunningMan_10_x6owst.heic",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467026/RunningMan_21_ncjbhp_jigkml.jpg",
     tag: "Physical",
   },
   {
@@ -158,7 +159,7 @@ const allActivities = [
       "A remote-friendly Amazing Race experience that keeps distributed teams engaged through live digital challenges.",
     stats: "150+ virtual races",
     clients: "Global teams and hybrid cohorts",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775811075/vtb_ar_7_vqhkqm.png",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466944/amazing_race_vtb_8_x08c9l_wvrrpp.jpg",
     tag: "Virtual",
   },
   {
@@ -182,7 +183,7 @@ const allActivities = [
       "Retreat experiences designed for deeper connection, offsite focus, and shared momentum outside the usual setting.",
     stats: "Regional retreats across Asia",
     clients: "Leadership teams, departments, and top performers",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579581/Overseas_5_o60d5r.jpg",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467324/Overseas_5_o60d5r_c3xu0f.jpg",
     tag: "Retreat",
   },
   {
@@ -194,7 +195,7 @@ const allActivities = [
       "Three tiers of Singapore hotel retreats — Staycation, Heritage, or Luxury — designed to reward your team without leaving the island.",
     stats: "Staycation, Heritage & Luxury tiers",
     clients: "Whole-staff, leadership teams, and top performers",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023177/Overseas_48_g0woao.jpg",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467380/Overseas_48_g0woao_a2hf7n.jpg",
     tag: "Retreat",
   },
   {
@@ -206,7 +207,7 @@ const allActivities = [
       "Reward-based travel programmes for top performers — fully managed from criteria design to on-ground execution and post-trip recognition.",
     stats: "Regional & long-haul programmes",
     clients: "Sales teams, top earners, and leadership cohorts",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775023137/Overseas_40_jfae9l.heic",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467225/Overseas_46_cvenyf_wft2qo.jpg",
     tag: "Retreat",
   },
   {
@@ -230,7 +231,7 @@ const allActivities = [
       "A practical profiling workshop that helps teams understand personality differences and work better together.",
     stats: "100+ profiling sessions",
     clients: "Leadership, HR, and student leaders",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775461597/MBTI_7_a2vsjt.heic",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466983/MBTI_7_a2vsjt_or8jiv.heic",
     tag: "Training",
   },
   {
@@ -242,7 +243,7 @@ const allActivities = [
       "A practical behavioural profiling session that helps teams communicate better and collaborate more effectively.",
     stats: "80+ DISC sessions",
     clients: "Managers, schools, and leadership teams",
-    image: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775469812/disc_11_o3izak.jpg",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467272/disc_11_o3izak_roxmew.jpg",
     tag: "Training",
   },
   {
