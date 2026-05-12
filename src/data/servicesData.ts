@@ -8338,16 +8338,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MINUTE TO WIN IT",
       subtitle: "Team Party Games",
       tagline: "Quick-fire mini games for teams, classes, and cohorts that want instant laughs and full participation.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_2_m57wuz.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467363/MTWI_2_m57wuz_dsdpf5.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361427/MTWI_12_vui3ae.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_3_hiohbs.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361433/MTWI_4_e5fnzy.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_3_hiohbs.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466988/MTWI_12_vui3ae_zajass.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467287/MTWI_3_hiohbs_zkj6c1.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467150/MTWI_4_e5fnzy_d4hldt.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467287/MTWI_3_hiohbs_zkj6c1.jpg",
     overview: {
       description:
         "Minute To Win It is a high-energy party-style team building experience featuring dozens of fast-paced mini challenges, each lasting just 60 seconds. Inspired by the hit TV show, teams compete across multiple rounds of quirky, hilarious, and surprisingly challenging games that test dexterity, coordination, creativity, and teamwork. It works just as well for school cohorts and student groups as it does for workplace teams because the rules are simple, the energy is immediate, and everyone can take part. Minute To Win It works brilliantly as a standalone event, a celebration segment, or an energizer during workshops and camp programmes.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_2_m57wuz.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467363/MTWI_2_m57wuz_dsdpf5.jpg",
     },
     features: [
       {
@@ -8465,9 +8466,9 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle:
         "Watch teams race against the clock in a series of exciting 60-second challenges. Speed, skill, and creativity are key to winning in this fast-paced, high-energy game!",
       videoUrl:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887140/Minute-To-Win-It-Team-Building_i0cajb.mp4",
+        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465419/Minute-To-Win-It-Team-Building_i0cajb_txzvhz.mp4",
       thumbnailImage:
-        "https://res.cloudinary.com/dw1q8nz8z/video/upload/v1773887140/Minute-To-Win-It-Team-Building_i0cajb.jpg",
+        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465419/Minute-To-Win-It-Team-Building_i0cajb_txzvhz.jpg",
     },
     cta: {
       headline: "Ready to Play?",
@@ -8653,19 +8654,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Minute To Win It Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_3_hiohbs.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467287/MTWI_3_hiohbs_zkj6c1.jpg",
           alt: "Teams competing in Minute To Win It challenges",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361429/MTWI_11_tc1soi.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467286/MTWI_11_tc1soi_racqhw.jpg",
           alt: "Exciting mini game moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361435/MTWI_5_pzdfsb.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467152/MTWI_5_pzdfsb_zjnbur.jpg",
           alt: "Team celebration after winning",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774361438/MTWI_6_fydbkh.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467154/MTWI_6_fydbkh_bbijzi.jpg",
           alt: "Fun team activity highlight",
         },
       ],
