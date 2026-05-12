@@ -9024,16 +9024,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "NERFWAR",
       subtitle: "Foam Dart Battles",
       tagline: "A safe, fast, and hilarious battle format for teams and school groups who want action with structure.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456495/nerfwar_5_oqmjf3.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466995/nerfwar_5_oqmjf3_psu9nc.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456504/nerfwar_2_nxll52.jpg",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456497/nerfwar_1_dzcjh4.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456506/nerfwar_3_pxba6f.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456498/nerfwar_10_tg6ss6.jpg",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467159/nerfwar_2_nxll52_enw5fk.jpg",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467157/nerfwar_1_dzcjh4_k2wdwb.jpg",
+    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467290/nerfwar_3_pxba6f_du5d0x.jpg",
+    testimonialBackgroundImage:
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467288/nerfwar_10_tg6ss6_rzcrtu.jpg",
     overview: {
       description:
         "Nerfwar is a high-energy foam dart battle experience that transforms your outing into an action-packed tactical adventure. Equipped with Nerf blasters and foam darts, teams compete in structured match formats designed to encourage communication, strategy, and good old-fashioned fun. It is especially useful for mixed groups, schools, and student cohorts because the format is safe, easy to pick up, and full of movement without feeling intimidating. Whether you are hosting a casual team day or an energetic kickoff event, Nerfwar delivers guaranteed laughs and memorable team moments.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456495/nerfwar_5_oqmjf3.jpg",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466995/nerfwar_5_oqmjf3_psu9nc.jpg",
     },
     features: [
       {
@@ -9323,19 +9324,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Nerfwar Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456498/nerfwar_10_tg6ss6.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467288/nerfwar_10_tg6ss6_rzcrtu.jpg",
           alt: "Nerfwar foam dart team battle in action",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456494/nerfwar_12_ykj5sp.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466993/nerfwar_12_ykj5sp_pbet0h.jpg",
           alt: "Team celebrating Nerfwar victory",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456489/nerfwar_8_kel39u.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467291/nerfwar_8_kel39u_jogeuc.jpg",
           alt: "Outdoor Nerfwar moment",
         },
         {
-          src: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1775456502/nerfwar_4_lgyzz6.jpg",
+          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466994/nerfwar_4_lgyzz6_cx1ytt.jpg",
           alt: "Nerfwar squad formation",
         },
       ],
