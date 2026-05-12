@@ -10973,17 +10973,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "GAMESHOW EXPERIENCE",
       subtitle: "Virtual Team Building",
       tagline: "6 in 1 Gameshows to play and challenge your colleagues",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/TheGameShow_VTB_4_weyhxy.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572167/ultimate_gameshow_5_icbfr4.png",
     },
     overview: {
       description:
         "Bring the excitement of TV gameshows to your virtual team event! With 6 different gameshow formats in one experience, teams compete through trivia, challenges, and hilarious moments. This high-energy virtual experience is perfect for large groups looking for entertainment and friendly competition via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/TheGameShow_VTB_4_weyhxy.png",
+      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572167/ultimate_gameshow_5_icbfr4.png",
     },
-    howItWorksImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579600/TheGameShow_VTB_7_swbfoo.png",
-    addOnsImage: "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579597/TheGameShow_VTB_11_ye3umr.png",
+    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572174/ultimate_gameshow_7_evq8ju.png",
+    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572140/ultimate_gameshow_4_ly6hxf.png",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dw1q8nz8z/image/upload/v1774579596/TheGameShow_VTB_1_mbuxzv.png",
+      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572196/ultimate_gameshow_1_fifqhu.png",
     features: [
       { icon: Gamepad2, title: "6 Gameshows", description: "Multiple formats keep things fresh and exciting." },
       { icon: Trophy, title: "Points Competition", description: "Teams compete for the highest score." },
