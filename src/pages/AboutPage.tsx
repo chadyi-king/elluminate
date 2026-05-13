@@ -130,96 +130,99 @@ const features = [
 const clientLogos = [
   {
     name: "DBS",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/DBS_Bank_Logo.svg/400px-DBS_Bank_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465303/DBS_Bank_Logo_p1zixs.png",
   },
   {
     name: "OCBC",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OCBC_Bank_logo.svg/400px-OCBC_Bank_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465310/Logo-ocbc.svg_khvach.png",
   },
   {
     name: "UOB",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/UOB_Logo.svg/400px-UOB_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465325/UOB_logo_n4hrvh.png",
   },
   {
     name: "Singtel",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Singtel_logo_2021.svg/400px-Singtel_logo_2021.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465322/Singtel_logo_nmsek6.svg",
   },
   {
     name: "Grab",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Grab_Logo.svg/400px-Grab_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465306/grab-logo_h3i5lc.jpg",
   },
-  { name: "Shopee", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/400px-Shopee.svg.png" },
+  {
+    name: "Shopee",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465320/shopee-logo_sce8bs_r7xa9k.png",
+  },
   {
     name: "NTUC",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/NTUC_FairPrice_logo.svg/400px-NTUC_FairPrice_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465315/ntuc_logo_v2xyjl.png",
   },
   {
     name: "GovTech",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/GovTech_Singapore_Logo.svg/400px-GovTech_Singapore_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465306/GovTech_logo_lctwtl.png",
   },
   {
     name: "Sentosa",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/89/Sentosa_logo.svg/400px-Sentosa_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465319/sentosa-logo_pcriws.webp",
   },
   {
     name: "SP Group",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/SP_Group_logo.svg/400px-SP_Group_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465323/SP_Group_Logo_zbi2wt.svg",
   },
   {
     name: "SMRT",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SMRT_Corporation_Logo.svg/400px-SMRT_Corporation_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465322/SMRT_logo_hdwk9d.png",
   },
   {
     name: "Prudential",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Prudential_plc_logo.svg/400px-Prudential_plc_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465317/PrudentialGroup_Logo_keiccj.png",
   },
   {
     name: "Marina Bay Sands",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Marina_Bay_Sands_Logo.svg/400px-Marina_Bay_Sands_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465311/marina_bay_sands_logo_hx5ui7.png",
   },
   {
     name: "CapitaLand",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/CapitaLand_logo.svg/400px-CapitaLand_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465300/capitaland_logo_lswm7l.png",
   },
   {
     name: "Singapore Airlines",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Singapore_Airlines_Logo_2.svg/400px-Singapore_Airlines_Logo_2.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465321/Singapore-Airlines-Logo_jzs3bh_mngdzj.png",
   },
   {
     name: "Changi Airport",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Changi_Airport_Group_logo.svg/400px-Changi_Airport_Group_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465300/Changi_logo_uwhp7y.svg",
   },
   {
     name: "StarHub",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/StarHub_Logo.svg/400px-StarHub_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465324/StarHub_logo_cdoeat.svg",
   },
   {
     name: "M1",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/M1_Limited_logo.svg/400px-M1_Limited_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465310/M1_Logo_mbjg9i.svg",
   },
   {
     name: "POSB",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/POSB_Bank_logo.svg/400px-POSB_Bank_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465316/POSB_logo_eiozw9.png",
   },
   {
     name: "Great Eastern",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Great_Eastern_logo.svg/400px-Great_Eastern_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465307/Great_Eastern_logo_ice1ox.png",
   },
   {
     name: "AIA",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/AIA_Group_logo.svg/400px-AIA_Group_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465300/AIA-logo_x4n6n4.png",
   },
   {
     name: "HSBC",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/HSBC_logo_%282018%29.svg/400px-HSBC_logo_%282018%29.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465307/hsbc-logo_clxve1_hjk23e.png",
   },
   {
     name: "Standard Chartered",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Standard_Chartered_%282021%29.svg/400px-Standard_Chartered_%282021%29.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465324/Standard_Chartered_Logo_u1hs4g.png",
   },
   {
     name: "Maybank",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Maybank_logo.svg/400px-Maybank_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465312/MAYBANK_LOGO_glhtjo.png",
   },
 ];
 
@@ -228,107 +231,107 @@ const testimonials = [
     quote:
       "Elluminate delivered the best team-building event we've ever had. The energy was incredible and our team is still talking about it months later.",
     company: "Shopee Singapore",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/400px-Shopee.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465320/shopee-logo_sce8bs_r7xa9k.png",
   },
   {
     quote:
       "Professional, energetic, and flawless execution. They understood our corporate culture perfectly and designed an experience that resonated with everyone.",
     company: "SP Group",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/SP_Group_logo.svg/400px-SP_Group_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465323/SP_Group_Logo_zbi2wt.svg",
   },
   {
     quote:
       "Immersive activities with meaningful takeaways. Our employees left feeling connected and inspired. Highly recommend for any corporate event.",
     company: "NTUC Enterprise",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/NTUC_FairPrice_logo.svg/400px-NTUC_FairPrice_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465315/ntuc_logo_v2xyjl.png",
   },
   {
     quote:
       "The attention to detail was extraordinary. Every moment was carefully crafted to engage and inspire our team.",
     company: "DBS Bank",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/DBS_Bank_Logo.svg/400px-DBS_Bank_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465303/DBS_Bank_Logo_p1zixs.png",
   },
   {
     quote: "Our D&D was transformed into an unforgettable night. The production quality was cinema-level!",
     company: "Singtel",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Singtel_logo_2021.svg/400px-Singtel_logo_2021.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465322/Singtel_logo_nmsek6.svg",
   },
   {
     quote: "They brought creativity and professionalism in equal measure. Our team bonding has never been stronger.",
     company: "Grab",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Grab_Logo.svg/400px-Grab_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465306/grab-logo_h3i5lc.jpg",
   },
   {
     quote: "From concept to execution, everything was seamless. The facilitators were absolutely phenomenal.",
     company: "GovTech Singapore",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/GovTech_Singapore_Logo.svg/400px-GovTech_Singapore_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465306/GovTech_logo_lctwtl.png",
   },
   {
     quote: "The best investment we made for our company retreat. Every activity had purpose and every moment counted.",
     company: "OCBC Bank",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/OCBC_Bank_logo.svg/400px-OCBC_Bank_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465310/Logo-ocbc.svg_khvach.png",
   },
   {
     quote:
       "Elluminate exceeded all expectations. Our 500-person event ran like clockwork with incredible energy throughout.",
     company: "UOB",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/UOB_Logo.svg/400px-UOB_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465325/UOB_logo_n4hrvh.png",
   },
   {
     quote: "Creative, organized, and truly memorable. This was the highlight of our corporate calendar.",
     company: "Marina Bay Sands",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Marina_Bay_Sands_Logo.svg/400px-Marina_Bay_Sands_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465311/marina_bay_sands_logo_hx5ui7.png",
   },
   {
     quote: "The immersive experience they created was unlike anything we'd seen before. Absolutely world-class.",
     company: "Singapore Airlines",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Singapore_Airlines_Logo_2.svg/400px-Singapore_Airlines_Logo_2.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465321/Singapore-Airlines-Logo_jzs3bh_mngdzj.png",
   },
   {
     quote: "Professional hosts who kept our entire team engaged from start to finish. Highly recommended!",
     company: "Prudential",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Prudential_plc_logo.svg/400px-Prudential_plc_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465317/PrudentialGroup_Logo_keiccj.png",
   },
   {
     quote: "Our town hall was transformed into an inspiring experience. The production quality was outstanding.",
     company: "CapitaLand",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/CapitaLand_logo.svg/400px-CapitaLand_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465300/capitaland_logo_lswm7l.png",
   },
   {
     quote: "They took our vague ideas and turned them into a spectacular reality. Creative geniuses!",
     company: "StarHub",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/StarHub_Logo.svg/400px-StarHub_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465324/StarHub_logo_cdoeat.svg",
   },
   {
     quote: "The team building activities were fun yet meaningful. Our staff couldn't stop talking about it.",
     company: "SMRT",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SMRT_Corporation_Logo.svg/400px-SMRT_Corporation_Logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465322/SMRT_logo_hdwk9d.png",
   },
   {
     quote: "Exceptional service from planning to execution. They made our anniversary celebration truly special.",
     company: "Great Eastern",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Great_Eastern_logo.svg/400px-Great_Eastern_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465307/Great_Eastern_logo_ice1ox.png",
   },
   {
     quote:
       "The level of customization and creativity was impressive. Every detail was perfectly aligned with our brand.",
     company: "AIA",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/AIA_Group_logo.svg/400px-AIA_Group_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465300/AIA-logo_x4n6n4.png",
   },
   {
     quote: "Our product launch was a massive success thanks to Elluminate's vision and execution.",
     company: "M1",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/M1_Limited_logo.svg/400px-M1_Limited_logo.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465310/M1_Logo_mbjg9i.svg",
   },
   {
     quote: "From the initial consultation to the final bow, professionalism and passion were evident at every step.",
     company: "HSBC",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/HSBC_logo_%282018%29.svg/400px-HSBC_logo_%282018%29.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465307/hsbc-logo_clxve1_hjk23e.png",
   },
   {
     quote: "They understand corporate events like no one else. Our leadership offsite was transformative.",
     company: "Standard Chartered",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Standard_Chartered_%282021%29.svg/400px-Standard_Chartered_%282021%29.svg.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465324/Standard_Chartered_Logo_u1hs4g.png",
   },
 ];
 
