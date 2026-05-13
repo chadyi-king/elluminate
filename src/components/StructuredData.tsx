@@ -11,12 +11,13 @@ export const OrganizationSchema = ({ type = "Organization" }: OrganizationSchema
     name: "Elluminate",
     url: "https://elluminate.sg",
     logo: "https://elluminate.sg/logo.png",
-    description: "Singapore's trusted corporate team building company. Specialists in physical and virtual team building, retreats, and training for companies, schools, and government teams.",
-    telephone: "+6588062446",
+    description:
+      "Singapore's trusted corporate team building company. Specialists in physical and virtual team building, retreats, and training for companies, schools, and government teams.",
+    telephone: "+6588352482",
     email: "info@elluminate.sg",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+6588062446",
+      telephone: "+6588352482",
       contactType: "customer service",
       areaServed: "SG",
       availableLanguage: "English",
