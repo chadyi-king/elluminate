@@ -1,10 +1,5 @@
 import { Link } from "react-router-dom";
-import { 
-  Mail, 
-  Phone, 
-  MapPin,
-  MessageCircle,
-} from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import elluminateLogo from "@/assets/logos/elluminate-logo.png";
 
 const topActivities = [
@@ -38,23 +33,24 @@ export const Footer = () => {
             <Link to="/" className="flex items-center mb-4">
               <img src={elluminateLogo} alt="Elluminate" className="h-56 w-auto" />
             </Link>
-            
+
             <p className="text-background/60 text-xs leading-relaxed mb-3">
-              We are the Corporate Events arm of<br />
-              <span className="text-background/80 font-semibold">EXSTATIC PTE LTD</span><br />
+              We are the Corporate Events arm of
+              <br />
+              <span className="text-background/80 font-semibold">EXSTATIC PTE LTD</span>
+              <br />
               <span className="text-background/50">[UEN No. 202243915R]</span>
             </p>
 
             <p className="text-background/70 text-sm leading-relaxed">
-              Team building, retreats, training, and corporate event experiences designed to strengthen culture and create lasting connection.
+              Team building, retreats, training, and corporate event experiences designed to strengthen culture and
+              create lasting connection.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-background font-display font-semibold text-lg mb-6">
-              Top Activities
-            </h4>
+            <h4 className="text-background font-display font-semibold text-lg mb-6">Top Activities</h4>
             <ul className="space-y-2">
               {topActivities.map((link) => (
                 <li key={link.path}>
@@ -71,27 +67,26 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-background font-display font-semibold text-lg mb-6">
-              Contact Us
-            </h4>
-            
+            <h4 className="text-background font-display font-semibold text-lg mb-6">Contact Us</h4>
+
             <ul className="space-y-4">
               <li>
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                   <span className="text-background/70 text-sm">
-                    165 Bukit Merah Central #05-3667,<br />
+                    165 Bukit Merah Central #05-3667,
+                    <br />
                     Singapore 150165
                   </span>
                 </div>
               </li>
               <li>
                 <a
-                  href="tel:+6588062446"
+                  href="tel:+6588352482"
                   className="flex items-center gap-3 text-background/70 hover:text-primary text-sm transition-colors duration-300"
                 >
                   <Phone className="w-5 h-5 text-primary" />
-                  +65 8806 2446
+                  +65 8835 2482
                 </a>
               </li>
               <li>
@@ -105,7 +100,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://wa.me/6588062446"
+                  href="https://wa.me/6588352482"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-background/70 hover:text-primary text-sm transition-colors duration-300"
@@ -119,9 +114,7 @@ export const Footer = () => {
 
           {/* Map */}
           <div>
-            <h4 className="text-background font-display font-semibold text-lg mb-6">
-              Find Us
-            </h4>
+            <h4 className="text-background font-display font-semibold text-lg mb-6">Find Us</h4>
             <div className="relative rounded-xl overflow-hidden border border-background/10 h-48">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8186833089384!2d103.8168!3d1.2878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19756d49ca91%3A0x8b98bd0e4f8f5c3d!2s165%20Bukit%20Merah%20Central%2C%20Singapore%20150165!5e0!3m2!1sen!2ssg!4v1699000000000!5m2!1sen!2ssg"
@@ -140,13 +133,8 @@ export const Footer = () => {
         {/* Divider */}
         <div className="mt-12 pt-8 border-t border-background/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-background/50 text-sm">
-              © {new Date().getFullYear()} Elluminate. All rights reserved.
-            </p>
-            <p className="text-background/40 text-sm">
-              8+ Years Delivering Experiences — Since 2017
-            </p>
-
+            <p className="text-background/50 text-sm">© {new Date().getFullYear()} Elluminate. All rights reserved.</p>
+            <p className="text-background/40 text-sm">8+ Years Delivering Experiences — Since 2017</p>
           </div>
         </div>
       </div>
