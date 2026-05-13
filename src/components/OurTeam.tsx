@@ -1,81 +1,69 @@
 import { motion } from "framer-motion";
 
 // Import team member photos
-import marcusTan from "@/assets/team/marcus-tan.jpg";
-import rachelLim from "@/assets/team/rachel-lim.jpg";
-import danielWong from "@/assets/team/daniel-wong.jpg";
-import priyaSharma from "@/assets/team/priya-sharma.jpg";
-import kevinLee from "@/assets/team/kevin-lee.jpg";
-import michelleChen from "@/assets/team/michelle-chen.jpg";
-import jasonNg from "@/assets/team/jason-ng.jpg";
-import sarahGoh from "@/assets/team/sarah-goh.jpg";
-import louiseCabales from "@/assets/team/louise-cabales.jpg";
-import peggyHar from "@/assets/team/peggy-har.jpg";
-import peaceChan from "@/assets/team/peace-chan.jpg";
-import christianJeSuis from "@/assets/team/christian-je-suis.jpg";
 import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
 
 const teamMembers = [
   {
     name: "Edmund Sim",
     title: "Director",
-    image: marcusTan
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/edmund_team_out767.png",
   },
   {
     name: "Afifah Camut",
     title: "Senior Sales Manager",
-    image: priyaSharma
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/afifah_team_gmy3pc.png",
   },
   {
     name: "Lisa Ong",
     title: "Senior Events Manager",
-    image: rachelLim
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649290/lisa_team_gmcxyf.png",
   },
   {
     name: "MJ",
     title: "Operations & Design Executive",
-    image: michelleChen
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649292/MJ_team_jrlonc.png",
   },
   {
     name: "Ayume",
     title: "Operations Executive",
-    image: sarahGoh
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649290/ayume_team_giolmm.png",
   },
   {
     name: "Louise Cabales",
     title: "Admin Manager",
-    image: louiseCabales
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649294/louise_team_vaalkr.png",
   },
   {
     name: "Peggy Har",
     title: "Finance Manager",
-    image: peggyHar
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649292/peggy_team_uhhdvd.png",
   },
   {
     name: "Jencen Ramos",
     title: "Finance Executive",
-    image: danielWong
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649292/jencen_team_xzucnh.png",
   },
   {
     name: "Jemwell Ramos",
     title: "IT Executive",
-    image: jasonNg
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/jemwell_team_cxkhml.png",
   },
   {
     name: "Peace Chan",
     title: "Marketing & Sales Executive",
-    image: peaceChan
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649291/peace_team_tpnfoy.png",
   },
   {
     name: "Caleb E",
     title: "Basement Worker",
-    image: kevinLee
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/caleb_team_binyk7.png",
   },
   {
     name: "Christian Je Suis",
     title: "Spiritual Advisor",
-    image: christianJeSuis
-  }
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/christian_team_qzxlyl.png",
+  },
 ];
 
 export const OurTeam = () => {
@@ -83,14 +71,10 @@ export const OurTeam = () => {
     <section className="py-24 relative">
       {/* Background */}
       <div className="absolute inset-0">
-        <img
-          src={teamBuildingOutdoor}
-          alt="Team Background"
-          className="w-full h-full object-cover"
-        />
+        <img src={teamBuildingOutdoor} alt="Team Background" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-background/95" />
       </div>
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
