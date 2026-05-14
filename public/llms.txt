@@ -1,0 +1,73 @@
+# Elluminate
+
+> Singapore's most eccentric corporate team building company. We design and deliver physical and virtual team building activities, corporate events, retreats, and training programs — 1,000+ events delivered for companies, schools, and government teams.
+
+## Pages
+
+- [Home](/): Overview of Elluminate's services, signature activities, and pricing.
+- [About](/about): Our story, team, and approach to team building in Singapore.
+- [Portfolio](/portfolio): Case studies, client logos, photos, and videos from past events.
+- [Blog](/blog): Articles on team building ideas, planning, and employee engagement.
+
+## Physical team building activities
+
+- [Amazing Race](/services/amazing-race): Singapore's signature city-wide team race.
+- [Running Man](/services/running-man): High-energy challenge based on the hit show.
+- [Sotong Game](/services/sotong-game): Squid Game inspired team competition.
+- [NerfWar](/services/nerfwar): Team-based foam dart battles.
+- [Archery Tag](/services/archery-tag): Combat archery with foam-tipped arrows.
+- [Gel Blitz](/services/gel-blitz): Tactical gel blaster team game.
+- [Tag-tical Laser](/services/tag-tical-laser-teambuilding): Indoor laser tag team building.
+- [CSI Bones](/services/csi-bones): Forensic-themed mystery solving.
+- [Treasure Heist](/services/treasure-heist): Heist-themed escape challenge.
+- [Cultural Race](/services/cultural-race): Singapore heritage discovery race.
+- [Amongst Us](/services/amongst-us): Among Us inspired social deduction game.
+- [Alice in Motherland](/services/alice-in-motherland): Themed adventure quest.
+- [Battle of the Olympians](/services/battle-of-the-olympians): Greek-themed challenge games.
+- [Builder Cross](/services/builder-cross): Hands-on construction challenge.
+- [Minute to Win It](/services/minute-to-win-it): Quickfire party-style games.
+- [Monopoly Dash](/services/monopoly-dash): Life-size Monopoly race around Singapore.
+
+## Virtual team building activities
+
+- [Amazing Race Virtual](/services/amazing-race-virtual): Online version of our flagship race.
+- [The Gameshow Experience](/services/the-gameshow-experience-virtual): Live-hosted virtual gameshow.
+- [Fit in Your Team](/services/fit-in-your-team-virtual): Get-to-know-you virtual icebreaker.
+- [The Great Zodiac Hunt](/services/the-great-zodiac-hunt-virtual): Lunar New Year themed virtual hunt.
+- [Nuclear Fallout Escape Room](/services/the-nuclear-fallout-escape-room-virtual): Virtual escape room.
+- [The Patriot Act](/services/the-patriot-act-virtual): Spy-themed virtual challenge.
+- [Tomb Raider King Treasure Hunt](/services/tomb-raider-king-treasure-hunt-virtual): Virtual treasure hunt.
+- [Grand Christmas Delivery](/services/grand-christmas-delivery): Festive virtual team activity.
+
+## Corporate events
+
+- [Team Building](/services/team-building): Full team building service overview.
+- [Dinner and Dance](/services/dinner-and-dance): Annual D&D event production.
+- [Awards Ceremonies](/services/awards-ceremonies): Corporate awards nights.
+- [Corporate Anniversaries](/services/corporate-anniversaries): Milestone celebrations.
+- [Leadership Offsites](/services/leadership-offsites): Leadership team retreats.
+- [Product Launch](/services/product-launch): Launch event production.
+- [Brand Activations](/services/brand-activations): Experiential brand events.
+- [Town Halls](/services/town-halls): Internal town hall production.
+- [Family Fun Days](/services/family-fun-days): Company family day events.
+- [Corporate Carnivals](/services/corporate-carnivals): Carnival-style company events.
+
+## Retreats and travel
+
+- [Local Retreats](/services/local-retreats): Singapore-based corporate retreats.
+- [Overseas Retreats](/services/overseas-retreats): International corporate retreats.
+- [Incentive Travel](/services/incentive-travel): Reward trips for top performers.
+
+## Training and profiling
+
+- [MBTI](/services/mbti): MBTI personality profiling workshops.
+- [DISC](/services/disc): DISC behavioral profiling workshops.
+- [OCEAN](/services/ocean): Big Five personality profiling.
+- [Workshops](/services/workshops): Custom corporate workshops.
+- [Mass Talks](/services/mass-talks): Large-audience corporate talks.
+
+## Optional
+
+- [Blog: Top 10 Team Building Activities Singapore 2026](/blog/top-10-team-building-activities-singapore-2026)
+- [Blog: How to Plan an Amazing Race for Your Company](/blog/how-to-plan-amazing-race-company)
+- [Blog: Indoor vs Outdoor Team Building](/blog/indoor-vs-outdoor-team-building)

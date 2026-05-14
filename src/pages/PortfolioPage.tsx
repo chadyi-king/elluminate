@@ -24,7 +24,7 @@ const PortfolioPage = () => {
     <div className="min-h-screen bg-background">
       <SEO 
         title="Portfolio | Elluminate"
-        description="Explore our portfolio of 1000+ successful corporate events in Singapore. View case studies, photos, and videos of team building, dinner & dance, awards ceremonies, and more."
+        description="1,000+ corporate events in Singapore. Case studies, photos and videos of team building, dinner & dance, and awards ceremonies."
         keywords="event portfolio Singapore, corporate event gallery, team building photos, event case studies, Elluminate portfolio"
         canonical="https://elluminate.sg/portfolio"
       />
