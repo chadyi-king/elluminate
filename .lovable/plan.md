@@ -1,47 +1,40 @@
-## Goal
+Three findings remain. Each needs a different kind of action — one needs your authorization, two need a republish before they can re-measure. Here's how to clear them.
 
-Strip all dynamic Cloudinary integration (edge function, folder fetching, URL transformation helper) from the site. Keep every existing static `res.cloudinary.com/...` URL exactly as-is so images/videos still load directly. No design, layout, copy, or section changes.
+## 1. Google Search Console isn't fully set up
 
-## Findings
+This is a one-time connect + verify flow. I can drive most of it, but the OAuth step needs you to click through.
 
-Dynamic Cloudinary code is concentrated in three places:
+Steps I will run:
+1. Open the Google Search Console connector picker so you can sign in with the Google account that should own the property.
+2. Once connected, request a `META` verification token from Google for `https://elluminate.sg/`.
+3. Add `<meta name="google-site-verification" content="…">` to `index.html` and ask you to publish so the tag is live on the production domain.
+4. Call Google's verify endpoint, register the property, and submit `https://elluminate.sg/sitemap.xml`.
 
-1. **Edge function** — `supabase/functions/cloudinary-folder/index.ts` (calls Cloudinary API with `CLOUDINARY_*` secrets).
-2. **`SocialProofSection.tsx`** — `useEffect` at lines ~414–453 calls `fetch('${supabaseUrl}/functions/v1/cloudinary-folder?folder=website/client-logo')` and overwrites `clientLogos` with matched assets. Helpers `brandToFilename`, `normalize`, `stripNoise` exist only to support that fetch.
-3. **`src/lib/cloudinaryUrl.ts`** — `cld()` helper that injects `f_auto,q_auto,w_,dpr_` transformations. Used in `CaseStudiesSection.tsx`, `ExpandableActivityCard.tsx`, `GallerySection.tsx`, `SocialProofSection.tsx`. The user explicitly forbids `f_auto` / `q_auto`, so this helper is removed entirely.
+What you do: click "Connect" in the picker (and pick the right Google account), then click Publish when I ask. After that you'll start seeing impressions/clicks data inside Search Console within a few days.
 
-All actual asset URLs (in `servicesData.ts`, `AboutPage.tsx`, `VideoSection.tsx`, `GallerySection.tsx`, `CaseStudiesSection.tsx`, `ServicesSection.tsx`, `SocialProofSection.tsx` `defaultClientLogos`) are already hardcoded `https://res.cloudinary.com/...` strings — they stay untouched.
+## 2. Page loads slowly (Lighthouse LCP)
 
-## Changes
+This finding is measured against the **last published build**, so even a perfect source fix only clears once you republish. The two highest-leverage changes for this site:
 
-### 1. Delete the edge function
-- Delete `supabase/functions/cloudinary-folder/` directory.
-- Call `supabase--delete_edge_functions` with `["cloudinary-folder"]` to remove the deployed function.
-- Cloudinary secrets (`CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`) are left in the secret store untouched (no code reads them anymore); user can manually delete them in Cloud settings if desired. Mention this in the closing note.
+- **Hero image LCP**: in `src/components/HeroSection.tsx` (and the hero photo wall / characters), set explicit `width` and `height`, drop `loading="lazy"` on the above-the-fold image, and add `fetchpriority="high"`. Also add a `<link rel="preload" as="image" href="…" fetchpriority="high">` in `index.html` for that one image.
+- **Web font swap**: the Google Fonts `<link>` in `index.html` already uses `display=swap` for Anton/Bebas, but the preloaded Anton woff2 should also be paired with `font-display: swap` in any `@font-face` block we ship locally. I'll audit `src/index.css` for `@font-face` rules and add `font-display: swap` where missing.
 
-### 2. Delete the helper
-- Delete `src/lib/cloudinaryUrl.ts`.
+After the edits I'll surface the Publish dialog so the next Lighthouse scan picks them up.
 
-### 3. Replace `cld(url, {...})` with the raw `url` and drop the import
+## 3. Has accessibility barriers (Lighthouse contrast)
 
-In each of:
-- `src/components/CaseStudiesSection.tsx` — remove `import { cld } ...`; change `url(${cld(study.image, { width: 800 })})` → `url(${study.image})`.
-- `src/components/ExpandableActivityCard.tsx` — remove import; change `cld(image, { width: 640 })` → `image`.
-- `src/components/GallerySection.tsx` — remove import; change `cld(image.src, { width: 600 })` → `image.src`, and `cld(galleryImages[selectedImage].src, { width: 1600 })` → `galleryImages[selectedImage].src`.
-- `src/components/SocialProofSection.tsx` — remove import (any `cld(...)` usages, if present, swap to raw URL).
+Same "published build" caveat as performance. The scanner flags low-contrast text — typically `text-muted-foreground` on tinted backgrounds, or arbitrary gray utilities on light surfaces.
 
-### 4. Strip dynamic logo fetching from `SocialProofSection.tsx`
-- Remove the entire `useEffect` block (lines ~414–453) that calls `fetch('/functions/v1/cloudinary-folder...')`.
-- Change `useState(defaultClientLogos)` → keep state but it just initializes once; can simplify to `const clientLogos = defaultClientLogos`.
-- Remove now-unused helpers: `brandToFilename`, `normalize`, `stripNoise` (only if no other reference remains — verify with a grep before deleting).
-- Remove `useEffect`/`useState` from React imports if no longer used elsewhere in the file.
+Plan:
+- Grep the codebase for the usual offenders: `text-muted-foreground/`, `text-gray-300`, `text-gray-400`, `text-white/60`, etc.
+- Replace with the design-system tokens (`text-foreground`, `text-muted-foreground` at full opacity, or a darker brand gray) so body text hits 4.5:1 and large headings hit 3:1.
+- Spot-check the placeholder color on inputs and the footer text on the dark band.
+- Republish.
 
-### 5. Verify
-- Grep for `cloudinary-folder`, `cld(`, `cloudinaryUrl`, `fetchCloudinaryFolder` to confirm zero remaining matches in `src/` and `supabase/`.
-- Confirm build still passes (the harness runs typecheck automatically).
+## Order of operations
 
-## Out of scope / preserved
+1. Connect Search Console (needs your click) — this can run in parallel with the other two.
+2. Make the LCP + a11y code changes in one pass.
+3. Publish once. Both Lighthouse findings re-measure on the next scan; Search Console verification also runs against the freshly-published HTML.
 
-- All static `https://res.cloudinary.com/...` image and video URLs across the codebase remain unchanged.
-- No design, layout, copy, or section removals.
-- Cloudinary secrets are not deleted from the secret store by this change (just no longer referenced).
+Want me to kick off step 1 (open the GSC connector) and start the LCP + contrast audit in the same turn?
