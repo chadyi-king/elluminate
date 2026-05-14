@@ -50,22 +50,18 @@ export default function ThankYouPage() {
               <CheckCircle2 className="w-12 h-12 text-primary" />
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
-              {friendly} Received!
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">{friendly} Received!</h1>
 
-            <p className="text-lg text-muted-foreground mb-2">
-              Thank you for reaching out to Elluminate.
-            </p>
+            <p className="text-lg text-muted-foreground mb-2">Thank you for reaching out to Elluminate.</p>
             <p className="text-base text-muted-foreground mb-10">
-              Our team will get back to you within <span className="font-semibold text-foreground">1 business day</span>.
-              In the meantime, take a look at what we've been up to.
+              Our team will get back to you within <span className="font-semibold text-foreground">1 business day</span>
+              . In the meantime, take a look at what we've been up to.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button asChild size="lg" className="font-display">
-                <Link to="/portfolio">
-                  Browse Case Studies <ArrowRight className="w-4 h-4 ml-2" />
+                <Link to="/">
+                  Browse Website <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="font-display">
