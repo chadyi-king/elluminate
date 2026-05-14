@@ -47,7 +47,7 @@ export const ServiceClientLogos = ({
                 className="group"
               >
                 <span 
-                  className="text-lg md:text-xl font-display font-semibold tracking-wide text-muted-foreground/60 transition-all duration-300 group-hover:text-foreground"
+                  className="text-lg md:text-xl font-display font-semibold tracking-wide text-muted-foreground transition-all duration-300 group-hover:text-foreground"
                   style={{ 
                     textShadow: 'none',
                   }}
