@@ -13,6 +13,10 @@ const FRIENDLY_NAMES: Record<string, string> = {
   newsletter: "Newsletter Signup",
 };
 
+type TrackingWindow = Window & {
+  dataLayer?: Array<Record<string, unknown> | unknown[]>;
+};
+
 export default function ThankYouPage() {
   const { formName = "contact" } = useParams<{ formName: string }>();
   const normalizedFormName = formName === "contact" || !formName ? "contact" : formName;
@@ -20,10 +24,10 @@ export default function ThankYouPage() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const w = window as any;
+    const w = window as TrackingWindow;
     w.dataLayer = w.dataLayer || [];
     w.dataLayer.push({
-      event: "lead_conversion",
+      event: "thank_you_view",
       form_name: normalizedFormName,
       page_path: window.location.pathname,
     });

@@ -61,6 +61,11 @@ const addOnServices = [
 
 const STORAGE_KEY = "contact_form_draft";
 
+type TrackingWindow = Window & {
+  dataLayer?: Array<Record<string, unknown> | unknown[]>;
+  gtag?: (command: "event", eventName: string, params: Record<string, unknown>) => void;
+};
+
 const getInitialFormData = () => {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -120,6 +125,7 @@ export const ContactModal = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(getInitialDate);
   const [formData, setFormData] = useState(getInitialFormData);
 
@@ -134,6 +140,10 @@ export const ContactModal = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) {
+      return;
+    }
+
     if (!formData.privacyConsent) {
       toast({
         title: "Consent Required",
@@ -149,6 +159,8 @@ export const ContactModal = () => {
       navigate("/thank-you-contact");
       return;
     }
+
+    setIsSubmitting(true);
 
     const attribution = getAttribution();
     const submissionPage =
@@ -231,7 +243,7 @@ export const ContactModal = () => {
 
       // Push form_submit event to dataLayer for GTM (will route to GA4 + Ads via container)
       if (typeof window !== "undefined") {
-        const w = window as any;
+        const w = window as TrackingWindow;
         w.dataLayer = w.dataLayer || [];
         w.dataLayer.push({
           event: "form_submit",
@@ -244,6 +256,26 @@ export const ContactModal = () => {
           utm_term: attribution.utm_term,
           utm_content: attribution.utm_content,
         });
+
+        const leadPayload = {
+          form_name: "plan_my_event",
+          brand: "elluminate",
+          service: "corporate_physical_team_building",
+          value: 150,
+          currency: "SGD",
+          event_category: formData.eventCategory || undefined,
+          lead_id: submissionId,
+          page_path: submissionPage || undefined,
+        };
+
+        if (typeof w.gtag === "function") {
+          w.gtag("event", "generate_lead", leadPayload);
+        } else {
+          w.dataLayer.push({
+            event: "generate_lead",
+            ...leadPayload,
+          });
+        }
       }
 
       // Reset and redirect to thank-you page (where conversion event fires)
@@ -272,6 +304,8 @@ export const ContactModal = () => {
         description: "Please try again, or email us at info@elluminate.sg.",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -607,10 +641,11 @@ export const ContactModal = () => {
 
               <Button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-primary text-white hover:bg-primary/90 transition-all"
               >
                 <Send className="w-4 h-4 mr-2" />
-                Send Inquiry
+                {isSubmitting ? "Sending..." : "Send Inquiry"}
               </Button>
             </form>
 
