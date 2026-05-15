@@ -37,7 +37,7 @@ const ContactConfirmationEmail = ({ name }: ContactConfirmationProps) => (
             In the meantime, feel free to explore some of our recent work and the experiences we've created for teams
             like yours.
           </Text>
-          <Button style={button} href="elluminate.sg">
+          <Button style={button} href="https://elluminate.sg/">
             See Our Recent Events
           </Button>
         </Section>
