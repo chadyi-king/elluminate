@@ -41,6 +41,7 @@ const ServicePage = () => {
 
   const serviceKeywords: Record<string, string> = {
     // Physical Team Building
+    "team-building": "corporate team building Singapore, physical team building Singapore, team bonding activities Singapore, company team bonding Singapore, indoor team building Singapore, outdoor team building Singapore, HR team building Singapore",
     "amazing-race": "amazing race team building Singapore, corporate amazing race Singapore, outdoor team building Singapore, amazing race corporate event, team building race activity, amazing race school camp Singapore, corporate treasure hunt Singapore, team building adventure Singapore",
     "csi-bones": "CSI team building Singapore, murder mystery event, detective team building, investigation game",
     "cultural-race": "cultural race Singapore, heritage team building, cultural exploration activity",
@@ -84,6 +85,11 @@ const ServicePage = () => {
 
   const serviceSEO: Record<string, { title: string; description: string; canonical: string }> = {
     // Physical
+    "team-building": {
+      title: "Corporate Team Building Singapore | Physical Team Bonding | Elluminate",
+      description: "Plan corporate physical team building in Singapore with facilitated indoor and outdoor activities, trusted event support, and a fast Plan My Event enquiry form.",
+      canonical: "https://elluminate.sg/services/team-building",
+    },
     "amazing-race": { title: "Amazing Race Team Building Singapore | Elluminate", description: "Singapore's most popular team building activity. City-wide Amazing Race with custom challenges, live leaderboards, and full facilitation. Book now.", canonical: "https://elluminate.sg/services/amazing-race" },
     "archery-tag": { title: "Archery Tag Singapore | Team Building Activity | Elluminate", description: "Action-packed Archery Tag battles for corporate teams. Safe, thrilling, and fully facilitated. Perfect for groups of 20–300 pax in Singapore.", canonical: "https://elluminate.sg/services/archery-tag" },
     "gel-blitz": { title: "GelBlitz Singapore | Gel Blaster Team Building | Elluminate", description: "GelBlitz gel ball blaster battles for corporate teams in Singapore. High-energy, safe, and unforgettable. Perfect for groups who want real adrenaline.", canonical: "https://elluminate.sg/services/gel-blitz" },

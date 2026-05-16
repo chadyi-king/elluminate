@@ -4,6 +4,7 @@ export interface ServiceLink {
 }
 
 export const physicalTeamBuildingServices: ServiceLink[] = [
+  { name: "Corporate Team Building", slug: "team-building" },
   { name: "Amazing Race", slug: "amazing-race" },
   { name: "CSI-Bones", slug: "csi-bones" },
   { name: "Cultural Race", slug: "cultural-race" },
