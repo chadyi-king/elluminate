@@ -3,24 +3,28 @@ export interface ServiceLink {
   slug: string;
 }
 
+export const teamBuildingOverview: ServiceLink = { name: "Team Building Overview", slug: "team-building" };
+
 export const physicalTeamBuildingServices: ServiceLink[] = [
-  { name: "Corporate Team Building", slug: "team-building" },
   { name: "Amazing Race", slug: "amazing-race" },
   { name: "CSI-Bones", slug: "csi-bones" },
   { name: "Cultural Race", slug: "cultural-race" },
   { name: "Amongst Us", slug: "amongst-us" },
   { name: "Alice in Motherland", slug: "alice-in-motherland" },
   { name: "Battle of the Olympians", slug: "battle-of-the-olympians" },
-  { name: "Archery Tag", slug: "archery-tag" },
   { name: "Builder Cross", slug: "builder-cross" },
-  { name: "GelBlitz", slug: "gel-blitz" },
   { name: "Minute To Win It", slug: "minute-to-win-it" },
   { name: "Monopoly Dash", slug: "monopoly-dash" },
-  { name: "Nerfwar", slug: "nerfwar" },
   { name: "Running Man Adventure", slug: "running-man" },
   { name: "Sotong Game", slug: "sotong-game" },
-  { name: "Tag-tical Laser", slug: "tag-tical-laser-teambuilding" },
   { name: "Treasure Heist", slug: "treasure-heist" },
+];
+
+export const equipmentActivityServices: ServiceLink[] = [
+  { name: "Archery Tag", slug: "archery-tag" },
+  { name: "GelBlitz", slug: "gel-blitz" },
+  { name: "Nerfwar", slug: "nerfwar" },
+  { name: "Tag-tical Laser", slug: "tag-tical-laser-teambuilding" },
 ];
 
 export const virtualTeamBuildingServices: ServiceLink[] = [
@@ -53,14 +57,18 @@ export const trainingServices: ServiceLink[] = [
 ];
 
 export const allInScopeServiceSlugs = new Set([
+  teamBuildingOverview.slug,
   ...physicalTeamBuildingServices.map((service) => service.slug),
+  ...equipmentActivityServices.map((service) => service.slug),
   ...virtualTeamBuildingServices.map((service) => service.slug),
   ...retreatServices.map((service) => service.slug),
   ...trainingServices.map((service) => service.slug),
 ]);
 
 export const serviceCategoryLabels: Record<string, string> = {
+  [teamBuildingOverview.slug]: "Team Building",
   ...Object.fromEntries(physicalTeamBuildingServices.map((service) => [service.slug, "Physical Team Building"])),
+  ...Object.fromEntries(equipmentActivityServices.map((service) => [service.slug, "Activities"])),
   ...Object.fromEntries(virtualTeamBuildingServices.map((service) => [service.slug, "Virtual Team Building"])),
   ...Object.fromEntries(retreatServices.map((service) => [service.slug, "Retreats"])),
   ...Object.fromEntries(trainingServices.map((service) => [service.slug, "Training"])),

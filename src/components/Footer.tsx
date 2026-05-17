@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import elluminateLogo from "@/assets/logos/elluminate-logo.png";
 
-const topActivities = [
+type FooterActivityLink = {
+  name: string;
+  path: string;
+};
+
+const topActivities: FooterActivityLink[] = [
   { name: "Amazing Race", path: "/services/amazing-race" },
   { name: "CSI-Bones", path: "/services/csi-bones" },
   { name: "Cultural Race", path: "/services/cultural-race" },
@@ -22,7 +27,11 @@ const topActivities = [
 
 // Social links removed - no active accounts for Elluminate yet
 
-export const Footer = () => {
+interface FooterProps {
+  topActivityLinks?: FooterActivityLink[];
+}
+
+export const Footer = ({ topActivityLinks = topActivities }: FooterProps) => {
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-6 py-16">
@@ -52,7 +61,7 @@ export const Footer = () => {
           <div>
             <h4 className="text-background font-display font-semibold text-lg mb-6">Top Activities</h4>
             <ul className="space-y-2">
-              {topActivities.map((link) => (
+              {topActivityLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}

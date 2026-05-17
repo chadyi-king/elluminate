@@ -6,6 +6,7 @@ import elluminateLogo from "@/assets/logos/elluminate-logo.png";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import {
+  teamBuildingOverview,
   physicalTeamBuildingServices,
   virtualTeamBuildingServices,
   retreatServices,
@@ -18,10 +19,11 @@ interface DropdownProps {
   isOpen: boolean;
   onToggle: () => void;
   onClose: () => void;
+  overview?: {name: string;slug: string;};
   subGroups?: {title: string;items: {name: string;slug: string;}[];}[];
 }
 
-const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: DropdownProps) => {
+const NavDropdown = ({ label, items, isOpen, onToggle, onClose, overview, subGroups }: DropdownProps) => {
   return (
     <div
       className="relative"
@@ -50,6 +52,17 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, subGroups }: Dro
           }>
               {subGroups ?
             <div className="p-4">
+                  {overview &&
+                  <Link
+                    to="/services/team-building"
+                    onClick={onClose}
+                    aria-label="Team Building Overview"
+                    className="mb-3 flex items-center justify-between rounded-lg border border-primary/15 bg-primary/5 px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10">
+
+                      <span>{overview.name}</span>
+                      <span aria-hidden="true">-&gt;</span>
+                    </Link>
+                  }
                   <div className="grid grid-cols-2 gap-8">
                     {subGroups.map((group) =>
                 <div key={group.title}>
@@ -143,6 +156,7 @@ export const Navbar = () => {
               isOpen={openDropdown === 'team-building'}
               onToggle={() => handleDropdownToggle('team-building')}
               onClose={handleDropdownClose}
+              overview={teamBuildingOverview}
               subGroups={[
               { title: "Physical Team Building", items: physicalTeamBuildingServices },
               { title: "Virtual Team Building", items: virtualTeamBuildingServices }]
@@ -233,6 +247,14 @@ export const Navbar = () => {
               
               {/* Team Building Section */}
               <div className="border-t border-border pt-4">
+                <Link
+                to="/services/team-building"
+                onClick={() => setIsOpen(false)}
+                aria-label="Team Building Overview"
+                className="mb-3 block rounded-lg border border-primary/15 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
+
+                  {teamBuildingOverview.name}
+                </Link>
                 <span className="text-primary text-sm font-semibold mb-2 block">Team Building - Physical</span>
                 {physicalTeamBuildingServices.map((item) =>
               <Link

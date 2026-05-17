@@ -121,7 +121,7 @@ const getInitialDate = () => {
 };
 
 export const ContactModal = () => {
-  const { isOpen, closeContactModal } = useContactModal();
+  const { isOpen, modalContext, closeContactModal } = useContactModal();
   const { toast } = useToast();
   const navigate = useNavigate();
   const honeypotRef = useRef<HTMLInputElement>(null);
@@ -137,6 +137,17 @@ export const ContactModal = () => {
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
   }, [formData, selectedDate]);
+
+  useEffect(() => {
+    if (!isOpen || !modalContext?.eventCategory) {
+      return;
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      eventCategory: modalContext.eventCategory ?? prev.eventCategory,
+    }));
+  }, [isOpen, modalContext?.eventCategory]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
