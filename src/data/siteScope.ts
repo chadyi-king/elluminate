@@ -3,7 +3,7 @@ export interface ServiceLink {
   slug: string;
 }
 
-export const teamBuildingOverview: ServiceLink = { name: "Team Building Overview", slug: "team-building" };
+export const teamBuildingOverview: ServiceLink = { name: "Team Building", slug: "team-building" };
 
 export const physicalTeamBuildingServices: ServiceLink[] = [
   { name: "Amazing Race", slug: "amazing-race" },

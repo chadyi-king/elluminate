@@ -20,63 +20,171 @@ import { SEO } from "@/components/SEO";
 import { FAQSchema, ServiceSchema, BreadcrumbSchema } from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
-import { servicesData } from "@/data/servicesData";
+import heroImage from "@/assets/services/team-building-hero.jpg";
+import outdoorImage from "@/assets/events/team-building-outdoor-1.jpg";
+import routeImage from "@/assets/hero/amazing-race.jpg";
+import indoorImage from "@/assets/hero/csi-investigation.jpg";
 
-const heroImage = servicesData["amazing-race"].hero.backgroundImage;
+const quoteBriefItems = [
+  { label: "Pax", text: "Estimated headcount, seniority mix, and team profile" },
+  { label: "Date", text: "Preferred date, timing window, or event month" },
+  { label: "Venue", text: "Office, hotel, external venue, outdoor route, or online" },
+  { label: "Goal", text: "Bonding, morale, onboarding, collaboration, or celebration" },
+];
 
-const primaryActivities = [
+const plannerPressures = [
+  {
+    icon: Users,
+    title: "Mixed teams are hard to plan for",
+    text: "Different departments, seniority levels, fitness comfort, and personalities can make one activity feel too intense for some and too flat for others.",
+  },
+  {
+    icon: CalendarCheck,
+    title: "The logistics decide what will actually work",
+    text: "Pax, date, venue type, weather exposure, timing, and facilitator coverage shape the right shortlist before the activity name matters.",
+  },
+  {
+    icon: Target,
+    title: "A vague activity list does not help approval",
+    text: "HR/admin planners need a clear recommendation they can explain internally, not twenty options with no planning logic.",
+  },
+];
+
+const decisionModules = [
+  {
+    icon: Building2,
+    title: "Indoor control",
+    tag: "Office, hotel, function room",
+    text: "For teams that need predictable timing, sheltered comfort, and easier participation across different energy levels.",
+  },
+  {
+    icon: MapPin,
+    title: "Outdoor movement",
+    tag: "Routes, parks, city missions",
+    text: "For groups that want momentum, movement, checkpoints, and a more memorable away-from-desk experience.",
+  },
+  {
+    icon: Sparkles,
+    title: "Active challenge",
+    tag: "High energy, facilitated rounds",
+    text: "For company groups that want competition, scoring, team identity, and a shared finale without turning it into a sports day.",
+  },
+  {
+    icon: Laptop,
+    title: "Virtual or hybrid",
+    tag: "Remote, regional, mixed locations",
+    text: "For teams who cannot all gather physically but still need hosted interaction, pace, and a clear activity structure.",
+  },
+];
+
+const recommendationSteps = [
+  {
+    icon: MessageSquare,
+    title: "Send the real constraints",
+    text: "Bring the messy planning details: pax, date, venue, timing, comfort level, and what the session should achieve.",
+  },
+  {
+    icon: MousePointer2,
+    title: "Get a tighter activity direction",
+    text: "Elluminate narrows the field into physical or virtual formats that fit the brief instead of asking you to guess from a menu.",
+  },
+  {
+    icon: FileText,
+    title: "Review quote assumptions",
+    text: "The quote conversation can cover duration, inclusions, facilitation needs, venue assumptions, and next planning steps.",
+  },
+  {
+    icon: CheckCircle2,
+    title: "Run the activity with a clear plan",
+    text: "Once the direction is confirmed, the activity flow is built around your group size, energy level, and venue reality.",
+  },
+];
+
+const physicalLanes = [
   {
     slug: "amazing-race",
-    title: "Amazing Race style routes",
-    text: "Outdoor or venue-based missions for teams that want movement, checkpoints, and shared problem-solving.",
+    title: "Amazing Race-style missions",
+    text: "For outdoor or venue-based groups that want movement, checkpoints, and team momentum.",
   },
   {
     slug: "csi-bones",
     title: "Indoor mystery formats",
-    text: "A focused option for groups that need strong participation without relying on heavy physical intensity.",
+    text: "For teams that need participation and problem-solving without heavy physical intensity.",
   },
   {
     slug: "cultural-race",
-    title: "Singapore discovery races",
-    text: "Active team bonding built around local routes, cultural clues, and collaborative missions.",
+    title: "Singapore discovery routes",
+    text: "For groups that want local movement, collaborative clues, and a stronger sense of place.",
   },
   {
     slug: "treasure-heist",
     title: "Strategy challenge formats",
-    text: "Story-led challenges for teams that enjoy planning, role assignment, and timed decisions.",
-  },
-  {
-    slug: "sotong-game",
-    title: "Active challenge rounds",
-    text: "High-energy rounds for groups that want playful competition, facilitation, and a clear finale.",
-  },
-  {
-    slug: "running-man",
-    title: "Variety challenge games",
-    text: "A lively format for teams that want movement, laughter, and rotating group missions.",
+    text: "For teams that respond well to role assignment, planning, timed decisions, and shared stakes.",
   },
 ];
 
-const virtualActivities = [
+const virtualLanes = [
   {
     slug: "amazing-race-virtual",
-    title: "Virtual Amazing Race",
-    text: "Remote-friendly missions for teams joining from different offices or home locations.",
+    title: "Virtual race formats",
+    text: "For remote teams that still need pace, missions, and hosted coordination.",
   },
   {
     slug: "the-gameshow-experience-virtual",
     title: "Virtual game show",
-    text: "Hosted rounds for online teams that need easy participation and clear energy.",
+    text: "For online groups that need easy participation, clear rounds, and fast energy.",
   },
   {
     slug: "the-nuclear-fallout-escape-room-virtual",
     title: "Virtual escape room",
-    text: "Puzzle-led online collaboration for teams that prefer logic and group decision-making.",
+    text: "For teams that prefer puzzle-led collaboration and group decision-making.",
+  },
+];
+
+const quotePrep = [
+  "Estimated pax or group-size range",
+  "Preferred date, time window, and event duration",
+  "Venue status: confirmed, preferred, or still open",
+  "Indoor, outdoor, or virtual preference",
+  "Team objective and any comfort or mobility considerations",
+  "Weather, transport, meal, AV, or approval constraints",
+];
+
+const faqs = [
+  {
+    question: "What is corporate physical team building?",
+    answer:
+      "Corporate physical team building is a facilitated activity session where company teams take part in active, collaborative challenges. The format can be indoor, outdoor, route-based, mission-based, or lower-intensity depending on the group and objective.",
+  },
+  {
+    question: "Can this work indoors or outdoors?",
+    answer:
+      "Yes. Elluminate can recommend indoor, outdoor, or venue-based formats after reviewing your pax, date, venue preference, timing, and comfort level for weather-sensitive plans.",
+  },
+  {
+    question: "How many pax can you support?",
+    answer:
+      "Share your estimated pax in the enquiry form. Elluminate will recommend activity formats and team structures that fit the group instead of forcing every company into one activity.",
+  },
+  {
+    question: "Can you recommend an activity based on our goal?",
+    answer:
+      "Yes. Mention whether the session is for bonding, onboarding, morale, collaboration, celebration, or department energy, and Elluminate will suggest a suitable direction.",
+  },
+  {
+    question: "How do we get a quote?",
+    answer:
+      "Send your pax, date, preferred venue, timing, and objective through the enquiry form. The team can then respond with a practical activity direction and quote assumptions.",
+  },
+  {
+    question: "Is this suitable for HR/admin teams planning a company event?",
+    answer:
+      "Yes. This page is designed for HR/admin planners, office managers, team leads, and company event planners who need a clear shortlist and quote path.",
   },
 ];
 
 const footerActivityLinks = [
-  { name: "Team Building Overview", path: "/services/team-building" },
+  { name: "Team Building", path: "/services/team-building" },
   { name: "Amazing Race", path: "/services/amazing-race" },
   { name: "CSI-Bones", path: "/services/csi-bones" },
   { name: "Cultural Race", path: "/services/cultural-race" },
@@ -92,111 +200,6 @@ const footerActivityLinks = [
   { name: "Youth Camps", path: "/services/youth-camps" },
 ];
 
-const buyerProblems = [
-  {
-    icon: Users,
-    title: "The activity has to fit the group",
-    text: "A team of 25, 80, or 250 pax needs different pacing, team sizes, facilitator coverage, and venue assumptions.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "The date and venue shape the options",
-    text: "Indoor, outdoor, office, hotel, park, and mixed-location plans each need different activity shortlists.",
-  },
-  {
-    icon: Target,
-    title: "The goal should guide the format",
-    text: "Bonding, morale, onboarding, cross-team collaboration, and department energy are not the same brief.",
-  },
-];
-
-const fitOptions = [
-  {
-    icon: Building2,
-    title: "Indoor team activities",
-    text: "For offices, function rooms, hotel venues, or weather-sensitive plans.",
-  },
-  {
-    icon: MapPin,
-    title: "Outdoor team activities",
-    text: "For routes, parks, heritage districts, and higher-movement programmes.",
-  },
-  {
-    icon: Sparkles,
-    title: "Active challenge formats",
-    text: "For teams that want facilitated competition, checkpoints, scoring, and a shared finale.",
-  },
-  {
-    icon: Laptop,
-    title: "Virtual and hybrid options",
-    text: "For remote teams, regional groups, or companies mixing in-person and online participants.",
-  },
-];
-
-const planningDetails = [
-  "Expected pax or estimated group-size range",
-  "Preferred date, backup date, or event month",
-  "Indoor, outdoor, office, hotel, or external venue preference",
-  "Team objective such as bonding, morale, onboarding, or collaboration",
-  "Any timing, mobility, weather, food, transport, or venue constraints",
-];
-
-const howItWorks = [
-  {
-    icon: MessageSquare,
-    title: "Share the brief",
-    text: "Send pax, date, goals, venue preference, and any constraints through the enquiry form.",
-  },
-  {
-    icon: MousePointer2,
-    title: "Get activity direction",
-    text: "Elluminate shortlists suitable physical or virtual formats based on the details you provide.",
-  },
-  {
-    icon: FileText,
-    title: "Confirm quote and details",
-    text: "Review the recommended format, inclusions, timeline, and planning assumptions before confirming.",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Run the activity",
-    text: "The programme is facilitated so your team can focus on taking part instead of managing every round.",
-  },
-];
-
-const faqs = [
-  {
-    question: "What is corporate physical team building?",
-    answer:
-      "Corporate physical team building is a facilitated activity session where company teams work through active, collaborative challenges together. It can be competitive, mission-based, route-based, indoor, or outdoor depending on the group and objective.",
-  },
-  {
-    question: "Can this work indoors or outdoors?",
-    answer:
-      "Yes. Elluminate can recommend indoor, outdoor, or venue-based formats after reviewing your pax, date, venue preference, timing, and comfort level for weather-sensitive plans.",
-  },
-  {
-    question: "How many pax can you support?",
-    answer:
-      "Share your estimated pax in the enquiry form. Elluminate will recommend formats and team structures that fit the group size instead of forcing every company into one activity.",
-  },
-  {
-    question: "Can you recommend an activity based on our goal?",
-    answer:
-      "Yes. Mention whether the session is for bonding, onboarding, morale, collaboration, celebration, or department energy, and Elluminate will suggest suitable formats.",
-  },
-  {
-    question: "How do we get a quote?",
-    answer:
-      "Send your pax, date, preferred venue, timing, and objective through the enquiry form. The team can then respond with a practical activity direction and quote assumptions.",
-  },
-  {
-    question: "Is this suitable for HR/admin teams planning a company event?",
-    answer:
-      "Yes. The page is designed for HR, admin, office managers, team leads, and company event planners who need a clear activity shortlist and quote path.",
-  },
-];
-
 const TeamBuildingHubPage = () => {
   const { openContactModal } = useContactModal();
 
@@ -207,7 +210,7 @@ const TeamBuildingHubPage = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Corporate Physical Team Building Singapore | Elluminate"
-        description="Plan corporate physical team building in Singapore with Elluminate. Get indoor, outdoor, active, or virtual team bonding activity recommendations for your company group and request a quote."
+        description="Plan corporate physical team building in Singapore with Elluminate. Share pax, date, venue, and goals to get indoor, outdoor, active, or virtual team bonding activity recommendations and a quote direction."
         keywords="corporate physical team building Singapore, corporate team building Singapore, team bonding activities Singapore, company team building activities, indoor outdoor team building Singapore, corporate team building quote"
         canonical="https://elluminate.sg/services/team-building"
       />
@@ -227,7 +230,7 @@ const TeamBuildingHubPage = () => {
       <Navbar />
 
       <main>
-        <section className="relative overflow-hidden bg-foreground text-white">
+        <section className="relative min-h-[calc(100vh-7rem)] overflow-hidden bg-slate-950 text-white">
           <div className="absolute inset-0">
             <img
               src={heroImage}
@@ -236,49 +239,89 @@ const TeamBuildingHubPage = () => {
               decoding="async"
               fetchPriority="high"
             />
-            <div className="absolute inset-0 bg-black/70" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/35" />
+            <div className="absolute inset-0 bg-slate-950/74" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_22%,rgba(42,139,255,0.34),transparent_34%),linear-gradient(90deg,rgba(3,7,18,0.98)_0%,rgba(3,7,18,0.88)_48%,rgba(3,7,18,0.42)_100%)]" />
           </div>
 
-          <div className="container relative mx-auto px-6 py-24 lg:py-32">
-            <div className="max-w-4xl">
+          <div className="container relative mx-auto grid gap-10 px-6 py-16 lg:min-h-[calc(100vh-7rem)] lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-12 lg:py-20">
+            <div className="max-w-3xl">
               <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
                 Team Activities For Companies
               </p>
-              <h1 className="mb-6 text-4xl font-display font-black leading-tight md:text-6xl">
+              <h1 className="mb-6 text-4xl font-display font-black leading-[0.98] md:text-6xl lg:text-7xl">
                 Corporate Physical Team Building in Singapore
               </h1>
-              <p className="mb-8 max-w-2xl text-lg leading-8 text-white/82">
-                Plan an active team bonding session that fits your pax, date, venue, energy level, and team objective.
-                Elluminate can also recommend virtual team building options when your group is remote or hybrid.
+              <p className="max-w-2xl text-lg leading-8 text-white/82">
+                Bring the messy planning details. Elluminate helps turn pax, date, venue, energy level, and team goals
+                into a team-building activity direction your company can actually run.
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Button size="xl" onClick={openPhysicalInquiry}>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <Button size="xl" onClick={openPhysicalInquiry} className="w-full whitespace-normal px-5 text-center sm:w-auto sm:whitespace-nowrap">
                   Request A Team Activity Quote
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="h-5 w-5" />
                 </Button>
-                <Button size="xl" variant="outline" asChild className="border-white text-white hover:bg-white/10">
-                  <a href="#activity-fit">Explore Activity Options</a>
+                <Button
+                  size="xl"
+                  variant="outline"
+                  asChild
+                  className="w-full whitespace-normal border-white/35 bg-white/10 px-5 text-center text-white hover:bg-white hover:text-slate-950 sm:w-auto sm:whitespace-nowrap"
+                >
+                  <a href="#activity-fit">Compare Activity Fits</a>
                 </Button>
               </div>
             </div>
+
+            <aside className="w-full max-w-full overflow-hidden rounded-lg border border-white/16 bg-white/[0.08] p-5 shadow-2xl backdrop-blur-md lg:ml-auto lg:max-w-md">
+              <div className="mb-5 flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">Quote Brief</p>
+                  <h2 className="mt-2 text-2xl font-display font-black text-white">What to send first</h2>
+                </div>
+                <FileText className="h-8 w-8 text-primary" />
+              </div>
+              <div className="space-y-3">
+                {quoteBriefItems.map((item) => (
+                  <div
+                    key={item.label}
+                    className="grid grid-cols-[3.75rem_minmax(0,1fr)] gap-3 border-t border-white/10 pt-3 sm:grid-cols-[4.5rem_minmax(0,1fr)]"
+                  >
+                    <span className="text-sm font-bold text-white">{item.label}</span>
+                    <span className="min-w-0 break-words text-sm leading-6 text-white/72">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={openPhysicalInquiry}
+                className="mt-6 flex w-full items-center justify-between rounded-lg bg-primary px-5 py-4 text-left text-sm font-semibold text-white shadow-blue transition-colors hover:bg-primary-deep"
+              >
+                Share pax, date and goals
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </aside>
           </div>
         </section>
 
-        <section className="bg-section-light px-6 py-16">
-          <div className="container mx-auto">
-            <div className="mb-10 max-w-3xl">
+        <section className="bg-white px-6 py-18 lg:px-12 lg:py-24">
+          <div className="container mx-auto grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+            <div className="lg:sticky lg:top-28">
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-                Built For Practical Planners
+                The Planning Problem
               </p>
-              <h2 className="text-3xl font-display font-black text-foreground md:text-5xl">
-                HR/admin teams need an activity that actually fits the brief.
+              <h2 className="text-3xl font-display font-black leading-tight text-foreground md:text-5xl">
+                The activity is only good if it fits the room.
               </h2>
+              <p className="mt-5 text-base leading-7 text-muted-foreground">
+                Corporate team building breaks down when the format ignores real constraints. The better starting point
+                is not the longest list of games. It is a clear read of the group, venue, timing, and goal.
+              </p>
             </div>
-            <div className="grid gap-5 md:grid-cols-3">
-              {buyerProblems.map(({ icon: Icon, title, text }) => (
-                <article key={title} className="rounded-xl border border-border bg-white p-6 shadow-sm">
-                  <Icon className="mb-4 h-8 w-8 text-primary" />
+            <div className="grid gap-4">
+              {plannerPressures.map(({ icon: Icon, title, text }) => (
+                <article key={title} className="rounded-lg border border-border bg-section-light p-6">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <Icon className="h-6 w-6" />
+                  </div>
                   <h3 className="mb-2 text-xl font-display font-bold text-foreground">{title}</h3>
                   <p className="text-sm leading-6 text-muted-foreground">{text}</p>
                 </article>
@@ -287,125 +330,178 @@ const TeamBuildingHubPage = () => {
           </div>
         </section>
 
-        <section id="activity-fit" className="px-6 py-20">
+        <section id="activity-fit" className="overflow-hidden bg-slate-950 px-6 py-18 text-white lg:px-12 lg:py-24">
           <div className="container mx-auto">
-            <div className="mb-10 max-w-3xl">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-                Indoor Or Outdoor Team Activities
-              </p>
-              <h2 className="mb-4 text-3xl font-display font-black text-foreground md:text-5xl">
-                Choose the activity lane before choosing the exact game.
-              </h2>
-              <p className="text-base leading-7 text-muted-foreground">
-                The right recommendation depends on how active the group should be, where the event can run, and what
-                the company wants people to take away from the session.
+            <div className="mb-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+                  Choose By Constraint
+                </p>
+                <h2 className="text-3xl font-display font-black leading-tight md:text-5xl">
+                  Decide the activity lane before the activity name.
+                </h2>
+              </div>
+              <p className="max-w-2xl text-base leading-7 text-white/70">
+                Indoor, outdoor, active, lower-intensity, or virtual is not a style choice. It is a planning decision
+                shaped by pax, weather, venue, comfort level, and how much energy the session needs.
               </p>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {fitOptions.map(({ icon: Icon, title, text }) => (
-                <article key={title} className="rounded-xl border border-border bg-white p-6 shadow-sm">
-                  <Icon className="mb-4 h-7 w-7 text-primary" />
-                  <h3 className="mb-2 text-lg font-display font-bold text-foreground">{title}</h3>
-                  <p className="text-sm leading-6 text-muted-foreground">{text}</p>
+            <div className="grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-4">
+              {decisionModules.map(({ icon: Icon, title, tag, text }) => (
+                <article key={title} className="bg-slate-950/88 p-6">
+                  <Icon className="mb-5 h-7 w-7 text-primary" />
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/44">{tag}</p>
+                  <h3 className="mb-3 text-xl font-display font-bold text-white">{title}</h3>
+                  <p className="text-sm leading-6 text-white/68">{text}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-foreground px-6 py-20 text-white">
-          <div className="container mx-auto grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-            <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-                Activity Shortlist
-              </p>
-              <h2 className="mb-5 text-3xl font-display font-black md:text-5xl">
-                Common physical formats companies ask about
-              </h2>
-              <p className="text-base leading-7 text-white/72">
-                These links help planners compare activity styles. The enquiry path is still the main route when you
-                need a quote and recommendation.
-              </p>
+        <section className="bg-section-light px-6 py-18 lg:px-12 lg:py-24">
+          <div className="container mx-auto grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div className="grid grid-cols-2 gap-3">
+              <img
+                src={outdoorImage}
+                alt="Outdoor team activity moment"
+                className="h-full min-h-[320px] rounded-lg object-cover"
+                loading="lazy"
+              />
+              <div className="grid gap-3">
+                <img src={routeImage} alt="Team route challenge" className="h-40 rounded-lg object-cover" loading="lazy" />
+                <img src={indoorImage} alt="Indoor team challenge" className="h-40 rounded-lg object-cover" loading="lazy" />
+              </div>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
-              {primaryActivities.map((activity) => (
-                <Link
-                  key={activity.slug}
-                  to={`/services/${activity.slug}`}
-                  className="group rounded-xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-primary/60 hover:bg-white/10"
-                >
-                  <h3 className="mb-2 text-lg font-display font-bold text-white">{activity.title}</h3>
-                  <p className="mb-4 text-sm leading-6 text-white/70">{activity.text}</p>
-                  <span className="inline-flex items-center text-sm font-semibold text-primary">
-                    View activity
-                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Link>
-              ))}
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+                Recommendation Logic
+              </p>
+              <h2 className="mb-5 text-3xl font-display font-black leading-tight text-foreground md:text-5xl">
+                Elluminate helps turn unclear options into a quote-ready direction.
+              </h2>
+              <p className="mb-8 text-base leading-7 text-muted-foreground">
+                You do not need to know the exact format before enquiring. Share the planning realities, and the
+                response can focus on what is suitable for your people, space, time, and objective.
+              </p>
+              <div className="space-y-4">
+                {recommendationSteps.map(({ icon: Icon, title, text }, index) => (
+                  <article key={title} className="grid grid-cols-[3rem_1fr] gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">0{index + 1}</p>
+                      <h3 className="mt-1 text-lg font-display font-bold text-foreground">{title}</h3>
+                      <p className="mt-1 text-sm leading-6 text-muted-foreground">{text}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="px-6 py-20">
+        <section className="px-6 py-18 lg:px-12 lg:py-24">
           <div className="container mx-auto">
             <div className="mb-10 max-w-3xl">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-                How It Works
-              </p>
-              <h2 className="mb-4 text-3xl font-display font-black text-foreground md:text-5xl">
-                Share pax, date, goals, and venue direction.
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">Curated Lanes</p>
+              <h2 className="text-3xl font-display font-black leading-tight text-foreground md:text-5xl">
+                Physical first, with virtual options when the team is not in one place.
               </h2>
-              <p className="text-base leading-7 text-muted-foreground">
-                The clearer the brief, the easier it is to match the company to a workable activity format and quote.
-              </p>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {howItWorks.map(({ icon: Icon, title, text }, index) => (
-                <article key={title} className="rounded-xl border border-border bg-white p-6 shadow-sm">
-                  <div className="mb-4 flex items-center justify-between">
-                    <Icon className="h-7 w-7 text-primary" />
-                    <span className="text-sm font-bold text-primary/50">0{index + 1}</span>
+            <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+              <article className="rounded-lg border border-border bg-white p-6 shadow-sm">
+                <div className="mb-6 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Physical Team Building</p>
+                    <h3 className="mt-2 text-2xl font-display font-black text-foreground">For teams gathering in person</h3>
                   </div>
-                  <h3 className="mb-2 text-lg font-display font-bold text-foreground">{title}</h3>
-                  <p className="text-sm leading-6 text-muted-foreground">{text}</p>
-                </article>
-              ))}
+                  <MapPin className="h-8 w-8 text-primary" />
+                </div>
+                <div className="divide-y divide-border">
+                  {physicalLanes.map((activity) => (
+                    <Link
+                      key={activity.slug}
+                      to={`/services/${activity.slug}`}
+                      className="group grid gap-2 py-4 transition-colors hover:text-primary sm:grid-cols-[0.72fr_1fr]"
+                    >
+                      <span className="font-display text-lg font-bold text-foreground group-hover:text-primary">
+                        {activity.title}
+                      </span>
+                      <span className="text-sm leading-6 text-muted-foreground">{activity.text}</span>
+                    </Link>
+                  ))}
+                </div>
+                <Button className="mt-6 whitespace-normal text-center sm:whitespace-nowrap" onClick={openPhysicalInquiry}>
+                  Get A Physical Activity Quote
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </article>
+
+              <article className="rounded-lg border border-primary/20 bg-slate-950 p-6 text-white shadow-sm">
+                <div className="mb-6 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Virtual Team Building</p>
+                    <h3 className="mt-2 text-2xl font-display font-black">For remote or hybrid groups</h3>
+                  </div>
+                  <Laptop className="h-8 w-8 text-primary" />
+                </div>
+                <div className="divide-y divide-white/10">
+                  {virtualLanes.map((activity) => (
+                    <Link
+                      key={activity.slug}
+                      to={`/services/${activity.slug}`}
+                      className="group block py-4 transition-colors hover:text-primary"
+                    >
+                      <span className="block font-display text-lg font-bold text-white group-hover:text-primary">
+                        {activity.title}
+                      </span>
+                      <span className="mt-2 block text-sm leading-6 text-white/68">{activity.text}</span>
+                    </Link>
+                  ))}
+                </div>
+                <Button className="mt-6 whitespace-normal text-center sm:whitespace-nowrap" onClick={openVirtualInquiry}>
+                  Ask About Virtual Options
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </article>
             </div>
           </div>
         </section>
 
-        <section className="bg-section-light px-6 py-20">
-          <div className="container mx-auto grid gap-10 lg:grid-cols-2 lg:items-start">
+        <section className="bg-section-light px-6 py-18 lg:px-12 lg:py-24">
+          <div className="container mx-auto grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
             <div>
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-                Quote Checklist
+                Quote Preparation
               </p>
-              <h2 className="mb-5 text-3xl font-display font-black text-foreground md:text-5xl">
-                What to send when requesting a quote
+              <h2 className="text-3xl font-display font-black leading-tight text-foreground md:text-5xl">
+                A better brief gets you a better recommendation.
               </h2>
-              <p className="text-base leading-7 text-muted-foreground">
-                You do not need to know the exact activity before enquiring. Send the planning details and Elluminate
-                can help narrow the options.
+              <p className="mt-5 text-base leading-7 text-muted-foreground">
+                The quote path should not feel like guessing. Send the details that decide feasibility, then let the
+                activity direction follow from the brief.
               </p>
             </div>
-            <div className="rounded-xl border border-border bg-white p-6 shadow-sm">
-              <ul className="space-y-4">
-                {planningDetails.map((detail) => (
-                  <li key={detail} className="flex gap-3 text-sm leading-6 text-muted-foreground">
+            <div className="rounded-lg border border-border bg-white p-6 shadow-sm">
+              <div className="grid gap-4 sm:grid-cols-2">
+                {quotePrep.map((detail) => (
+                  <div key={detail} className="flex gap-3 text-sm leading-6 text-muted-foreground">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
                     <span>{detail}</span>
-                  </li>
+                  </div>
                 ))}
-              </ul>
-              <div className="mt-6 rounded-xl border border-primary/15 bg-primary/5 p-4">
+              </div>
+              <div className="mt-6 rounded-lg border border-primary/15 bg-primary/5 p-5">
                 <div className="flex gap-3">
                   <CloudSun className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
                   <p className="text-sm leading-6 text-muted-foreground">
-                    For outdoor plans, include any wet-weather or sheltered-space preferences so the team can discuss
-                    fallback direction early.
+                    For outdoor plans, include wet-weather concerns or sheltered-space preferences early so fallback
+                    direction can be discussed before the quote is treated as final.
                   </p>
                 </div>
               </div>
@@ -413,76 +509,64 @@ const TeamBuildingHubPage = () => {
           </div>
         </section>
 
-        <section className="px-6 py-20">
-          <div className="container mx-auto grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div>
+        <section className="px-6 py-18 lg:px-12 lg:py-24">
+          <div className="container mx-auto">
+            <div className="mb-10 max-w-3xl">
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-                Virtual Team Building
+                After You Enquire
               </p>
-              <h2 className="mb-5 text-3xl font-display font-black text-foreground md:text-5xl">
-                Planning for remote or hybrid teams?
+              <h2 className="text-3xl font-display font-black leading-tight text-foreground md:text-5xl">
+                The next step should feel clear, not like another open loop.
               </h2>
-              <p className="mb-8 text-base leading-7 text-muted-foreground">
-                If part of the team cannot gather in one location, Elluminate can also recommend hosted virtual formats.
-                Use the virtual enquiry path when your participants are joining online.
-              </p>
-              <Button variant="primary" size="lg" onClick={openVirtualInquiry}>
-                Ask About Virtual Options
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
             </div>
-            <div className="grid gap-4">
-              {virtualActivities.map((activity) => (
-                <Link
-                  key={activity.slug}
-                  to={`/services/${activity.slug}`}
-                  className="group rounded-xl border border-border bg-white p-5 shadow-sm transition-colors hover:border-primary/50"
-                >
-                  <h3 className="mb-2 text-lg font-display font-bold text-foreground">{activity.title}</h3>
-                  <p className="mb-3 text-sm leading-6 text-muted-foreground">{activity.text}</p>
-                  <span className="inline-flex items-center text-sm font-semibold text-primary">
-                    View virtual activity
-                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Link>
+            <div className="grid gap-4 md:grid-cols-4">
+              {recommendationSteps.map(({ title, text }, index) => (
+                <article key={title} className="relative rounded-lg border border-border bg-white p-6 shadow-sm">
+                  <span className="mb-8 block text-sm font-black text-primary/60">0{index + 1}</span>
+                  <h3 className="mb-3 text-lg font-display font-bold text-foreground">{title}</h3>
+                  <p className="text-sm leading-6 text-muted-foreground">{text}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-foreground px-6 py-20 text-white">
-          <div className="container mx-auto max-w-4xl text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-              Planning Confidence
-            </p>
-            <h2 className="mb-5 text-3xl font-display font-black md:text-5xl">
-              Clear next steps without invented proof.
-            </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-base leading-7 text-white/72">
-              This page avoids unsupported logos, numbers, awards, and testimonials. Before confirming, ask for the
-              activity format, facilitator coverage, quote inclusions, timeline, and venue assumptions that apply to
-              your actual brief.
-            </p>
-            <Button size="xl" onClick={openPhysicalInquiry}>
-              Plan My Team Activity
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+        <section className="bg-slate-950 px-6 py-18 text-white lg:px-12 lg:py-24">
+          <div className="container mx-auto grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+                Planning Confidence
+              </p>
+              <h2 className="text-3xl font-display font-black leading-tight md:text-5xl">
+                A focused activity conversation before you commit.
+              </h2>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                "Recommendations stay tied to your actual brief.",
+                "Indoor, outdoor, and virtual directions are compared by fit.",
+                "Quote assumptions can be clarified before final confirmation.",
+              ].map((item) => (
+                <div key={item} className="rounded-lg border border-white/10 bg-white/[0.06] p-5">
+                  <CheckCircle2 className="mb-4 h-6 w-6 text-primary" />
+                  <p className="text-sm leading-6 text-white/74">{item}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="px-6 py-20">
+        <section className="px-6 py-18 lg:px-12 lg:py-24">
           <div className="container mx-auto">
             <div className="mb-10 max-w-3xl">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
-                FAQ
-              </p>
-              <h2 className="text-3xl font-display font-black text-foreground md:text-5xl">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">FAQ</p>
+              <h2 className="text-3xl font-display font-black leading-tight text-foreground md:text-5xl">
                 Questions corporate planners usually need answered
               </h2>
             </div>
             <div className="grid gap-5 md:grid-cols-2">
               {faqs.map((faq) => (
-                <article key={faq.question} className="rounded-xl border border-border bg-white p-6 shadow-sm">
+                <article key={faq.question} className="rounded-lg border border-border bg-white p-6 shadow-sm">
                   <h3 className="mb-3 text-lg font-display font-bold text-foreground">{faq.question}</h3>
                   <p className="text-sm leading-6 text-muted-foreground">{faq.answer}</p>
                 </article>
@@ -491,18 +575,21 @@ const TeamBuildingHubPage = () => {
           </div>
         </section>
 
-        <section className="bg-section-light px-6 py-20">
+        <section className="bg-section-light px-6 py-18 lg:px-12 lg:py-24">
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="mb-4 text-3xl font-display font-black text-foreground md:text-5xl">
-              Get a corporate activity quote
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+              Get A Corporate Activity Quote
+            </p>
+            <h2 className="mb-4 text-3xl font-display font-black leading-tight text-foreground md:text-5xl">
+              Send the brief. Get a clearer team-building direction.
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-base leading-7 text-muted-foreground">
-              Share your pax, date, preferred venue, and team objective. Elluminate will use those details to recommend
-              a suitable team building direction.
+              Share your pax, date, preferred venue, and objective so Elluminate can recommend a physical or virtual
+              activity direction that fits the group.
             </p>
-            <Button size="xl" onClick={openPhysicalInquiry}>
+            <Button size="xl" onClick={openPhysicalInquiry} className="whitespace-normal px-5 text-center sm:whitespace-nowrap">
               Share Pax, Date And Goals
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="h-5 w-5" />
             </Button>
           </div>
         </section>

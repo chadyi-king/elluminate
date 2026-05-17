@@ -19,25 +19,30 @@ test("team building landing page has conversion-focused buyer content without un
   const page = read("src/pages/TeamBuildingHubPage.tsx");
 
   assert.match(page, /Corporate Physical Team Building in Singapore/);
+  assert.match(page, /messy planning details/i);
+  assert.match(page, /quote brief/i);
   assert.match(page, /HR\/admin|HR and admin/);
   assert.match(page, /pax/i);
   assert.match(page, /indoor/i);
   assert.match(page, /outdoor/i);
   assert.match(page, /virtual/i);
   assert.match(page, /Can this work indoors or outdoors\?/);
+  assert.doesNotMatch(
+    page,
+    /Built For Practical Planners|Choose the activity lane before choosing the exact game|Common physical formats companies ask about|Clear next steps without invented proof/i,
+  );
   assert.doesNotMatch(page, /best|#1|guaranteed|trusted by|1,000\+|100K\+|client logos/i);
   assert.doesNotMatch(page, /laser tag|archery tag|gelblitz|nerfwar|birthday|rental/i);
 });
 
-test("navbar exposes a team building overview link on desktop and mobile", () => {
+test("navbar makes Team Building itself a parent landing page link", () => {
   const navbar = read("src/components/Navbar.tsx");
   const siteScope = read("src/data/siteScope.ts");
-  const overviewLinks = navbar.match(/Team Building Overview/g) ?? [];
-  const routeLinks = navbar.match(/\/services\/team-building/g) ?? [];
   const physicalNavBlock = siteScope.match(/export const physicalTeamBuildingServices[\s\S]*?\n];/)?.[0] ?? "";
 
-  assert.ok(overviewLinks.length >= 2, "desktop and mobile menus should name the overview link");
-  assert.ok(routeLinks.length >= 2, "desktop and mobile menus should link to the overview route");
+  assert.match(navbar, /parentPath\?: string/);
+  assert.match(navbar, /parentPath="\/services\/team-building"/);
+  assert.doesNotMatch(navbar, /Team Building Overview/);
   assert.doesNotMatch(physicalNavBlock, /archery tag|gelblitz|nerfwar|tag-tical laser/i);
   assert.match(siteScope, /equipmentActivityServices/);
 });

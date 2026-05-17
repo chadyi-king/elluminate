@@ -6,7 +6,6 @@ import elluminateLogo from "@/assets/logos/elluminate-logo.png";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import {
-  teamBuildingOverview,
   physicalTeamBuildingServices,
   virtualTeamBuildingServices,
   retreatServices,
@@ -19,24 +18,42 @@ interface DropdownProps {
   isOpen: boolean;
   onToggle: () => void;
   onClose: () => void;
-  overview?: {name: string;slug: string;};
+  parentPath?: string;
   subGroups?: {title: string;items: {name: string;slug: string;}[];}[];
 }
 
-const NavDropdown = ({ label, items, isOpen, onToggle, onClose, overview, subGroups }: DropdownProps) => {
+const NavDropdown = ({ label, items, isOpen, onToggle, onClose, parentPath, subGroups }: DropdownProps) => {
   return (
     <div
       className="relative"
       onMouseEnter={() => {if (!isOpen) onToggle();}}
       onMouseLeave={onClose}>
       
-      <button
-        onClick={onToggle}
-        className="flex items-center gap-1.5 text-foreground/70 hover:text-primary transition-colors duration-300 text-[8.4px] tracking-[0.15em] font-medium py-2 uppercase">
-        
-        {label}
-        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-      </button>
+      <div className="flex items-center gap-1.5 py-2">
+        {parentPath ?
+        <Link
+          to={parentPath}
+          onClick={onClose}
+          className="text-[8.4px] font-medium uppercase tracking-[0.15em] text-foreground/70 transition-colors duration-300 hover:text-primary">
+
+          {label}
+        </Link> :
+        <button
+          onClick={onToggle}
+          className="text-[8.4px] font-medium uppercase tracking-[0.15em] text-foreground/70 transition-colors duration-300 hover:text-primary">
+
+          {label}
+        </button>
+        }
+        <button
+          type="button"
+          onClick={onToggle}
+          aria-label={`Open ${label} menu`}
+          className="text-foreground/70 transition-colors duration-300 hover:text-primary">
+
+          <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        </button>
+      </div>
       
       <AnimatePresence>
         {isOpen &&
@@ -52,17 +69,6 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, overview, subGro
           }>
               {subGroups ?
             <div className="p-4">
-                  {overview &&
-                  <Link
-                    to="/services/team-building"
-                    onClick={onClose}
-                    aria-label="Team Building Overview"
-                    className="mb-3 flex items-center justify-between rounded-lg border border-primary/15 bg-primary/5 px-3 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10">
-
-                      <span>{overview.name}</span>
-                      <span aria-hidden="true">-&gt;</span>
-                    </Link>
-                  }
                   <div className="grid grid-cols-2 gap-8">
                     {subGroups.map((group) =>
                 <div key={group.title}>
@@ -156,7 +162,7 @@ export const Navbar = () => {
               isOpen={openDropdown === 'team-building'}
               onToggle={() => handleDropdownToggle('team-building')}
               onClose={handleDropdownClose}
-              overview={teamBuildingOverview}
+              parentPath="/services/team-building"
               subGroups={[
               { title: "Physical Team Building", items: physicalTeamBuildingServices },
               { title: "Virtual Team Building", items: virtualTeamBuildingServices }]
@@ -250,10 +256,9 @@ export const Navbar = () => {
                 <Link
                 to="/services/team-building"
                 onClick={() => setIsOpen(false)}
-                aria-label="Team Building Overview"
                 className="mb-3 block rounded-lg border border-primary/15 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
 
-                  {teamBuildingOverview.name}
+                  Team Building
                 </Link>
                 <span className="text-primary text-sm font-semibold mb-2 block">Team Building - Physical</span>
                 {physicalTeamBuildingServices.map((item) =>
