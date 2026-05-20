@@ -66,13 +66,13 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor, backgroundIma
               ))}
             </div>
             <span className="text-sm text-gray-300">
-              5.0 / 700+ Verified Reviews
+              4.8 / 776+ Verified Reviews
             </span>
           </div>
           <p className="text-xs text-white/60 italic mt-3">
-            Reviews collected via our parent brand,{" "}
+            Reviews collected via our partner brand,{" "}
             <a
-              href="https://teamelevate.sg"
+              href="https://www.google.com/search?q=team+elevate+singapore"
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold hover:underline"

@@ -77,12 +77,12 @@ export const TestimonialWall = () => {
             ))}
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-2">
-            5.0 / 700+ Verified Google Reviews
+            4.8 / 776+ Verified Google Reviews
           </h2>
           <p className="text-xs md:text-sm text-white/60 italic mt-2">
-            Reviews collected via our parent brand,{" "}
+            Reviews collected via our partner brand,{" "}
             <a
-              href="https://teamelevate.sg"
+              href="https://www.google.com/search?q=team+elevate+singapore"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary font-semibold hover:underline"
