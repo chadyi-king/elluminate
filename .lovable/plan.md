@@ -1,40 +1,36 @@
-Three findings remain. Each needs a different kind of action — one needs your authorization, two need a republish before they can re-measure. Here's how to clear them.
+## Update Google Reviews rating across the site
 
-## 1. Google Search Console isn't fully set up
+Change every "4.8 / 600+ Google Reviews" mention to "5.0 / 700+ Google Reviews", and add a small disclaimer noting the reviews come from our parent brand Team Elevate, linking to https://teamelevate.sg.
 
-This is a one-time connect + verify flow. I can drive most of it, but the OAuth step needs you to click through.
+### Files to update
 
-Steps I will run:
-1. Open the Google Search Console connector picker so you can sign in with the Google account that should own the property.
-2. Once connected, request a `META` verification token from Google for `https://elluminate.sg/`.
-3. Add `<meta name="google-site-verification" content="…">` to `index.html` and ask you to publish so the tag is live on the production domain.
-4. Call Google's verify endpoint, register the property, and submit `https://elluminate.sg/sitemap.xml`.
+1. **src/components/SocialProofSection.tsx** (lines 489, 493)
+   - `4.8 / 5.0` → `5.0 / 5.0`
+   - `600+` → `700+`
+   - Add disclaimer line below: *"Reviews from our parent brand, [Team Elevate](https://teamelevate.sg)"* (small, muted text, opens in new tab with `rel="noopener"`)
 
-What you do: click "Connect" in the picker (and pick the right Google account), then click Publish when I ask. After that you'll start seeing impressions/clicks data inside Search Console within a few days.
+2. **src/components/service-page/ServiceTestimonialNew.tsx** (rating badge)
+   - `4.8 / 600+ Verified Reviews` → `5.0 / 700+ Verified Reviews`
+   - Add same disclaimer underneath the badge
 
-## 2. Page loads slowly (Lighthouse LCP)
+3. **src/components/portfolio/TestimonialWall.tsx**
+   - `4.8 / 600+ Verified Google Reviews` → `5.0 / 700+ Verified Google Reviews`
+   - Add disclaimer below the heading
 
-This finding is measured against the **last published build**, so even a perfect source fix only clears once you republish. The two highest-leverage changes for this site:
+4. **src/pages/AboutPage.tsx** (lines 888, 1057)
+   - `4.8` star badge → `5.0`
+   - `600+ Reviews • 4.8-Star Google Rating` → `700+ Reviews • 5.0-Star Google Rating`
+   - Add disclaimer near the badge
 
-- **Hero image LCP**: in `src/components/HeroSection.tsx` (and the hero photo wall / characters), set explicit `width` and `height`, drop `loading="lazy"` on the above-the-fold image, and add `fetchpriority="high"`. Also add a `<link rel="preload" as="image" href="…" fetchpriority="high">` in `index.html` for that one image.
-- **Web font swap**: the Google Fonts `<link>` in `index.html` already uses `display=swap` for Anton/Bebas, but the preloaded Anton woff2 should also be paired with `font-display: swap` in any `@font-face` block we ship locally. I'll audit `src/index.css` for `@font-face` rules and add `font-display: swap` where missing.
+5. **src/components/StructuredData.tsx** (lines 36–37) — JSON-LD AggregateRating
+   - `ratingValue: "4.8"` → `"5.0"`
+   - `reviewCount: "600"` → `"700"`
 
-After the edits I'll surface the Publish dialog so the next Lighthouse scan picks them up.
+### Disclaimer copy (consistent across all locations)
 
-## 3. Has accessibility barriers (Lighthouse contrast)
+> *Reviews collected via our parent brand, [Team Elevate](https://teamelevate.sg).*
 
-Same "published build" caveat as performance. The scanner flags low-contrast text — typically `text-muted-foreground` on tinted backgrounds, or arbitrary gray utilities on light surfaces.
+Rendered as small muted text (`text-xs text-muted-foreground` on light backgrounds, `text-white/60` on dark testimonial backgrounds). Link uses primary accent, `target="_blank"`, `rel="noopener noreferrer"`.
 
-Plan:
-- Grep the codebase for the usual offenders: `text-muted-foreground/`, `text-gray-300`, `text-gray-400`, `text-white/60`, etc.
-- Replace with the design-system tokens (`text-foreground`, `text-muted-foreground` at full opacity, or a darker brand gray) so body text hits 4.5:1 and large headings hit 3:1.
-- Spot-check the placeholder color on inputs and the footer text on the dark band.
-- Republish.
-
-## Order of operations
-
-1. Connect Search Console (needs your click) — this can run in parallel with the other two.
-2. Make the LCP + a11y code changes in one pass.
-3. Publish once. Both Lighthouse findings re-measure on the next scan; Search Console verification also runs against the freshly-published HTML.
-
-Want me to kick off step 1 (open the GSC connector) and start the LCP + contrast audit in the same turn?
+### Out of scope
+No backend changes. No SEO/sitemap changes beyond the JSON-LD numeric update.
