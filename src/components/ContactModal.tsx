@@ -128,6 +128,9 @@ export const ContactModal = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(getInitialDate);
   const [formData, setFormData] = useState(getInitialFormData);
+  const activeEventCategory = modalContext?.eventCategory || formData.eventCategory;
+  const isTeamBuildingInquiry =
+    activeEventCategory === "Physical Team Building" || activeEventCategory === "Virtual Team Building";
 
   // Save to localStorage whenever form data changes
   useEffect(() => {
@@ -139,15 +142,20 @@ export const ContactModal = () => {
   }, [formData, selectedDate]);
 
   useEffect(() => {
-    if (!isOpen || !modalContext?.eventCategory) {
+    if (!isOpen || !modalContext) {
       return;
     }
 
     setFormData((prev) => ({
       ...prev,
       eventCategory: modalContext.eventCategory ?? prev.eventCategory,
+      expectedAttendees: modalContext.expectedAttendees ?? prev.expectedAttendees,
+      additionalDetails:
+        modalContext.additionalDetails && !prev.additionalDetails.includes(modalContext.additionalDetails)
+          ? [prev.additionalDetails, modalContext.additionalDetails].filter(Boolean).join("\n\n")
+          : prev.additionalDetails,
     }));
-  }, [isOpen, modalContext?.eventCategory]);
+  }, [isOpen, modalContext]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -355,10 +363,10 @@ export const ContactModal = () => {
                 <img src={elluminateWords} alt="Elluminate - Take Flight & Shine" className="h-24 w-auto object-contain" />
               </div>
               <h3 className="text-lg font-bold text-white mb-2 leading-snug">
-                Let's build something your team won't stop talking about.
+                Send the details that shape the right activity.
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-5">
-                Singapore's trusted partner for team building, corporate retreats, and impactful training programmes.
+                Share pax, date, venue, and goals so the enquiry starts with the planning facts that matter.
               </p>
               <div className="flex flex-col gap-2.5 mb-5">
                 {[
@@ -376,9 +384,9 @@ export const ContactModal = () => {
               </div>
               <div className="grid grid-cols-3 gap-2 mb-auto">
                 {[
-                  { value: "1,000+", label: "Events" },
-                  { value: "100K+", label: "Participants" },
-                  { value: "8+", label: "Years" },
+                  { value: "Pax", label: "Headcount" },
+                  { value: "Date", label: "Timing" },
+                  { value: "Goal", label: "Objective" },
                 ].map(({ value, label }) => (
                   <div key={label} className="bg-white/5 rounded-xl p-2.5 text-center border border-white/10">
                     <div className="text-primary font-bold text-base font-display leading-none">{value}</div>
@@ -389,7 +397,7 @@ export const ContactModal = () => {
               <div className="mt-8 pt-4 border-t border-white/10">
                 <div className="flex items-center gap-1.5 text-gray-500 text-xs mb-2">
                   <Clock className="w-3 h-3 text-primary" />
-                  <span>Typically replies within 1 business day</span>
+                  <span>Include venue notes or constraints early if you have them</span>
                 </div>
                 <a
                   href="mailto:info@elluminate.sg"
@@ -412,9 +420,13 @@ export const ContactModal = () => {
                 <X className="w-6 h-6" />
               </button>
               <h2 className="text-xl sm:text-2xl font-display font-bold text-primary">
-                Let Us Elluminate Your Experience
+                {isTeamBuildingInquiry ? "Send Your Team Activity Brief" : "Let Us Elluminate Your Experience"}
               </h2>
-              <p className="text-gray-600 mt-1 text-sm sm:text-base">Tell us your goals and we'll shape the right experience.</p>
+              <p className="text-gray-600 mt-1 text-sm sm:text-base">
+                {isTeamBuildingInquiry
+                  ? "Your team-building context is included below. Add your contact details so the quote conversation can continue."
+                  : "Tell us your goals and we'll shape the right experience."}
+              </p>
             </div>
 
             {/* Form */}

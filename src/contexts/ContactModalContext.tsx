@@ -2,6 +2,8 @@ import { createContext, useContext, useState, ReactNode } from "react";
 
 export interface ContactModalOpenContext {
   eventCategory?: string;
+  expectedAttendees?: string;
+  additionalDetails?: string;
 }
 
 interface ContactModalContextType {
