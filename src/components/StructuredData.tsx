@@ -33,8 +33,8 @@ export const OrganizationSchema = ({ type = "Organization" }: OrganizationSchema
     priceRange: "$$",
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "600",
+      ratingValue: "5.0",
+      reviewCount: "700",
       bestRating: "5",
     },
     foundingDate: "2017",

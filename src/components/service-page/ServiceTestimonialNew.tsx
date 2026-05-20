@@ -66,9 +66,22 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor, backgroundIma
               ))}
             </div>
             <span className="text-sm text-gray-300">
-              4.8 / 600+ Verified Reviews
+              5.0 / 700+ Verified Reviews
             </span>
           </div>
+          <p className="text-xs text-white/60 italic mt-3">
+            Reviews collected via our parent brand,{" "}
+            <a
+              href="https://teamelevate.sg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold hover:underline"
+              style={{ color: accentColor }}
+            >
+              Team Elevate
+            </a>
+            .
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">

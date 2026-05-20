@@ -486,15 +486,28 @@ export const SocialProofSection = () => {
 
               {/* Rating text below stars */}
               <div className="mb-2">
-                <span className="text-4xl md:text-5xl font-display font-black text-foreground">4.8 / 5.0</span>
+                <span className="text-4xl md:text-5xl font-display font-black text-foreground">5.0 / 5.0</span>
               </div>
 
               <p className="text-muted-foreground font-display">
-                Based on <span className="text-primary font-bold">600+</span> Google Reviews
+                Based on <span className="text-primary font-bold">700+</span> Google Reviews
               </p>
 
               <p className="text-muted-foreground/80 text-sm font-display">
                 Trusted by companies all across Singapore.
+              </p>
+
+              <p className="text-muted-foreground/70 text-xs font-display mt-2 italic">
+                Reviews collected via our parent brand,{" "}
+                <a
+                  href="https://teamelevate.sg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary font-semibold hover:underline"
+                >
+                  Team Elevate
+                </a>
+                .
               </p>
             </div>
           </div>

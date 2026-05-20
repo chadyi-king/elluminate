@@ -348,7 +348,7 @@ const AboutPage = () => {
 
   const eventsCounter = useCountUp(1000, 2500);
   const participantsCounter = useCountUp(100000, 3000);
-  const reviewsCounter = useCountUp(600, 2000);
+  const reviewsCounter = useCountUp(700, 2000);
   const yearsCounter = useCountUp(8, 1500);
 
   return (
@@ -885,9 +885,20 @@ const AboutPage = () => {
               className="text-center"
             >
               <div className="text-4xl md:text-5xl font-display font-semibold text-primary mb-2 flex items-center justify-center gap-2">
-                4.8 <Star className="w-8 h-8 fill-primary text-primary" />
+                5.0 <Star className="w-8 h-8 fill-primary text-primary" />
               </div>
               <p className="text-muted-foreground/80 font-sans text-sm">{reviewsCounter.count}+ Reviews</p>
+              <p className="text-muted-foreground/60 font-sans text-xs italic mt-1">
+                via{" "}
+                <a
+                  href="https://teamelevate.sg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary font-semibold hover:underline"
+                >
+                  Team Elevate
+                </a>
+              </p>
             </motion.div>
 
             <motion.div
@@ -1054,7 +1065,19 @@ const AboutPage = () => {
               ))}
             </div>
             <p className="text-lg font-display font-medium text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-              600+ Reviews • 4.8-Star Google Rating
+              700+ Reviews • 5.0-Star Google Rating
+            </p>
+            <p className="text-xs md:text-sm text-white/80 italic mt-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+              Reviews collected via our parent brand,{" "}
+              <a
+                href="https://teamelevate.sg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary font-semibold hover:underline"
+              >
+                Team Elevate
+              </a>
+              .
             </p>
           </motion.div>
         </div>
