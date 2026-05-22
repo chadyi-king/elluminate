@@ -7,6 +7,7 @@ const modal = readFileSync("src/components/ContactModal.tsx", "utf8");
 const context = readFileSync("src/contexts/ContactModalContext.tsx", "utf8");
 const navbar = readFileSync("src/components/Navbar.tsx", "utf8");
 const app = readFileSync("src/App.tsx", "utf8");
+const prerenderSeo = readFileSync("scripts/prerender-seo.mjs", "utf8");
 const sitemap = readFileSync("public/sitemap.xml", "utf8");
 
 const normalize = (value) => value.replace(/\s+/g, " ");
@@ -48,6 +49,14 @@ test("FAQ schema and sitemap route are present", () => {
   assert.match(page, /<FAQSchema faqs=\{faqs\}/);
   assert.match(sitemap, /https:\/\/elluminate\.sg\/services\/team-building/);
   assert.match(sitemap, /<lastmod>2026-05-23<\/lastmod>/);
+});
+
+test("static SEO prerender copy matches the landing-page direction", () => {
+  const entry = prerenderSeo.match(/"team-building": \{[^}]+\}/)?.[0] ?? "";
+
+  assert.match(entry, /Corporate Physical Team Building Singapore \| Elluminate/);
+  assert.match(entry, /pax, date, venue, and objective/i);
+  assert.doesNotMatch(entry, /trusted|1,000\+|100K\+|fast Plan My Event|best|#1|guarantee/i);
 });
 
 test("navbar parent Team Building link points to landing page", () => {
