@@ -146,15 +146,22 @@ export const ContactModal = () => {
       return;
     }
 
-    setFormData((prev) => ({
-      ...prev,
-      eventCategory: modalContext.eventCategory ?? prev.eventCategory,
-      expectedAttendees: modalContext.expectedAttendees ?? prev.expectedAttendees,
-      additionalDetails:
-        modalContext.additionalDetails && !prev.additionalDetails.includes(modalContext.additionalDetails)
-          ? [prev.additionalDetails, modalContext.additionalDetails].filter(Boolean).join("\n\n")
-          : prev.additionalDetails,
-    }));
+    setFormData((prev) => {
+      const shouldReplaceBrief =
+        modalContext.additionalDetails?.startsWith("Team Activity Brief") &&
+        prev.additionalDetails.includes("Team Activity Brief");
+
+      return {
+        ...prev,
+        eventCategory: modalContext.eventCategory ?? prev.eventCategory,
+        expectedAttendees: modalContext.expectedAttendees ?? prev.expectedAttendees,
+        additionalDetails: shouldReplaceBrief
+          ? modalContext.additionalDetails
+          : modalContext.additionalDetails && !prev.additionalDetails.includes(modalContext.additionalDetails)
+            ? [prev.additionalDetails, modalContext.additionalDetails].filter(Boolean).join("\n\n")
+            : prev.additionalDetails,
+      };
+    });
   }, [isOpen, modalContext]);
 
   const handleSubmit = async (e: React.FormEvent) => {
