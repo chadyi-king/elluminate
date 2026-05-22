@@ -29,9 +29,13 @@ const topActivities: FooterActivityLink[] = [
 
 interface FooterProps {
   topActivityLinks?: FooterActivityLink[];
+  bottomNote?: string;
 }
 
-export const Footer = ({ topActivityLinks = topActivities }: FooterProps) => {
+export const Footer = ({
+  topActivityLinks = topActivities,
+  bottomNote = "Corporate events, team building, retreats, and training experiences in Singapore.",
+}: FooterProps) => {
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-6 py-16">
@@ -142,8 +146,8 @@ export const Footer = ({ topActivityLinks = topActivities }: FooterProps) => {
         {/* Divider */}
         <div className="mt-12 pt-8 border-t border-background/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-background/50 text-sm">© {new Date().getFullYear()} Elluminate. All rights reserved.</p>
-            <p className="text-background/40 text-sm">8+ Years Delivering Experiences — Since 2017</p>
+            <p className="text-background/50 text-sm">&copy; {new Date().getFullYear()} Elluminate. All rights reserved.</p>
+            <p className="text-background/40 text-sm">{bottomNote}</p>
           </div>
         </div>
       </div>

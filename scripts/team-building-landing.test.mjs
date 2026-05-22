@@ -21,7 +21,7 @@ test("team building route is declared before generic service route", () => {
   assert.ok(hubRouteIndex < genericRouteIndex, "team building route must be declared before /services/:slug");
 });
 
-test("team building landing page has one H1 and V3 message match", () => {
+test("team building landing page has one H1 and V4 message match", () => {
   assert.equal((page.match(/<h1\b/g) ?? []).length, 1);
   assert.match(
     normalize(page),
@@ -33,7 +33,7 @@ test("team building landing page has one H1 and V3 message match", () => {
 
 test("team activity brief opens existing modal with context fields", () => {
   assert.match(page, /Team Activity Brief/);
-  assert.match(page, /Send Brief To Contact Form/);
+  assert.match(page, /Get My Activity Recommendation/);
   assert.match(page, /expectedAttendees: brief\.pax/);
   assert.match(page, /additionalDetails: buildBriefDetails/);
   assert.match(page, /openBriefModal\("Virtual Team Building"\)/);
@@ -43,6 +43,25 @@ test("team activity brief opens existing modal with context fields", () => {
     modal,
     /expectedAttendees: (?:expectedAttendees|modalContext\.expectedAttendees) \?\? (?:previous|prev)\.expectedAttendees/,
   );
+});
+
+test("V4 page includes activity ideas, reassurance, and no internal planning copy", () => {
+  assert.match(page, /Top 10 Fun Team Building Activity Ideas/);
+  assert.match(page, /What Elluminate checks before recommending an activity/);
+  assert.match(page, /claim-safe trust/i);
+  assert.match(page, /Pick from 10 activity directions/i);
+
+  const internalCopyPatterns = [
+    /the page should/i,
+    /should feel like/i,
+    /planning logic the page should/i,
+    /not a dump of every activity/i,
+    /recommended for ads traffic/i,
+  ];
+
+  for (const pattern of internalCopyPatterns) {
+    assert.doesNotMatch(page, pattern);
+  }
 });
 
 test("FAQ schema and sitemap route are present", () => {
