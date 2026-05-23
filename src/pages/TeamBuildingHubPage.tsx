@@ -520,7 +520,11 @@ const TeamBuildingHubPage = () => {
                   Ask For A Shortlist
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button variant="secondary" onClick={() => openBriefModal("Virtual Team Building")}>
+                <Button
+                  variant="secondary"
+                  className="!bg-white !text-slate-950 hover:!bg-slate-100"
+                  onClick={() => openBriefModal("Virtual Team Building")}
+                >
                   Ask About Virtual Options
                   <Monitor className="ml-2 h-4 w-4" />
                 </Button>
@@ -703,7 +707,12 @@ const TeamBuildingHubPage = () => {
                 Start with pax, date, venue preference, and objective. The activity direction can follow from the constraints.
               </p>
             </div>
-            <Button size="xl" variant="secondary" onClick={() => openBriefModal("Physical Team Building")}>
+            <Button
+              size="xl"
+              variant="secondary"
+              className="!bg-white !text-slate-950 hover:!bg-slate-100"
+              onClick={() => openBriefModal("Physical Team Building")}
+            >
               Build My Team Activity Brief
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
