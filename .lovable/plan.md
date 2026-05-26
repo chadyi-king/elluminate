@@ -1,58 +1,73 @@
-## Real root cause — the whole site is invisible to non-JS crawlers
+## SEO Crawlability Fixes — Plan
 
-I crawled all 60 sitemap URLs the way Google, Bing, LinkedIn, Facebook, and ad quality bots do (no JavaScript). Every single page returns **the same static HTML** from `index.html`:
+Pure infrastructure/SEO work. **Zero changes to design, UI, components, navigation, or page content.**
 
-| Check | What I found on every URL |
-|---|---|
-| HTTP status | ✅ 200 OK |
-| `<title>` | ❌ Always "Team Building Singapore \| Corporate Events \| Elluminate" |
-| `<link rel="canonical">` | ❌ Missing (never rendered) |
-| `<meta name="description">` | ❌ Always the homepage description |
-| `<meta name="robots">` | ❌ Missing |
-| Per-page Open Graph | ❌ Missing |
-| JSON-LD schema | ❌ Missing |
+### Current state (verified)
 
-The per-route `<SEO>` component using `react-helmet-async` only runs **after** React hydrates in a real browser. Crawlers that don't execute JS — which includes Facebook, LinkedIn, WhatsApp, Slack, Twitter, Bingbot's first pass, and many of Google's own indexing/ads-quality bots — see 60 identical pages. Google then folds them all into "Alternative page with proper canonical tag" and refuses to index them. **This is why your ads pages aren't being read** and why the previous canonical-prop fix didn't move the needle — the canonicals are correct in code, but never make it into the served HTML.
+- `public/sitemap.xml` — exists, 60 URLs, hand-edited
+- `public/robots.txt` — exists, correct, includes `Sitemap:` directive, no harmful blocks
+- Prerender script already injects per-page `<title>`, canonical, description, OG into static HTML at build time
+- `/services/amazing-race`, `/services/running-man`, `/services/team-building` — already indexable
+- `/services/corporate-retreats` — does **not** exist (project uses `overseas-retreats`, `local-retreats`, `incentive-travel`)
 
-This is the single biggest SEO problem the site has. Everything else is downstream.
+### Changes
 
-## The fix — prerender every route at build time
+**1. Auto-generate the sitemap** (so future pages are included automatically)
 
-Add a build step that visits each route in a headless browser, lets React/Helmet render, then writes the result to a real static HTML file at the matching path (`/about/index.html`, `/services/amazing-race/index.html`, etc.). After that, crawlers fetching `/about` get a fully-formed page with the correct title, canonical, description, OG tags, and JSON-LD — no JS required.
+- Create `scripts/generate-sitemap.ts` that builds `public/sitemap.xml` from:
+  - Static routes in `src/App.tsx` (`/`, `/about`, `/portfolio`, `/blog`)
+  - Service slugs from `src/data/siteScope.ts` (single source of truth — physical, equipment, virtual, retreats, training, plus the `team-building` hub and the corporate-events slugs already in the current sitemap)
+  - Blog posts pulled from Supabase at build time (filtered to published)
+  - Adds the `/services/corporate-retreats` URL pointing at its own redirect entry so it can be submitted to Search Console
+- Sets `<lastmod>` to today on each regenerate for freshness signals
+- Output path stays `public/sitemap.xml` — same public URL, same XML shape
+- Wire into `package.json`: add `predev` and `prebuild` so it runs before every dev start and every production build, before the existing prerender step
 
-I'll use **`vite-plugin-prerender`** (Puppeteer-based, well-supported with Vite + React Helmet). The routes to prerender come straight from the sitemap so the two stay in lockstep.
+**2. Add client-side 301-equivalent redirect for `/services/corporate-retreats`**
 
-### Technical changes
+Lovable hosting does not process server-side redirect config files (no `_redirects`, `vercel.json`, etc.), so the redirect must be handled in the SPA router.
 
-1. **Install** `vite-plugin-prerender` as a dev dependency.
-2. **`vite.config.ts`** — add the plugin in `build` mode only, with the route list parsed from `public/sitemap.xml` so we never drift. Configure it to wait for Helmet to inject head tags before snapshotting.
-3. **`src/main.tsx`** — small change: use `hydrateRoot` when prerendered HTML is present, `createRoot` otherwise. Standard react-snap-style pattern.
-4. **`index.html`** — keep current head as the fallback for routes that somehow miss prerendering; no other change.
-5. **Sanity check** — after the first prerendered build, re-run the same headless-curl audit. Every URL should now show its own title, canonical, description, and robots tag.
+- Add a route in `src/App.tsx`: `/services/corporate-retreats` → renders a tiny `<Navigate to="/services/overseas-retreats" replace />` component
+- Include `/services/corporate-retreats` in the generated sitemap with a canonical pointing to `/services/overseas-retreats` via the prerendered head (the existing prerender script will need a one-line addition mapping that route to the overseas-retreats SEO block + a `<meta http-equiv="refresh">` fallback for non-JS crawlers, so Google sees a clear consolidation signal)
 
-### What this fixes
+**3. Robots.txt — no change needed**
 
-- ✅ "Alternative page with proper canonical tag" in Search Console — gone, because each URL now has a unique canonical and unique content.
-- ✅ LinkedIn / Facebook / Slack / WhatsApp link previews — finally show the right page title and description.
-- ✅ Google Ads landing-page quality — bots can now read the actual landing page content, which can improve Quality Score and lower CPC.
-- ✅ Bing indexing — Bingbot will see real pages, not 60 duplicates.
-- ✅ The 28 "not indexed" URLs in GSC become indexable after the next crawl.
+Already correct. Verified during audit:
+- Allows Googlebot, Bingbot, Twitterbot, facebookexternalhit, and `*`
+- Only disallows `/thank-you-*` (intentional)
+- Contains `Sitemap: https://elluminate.sg/sitemap.xml`
 
-### Post-deploy steps (for you, in Google Search Console)
+**4. Post-deploy verification** (run after the user publishes)
 
-1. **Sitemaps** → resubmit `https://elluminate.sg/sitemap.xml`.
-2. **Pages → "Alternative page with proper canonical tag"** → **Validate Fix**.
-3. **URL Inspection** → request indexing on your top 5 ad landing pages.
-4. **Re-share** any LinkedIn/Facebook ads or posts so they refetch the new OG tags (use the LinkedIn Post Inspector / Facebook Sharing Debugger to force a refresh).
+```text
+curl -I https://elluminate.sg/sitemap.xml     # expect 200, content-type xml
+curl -I https://elluminate.sg/robots.txt      # expect 200
+curl -s https://elluminate.sg/sitemap.xml | head -40   # spot-check structure
+curl -s https://elluminate.sg/services/amazing-race | grep -E '<title>|canonical'
+curl -s https://elluminate.sg/services/corporate-retreats | grep -E 'refresh|canonical'
+```
+
+Then prompt the user to:
+- Resubmit `sitemap.xml` in Google Search Console
+- Click **Validate Fix** on "Alternative page with proper canonical tag"
+- Request indexing on top ad landing pages
+
+### Files touched
+
+- **New**: `scripts/generate-sitemap.ts`
+- **Edited**: `package.json` (add `predev` + `prebuild` entries, keep existing prerender call)
+- **Edited**: `src/App.tsx` (add one `<Route>` with `<Navigate>` — no UI change)
+- **Edited**: `scripts/prerender-seo.mjs` (add entry for `/services/corporate-retreats` so its static HTML carries the canonical + refresh)
+- **Auto-regenerated**: `public/sitemap.xml` (now produced by the generator)
 
 ### Out of scope
 
-- Sitemap edits (already complete and accurate).
-- Per-page copy/SEO content rewrites (the `<SEO>` props already exist per route — they just weren't being served).
-- Google Ads dashboard troubleshooting — still need a sample ad's final URL + status from you if clicks remain low after this ships.
+- robots.txt edits (already correct)
+- Any design, component, navigation, or copy changes
+- Creating a real `/services/corporate-retreats` landing page (redirect-only, per your choice)
+- Google Ads dashboard troubleshooting
 
-### Risk / things to watch
+### Risks
 
-- Prerendering adds ~30–60s to the build. Worth it.
-- Routes with dynamic content from Supabase (blog posts) will be snapshotted at build time. That's fine for SEO — the page rehydrates with fresh data on the client. New blog posts published between deploys will still work (just not prerendered until next deploy).
-- If any route crashes during prerendering, the plugin falls back to serving the SPA shell for that one URL — no worse than today.
+- Build time increases by ~2–5 seconds for the Supabase fetch in the sitemap generator. If Supabase is unreachable at build time, the generator falls back to static routes only and logs a warning (build does not fail).
+- The corporate-retreats redirect is client-side. JS-capable crawlers (Googlebot) follow it as a soft 301; non-JS crawlers see the `<meta refresh>` + canonical. This is the strongest signal available without server-side hosting config.

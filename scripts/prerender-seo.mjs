@@ -100,24 +100,29 @@ const routes = [
   { path: "/blog", title: "Blog | Elluminate", description: "Insights, tips and inspiration for planning unforgettable team experiences in Singapore." },
   ...Object.entries(blog).map(([slug, v]) => ({ path: `/blog/${slug}`, type: "article", ...v })),
   ...Object.entries(services).map(([slug, v]) => ({ path: `/services/${slug}`, ...v })),
+  // Redirect alias: /services/corporate-retreats consolidates to /services/overseas-retreats.
+  // Canonical points to the destination so Google folds them; meta-refresh gives non-JS
+  // crawlers a clear hop while the SPA <Navigate> handles JS-capable browsers.
+  { path: "/services/corporate-retreats", title: services["overseas-retreats"].title, description: services["overseas-retreats"].description, redirectTo: "/services/overseas-retreats" },
 ];
 
 const escapeHtml = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 function renderHead(route) {
   const url = `${BASE}${route.path}`;
+  const canonicalUrl = route.redirectTo ? `${BASE}${route.redirectTo}` : url;
   const title = escapeHtml(route.title);
   const description = escapeHtml(route.description);
   const type = route.type || "website";
-  return [
+  const tags = [
     `<title>${title}</title>`,
     `<meta name="description" content="${description}" />`,
-    `<link rel="canonical" href="${url}" />`,
+    `<link rel="canonical" href="${canonicalUrl}" />`,
     `<meta name="robots" content="index, follow" />`,
     `<meta property="og:title" content="${title}" />`,
     `<meta property="og:description" content="${description}" />`,
     `<meta property="og:type" content="${type}" />`,
-    `<meta property="og:url" content="${url}" />`,
+    `<meta property="og:url" content="${canonicalUrl}" />`,
     `<meta property="og:site_name" content="${SITE_NAME}" />`,
     `<meta property="og:image" content="${DEFAULT_OG}" />`,
     `<meta property="og:locale" content="en_SG" />`,
@@ -125,7 +130,11 @@ function renderHead(route) {
     `<meta name="twitter:title" content="${title}" />`,
     `<meta name="twitter:description" content="${description}" />`,
     `<meta name="twitter:image" content="${DEFAULT_OG}" />`,
-  ].join("\n    ");
+  ];
+  if (route.redirectTo) {
+    tags.unshift(`<meta http-equiv="refresh" content="0; url=${canonicalUrl}" />`);
+  }
+  return tags.join("\n    ");
 }
 
 function buildHtml(route) {
