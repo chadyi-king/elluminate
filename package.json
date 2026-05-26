@@ -4,9 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/generate-sitemap.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/generate-sitemap.mjs",
     "build": "vite build && node scripts/prerender-seo.mjs",
-    "build:dev": "vite build --mode development && node scripts/prerender-seo.mjs",
+    "build:dev": "node scripts/generate-sitemap.mjs && vite build --mode development && node scripts/prerender-seo.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
