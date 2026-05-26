@@ -55,7 +55,8 @@ const serviceEntries = [
   "team-building",
   ...physicalServices, ...equipmentServices, ...virtualServices,
   ...retreatServices, ...trainingServices, ...corporateEventServices,
-  "corporate-retreats", // redirect alias — kept in sitemap so Search Console can submit it
+  // Note: /services/corporate-retreats is a 301 redirect to overseas-retreats
+  // and is intentionally excluded from the sitemap (only canonical pages).
 ].map((slug) => ({
   path: `/services/${slug}`,
   changefreq: "monthly",
