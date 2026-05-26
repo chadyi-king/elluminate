@@ -9,18 +9,21 @@ export interface ContactModalOpenContext {
 interface ContactModalContextType {
   isOpen: boolean;
   modalContext: ContactModalOpenContext | null;
-  openContactModal: (context?: ContactModalOpenContext) => void;
+  openContactModal: (context?: ContactModalOpenContext | unknown) => void;
   closeContactModal: () => void;
 }
 
 const ContactModalContext = createContext<ContactModalContextType | undefined>(undefined);
 
+const isContactContext = (v: unknown): v is ContactModalOpenContext =>
+  !!v && typeof v === "object" && !("nativeEvent" in (v as object));
+
 export const ContactModalProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalContext, setModalContext] = useState<ContactModalOpenContext | null>(null);
 
-  const openContactModal = (context: ContactModalOpenContext = {}) => {
-    setModalContext(context);
+  const openContactModal = (context?: ContactModalOpenContext | unknown) => {
+    setModalContext(isContactContext(context) ? context : {});
     setIsOpen(true);
   };
   const closeContactModal = () => {
