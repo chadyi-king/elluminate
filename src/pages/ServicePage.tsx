@@ -107,6 +107,34 @@ const runningManFaqs = [
   },
 ];
 
+const workshopsFaqs = [
+  {
+    question: "What corporate workshops do you offer?",
+    answer:
+      "We offer workshops covering communication, teamwork, leadership, personality profiling, employee engagement, workplace collaboration, and personal effectiveness.",
+  },
+  {
+    question: "Can workshops be combined with team building activities?",
+    answer:
+      "Yes. Many organisations combine workshops with experiential team building activities to reinforce learning outcomes.",
+  },
+  {
+    question: "Do you provide personality profiling workshops?",
+    answer:
+      "Yes. We offer DISC, MBTI, and other personality assessment-based programmes to improve self-awareness and team dynamics.",
+  },
+  {
+    question: "How long are your workshops?",
+    answer:
+      "Workshops can range from one-hour sessions to full-day programmes depending on objectives and learning outcomes.",
+  },
+  {
+    question: "Are your workshops suitable for hybrid teams?",
+    answer:
+      "Yes. Selected workshops can be conducted in-person, virtually, or in a hybrid format.",
+  },
+];
+
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? servicesData[slug] : null;
@@ -409,6 +437,8 @@ const ServicePage = () => {
               itemsPerRow={service.perfectForFlow.itemsPerRow}
               showNumbers={service.perfectForFlow.showNumbers}
             />
+          )}
+        </>
       )}
 
       {/* FAQ (running man) */}
@@ -420,7 +450,15 @@ const ServicePage = () => {
           faqs={runningManFaqs}
         />
       )}
-        </>
+
+      {/* FAQ (workshops) */}
+      {slug === "workshops" && (
+        <ServiceFAQAccordion
+          title="Workshops & Training FAQ"
+          subtitle="Frequently asked questions about our corporate workshops, training programmes, and learning experiences."
+          accentColor={service.accentColor}
+          faqs={workshopsFaqs}
+        />
       )}
 
       {/* Mini gallery (data-driven) */}
