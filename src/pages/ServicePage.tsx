@@ -21,6 +21,35 @@ import { SEO } from "@/components/SEO";
 import { ServiceMiniGallery } from "@/components/service-page/ServiceMiniGallery";
 import { ServiceDestinationsGrid } from "@/components/service-page/ServiceDestinationsGrid";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/StructuredData";
+import { ServiceFAQAccordion } from "@/components/service-page/ServiceFAQAccordion";
+
+const overseasRetreatsFaqs = [
+  {
+    question: "What is a corporate retreat?",
+    answer:
+      "A corporate retreat is an off-site event that combines team bonding, strategic planning, leadership development, and employee engagement activities. Retreats help teams strengthen relationships while focusing on business objectives.",
+  },
+  {
+    question: "Do you organise overseas corporate retreats?",
+    answer:
+      "Yes. We organise corporate retreats in destinations such as Bali, Batam, Bintan, Phuket, Bangkok, Johor Bahru, and other regional locations.",
+  },
+  {
+    question: "What activities can be included in a corporate retreat?",
+    answer:
+      "Activities may include team building games, Amazing Race challenges, workshops, leadership development sessions, personality profiling, CSR activities, cultural experiences, and gala dinners.",
+  },
+  {
+    question: "How long should a corporate retreat be?",
+    answer:
+      "Most corporate retreats range from one to four days depending on objectives, travel requirements, and budget.",
+  },
+  {
+    question: "Can you handle retreat logistics and planning?",
+    answer:
+      "Yes. We can assist with programme design, activities, venue sourcing, accommodation, transport, meals, facilitators, and event management.",
+  },
+];
 
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -331,6 +360,16 @@ const ServicePage = () => {
       {/* Mini gallery (data-driven) */}
       {service.miniGallery && (
         <ServiceMiniGallery title={service.miniGallery.title} images={service.miniGallery.images} />
+      )}
+
+      {/* FAQ (overseas retreats only) */}
+      {slug === "overseas-retreats" && (
+        <ServiceFAQAccordion
+          title="Corporate Retreat FAQ"
+          subtitle="Common questions about planning and organising overseas corporate retreats for your team."
+          accentColor={service.accentColor}
+          faqs={overseasRetreatsFaqs}
+        />
       )}
 
       {/* Accent gradient bar above testimonials */}
