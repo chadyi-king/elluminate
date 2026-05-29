@@ -362,6 +362,16 @@ const ServicePage = () => {
         />
       )}
 
+      {/* FAQ (amazing race) */}
+      {slug === "amazing-race" && (
+        <ServiceFAQAccordion
+          title="Amazing Race FAQ"
+          subtitle="Frequently asked questions about our Amazing Race team building programmes in Singapore."
+          accentColor={service.accentColor}
+          faqs={amazingRaceFaqs}
+        />
+      )}
+
       {/* 9. Perfect For Section */}
       {service.perfectForFlow && (
         <>
