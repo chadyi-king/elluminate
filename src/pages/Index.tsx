@@ -7,6 +7,7 @@ import { TrafficLightSection } from "@/components/TrafficLightSection";
 import { CaseStudiesSection } from "@/components/CaseStudiesSection";
 import { GallerySection } from "@/components/GallerySection";
 import { CTASection } from "@/components/CTASection";
+import { HomeFAQSection } from "@/components/HomeFAQSection";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebSiteSchema } from "@/components/StructuredData";
@@ -32,6 +33,7 @@ const Index = () => {
         <TrafficLightSection />
         <CaseStudiesSection />
         <GallerySection />
+        <HomeFAQSection />
         <CTASection />
       </main>
       <Footer />
