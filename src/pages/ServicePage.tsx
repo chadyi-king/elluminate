@@ -437,6 +437,8 @@ const ServicePage = () => {
               itemsPerRow={service.perfectForFlow.itemsPerRow}
               showNumbers={service.perfectForFlow.showNumbers}
             />
+          )}
+        </>
       )}
 
       {/* FAQ (running man) */}
@@ -457,8 +459,6 @@ const ServicePage = () => {
           accentColor={service.accentColor}
           faqs={workshopsFaqs}
         />
-      )}
-        </>
       )}
 
       {/* Mini gallery (data-driven) */}
