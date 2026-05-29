@@ -400,6 +400,16 @@ const ServicePage = () => {
         />
       )}
 
+      {/* FAQ (amazing race) */}
+      {slug === "amazing-race" && (
+        <ServiceFAQAccordion
+          title="Amazing Race FAQ"
+          subtitle="Frequently asked questions about our Amazing Race team building programmes in Singapore."
+          accentColor={service.accentColor}
+          faqs={amazingRaceFaqs}
+        />
+      )}
+
       {/* Accent gradient bar above testimonials */}
       <div className="h-px" style={{ background: `linear-gradient(90deg, transparent, ${service.accentColor}80, transparent)` }} />
 
