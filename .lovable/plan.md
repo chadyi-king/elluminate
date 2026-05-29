@@ -1,31 +1,31 @@
-## Add FAQ Section to Running Man Page
+## Add FAQ Section to Workshops & Training Page
 
-Reuse the existing `ServiceFAQAccordion` (already used for overseas-retreats and amazing-race) and render it conditionally for the `running-man` slug on `ServicePage.tsx`, placed directly above the testimonials section alongside the other service FAQs.
+Reuse the existing `ServiceFAQAccordion` and render it conditionally for the `workshops` slug on `ServicePage.tsx`, placed alongside the other service FAQ blocks (just above the testimonials accent bar).
 
 ### Files
 
 **Edit: `src/pages/ServicePage.tsx`**
-- Add a local `runningManFaqs` const with the 5 Q&A pairs (verbatim from the request).
-- Next to the existing amazing-race FAQ block (just above the accent bar before testimonials), add:
+- Add a local `workshopsFaqs` const with the 5 Q&A pairs (verbatim from the request).
+- Add a new conditional block next to the existing FAQ blocks:
   ```tsx
-  {slug === "running-man" && (
+  {slug === "workshops" && (
     <ServiceFAQAccordion
-      title="Running Man FAQ"
-      subtitle="Frequently asked questions about our Running Man team building programmes in Singapore."
+      title="Workshops & Training FAQ"
+      subtitle="Frequently asked questions about our corporate workshops, training programmes, and learning experiences."
       accentColor={service.accentColor}
-      faqs={runningManFaqs}
+      faqs={workshopsFaqs}
     />
   )}
   ```
 
 ### FAQ content (verbatim)
-1. What is a Running Man team building event?
-2. Is Name Tag Elimination included?
-3. Is Running Man suitable for corporate teams?
-4. Can Running Man be conducted indoors?
-5. How many participants can join a Running Man event?
+1. What corporate workshops do you offer?
+2. Can workshops be combined with team building activities?
+3. Do you provide personality profiling workshops?
+4. How long are your workshops?
+5. Are your workshops suitable for hybrid teams?
 
 ### Design notes
 - No new component — `ServiceFAQAccordion` already matches site styling (light gradient bg, rounded-2xl cards, shadcn Accordion with chevron, Framer Motion fade-in-up, accent dot using service `accentColor`, `FAQPage` JSON-LD for SEO).
-- Running Man's `accentColor` will automatically tint the dot/header for subtle on-brand energy without breaking the corporate look.
+- Workshops' assigned `accentColor` (per the retreats/training accent token map) automatically tints the dot/header for a learning-focused, on-brand feel.
 - No changes to data, routing, or other services.
