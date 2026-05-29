@@ -448,6 +448,16 @@ const ServicePage = () => {
           faqs={runningManFaqs}
         />
       )}
+
+      {/* FAQ (workshops) */}
+      {slug === "workshops" && (
+        <ServiceFAQAccordion
+          title="Workshops & Training FAQ"
+          subtitle="Frequently asked questions about our corporate workshops, training programmes, and learning experiences."
+          accentColor={service.accentColor}
+          faqs={workshopsFaqs}
+        />
+      )}
         </>
       )}
 
