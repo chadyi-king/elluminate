@@ -1,31 +1,31 @@
-## Add FAQ Section to Amazing Race Page
+## Add FAQ Section to Running Man Page
 
-Reuse the existing `ServiceFAQAccordion` component (already built for overseas-retreats) and render it conditionally for the `amazing-race` slug on `ServicePage.tsx`, placed directly above the "What Our Clients Say" testimonials section.
+Reuse the existing `ServiceFAQAccordion` (already used for overseas-retreats and amazing-race) and render it conditionally for the `running-man` slug on `ServicePage.tsx`, placed directly above the testimonials section alongside the other service FAQs.
 
 ### Files
 
 **Edit: `src/pages/ServicePage.tsx`**
-- Add a local `amazingRaceFaqs` const with the 5 Q&A pairs (verbatim from the request).
-- Directly above the testimonials block (same insertion point as the overseas-retreats FAQ), add:
+- Add a local `runningManFaqs` const with the 5 Q&A pairs (verbatim from the request).
+- Next to the existing amazing-race FAQ block (just above the accent bar before testimonials), add:
   ```tsx
-  {slug === "amazing-race" && (
+  {slug === "running-man" && (
     <ServiceFAQAccordion
-      title="Amazing Race FAQ"
-      subtitle="Frequently asked questions about our Amazing Race team building programmes in Singapore."
+      title="Running Man FAQ"
+      subtitle="Frequently asked questions about our Running Man team building programmes in Singapore."
       accentColor={service.accentColor}
-      faqs={amazingRaceFaqs}
+      faqs={runningManFaqs}
     />
   )}
   ```
 
 ### FAQ content (verbatim)
-1. What is an Amazing Race team building activity?
-2. Is Amazing Race suitable for all fitness levels?
-3. What happens if it rains during the Amazing Race?
-4. Can the Amazing Race be customised?
-5. Where can Amazing Race team building activities be conducted?
+1. What is a Running Man team building event?
+2. Is Name Tag Elimination included?
+3. Is Running Man suitable for corporate teams?
+4. Can Running Man be conducted indoors?
+5. How many participants can join a Running Man event?
 
 ### Design notes
-- No new component needed — `ServiceFAQAccordion` already matches the site's clean corporate FAQ styling (light gradient background, rounded-2xl cards, shadcn Accordion with chevron, Framer Motion fade-in-up, `FAQPage` JSON-LD for SEO, accent dot using the service `accentColor`).
-- Fully responsive, hover lifts shadow, smooth expand/collapse via existing `accordion-down/up` animations.
-- No changes to other services, routing, or data layer.
+- No new component — `ServiceFAQAccordion` already matches site styling (light gradient bg, rounded-2xl cards, shadcn Accordion with chevron, Framer Motion fade-in-up, accent dot using service `accentColor`, `FAQPage` JSON-LD for SEO).
+- Running Man's `accentColor` will automatically tint the dot/header for subtle on-brand energy without breaking the corporate look.
+- No changes to data, routing, or other services.

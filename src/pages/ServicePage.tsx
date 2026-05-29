@@ -79,6 +79,34 @@ const amazingRaceFaqs = [
   },
 ];
 
+const runningManFaqs = [
+  {
+    question: "What is a Running Man team building event?",
+    answer:
+      "Running Man is a fast-paced team building programme inspired by the popular Korean variety show. Teams compete in a series of interactive missions, games, and challenges to earn points.",
+  },
+  {
+    question: "Is Name Tag Elimination included?",
+    answer:
+      "Name Tag Elimination can be included as an optional finale activity depending on venue suitability and participant preferences.",
+  },
+  {
+    question: "Is Running Man suitable for corporate teams?",
+    answer:
+      "Yes. Running Man activities are designed for corporate team bonding and focus on teamwork, communication, strategy, and engagement.",
+  },
+  {
+    question: "Can Running Man be conducted indoors?",
+    answer:
+      "Yes. Indoor and outdoor versions are available depending on venue availability and weather conditions.",
+  },
+  {
+    question: "How many participants can join a Running Man event?",
+    answer:
+      "We can facilitate Running Man programmes for small teams of 20 participants to large-scale corporate events with several hundred participants.",
+  },
+];
+
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? servicesData[slug] : null;
@@ -381,7 +409,17 @@ const ServicePage = () => {
               itemsPerRow={service.perfectForFlow.itemsPerRow}
               showNumbers={service.perfectForFlow.showNumbers}
             />
-          )}
+      )}
+
+      {/* FAQ (running man) */}
+      {slug === "running-man" && (
+        <ServiceFAQAccordion
+          title="Running Man FAQ"
+          subtitle="Frequently asked questions about our Running Man team building programmes in Singapore."
+          accentColor={service.accentColor}
+          faqs={runningManFaqs}
+        />
+      )}
         </>
       )}
 
