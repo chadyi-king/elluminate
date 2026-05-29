@@ -409,7 +409,17 @@ const ServicePage = () => {
               itemsPerRow={service.perfectForFlow.itemsPerRow}
               showNumbers={service.perfectForFlow.showNumbers}
             />
-          )}
+      )}
+
+      {/* FAQ (running man) */}
+      {slug === "running-man" && (
+        <ServiceFAQAccordion
+          title="Running Man FAQ"
+          subtitle="Frequently asked questions about our Running Man team building programmes in Singapore."
+          accentColor={service.accentColor}
+          faqs={runningManFaqs}
+        />
+      )}
         </>
       )}
 
