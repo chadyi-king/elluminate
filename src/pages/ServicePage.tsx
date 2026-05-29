@@ -51,6 +51,34 @@ const overseasRetreatsFaqs = [
   },
 ];
 
+const amazingRaceFaqs = [
+  {
+    question: "What is an Amazing Race team building activity?",
+    answer:
+      "Amazing Race is a team building experience where participants solve clues, complete challenges, and navigate checkpoints while working together toward a common goal.",
+  },
+  {
+    question: "Is Amazing Race suitable for all fitness levels?",
+    answer:
+      "Yes. We design routes and challenges to suit different age groups, fitness levels, and participant profiles.",
+  },
+  {
+    question: "What happens if it rains during the Amazing Race?",
+    answer:
+      "We provide wet-weather contingency plans and can incorporate sheltered checkpoints, indoor venues, or alternative game formats.",
+  },
+  {
+    question: "Can the Amazing Race be customised?",
+    answer:
+      "Yes. We can customise challenges, routes, branding, company messages, and learning outcomes.",
+  },
+  {
+    question: "Where can Amazing Race team building activities be conducted?",
+    answer:
+      "Popular locations include Sentosa, Marina Bay, Gardens by the Bay, Chinatown, Civic District, Jewel Changi Airport, and custom locations across Singapore.",
+  },
+];
+
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? servicesData[slug] : null;
@@ -369,6 +397,16 @@ const ServicePage = () => {
           subtitle="Common questions about planning and organising overseas corporate retreats for your team."
           accentColor={service.accentColor}
           faqs={overseasRetreatsFaqs}
+        />
+      )}
+
+      {/* FAQ (amazing race) */}
+      {slug === "amazing-race" && (
+        <ServiceFAQAccordion
+          title="Amazing Race FAQ"
+          subtitle="Frequently asked questions about our Amazing Race team building programmes in Singapore."
+          accentColor={service.accentColor}
+          faqs={amazingRaceFaqs}
         />
       )}
 
