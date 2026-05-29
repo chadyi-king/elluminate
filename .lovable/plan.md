@@ -1,27 +1,40 @@
-# Add Homepage FAQ Section
+## Add FAQ Section to Overseas Corporate Retreats Page
 
-Add a new accordion-style FAQ section to the homepage, placed directly below the Event Gallery and above the CTA section. Styled to match the existing Elluminate homepage (light background, Anton display headings, rounded cards, soft gradients, brand blue accents).
+Add an accordion FAQ section to `/services/overseas-retreats`, placed directly above the "What Our Clients Say" testimonials section. Match the homepage `HomeFAQSection` styling for consistency.
 
-## Files
+### Files
 
-**New: `src/components/HomeFAQSection.tsx`**
-- Light section (`bg-gradient-to-b from-background to-secondary/30`) so it bridges the Gallery (dark gradient end) and CTA below.
-- Container with section header:
-  - Eyebrow: "FAQ" in primary blue, uppercase tracked.
-  - H2: "Frequently Asked <span class='text-primary'>Questions</span>" using `font-display font-black`.
-  - Subtitle: "Everything you need to know about our corporate team building programmes in Singapore." in `text-muted-foreground`.
-- Uses shadcn `Accordion` (type="single", collapsible) wrapped in a `max-w-3xl mx-auto` container.
-- Each `AccordionItem`: rounded-2xl card, `bg-card`, soft border, subtle shadow, hover lifts shadow + border tint to `primary/40`, smooth chevron rotation (already built into shadcn accordion).
-- Framer Motion fade-in-up on header and stagger on items (matches GallerySection pattern).
-- FAQ data array contains the 5 Q&A pairs verbatim from the request.
-- Includes FAQPage JSON-LD `<script type="application/ld+json">` for SEO (bonus, no UI impact).
+**New: `src/components/service-page/ServiceFAQAccordion.tsx`**
+- Reusable accordion FAQ section styled to match `HomeFAQSection` (light background `bg-gradient-to-b from-background via-secondary/20 to-background`, soft decorative blobs, `max-w-3xl mx-auto` container, rounded-2xl cards with `bg-card`, hover lifts shadow + `border-primary/40`, primary blue dot before each question).
+- Props: `title`, `subtitle`, `faqs: { question, answer }[]`, optional `accentColor` (used for the dot + hover border to match the service page accent).
+- shadcn `Accordion` (type="single", collapsible) with built-in chevron + smooth `accordion-down/up` animations.
+- Framer Motion fade-in-up on header and items (matches site pattern).
+- Renders `FAQPage` JSON-LD `<script type="application/ld+json">` so content is SEO-crawlable.
+- All text uses semantic tokens (`text-foreground`, `text-muted-foreground`, `font-display`).
 
-**Edit: `src/pages/Index.tsx`**
-- Import `HomeFAQSection`.
-- Render `<HomeFAQSection />` between `<GallerySection />` and `<CTASection />`.
+**Edit: `src/pages/ServicePage.tsx`**
+- Import `ServiceFAQAccordion`.
+- Directly above the testimonials block (line 339, before the accent gradient bar on line 337), render the FAQ only when `slug === "overseas-retreats"`:
+  ```tsx
+  {slug === "overseas-retreats" && (
+    <ServiceFAQAccordion
+      title="Corporate Retreat FAQ"
+      subtitle="Common questions about planning and organising overseas corporate retreats for your team."
+      accentColor={service.accentColor}
+      faqs={overseasRetreatsFaqs}
+    />
+  )}
+  ```
+- Define the 5 Q&A pairs (verbatim from the request) as a local const `overseasRetreatsFaqs` at the top of the file (or co-locate inside the component file and import).
 
-## Design Notes
-- Reuses existing semantic tokens (`primary`, `muted-foreground`, `card`, `border`) — no new colors.
-- Mobile: full-width accordion items, comfortable padding (`px-5 py-4`), 16px body text.
-- Animation: shadcn's built-in `accordion-down/up` keyframes (already in tailwind config).
-- No changes to other components, routing, or data.
+### FAQ content (verbatim)
+1. What is a corporate retreat?
+2. Do you organise overseas corporate retreats?
+3. What activities can be included in a corporate retreat?
+4. How long should a corporate retreat be?
+5. Can you handle retreat logistics and planning?
+
+### Design notes
+- Visually identical to the homepage FAQ for brand consistency, but accent dot/hover-border use the overseas-retreats service `accentColor` for subtle page cohesion.
+- Mobile: full-width items, `px-5 py-4`, 16px body text.
+- No changes to other services, routing, data layer, or other components.
