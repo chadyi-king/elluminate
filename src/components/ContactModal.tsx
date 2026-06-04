@@ -60,6 +60,9 @@ const addOnServices = [
 ];
 
 const STORAGE_KEY = "contact_form_draft";
+const FORM_NAME = "plan_my_event";
+const BRAND = "elluminate";
+const SERVICE = "corporate_physical_team_building";
 
 type TrackingWindow = Window & {
   dataLayer?: Array<Record<string, unknown> | unknown[]>;
@@ -191,15 +194,19 @@ export const ContactModal = () => {
     const attribution = getAttribution();
     const submissionPage =
       typeof window !== "undefined" ? window.location.pathname + window.location.search : null;
+    const submittedAt = new Date().toISOString();
 
     try {
       const submissionId = crypto.randomUUID();
       const { error } = await supabase.from("contact_submissions").insert({
         id: submissionId,
+        lead_id: submissionId,
+        brand: BRAND,
+        service: SERVICE,
         name: formData.name,
         email: formData.email,
         phone: formData.phone || null,
-        event_category: formData.eventCategory || null,
+        event_category: activeEventCategory || null,
         organisation: formData.organisation || null,
         organisation_type: formData.organisationType || null,
         expected_attendees: formData.expectedAttendees || null,
@@ -210,6 +217,9 @@ export const ContactModal = () => {
         expected_date: selectedDate?.toISOString() || null,
         // attribution
         gclid: attribution.gclid || null,
+        gbraid: attribution.gbraid || null,
+        wbraid: attribution.wbraid || null,
+        gad_source: attribution.gad_source || null,
         utm_source: attribution.utm_source || null,
         utm_medium: attribution.utm_medium || null,
         utm_campaign: attribution.utm_campaign || null,
@@ -218,7 +228,8 @@ export const ContactModal = () => {
         referrer: attribution.referrer || null,
         landing_page: attribution.landing_page || null,
         submission_page: submissionPage,
-        form_name: "contact",
+        form_name: FORM_NAME,
+        attribution_captured_at: attribution.captured_at || null,
       });
 
       if (error) throw error;
@@ -231,10 +242,13 @@ export const ContactModal = () => {
           idempotencyKey: `contact-inquiry-${submissionId}`,
           replyTo: formData.email,
           templateData: {
+            lead_id: submissionId,
+            brand: BRAND,
+            service: SERVICE,
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
-            eventCategory: formData.eventCategory,
+            eventCategory: activeEventCategory,
             organisation: formData.organisation,
             organisationType: formData.organisationType,
             expectedAttendees: formData.expectedAttendees,
@@ -244,6 +258,9 @@ export const ContactModal = () => {
             expectedDate: selectedDate ? format(selectedDate, "PPP") : "Not specified",
             addOnServices: formData.addOnServices.join(", ") || "None",
             gclid: attribution.gclid,
+            gbraid: attribution.gbraid,
+            wbraid: attribution.wbraid,
+            gad_source: attribution.gad_source,
             utm_source: attribution.utm_source,
             utm_medium: attribution.utm_medium,
             utm_campaign: attribution.utm_campaign,
@@ -252,8 +269,9 @@ export const ContactModal = () => {
             referrer: attribution.referrer,
             landing_page: attribution.landing_page,
             submission_page: submissionPage,
+            attribution_captured_at: attribution.captured_at,
             user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
-            submitted_at: new Date().toISOString(),
+            submitted_at: submittedAt,
           },
         },
       });
@@ -267,44 +285,42 @@ export const ContactModal = () => {
         },
       });
 
-      // Push form_submit event to dataLayer for GTM (will route to GA4 + Ads via container)
       if (typeof window !== "undefined") {
         const w = window as TrackingWindow;
         w.dataLayer = w.dataLayer || [];
-        w.dataLayer.push({
-          event: "form_submit",
-          form_name: "contact",
-          form_location: submissionPage,
+        const leadPayload = {
+          form_name: FORM_NAME,
+          brand: BRAND,
+          service: SERVICE,
+          value: 150,
+          currency: "SGD",
+          event_category: activeEventCategory || undefined,
+          lead_id: submissionId,
+          event_id: submissionId,
+          page_path: submissionPage || undefined,
+          submission_page: submissionPage || undefined,
           gclid: attribution.gclid,
+          gbraid: attribution.gbraid,
+          wbraid: attribution.wbraid,
+          gad_source: attribution.gad_source,
           utm_source: attribution.utm_source,
           utm_medium: attribution.utm_medium,
           utm_campaign: attribution.utm_campaign,
           utm_term: attribution.utm_term,
           utm_content: attribution.utm_content,
-        });
-
-        const leadPayload = {
-          form_name: "plan_my_event",
-          brand: "elluminate",
-          service: "corporate_physical_team_building",
-          value: 150,
-          currency: "SGD",
-          event_category: formData.eventCategory || undefined,
-          lead_id: submissionId,
-          page_path: submissionPage || undefined,
         };
+
+        w.dataLayer.push({
+          event: "elluminate_lead_submitted",
+          ...leadPayload,
+        });
 
         if (typeof w.gtag === "function") {
           w.gtag("event", "generate_lead", leadPayload);
-        } else {
-          w.dataLayer.push({
-            event: "generate_lead",
-            ...leadPayload,
-          });
         }
       }
 
-      // Reset and redirect to thank-you page (where conversion event fires)
+      // Reset and redirect to thank-you page, which only records a diagnostic page view.
       closeContactModal();
       setFormData({
         name: "",

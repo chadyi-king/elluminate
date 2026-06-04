@@ -21,7 +21,13 @@ interface ContactInquiryProps {
   addOnServices?: string
   additionalDetails?: string
   // attribution
+  lead_id?: string
+  brand?: string
+  service?: string
   gclid?: string
+  gbraid?: string
+  wbraid?: string
+  gad_source?: string
   utm_source?: string
   utm_medium?: string
   utm_campaign?: string
@@ -30,6 +36,7 @@ interface ContactInquiryProps {
   referrer?: string
   landing_page?: string
   submission_page?: string
+  attribution_captured_at?: string
   user_agent?: string
   submitted_at?: string
 }
@@ -50,7 +57,7 @@ const hostFromUrl = (url?: string) => {
 }
 
 const sourceSummary = (p: ContactInquiryProps) => {
-  if (p.gclid) return 'Google Ads (paid click)'
+  if (p.gclid || p.gbraid || p.wbraid || p.gad_source) return 'Google Ads (paid click)'
   if (p.utm_source) return `${p.utm_source}${p.utm_medium ? ` / ${p.utm_medium}` : ''}${p.utm_campaign ? ` — ${p.utm_campaign}` : ''}`
   const refHost = hostFromUrl(p.referrer)
   if (refHost) return `Referral — ${refHost}`
@@ -126,7 +133,13 @@ const ContactInquiryEmail = (props: ContactInquiryProps) => (
         <Section style={attribCard}>
           <Heading as="h2" style={h2}>Marketing Attribution</Heading>
           <Text style={sourcePill}>Source: {sourceSummary(props)}</Text>
+          <Row label="Lead / Submission ID" value={props.lead_id} />
+          <Row label="Brand" value={props.brand} />
+          <Row label="Service" value={props.service} />
           <Row label="Google Click ID" value={props.gclid} />
+          <Row label="gbraid" value={props.gbraid} />
+          <Row label="wbraid" value={props.wbraid} />
+          <Row label="gad_source" value={props.gad_source} />
           <Row label="UTM Source" value={props.utm_source} />
           <Row label="UTM Medium" value={props.utm_medium} />
           <Row label="UTM Campaign" value={props.utm_campaign} />
@@ -135,6 +148,7 @@ const ContactInquiryEmail = (props: ContactInquiryProps) => (
           <Row label="Referrer" value={props.referrer} />
           <Row label="Landing Page" value={props.landing_page} />
           <Row label="Submitted From" value={props.submission_page} />
+          <Row label="Attribution Captured At" value={formatSGTime(props.attribution_captured_at)} />
           <Row label="Device / Browser" value={parseUA(props.user_agent)} />
           <Row label="Submitted At" value={formatSGTime(props.submitted_at)} />
         </Section>
@@ -150,10 +164,13 @@ const ContactInquiryEmail = (props: ContactInquiryProps) => (
 
 export const template = {
   component: ContactInquiryEmail,
-  subject: (data: Record<string, any>) =>
+  subject: (data: Record<string, unknown>) =>
     `New Inquiry — ${data.name ?? 'Website Lead'}${data.organisation ? ` (${data.organisation})` : ''}`,
   displayName: 'Contact form inquiry',
   previewData: {
+    lead_id: '8b3c3d0a-7d6c-4d64-bc08-10df38a94542',
+    brand: 'elluminate',
+    service: 'corporate_physical_team_building',
     name: 'Jane Tan',
     email: 'jane@example.com',
     phone: '+65 9123 4567',
@@ -167,6 +184,10 @@ export const template = {
     utm_medium: 'cpc',
     utm_campaign: 'team-building-sg',
     gclid: 'Cj0KCQiA...',
+    gbraid: '0AAAAA-test-gbraid',
+    wbraid: '0AAAAA-test-wbraid',
+    gad_source: '1',
+    attribution_captured_at: new Date().toISOString(),
     user_agent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Safari/604.1',
     submitted_at: new Date().toISOString(),
   },

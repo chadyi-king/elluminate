@@ -1,15 +1,17 @@
 /**
- * Captures and persists marketing attribution (UTM params + Google Click ID)
+ * Captures and persists marketing attribution (UTM params + Google click IDs)
  * to a first-party cookie so we know which ad/campaign brought a visitor
  * even if they fill out a form days later.
  */
 
 const COOKIE_NAME = "el_attr";
 const COOKIE_DAYS = 90;
-const LANDING_KEY = "el_landing";
 
 export interface Attribution {
   gclid?: string;
+  gbraid?: string;
+  wbraid?: string;
+  gad_source?: string;
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
@@ -22,6 +24,9 @@ export interface Attribution {
 
 const TRACKED_KEYS = [
   "gclid",
+  "gbraid",
+  "wbraid",
+  "gad_source",
   "utm_source",
   "utm_medium",
   "utm_campaign",
@@ -52,9 +57,45 @@ export function getAttribution(): Attribution {
   }
 }
 
+const getCurrentPage = () => window.location.pathname + window.location.search;
+
+const getExternalReferrer = () => {
+  if (!document.referrer) return undefined;
+
+  try {
+    const refHost = new URL(document.referrer).hostname;
+    if (refHost && !refHost.includes(window.location.hostname)) {
+      return document.referrer;
+    }
+  } catch {
+    return document.referrer;
+  }
+
+  return undefined;
+};
+
+const hasCampaignSignal = (params: URLSearchParams) =>
+  TRACKED_KEYS.some((key) => Boolean(params.get(key)));
+
+const logAttributionDebug = (attribution: Attribution, updatedKeys: string[]) => {
+  if (!import.meta.env.DEV) return;
+
+  const landingPath = attribution.landing_page
+    ? attribution.landing_page.split("?")[0]
+    : undefined;
+
+  console.info("[Elluminate attribution]", {
+    updatedKeys,
+    storedKeys: TRACKED_KEYS.filter((key) => Boolean(attribution[key])),
+    hasReferrer: Boolean(attribution.referrer),
+    landingPath,
+  });
+};
+
 /**
- * Run on app load. Reads UTM params and gclid from the URL, merges into
- * the attribution cookie, and stores the landing page on first visit.
+ * Run on app load. Reads UTM params and Google Ads click IDs from the URL,
+ * merges them into the 90-day attribution cookie, and preserves the first
+ * landing page captured during that cookie window.
  */
 export function captureAttribution() {
   if (typeof window === "undefined") return;
@@ -63,43 +104,34 @@ export function captureAttribution() {
   const existing = getAttribution();
   const next: Attribution = { ...existing };
   let changed = false;
+  const updatedKeys: string[] = [];
+  const campaignSignal = hasCampaignSignal(params);
 
   for (const key of TRACKED_KEYS) {
     const value = params.get(key);
     if (value) {
       next[key] = value;
       changed = true;
+      updatedKeys.push(key);
     }
   }
 
-  // Capture referrer once (only if external)
-  if (!existing.referrer && document.referrer) {
-    try {
-      const refHost = new URL(document.referrer).hostname;
-      if (refHost && !refHost.includes(window.location.hostname)) {
-        next.referrer = document.referrer;
-        changed = true;
-      }
-    } catch {
-      /* noop */
-    }
+  const externalReferrer = getExternalReferrer();
+  if (externalReferrer && (!existing.referrer || campaignSignal)) {
+    next.referrer = externalReferrer;
+    changed = true;
+    updatedKeys.push("referrer");
   }
 
-  // Landing page persisted in localStorage (sticky for whole user history)
-  if (typeof localStorage !== "undefined") {
-    const landing = localStorage.getItem(LANDING_KEY);
-    if (!landing) {
-      const url = window.location.pathname + window.location.search;
-      localStorage.setItem(LANDING_KEY, url);
-      next.landing_page = url;
-      changed = true;
-    } else if (!next.landing_page) {
-      next.landing_page = landing;
-    }
+  if (!next.landing_page) {
+    next.landing_page = getCurrentPage();
+    changed = true;
+    updatedKeys.push("landing_page");
   }
 
   if (changed) {
     next.captured_at = new Date().toISOString();
     setCookie(COOKIE_NAME, JSON.stringify(next), COOKIE_DAYS);
+    logAttributionDebug(next, updatedKeys);
   }
 }
