@@ -3,10 +3,9 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 
 const page = readFileSync("src/pages/TeamBuildingHubPage.tsx", "utf8");
-const modal = readFileSync("src/components/ContactModal.tsx", "utf8");
-const context = readFileSync("src/contexts/ContactModalContext.tsx", "utf8");
-const navbar = readFileSync("src/components/Navbar.tsx", "utf8");
 const app = readFileSync("src/App.tsx", "utf8");
+const navbar = readFileSync("src/components/Navbar.tsx", "utf8");
+const thankYou = readFileSync("src/pages/ThankYouPage.tsx", "utf8");
 const prerenderSeo = readFileSync("scripts/prerender-seo.mjs", "utf8");
 const sitemap = readFileSync("public/sitemap.xml", "utf8");
 
@@ -21,106 +20,115 @@ test("team building route is declared before generic service route", () => {
   assert.ok(hubRouteIndex < genericRouteIndex, "team building route must be declared before /services/:slug");
 });
 
-test("team building landing page has one H1 and V4 message match", () => {
+test("V5 page has one H1, quote-brief message match, and updated SEO", () => {
   assert.equal((page.match(/<h1\b/g) ?? []).length, 1);
+  assert.match(page, /Team building your team will actually rave about on Monday\./);
+  assert.match(page, /actually rave about/);
+  assert.match(page, /Get My Free Quote/);
+  assert.match(page, /Send Me 3 Options \+ Prices/);
+  assert.match(page, /Team Building Singapore - 3 Matched Options & Prices \| Elluminate/);
   assert.match(
-    normalize(page),
-    /Corporate Team Building in Singapore, Planned Around Your Pax, Venue And Goal/,
+    page,
+    /Skip the 50-activity catalogue\. Tell us your headcount, date and venue, then request 3 best-fit team building options with prices from Elluminate\./,
   );
-  assert.match(page, /Corporate Physical Team Building Singapore \| Elluminate/);
-  assert.match(page, /pax, date, venue, and objective/i);
+  assert.match(prerenderSeo, /Team Building Singapore - 3 Matched Options & Prices \| Elluminate/);
 });
 
-test("team activity brief opens existing modal with context fields", () => {
-  assert.match(page, /Team Activity Brief/);
-  assert.match(page, /Get My Activity Recommendation/);
-  assert.match(page, /expectedAttendees: brief\.pax/);
-  assert.match(page, /additionalDetails: buildBriefDetails/);
-  assert.match(page, /openBriefModal\("Virtual Team Building"\)/);
-  assert.match(context, /expectedAttendees\?: string/);
-  assert.match(context, /additionalDetails\?: string/);
-  assert.match(
-    modal,
-    /expectedAttendees: (?:expectedAttendees|modalContext\.expectedAttendees) \?\? (?:previous|prev)\.expectedAttendees/,
-  );
+test("quote brief form writes to the existing contact submission and email path", () => {
+  assert.match(page, /id="quote"/);
+  assert.match(page, /name="name"/);
+  assert.match(page, /name="email"/);
+  assert.match(page, /name="pax"/);
+  assert.match(page, /name="timing"/);
+  assert.match(page, /name="venue"/);
+  assert.match(page, /name="objective"/);
+  assert.match(page, /privacyConsent/);
+  assert.match(page, /honeypot/);
+  assert.match(page, /team_building_quote_brief/);
+  assert.match(page, /supabase\.from\("contact_submissions"\)\.insert/);
+  assert.match(page, /send-transactional-email/);
+  assert.match(page, /contact-inquiry/);
+  assert.match(page, /event_category: "Physical Team Building"/);
+  assert.match(page, /additional_details: buildBriefDetails/);
 });
 
-test("V4 page includes activity ideas, reassurance, and no internal planning copy", () => {
-  assert.match(page, /Top 10 Fun Team Building Activity Ideas/);
-  assert.match(page, /What Elluminate checks before recommending an activity/);
-  assert.match(page, /claim-safe trust/i);
-  assert.match(page, /Pick from 10 activity directions/i);
+test("landing CTAs and filter controls match the V5 conversion path", () => {
+  assert.match(page, /Activities/);
+  assert.match(page, /How It Works/);
+  assert.match(page, /Pricing/);
+  assert.match(page, /Reviews/);
+  assert.match(page, /FAQ/);
+  assert.match(page, /href="#quote"/);
+  assert.match(page, /sticky bottom-0/);
+  assert.match(page, /whatsappUrl/);
+  assert.match(page, /activityFilter/);
+  assert.match(page, /All/);
+  assert.match(page, /Outdoor/);
+  assert.match(page, /Indoor/);
+  assert.match(page, /High energy/);
+  assert.match(page, /Low exertion/);
+  assert.match(page, /Virtual/);
+  assert.match(page, /Check fit/);
+});
 
-  const internalCopyPatterns = [
-    /the page should/i,
-    /should feel like/i,
-    /planning logic the page should/i,
-    /not a dump of every activity/i,
-    /recommended for ads traffic/i,
+test("page includes required V5 sections and structured data", () => {
+  const requiredCopy = [
+    "FOR HR & ADMIN PLANNERS",
+    "How It Works",
+    "MOST-BOOKED FORMATS",
+    "The catalogue way vs. the Elluminate way",
+    "A Friday afternoon, handled end to end",
+    "Companies & MNCs",
+    "Government & Statutory Boards",
+    "Schools & Institutions",
+    "Facilitators who can read a room",
+    "Real events, real laughter",
+    "Know the ballpark before you enquire",
+    "Booked it. Boss-proof it.",
+    "Your team's best afternoon this year starts with a 60-second brief.",
   ];
 
-  for (const pattern of internalCopyPatterns) {
-    assert.doesNotMatch(page, pattern);
+  for (const copy of requiredCopy) {
+    assert.match(page, new RegExp(copy.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
-});
 
-test("FAQ schema and sitemap route are present", () => {
   assert.match(page, /<FAQSchema faqs=\{faqs\}/);
+  assert.match(page, /<OrganizationSchema type="LocalBusiness"/);
   assert.match(sitemap, /https:\/\/elluminate\.sg\/services\/team-building/);
-  assert.match(sitemap, /<lastmod>2026-05-23<\/lastmod>/);
 });
 
-test("static SEO prerender copy matches the landing-page direction", () => {
-  const entry = prerenderSeo.match(/"team-building": \{[^}]+\}/)?.[0] ?? "";
-
-  assert.match(entry, /Corporate Physical Team Building Singapore \| Elluminate/);
-  assert.match(entry, /pax, date, venue, and objective/i);
-  assert.doesNotMatch(entry, /trusted|1,000\+|100K\+|fast Plan My Event|best|#1|guarantee/i);
+test("analytics events are diagnostics and submit success owns the conversion truth", () => {
+  assert.match(page, /pushLandingEvent\("form_start"/);
+  assert.match(page, /pushLandingEvent\("cta_click"/);
+  assert.doesNotMatch(page, /pushLandingEvent\("form_submit"/);
+  assert.doesNotMatch(page, /qualified_lead/);
 });
 
-test("navbar parent Team Building link points to landing page", () => {
+test("team building nav parent still links directly to landing page", () => {
   assert.match(navbar, /(?:to|parentPath)="\/services\/team-building"/);
   assert.doesNotMatch(navbar, /Team Building Overview/);
 });
 
-test("landing page avoids banned equipment and unsupported proof copy", () => {
-  const bannedPageTerms = [
-    "laser",
-    "archery tag",
-    "gelblitz",
-    "gel-blitz",
-    "nerfwar",
+test("V5 landing page avoids placeholders, leaked internal copy, and hard response promises", () => {
+  const checked = normalize([page, thankYou].join("\n")).toLowerCase();
+  const banned = [
+    "◆",
+    "planning confidence",
+    "until owner-approved",
+    "within 24 hours",
+    "24h",
+    "24-hour",
+    "24 hour",
+    "guarantee",
+    "guaranteed",
+    "within 1 business day",
+    "#1",
+    "best team building",
     "birthday",
     "rental",
-    "school",
-    "camp",
-    "recommended for ads traffic",
-    "sitelinks",
-    "trusted",
-    "best",
-    "#1",
-    "guaranteed",
-    "guarantee",
-    "1,000+",
-    "100k+",
-    "8+ years",
   ];
 
-  const lowerPage = page.toLowerCase();
-  for (const term of bannedPageTerms) {
-    assert.equal(lowerPage.includes(term), false, `Unexpected page term: ${term}`);
-  }
-
-  const bannedModalTerms = [
-    "1,000+",
-    "100k+",
-    "8+",
-    "trusted partner",
-    "typically replies",
-    "within 1 business day",
-  ];
-  const lowerModal = modal.toLowerCase();
-  for (const term of bannedModalTerms) {
-    assert.equal(lowerModal.includes(term), false, `Unexpected modal term: ${term}`);
+  for (const term of banned) {
+    assert.equal(checked.includes(term), false, `Unexpected term: ${term}`);
   }
 });

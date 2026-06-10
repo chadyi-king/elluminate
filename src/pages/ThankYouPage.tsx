@@ -58,8 +58,8 @@ export default function ThankYouPage() {
 
             <p className="text-lg text-muted-foreground mb-2">Thank you for reaching out to Elluminate.</p>
             <p className="text-base text-muted-foreground mb-10">
-              Our team will get back to you within <span className="font-semibold text-foreground">1 business day</span>
-              . In the meantime, take a look at what we've been up to.
+              Our team will review your enquiry and reply with the next useful planning step. In the meantime, take a
+              look at what we've been up to.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
