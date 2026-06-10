@@ -161,76 +161,69 @@ const faqs = [
 
 const clientLogos = [
   {
-    name: "DBS Bank",
-    logo: "https://res.cloudinary.com/dtc4yob5i/image/upload/v1755437098/LOGO_-_DBS_BANK_lotzvq.jpg",
+    name: "DBS",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465303/DBS_Bank_Logo_p1zixs.png",
   },
   {
-    name: "OCBC Bank",
-    logo: "https://res.cloudinary.com/dtc4yob5i/image/upload/v1755437098/LOGO_-_OCBC_BANK_fiqfir.jpg",
+    name: "OCBC",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465310/Logo-ocbc.svg_khvach.png",
   },
   {
     name: "UOB",
-    logo: "https://res.cloudinary.com/dtc4yob5i/image/upload/v1755437098/LOGO_-_UOB_BANK_uf0idu.jpg",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465325/UOB_logo_n4hrvh.png",
   },
   {
     name: "Singtel",
-    logo: "https://res.cloudinary.com/dtc4yob5i/image/upload/v1755437099/LOGO_-_SINGTEL_owkdjq.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465322/Singtel_logo_nmsek6.svg",
   },
   {
     name: "Grab",
-    logo: "https://res.cloudinary.com/dtc4yob5i/image/upload/v1755437098/LOGO_-_GRAB_vjl3ro.jpg",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465306/grab-logo_h3i5lc.jpg",
   },
   {
     name: "Shopee",
-    logo: "https://res.cloudinary.com/dtc4yob5i/image/upload/v1755437098/LOGO_-_SHOPEE_f6jhxi.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465320/shopee-logo_sce8bs_r7xa9k.png",
   },
   {
     name: "GovTech",
-    logo: "https://res.cloudinary.com/dtc4yob5i/image/upload/v1755437098/LOGO_-_GOVTECH_d1l3ei.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465306/GovTech_logo_lctwtl.png",
   },
   {
     name: "CapitaLand",
-    logo: "https://res.cloudinary.com/dtc4yob5i/image/upload/v1755437098/LOGO_-_CAPITALAND_sodb2p.png",
+    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465300/capitaland_logo_lswm7l.png",
   },
 ];
 
 const testimonials = [
   {
-    quote:
-      "They brought creativity and professionalism to our corporate retreat, and the event flowed smoothly from start to finish.",
-    name: "Sarah Chen",
-    role: "HR Director, TechCorp Singapore",
+    quote: "They brought creativity and professionalism in equal measure. Our team bonding has never been stronger.",
+    company: "Grab",
   },
   {
-    quote:
-      "From concept to execution, the team understood what we wanted our people to experience and kept the activity engaging.",
-    name: "Michael Tan",
-    role: "Events Manager, GovTech Singapore",
+    quote: "From concept to execution, everything was seamless. The facilitators were absolutely phenomenal.",
+    company: "GovTech Singapore",
   },
   {
-    quote:
-      "The activities were fun yet meaningful, and our staff were still talking about the experience after the session.",
-    name: "Rachel Lim",
-    role: "Training Manager, SMRT Corporation",
+    quote: "The team building activities were fun yet meaningful. Our staff couldn't stop talking about it.",
+    company: "SMRT",
   },
 ];
 
 const teamMembers = [
   {
     name: "Edmund Sim",
-    role: "Founder and Lead Facilitator",
-    image: "https://res.cloudinary.com/dtc4yob5i/image/upload/v1755097052/20240515_110335_ymetac.webp",
+    role: "Director",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/edmund_team_out767.png",
   },
   {
     name: "Afifah Camut",
-    role: "Senior Event Facilitator",
-    image:
-      "https://res.cloudinary.com/dtc4yob5i/image/upload/v1758005178/photo_6093742547983970352_y_hm4fsw.jpg",
+    role: "Senior Sales Manager",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/afifah_team_gmy3pc.png",
   },
   {
     name: "Lisa Ong",
-    role: "Sales Manager",
-    image: "https://res.cloudinary.com/dtc4yob5i/image/upload/v1758005170/IMG-20250602-WA0032_egpsam.jpg",
+    role: "Senior Events Manager",
+    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649290/lisa_team_gmcxyf.png",
   },
 ];
 
@@ -1092,13 +1085,12 @@ const TeamBuildingHubPage = () => {
             </div>
             <div className="grid gap-5 lg:grid-cols-3">
               {testimonials.map((testimonial) => (
-                <figure key={testimonial.name} className="rounded-3xl border border-[#e4eaf2] bg-white p-7 shadow-sm">
+                <figure key={testimonial.company} className="rounded-3xl border border-[#e4eaf2] bg-white p-7 shadow-sm">
                   <blockquote className="text-lg font-semibold leading-8 text-[#0a1b33]">
                     “{testimonial.quote}”
                   </blockquote>
                   <figcaption className="mt-6 border-t border-[#e4eaf2] pt-5">
-                    <p className="font-display text-lg font-black">{testimonial.name}</p>
-                    <p className="mt-1 text-sm text-[#46566b]">{testimonial.role}</p>
+                    <p className="font-display text-lg font-black">{testimonial.company}</p>
                   </figcaption>
                 </figure>
               ))}
