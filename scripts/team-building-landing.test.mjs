@@ -20,21 +20,30 @@ test("team building route is declared before generic service route", () => {
   assert.ok(hubRouteIndex < genericRouteIndex, "team building route must be declared before /services/:slug");
 });
 
-test("V5 page has one H1, quote-brief message match, and updated SEO", () => {
-  assert.equal((page.match(/<h1\b/g) ?? []).length, 1);
-  assert.match(page, /Team building your team will actually rave about on Monday\./);
-  assert.match(page, /actually rave about/);
-  assert.match(page, /Get My Free Quote/);
-  assert.match(page, /Send Me 3 Options \+ Prices/);
-  assert.match(page, /Team Building Singapore - 3 Matched Options & Prices \| Elluminate/);
-  assert.match(
-    page,
-    /Skip the 50-activity catalogue\. Tell us your headcount, date and venue, then request 3 best-fit team building options with prices from Elluminate\./,
-  );
-  assert.match(prerenderSeo, /Team Building Singapore - 3 Matched Options & Prices \| Elluminate/);
+test("page uses the shared site navbar and not a page-specific header", () => {
+  assert.match(page, /import \{ Navbar \} from "@\/components\/Navbar"/);
+  assert.match(page, /<Navbar \/>/);
+  assert.doesNotMatch(page, /<header\b/);
+  assert.match(navbar, /(?:to|parentPath)="\/services\/team-building"/);
+  assert.doesNotMatch(navbar, /Team Building Overview/);
 });
 
-test("quote brief form writes to the existing contact submission and email path", () => {
+test("V6.1 page has one H1, planning-led copy, and updated SEO", () => {
+  assert.equal((page.match(/<h1\b/g) ?? []).length, 1);
+  assert.match(page, /Corporate Team Building in Singapore, Planned Around Your Team/);
+  assert.match(page, /Tell us your pax, date, venue preference, and event goal/);
+  assert.match(page, /Plan My Team Building Event/);
+  assert.match(page, /Tell Us About Your Team Event/);
+  assert.match(page, /Send My Team Building Enquiry/);
+  assert.match(page, /Corporate Team Building Singapore \| Elluminate/);
+  assert.match(
+    page,
+    /Plan a facilitated corporate team building event in Singapore\. Share your pax, date, venue preference and goals, then enquire with Elluminate for a suitable activity recommendation and quote\./,
+  );
+  assert.match(prerenderSeo, /Corporate Team Building Singapore \| Elluminate/);
+});
+
+test("event planning form writes to the existing contact submission and email path", () => {
   assert.match(page, /id="quote"/);
   assert.match(page, /name="name"/);
   assert.match(page, /name="email"/);
@@ -45,6 +54,7 @@ test("quote brief form writes to the existing contact submission and email path"
   assert.match(page, /privacyConsent/);
   assert.match(page, /honeypot/);
   assert.match(page, /team_building_quote_brief/);
+  assert.match(page, /Team Building Event Planning Enquiry/);
   assert.match(page, /supabase\.from\("contact_submissions"\)\.insert/);
   assert.match(page, /send-transactional-email/);
   assert.match(page, /contact-inquiry/);
@@ -52,40 +62,28 @@ test("quote brief form writes to the existing contact submission and email path"
   assert.match(page, /additional_details: buildBriefDetails/);
 });
 
-test("landing CTAs and filter controls match the V5 conversion path", () => {
-  assert.match(page, /Activities/);
-  assert.match(page, /How It Works/);
-  assert.match(page, /Pricing/);
-  assert.match(page, /Reviews/);
-  assert.match(page, /FAQ/);
-  assert.match(page, /href="#quote"/);
-  assert.match(page, /sticky bottom-0/);
-  assert.match(page, /whatsappUrl/);
-  assert.match(page, /activityFilter/);
-  assert.match(page, /All/);
-  assert.match(page, /Outdoor/);
-  assert.match(page, /Indoor/);
-  assert.match(page, /High energy/);
-  assert.match(page, /Low exertion/);
-  assert.match(page, /Virtual/);
-  assert.match(page, /Check fit/);
-});
-
-test("page includes required V5 sections and structured data", () => {
+test("V6.1 sections carry the copy-led landing page narrative", () => {
   const requiredCopy = [
-    "FOR HR & ADMIN PLANNERS",
-    "How It Works",
-    "MOST-BOOKED FORMATS",
-    "The catalogue way vs. the Elluminate way",
-    "A Friday afternoon, handled end to end",
-    "Companies & MNCs",
-    "Government & Statutory Boards",
-    "Schools & Institutions",
-    "Facilitators who can read a room",
-    "Real events, real laughter",
-    "Know the ballpark before you enquire",
-    "Booked it. Boss-proof it.",
-    "Your team's best afternoon this year starts with a 60-second brief.",
+    "Selected organisations we have worked with",
+    "Most teams do not need more activity names. They need help choosing what will actually work for their group.",
+    "Generic team building vs. team building planned properly",
+    "Standard activity catalogue",
+    "The Elluminate planning approach",
+    "Share your event details",
+    "Get a recommended activity direction",
+    "Confirm the plan and run the event",
+    "Activity directions",
+    "Outdoor race formats",
+    "Indoor challenge formats",
+    "Strategy and mystery formats",
+    "High-energy station games",
+    "Virtual and hybrid formats",
+    "What makes Elluminate different",
+    "What affects the event plan and quote",
+    "Facilitated by the Elluminate team",
+    "Team-building moments from past events",
+    "What teams have said",
+    "Plan a team-building activity your people can actually get into.",
   ];
 
   for (const copy of requiredCopy) {
@@ -97,24 +95,44 @@ test("page includes required V5 sections and structured data", () => {
   assert.match(sitemap, /https:\/\/elluminate\.sg\/services\/team-building/);
 });
 
-test("analytics events are diagnostics and submit success owns the conversion truth", () => {
+test("activity filters and CTAs support enquiry, not price chips", () => {
+  assert.match(page, /activityFilter/);
+  assert.match(page, /All/);
+  assert.match(page, /Outdoor/);
+  assert.match(page, /Indoor/);
+  assert.match(page, /High energy/);
+  assert.match(page, /Low exertion/);
+  assert.match(page, /Virtual/);
+  assert.match(page, /Ask if this fits my team/);
+  assert.match(page, /href="#quote"/);
+  assert.doesNotMatch(page, /getServicePrice/);
+  assert.doesNotMatch(page, /From \$\{/);
+});
+
+test("WhatsApp is visible and analytics events remain diagnostic only", () => {
+  assert.match(page, /wa\.me\/6588352482/);
+  assert.match(page, /WhatsApp Us/);
+  assert.match(page, /WhatsApp Elluminate/);
   assert.match(page, /pushLandingEvent\("form_start"/);
   assert.match(page, /pushLandingEvent\("cta_click"/);
   assert.doesNotMatch(page, /pushLandingEvent\("form_submit"/);
   assert.doesNotMatch(page, /qualified_lead/);
 });
 
-test("team building nav parent still links directly to landing page", () => {
-  assert.match(navbar, /(?:to|parentPath)="\/services\/team-building"/);
-  assert.doesNotMatch(navbar, /Team Building Overview/);
-});
-
-test("V5 landing page avoids placeholders, leaked internal copy, and hard response promises", () => {
+test("V6.1 landing page avoids internal language, off-brand offer copy, hard claims, and orange CTA palette", () => {
   const checked = normalize([page, thankYou].join("\n")).toLowerCase();
   const banned = [
-    "◆",
+    "â—†",
     "planning confidence",
     "until owner-approved",
+    "existing elluminate",
+    "source material",
+    "for hr",
+    "constraints",
+    "3 matched",
+    "50-activity",
+    "send me 3 options",
+    "get my free quote",
     "within 24 hours",
     "24h",
     "24-hour",
@@ -126,6 +144,11 @@ test("V5 landing page avoids placeholders, leaked internal copy, and hard respon
     "best team building",
     "birthday",
     "rental",
+    "bg-[#f4730c]",
+    "bg-[#c24e00]",
+    "hover:bg-[#a63d00]",
+    "text-[#ffc83d]",
+    "bg-[#0a1b33]",
   ];
 
   for (const term of banned) {
