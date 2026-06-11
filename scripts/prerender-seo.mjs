@@ -24,7 +24,7 @@ const shell = readFileSync(join(DIST, "index.html"), "utf8");
 
 const services = {
   // Physical
-  "team-building": { title: "Corporate Team Building Singapore | Elluminate", description: "Plan a facilitated corporate team building event in Singapore. Share your pax, date, venue preference and goals, then enquire with Elluminate for a suitable activity recommendation and quote." },
+  "team-building": { title: "Corporate Team Building Singapore | Elluminate", description: "Plan corporate team building in Singapore without babysitting another vendor. Share your pax, date, venue and goal, then start a free planning session with Elluminate." },
   "amazing-race": { title: "Amazing Race Team Building Singapore | Elluminate", description: "Singapore's most popular team building activity. City-wide Amazing Race with custom challenges, live leaderboards, and full facilitation. Book now." },
   "archery-tag": { title: "Archery Tag Singapore | Team Building Activity | Elluminate", description: "Action-packed Archery Tag battles for corporate teams. Safe, thrilling, and fully facilitated. Perfect for groups of 20–300 pax in Singapore." },
   "gel-blitz": { title: "GelBlitz Singapore | Gel Blaster Team Building | Elluminate", description: "GelBlitz gel ball blaster battles for corporate teams in Singapore. High-energy, safe, and unforgettable. Perfect for groups who want real adrenaline." },
