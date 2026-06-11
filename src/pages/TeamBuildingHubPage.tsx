@@ -283,8 +283,9 @@ const buildBriefDetails = (form: QuoteFormState) =>
 const pushLandingEvent = (eventName: "form_start" | "cta_click", payload: Record<string, unknown> = {}) => {
   if (typeof window === "undefined") return;
 
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
+  const w = window as Window & { dataLayer?: Array<Record<string, unknown>> };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({
     event: eventName,
     page_path: "/services/team-building",
     form_name: "team_building_quote_brief",
