@@ -15,13 +15,15 @@ const FROM_NAME = 'Elluminate'
 
 interface SendRequest {
   templateName: string
-  recipientEmail: string
+  recipientEmail?: string
   idempotencyKey: string
   templateData?: Record<string, any>
-  /** Optional override of the From name (default: "Elluminate"). */
+  /** Optional override of the From name (default: "Elluminate"). Ignored for public templates. */
   fromName?: string
-  /** Optional reply-to address (e.g., the submitter's email for inquiry notifications). */
+  /** Optional reply-to address. Ignored for public templates (derived server-side). */
   replyTo?: string
+  /** For public contact templates: the contact_submissions row id. */
+  submissionId?: string
 }
 
 function json(body: unknown, status = 200) {
@@ -29,6 +31,59 @@ function json(body: unknown, status = 200) {
     status,
     headers: { ...corsHeaders, 'Content-Type': 'application/json' },
   })
+}
+
+const FIXED_FROM_NAME = 'Elluminate'
+
+function formatSubmittedAt(iso?: string | null) {
+  if (!iso) return undefined
+  try {
+    return new Date(iso).toISOString()
+  } catch {
+    return undefined
+  }
+}
+
+function buildPublicTemplateData(
+  templateName: string,
+  row: Record<string, any>,
+): { recipientEmail: string; replyTo?: string; templateData: Record<string, any> } {
+  if (templateName === 'contact-confirmation') {
+    return {
+      recipientEmail: String(row.email),
+      templateData: { name: row.name },
+    }
+  }
+  // contact-inquiry
+  const td: Record<string, any> = {
+    name: row.name,
+    email: row.email,
+    phone: row.phone ?? undefined,
+    eventCategory: row.event_category ?? undefined,
+    organisation: row.organisation ?? undefined,
+    organisationType: row.organisation_type ?? undefined,
+    expectedAttendees: row.expected_attendees ?? undefined,
+    expectedDate: row.expected_date ?? undefined,
+    additionalCustomisation: row.additional_customisation ?? undefined,
+    gameCustomisation: row.game_customisation ?? undefined,
+    addOnServices: Array.isArray(row.add_on_services) ? row.add_on_services.join(', ') : undefined,
+    additionalDetails: row.additional_details ?? undefined,
+    gclid: row.gclid ?? undefined,
+    utm_source: row.utm_source ?? undefined,
+    utm_medium: row.utm_medium ?? undefined,
+    utm_campaign: row.utm_campaign ?? undefined,
+    utm_term: row.utm_term ?? undefined,
+    utm_content: row.utm_content ?? undefined,
+    referrer: row.referrer ?? undefined,
+    landing_page: row.landing_page ?? undefined,
+    submission_page: row.submission_page ?? undefined,
+    submitted_at: formatSubmittedAt(row.created_at),
+  }
+  return {
+    recipientEmail: 'info@exstatic.one',
+    replyTo: String(row.email),
+    templateData: td,
+  }
 }
 
 // Templates that may be invoked by anonymous (unauthenticated) callers.
