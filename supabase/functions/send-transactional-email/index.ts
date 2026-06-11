@@ -77,7 +77,7 @@ function buildPublicTemplateData(
     organisation: row.organisation ?? undefined,
     organisationType: row.organisation_type ?? undefined,
     expectedAttendees: row.expected_attendees ?? undefined,
-    expectedDate: row.expected_date ?? undefined,
+    expectedDate: formatExpectedDate(row.expected_date),
     additionalCustomisation: row.additional_customisation ?? undefined,
     gameCustomisation: row.game_customisation ?? undefined,
     addOnServices: Array.isArray(row.add_on_services) ? row.add_on_services.join(', ') : undefined,
