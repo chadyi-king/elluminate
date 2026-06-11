@@ -248,7 +248,7 @@ Deno.serve(async (req) => {
   }
 
   // 2. Render template
-  const data = templateData ?? {}
+  const data = effectiveTemplateData
   const Component = entry.component
   const element = React.createElement(Component, data)
   const html = await render(element, { pretty: false })
@@ -260,7 +260,7 @@ Deno.serve(async (req) => {
   // 3. Enqueue (process-email-queue actually sends)
   const queuePayload = {
     to: normalizedRecipientEmail,
-    from: `${fromName ?? FROM_NAME} <noreply@${FROM_DOMAIN}>`,
+    from: `${effectiveFromName} <noreply@${FROM_DOMAIN}>`,
     sender_domain: SENDER_DOMAIN,
     subject,
     html,
@@ -271,7 +271,7 @@ Deno.serve(async (req) => {
     message_id: idempotencyKey,
     queued_at: new Date().toISOString(),
     unsubscribe_token: unsubscribeToken,
-    reply_to: replyTo,
+    reply_to: effectiveReplyTo,
   }
 
   const { error: enqueueErr } = await supabase.rpc('enqueue_email', {
