@@ -115,6 +115,42 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, parentPath, subG
 
 };
 
+interface ComingSoonNavItemProps {
+  label: string;
+  variant?: "desktop" | "mobile";
+}
+
+const ComingSoonNavItem = ({ label, variant = "desktop" }: ComingSoonNavItemProps) => {
+  const badge = (
+    <span className="rounded-full border border-primary/20 bg-primary/5 px-1.5 py-0.5 text-[7px] font-semibold tracking-[0.08em] text-primary/80 uppercase">
+      Coming Soon
+    </span>
+  );
+
+  if (variant === "mobile") {
+    return (
+      <div
+        aria-label={`${label} coming soon`}
+        className="flex items-center justify-between gap-3 py-2 font-medium text-foreground/60">
+
+        <span>{label}</span>
+        {badge}
+      </div>
+    );
+  }
+
+  return (
+    <span
+      aria-label={`${label} coming soon`}
+      title={`${label} coming soon`}
+      className="inline-flex cursor-default items-center gap-1.5 text-foreground/50 transition-colors duration-300 text-[8.4px] tracking-[0.15em] font-medium uppercase">
+
+      {label}
+      {badge}
+    </span>
+  );
+};
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -191,22 +227,8 @@ export const Navbar = () => {
               onToggle={() => handleDropdownToggle('training')}
               onClose={handleDropdownClose} />
             
-            <a
-              href="https://teamelevate.sg"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-[8.4px] tracking-[0.15em] font-medium uppercase">
-              
-              Large-Scale
-            </a>
-            <a
-              href="https://encompasse.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-[8.4px] tracking-[0.15em] font-medium uppercase">
-              
-              School
-            </a>
+            <ComingSoonNavItem label="Large Scale" />
+            <ComingSoonNavItem label="School" />
             <Button
               variant="primary"
               size="sm"
@@ -317,26 +339,10 @@ export const Navbar = () => {
               )}
               </div>
 
-              {/* External Links */}
+              {/* Coming Soon */}
               <div className="border-t border-border pt-4">
-                <a
-                href="https://teamelevate.sg"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className="block text-foreground hover:text-primary transition-colors py-2 font-medium">
-                
-                  Large-Scale →
-                </a>
-                <a
-                href="https://encompasse.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className="block text-foreground hover:text-primary transition-colors py-2 font-medium">
-                
-                  School →
-                </a>
+                <ComingSoonNavItem label="Large Scale" variant="mobile" />
+                <ComingSoonNavItem label="School" variant="mobile" />
               </div>
               
               <Button
