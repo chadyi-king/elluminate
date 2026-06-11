@@ -349,7 +349,6 @@ const TeamBuildingHubPage = () => {
     const submissionPage =
       typeof window !== "undefined" ? `${window.location.pathname}${window.location.search}` : "/services/team-building";
     const submissionId = crypto.randomUUID();
-    const additionalDetails = buildBriefDetails(quoteForm);
 
     const submissionPayload = {
       id: submissionId,
@@ -387,23 +386,8 @@ const TeamBuildingHubPage = () => {
       await supabase.functions.invoke("send-transactional-email", {
         body: {
           templateName: "contact-inquiry",
-          recipientEmail: contactEmail,
           idempotencyKey: `team-building-event-${submissionId}`,
-          replyTo: quoteForm.email.trim(),
-          templateData: {
-            submissionId,
-            name: quoteForm.name.trim(),
-            email: quoteForm.email.trim(),
-            phone: "Not provided",
-            eventCategory: "Physical Team Building",
-            expectedAttendees: quoteForm.pax.trim(),
-            expectedDate: quoteForm.timing.trim(),
-            organisation: "Not provided",
-            organisationType: "Not provided",
-            additionalDetails,
-            submissionPage,
-            formName: "team_building_quote_brief",
-          },
+          submissionId,
         },
       });
 
