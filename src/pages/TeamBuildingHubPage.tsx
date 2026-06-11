@@ -349,7 +349,8 @@ const TeamBuildingHubPage = () => {
     const submissionPage =
       typeof window !== "undefined" ? `${window.location.pathname}${window.location.search}` : "/services/team-building";
     const submissionId = crypto.randomUUID();
-    const additionalDetails = buildBriefDetails(quoteForm);
+    // additionalDetails is stored in the DB and read back by the edge function.
+    void buildBriefDetails(quoteForm);
 
     const submissionPayload = {
       id: submissionId,
