@@ -4,6 +4,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import elluminateLogo from "@/assets/logos/elluminate-logo.png";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from "@/components/ui/dialog";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import {
   physicalTeamBuildingServices,
@@ -115,45 +124,57 @@ const NavDropdown = ({ label, items, isOpen, onToggle, onClose, parentPath, subG
 
 };
 
-interface ComingSoonNavItemProps {
-  label: string;
+type ComingSoonTopic = "large-scale" | "school";
+
+const comingSoonContent: Record<ComingSoonTopic, { label: string; title: string; body: string }> = {
+  "large-scale": {
+    label: "Large Scale",
+    title: "Large Scale Experiences",
+    body: "This section is coming soon. For now, tell us what you are planning and the Elluminate team will recommend the right format."
+  },
+  school: {
+    label: "School",
+    title: "School Programmes",
+    body: "This section is coming soon. For school or cohort enquiries, send us the basic details and we will follow up."
+  }
+};
+
+interface ComingSoonNavButtonProps {
+  topic: ComingSoonTopic;
   variant?: "desktop" | "mobile";
+  onSelect: (topic: ComingSoonTopic) => void;
 }
 
-const ComingSoonNavItem = ({ label, variant = "desktop" }: ComingSoonNavItemProps) => {
-  const badge = (
-    <span className="rounded-full border border-primary/20 bg-primary/5 px-1.5 py-0.5 text-[7px] font-semibold tracking-[0.08em] text-primary/80 uppercase">
-      Coming Soon
-    </span>
-  );
+const ComingSoonNavButton = ({ topic, variant = "desktop", onSelect }: ComingSoonNavButtonProps) => {
+  const { label } = comingSoonContent[topic];
 
   if (variant === "mobile") {
     return (
-      <div
-        aria-label={`${label} coming soon`}
-        className="flex items-center justify-between gap-3 py-2 font-medium text-foreground/60">
+      <button
+        type="button"
+        onClick={() => onSelect(topic)}
+        className="w-full py-2 text-left font-medium text-foreground transition-colors hover:text-primary">
 
-        <span>{label}</span>
-        {badge}
-      </div>
+        {label}
+      </button>
     );
   }
 
   return (
-    <span
-      aria-label={`${label} coming soon`}
-      title={`${label} coming soon`}
-      className="inline-flex cursor-default items-center gap-1.5 text-foreground/50 transition-colors duration-300 text-[8.4px] tracking-[0.15em] font-medium uppercase">
+    <button
+      type="button"
+      onClick={() => onSelect(topic)}
+      className="text-[8.4px] font-medium uppercase tracking-[0.15em] text-foreground/70 transition-colors duration-300 hover:text-primary">
 
       {label}
-      {badge}
-    </span>
+    </button>
   );
 };
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [comingSoonTopic, setComingSoonTopic] = useState<ComingSoonTopic | null>(null);
   const location = useLocation();
   const { openContactModal } = useContactModal();
 
@@ -173,6 +194,19 @@ export const Navbar = () => {
   const navLinkClass = (path: string) =>
   `transition-colors duration-300 text-[8.4px] tracking-[0.15em] font-medium ${
   isActive(path) ? 'text-primary' : 'text-foreground/70 hover:text-primary'}`;
+
+  const handleComingSoonSelect = (topic: ComingSoonTopic, closeMobile = false) => {
+    setOpenDropdown(null);
+    if (closeMobile) setIsOpen(false);
+    setComingSoonTopic(topic);
+  };
+
+  const handleComingSoonCta = () => {
+    setComingSoonTopic(null);
+    openContactModal();
+  };
+
+  const activeComingSoon = comingSoonTopic ? comingSoonContent[comingSoonTopic] : null;
 
 
   return (
@@ -227,8 +261,8 @@ export const Navbar = () => {
               onToggle={() => handleDropdownToggle('training')}
               onClose={handleDropdownClose} />
             
-            <ComingSoonNavItem label="Large Scale" />
-            <ComingSoonNavItem label="School" />
+            <ComingSoonNavButton topic="large-scale" onSelect={handleComingSoonSelect} />
+            <ComingSoonNavButton topic="school" onSelect={handleComingSoonSelect} />
             <Button
               variant="primary"
               size="sm"
@@ -341,8 +375,14 @@ export const Navbar = () => {
 
               {/* Coming Soon */}
               <div className="border-t border-border pt-4">
-                <ComingSoonNavItem label="Large Scale" variant="mobile" />
-                <ComingSoonNavItem label="School" variant="mobile" />
+                <ComingSoonNavButton
+                  topic="large-scale"
+                  variant="mobile"
+                  onSelect={(topic) => handleComingSoonSelect(topic, true)} />
+                <ComingSoonNavButton
+                  topic="school"
+                  variant="mobile"
+                  onSelect={(topic) => handleComingSoonSelect(topic, true)} />
               </div>
               
               <Button
@@ -359,6 +399,38 @@ export const Navbar = () => {
           </motion.div>
         }
       </AnimatePresence>
+
+      <Dialog
+        open={comingSoonTopic !== null}
+        onOpenChange={(open) => {
+          if (!open) setComingSoonTopic(null);
+        }}>
+
+        <DialogContent className="max-w-md border-primary/10">
+          {activeComingSoon &&
+          <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl text-primary">
+                  {activeComingSoon.title}
+                </DialogTitle>
+                <DialogDescription className="text-base leading-relaxed text-foreground/70">
+                  {activeComingSoon.body}
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter className="gap-2 sm:justify-start sm:space-x-0">
+                <Button variant="primary" onClick={handleComingSoonCta}>
+                  PLAN MY EVENT
+                </Button>
+                <DialogClose asChild>
+                  <Button variant="outline">
+                    Close
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </>
+          }
+        </DialogContent>
+      </Dialog>
     </motion.nav>);
 
 };
