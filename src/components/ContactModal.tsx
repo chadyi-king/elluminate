@@ -223,47 +223,21 @@ export const ContactModal = () => {
 
       if (error) throw error;
 
-      // Send notification email + auto-reply (fire-and-forget; failures shouldn't block the user)
+      // Send notification email + auto-reply (fire-and-forget; failures shouldn't block the user).
+      // The edge function derives all template data server-side from the submission row.
       void supabase.functions.invoke("send-transactional-email", {
         body: {
           templateName: "contact-inquiry",
-          recipientEmail: "info@exstatic.one",
           idempotencyKey: `contact-inquiry-${submissionId}`,
-          replyTo: formData.email,
-          templateData: {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            eventCategory: formData.eventCategory,
-            organisation: formData.organisation,
-            organisationType: formData.organisationType,
-            expectedAttendees: formData.expectedAttendees,
-            additionalCustomisation: formData.additionalCustomisation,
-            gameCustomisation: formData.gameCustomisation,
-            additionalDetails: formData.additionalDetails,
-            expectedDate: selectedDate ? format(selectedDate, "PPP") : "Not specified",
-            addOnServices: formData.addOnServices.join(", ") || "None",
-            gclid: attribution.gclid,
-            utm_source: attribution.utm_source,
-            utm_medium: attribution.utm_medium,
-            utm_campaign: attribution.utm_campaign,
-            utm_term: attribution.utm_term,
-            utm_content: attribution.utm_content,
-            referrer: attribution.referrer,
-            landing_page: attribution.landing_page,
-            submission_page: submissionPage,
-            user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
-            submitted_at: new Date().toISOString(),
-          },
+          submissionId,
         },
       });
 
       void supabase.functions.invoke("send-transactional-email", {
         body: {
           templateName: "contact-confirmation",
-          recipientEmail: formData.email,
           idempotencyKey: `contact-confirmation-${submissionId}`,
-          templateData: { name: formData.name },
+          submissionId,
         },
       });
 
