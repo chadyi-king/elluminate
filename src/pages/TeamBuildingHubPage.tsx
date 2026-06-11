@@ -25,6 +25,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { BreadcrumbSchema, FAQSchema, OrganizationSchema, ServiceSchema } from "@/components/StructuredData";
 import { getAttribution } from "@/lib/attribution";
+import { trackLeadConversion } from "@/lib/tracking";
 import { cloudinaryImage } from "@/lib/media";
 import { supabase } from "@/integrations/supabase/client";
 import { servicesData } from "@/data/servicesData";
@@ -491,8 +492,9 @@ const TeamBuildingHubPage = () => {
       add_on_services: null,
       additional_details: buildBriefDetails(quoteForm),
       gclid: attribution.gclid || null,
-      gbraid: (attribution as { gbraid?: string }).gbraid || null,
-      wbraid: (attribution as { wbraid?: string }).wbraid || null,
+      gbraid: attribution.gbraid || null,
+      wbraid: attribution.wbraid || null,
+      gad_source: attribution.gad_source || null,
       utm_source: attribution.utm_source || null,
       utm_medium: attribution.utm_medium || null,
       utm_campaign: attribution.utm_campaign || null,
@@ -501,13 +503,24 @@ const TeamBuildingHubPage = () => {
       referrer: attribution.referrer || null,
       landing_page: attribution.landing_page || null,
       submission_page: submissionPage,
-      form_name: "team_building_quote_brief",
+      form_name: "plan_my_event",
+      lead_id: submissionId,
+      brand: "elluminate",
+      service: "corporate_physical_team_building",
+      attribution_captured_at: attribution.captured_at || null,
     };
 
     try {
       const { error } = await supabase.from("contact_submissions").insert(submissionPayload);
 
       if (error) throw error;
+
+      trackLeadConversion({
+        lead_id: submissionId,
+        event_category: "Physical Team Building",
+        page_path: submissionPage,
+        attribution,
+      });
 
       await supabase.functions.invoke("send-transactional-email", {
         body: {

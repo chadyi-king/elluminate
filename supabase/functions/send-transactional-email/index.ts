@@ -82,7 +82,13 @@ function buildPublicTemplateData(
     gameCustomisation: row.game_customisation ?? undefined,
     addOnServices: Array.isArray(row.add_on_services) ? row.add_on_services.join(', ') : undefined,
     additionalDetails: row.additional_details ?? undefined,
+    lead_id: row.lead_id ?? row.id ?? undefined,
+    brand: row.brand ?? undefined,
+    service: row.service ?? undefined,
     gclid: row.gclid ?? undefined,
+    gbraid: row.gbraid ?? undefined,
+    wbraid: row.wbraid ?? undefined,
+    gad_source: row.gad_source ?? undefined,
     utm_source: row.utm_source ?? undefined,
     utm_medium: row.utm_medium ?? undefined,
     utm_campaign: row.utm_campaign ?? undefined,
@@ -91,6 +97,7 @@ function buildPublicTemplateData(
     referrer: row.referrer ?? undefined,
     landing_page: row.landing_page ?? undefined,
     submission_page: row.submission_page ?? undefined,
+    attribution_captured_at: row.attribution_captured_at ?? undefined,
     submitted_at: formatSubmittedAt(row.created_at),
   }
   return {

@@ -20,8 +20,14 @@ interface ContactInquiryProps {
   gameCustomisation?: string
   addOnServices?: string
   additionalDetails?: string
+  lead_id?: string
+  brand?: string
+  service?: string
   // attribution
   gclid?: string
+  gbraid?: string
+  wbraid?: string
+  gad_source?: string
   utm_source?: string
   utm_medium?: string
   utm_campaign?: string
@@ -30,6 +36,7 @@ interface ContactInquiryProps {
   referrer?: string
   landing_page?: string
   submission_page?: string
+  attribution_captured_at?: string
   user_agent?: string
   submitted_at?: string
 }
@@ -126,7 +133,13 @@ const ContactInquiryEmail = (props: ContactInquiryProps) => (
         <Section style={attribCard}>
           <Heading as="h2" style={h2}>Marketing Attribution</Heading>
           <Text style={sourcePill}>Source: {sourceSummary(props)}</Text>
+          <Row label="Lead / Submission ID" value={props.lead_id} />
+          <Row label="Brand" value={props.brand} />
+          <Row label="Service" value={props.service} />
           <Row label="Google Click ID" value={props.gclid} />
+          <Row label="GBRAID" value={props.gbraid} />
+          <Row label="WBRAID" value={props.wbraid} />
+          <Row label="GAD Source" value={props.gad_source} />
           <Row label="UTM Source" value={props.utm_source} />
           <Row label="UTM Medium" value={props.utm_medium} />
           <Row label="UTM Campaign" value={props.utm_campaign} />
@@ -136,6 +149,7 @@ const ContactInquiryEmail = (props: ContactInquiryProps) => (
           <Row label="Landing Page" value={props.landing_page} />
           <Row label="Submitted From" value={props.submission_page} />
           <Row label="Device / Browser" value={parseUA(props.user_agent)} />
+          <Row label="Attribution Captured At" value={formatSGTime(props.attribution_captured_at)} />
           <Row label="Submitted At" value={formatSGTime(props.submitted_at)} />
         </Section>
 
@@ -163,11 +177,18 @@ export const template = {
     expectedAttendees: '50-100',
     expectedDate: 'June 12, 2026',
     additionalDetails: 'Looking for a half-day Amazing Race in Sentosa.',
+    lead_id: '00000000-0000-4000-8000-000000000000',
+    brand: 'elluminate',
+    service: 'corporate_physical_team_building',
     utm_source: 'google',
     utm_medium: 'cpc',
     utm_campaign: 'team-building-sg',
     gclid: 'Cj0KCQiA...',
+    gbraid: 'test-gbraid',
+    wbraid: 'test-wbraid',
+    gad_source: '1',
     user_agent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Safari/604.1',
+    attribution_captured_at: new Date().toISOString(),
     submitted_at: new Date().toISOString(),
   },
 } satisfies TemplateEntry

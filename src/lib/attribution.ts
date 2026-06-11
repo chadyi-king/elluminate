@@ -10,6 +10,9 @@ const LANDING_KEY = "el_landing";
 
 export interface Attribution {
   gclid?: string;
+  gbraid?: string;
+  wbraid?: string;
+  gad_source?: string;
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
@@ -22,6 +25,9 @@ export interface Attribution {
 
 const TRACKED_KEYS = [
   "gclid",
+  "gbraid",
+  "wbraid",
+  "gad_source",
   "utm_source",
   "utm_medium",
   "utm_campaign",
