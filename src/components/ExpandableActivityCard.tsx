@@ -137,16 +137,18 @@ export const ExpandableActivityCard = ({
                     <a
                       href={targetHref}
                       className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
+                      aria-label={ctaLabel ?? `Explore ${name}`}
                     >
-                      <span>{ctaLabel ?? "Learn More"}</span>
+                      <span>{ctaLabel ?? `Explore ${name}`}</span>
                       <ChevronRight className="w-4 h-4" />
                     </a>
                   ) : (
                     <Link
                       to={targetHref}
                       className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
+                      aria-label={ctaLabel ?? `Explore ${name}`}
                     >
-                      <span>{ctaLabel ?? "Learn More"}</span>
+                      <span>{ctaLabel ?? `Explore ${name}`}</span>
                       <ChevronRight className="w-4 h-4" />
                     </Link>
                   )
