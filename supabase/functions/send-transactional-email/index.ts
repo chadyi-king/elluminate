@@ -87,10 +87,12 @@ function buildPublicTemplateData(
 }
 
 // Templates that may be invoked by anonymous (unauthenticated) callers.
-// All other templates require a valid Authorization bearer token.
-const PUBLIC_TEMPLATES: Record<string, { fixedRecipient?: string }> = {
-  'contact-inquiry': { fixedRecipient: 'info@exstatic.one' },
-  'contact-confirmation': {},
+// These templates fetch their data server-side from contact_submissions using
+// the provided submissionId; client-supplied templateData/replyTo/fromName/
+// recipientEmail are ignored to prevent forged inquiries and email relay abuse.
+const PUBLIC_TEMPLATES: Record<string, true> = {
+  'contact-inquiry': true,
+  'contact-confirmation': true,
 }
 
 // Naive in-memory rate limiter per edge instance. Best-effort spam mitigation
