@@ -44,6 +44,20 @@ function formatSubmittedAt(iso?: string | null) {
   }
 }
 
+function formatExpectedDate(iso?: string | null) {
+  if (!iso) return undefined
+  try {
+    return new Date(iso).toLocaleDateString('en-SG', {
+      timeZone: 'Asia/Singapore',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  } catch {
+    return undefined
+  }
+}
+
 function buildPublicTemplateData(
   templateName: string,
   row: Record<string, any>,
