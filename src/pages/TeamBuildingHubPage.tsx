@@ -70,7 +70,7 @@ const seoDescription =
 const contactPhone = "+65 8835 2482";
 const contactEmail = "info@elluminate.sg";
 const whatsappUrl =
-  "https://wa.me/6588352482?text=Hi%20Elluminate%2C%20I%27d%20like%20to%20start%20a%20free%20team%20building%20planning%20session.";
+  "https://api.whatsapp.com/send?phone=6588352482&text=Hi%20Elluminate%2C%20I'd%20like%20to%20start%20a%20free%20team%20building%20planning%20session.";
 
 const heroService = servicesData["team-building"];
 const heroImage = heroService.hero.backgroundImage;
@@ -474,7 +474,9 @@ const TeamBuildingHubPage = () => {
 
     const attribution = getAttribution();
     const submissionPage =
-      typeof window !== "undefined" ? `${window.location.pathname}${window.location.search}` : "/services/team-building";
+      typeof window !== "undefined"
+        ? `${window.location.pathname}${window.location.search}`
+        : "/services/team-building";
     const submissionId = crypto.randomUUID();
 
     const submissionPayload = {
@@ -615,16 +617,18 @@ const TeamBuildingHubPage = () => {
               </div>
 
               <div className="mt-9 grid max-w-2xl gap-3 sm:grid-cols-3">
-                {["Pax, date, venue and goal first", "Physical, indoor, outdoor or virtual", "Activity plus planning logic"].map(
-                  (item) => (
-                    <div
-                      key={item}
-                      className="rounded-2xl border border-background/15 bg-background/10 p-4 text-sm font-semibold leading-6 text-background/84"
-                    >
-                      {item}
-                    </div>
-                  ),
-                )}
+                {[
+                  "Pax, date, venue and goal first",
+                  "Physical, indoor, outdoor or virtual",
+                  "Activity plus planning logic",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-background/15 bg-background/10 p-4 text-sm font-semibold leading-6 text-background/84"
+                  >
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -758,7 +762,13 @@ const TeamBuildingHubPage = () => {
                   </p>
                 ) : null}
 
-                <Button type="submit" variant="hero" size="xl" className="w-full" disabled={submitStatus === "submitting"}>
+                <Button
+                  type="submit"
+                  variant="hero"
+                  size="xl"
+                  className="w-full"
+                  disabled={submitStatus === "submitting"}
+                >
                   {submitStatus === "submitting" ? "Sending..." : "Send My Team Building Enquiry"}
                   <ArrowRight className="h-5 w-5" />
                 </Button>
@@ -824,9 +834,7 @@ const TeamBuildingHubPage = () => {
         <section className="bg-secondary/35 py-20">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="mx-auto mb-12 max-w-3xl text-center">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                The core difference
-              </p>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">The core difference</p>
               <h2 className="font-display text-3xl font-black leading-tight sm:text-5xl">
                 Generic team building vs. team building planned properly
               </h2>
@@ -867,9 +875,7 @@ const TeamBuildingHubPage = () => {
         <section className="bg-background py-20">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="mb-12 max-w-3xl">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                The Monday Test
-              </p>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">The Monday Test</p>
               <h2 className="font-display text-3xl font-black leading-tight sm:text-5xl">
                 Every event idea has to survive the day after.
               </h2>
@@ -991,7 +997,9 @@ const TeamBuildingHubPage = () => {
                     type="button"
                     onClick={() => setActivityFilter(filter)}
                     className={`rounded-xl px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
-                      activityFilter === filter ? "bg-primary text-primary-foreground shadow-blue" : "bg-background text-foreground hover:bg-primary/10"
+                      activityFilter === filter
+                        ? "bg-primary text-primary-foreground shadow-blue"
+                        : "bg-background text-foreground hover:bg-primary/10"
                     }`}
                   >
                     {filter}
@@ -1042,9 +1050,7 @@ const TeamBuildingHubPage = () => {
         <section className="bg-secondary/35 py-20">
           <div className="container mx-auto grid gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-12">
             <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Steal Our Run Sheet
-              </p>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Steal Our Run Sheet</p>
               <h2 className="font-display text-3xl font-black leading-tight sm:text-5xl">
                 The visible game is only one part of the day.
               </h2>
@@ -1061,7 +1067,10 @@ const TeamBuildingHubPage = () => {
 
             <div className="overflow-hidden rounded-[1.5rem] border border-border bg-background shadow-sm">
               {runSheetRows.map((row) => (
-                <div key={row.timing} className="grid gap-4 border-b border-border p-5 last:border-b-0 md:grid-cols-[0.22fr_0.42fr_0.36fr]">
+                <div
+                  key={row.timing}
+                  className="grid gap-4 border-b border-border p-5 last:border-b-0 md:grid-cols-[0.22fr_0.42fr_0.36fr]"
+                >
                   <p className="text-sm font-black uppercase tracking-[0.16em] text-primary">{row.timing}</p>
                   <p className="text-sm font-semibold leading-6 text-foreground">{row.activity}</p>
                   <p className="text-sm leading-6 text-muted-foreground">{row.plannerValue}</p>
