@@ -113,7 +113,7 @@ export const Footer = ({
               </li>
               <li>
                 <a
-                  href="https://wa.me/6588352482"
+                  href="https://api.whatsapp.com/send?phone=6588352482&text=Hi%20Elluminate%2C%20I'd%20like%20to%20start%20a%20free%20team%20building%20planning%20session."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-background/70 hover:text-primary text-sm transition-colors duration-300"
@@ -146,7 +146,9 @@ export const Footer = ({
         {/* Divider */}
         <div className="mt-12 pt-8 border-t border-background/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-background/50 text-sm">&copy; {new Date().getFullYear()} Elluminate. All rights reserved.</p>
+            <p className="text-background/50 text-sm">
+              &copy; {new Date().getFullYear()} Elluminate. All rights reserved.
+            </p>
             <p className="text-background/40 text-sm">{bottomNote}</p>
           </div>
         </div>
