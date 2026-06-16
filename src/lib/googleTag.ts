@@ -1,4 +1,4 @@
-const DEFAULT_GA4_MEASUREMENT_ID = "G-R4S0RLKQ67";
+import { getGa4MeasurementId, getGoogleAdsConversionId, getGtmContainerId } from "@/lib/trackingConfig";
 
 type DataLayerItem = Record<string, unknown> | unknown[];
 
@@ -22,8 +22,9 @@ const loadScript = (src: string) => {
 export function bootstrapGoogleTags() {
   if (typeof window === "undefined") return;
 
-  const ga4MeasurementId = import.meta.env.VITE_GA4_MEASUREMENT_ID?.trim() || DEFAULT_GA4_MEASUREMENT_ID;
-  const gtmContainerId = import.meta.env.VITE_GTM_CONTAINER_ID?.trim() || "";
+  const ga4MeasurementId = getGa4MeasurementId();
+  const googleAdsConversionId = getGoogleAdsConversionId();
+  const gtmContainerId = getGtmContainerId();
   const w = window as GoogleTagWindow;
 
   w.dataLayer = w.dataLayer || [];
@@ -42,5 +43,9 @@ export function bootstrapGoogleTags() {
     loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(ga4MeasurementId)}`);
     w.gtag("js", new Date());
     w.gtag("config", ga4MeasurementId);
+  }
+
+  if (googleAdsConversionId) {
+    w.gtag("config", googleAdsConversionId);
   }
 }

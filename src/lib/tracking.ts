@@ -1,4 +1,5 @@
 import type { Attribution } from "@/lib/attribution";
+import { getGoogleAdsSendTo } from "@/lib/trackingConfig";
 
 const DEFAULT_FORM_NAME = "plan_my_event";
 const DEFAULT_BRAND = "elluminate";
@@ -67,7 +68,7 @@ export function trackLeadConversion(input: LeadConversionInput) {
   const lead_id = input.lead_id;
   const value = input.value ?? DEFAULT_VALUE;
   const currency = input.currency ?? DEFAULT_CURRENCY;
-  const googleAdsSendTo = import.meta.env.VITE_GOOGLE_ADS_SEND_TO?.trim() || "";
+  const googleAdsSendTo = getGoogleAdsSendTo();
   const w = window as TrackingWindow;
   const leadPayload = buildLeadConversionPayload(input);
 

@@ -9,23 +9,28 @@ const contactModal = read("src/components/ContactModal.tsx");
 const googleTag = read("src/lib/googleTag.ts");
 const main = read("src/main.tsx");
 const tracking = read("src/lib/tracking.ts");
+const trackingConfig = read("src/lib/trackingConfig.ts");
 const attribution = read("src/lib/attribution.ts");
 const teamBuilding = read("src/pages/TeamBuildingHubPage.tsx");
 const thankYou = read("src/pages/ThankYouPage.tsx");
 
 test("site bootstraps a real environment-driven Google tag", () => {
   assert.match(main, /bootstrapGoogleTags\(\)/);
-  assert.match(googleTag, /VITE_GA4_MEASUREMENT_ID/);
-  assert.match(googleTag, /G-R4S0RLKQ67/);
+  assert.match(trackingConfig, /VITE_GA4_MEASUREMENT_ID/);
+  assert.match(trackingConfig, /G-R4S0RLKQ67/);
+  assert.match(trackingConfig, /AW-18084927892\/JP7bCOTktrscEJSzyK9D/);
   assert.match(googleTag, /googletagmanager\.com\/gtag\/js\?id=/);
-  assert.match(googleTag, /VITE_GTM_CONTAINER_ID/);
+  assert.match(trackingConfig, /VITE_GTM_CONTAINER_ID/);
   assert.match(googleTag, /googletagmanager\.com\/gtm\.js\?id=/);
+  assert.match(googleTag, /getGoogleAdsConversionId/);
+  assert.match(googleTag, /gtag\("config", googleAdsConversionId\)/);
   assert.doesNotMatch(indexHtml, /gtag\('config', 'G-R4S0RLKQ67'\)/);
 });
 
 test("lead conversion helper fires GA4, optional Google Ads, and diagnostics", () => {
   assert.match(tracking, /export function trackLeadConversion/);
-  assert.match(tracking, /VITE_GOOGLE_ADS_SEND_TO/);
+  assert.match(trackingConfig, /VITE_GOOGLE_ADS_SEND_TO/);
+  assert.match(tracking, /getGoogleAdsSendTo/);
   assert.match(tracking, /gtag\("event", "generate_lead"/);
   assert.match(tracking, /gtag\("event", "conversion"/);
   assert.match(tracking, /send_to: googleAdsSendTo/);
