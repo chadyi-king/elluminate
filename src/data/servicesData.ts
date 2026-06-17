@@ -625,7 +625,7 @@ export const servicesData: Record<string, ServiceData> = {
       title: "OVERSEAS RETREATS",
       subtitle: "Retreat",
       tagline: "The world is your company's oyster! Time to open it up and enjoy!",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467324/Overseas_5_o60d5r_c3xu0f.jpg",
+      backgroundImage: "/images/services/overseas-retreats/hero.jpg",
     },
 
     videoSection: {
@@ -635,30 +635,30 @@ export const servicesData: Record<string, ServiceData> = {
         {
           title: "Bali Team Retreat Highlights",
           videoUrl:
-            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465791/Edrington_Overseas_Video_mtm4bv_phh6bj.mp4",
+            "/videos/overseas-retreat-edrington.mov",
           thumbnailImage:
-            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465791/Edrington_Overseas_Video_mtm4bv_phh6bj.jpg",
+            "/images/services/overseas-retreats/gallery-1.jpg",
         },
         {
           title: "Bintan Team Retreat Highlights",
           videoUrl:
-            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465429/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y_wfuuax.mp4",
+            "/videos/overseas-retreat-bintan.mp4",
           thumbnailImage:
-            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465429/Company-Overseas-Retreat-Bintan-for-Checkmarx-Singapore_kbiq3y_wfuuax.jpg",
+            "/images/services/overseas-retreats/gallery-2.jpg",
         },
         {
           title: "Batam Team Retreat Highlights",
           videoUrl:
-            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465434/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj_ommxaz.mp4",
+            "/videos/overseas-retreat-batam.mp4",
           thumbnailImage:
-            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465434/Company-Retreat-For-AXA-Singapore-on-Batam_mh5cpj_ommxaz.jpg",
+            "/images/services/overseas-retreats/gallery-3.jpg",
         },
         {
           title: "Kuala Lumpur Team Retreat Highlights",
           videoUrl:
-            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465435/Overseas_Retreat_Kuala_Lumpur_pvy2gn_thcxas.mp4",
+            "/videos/overseas-retreat-kuala-lumpur.mp4",
           thumbnailImage:
-            "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465435/Overseas_Retreat_Kuala_Lumpur_pvy2gn_thcxas.jpg",
+            "/images/services/overseas-retreats/gallery-4.jpg",
         },
 
         { title: "Japan Cultural Experience" },
@@ -671,12 +671,12 @@ export const servicesData: Record<string, ServiceData> = {
     overview: {
       description:
         "Good interactions at corporate retreats and rewarding travel packages can help improve an employee's relationship with their company! Corporate retreats are the perfect place to start conversations with workers and imagine a better direction for influence and organization. We handle every detail from flights to activities, ensuring your team enjoys a seamless, unforgettable journey.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467324/Overseas_5_o60d5r_c3xu0f.jpg",
+      backgroundImage: "/images/services/overseas-retreats/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467189/Overseas_11_droxvw_iabreh.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467325/Overseas_6_d3fry4_sinduw.jpg",
+    howItWorksImage: "/images/services/overseas-retreats/how-it-works.jpg",
+    addOnsImage: "/images/services/overseas-retreats/addons.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467316/Overseas_12_gvbqfw_hpamzj.jpg",
+      "/images/services/overseas-retreats/gallery-5.jpg",
     features: [
       {
         icon: Plane,
@@ -1629,17 +1629,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "LEADERSHIP OFFSITES",
       subtitle: "Training",
       tagline: "Where vision meets strategy in inspiring settings.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563406/MBTI_9_bjvw30_jmkv5p.jpg",
+      backgroundImage: "/images/services/leadership-offsites/hero.jpg",
     },
     overview: {
       description:
         "Empower your leadership team with focused offsite experiences designed for strategic thinking and team alignment. Our executive retreats combine productive sessions with premium hospitality for maximum impact. Step away from the office to gain fresh perspectives and align on your organization's future.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563406/MBTI_9_bjvw30_jmkv5p.jpg",
+      backgroundImage: "/images/services/leadership-offsites/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467054/AmazingRace_29_hp1ikz_jv1ch2.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467057/AmazingRace_4_ehjyb5_ooamin.jpg",
+    howItWorksImage: "/images/services/leadership-offsites/how-it-works.jpg",
+    addOnsImage: "/images/services/leadership-offsites/addons.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467150/MTWI_4_e5fnzy_d4hldt.jpg",
+      "/images/services/leadership-offsites/gallery-1.jpg",
     features: [
       {
         icon: MapPin,
@@ -2868,17 +2868,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Training",
       tagline: "Nurturing wellbeing, inspiring balance, elevating your team.",
       backgroundImage:
-        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778557811/wellnes_event_3_sct4ie_ysbonv.jpg",
+        "/images/services/wellness-events/gallery-1.jpg",
     },
     overview: {
       description:
         "Promote employee wellbeing with thoughtfully designed wellness events that nurture mind, body, and spirit. From meditation sessions to fitness challenges, we create experiences that support holistic health and demonstrate your commitment to your team's wellness.",
       backgroundImage:
-        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778557811/wellnes_event_3_sct4ie_ysbonv.jpg",
+        "/images/services/wellness-events/gallery-2.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570738/wellness_9_hx8ut0.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778557815/wellnes_event_2_a1jacj_nm6reo.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570692/wellness_10_qbgaiu.jpg",
+    howItWorksImage: "/images/services/wellness-events/how-it-works.jpg",
+    addOnsImage: "/images/services/wellness-events/addons.jpg",
+    testimonialBackgroundImage: "/images/services/wellness-events/testimonial.jpg",
     features: [
       {
         icon: Dumbbell,
@@ -5316,16 +5316,16 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Building Adventure",
       tagline:
         "A fast-moving race across Singapore built for teams, schools, and student groups who want to move, solve, and win together.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467187/AmazingRace_12_g0r1sy_xprkhh.jpg",
+      backgroundImage: "/images/services/amazing-race/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466936/AmazingRace_7_jbnxyz_pxa8xj.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467003/AmazingRace_11_zdhaa2_cf2cvs.jpg",
+    howItWorksImage: "/images/services/amazing-race/how-it-works.jpg",
+    addOnsImage: "/images/services/amazing-race/addons.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467058/AmazingRace_9_rpn4ys_mxjucv.jpg",
+      "/images/services/amazing-race/gallery-1.jpg",
     overview: {
       description:
         "The Amazing Race is our signature outdoor experience where teams race across Singapore completing missions, solving puzzles, and working together under real time pressure.\n\nGroups navigate between 8 and 14 checkpoints over 2 to 3 hours, tackling a mix of physical challenges, mental puzzles, and creative tasks designed so every team member has a way to contribute and a moment to shine.\n\nThe format works for corporate teams of 20 to 500+, school cohorts, orientation programmes, and student leadership groups who want something that feels genuinely active and memorable.\n\nOur facilitators design each race route around your venue and goals, from a city-wide adventure through iconic Singapore landmarks to a heritage trail, a campus race, or a resort experience.\n\nEvery checkpoint is facilitated, every team is supported, and the debrief we run at the end consistently surfaces conversations teams carry back into the workplace.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467187/AmazingRace_12_g0r1sy_xprkhh.jpg",
+      backgroundImage: "/images/services/amazing-race/hero.jpg",
     },
     features: [
       {
@@ -5623,11 +5623,11 @@ export const servicesData: Record<string, ServiceData> = {
       },
     ],
     gallery: [
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467001/AmazingRace_10_jpsgec_ixbcth.jpg",
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466929/AmazingRace_32_bqxdeg_cpcinj.jpg",
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466923/AmazingRace_16_mdu3de_cnmayi.jpg",
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467267/AmazingRace_5_w7wpal_kza00c.jpg",
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467266/AmazingRace_8_s4xwfc_izkt2c.jpg",
+      "/images/services/amazing-race/gallery-2.jpg",
+      "/images/services/amazing-race/gallery-3.jpg",
+      "/images/services/amazing-race/gallery-4.jpg",
+      "/images/services/amazing-race/gallery-5.jpg",
+      "/images/services/amazing-race/gallery-6.jpg",
     ],
     testimonials: [
       {
@@ -5704,8 +5704,8 @@ export const servicesData: Record<string, ServiceData> = {
     videoSection: {
       title: "See the Race in Action",
       subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
-      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465592/Amazing_Race_jdt9ya_c0bmnq.mp4",
-      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465592/Amazing_Race_jdt9ya_c0bmnq.jpg",
+      videoUrl: "/videos/amazing-race-decathlon.mp4",
+      thumbnailImage: "/images/services/amazing-race/hero.jpg",
     },
     cta: {
       headline: "Ready for Your Amazing Race?",
@@ -5803,23 +5803,23 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Amazing Race in Action",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467001/AmazingRace_10_jpsgec_ixbcth.jpg",
+          src: "/images/services/amazing-race/gallery-7.jpg",
           alt: "Amazing Race team building checkpoint challenge",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466929/AmazingRace_32_bqxdeg_cpcinj.jpg",
+          src: "/images/services/amazing-race/gallery-1.jpg",
           alt: "Teams racing during an Amazing Race activity",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466923/AmazingRace_16_mdu3de_cnmayi.jpg",
+          src: "/images/services/amazing-race/gallery-2.jpg",
           alt: "Amazing Race outdoor team challenge",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467267/AmazingRace_5_w7wpal_kza00c.jpg",
+          src: "/images/services/amazing-race/gallery-3.jpg",
           alt: "Teams solving puzzles during Amazing Race",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467266/AmazingRace_8_s4xwfc_izkt2c.jpg",
+          src: "/images/services/amazing-race/gallery-4.jpg",
           alt: "Amazing Race starting line team moment",
         },
       ],
@@ -5861,17 +5861,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Building Mystery",
       tagline:
         "A forensic mystery built for teams and school groups who love clues, deduction, and competitive problem-solving.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467092/CSI_1_myrtls_zxl8in.jpg",
+      backgroundImage: "/images/services/csi-bones/hero.jpg",
     },
     overview: {
       description:
         "CSI-Bones is a forensic investigation experience where teams collaborate to solve a high-stakes mystery. Your group examines evidence, connects clues, and makes fast decisions together, making it a strong fit for both workplace teams and student groups who enjoy logic, communication, and immersive storytelling. It is a safe, indoor-friendly format that keeps everyone engaged without relying on pure physical intensity.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467092/CSI_1_myrtls_zxl8in.jpg",
+      backgroundImage: "/images/services/csi-bones/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467095/CSI_3_tt9yqa_itd4ln.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467096/CSI_4_mezxfu_dkkeax.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467095/CSI_3_tt9yqa_itd4ln.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467098/CSI_5_t4xrjy_frldop.jpg",
+    howItWorksImage: "/images/services/csi-bones/how-it-works.jpg",
+    addOnsImage: "/images/services/csi-bones/addons.jpg",
+    ctaBackgroundImage: "/images/services/csi-bones/cta.jpg",
+    testimonialBackgroundImage: "/images/services/csi-bones/testimonial.jpg",
     features: [
       {
         icon: Search,
@@ -5944,8 +5944,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Unravel the Mystery!",
       subtitle:
         "Watch teams dive into a thrilling mystery as they piece together clues to solve a crime. With sharp observation and teamwork, uncover the truth in this exciting detective challenge!",
-      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465434/CSI-Bones_lzx6cy_mixn03.mp4",
-      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465434/CSI-Bones_lzx6cy_mixn03.jpg",
+      videoUrl: "/videos/elluminate-showreel.mp4",
+      thumbnailImage: "/images/services/csi-bones/hero.jpg",
     },
     cta: {
       headline: "Ready to Solve the Case?",
@@ -6113,15 +6113,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "CSI-Bones Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466954/CSI_6_y8pkaz_gr3kpc.jpg",
+          src: "/images/services/csi-bones/gallery-1.jpg",
           alt: "CSI-Bones investigation briefing",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467093/CSI_2_slu6jv_j2agx2.jpg",
+          src: "/images/services/csi-bones/gallery-2.jpg",
           alt: "Teams collaborating during CSI-Bones",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467098/CSI_5_t4xrjy_frldop.jpg",
+          src: "/images/services/csi-bones/gallery-3.jpg",
           alt: "Team moment after completing CSI-Bones",
         },
       ],
@@ -6141,19 +6141,19 @@ export const servicesData: Record<string, ServiceData> = {
       tagline:
         "Explore, laugh, and compete through Singapore’s culture with challenges built for teamwork, curiosity, and shared discovery.",
       backgroundImage:
-        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466360/photo_2023-06-28_14-02-17-2_flckfz_bzinuy.jpg",
+        "/images/services/cultural-race/gallery-1.jpg",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466383/photo_2023-06-28_14-02-42_dhhf8q_jvvxvk.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466271/7-4_rruqw7_lmixum.png",
+      "/images/services/cultural-race/gallery-2.jpg",
+    addOnsImage: "/images/services/cultural-race/addons.jpg",
     ctaBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466923/AmazingRace_16_mdu3de_cnmayi.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466228/18-1_k5snvf_uxukje.png",
+      "/images/services/cultural-race/gallery-3.jpg",
+    testimonialBackgroundImage: "/images/services/cultural-race/testimonial.jpg",
     overview: {
       description:
         "Cultural Race is a high-energy heritage adventure where teams complete interactive missions across Singapore's cultural landmarks. It works well for corporate teams, school groups, and youth cohorts who want a format that combines exploration, teamwork, and local discovery. Explore Chinatown, Little India, Kampong Glam, and more while solving puzzles, completing creative tasks, and racing against rival teams.",
       backgroundImage:
-        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466360/photo_2023-06-28_14-02-17-2_flckfz_bzinuy.jpg",
+        "/images/services/cultural-race/gallery-4.jpg",
     },
     features: [
       { icon: MapPin, title: "Landmark Checkpoints", description: "Routes tailored to your venue or district." },
@@ -6378,15 +6378,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Cultural Race Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466228/18-1_k5snvf_uxukje.png",
+          src: "/images/services/cultural-race/gallery-5.jpg",
           alt: "Teams racing through cultural checkpoints",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466197/14-1_d5cxly_gmnro3.png",
+          src: "/images/services/cultural-race/gallery-6.jpg",
           alt: "Team celebrating during Cultural Race",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466390/photo_2023-06-28_14-02-48_axzgyz_lnnueb.jpg",
+          src: "/images/services/cultural-race/gallery-7.jpg",
           alt: "Outdoor team moment during Cultural Race",
         },
       ],
@@ -6405,16 +6405,16 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "Inspired by the viral hit game Among Us — a live social-deduction showdown where your crew finds imposters, defends the mission, and outplays the opposition.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466436/exstatic-71_nf1hy4_q0wthm.png",
+      backgroundImage: "/images/services/amongst-us/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466247/12-1_ys7sfz_lytwth.png",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466418/4-3_jcfcl7_bogpmh.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467106/disc_3_uesqco_xaluze.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466256/2-2_yuoolq_og3iyb.png",
+    howItWorksImage: "/images/services/amongst-us/how-it-works.jpg",
+    addOnsImage: "/images/services/amongst-us/addons.jpg",
+    ctaBackgroundImage: "/images/services/amongst-us/cta.jpg",
+    testimonialBackgroundImage: "/images/services/amongst-us/testimonial.jpg",
     overview: {
       description:
         "Amongst Us is a live team-building adaptation of the viral hit game Among Us, brought off the screen and into a fully facilitated physical experience. Participants move through missions, suspicion rounds, secret roles, and timed reveals while trying to complete objectives without letting the imposters sabotage the team. It works especially well for workplaces, student leaders, camps, and mixed groups because the format rewards observation, persuasion, teamwork, and a good sense of humour rather than fitness alone.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466436/exstatic-71_nf1hy4_q0wthm.png",
+      backgroundImage: "/images/services/amongst-us/hero.jpg",
     },
     features: [
       {
@@ -6703,19 +6703,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Amongst Us Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466293/exstatic-77_qz783y_imgm8o.png",
+          src: "/images/services/amongst-us/gallery-1.jpg",
           alt: "Amongst Us team reveal moment",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466266/5_n9hjyr_jmbzfn.png",
+          src: "/images/services/amongst-us/gallery-2.jpg",
           alt: "Players analysing who the imposter might be",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466305/exstatic-92_iesvlu_dxo2ag.png",
+          src: "/images/services/amongst-us/gallery-3.jpg",
           alt: "Participants reacting during a live discussion round",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466242/3-2_ylq4ub_jwk9rk.png",
+          src: "/images/services/amongst-us/gallery-4.jpg",
           alt: "Amongst Us accusation round",
         },
       ],
@@ -6734,17 +6734,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "Inspired by the Netflix hit Alice in Borderland — a surreal live adventure where teams navigate themed stations, crack curious puzzles, and find their way through a world of playful challenges.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467140/MonopolyDash_1_rlwgie_mtxttl.jpg",
+      backgroundImage: "/images/services/alice-in-motherland/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467336/SotongGame_6_m15tpn_pe7l2c.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467284/MonopolyDash_4_jkl1xu_dxlali.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467096/CSI_4_mezxfu_dkkeax.jpg",
+    howItWorksImage: "/images/services/alice-in-motherland/how-it-works.jpg",
+    addOnsImage: "/images/services/alice-in-motherland/addons.jpg",
+    ctaBackgroundImage: "/images/services/alice-in-motherland/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467379/AmazingRace_6_q4rlam_npouzf.jpg",
+      "/images/services/alice-in-motherland/gallery-1.jpg",
     overview: {
       description:
         "Alice in Motherland is a team-building adventure inspired by Alice in Borderland, the acclaimed Netflix series, adapted into a live and fully facilitated group experience. Teams journey through themed stations, complete curious missions, solve imaginative puzzles, and collaborate their way through a surreal format that rewards creativity and team observation. It works especially well for clients or schools looking for something visually distinctive, story-driven, and genuinely memorable.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467140/MonopolyDash_1_rlwgie_mtxttl.jpg",
+      backgroundImage: "/images/services/alice-in-motherland/hero.jpg",
     },
     features: [
       {
@@ -7045,19 +7045,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Alice in Motherland Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466452/exstatic-78-1_xhgvab_i4fb2k.png",
+          src: "/images/services/alice-in-motherland/gallery-2.jpg",
           alt: "Team entering a themed Alice in Motherland station",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466464/exstatic-94_nqnjxj_ogfmqu.png",
+          src: "/images/services/alice-in-motherland/gallery-3.jpg",
           alt: "Participants reacting during a story-led mission",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466471/TE-51_cbrxsh_jjqaex.png",
+          src: "/images/services/alice-in-motherland/gallery-4.jpg",
           alt: "Group celebrating after completing the final challenge",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466445/exstatic-75-1_iq18k4_brs37x.png",
+          src: "/images/services/alice-in-motherland/gallery-5.jpg",
           alt: "Alice in Motherland puzzle station",
         },
       ],
@@ -7076,17 +7076,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Physical Team Building",
       tagline:
         "A bold team tournament that blends athletic rounds, strategy games, and full-group energy into one epic showdown.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466298/Exstatic-83_dm6mhz_aucsk2.png",
+      backgroundImage: "/images/services/battle-of-the-olympians/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466297/Exstatic-82_amkre4_hwfkj9.png",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467235/RunningMan_1_rqyx9i_qfghzz.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466297/Exstatic-82_amkre4_hwfkj9.png",
+    howItWorksImage: "/images/services/battle-of-the-olympians/how-it-works.jpg",
+    addOnsImage: "/images/services/battle-of-the-olympians/addons.jpg",
+    ctaBackgroundImage: "/images/services/battle-of-the-olympians/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466290/exstatic-75-2_ozcdef_fjmiu4.png",
+      "/images/services/battle-of-the-olympians/gallery-1.jpg",
     overview: {
       description:
         "Battle of the Olympians is a large-format team competition built for groups that want scale, energy, and a sense of event. Teams move through a mix of athletic relays, tactical tasks, mental rounds, and showpiece finales while earning points for consistency, teamwork, and determination. It works especially well for larger corporate groups, school cohorts, student camps, and department-wide offsites that need something competitive, highly visible, and easy for people to rally around.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466298/Exstatic-83_dm6mhz_aucsk2.png",
+      backgroundImage: "/images/services/battle-of-the-olympians/hero.jpg",
     },
     features: [
       {
@@ -7375,19 +7375,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Battle of the Olympians Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466304/exstatic-90_izg9jw_zsywaf.png",
+          src: "/images/services/battle-of-the-olympians/gallery-2.jpg",
           alt: "Teams competing during Battle of the Olympians",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466294/exstatic-78-2_i4fdzh_hllc2b.png",
+          src: "/images/services/battle-of-the-olympians/gallery-3.jpg",
           alt: "Olympian teams celebrating after the final round",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466264/6-1_sobayd_lt2bfx.png",
+          src: "/images/services/battle-of-the-olympians/gallery-4.jpg",
           alt: "Large group tournament layout during a team showdown",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466423/7-3_reercq_xkldkk.png",
+          src: "/images/services/battle-of-the-olympians/gallery-5.jpg",
           alt: "Battle of the Olympians relay challenge",
         },
       ],
@@ -7407,18 +7407,18 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Battle",
       tagline:
         "A safe, high-energy battle format for teams and student groups who want action, teamwork, and fast decisions.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486366/archery_tag_8_c6r61v_q50s6q.jpg",
+      backgroundImage: "/images/services/archery-tag/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486354/archery_tag_5_hg7csc_nmmv8o.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486357/archery_tag_6_v4lahk_muur5j.jpg",
+    howItWorksImage: "/images/services/archery-tag/how-it-works.jpg",
+    addOnsImage: "/images/services/archery-tag/addons.jpg",
     ctaBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486345/archery_tag_12_ctqza6_gsxpk4.jpg",
+      "/images/services/archery-tag/gallery-1.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486348/archery_tag_3_jcem57_oruc0z.jpg",
+      "/images/services/archery-tag/gallery-2.jpg",
     overview: {
       description:
         "Archery Tag is a team battle experience that blends movement, strategy, and communication. It is designed to be safe, inclusive, and easy to run for workplace teams, school groups, and student leaders who want something active without losing structure. Clear rules, protective equipment, and professional facilitation keep the format fun and accessible.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486366/archery_tag_8_c6r61v_q50s6q.jpg",
+      backgroundImage: "/images/services/archery-tag/hero.jpg",
     },
     features: [
       { icon: Target, title: "Tactical Team Play", description: "Coordinate roles and communicate to win rounds." },
@@ -7476,9 +7476,9 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle:
         "Watch teams compete in this thrilling mix of archery and tag, where precision and strategy are key. Dodge, shoot, and outsmart your opponents to claim victory in this action-packed battle!",
       videoUrl:
-        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465419/Archery-Tag-Team-Building-1_ssgv9f_xshzna.mp4",
+        "/videos/elluminate-showreel.mp4",
       thumbnailImage:
-        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465419/Archery-Tag-Team-Building-1_ssgv9f_xshzna.jpg",
+        "/images/services/archery-tag/gallery-3.jpg",
     },
     cta: {
       headline: "Ready to Battle?",
@@ -7648,19 +7648,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Archery Tag Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486373/archery_tag_10_skwlpk_pkvdlp.jpg",
+          src: "/images/services/archery-tag/gallery-4.jpg",
           alt: "Archery Tag team battle",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486354/archery_tag_5_hg7csc_nmmv8o.jpg",
+          src: "/images/services/archery-tag/gallery-5.jpg",
           alt: "Outdoor team building moment",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778486348/archery_tag_3_jcem57_oruc0z.jpg",
+          src: "/images/services/archery-tag/gallery-6.jpg",
           alt: "Team celebrating after Archery Tag",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467269/archery_tag_13_dadl82_vvh94v.jpg",
+          src: "/images/services/archery-tag/gallery-7.jpg",
           alt: "Archery Tag squad formation",
         },
       ],
@@ -7679,12 +7679,12 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Building Challenge",
       tagline:
         "A hands-on build challenge for teams, classes, and student leaders who learn best by making things together.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466949/BuilderCross_1_zkduwz_w7jxhb.jpg",
+      backgroundImage: "/images/services/builder-cross/hero.jpg",
     },
     overview: {
       description:
         "BuilderCross is a hands-on construction challenge where teams design, plan, and build structures together under time pressure. Inspired by engineering and architecture challenges, participants work with provided materials to create functional builds that meet specific criteria. It is especially strong for workplace teams, school cohorts, and youth groups because it rewards planning, delegation, iteration, and communication without requiring high physical intensity. Whether your group is building bridges, towers, or themed creations, BuilderCross rewards ingenuity and collaboration over brute force.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466949/BuilderCross_1_zkduwz_w7jxhb.jpg",
+      backgroundImage: "/images/services/builder-cross/hero.jpg",
     },
     features: [
       {
@@ -7797,8 +7797,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Build, Create, Compete!",
       subtitle:
         "Watch teams race against the clock to build the tallest and most creative structure while overcoming exciting challenges. Teamwork and innovation are essential in this fun and competitive building showdown!",
-      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465639/Builder-Cross_sll8i8_ujqwtw.mp4",
-      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465639/Builder-Cross_sll8i8_ujqwtw.jpg",
+      videoUrl: "/videos/elluminate-showreel.mp4",
+      thumbnailImage: "/images/services/builder-cross/hero.jpg",
     },
     cta: {
       headline: "Ready to Build Together?",
@@ -7979,25 +7979,25 @@ export const servicesData: Record<string, ServiceData> = {
           "Having a physical result from the session gives the group something to connect around beyond just the activity.",
       },
     ],
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467081/BuilderCross_6_ibyshz_p3dhj7.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467082/BuilderCross_7_cgexuc_eq0ylr.jpg",
+    howItWorksImage: "/images/services/builder-cross/how-it-works.jpg",
+    addOnsImage: "/images/services/builder-cross/addons.jpg",
     ctaBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778487720/BuilderCross_2_m6lujd_hajts0.jpg",
+      "/images/services/builder-cross/gallery-1.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467085/BuilderCross_9_fphwj5_fva0ez.jpg",
+      "/images/services/builder-cross/gallery-2.jpg",
     miniGallery: {
       title: "BuilderCross Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467083/BuilderCross_8_vovefn_x0dw22.jpg",
+          src: "/images/services/builder-cross/gallery-3.jpg",
           alt: "Teams building structures during BuilderCross challenge",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778487720/BuilderCross_2_m6lujd_hajts0.jpg",
+          src: "/images/services/builder-cross/gallery-4.jpg",
           alt: "BuilderCross final showcase moment",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467083/BuilderCross_8_vovefn_x0dw22.jpg",
+          src: "/images/services/builder-cross/gallery-5.jpg",
           alt: "Collaborative building moment",
         },
       ],
@@ -8016,17 +8016,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Battle",
       tagline:
         "A fast, tactical battle format built for teams and student groups that want action without the admin headache.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467342/gelblitz_6_akebbh_csmqgj.jpg",
+      backgroundImage: "/images/services/gel-blitz/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467126/gelblitz_9_ilhw6b_aygs7m.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467123/gelblitz_4_vphes5_efocop.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467122/gelblitz_3_yjahdx_k5ukgj.jpg",
+    howItWorksImage: "/images/services/gel-blitz/how-it-works.jpg",
+    addOnsImage: "/images/services/gel-blitz/addons.jpg",
+    ctaBackgroundImage: "/images/services/gel-blitz/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467273/gelblitz_10_cgvrna_eq4vgq.jpg",
+      "/images/services/gel-blitz/gallery-1.jpg",
     overview: {
       description:
         "GelBlitz is a high-energy gel blaster team battle experience designed for safe, exciting team bonding. Using specially designed gel blasters that fire soft, biodegradable gel beads, teams compete in structured tactical rounds with clear objectives. It is a strong fit for both workplace teams and older student groups because it combines action, teamwork, and facilitation in a format that feels exciting but remains well-controlled. Whether your group prefers tactical strategy or all-out action, GelBlitz delivers an adrenaline rush that gets people communicating fast.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467342/gelblitz_6_akebbh_csmqgj.jpg",
+      backgroundImage: "/images/services/gel-blitz/hero.jpg",
     },
     features: [
       {
@@ -8318,19 +8318,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "GelBlitz Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467282/gelblitz_7_joe2js_vhbbx1.jpg",
+          src: "/images/services/gel-blitz/gallery-2.jpg",
           alt: "GelBlitz tactical team battle",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467125/gelblitz_8_dp0uc8_ow9oyn.jpg",
+          src: "/images/services/gel-blitz/gallery-3.jpg",
           alt: "Team celebrating GelBlitz victory",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467279/gelblitz_1_jejkkh_u8peik.jpg",
+          src: "/images/services/gel-blitz/gallery-4.jpg",
           alt: "Outdoor GelBlitz action",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467277/gelblitz_11_vnr0qx_pmu74v.jpg",
+          src: "/images/services/gel-blitz/gallery-5.jpg",
           alt: "GelBlitz team strategy huddle",
         },
       ],
@@ -8348,17 +8348,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MINUTE TO WIN IT",
       subtitle: "Team Party Games",
       tagline: "Quick-fire mini games for teams, classes, and cohorts that want instant laughs and full participation.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467363/MTWI_2_m57wuz_dsdpf5.jpg",
+      backgroundImage: "/images/services/minute-to-win-it/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466988/MTWI_12_vui3ae_zajass.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467287/MTWI_3_hiohbs_zkj6c1.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467150/MTWI_4_e5fnzy_d4hldt.jpg",
+    howItWorksImage: "/images/services/minute-to-win-it/how-it-works.jpg",
+    addOnsImage: "/images/services/minute-to-win-it/addons.jpg",
+    ctaBackgroundImage: "/images/services/minute-to-win-it/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467287/MTWI_3_hiohbs_zkj6c1.jpg",
+      "/images/services/minute-to-win-it/gallery-1.jpg",
     overview: {
       description:
         "Minute To Win It is a high-energy party-style team building experience featuring dozens of fast-paced mini challenges, each lasting just 60 seconds. Inspired by the hit TV show, teams compete across multiple rounds of quirky, hilarious, and surprisingly challenging games that test dexterity, coordination, creativity, and teamwork. It works just as well for school cohorts and student groups as it does for workplace teams because the rules are simple, the energy is immediate, and everyone can take part. Minute To Win It works brilliantly as a standalone event, a celebration segment, or an energizer during workshops and camp programmes.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467363/MTWI_2_m57wuz_dsdpf5.jpg",
+      backgroundImage: "/images/services/minute-to-win-it/hero.jpg",
     },
     features: [
       {
@@ -8476,9 +8476,9 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle:
         "Watch teams race against the clock in a series of exciting 60-second challenges. Speed, skill, and creativity are key to winning in this fast-paced, high-energy game!",
       videoUrl:
-        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465419/Minute-To-Win-It-Team-Building_i0cajb_txzvhz.mp4",
+        "/videos/elluminate-showreel.mp4",
       thumbnailImage:
-        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465419/Minute-To-Win-It-Team-Building_i0cajb_txzvhz.jpg",
+        "/images/services/minute-to-win-it/gallery-2.jpg",
     },
     cta: {
       headline: "Ready to Play?",
@@ -8664,19 +8664,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Minute To Win It Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467287/MTWI_3_hiohbs_zkj6c1.jpg",
+          src: "/images/services/minute-to-win-it/gallery-3.jpg",
           alt: "Teams competing in Minute To Win It challenges",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467286/MTWI_11_tc1soi_racqhw.jpg",
+          src: "/images/services/minute-to-win-it/gallery-4.jpg",
           alt: "Exciting mini game moment",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467152/MTWI_5_pzdfsb_zjnbur.jpg",
+          src: "/images/services/minute-to-win-it/gallery-5.jpg",
           alt: "Team celebration after winning",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467154/MTWI_6_fydbkh_bbijzi.jpg",
+          src: "/images/services/minute-to-win-it/gallery-6.jpg",
           alt: "Fun team activity highlight",
         },
       ],
@@ -8695,17 +8695,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "City Strategy Race",
       tagline:
         "A city race for teams and student groups who enjoy strategy, negotiation, and fast decisions on the move.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467284/MonopolyDash_4_jkl1xu_dxlali.jpg",
+      backgroundImage: "/images/services/monopoly-dash/hero.jpg",
     },
     overview: {
       description:
         "Monopoly Dash is a city-wide strategy race inspired by the classic board game, brought to life on the streets of Singapore. Teams navigate real neighborhoods, landmarks, and hidden gems while earning virtual currency, purchasing properties, and completing trade missions. Unlike a standard Amazing Race, Monopoly Dash adds a layer of financial strategy: teams must decide when to invest, when to save, and when to negotiate with rival teams for property trades. That makes it a strong fit for workplace groups, older students, and leadership cohorts who enjoy competition with a more cerebral edge.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467284/MonopolyDash_4_jkl1xu_dxlali.jpg",
+      backgroundImage: "/images/services/monopoly-dash/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467140/MonopolyDash_1_rlwgie_mtxttl.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467283/MonopolyDash_2_sq8gpp_zbhss7.jpg",
+    howItWorksImage: "/images/services/monopoly-dash/how-it-works.jpg",
+    addOnsImage: "/images/services/monopoly-dash/addons.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467147/MonopolyDash_9_k7krlz_akzpya.jpg",
+      "/images/services/monopoly-dash/gallery-1.jpg",
     features: [
       {
         icon: Map,
@@ -8821,8 +8821,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Race to the Finish Line!",
       subtitle:
         "Watch teams race through fast-paced challenges inspired by the classic board game. Complete tasks, collect points, and outsmart your opponents in this exciting and competitive game of strategy and speed!",
-      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465822/Monopoly_Dash_d8mjjz_nqqwzs.mp4",
-      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465822/Monopoly_Dash_d8mjjz_nqqwzs.jpg",
+      videoUrl: "/videos/elluminate-showreel.mp4",
+      thumbnailImage: "/images/services/monopoly-dash/hero.jpg",
     },
     cta: {
       headline: "Ready to Dash?",
@@ -9008,15 +9008,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Monopoly Dash Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467140/MonopolyDash_1_rlwgie_mtxttl.jpg",
+          src: "/images/services/monopoly-dash/gallery-2.jpg",
           alt: "Teams racing through Singapore during Monopoly Dash",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467147/MonopolyDash_9_k7krlz_akzpya.jpg",
+          src: "/images/services/monopoly-dash/gallery-3.jpg",
           alt: "Monopoly Dash street challenge",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467283/MonopolyDash_2_sq8gpp_zbhss7.jpg",
+          src: "/images/services/monopoly-dash/gallery-4.jpg",
           alt: "Outdoor negotiation moment",
         },
       ],
@@ -9034,17 +9034,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "NERFWAR",
       subtitle: "Foam Dart Battles",
       tagline: "A safe, fast, and hilarious battle format for teams and school groups who want action with structure.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466995/nerfwar_5_oqmjf3_psu9nc.jpg",
+      backgroundImage: "/images/services/monopoly-dash/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467159/nerfwar_2_nxll52_enw5fk.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467157/nerfwar_1_dzcjh4_k2wdwb.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467290/nerfwar_3_pxba6f_du5d0x.jpg",
+    howItWorksImage: "/images/services/monopoly-dash/how-it-works.jpg",
+    addOnsImage: "/images/services/monopoly-dash/addons.jpg",
+    ctaBackgroundImage: "/images/services/monopoly-dash/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467288/nerfwar_10_tg6ss6_rzcrtu.jpg",
+      "/images/services/monopoly-dash/gallery-5.jpg",
     overview: {
       description:
         "Nerfwar is a high-energy foam dart battle experience that transforms your outing into an action-packed tactical adventure. Equipped with Nerf blasters and foam darts, teams compete in structured match formats designed to encourage communication, strategy, and good old-fashioned fun. It is especially useful for mixed groups, schools, and student cohorts because the format is safe, easy to pick up, and full of movement without feeling intimidating. Whether you are hosting a casual team day or an energetic kickoff event, Nerfwar delivers guaranteed laughs and memorable team moments.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466995/nerfwar_5_oqmjf3_psu9nc.jpg",
+      backgroundImage: "/images/services/monopoly-dash/hero.jpg",
     },
     features: [
       {
@@ -9334,19 +9334,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Nerfwar Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467288/nerfwar_10_tg6ss6_rzcrtu.jpg",
+          src: "/images/services/monopoly-dash/gallery-6.jpg",
           alt: "Nerfwar foam dart team battle in action",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466993/nerfwar_12_ykj5sp_pbet0h.jpg",
+          src: "/images/services/monopoly-dash/gallery-7.jpg",
           alt: "Team celebrating Nerfwar victory",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467291/nerfwar_8_kel39u_jogeuc.jpg",
+          src: "/images/services/monopoly-dash/gallery-1.jpg",
           alt: "Outdoor Nerfwar moment",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466994/nerfwar_4_lgyzz6_cx1ytt.jpg",
+          src: "/images/services/monopoly-dash/gallery-2.jpg",
           alt: "Nerfwar squad formation",
         },
       ],
@@ -9365,17 +9365,17 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Variety Show Games",
       tagline:
         "A fan-favourite challenge format for teams, classes, and student groups that want pure energy and big laughs.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467240/RunningMan_3_kdfmqs_oeu3zl.jpg",
+      backgroundImage: "/images/services/running-man/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467239/RunningMan_2_h7dp74_vswmms.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467233/RunningMan_19_os8wfv_ddj1p1.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467026/RunningMan_21_ncjbhp_jigkml.jpg",
+    howItWorksImage: "/images/services/running-man/how-it-works.jpg",
+    addOnsImage: "/images/services/running-man/addons.jpg",
+    ctaBackgroundImage: "/images/services/running-man/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467331/RunningMan_16_tbkpld_ki4lrw.jpg",
+      "/images/services/running-man/gallery-1.jpg",
     overview: {
       description:
         "Running Man Adventure is inspired by the massively popular Korean variety show, bringing its signature blend of hilarious challenges, name-tag battles, and team missions to your event. Teams compete through multiple rounds of creative, physical, and strategic games that reward quick thinking, coordination, and plenty of laughter. It is one of our strongest crossover formats for workplace teams, school cohorts, and student groups because it feels familiar, inclusive, and instantly exciting. Suitable for outdoor parks, indoor venues, and resort settings.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467240/RunningMan_3_kdfmqs_oeu3zl.jpg",
+      backgroundImage: "/images/services/running-man/hero.jpg",
     },
     features: [
       {
@@ -9492,8 +9492,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "The Ultimate Team Challenge",
       subtitle:
         "Watch teams compete in exciting and unpredictable challenges inspired by the hit show Running Man. From name tag elimination to thrilling obstacle courses, teamwork and strategy are key to outsmarting your opponents and winning!",
-      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465863/RunningMan_oxkjdu_mka8wt.mov",
-      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465863/RunningMan_oxkjdu_mka8wt.jpg",
+      videoUrl: "/images/services/running-man/hero.jpg",
+      thumbnailImage: "/images/services/running-man/hero.jpg",
     },
     cta: {
       headline: "Ready for Running Man?",
@@ -9676,15 +9676,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Running Man Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467026/RunningMan_21_ncjbhp_jigkml.jpg",
+          src: "/images/services/running-man/gallery-2.jpg",
           alt: "Team competing in Running Man challenge",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467228/RunningMan_13_m2kg4e_akw47g.jpg",
+          src: "/images/services/running-man/gallery-3.jpg",
           alt: "Running Man outdoor challenge moment",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467235/RunningMan_1_rqyx9i_qfghzz.jpg",
+          src: "/images/services/running-man/gallery-4.jpg",
           alt: "Running Man team formation",
         },
       ],
@@ -9702,17 +9702,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "SOTONG GAME",
       subtitle: "Squid-Style Survival Games",
       tagline: "Can Your Team Survive the Ultimate Challenge?",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467338/SotongGame_7_cd8u9r_eglqfx.jpg",
+      backgroundImage: "/images/services/sotong-game/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467339/SotongGame_8_hqiimv_byefdp.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467336/SotongGame_6_m15tpn_pe7l2c.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467035/SotongGame_5_yybybi_ifpvdw.jpg",
+    howItWorksImage: "/images/services/sotong-game/how-it-works.jpg",
+    addOnsImage: "/images/services/sotong-game/addons.jpg",
+    ctaBackgroundImage: "/images/services/sotong-game/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467259/SotongGame_4_vphbd3_dfd1tv.jpg",
+      "/images/services/sotong-game/gallery-1.jpg",
     overview: {
       description:
         "Sotong Game is a themed team building experience inspired by the global phenomenon of Squid-style survival games, adapted into safe, inclusive, and thrilling team challenges. Participants enter the game world complete with themed briefings, dramatic music, and the unmistakable tension of elimination rounds. From Red Light Green Light to Dalgona challenges to the iconic Tug of War, every game is faithfully recreated with a team-building twist that keeps everyone safe while delivering maximum excitement. Teams must communicate, strategize, and support each other to survive each round and advance to the final showdown. Our facilitators dress the part and maintain the immersive atmosphere throughout, complete with dramatic commentary and live scoring. Sotong Game is consistently one of our most popular activities for groups that want something themed, competitive, and genuinely memorable.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467338/SotongGame_7_cd8u9r_eglqfx.jpg",
+      backgroundImage: "/images/services/sotong-game/hero.jpg",
     },
     features: [
       {
@@ -9829,8 +9829,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Tense Challenges, Teamwork Wins!",
       subtitle:
         "Watch teams tackle unique and fun challenges in this exciting game of strategy and teamwork. From blind paths to pressure puzzles, every challenge tests your group's ability to think fast and work together!",
-      videoUrl: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465975/Sotong_Game_qqx1d3_dayqvg.mp4",
-      thumbnailImage: "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465975/Sotong_Game_qqx1d3_dayqvg.jpg",
+      videoUrl: "/videos/elluminate-showreel.mp4",
+      thumbnailImage: "/images/services/sotong-game/hero.jpg",
     },
     cta: {
       headline: "Ready for Sotong Game?",
@@ -10015,15 +10015,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Sotong Game Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467031/SotongGame_19_gqbkjc_aqglp0.jpg",
+          src: "/images/services/sotong-game/gallery-2.jpg",
           alt: "Sotong Game themed team challenge",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467257/SotongGame_1_evo52u_zhu2ks.jpg",
+          src: "/images/services/sotong-game/gallery-3.jpg",
           alt: "Squid-style game in progress",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467252/SotongGame_13_sabaqz_kps70w.jpg",
+          src: "/images/services/sotong-game/gallery-4.jpg",
           alt: "Team survival moment",
         },
       ],
@@ -10041,17 +10041,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "TAG-TICAL LASER TAG",
       subtitle: "Laser Team Battles",
       tagline: "Gear Up for the Ultimate Laser Tag Showdown!",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555344/tagtical_laser_4_seudw9.jpg",
+      backgroundImage: "/images/services/tag-tical-laser-teambuilding/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555330/tagtical_laser_12_skhlu3.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555328/tagtical_laser_15_lxkaqc.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555337/tagtical_laser_13_qljgfn.jpg",
+    howItWorksImage: "/images/services/tag-tical-laser-teambuilding/how-it-works.jpg",
+    addOnsImage: "/images/services/tag-tical-laser-teambuilding/addons.jpg",
+    ctaBackgroundImage: "/images/services/tag-tical-laser-teambuilding/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555337/tagtical_laser_13_qljgfn.jpg",
+      "/images/services/tag-tical-laser-teambuilding/gallery-1.jpg",
     overview: {
       description:
         "Tag-tical Laser Teambuilding is a premium laser tag experience designed specifically for corporate team building. Using state-of-the-art infrared laser tag equipment, teams compete in structured tactical rounds that reward strategy, communication, and coordination. Unlike casual laser tag, our corporate format features objective-based game modes including capture the base, escort missions, king of the hill, and team elimination. Each participant receives a laser tag vest and phaser with real-time hit tracking and scoring. Our facilitators design the battlefield layout, manage game flow, and provide tactical briefings between rounds. The technology is completely safe with no projectiles involved, making it suitable for all participants regardless of age or fitness level. Tag-tical Laser is perfect for teams that want a competitive, active experience with a strong strategic element.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555344/tagtical_laser_4_seudw9.jpg",
+      backgroundImage: "/images/services/tag-tical-laser-teambuilding/hero.jpg",
     },
     features: [
       {
@@ -10259,9 +10259,9 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle:
         "Watch teams compete in fast-paced laser tag challenges, testing their strategy and teamwork across dynamic arenas.",
       videoUrl:
-        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465417/Laser-Tag-Team-Building-1_wjhrle_abuip5.mp4",
+        "/videos/elluminate-showreel.mp4",
       thumbnailImage:
-        "https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465417/Laser-Tag-Team-Building-1_wjhrle_abuip5.jpg",
+        "/images/services/tag-tical-laser-teambuilding/gallery-2.jpg",
     },
     clientLogos: ["Thales", "BAE Systems", "ST Aerospace", "Dassault", "Bosch", "Sembcorp"],
     recentEvents: [
@@ -10357,19 +10357,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Laser Tag Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555337/tagtical_laser_17_iyas47.jpg",
+          src: "/images/services/tag-tical-laser-teambuilding/gallery-3.jpg",
           alt: "Tactical laser tag team battle",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555328/tagtical_laser_15_lxkaqc.jpg",
+          src: "/images/services/tag-tical-laser-teambuilding/gallery-4.jpg",
           alt: "Team celebrating laser tag victory",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555346/tagtical_laser_2_toigam.jpg",
+          src: "/images/services/tag-tical-laser-teambuilding/gallery-5.jpg",
           alt: "Outdoor laser tag moment",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778555330/tagtical_laser_12_skhlu3.jpg",
+          src: "/images/services/tag-tical-laser-teambuilding/gallery-6.jpg",
           alt: "Laser tag strategy session",
         },
       ],
@@ -10388,19 +10388,19 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Strategy Adventure",
       tagline:
         "Inspired by Money Heist — assemble your crew, crack the defences, and steal the most gold before the clock runs out.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466250/13_wvbhdx_i8mwpk.png",
+      backgroundImage: "/images/services/treasure-heist/hero.jpg",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466364/photo_2023-06-28_14-02-20_dfdisl_f1bewg.jpg",
+      "/images/services/treasure-heist/gallery-1.jpg",
     addOnsImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466345/photo_2023-06-28_14-02-08_wcnzfo_ul5qhh.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467035/SotongGame_5_yybybi_ifpvdw.jpg",
+      "/images/services/treasure-heist/gallery-2.jpg",
+    ctaBackgroundImage: "/images/services/treasure-heist/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466396/photo_2023-06-28_14-20-10_qsrb9h_jz6bdp.jpg",
+      "/images/services/treasure-heist/gallery-3.jpg",
     overview: {
       description:
         "Taking inspiration from the global phenomenon Money Heist (La Casa de Papel), Treasure Heist is a fully facilitated team strategy adventure where crews plan and execute a gold heist against the pirates. Teams compete to steal the most gold by completing challenges, solving heist puzzles, and outmanoeuvring rival crews — while the defences get harder with each round. As the stakes rise, only the most coordinated and creative crew takes home the ultimate haul.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466250/13_wvbhdx_i8mwpk.png",
+      backgroundImage: "/images/services/treasure-heist/hero.jpg",
     },
     features: [
       { icon: Gem, title: "Heist Theme", description: "A playful pirate storyline that keeps teams locked-in." },
@@ -10570,15 +10570,15 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Treasure Heist Highlights",
       images: [
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466400/photo_2023-06-28_14-20-38_dc598l_bm2a1s.jpg",
+          src: "/images/services/treasure-heist/gallery-4.jpg",
           alt: "Treasure Heist team-building session",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466361/photo_2023-06-28_14-02-17_ys0vmu_s63p5r.jpg",
+          src: "/images/services/treasure-heist/gallery-5.jpg",
           alt: "Outdoor team-building moment",
         },
         {
-          src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466364/photo_2023-06-28_14-02-20_dfdisl_f1bewg.jpg",
+          src: "/images/services/treasure-heist/gallery-6.jpg",
           alt: "Treasure Heist mask key art",
         },
       ],
@@ -10600,19 +10600,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "AMAZING RACE VIRTUAL",
       subtitle: "Virtual Team Building",
       tagline: "The World is waiting for you. Good Luck. Travel Safe and Go!",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572647/vtb_ar_4_ieuq95.png",
+      backgroundImage: "/images/services/amazing-race-virtual/hero.jpg",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466943/amazing_race_vtb_7_b6nquc_znls4u.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572621/vtb_ar_6_zsksme.png",
+      "/images/services/amazing-race-virtual/gallery-1.jpg",
+    addOnsImage: "/images/services/amazing-race-virtual/addons.jpg",
     ctaBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466936/amazing_race_vtb_2_o1rkl5_jgqleq.png",
+      "/images/services/amazing-race-virtual/gallery-2.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466935/amazing_race_vtb_1_dvpp57_jhn3bv.png",
+      "/images/services/amazing-race-virtual/gallery-3.jpg",
     overview: {
       description:
         "Journey across the globe without leaving your seat! In this high-energy virtual adventure, teams race through countries, solve puzzles, and complete challenges inspired by destinations worldwide. Perfect for remote teams who want excitement, strategy, and bonding—all through Zoom. Requires only a laptop/desktop with camera and internet.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572647/vtb_ar_4_ieuq95.png",
+      backgroundImage: "/images/services/amazing-race-virtual/hero.jpg",
     },
     features: [
       {
@@ -10794,17 +10794,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "FIT IN YOUR TEAM",
       subtitle: "Virtual Team Building",
       tagline: "A Fun and Competitive Workout Teambuilding Activity made for Your Team to get Energized!",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466974/Main-Pic_ve8cxp_sgarxw.jpg",
+      backgroundImage: "/images/services/fit-in-your-team-virtual/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466973/FIYT-3_kmv7zw_ulpegr.png",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466972/FIYT-2_seyqrv_ufphwd.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466974/Main-Pic_ve8cxp_sgarxw.jpg",
+    howItWorksImage: "/images/services/fit-in-your-team-virtual/how-it-works.jpg",
+    addOnsImage: "/images/services/fit-in-your-team-virtual/addons.jpg",
+    ctaBackgroundImage: "/images/services/fit-in-your-team-virtual/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466974/Main-Pic_ve8cxp_sgarxw.jpg",
+      "/images/services/fit-in-your-team-virtual/gallery-1.jpg",
     overview: {
       description:
         "Get your team moving with this high-energy virtual workout experience! Combining fitness challenges with team competition, Fit In Your Team promotes physical wellness, mental clarity, and social connection—all from the comfort of home. Perfect for teams looking to energize, bond, and prioritize wellbeing together via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466974/Main-Pic_ve8cxp_sgarxw.jpg",
+      backgroundImage: "/images/services/fit-in-your-team-virtual/hero.jpg",
     },
     features: [
       { icon: Dumbbell, title: "Fitness Challenges", description: "Fun workout activities for all fitness levels." },
@@ -10983,17 +10983,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "GAMESHOW EXPERIENCE",
       subtitle: "Virtual Team Building",
       tagline: "6 in 1 Gameshows to play and challenge your colleagues",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572167/ultimate_gameshow_5_icbfr4.png",
+      backgroundImage: "/images/services/the-gameshow-experience-virtual/hero.jpg",
     },
     overview: {
       description:
         "Bring the excitement of TV gameshows to your virtual team event! With 6 different gameshow formats in one experience, teams compete through trivia, challenges, and hilarious moments. This high-energy virtual experience is perfect for large groups looking for entertainment and friendly competition via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572167/ultimate_gameshow_5_icbfr4.png",
+      backgroundImage: "/images/services/the-gameshow-experience-virtual/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572174/ultimate_gameshow_7_evq8ju.png",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572140/ultimate_gameshow_4_ly6hxf.png",
+    howItWorksImage: "/images/services/the-gameshow-experience-virtual/how-it-works.jpg",
+    addOnsImage: "/images/services/the-gameshow-experience-virtual/addons.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572196/ultimate_gameshow_1_fifqhu.png",
+      "/images/services/the-gameshow-experience-virtual/gallery-1.jpg",
     features: [
       { icon: Gamepad2, title: "6 Gameshows", description: "Multiple formats keep things fresh and exciting." },
       { icon: Trophy, title: "Points Competition", description: "Teams compete for the highest score." },
@@ -11178,17 +11178,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "GREAT ZODIAC HUNT",
       subtitle: "Virtual Team Building",
       tagline: "The Zodiac Animals have all escaped! It is up to you the Celestial Vanguards to get them all back!",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467127/Main-Picture_csduqp_dti86s.png",
+      backgroundImage: "/images/services/the-great-zodiac-hunt-virtual/hero.jpg",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466936/amazing_race_vtb_2_o1rkl5_jgqleq.png",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572203/ultimate_gameshow_2_o8xrf4.png",
+      "/images/services/the-great-zodiac-hunt-virtual/gallery-1.jpg",
+    addOnsImage: "/images/services/the-great-zodiac-hunt-virtual/addons.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466942/amazing_race_vtb_6_xqokaj_d5v7yp.png",
+      "/images/services/the-great-zodiac-hunt-virtual/gallery-2.jpg",
     overview: {
       description:
         "Celebrate Chinese New Year virtually with this themed team adventure! The 12 Zodiac animals have escaped and your team must work together to bring them back. Through puzzles, challenges, and cultural trivia, teams race to capture all the animals and restore harmony. Perfect for CNY celebrations via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467127/Main-Picture_csduqp_dti86s.png",
+      backgroundImage: "/images/services/the-great-zodiac-hunt-virtual/hero.jpg",
     },
     features: [
       { icon: Search, title: "Zodiac Hunt", description: "Track down all 12 escaped zodiac animals." },
@@ -11373,20 +11373,20 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Virtual Team Building",
       tagline: "To save the world, your team needs to work together to stop the Nuclear Countdown.",
       backgroundImage:
-        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467297/nuclear_fallout_2_mgthv7_qykrsn.png",
+        "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-1.jpg",
     },
     howItWorksImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467294/nuclear_fallout_14_onliru_qetkpr.png",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467168/nuclear_fallout_7_hbyfj5_waewgb.png",
+      "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-2.jpg",
+    addOnsImage: "/images/services/the-nuclear-fallout-escape-room-virtual/addons.jpg",
     ctaBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467298/nuclear_fallout_16_wrmhcc_r8yjah.png",
+      "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-3.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467298/nuclear_fallout_16_wrmhcc_r8yjah.png",
+      "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-4.jpg",
     overview: {
       description:
         "The clock is ticking! In this intense virtual escape room, teams must work together to stop a nuclear countdown. Communication, logic, and teamwork are crucial as you solve puzzles and crack codes under pressure. This adrenaline-pumping experience is perfect for teams who thrive on intellectual challenges via Zoom.",
       backgroundImage:
-        "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467297/nuclear_fallout_2_mgthv7_qykrsn.png",
+        "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-5.jpg",
     },
     features: [
       { icon: Lock, title: "Escape Room", description: "Solve puzzles and crack codes under pressure." },
@@ -11568,16 +11568,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "THE PATRIOT ACT",
       subtitle: "Virtual Team Building",
       tagline: "Salute to our Great Nation by playing activities mixed of the old and new of Singapore",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467038/Main-Pic_1_xhrueu_wdknz7.jpg",
+      backgroundImage: "/images/services/the-patriot-act-virtual/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467037/Main-Page_asc3hb_jwixzf.png",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467039/Picture1_dcrds3_hcvnr0.png",
+    howItWorksImage: "/images/services/the-patriot-act-virtual/how-it-works.jpg",
+    addOnsImage: "/images/services/the-patriot-act-virtual/addons.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572196/ultimate_gameshow_1_fifqhu.png",
+      "/images/services/the-patriot-act-virtual/gallery-1.jpg",
     overview: {
       description:
         "Celebrate Singapore's heritage with this patriotic virtual team experience! Teams compete through activities that blend old-school Singapore nostalgia with modern challenges. From traditional games to national trivia, this experience is perfect for National Day celebrations or any time you want to celebrate Singapore's spirit via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467038/Main-Pic_1_xhrueu_wdknz7.jpg",
+      backgroundImage: "/images/services/the-patriot-act-virtual/hero.jpg",
     },
     features: [
       { icon: Flag, title: "National Pride", description: "Celebrate Singapore's heritage and culture." },
@@ -11756,17 +11756,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "TOMB RAIDER KING",
       subtitle: "Virtual Team Building",
       tagline: "The Grand Treasure Hunt Game made to push your team to the limit!",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572458/tomb_raider_2_pylaig.png",
+      backgroundImage: "/images/services/tomb-raider-king-treasure-hunt-virtual/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572509/tomb_raider_7_rhhcm3.png",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572500/tomb_raider_8_f6badp.png",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572466/tomb_raider_3_nxcsek.png",
+    howItWorksImage: "/images/services/tomb-raider-king-treasure-hunt-virtual/how-it-works.jpg",
+    addOnsImage: "/images/services/tomb-raider-king-treasure-hunt-virtual/addons.jpg",
+    ctaBackgroundImage: "/images/services/tomb-raider-king-treasure-hunt-virtual/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572449/tomb_raider_0_e3mraf.jpg",
+      "/images/services/tomb-raider-king-treasure-hunt-virtual/gallery-1.jpg",
     overview: {
       description:
         "Embark on an epic virtual treasure hunt across 5 ancient tombs! Teams race to collect the most gold by solving puzzles, overcoming obstacles, and raiding tombs before competitors. This adventure-packed experience combines strategy, speed, and teamwork for an unforgettable virtual journey via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778572458/tomb_raider_2_pylaig.png",
+      backgroundImage: "/images/services/tomb-raider-king-treasure-hunt-virtual/hero.jpg",
     },
     features: [
       { icon: Crown, title: "Treasure Hunting", description: "Raid 5 tombs for gold and glory." },
@@ -11948,16 +11948,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "THE GRAND CHRISTMAS DELIVERY",
       subtitle: "Virtual Team Building",
       tagline: "Santa's Village is under attack! You are the Elite Elf Force that will save Christmas!",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466978/Main-Pic_2_cuwiih_x8mrp6.jpg",
+      backgroundImage: "/images/services/grand-christmas-delivery/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466977/CD-2_htt8la_bytu6v.png",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466980/CD-1_furajs_mtku7s.png",
+    howItWorksImage: "/images/services/grand-christmas-delivery/how-it-works.jpg",
+    addOnsImage: "/images/services/grand-christmas-delivery/addons.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466942/amazing_race_vtb_6_xqokaj_d5v7yp.png",
+      "/images/services/grand-christmas-delivery/gallery-1.jpg",
     overview: {
       description:
         "Santa needs your help! In this festive virtual adventure, teams become the Elite Elf Force on a mission to save Christmas. Battle through party games, team challenges, and boss battles to deliver presents and defeat the forces threatening the holiday season. The team that delivers the most presents wins! Perfect for year-end celebrations via Zoom.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466978/Main-Pic_2_cuwiih_x8mrp6.jpg",
+      backgroundImage: "/images/services/grand-christmas-delivery/hero.jpg",
     },
     features: [
       { icon: Gift, title: "Christmas Mission", description: "Save Christmas as the Elite Elf Force." },
@@ -12140,16 +12140,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "LOCAL RETREATS",
       subtitle: "Retreat",
       tagline: "Singapore may be small, but not all of it has been explored!",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467380/Overseas_48_g0woao_a2hf7n.jpg",
+      backgroundImage: "/images/services/local-retreats/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467017/Overseas_42_rhm0bt_byrrjc.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467018/Overseas_47_up0edg_qccmc8.jpg",
+    howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
+    addOnsImage: "/images/services/local-retreats/addons.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467007/Overseas_22_y5pcey_rslihk.jpg",
+      "/images/services/local-retreats/gallery-1.jpg",
     overview: {
       description:
         "Not every great retreat requires a passport. Singapore's hotel scene delivers everything from affordable urban escapes to some of the most storied and architecturally celebrated properties in Asia — and we know exactly which ones perform for team retreats. We offer three distinct tiers: Staycation for whole-staff appreciation and casual connection, Heritage for a culturally rich stay in Singapore's most celebrated historical hotels, and Luxury for recognition-grade experiences that senior leaders and top earners genuinely value. You choose the tier; we handle room blocks, activities, dining, and every detail in between.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467380/Overseas_48_g0woao_a2hf7n.jpg",
+      backgroundImage: "/images/services/local-retreats/hero.jpg",
     },
     features: [
       { icon: Building, title: "Curated Venues", description: "Handpicked hotels across Singapore." },
@@ -12429,17 +12429,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MBTI PERSONALITY PROFILING",
       subtitle: "Training",
       tagline: "Personality has the power to uplift, depress, curse and to bless.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563124/MBTI_7_a2vsjt_hkcg8c.jpg",
+      backgroundImage: "/images/services/local-retreats/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467344/MBTI_1_n46m74_nughso.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563426/MBTI_11_mt5v5y_fjgxz8.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563132/MBTI_8_gpocu9_jh5j4v.jpg",
+    howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
+    addOnsImage: "/images/services/local-retreats/addons.jpg",
+    ctaBackgroundImage: "/images/services/local-retreats/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563420/MBTI_10_zci3dp_ixpupn.jpg",
+      "/images/services/local-retreats/gallery-2.jpg",
     overview: {
       description:
         "Looking to find out more about who you are and how you work with others? What's your Type? breaks down your entire personality to figure out what drives you and which types you are able to get along with! This activity is designed as a team building event, where teams will discover the frameworks of the mind, energy, nature and tactics within us. By pushing values such as exploration, awareness and insightfulness, we aim to give your group a reflective event filled with diverse growth!",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778563124/MBTI_7_a2vsjt_hkcg8c.jpg",
+      backgroundImage: "/images/services/local-retreats/hero.jpg",
     },
     features: [
       { icon: Brain, title: "Personality Discovery", description: "Understand what drives you and others." },
@@ -12640,17 +12640,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "DISC ASSESSMENT",
       subtitle: "Training",
       tagline: "The biggest communication problem is that we do not listen to understand. We only listen to reply.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467272/disc_11_o3izak_roxmew.jpg",
+      backgroundImage: "/images/services/local-retreats/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467109/disc_5_pyuont_pck7kj.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466960/disc_14_rb0mbj_enxoyf.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467108/disc_4_cyelqi_aisi43.jpg",
+    howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
+    addOnsImage: "/images/services/local-retreats/addons.jpg",
+    ctaBackgroundImage: "/images/services/local-retreats/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467103/disc_1_vaehl6_wm0ggr.jpg",
+      "/images/services/local-retreats/gallery-3.jpg",
     overview: {
       description:
         "Are you compatible with others? What's your personality type? We will help you break down your entire core personality and figure out what makes you, well you. Since everyone is special, we believe this exercise will help with self-awareness and tell you about your specialty. This activity should be done with team members, where teams will find out each member's mind, energy, and nature.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467272/disc_11_o3izak_roxmew.jpg",
+      backgroundImage: "/images/services/local-retreats/hero.jpg",
     },
     features: [
       { icon: Brain, title: "Core Personality", description: "Discover what makes you unique." },
@@ -12846,17 +12846,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "O.C.E.A.N PROFILING",
       subtitle: "Training",
       tagline: "All great changes into Order is preceded always by Chaos.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467307/ocean_3_vinql4_vu7f2f.jpg",
+      backgroundImage: "/images/services/local-retreats/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467182/ocean_18_rhykhh_kpa1t3.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466997/ocean_11_apispg_ttt5pj.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467185/ocean_2_vmstax_ecb8la.jpg",
+    howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
+    addOnsImage: "/images/services/local-retreats/addons.jpg",
+    ctaBackgroundImage: "/images/services/local-retreats/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466997/ocean_11_apispg_ttt5pj.jpg",
+      "/images/services/local-retreats/gallery-4.jpg",
     overview: {
       description:
         "Rated as one of the top most accurate personality tests in the world! OCEAN Big Five are the domains that represent the basic structure behind all individual personality traits. By diving in deeper, this will allow your team to identify predictive behaviors for real-life scenarios! Gain insights into different office environment situations and how various personalities deal with them.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467307/ocean_3_vinql4_vu7f2f.jpg",
+      backgroundImage: "/images/services/local-retreats/hero.jpg",
     },
     features: [
       { icon: Brain, title: "Scientific Accuracy", description: "One of the most validated personality models." },
@@ -13062,17 +13062,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MASS TALKS",
       subtitle: "Training",
       tagline: "Inspire Hundreds, Impact Thousands",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467366/ParentsTalk_1_ilfr1u_hiqc7e.jpg",
+      backgroundImage: "/images/services/amazing-race/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467373/ParentsTalk_7_braym0_ic2eos.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467368/ParentsTalk_2_kpyxks_zrxito.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467372/ParentsTalk_4_aucuaf_cuzaxo.jpg",
+    howItWorksImage: "/images/services/amazing-race/how-it-works.jpg",
+    addOnsImage: "/images/services/amazing-race/addons.jpg",
+    ctaBackgroundImage: "/images/services/amazing-race/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467375/ParentsTalk_8_ygibz7_nlzxd1.jpg",
+      "/images/services/amazing-race/gallery-1.jpg",
     overview: {
       description:
         "Transform your large-scale gatherings into unforgettable moments of inspiration and learning. Our Mass Talks bring together captivating speakers, engaging content, and professional production to deliver powerful messages that resonate with audiences of any size. Whether it's a company-wide town hall, industry conference keynote, or motivational assembly, we craft experiences that inform, inspire, and ignite action across your entire organization.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467366/ParentsTalk_1_ilfr1u_hiqc7e.jpg",
+      backgroundImage: "/images/services/amazing-race/hero.jpg",
     },
     features: [
       {
@@ -13297,16 +13297,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "WORKSHOPS",
       subtitle: "Training",
       tagline: "Learn by Doing, Grow by Practicing",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570951/workshop_1_petybv.jpg",
+      backgroundImage: "/images/services/amazing-race/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570907/workshop_12_lfss9k.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570957/workshop_5_qo8tr7.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570943/workshop_4_urisot.jpg",
-    testimonialBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570922/workshop_11_q1tnqb.jpg",
+    howItWorksImage: "/images/services/amazing-race/how-it-works.jpg",
+    addOnsImage: "/images/services/amazing-race/addons.jpg",
+    ctaBackgroundImage: "/images/services/amazing-race/cta.jpg",
+    testimonialBackgroundImage: "/images/services/amazing-race/testimonial.jpg",
     overview: {
       description:
         "Our interactive workshops go beyond passive learning to create immersive skill-building experiences. With hands-on activities, real-world scenarios, and expert facilitation, participants don't just learn concepts - they practice and internalize them. From communication and leadership to creativity and problem-solving, our workshops transform knowledge into actionable skills that drive immediate results in the workplace.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778570951/workshop_1_petybv.jpg",
+      backgroundImage: "/images/services/amazing-race/hero.jpg",
     },
     features: [
       {
@@ -13512,17 +13512,17 @@ export const servicesData: Record<string, ServiceData> = {
       title: "YOUTH CAMPS",
       subtitle: "Training",
       tagline: "Building Tomorrow's Leaders Today",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573497/youth_camps_1_xk3ibv.jpg",
+      backgroundImage: "/images/services/youth-camps/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573574/youth_camps_10_asbakl.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573542/youth_camps_16_vyyekp.jpg",
-    ctaBackgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573527/youth_camps_13_cggsut.jpg",
+    howItWorksImage: "/images/services/youth-camps/how-it-works.jpg",
+    addOnsImage: "/images/services/youth-camps/addons.jpg",
+    ctaBackgroundImage: "/images/services/youth-camps/cta.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573582/youth_camps_6_tocem7.jpg",
+      "/images/services/youth-camps/gallery-1.jpg",
     overview: {
       description:
         "Our Youth Camps combine adventure, learning, and personal growth to create transformative experiences for young people. Designed for schools, CCAs, and youth organizations, these programs develop leadership, teamwork, and resilience through carefully structured activities and challenges. From day camps to multi-day adventures, we create safe yet challenging environments where youth discover their potential and forge lasting friendships.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778573497/youth_camps_1_xk3ibv.jpg",
+      backgroundImage: "/images/services/youth-camps/hero.jpg",
     },
     features: [
       { icon: Flag, title: "Adventure Activities", description: "Exciting challenges that push comfort zones safely." },
@@ -13738,18 +13738,18 @@ export const servicesData: Record<string, ServiceData> = {
       title: "CORPORATE DAYS",
       subtitle: "Training",
       tagline: "Where Work Meets Play, Teams Thrive",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466957/disc_12_y4afhh_oe9twz.jpg",
+      backgroundImage: "/images/services/corporate-days/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467346/MBTI_2_xjlhhy_svh1ji.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466923/AmazingRace_16_mdu3de_cnmayi.jpg",
+    howItWorksImage: "/images/services/corporate-days/how-it-works.jpg",
+    addOnsImage: "/images/services/corporate-days/addons.jpg",
     ctaBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467003/AmazingRace_11_zdhaa2_cf2cvs.jpg",
+      "/images/services/corporate-days/gallery-1.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467262/AmazingRace_30_idmukn_sn0dzw.jpg",
+      "/images/services/corporate-days/gallery-2.jpg",
     overview: {
       description:
         "Transform ordinary workdays into extraordinary team experiences with our Corporate Days program. These specially designed full-day or half-day events blend professional development with engaging activities, creating the perfect balance of learning and fun. Whether you're celebrating milestones, reinforcing company culture, or simply giving your team a well-deserved break, Corporate Days deliver memorable experiences that boost morale and strengthen team bonds.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466957/disc_12_y4afhh_oe9twz.jpg",
+      backgroundImage: "/images/services/corporate-days/hero.jpg",
     },
     features: [
       {
@@ -13958,16 +13958,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "INCENTIVE TRAVEL",
       subtitle: "Retreat",
       tagline: "Reward your best people with the journey of a lifetime.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467318/Overseas_13_al546o_fgb8fw.jpg",
+      backgroundImage: "/images/services/incentive-travel/hero.jpg",
     },
-    howItWorksImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467192/Overseas_16_znupnb_vb4zhy.jpg",
-    addOnsImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467320/Overseas_14_pk2k2t_s7gcyh.jpg",
+    howItWorksImage: "/images/services/incentive-travel/how-it-works.jpg",
+    addOnsImage: "/images/services/incentive-travel/addons.jpg",
     testimonialBackgroundImage:
-      "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467189/Overseas_11_droxvw_iabreh.jpg",
+      "/images/services/incentive-travel/gallery-1.jpg",
     overview: {
       description:
         "Incentive travel is one of the most powerful non-cash rewards a company can offer its top performers, sales teams, and high-growth contributors. A well-designed incentive trip communicates something no bonus cheque can: we see what you did, and we want your experience to match it. Elluminate designs end-to-end incentive travel programmes for Singapore-based organisations — from defining the eligibility criteria and building the anticipation campaign, to executing the trip itself with on-ground facilitation, a private recognition dinner, and a polished post-trip highlight reel. Destinations range from regional gems like Bali and Japan to long-haul experiences in Europe and beyond. Every programme is built around your earners, your culture, and the level of recognition your organisation is committed to delivering.",
-      backgroundImage: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467318/Overseas_13_al546o_fgb8fw.jpg",
+      backgroundImage: "/images/services/incentive-travel/hero.jpg",
     },
     features: [
       {

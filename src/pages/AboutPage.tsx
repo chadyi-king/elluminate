@@ -130,99 +130,99 @@ const features = [
 const clientLogos = [
   {
     name: "DBS",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465303/DBS_Bank_Logo_p1zixs.png",
+    logo: "/images/client-logos/dbs_bank_logo_p1zixs.png",
   },
   {
     name: "OCBC",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465310/Logo-ocbc.svg_khvach.png",
+    logo: "/images/client-logos/logo-ocbc.svg_khvach.png",
   },
   {
     name: "UOB",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465325/UOB_logo_n4hrvh.png",
+    logo: "/images/client-logos/uob_logo_n4hrvh.png",
   },
   {
     name: "Singtel",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465322/Singtel_logo_nmsek6.svg",
+    logo: "/images/client-logos/singtel_logo_nmsek6.svg",
   },
   {
     name: "Grab",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465306/grab-logo_h3i5lc.jpg",
+    logo: "/images/client-logos/grab-logo_h3i5lc.jpg",
   },
   {
     name: "Shopee",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465320/shopee-logo_sce8bs_r7xa9k.png",
+    logo: "/images/client-logos/shopee-logo_sce8bs_r7xa9k.png",
   },
   {
     name: "NTUC",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465315/ntuc_logo_v2xyjl.png",
+    logo: "/images/client-logos/ntuc_logo_v2xyjl.png",
   },
   {
     name: "GovTech",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465306/GovTech_logo_lctwtl.png",
+    logo: "/images/client-logos/govtech_logo_lctwtl.png",
   },
   {
     name: "Sentosa",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465319/sentosa-logo_pcriws.webp",
+    logo: "/images/client-logos/sentosa-logo_pcriws.webp",
   },
   {
     name: "SP Group",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465323/SP_Group_Logo_zbi2wt.svg",
+    logo: "/images/client-logos/sp_group_logo_zbi2wt.svg",
   },
   {
     name: "SMRT",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465322/SMRT_logo_hdwk9d.png",
+    logo: "/images/client-logos/smrt_logo_hdwk9d.png",
   },
   {
     name: "Prudential",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465317/PrudentialGroup_Logo_keiccj.png",
+    logo: "/images/client-logos/prudentialgroup_logo_keiccj.png",
   },
   {
     name: "Marina Bay Sands",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465311/marina_bay_sands_logo_hx5ui7.png",
+    logo: "/images/client-logos/marina_bay_sands_logo_hx5ui7.png",
   },
   {
     name: "CapitaLand",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465300/capitaland_logo_lswm7l.png",
+    logo: "/images/client-logos/capitaland_logo_lswm7l.png",
   },
   {
     name: "Singapore Airlines",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465321/Singapore-Airlines-Logo_jzs3bh_mngdzj.png",
+    logo: "/images/client-logos/singapore-airlines-logo_jzs3bh_mngdzj.png",
   },
   {
     name: "Changi Airport",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465300/Changi_logo_uwhp7y.svg",
+    logo: "/images/client-logos/changi_logo_uwhp7y.svg",
   },
   {
     name: "StarHub",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465324/StarHub_logo_cdoeat.svg",
+    logo: "/images/client-logos/starhub_logo_cdoeat.svg",
   },
   {
     name: "M1",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465310/M1_Logo_mbjg9i.svg",
+    logo: "/images/client-logos/m1_logo_mbjg9i.svg",
   },
   {
     name: "POSB",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465316/POSB_logo_eiozw9.png",
+    logo: "/images/client-logos/posb_logo_eiozw9.png",
   },
   {
     name: "Great Eastern",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465307/Great_Eastern_logo_ice1ox.png",
+    logo: "/images/client-logos/great_eastern_logo_ice1ox.png",
   },
   {
     name: "AIA",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465300/AIA-logo_x4n6n4.png",
+    logo: "/images/client-logos/aia-logo_x4n6n4.png",
   },
   {
     name: "HSBC",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465307/hsbc-logo_clxve1_hjk23e.png",
+    logo: "/images/client-logos/hsbc-logo_clxve1_hjk23e.png",
   },
   {
     name: "Standard Chartered",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465324/Standard_Chartered_Logo_u1hs4g.png",
+    logo: "/images/client-logos/standard_chartered_logo_u1hs4g.png",
   },
   {
     name: "Maybank",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465312/MAYBANK_LOGO_glhtjo.png",
+    logo: "/images/client-logos/maybank_logo_glhtjo.png",
   },
 ];
 
@@ -231,107 +231,107 @@ const testimonials = [
     quote:
       "Elluminate delivered the best team-building event we've ever had. The energy was incredible and our team is still talking about it months later.",
     company: "Shopee Singapore",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465320/shopee-logo_sce8bs_r7xa9k.png",
+    logo: "/images/client-logos/shopee-logo_sce8bs_r7xa9k.png",
   },
   {
     quote:
       "Professional, energetic, and flawless execution. They understood our corporate culture perfectly and designed an experience that resonated with everyone.",
     company: "SP Group",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465323/SP_Group_Logo_zbi2wt.svg",
+    logo: "/images/client-logos/sp_group_logo_zbi2wt.svg",
   },
   {
     quote:
       "Immersive activities with meaningful takeaways. Our employees left feeling connected and inspired. Highly recommend for any corporate event.",
     company: "NTUC Enterprise",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465315/ntuc_logo_v2xyjl.png",
+    logo: "/images/client-logos/ntuc_logo_v2xyjl.png",
   },
   {
     quote:
       "The attention to detail was extraordinary. Every moment was carefully crafted to engage and inspire our team.",
     company: "DBS Bank",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465303/DBS_Bank_Logo_p1zixs.png",
+    logo: "/images/client-logos/dbs_bank_logo_p1zixs.png",
   },
   {
     quote: "Our D&D was transformed into an unforgettable night. The production quality was cinema-level!",
     company: "Singtel",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465322/Singtel_logo_nmsek6.svg",
+    logo: "/images/client-logos/singtel_logo_nmsek6.svg",
   },
   {
     quote: "They brought creativity and professionalism in equal measure. Our team bonding has never been stronger.",
     company: "Grab",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465306/grab-logo_h3i5lc.jpg",
+    logo: "/images/client-logos/grab-logo_h3i5lc.jpg",
   },
   {
     quote: "From concept to execution, everything was seamless. The facilitators were absolutely phenomenal.",
     company: "GovTech Singapore",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465306/GovTech_logo_lctwtl.png",
+    logo: "/images/client-logos/govtech_logo_lctwtl.png",
   },
   {
     quote: "The best investment we made for our company retreat. Every activity had purpose and every moment counted.",
     company: "OCBC Bank",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465310/Logo-ocbc.svg_khvach.png",
+    logo: "/images/client-logos/logo-ocbc.svg_khvach.png",
   },
   {
     quote:
       "Elluminate exceeded all expectations. Our 500-person event ran like clockwork with incredible energy throughout.",
     company: "UOB",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465325/UOB_logo_n4hrvh.png",
+    logo: "/images/client-logos/uob_logo_n4hrvh.png",
   },
   {
     quote: "Creative, organized, and truly memorable. This was the highlight of our corporate calendar.",
     company: "Marina Bay Sands",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465311/marina_bay_sands_logo_hx5ui7.png",
+    logo: "/images/client-logos/marina_bay_sands_logo_hx5ui7.png",
   },
   {
     quote: "The immersive experience they created was unlike anything we'd seen before. Absolutely world-class.",
     company: "Singapore Airlines",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465321/Singapore-Airlines-Logo_jzs3bh_mngdzj.png",
+    logo: "/images/client-logos/singapore-airlines-logo_jzs3bh_mngdzj.png",
   },
   {
     quote: "Professional hosts who kept our entire team engaged from start to finish. Highly recommended!",
     company: "Prudential",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465317/PrudentialGroup_Logo_keiccj.png",
+    logo: "/images/client-logos/prudentialgroup_logo_keiccj.png",
   },
   {
     quote: "Our town hall was transformed into an inspiring experience. The production quality was outstanding.",
     company: "CapitaLand",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465300/capitaland_logo_lswm7l.png",
+    logo: "/images/client-logos/capitaland_logo_lswm7l.png",
   },
   {
     quote: "They took our vague ideas and turned them into a spectacular reality. Creative geniuses!",
     company: "StarHub",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465324/StarHub_logo_cdoeat.svg",
+    logo: "/images/client-logos/starhub_logo_cdoeat.svg",
   },
   {
     quote: "The team building activities were fun yet meaningful. Our staff couldn't stop talking about it.",
     company: "SMRT",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465322/SMRT_logo_hdwk9d.png",
+    logo: "/images/client-logos/smrt_logo_hdwk9d.png",
   },
   {
     quote: "Exceptional service from planning to execution. They made our anniversary celebration truly special.",
     company: "Great Eastern",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465307/Great_Eastern_logo_ice1ox.png",
+    logo: "/images/client-logos/great_eastern_logo_ice1ox.png",
   },
   {
     quote:
       "The level of customization and creativity was impressive. Every detail was perfectly aligned with our brand.",
     company: "AIA",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465300/AIA-logo_x4n6n4.png",
+    logo: "/images/client-logos/aia-logo_x4n6n4.png",
   },
   {
     quote: "Our product launch was a massive success thanks to Elluminate's vision and execution.",
     company: "M1",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465310/M1_Logo_mbjg9i.svg",
+    logo: "/images/client-logos/m1_logo_mbjg9i.svg",
   },
   {
     quote: "From the initial consultation to the final bow, professionalism and passion were evident at every step.",
     company: "HSBC",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465307/hsbc-logo_clxve1_hjk23e.png",
+    logo: "/images/client-logos/hsbc-logo_clxve1_hjk23e.png",
   },
   {
     quote: "They understand corporate events like no one else. Our leadership offsite was transformative.",
     company: "Standard Chartered",
-    logo: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778465324/Standard_Chartered_Logo_u1hs4g.png",
+    logo: "/images/client-logos/standard_chartered_logo_u1hs4g.png",
   },
 ];
 
@@ -472,7 +472,7 @@ const AboutPage = () => {
                 animate={{ rotate: 2 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466338/photo_2023-06-28_14-02-04_bx1oal_ujpwoq.jpg"
+                  src="/images/about/about-1.jpg"
                   alt="Team Celebration"
                   className="w-full h-full object-cover"
                 />
@@ -487,7 +487,7 @@ const AboutPage = () => {
                 animate={{ rotate: -3 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466331/photo_2023-06-28_14-02-00_anwttt_bxb9ew.jpg"
+                  src="/images/about/about-2.jpg"
                   alt="Outdoor Team Building"
                   className="w-full h-full object-cover"
                 />
@@ -502,7 +502,7 @@ const AboutPage = () => {
                 animate={{ rotate: -2 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466335/photo_2023-06-28_14-02-02-2_xghvi6_bgfud7.jpg"
+                  src="/images/about/about-3.jpg"
                   alt="Dinner & Dance"
                   className="w-full h-full object-cover"
                 />
@@ -517,7 +517,7 @@ const AboutPage = () => {
                 animate={{ rotate: 3 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466324/IMG_2246-scaled_dp6pbh_vitcer.jpg"
+                  src="/images/about/about-4.jpg"
                   alt="Overseas Retreat"
                   className="w-full h-full object-cover"
                 />
@@ -539,7 +539,7 @@ const AboutPage = () => {
         {/* Background Image - Asian corporate setting */}
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466274/about_us_0_g9cu3r_uqa1fe.jpg"
+            src="/images/about/about-5.jpg"
             alt="Asian Corporate Team"
             className="w-full h-full object-cover"
           />
@@ -586,7 +586,7 @@ const AboutPage = () => {
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-sky-500/20 shadow-blue">
                 <img
-                  src="https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466274/about_us_0_g9cu3r_uqa1fe.jpg"
+                  src="/images/about/about-6.jpg"
                   alt="Asian Team Celebration"
                   className="w-full h-full object-cover"
                 />
@@ -606,7 +606,7 @@ const AboutPage = () => {
         {/* Background */}
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466219/20230206_175035-scaled_us5gpm_mpuk0r.jpg"
+            src="/images/about/about-1.jpg"
             alt="Event Background"
             className="w-full h-full object-cover"
           />
@@ -793,19 +793,19 @@ const AboutPage = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {[
               {
-                src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467057/AmazingRace_4_ehjyb5_ooamin.jpg",
+                src: "/images/services/amazing-race/hero.jpg",
                 alt: "Team celebration moment",
               },
               {
-                src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467058/AmazingRace_9_rpn4ys_mxjucv.jpg",
+                src: "/images/services/amazing-race/hero.jpg",
                 alt: "Dinner and dance experience",
               },
               {
-                src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467266/AmazingRace_8_s4xwfc_izkt2c.jpg",
+                src: "/images/services/amazing-race/hero.jpg",
                 alt: "Outdoor team building activity",
               },
               {
-                src: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467054/AmazingRace_29_hp1ikz_jv1ch2.jpg",
+                src: "/images/services/amazing-race/hero.jpg",
                 alt: "Retreat experience",
               },
             ].map((image, index) => (
@@ -985,7 +985,7 @@ const AboutPage = () => {
       <section className="py-24 relative bg-slate-950">
         <div className="absolute inset-0">
           <img
-            src="https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466930/AmazingRace_33_scwscr_snxjkm.jpg"
+            src="/images/services/amazing-race/hero.jpg"
             alt="Event"
             className="w-full h-full object-cover"
           />

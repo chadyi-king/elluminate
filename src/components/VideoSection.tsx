@@ -55,7 +55,7 @@ export const VideoSection = () => {
                   className="absolute inset-0 bg-center bg-cover bg-no-repeat flex items-center justify-center"
                   style={{
                     backgroundImage:
-                      'url("https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465454/teambuilding-video_tp5kfu_l8jfdl.jpg")',
+                      'url("/images/services/amazing-race/hero.jpg")',
                   }}
                 >
                   <div className="absolute inset-0 bg-black/50" />
@@ -86,10 +86,10 @@ export const VideoSection = () => {
                   className="w-full h-full object-cover"
                   controls
                   playsInline
-                  poster="https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465454/teambuilding-video_tp5kfu_l8jfdl.jpg"
+                  poster="/images/services/amazing-race/hero.jpg"
                 >
                   <source
-                    src="https://res.cloudinary.com/dk28ny4yj/video/upload/v1778465454/teambuilding-video_tp5kfu_l8jfdl.mp4"
+                    src="/videos/elluminate-showreel.mp4"
                     type="video/mp4"
                   />
                 </video>
