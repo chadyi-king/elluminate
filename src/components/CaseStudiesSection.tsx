@@ -18,7 +18,7 @@ const caseStudies = [
       "Elluminate created an unforgettable experience that had our entire team talking for weeks. The Amazing Race format was perfect for building connections across departments.",
     industry: "Technology",
     year: "2024",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466936/AmazingRace_7_jbnxyz_pxa8xj.jpg",
+    image: "/images/services/amazing-race/hero.jpg",
     accentColor: "#FFC400",
   },
   {
@@ -37,7 +37,7 @@ const caseStudies = [
       "The level of creativity and attention to detail was impressive. Our teams were fully engaged from start to finish. A truly world-class team building experience.",
     industry: "Banking & Finance",
     year: "2024",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778466234/20230203_100000-scaled_rmzoo4_w08nap.jpg",
+    image: "/images/services/amazing-race/hero.jpg",
     accentColor: "#26D07C",
   },
   {
@@ -56,7 +56,7 @@ const caseStudies = [
       "Elluminate understood exactly what our healthcare workers needed – a rejuvenating experience that brought our teams closer together while promoting wellbeing.",
     industry: "Healthcare",
     year: "2023",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778557811/wellnes_event_3_sct4ie_ysbonv.jpg",
+    image: "/images/services/wellness-events/hero.jpg",
     accentColor: "#62E2C4",
   },
   {
@@ -75,7 +75,7 @@ const caseStudies = [
       "The Cultural Race was a brilliant way to help our international team connect with Singapore's rich heritage while building stronger bonds with each other.",
     industry: "Technology Startup",
     year: "2023",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778467363/MTWI_2_m57wuz_dsdpf5.jpg",
+    image: "/images/services/minute-to-win-it/hero.jpg",
     accentColor: "#FF4F4F",
   },
 ];
