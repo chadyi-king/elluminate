@@ -1,77 +1,54 @@
 import { motion } from "framer-motion";
 
-// Import team member photos
+// Import team background image (team photo)
 import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
 
 const teamMembers = [
-  {
-    name: "Edmund Sim",
-    title: "Director",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/edmund_team_out767.png",
-  },
-  {
-    name: "Afifah Camut",
-    title: "Senior Sales Manager",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/afifah_team_gmy3pc.png",
-  },
-  {
-    name: "Lisa Ong",
-    title: "Senior Events Manager",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649290/lisa_team_gmcxyf.png",
-  },
-  {
-    name: "MJ",
-    title: "Operations & Design Executive",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649292/MJ_team_jrlonc.png",
-  },
-  {
-    name: "Ayume",
-    title: "Operations Executive",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649290/ayume_team_giolmm.png",
-  },
-  {
-    name: "Louise Cabales",
-    title: "Admin Manager",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649294/louise_team_vaalkr.png",
-  },
-  {
-    name: "Peggy Har",
-    title: "Finance Manager",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649292/peggy_team_uhhdvd.png",
-  },
-  {
-    name: "Jencen Ramos",
-    title: "Finance Executive",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649292/jencen_team_xzucnh.png",
-  },
-  {
-    name: "Jemwell Ramos",
-    title: "IT Executive",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/jemwell_team_cxkhml.png",
-  },
-  {
-    name: "Peace Chan",
-    title: "Marketing & Sales Executive",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649291/peace_team_tpnfoy.png",
-  },
-  {
-    name: "Caleb E",
-    title: "Basement Worker",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/caleb_team_binyk7.png",
-  },
-  {
-    name: "Christian Je Suis",
-    title: "Spiritual Advisor",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/christian_team_qzxlyl.png",
-  },
+  { name: "Edmund Sim", title: "Director" },
+  { name: "Afifah Camut", title: "Senior Sales Manager" },
+  { name: "Lisa Ong", title: "Senior Events Manager" },
+  { name: "MJ", title: "Operations & Design Executive" },
+  { name: "Ayume", title: "Operations Executive" },
+  { name: "Louise Cabales", title: "Admin Manager" },
+  { name: "Peggy Har", title: "Finance Manager" },
+  { name: "Jencen Ramos", title: "Finance Executive" },
+  { name: "Jemwell Ramos", title: "IT Executive" },
+  { name: "Peace Chan", title: "Marketing & Sales Executive" },
+  { name: "Caleb E", title: "Basement Worker" },
+  { name: "Christian Je Suis", title: "Spiritual Advisor" },
 ];
+
+// Generate a branded initials avatar (SVG data URL) for each team member.
+// This keeps the section visually consistent while local team photos are unavailable.
+const PALETTE = ["#1F7CFF", "#0F5BD1", "#2A8DFF", "#1466E0", "#3D8BFF", "#0A4FB8"];
+
+function initialsAvatar(name: string, idx: number) {
+  const parts = name.trim().split(/\s+/);
+  const initials = (parts[0]?.[0] ?? "") + (parts[1]?.[0] ?? "");
+  const bg = PALETTE[idx % PALETTE.length];
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="${bg}"/>
+          <stop offset="100%" stop-color="#0A1F3D"/>
+        </linearGradient>
+      </defs>
+      <rect width="400" height="400" fill="url(#g)"/>
+      <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle"
+            font-family="Anton, Impact, sans-serif" font-size="180" fill="#ffffff" letter-spacing="4">
+        ${initials.toUpperCase()}
+      </text>
+    </svg>`;
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+}
 
 export const OurTeam = () => {
   return (
     <section className="py-24 relative">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={teamBuildingOutdoor} alt="Team Background" className="w-full h-full object-cover" />
+        <img src={teamBuildingOutdoor} alt="Elluminate team building background" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-background/95" />
       </div>
 
@@ -103,9 +80,10 @@ export const OurTeam = () => {
               <div className="relative mb-4 overflow-hidden rounded-xl">
                 <div className="aspect-square overflow-hidden rounded-xl border border-border-gold/30 group-hover:border-primary/50 transition-all duration-500">
                   <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover  group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                    src={initialsAvatar(member.name, index)}
+                    alt={`${member.name}, ${member.title} at Elluminate`}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
