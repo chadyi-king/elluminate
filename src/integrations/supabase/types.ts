@@ -70,103 +70,82 @@ export type Database = {
           add_on_services: string[] | null
           additional_customisation: string | null
           additional_details: string | null
-          attribution_captured_at: string | null
-          brand: string | null
           created_at: string
           email: string
           event_category: string | null
           expected_attendees: string | null
           expected_date: string | null
           form_name: string | null
-          gad_source: string | null
-          gbraid: string | null
           game_customisation: string | null
           gclid: string | null
           id: string
           landing_page: string | null
-          lead_id: string | null
           name: string
           organisation: string | null
           organisation_type: string | null
           phone: string | null
           recaptcha_score: number | null
           referrer: string | null
-          service: string | null
           submission_page: string | null
           utm_campaign: string | null
           utm_content: string | null
           utm_medium: string | null
           utm_source: string | null
           utm_term: string | null
-          wbraid: string | null
         }
         Insert: {
           add_on_services?: string[] | null
           additional_customisation?: string | null
           additional_details?: string | null
-          attribution_captured_at?: string | null
-          brand?: string | null
           created_at?: string
           email: string
           event_category?: string | null
           expected_attendees?: string | null
           expected_date?: string | null
           form_name?: string | null
-          gad_source?: string | null
-          gbraid?: string | null
           game_customisation?: string | null
           gclid?: string | null
           id?: string
           landing_page?: string | null
-          lead_id?: string | null
           name: string
           organisation?: string | null
           organisation_type?: string | null
           phone?: string | null
           recaptcha_score?: number | null
           referrer?: string | null
-          service?: string | null
           submission_page?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
           utm_term?: string | null
-          wbraid?: string | null
         }
         Update: {
           add_on_services?: string[] | null
           additional_customisation?: string | null
           additional_details?: string | null
-          attribution_captured_at?: string | null
-          brand?: string | null
           created_at?: string
           email?: string
           event_category?: string | null
           expected_attendees?: string | null
           expected_date?: string | null
           form_name?: string | null
-          gad_source?: string | null
-          gbraid?: string | null
           game_customisation?: string | null
           gclid?: string | null
           id?: string
           landing_page?: string | null
-          lead_id?: string | null
           name?: string
           organisation?: string | null
           organisation_type?: string | null
           phone?: string | null
           recaptcha_score?: number | null
           referrer?: string | null
-          service?: string | null
           submission_page?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
           utm_term?: string | null
-          wbraid?: string | null
         }
         Relationships: []
       }
