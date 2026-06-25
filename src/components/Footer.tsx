@@ -22,7 +22,6 @@ const topActivities: FooterActivityLink[] = [
   { name: "DISC Assessment", path: "/services/disc" },
   { name: "Workshops", path: "/services/workshops" },
   { name: "Youth Camps", path: "/services/youth-camps" },
-  { name: "Student Workshops", path: "/services/student-workshops" },
 ];
 
 // Social links removed - no active accounts for Elluminate yet
@@ -58,6 +57,9 @@ export const Footer = ({
             <p className="text-background/70 text-sm leading-relaxed">
               Team building, retreats, training, and corporate event experiences designed to strengthen culture and
               create lasting connection.
+            </p>
+            <p className="text-background/45 text-xs leading-relaxed mt-3">
+              Reviews shown on this site are collected via our partner brand, Team Elevate, where noted.
             </p>
           </div>
 
@@ -113,7 +115,7 @@ export const Footer = ({
               </li>
               <li>
                 <a
-                  href="https://api.whatsapp.com/send?phone=6588352482&text=Hi%20Elluminate%2C%20I'd%20like%20to%20start%20a%20free%20team%20building%20planning%20session."
+                  href="https://wa.me/6588352482?text=Hi%20Elluminate%2C%20I'd%20like%20to%20start%20a%20free%20team%20building%20planning%20session."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-background/70 hover:text-primary text-sm transition-colors duration-300"

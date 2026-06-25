@@ -946,7 +946,7 @@ export const ServiceHeroSplit = ({
               className="text-lg md:text-xl max-w-lg mb-10 font-display italic"
               style={{ color: accentColor }}
             >
-              "{tagline}"
+              {tagline}
             </p>
 
             {/* Shimmer effect divider */}

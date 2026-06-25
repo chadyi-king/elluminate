@@ -1,0 +1,348 @@
+import type { FAQ } from "./servicesData";
+
+export interface ServiceContentQuality {
+  heroSubline: string;
+  overviewDescription: string;
+  faqs: FAQ[];
+  relatedSlugs: string[];
+  todos: string[];
+}
+
+const proofTodo = "TODO(content): Verify client logos, named-company references, and recent-event pax counts before using them as public proof.";
+const reviewTodo = "TODO(content): Replace initials-only testimonials with permissioned full-name reviews where available.";
+
+const proofTodos = [proofTodo, reviewTodo];
+
+const activityFaqs = (name: string, setting: string, movement: string): FAQ[] => [
+  {
+    question: `Is ${name} suitable for mixed fitness levels?`,
+    answer: `${name} can be adjusted around the group's mobility, confidence, and energy level. Share any accessibility notes early so the facilitation team can recommend a suitable route, mission mix, or indoor alternative.`,
+  },
+  {
+    question: `How many people can join ${name}?`,
+    answer: "Send your expected pax and preferred date first. Elluminate will confirm the right team split, crew size, venue fit, and whether the format should be run in waves or as one shared session.",
+  },
+  {
+    question: `Can ${name} be customised for our company?`,
+    answer: "Yes. Company themes, briefing messages, light branding, prize moments, and debrief points can be discussed during planning, as long as the final scope fits the timeline and budget.",
+  },
+  {
+    question: `What should organisers prepare for ${name}?`,
+    answer: `Prepare the pax estimate, venue or location preference, date window, participant profile, and any safety or ${movement} concerns. Elluminate will advise the setup, facilitation flow, and next planning steps.`,
+  },
+];
+
+const virtualFaqs = (name: string): FAQ[] => [
+  {
+    question: `Is ${name} suitable for remote and hybrid teams?`,
+    answer: `${name} is designed for teams joining from different locations. Share the expected group size, time zones, and platform preference so the session flow can be matched to the audience.`,
+  },
+  {
+    question: `What platform do we need for ${name}?`,
+    answer: "Most virtual sessions can be planned around common video-call platforms. Elluminate will confirm the technical setup, briefing flow, and any links or materials before the event.",
+  },
+  {
+    question: `Can ${name} include company themes or messages?`,
+    answer: "Light customisation can be discussed, including company references, themed team names, branded slides, or a short closing message. The final scope depends on lead time and budget.",
+  },
+  {
+    question: `How do we keep people engaged online?`,
+    answer: "The format should include clear instructions, team roles, paced challenges, visible progress, and active hosting. Share your team's usual online energy level so the session can be calibrated.",
+  },
+];
+
+const trainingFaqs = (name: string, focus: string): FAQ[] => [
+  {
+    question: `Who is ${name} best suited for?`,
+    answer: `${name} is best for teams that need a structured conversation around ${focus}. Share the audience level, team context, and desired outcome so the session can be scoped properly.`,
+  },
+  {
+    question: `Can ${name} be customised to our workplace context?`,
+    answer: "Yes. Examples, discussion prompts, role plays, and debrief questions can be adjusted around your team context without inventing claims or forcing a one-size-fits-all workshop.",
+  },
+  {
+    question: `How long should we set aside for ${name}?`,
+    answer: "The ideal duration depends on group size, depth of discussion, and whether assessments or exercises are included. Share your timing window and Elluminate will recommend a practical structure.",
+  },
+  {
+    question: `What should participants expect during ${name}?`,
+    answer: "Participants should expect guided facilitation, structured reflection, group discussion, and practical takeaways rather than a passive lecture. Any assessment requirements will be confirmed before the session.",
+  },
+];
+
+const retreatFaqs = (name: string): FAQ[] => [
+  {
+    question: `How early should we plan ${name}?`,
+    answer: "Start as early as possible once the pax, preferred dates, and budget range are roughly known. More lead time gives better room for venue, travel, activity, and meal coordination.",
+  },
+  {
+    question: `Can ${name} include team building and workshops?`,
+    answer: "Yes. Retreats can combine facilitation, bonding activities, wellness time, leadership conversations, meals, and travel logistics depending on the objective and available schedule.",
+  },
+  {
+    question: `What information is needed for a ${name} quote?`,
+    answer: "Share pax, travel or venue preferences, date window, rooming expectations, activity goals, dietary notes, and any budget parameters. Elluminate will advise the planning direction from there.",
+  },
+  {
+    question: `Can you manage logistics for ${name}?`,
+    answer: "Logistics support can include programme flow, activity planning, venue coordination, facilitation, transport, and supplier alignment. The exact scope should be confirmed before proposal.",
+  },
+];
+
+const corporateFaqs = (name: string): FAQ[] => [
+  {
+    question: `What does ${name} usually include?`,
+    answer: `${name} can include programme design, facilitation, activity flow, supplier coordination, and event-day support. The final scope depends on pax, venue, timing, and business objective.`,
+  },
+  {
+    question: `Can ${name} work for mixed departments or seniority levels?`,
+    answer: "Yes, if the format is planned around participation comfort, accessibility, and event goals. Share the audience mix early so the programme does not over-index on one personality type.",
+  },
+  {
+    question: `How do we choose the right format for ${name}?`,
+    answer: "Start with the goal, constraints, and participant profile rather than the activity name. Elluminate can recommend a format once the planning inputs are clear.",
+  },
+  {
+    question: `What should we prepare before enquiring?`,
+    answer: "Prepare the expected pax, date window, venue preference, timing, budget range if available, and the reason the event is happening. That gives the planning team enough context to respond usefully.",
+  },
+];
+
+const item = (
+  heroSubline: string,
+  overviewDescription: string,
+  faqs: FAQ[],
+  relatedSlugs: string[],
+  todos: string[] = proofTodos,
+): ServiceContentQuality => ({
+  heroSubline,
+  overviewDescription,
+  faqs,
+  relatedSlugs,
+  todos,
+});
+
+export const serviceContentQuality: Record<string, ServiceContentQuality> = {
+  "team-building": item(
+    "A planning-first corporate team-building hub for organisers who need the right format, flow, and quote.",
+    "Start here when you know the team needs a bonding activity but not the exact format. Elluminate narrows the brief by pax, venue, timing, energy level, and objective, then recommends indoor, outdoor, virtual, retreat, or training options that fit the group.",
+    corporateFaqs("corporate team building"),
+    ["amazing-race", "minute-to-win-it", "csi-bones", "cultural-race"],
+  ),
+  "amazing-race": item(
+    "An outdoor race format for teams that want movement, clues, checkpoint missions, and shared momentum.",
+    "Amazing Race turns a venue or district into a facilitated team challenge. Participants solve clues, complete checkpoint missions, and move in groups toward a final result. Share pax, date, location preference, and fitness notes so the route and challenge mix can be shaped before quoting.",
+    activityFaqs("Amazing Race", "outdoor route", "movement"),
+    ["cultural-race", "treasure-heist", "running-man", "team-building"],
+  ),
+  "csi-bones": item(
+    "An indoor mystery format for teams that prefer deduction, evidence review, and quieter collaboration.",
+    "CSI-Bones is a forensic-style team activity built around clues, evidence, and group reasoning. It suits teams that want problem solving without heavy physical exertion. Share pax, venue, timing, and desired intensity so the investigation can be scoped for your group.",
+    activityFaqs("CSI-Bones", "indoor investigation", "pace"),
+    ["treasure-heist", "amongst-us", "monopoly-dash", "team-building"],
+  ),
+  "cultural-race": item(
+    "A Singapore route-based activity for teams that want local discovery, movement, and shared stories.",
+    "Cultural Race uses Singapore locations, clues, and team missions to create a facilitated outdoor discovery experience. It works well for local, regional, and mixed teams who want the place itself to matter. Share route comfort, pax, timing, and weather constraints during planning.",
+    activityFaqs("Cultural Race", "outdoor heritage route", "movement"),
+    ["amazing-race", "running-man", "local-retreats", "team-building"],
+  ),
+  "amongst-us": item(
+    "A social-deduction format for teams that want conversation, suspicion, laughter, and light strategy.",
+    "Amongst Us turns trust, observation, and group discussion into a facilitated team game. Participants work through missions while trying to read the room and identify hidden roles. Share pax, venue, and comfort level so the session can stay fun without becoming confusing.",
+    activityFaqs("Amongst Us", "indoor social-deduction setup", "social energy"),
+    ["csi-bones", "alice-in-motherland", "minute-to-win-it", "team-building"],
+  ),
+  "alice-in-motherland": item(
+    "A story-led puzzle activity for teams that want themed missions, imagination, and collaborative problem solving.",
+    "Alice in Motherland uses a themed storyline, puzzle stations, and facilitated team tasks to create an immersive indoor or hybrid activity. It suits groups that want character and narrative without needing intense physical movement. Share pax, venue, and theme preferences before quoting.",
+    activityFaqs("Alice in Motherland", "themed puzzle setup", "pace"),
+    ["amongst-us", "treasure-heist", "the-great-zodiac-hunt-virtual", "team-building"],
+  ),
+  "battle-of-the-olympians": item(
+    "A tournament-style activity for teams that want friendly competition, team pride, and visible energy.",
+    "Battle of the Olympians brings teams through a sequence of facilitated challenge rounds with a clear scoring arc. It can suit school, cohort, and company groups that want active participation and a strong finish. Share pax, venue, weather needs, and intensity level early.",
+    activityFaqs("Battle of the Olympians", "challenge tournament", "activity intensity"),
+    ["minute-to-win-it", "running-man", "corporate-days", "team-building"],
+  ),
+  "builder-cross": item(
+    "A construction-style challenge for teams that want hands-on collaboration and practical problem solving.",
+    "Builder Cross asks participants to plan, build, test, and improve together under a facilitated challenge structure. It works for teams that want creativity and communication in a controlled setting. Share pax, venue, timing, and space constraints so materials and flow can be planned.",
+    activityFaqs("Builder Cross", "hands-on build challenge", "space"),
+    ["minute-to-win-it", "monopoly-dash", "workshops", "team-building"],
+  ),
+  "minute-to-win-it": item(
+    "A quick-rotation game format for teams that want easy participation, fast laughs, and room-wide energy.",
+    "Minute To Win It uses short station challenges that are easy to understand and quick to rotate. It suits ballrooms, offices, and indoor venues where organisers need energy without complex briefing. Share pax, timing, and venue size so the station flow can be planned.",
+    activityFaqs("Minute To Win It", "indoor station challenge", "activity intensity"),
+    ["monopoly-dash", "battle-of-the-olympians", "corporate-days", "team-building"],
+  ),
+  "monopoly-dash": item(
+    "An indoor strategy game for teams that want points, movement, negotiation, and friendly competition.",
+    "Monopoly Dash translates board-game energy into a live facilitated team activity. Participants move through missions, make decisions, and compete for points without needing a long setup. Share pax, room layout, and timing so the game economy and rotations fit the event.",
+    activityFaqs("Monopoly Dash", "indoor strategy challenge", "movement"),
+    ["minute-to-win-it", "builder-cross", "csi-bones", "team-building"],
+  ),
+  "running-man": item(
+    "A high-energy mission format for teams that want active challenges, chases, and variety-show energy.",
+    "Running Man Adventure uses team missions, quick competitions, and facilitated challenge rounds to create a lively event. It suits groups that are comfortable with movement and visible participation. Share pax, venue, safety constraints, and weather needs before planning the final format.",
+    activityFaqs("Running Man Adventure", "active mission setup", "movement"),
+    ["amazing-race", "battle-of-the-olympians", "sotong-game", "team-building"],
+  ),
+  "sotong-game": item(
+    "A survival-style challenge format for teams that want tension, humour, and simple rules.",
+    "Sotong Game uses elimination-inspired missions in a facilitated, team-safe format. The experience is built around clear rules, short rounds, and shared suspense rather than real risk. Share pax, venue, age range, and comfort level so the tone stays appropriate.",
+    activityFaqs("Sotong Game", "mission-round setup", "activity intensity"),
+    ["running-man", "minute-to-win-it", "battle-of-the-olympians", "team-building"],
+  ),
+  "treasure-heist": item(
+    "A heist-themed puzzle format for teams that want clues, pressure, and strategic collaboration.",
+    "Treasure Heist gives teams a facilitated mission built around clues, objectives, and timed decisions. It is useful when the group wants a stronger story than a standard station game. Share pax, venue, timing, and desired intensity so the puzzle flow can be calibrated.",
+    activityFaqs("Treasure Heist", "heist puzzle setup", "pace"),
+    ["csi-bones", "alice-in-motherland", "amazing-race", "team-building"],
+  ),
+  "archery-tag": item(
+    "A structured action game for teams that want safe competition, movement, and tactical play.",
+    "Archery Tag uses foam-tipped arrows, team zones, and facilitated rules to create an active battle format. It suits groups that want adrenaline with clear safety management. Share pax, venue options, weather constraints, and participant profile before confirming the setup.",
+    activityFaqs("Archery Tag", "action-game arena", "safety"),
+    ["gel-blitz", "nerfwar", "tag-tical-laser-teambuilding", "team-building"],
+  ),
+  "gel-blitz": item(
+    "A gel-blaster activity for teams that want tactical missions, movement, and structured action.",
+    "GelBlitz is an action format built around facilitated missions, clear zones, and safety briefings. It suits groups that want more intensity than casual games while still needing event control. Share pax, venue, weather needs, and participant comfort before planning.",
+    activityFaqs("GelBlitz", "tactical arena", "safety"),
+    ["archery-tag", "nerfwar", "tag-tical-laser-teambuilding", "team-building"],
+  ),
+  "nerfwar": item(
+    "A foam-blaster activity for teams that want accessible action, team tactics, and high participation.",
+    "Nerfwar uses foam blasters, facilitated rules, and mission rounds to create a safer action-game experience. It suits mixed groups that want energy without heavy technical setup. Share pax, venue, age range, and comfort level so the format can be adjusted.",
+    activityFaqs("Nerfwar", "foam-blaster arena", "safety"),
+    ["archery-tag", "gel-blitz", "tag-tical-laser-teambuilding", "team-building"],
+  ),
+  "tag-tical-laser-teambuilding": item(
+    "A laser tag activity for teams that want tactical play, low-contact competition, and active missions.",
+    "Tag-tical Laser Team Building uses sensor-based missions, team strategy, and facilitated game rounds. It suits groups that want action without projectiles. Share pax, venue options, intensity preference, and accessibility notes so the arena flow can be planned.",
+    activityFaqs("Tag-tical Laser Team Building", "laser mission arena", "movement"),
+    ["archery-tag", "gel-blitz", "nerfwar", "team-building"],
+  ),
+  "amazing-race-virtual": item(
+    "A remote race format for distributed teams that want shared missions without travelling.",
+    "Virtual Amazing Race gives remote or hybrid teams a hosted challenge built around digital clues, teamwork, and paced missions. It is useful when people cannot gather in one venue but still need a shared event. Share pax, platform preference, and time zones before planning.",
+    virtualFaqs("Virtual Amazing Race"),
+    ["the-gameshow-experience-virtual", "the-great-zodiac-hunt-virtual", "fit-in-your-team-virtual", "team-building"],
+  ),
+  "fit-in-your-team-virtual": item(
+    "A virtual movement session for teams that want energy, wellness, and light competition online.",
+    "Fit In Your Team combines hosted movement, simple challenges, and online team participation. It suits remote groups that need a reset rather than another passive call. Share pax, time zones, fitness comfort, and platform preference so the intensity can be adjusted.",
+    virtualFaqs("Fit In Your Team"),
+    ["amazing-race-virtual", "the-gameshow-experience-virtual", "wellness-events", "team-building"],
+  ),
+  "the-gameshow-experience-virtual": item(
+    "A virtual game show for remote teams that want quick rounds, visible hosting, and easy participation.",
+    "The Gameshow Experience uses hosted online rounds, questions, and team play to create a shared screen-based activity. It suits remote teams that need energy without complex setup. Share pax, time zones, and preferred platform so the pacing can be planned.",
+    virtualFaqs("The Gameshow Experience"),
+    ["amazing-race-virtual", "the-patriot-act-virtual", "grand-christmas-delivery", "team-building"],
+  ),
+  "the-great-zodiac-hunt-virtual": item(
+    "A story-led virtual hunt for teams that want puzzles, culture, and light online adventure.",
+    "The Great Zodiac Hunt gives remote teams a hosted mission built around themed clues and collaborative problem solving. It works for groups that want a virtual activity with more story than standard trivia. Share pax, platform, and timing before planning.",
+    virtualFaqs("The Great Zodiac Hunt"),
+    ["amazing-race-virtual", "tomb-raider-king-treasure-hunt-virtual", "the-nuclear-fallout-escape-room-virtual", "team-building"],
+  ),
+  "the-nuclear-fallout-escape-room-virtual": item(
+    "A virtual escape-room format for teams that want time pressure, puzzles, and shared problem solving.",
+    "Nuclear Fallout Escape Room turns online collaboration into a hosted puzzle mission with a countdown structure. It suits teams that enjoy deduction and clear stakes. Share pax, platform, time zone, and puzzle comfort so the game can be set up appropriately.",
+    virtualFaqs("Nuclear Fallout Escape Room"),
+    ["tomb-raider-king-treasure-hunt-virtual", "the-great-zodiac-hunt-virtual", "amazing-race-virtual", "team-building"],
+  ),
+  "the-patriot-act-virtual": item(
+    "A Singapore-themed virtual activity for teams that want local references, trivia, and hosted team play.",
+    "The Patriot Act uses Singapore-inspired challenges and online team rounds to create a light, shared virtual event. It suits National Day moments, remote teams, and mixed local groups. Share pax, platform, and audience profile so references land well.",
+    virtualFaqs("The Patriot Act"),
+    ["the-gameshow-experience-virtual", "amazing-race-virtual", "cultural-race", "team-building"],
+  ),
+  "tomb-raider-king-treasure-hunt-virtual": item(
+    "A virtual treasure-hunt adventure for teams that want puzzles, exploration, and a hosted mission arc.",
+    "Tomb Raider King gives remote teams a digital adventure built around clues, challenge rounds, and group decisions. It suits teams that want a stronger narrative than a normal online quiz. Share pax, platform, and timing before planning.",
+    virtualFaqs("Tomb Raider King"),
+    ["the-nuclear-fallout-escape-room-virtual", "the-great-zodiac-hunt-virtual", "treasure-heist", "team-building"],
+  ),
+  "grand-christmas-delivery": item(
+    "A festive virtual activity for year-end teams that want holiday energy without a physical venue.",
+    "Grand Christmas Delivery turns a remote year-end gathering into a hosted festive mission. It is useful for distributed teams that still want shared laughter, light competition, and a clear event moment. Share pax, platform, and any gifting plans early.",
+    virtualFaqs("Grand Christmas Delivery"),
+    ["the-gameshow-experience-virtual", "amazing-race-virtual", "fit-in-your-team-virtual", "team-building"],
+  ),
+  "overseas-retreats": item(
+    "A managed regional retreat service for companies that need travel, programme flow, and team outcomes aligned.",
+    "Overseas Retreats help organisers shape the trip around destination, pax, objectives, budget, and activity flow. The work can include travel planning, venue coordination, facilitation, meals, and team-building layers. Share the rough brief first so the scope can be built responsibly.",
+    retreatFaqs("an overseas corporate retreat"),
+    ["local-retreats", "incentive-travel", "leadership-offsites", "team-building"],
+  ),
+  "local-retreats": item(
+    "A Singapore retreat option for teams that want offsite energy without overseas travel.",
+    "Local Retreats combine Singapore venues, facilitation, meals, and activity planning into a contained offsite experience. They work when teams need a reset but travel is impractical. Share pax, preferred dates, staycation needs, and desired outcomes before quoting.",
+    retreatFaqs("a local corporate retreat"),
+    ["overseas-retreats", "leadership-offsites", "wellness-events", "team-building"],
+  ),
+  "incentive-travel": item(
+    "A reward-trip planning service for companies that need recognition, travel, and experience design handled carefully.",
+    "Incentive Travel is for high-performing teams, sales groups, or partners who need a reward experience planned around destination, eligibility, budget, and experience quality. Share the participant profile, travel window, and recognition goal so planning can start with the right constraints.",
+    retreatFaqs("an incentive travel programme"),
+    ["overseas-retreats", "local-retreats", "leadership-offsites", "team-building"],
+  ),
+  "workshops": item(
+    "A facilitated learning format for teams that need practical workplace skills, discussion, and takeaways.",
+    "Corporate Workshops give teams a structured session around communication, collaboration, leadership, or team development. The focus is practical participation, not passive slides. Share the audience level, learning objective, timing, and preferred venue so the workshop can be scoped.",
+    trainingFaqs("a corporate workshop", "workplace skills and team behaviour"),
+    ["mbti", "disc", "ocean", "mass-talks"],
+  ),
+  "mbti": item(
+    "An MBTI profiling workshop for teams that want clearer communication and better cross-type collaboration.",
+    "MBTI Profiling helps participants discuss personality preferences, working styles, communication patterns, and possible friction points. The workshop should be framed as a guided team conversation, not a label. Share group size, seniority mix, and desired outcomes before planning.",
+    trainingFaqs("an MBTI workshop", "personality preferences and team communication"),
+    ["disc", "ocean", "workshops", "leadership-offsites"],
+  ),
+  "disc": item(
+    "A DiSC workshop for teams that want a shared language for behaviour, communication, and conflict.",
+    "DiSC Assessment sessions help teams discuss behavioural tendencies and how those tendencies show up at work. It is useful for improving meetings, collaboration, and manager conversations. Share the team context, group size, and workshop goal before confirming the structure.",
+    trainingFaqs("a DiSC workshop", "behavioural styles and communication"),
+    ["mbti", "ocean", "workshops", "leadership-offsites"],
+  ),
+  "ocean": item(
+    "An OCEAN profiling workshop for teams that want research-backed language for personality and work behaviour.",
+    "OCEAN Profiling introduces the Big Five personality framework in a facilitated workplace context. The session should help teams reflect on tendencies, preferences, and collaboration patterns without overclaiming outcomes. Share the audience level, timing, and intended use case first.",
+    trainingFaqs("an OCEAN workshop", "Big Five personality traits and workplace behaviour"),
+    ["mbti", "disc", "workshops", "leadership-offsites"],
+  ),
+  "mass-talks": item(
+    "A keynote or seminar format for larger groups that need a polished message, speaker flow, and audience focus.",
+    "Mass Talks support townhall-style learning, motivation, or thematic sessions for larger audiences. Planning should cover the speaker brief, AV needs, audience profile, run-of-show, and desired takeaway. Share the event context and timing before confirming scope.",
+    trainingFaqs("a mass talk", "large-group learning or motivation"),
+    ["workshops", "leadership-offsites", "corporate-days", "team-building"],
+  ),
+  "corporate-days": item(
+    "A managed company-day format for organisers who need activities, flow, and logistics coordinated end to end.",
+    "Corporate Days bring activities, facilitation, catering coordination, and event flow into one professionally run programme. They work for staff days, department days, and family-friendly company moments. Share pax, venue, audience mix, and timing so the plan is practical.",
+    corporateFaqs("a corporate day"),
+    ["minute-to-win-it", "battle-of-the-olympians", "wellness-events", "team-building"],
+  ),
+  "wellness-events": item(
+    "A workplace wellness format for teams that need a calmer reset, healthier habits, and shared participation.",
+    "Wellness Events can combine movement, mindfulness, nutrition, recovery, and team reset activities depending on the audience. The goal is a credible, accessible programme rather than forced participation. Share pax, venue, health considerations, and desired tone before planning.",
+    corporateFaqs("a corporate wellness event"),
+    ["local-retreats", "fit-in-your-team-virtual", "corporate-days", "team-building"],
+  ),
+  "leadership-offsites": item(
+    "A structured offsite for leadership teams that need alignment, decisions, and space away from daily work.",
+    "Leadership Offsites are planned around senior team objectives, agenda flow, facilitation needs, venue fit, and confidentiality. They can include strategy sessions, team alignment, and selected bonding moments. Share the leadership context and desired decisions before scoping.",
+    corporateFaqs("a leadership offsite"),
+    ["local-retreats", "overseas-retreats", "workshops", "mbti"],
+  ),
+  "youth-camps": item(
+    "A facilitated camp programme for schools or cohorts that need bonding, leadership practice, and safe structure.",
+    "Youth Camps combine structured activities, facilitation, safety management, and cohort-building moments for student groups. Planning should cover age range, pax, venue, learning goals, supervision needs, and accessibility. Share the school context before confirming the programme.",
+    corporateFaqs("a youth camp"),
+    ["battle-of-the-olympians", "cultural-race", "workshops", "team-building"],
+  ),
+};

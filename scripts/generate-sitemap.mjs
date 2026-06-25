@@ -28,13 +28,6 @@ const trainingServices = [
   "mbti", "disc", "ocean", "mass-talks", "workshops", "youth-camps",
   "corporate-days", "wellness-events", "leadership-offsites",
 ];
-const corporateEventServices = [
-  "dinner-and-dance", "awards-ceremonies", "corporate-anniversaries", "product-launch",
-  "brand-activations", "client-appreciation", "town-halls", "immersive-experiences",
-  "event-concept", "stage-production", "custom-themes", "emcee-media", "summits",
-  "government-events", "private-events", "family-fun-days", "corporate-carnivals",
-  "vip-gala", "grand-opening",
-];
 
 /** @typedef {{path:string,changefreq?:string,priority?:string,lastmod?:string}} Entry */
 
@@ -54,7 +47,7 @@ const servicePriority = (slug) =>
 const serviceEntries = [
   "team-building",
   ...physicalServices, ...equipmentServices, ...virtualServices,
-  ...retreatServices, ...trainingServices, ...corporateEventServices,
+  ...retreatServices, ...trainingServices,
   // Note: /services/corporate-retreats is a 301 redirect to overseas-retreats
   // and is intentionally excluded from the sitemap (only canonical pages).
 ].map((slug) => ({

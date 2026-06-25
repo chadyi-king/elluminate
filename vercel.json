@@ -1,0 +1,23 @@
+{
+  "redirects": [
+    { "source": "/services/dinner-and-dance", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/awards-ceremonies", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/corporate-anniversaries", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/product-launch", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/brand-activations", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/client-appreciation", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/town-halls", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/immersive-experiences", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/event-concept", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/stage-production", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/custom-themes", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/emcee-media", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/summits", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/government-events", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/private-events", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/family-fun-days", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/corporate-carnivals", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/vip-gala", "destination": "/portfolio", "permanent": true },
+    { "source": "/services/grand-opening", "destination": "/portfolio", "permanent": true }
+  ]
+}

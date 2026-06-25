@@ -14,7 +14,7 @@ const caseStudies = [
     venue: "Marina Bay Sands Ballroom",
     challenges: "Create an immersive experience that reflects 10 years of company milestones while maintaining an elegant gala atmosphere.",
     solutions: "We designed a journey through time with decade-themed zones, holographic displays of key products, and a surprise drone light show finale.",
-    outcome: "96% attendee satisfaction rate. Client renewed partnership for 3 more years.",
+    outcome: "Strong attendee feedback and a renewed client partnership after the event.",
     images: [
       "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80",
       "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
@@ -32,7 +32,7 @@ const caseStudies = [
     venue: "Sentosa Island Resort",
     challenges: "Bridge gaps between 5 regional offices with different work cultures and build lasting connections.",
     solutions: "Custom-designed Amazing Race with cultural elements, collaborative art installation, and strategic problem-solving challenges.",
-    outcome: "Team collaboration scores increased by 40% in quarterly surveys.",
+    outcome: "The experience created structured cross-team collaboration moments and clearer post-event discussion points.",
     images: [
       "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&q=80",
       "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
@@ -50,7 +50,7 @@ const caseStudies = [
     venue: "National Gallery Singapore",
     challenges: "Create an exclusive, Instagram-worthy experience that positions the product as the pinnacle of luxury innovation.",
     solutions: "Transformed the venue into a futuristic gallery with interactive product stations, AR experiences, and celebrity performances.",
-    outcome: "200+ social media posts with #LuxuryLaunch. 90% of attendees placed pre-orders.",
+    outcome: "The launch generated strong social buzz around #LuxuryLaunch and helped move attendees toward pre-order conversations.",
     images: [
       "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80",
       "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80",

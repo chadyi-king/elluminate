@@ -27,6 +27,32 @@ const AttributionInit = () => {
   return null;
 };
 
+// TODO(seo): Confirm /portfolio is the best redirect target for these
+// quarantined Large Scale routes, or replace it with a live corporate events hub.
+const quarantinedServiceSlugs = [
+  "dinner-and-dance",
+  "awards-ceremonies",
+  "corporate-anniversaries",
+  "product-launch",
+  "brand-activations",
+  "client-appreciation",
+  "town-halls",
+  "immersive-experiences",
+  "event-concept",
+  "stage-production",
+  "custom-themes",
+  "emcee-media",
+  "summits",
+  "government-events",
+  "private-events",
+  "family-fun-days",
+  "corporate-carnivals",
+  "vip-gala",
+  "grand-opening",
+] as const;
+
+const QuarantinedServiceRedirect = () => <Navigate to="/portfolio" replace />;
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -40,6 +66,9 @@ const App = () => (
             <Route path="/about" element={<AboutPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/services/team-building" element={<TeamBuildingHubPage />} />
+            {quarantinedServiceSlugs.map((slug) => (
+              <Route key={slug} path={`/services/${slug}`} element={<QuarantinedServiceRedirect />} />
+            ))}
             <Route path="/services/corporate-retreats" element={<Navigate to="/services/overseas-retreats" replace />} />
             <Route path="/services/:slug" element={<ServicePage />} />
             <Route path="/blog" element={<BlogPage />} />

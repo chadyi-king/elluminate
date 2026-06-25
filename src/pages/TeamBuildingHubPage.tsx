@@ -70,7 +70,7 @@ const seoDescription =
 const contactPhone = "+65 8835 2482";
 const contactEmail = "info@elluminate.sg";
 const whatsappUrl =
-  "https://api.whatsapp.com/send?phone=6588352482&text=Hi%20Elluminate%2C%20I'd%20like%20to%20start%20a%20free%20team%20building%20planning%20session.";
+  "https://wa.me/6588352482?text=Hi%20Elluminate%2C%20I'd%20like%20to%20start%20a%20free%20team%20building%20planning%20session.";
 
 const heroService = servicesData["team-building"];
 const heroImage = heroService.hero.backgroundImage;

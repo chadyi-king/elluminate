@@ -60,6 +60,7 @@ export const ServiceRecentEventsTicker = ({
             <span className="text-foreground font-semibold">
               {event.client}
             </span>
+            {/* TODO(content): Verify recent-event pax counts before displaying them publicly. */}
             <span 
               className="px-2 py-0.5 rounded-full text-xs font-bold"
               style={{ 
@@ -67,7 +68,7 @@ export const ServiceRecentEventsTicker = ({
                 color: accentColor
               }}
             >
-              {event.pax} pax
+              Recent event
             </span>
             <span className="text-foreground/30">/</span>
           </div>

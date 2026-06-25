@@ -16,6 +16,7 @@ import { ServiceHowItWorksWithPricing } from "@/components/service-page/ServiceH
 import { ServiceOutcomes } from "@/components/service-page/ServiceOutcomes";
 import { ServicePillsSection } from "@/components/service-page/ServicePillsSection";
 import { servicesData } from "@/data/servicesData";
+import { serviceContentQuality } from "@/data/serviceContentQuality";
 import { allInScopeServiceSlugs, serviceCategoryLabels } from "@/data/siteScope";
 import { SEO } from "@/components/SEO";
 import { ServiceMiniGallery } from "@/components/service-page/ServiceMiniGallery";
@@ -244,6 +245,21 @@ const ServicePage = () => {
   };
 
   const seoData = serviceSEO[slug || ""];
+  const contentQuality = slug ? serviceContentQuality[slug] : undefined;
+  const displayHeroTagline = contentQuality?.heroSubline ?? service.hero.tagline;
+  const displayOverviewDescription = contentQuality?.overviewDescription ?? service.overview.description;
+  const legacyFaqsBySlug: Record<string, typeof service.faqs> = {
+    "running-man": runningManFaqs,
+    "workshops": workshopsFaqs,
+    "overseas-retreats": overseasRetreatsFaqs,
+    "amazing-race": amazingRaceFaqs,
+  };
+  const displayFaqs = contentQuality?.faqs?.length
+    ? contentQuality.faqs
+    : legacyFaqsBySlug[slug || ""] ?? service.faqs;
+  const relatedServices = (contentQuality?.relatedSlugs ?? [])
+    .map((relatedSlug) => ({ slug: relatedSlug, service: servicesData[relatedSlug] }))
+    .filter((item) => item.service && allInScopeServiceSlugs.has(item.slug));
 
   // Check if this service has the new enhanced structure
   const hasEnhancedStructure = service.clientLogos || service.recentEvents || service.pricing;
@@ -260,18 +276,18 @@ const ServicePage = () => {
     <div className="min-h-screen bg-background">
       <SEO 
         title={seoData?.title ?? `${service.hero.title} | Elluminate`}
-        description={seoData?.description ?? `${service.overview.description.slice(0, 145)}... Singapore`}
+        description={seoData?.description ?? `${displayOverviewDescription.slice(0, 145)}... Singapore`}
         keywords={serviceKeywords[slug || ""] || "corporate events Singapore, event planning"}
         canonical={seoData?.canonical ?? `https://elluminate.sg/services/${slug}`}
       />
       <ServiceSchema 
         name={service.hero.title}
-        description={service.overview.description.slice(0, 200)}
+        description={displayOverviewDescription.slice(0, 200)}
         slug={slug || ""}
         price={service.pricing?.startingPrice}
       />
-      {service.faqs && service.faqs.length > 0 && (
-        <FAQSchema faqs={service.faqs} />
+      {displayFaqs && displayFaqs.length > 0 && (
+        <FAQSchema faqs={displayFaqs} />
       )}
       <GoldParticles />
       <Navbar />
@@ -287,7 +303,7 @@ const ServicePage = () => {
       <ServiceHeroSplit
         title={service.hero.title}
         subtitle={service.hero.subtitle}
-        tagline={service.hero.tagline}
+        tagline={displayHeroTagline}
         backgroundImage={service.hero.backgroundImage}
         accentColor={service.accentColor}
         accentColorSecondary={service.accentColorSecondary}
@@ -323,7 +339,7 @@ const ServicePage = () => {
       )}
 
       {/* 4. What Is This Service? (Overview) */}
-      <ServiceOverviewNew description={service.overview.description} accentColor={service.accentColor} accentColorSecondary={service.accentColorSecondary} />
+      <ServiceOverviewNew description={displayOverviewDescription} accentColor={service.accentColor} accentColorSecondary={service.accentColorSecondary} />
 
       {/* 4.5 Destinations Grid (for retreat/travel services) */}
       {service.destinationsGrid && (
@@ -440,23 +456,13 @@ const ServicePage = () => {
         </>
       )}
 
-      {/* FAQ (running man) */}
-      {slug === "running-man" && (
+      {/* FAQ */}
+      {displayFaqs && displayFaqs.length > 0 && (
         <ServiceFAQAccordion
-          title="Running Man FAQ"
-          subtitle="Frequently asked questions about our Running Man team building programmes in Singapore."
+          title={`${service.hero.title} FAQ`}
+          subtitle={`Frequently asked questions about planning ${service.hero.title} with Elluminate.`}
           accentColor={service.accentColor}
-          faqs={runningManFaqs}
-        />
-      )}
-
-      {/* FAQ (workshops) */}
-      {slug === "workshops" && (
-        <ServiceFAQAccordion
-          title="Workshops & Training FAQ"
-          subtitle="Frequently asked questions about our corporate workshops, training programmes, and learning experiences."
-          accentColor={service.accentColor}
-          faqs={workshopsFaqs}
+          faqs={displayFaqs}
         />
       )}
 
@@ -465,24 +471,37 @@ const ServicePage = () => {
         <ServiceMiniGallery title={service.miniGallery.title} images={service.miniGallery.images} />
       )}
 
-      {/* FAQ (overseas retreats only) */}
-      {slug === "overseas-retreats" && (
-        <ServiceFAQAccordion
-          title="Corporate Retreat FAQ"
-          subtitle="Common questions about planning and organising overseas corporate retreats for your team."
-          accentColor={service.accentColor}
-          faqs={overseasRetreatsFaqs}
-        />
-      )}
-
-      {/* FAQ (amazing race) */}
-      {slug === "amazing-race" && (
-        <ServiceFAQAccordion
-          title="Amazing Race FAQ"
-          subtitle="Frequently asked questions about our Amazing Race team building programmes in Singapore."
-          accentColor={service.accentColor}
-          faqs={amazingRaceFaqs}
-        />
+      {/* Related experiences */}
+      {relatedServices.length > 0 && (
+        <section className="py-16 px-4 bg-background">
+          <div className="container mx-auto max-w-6xl">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+                Related Experiences
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                Compare this with other live Elluminate formats that may fit the same brief.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {relatedServices.map(({ slug: relatedSlug, service: relatedService }) => (
+                <Link
+                  key={relatedSlug}
+                  to={`/services/${relatedSlug}`}
+                  className="group rounded-lg border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg"
+                >
+                  <p className="text-sm font-semibold text-primary">{serviceCategoryLabels[relatedSlug]}</p>
+                  <h3 className="mt-2 font-display text-xl font-bold text-foreground group-hover:text-primary">
+                    {relatedService.hero.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {relatedService.hero.subtitle}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
       )}
 
       {/* Accent gradient bar above testimonials */}

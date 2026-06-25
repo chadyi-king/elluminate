@@ -337,6 +337,31 @@ const trafficLightPackages = (minimumPriceLabel: string, shortName: string, acce
   },
 ];
 
+const professionalServicePackages = (
+  minimumPriceLabel: string,
+  essentialDescription: string,
+): PackageTier[] => [
+  {
+    color: "#26D07C",
+    title: "ESSENTIAL",
+    description: essentialDescription,
+    price: minimumPriceLabel,
+    features: ["Ready-to-run format", "Professional delivery", "Standard planning support"],
+  },
+  {
+    color: "#FFC400",
+    title: "Enhanced Package",
+    description: "Add venue selection, catering, prizes, and logistics. Your event, your preferences.",
+    features: ["Custom venue", "Add-ons available", "Flexible timing"],
+  },
+  {
+    color: "#FF4F4F",
+    title: "Premium Package",
+    description: "A fully bespoke experience designed around your goals, brand, and vision.",
+    features: ["Custom experience design", "Branded materials", "Full event management"],
+  },
+];
+
 const defaultPerfectForFlow: FlowSection = {
   sectionTitle: "PERFECT FOR",
   sectionSubtitle: "Every Occasion",
@@ -5828,7 +5853,7 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "TrendingUp",
         title: "Improved Communication",
-        description: "Teams report 40% better collaboration after our events",
+        description: "Teams practise collaboration through shared clues, checkpoint decisions, and a facilitated debrief",
       },
       {
         icon: "Heart",
@@ -8395,7 +8420,7 @@ export const servicesData: Record<string, ServiceData> = {
       },
       {
         icon: Users,
-        title: "100% Participation",
+        title: "Designed for Full Participation",
         description: "Games designed so everyone contributes regardless of age or fitness level.",
       },
       {
@@ -12428,7 +12453,7 @@ export const servicesData: Record<string, ServiceData> = {
     hero: {
       title: "MBTI PERSONALITY PROFILING",
       subtitle: "Training",
-      tagline: "Personality has the power to uplift, depress, curse and to bless.",
+      tagline: "Understand what drives your team — and how to work better across personality types.",
       backgroundImage: "/images/services/local-retreats/hero.jpg",
     },
     howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
@@ -12594,7 +12619,10 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "Manulife Singapore", event: "MBTI Team Discovery", pax: 57 },
     ],
     pricing: { startingPrice: "$250", unit: "per pax", minimumPax: 10, duration: "2-4 hours", activityType: "indoor" },
-    packages: trafficLightPackages("$250/pax", "MBTI Profiling", "#8B5CF6"),
+    packages: professionalServicePackages(
+      "$250/pax",
+      "A guided MBTI profiling workshop at one of our venues. Includes the assessment, a trained facilitator, and individual type debriefs — we run the full session end to end while your team focuses on the insights.",
+    ),
     addOns: [
       {
         icon: "FileText",
@@ -12797,7 +12825,10 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "3M Singapore", event: "DISC Communication Session", pax: 323 },
     ],
     pricing: { startingPrice: "$250", unit: "per pax", minimumPax: 10, duration: "2-4 hours", activityType: "indoor" },
-    packages: trafficLightPackages("$250/pax", "DISC Assessment", "#3B82F6"),
+    packages: professionalServicePackages(
+      "$250/pax",
+      "A guided DiSC behavioural workshop at one of our venues. Includes the assessment, expert facilitation, and a team debrief — a complete, ready-to-run session with no setup required on your side.",
+    ),
     addOns: [
       {
         icon: "FileText",
@@ -12845,7 +12876,7 @@ export const servicesData: Record<string, ServiceData> = {
     hero: {
       title: "O.C.E.A.N PROFILING",
       subtitle: "Training",
-      tagline: "All great changes into Order is preceded always by Chaos.",
+      tagline: "The world's most research-backed personality framework, applied to how your team actually works.",
       backgroundImage: "/images/services/local-retreats/hero.jpg",
     },
     howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
@@ -13011,7 +13042,10 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "Enterprise Singapore", event: "OCEAN Team Discovery", pax: 254 },
     ],
     pricing: { startingPrice: "$250", unit: "per pax", minimumPax: 10, duration: "2-4 hours", activityType: "indoor" },
-    packages: trafficLightPackages("$250/pax", "OCEAN Profiling", "#14B8A6"),
+    packages: professionalServicePackages(
+      "$250/pax",
+      "A guided OCEAN (Big Five) profiling workshop at one of our venues. Includes the validated assessment, expert facilitation, and individual profile debriefs — delivered end to end by our team.",
+    ),
     addOns: [
       {
         icon: "FileText",
@@ -13248,7 +13282,10 @@ export const servicesData: Record<string, ServiceData> = {
       duration: "1-3 hours",
       activityType: "indoor",
     },
-    packages: trafficLightPackages("$5,000", "Mass Talks", "#F59E0B"),
+    packages: professionalServicePackages(
+      "$5,000",
+      "A complete keynote or seminar session at your chosen venue. We handle the speaker, AV, and full run-of-show — you bring the audience and we deliver a polished, high-impact session.",
+    ),
     addOns: [
       {
         icon: "Mic",
@@ -13462,7 +13499,10 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "Ministry of Education", event: "Professional Development Day", pax: 292 },
     ],
     pricing: { startingPrice: "$150", unit: "per pax", minimumPax: 15, duration: "3-4 hours", activityType: "indoor" },
-    packages: trafficLightPackages("$150/pax", "Workshops", "#EC4899"),
+    packages: professionalServicePackages(
+      "$150/pax",
+      "A focused, ready-to-run workshop at one of our facilitation venues. Includes an expert facilitator, all materials, and a proven session structure — your team arrives ready to learn and leaves with practical takeaways.",
+    ),
     addOns: [
       {
         icon: "FileText",
@@ -13688,7 +13728,10 @@ export const servicesData: Record<string, ServiceData> = {
       duration: "1-5 days",
       activityType: "outdoor",
     },
-    packages: trafficLightPackages("$80/student", "Youth Camps", "#22C55E"),
+    packages: professionalServicePackages(
+      "$80/student",
+      "A ready-to-run camp programme at one of our partner sites. Trained facilitators, structured activities, and full safety management included — your students simply turn up to a fully run experience.",
+    ),
     addOns: [
       {
         icon: "Moon",
@@ -13910,7 +13953,10 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "Changi General Hospital", event: "Annual Corporate Day", pax: 29 },
     ],
     pricing: { startingPrice: "$100", unit: "per pax", minimumPax: 20, duration: "4-8 hours", activityType: "hybrid" },
-    packages: trafficLightPackages("$100/pax", "Corporate Days", "#6366F1"),
+    packages: professionalServicePackages(
+      "$100/pax",
+      "A pre-designed corporate day at one of our venues. We manage facilitation, activities, catering coordination, and flow — your team shows up to a complete, professionally run programme.",
+    ),
     addOns: [
       {
         icon: "Utensils",

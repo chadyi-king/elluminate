@@ -33,7 +33,7 @@ import overseasRetreat from "@/assets/events/overseas-retreat-1.jpg";
 
 // Counter animation hook
 const useCountUp = (end: number, duration: number = 2000, startOnView: boolean = true) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -127,6 +127,7 @@ const features = [
   },
 ];
 
+// TODO(content): Keep a permission/evidence checklist for client logo usage before adding or restoring brand proof.
 const clientLogos = [
   {
     name: "DBS",
@@ -348,7 +349,7 @@ const AboutPage = () => {
 
   const eventsCounter = useCountUp(1000, 2500);
   const participantsCounter = useCountUp(100000, 3000);
-  const reviewsCounter = useCountUp(700, 2000);
+  const reviewsCounter = useCountUp(776, 2000);
   const yearsCounter = useCountUp(8, 1500);
 
   return (

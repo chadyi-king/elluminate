@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star, Calendar, Users, Award } from "lucide-react";
 import { useState, useEffect } from "react";
 
+// TODO(content): Keep a permission/evidence checklist for client logo usage before adding or restoring brand proof.
 // Real client logos - 72 companies across 3 carousel pages
 const defaultClientLogos = [
   // Page 1 — Financial & Tech

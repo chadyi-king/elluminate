@@ -11,6 +11,7 @@ const main = read("src/main.tsx");
 const tracking = read("src/lib/tracking.ts");
 const trackingConfig = read("src/lib/trackingConfig.ts");
 const attribution = read("src/lib/attribution.ts");
+const portfolioPage = read("src/pages/PortfolioPage.tsx");
 const teamBuilding = read("src/pages/TeamBuildingHubPage.tsx");
 const thankYou = read("src/pages/ThankYouPage.tsx");
 
@@ -74,6 +75,13 @@ test("team building form uses the same post-insert conversion path", () => {
   assert.ok(trackIndex > insertIndex, "conversion tracking must run after the insert call");
   assert.ok(validationIndex > -1 && validationIndex < trackIndex, "validation must happen before conversion tracking");
   assert.ok(honeypotIndex > -1 && honeypotIndex < trackIndex, "honeypot branch must happen before conversion tracking");
+});
+
+test("portfolio CTA uses the shared contact modal conversion path", () => {
+  assert.match(portfolioPage, /useContactModal/);
+  assert.match(portfolioPage, /onOpenContact=\{openContactModal\}/);
+  assert.doesNotMatch(portfolioPage, /components\/portfolio\/ContactModal/);
+  assert.doesNotMatch(portfolioPage, /setIsContactModalOpen/);
 });
 
 test("thank-you page stays diagnostic-only", () => {
