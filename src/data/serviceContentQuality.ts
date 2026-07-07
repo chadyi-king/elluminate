@@ -336,7 +336,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "tomb-raider-king-treasure-hunt-virtual": item(
     "A virtual treasure-hunt adventure for teams that want puzzles, exploration, and a hosted mission arc.",
     "Tomb Raider King gives remote teams a digital adventure built around clues, challenge rounds, and group decisions. It suits teams that want a stronger narrative than a normal online quiz. Share pax, platform, and timing before planning.",
-    virtualFaqs("Tomb Raider King"),
+    [
+      { question: "What is Tomb Raider King?", answer: "Tomb Raider King is a virtual adventure where teams solve ancient puzzles, unlock hidden treasures, and complete missions together." },
+      { question: "Is the game suitable for beginners?", answer: "Yes. The experience is designed for participants of all backgrounds without requiring gaming experience." },
+      { question: "Can the adventure be customised?", answer: "Yes. Company branding, event themes, and customised missions can be incorporated into the programme." },
+      { question: "How many participants can join?", answer: "The programme scales from small teams to large corporate events." },
+      { question: "What skills does the programme develop?", answer: "Participants improve teamwork, communication, problem-solving, and strategic thinking." },
+    ],
     ["the-nuclear-fallout-escape-room-virtual", "the-great-zodiac-hunt-virtual", "treasure-heist", "team-building"],
   ),
   "grand-christmas-delivery": item(
