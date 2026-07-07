@@ -37,15 +37,17 @@ export const ExpandableActivityCard = ({
   return (
     <motion.div
       className="group cursor-pointer"
-      onMouseEnter={() => setIsExpanded(true)}
-      onMouseLeave={() => setIsExpanded(false)}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
+      animate={{ minHeight: isExpanded ? 380 : 220 }}
+      style={{ minHeight: 220 }}
     >
       <motion.div
         className="relative rounded-2xl overflow-hidden shadow-lg"
+        onMouseEnter={() => setIsExpanded(true)}
+        onMouseLeave={() => setIsExpanded(false)}
         animate={{
           height: isExpanded ? 380 : 220,
         }}
@@ -78,7 +80,7 @@ export const ExpandableActivityCard = ({
         </div>
 
         {/* Content */}
-        <div className="relative h-full flex flex-col justify-between p-6 text-white">
+        <div className="relative z-10 h-full flex flex-col justify-between p-6 text-white">
           {/* Top section */}
           <div>
             <div className="mb-4 flex items-start justify-between gap-3">
@@ -136,7 +138,7 @@ export const ExpandableActivityCard = ({
                   targetHref.startsWith("#") ? (
                     <a
                       href={targetHref}
-                      className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
+                      className="relative z-20 pointer-events-auto cursor-pointer inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
                       aria-label={ctaLabel ?? `Explore ${name}`}
                     >
                       <span>{ctaLabel ?? `Explore ${name}`}</span>
@@ -145,7 +147,7 @@ export const ExpandableActivityCard = ({
                   ) : (
                     <Link
                       to={targetHref}
-                      className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
+                      className="relative z-20 pointer-events-auto cursor-pointer inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
                       aria-label={ctaLabel ?? `Explore ${name}`}
                     >
                       <span>{ctaLabel ?? `Explore ${name}`}</span>
@@ -160,7 +162,7 @@ export const ExpandableActivityCard = ({
 
         {/* Shine effect */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
           animate={{ translateX: isExpanded ? "200%" : "-100%" }}
           transition={{ duration: 0.8 }}
         />
