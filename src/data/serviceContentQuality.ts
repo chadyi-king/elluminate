@@ -168,7 +168,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "amongst-us": item(
     "A social-deduction format for teams that want conversation, suspicion, laughter, and light strategy.",
     "Amongst Us turns trust, observation, and group discussion into a facilitated team game. Participants work through missions while trying to read the room and identify hidden roles. Share pax, venue, and comfort level so the session can stay fun without becoming confusing.",
-    activityFaqs("Amongst Us", "indoor social-deduction setup", "social energy"),
+    [
+      { question: "What is Amongst Us team building?", answer: "Amongst Us is a social deduction team building game where participants complete missions while identifying hidden imposters within their teams." },
+      { question: "Is prior knowledge of the game required?", answer: "No. Our facilitators explain all rules before the activity begins." },
+      { question: "What skills does the programme develop?", answer: "It strengthens communication, trust, observation, collaboration, and decision-making." },
+      { question: "Can it be played indoors?", answer: "Yes. The activity is ideal for indoor venues and conference spaces." },
+      { question: "Is it suitable for large corporate groups?", answer: "Yes. The programme can be scaled for both small teams and large company events." },
+    ],
     ["csi-bones", "alice-in-motherland", "minute-to-win-it", "team-building"],
   ),
   "alice-in-motherland": item(
