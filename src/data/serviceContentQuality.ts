@@ -168,7 +168,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "alice-in-motherland": item(
     "A story-led puzzle activity for teams that want themed missions, imagination, and collaborative problem solving.",
     "Alice in Motherland uses a themed storyline, puzzle stations, and facilitated team tasks to create an immersive indoor or hybrid activity. It suits groups that want character and narrative without needing intense physical movement. Share pax, venue, and theme preferences before quoting.",
-    activityFaqs("Alice in Motherland", "themed puzzle setup", "pace"),
+    [
+      { question: "What is Alice in Motherland?", answer: "Alice in Motherland is an immersive strategy-based team building experience inspired by survival games, featuring teamwork, puzzles, and decision-making challenges." },
+      { question: "Is the programme physically demanding?", answer: "No. The experience focuses more on teamwork, communication, strategy, and problem-solving than physical endurance." },
+      { question: "Can the challenges be customised?", answer: "Yes. Challenges can be tailored to suit your objectives, venue, participants, and event duration." },
+      { question: "Is it suitable for large corporate groups?", answer: "Yes. The programme scales well from small departments to company-wide events with hundreds of participants." },
+      { question: "Can the programme be conducted indoors?", answer: "Yes. Alice in Motherland can be organised indoors, outdoors, or as a hybrid experience." },
+    ],
     ["amongst-us", "treasure-heist", "the-great-zodiac-hunt-virtual", "team-building"],
   ),
   "battle-of-the-olympians": item(
