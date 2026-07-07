@@ -54,8 +54,7 @@ export const VideoSection = () => {
                 <div
                   className="absolute inset-0 bg-center bg-cover bg-no-repeat flex items-center justify-center"
                   style={{
-                    backgroundImage:
-                      'url("/images/services/amazing-race/hero.jpg")',
+                    backgroundImage: 'url("/images/services/amazing-race/hero.jpg")',
                   }}
                 >
                   <div className="absolute inset-0 bg-black/50" />
@@ -86,12 +85,9 @@ export const VideoSection = () => {
                   className="w-full h-full object-cover"
                   controls
                   playsInline
-                  poster="/images/services/amazing-race/hero.jpg"
+                  poster="/videos/elluminate-showreel.jpg"
                 >
-                  <source
-                    src="/videos/elluminate-showreel.mp4"
-                    type="video/mp4"
-                  />
+                  <source src="/videos/elluminate-showreel.mp4" type="video/mp4" />
                 </video>
               </div>
             )}
