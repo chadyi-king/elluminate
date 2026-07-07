@@ -37,15 +37,17 @@ export const ExpandableActivityCard = ({
   return (
     <motion.div
       className="group cursor-pointer"
-      onMouseEnter={() => setIsExpanded(true)}
-      onMouseLeave={() => setIsExpanded(false)}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
+      animate={{ minHeight: isExpanded ? 380 : 220 }}
+      style={{ minHeight: 220 }}
     >
       <motion.div
         className="relative rounded-2xl overflow-hidden shadow-lg"
+        onMouseEnter={() => setIsExpanded(true)}
+        onMouseLeave={() => setIsExpanded(false)}
         animate={{
           height: isExpanded ? 380 : 220,
         }}
