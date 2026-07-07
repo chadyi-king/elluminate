@@ -414,7 +414,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "corporate-days": item(
     "A managed company-day format for organisers who need activities, flow, and logistics coordinated end to end.",
     "Corporate Days bring activities, facilitation, catering coordination, and event flow into one professionally run programme. They work for staff days, department days, and family-friendly company moments. Share pax, venue, audience mix, and timing so the plan is practical.",
-    corporateFaqs("a corporate day"),
+    [
+      { question: "What is a Corporate Day event?", answer: "Corporate Days are company-wide events designed to engage employees through games, activities, entertainment, appreciation programmes, and team bonding experiences." },
+      { question: "Can Corporate Day events be customised?", answer: "Yes. Every event is tailored to your company objectives, theme, venue, and audience." },
+      { question: "Do you provide event management services?", answer: "Yes. We manage programme planning, facilitators, logistics, event setup, and on-site coordination." },
+      { question: "How many participants can you accommodate?", answer: "We regularly organise Corporate Day events for groups ranging from 30 participants to over 1,000 attendees." },
+      { question: "Can team building activities be included?", answer: "Absolutely. Corporate Day events can include team building games, workshops, carnival activities, and employee engagement programmes." },
+    ],
     ["minute-to-win-it", "battle-of-the-olympians", "wellness-events", "team-building"],
   ),
   "wellness-events": item(
