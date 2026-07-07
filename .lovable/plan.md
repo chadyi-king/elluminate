@@ -1,52 +1,31 @@
-## Goal
+# Dedicated FAQs for 7 pages
 
-Make the Explore CTA inside the four programme cards (DISC Assessment, Youth Camps, Wellness Events, Leadership Offsites) reliably clickable. Do not touch the hover/open logic or visual design.
+## Scope
+Swap the shared FAQ generators for hand-authored FAQ arrays on the listed pages. No component, layout, styling, or copy changes elsewhere.
 
-## Root cause
+## Files to change
 
-In `src/components/ExpandableActivityCard.tsx` the decorative layers stacked above the content are not fully click-transparent, and the CTA is not isolated above them:
+### 1. `src/data/serviceContentQuality.ts`
+For each of the six service slugs below, replace the current `activityFaqs(...)` call inside the `faqs:` field with an inline literal `FAQ[]` array using the exact questions and answers you provided:
 
-- The background image wrapper (`<div className="absolute inset-0">` at ~L116) contains the `<img>` and the gradient color overlay. It has no `pointer-events-none`, so it can intercept clicks over the entire card surface even though content sits at `z-10`.
-- The shine layer (`motion.div` at ~L223) is `absolute inset-0` and, although it has `pointer-events-none`, it lives in the same stacking context as the CTA at only `z-20`.
-- The CTA is only `z-20`. Any sibling absolute layer at equal or higher stacking wins.
-- The outer wrapper `motion.div` in `ServicesSection.tsx` (L328) has no `isolation`, so z-indexes leak across cards in the grid.
+- `amazing-race`
+- `cultural-race`
+- `alice-in-motherland`
+- `builder-cross`
+- `monopoly-dash`
+- `sotong-game`
 
-## Changes (single file: `src/components/ExpandableActivityCard.tsx`)
+All other slugs keep their existing generator calls. The `activityFaqs` helper stays in the file (still used by CSI-Bones, Amongst Us, Battle of the Olympians, Minute To Win It, Running Man, Treasure Heist, and the equipment activities).
 
-1. Add `pointer-events-none` to the background image container div (the wrapper at L116 that holds the `<img>` and the gradient overlay). Decorative only — must never catch clicks.
-2. Keep `pointer-events-none` on the shine layer (already set).
-3. Add `isolation: isolate` (Tailwind `isolate`) to the inner card `motion.div` at L102 so z-indexes are contained per card.
-4. Bump the content column at L138 to `relative z-40 h-full pointer-events-none` and let only the interactive CTA opt back in with `pointer-events-auto`. This guarantees text/icons never swallow clicks and only the CTA is a click target inside the content area.
-5. Bump the Explore CTA (`<a>` and `<Link>` variants at L194 and L205) to `relative z-50 pointer-events-auto cursor-pointer`, keep them as real `<a>` / react-router `<Link>`.
-6. Leave hover/open state, timers, animation, colors, typography, layout, and copy untouched.
-
-## Technical detail
-
-```tsx
-// Image + gradient wrapper — decorative
-<div className="absolute inset-0 pointer-events-none">
-  <img ... />
-  <div className="absolute inset-0 ..." /> {/* gradient */}
-</div>
-
-// Content column — non-interactive by default
-<div className="relative z-40 h-full flex flex-col justify-between p-6 text-white pointer-events-none">
-  ...
-  <Link
-    to={targetHref}
-    className="relative z-50 pointer-events-auto cursor-pointer inline-flex ..."
-  >
-    ...
-  </Link>
-</div>
-
-// Shine — already pointer-events-none, keep as-is
-```
-
-## Verification
-
-After build, drive Playwright headless against `http://localhost:8080/`, hover each of DISC Assessment, Youth Camps, Wellness Events, Leadership Offsites, click Explore, and confirm navigation to the correct `/services/...` route for all four. Screenshot each landing page.
+### 2. Home page FAQ
+The current `src/components/HomeFAQSection.tsx` already contains the exact 5 Q&As, title, and subtitle you specified. Verified word-for-word. No edit required — but I will re-read it during implementation to confirm no drift and leave it untouched.
 
 ## Out of scope
+- FAQ accordion component, styling, animation, icons, spacing, JSON-LD wiring
+- All other page content
+- Other service pages that still use generators
 
-No changes to `ServicesSection.tsx`, no changes to hover state machine, no visual/animation/color/typography edits.
+## Verification
+- `rg` to confirm the six updated slugs no longer reference `activityFaqs`
+- Run `node --test scripts/service-content-upgrade.test.mjs` (asserts each live service has 4–6 FAQs, which the new arrays satisfy: 5 each)
+- Spot-check one updated service page in preview to confirm the accordion renders the new questions unchanged visually
