@@ -196,7 +196,8 @@ export const ExpandableActivityCard = ({
                       href={targetHref}
                       onPointerEnter={handlePointerEnter}
                       onPointerMove={handlePointerMove}
-                      className="relative z-20 pointer-events-auto cursor-pointer inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
+                      className="relative z-50 pointer-events-auto cursor-pointer inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
+
                       aria-label={ctaLabel ?? `Explore ${name}`}
                     >
                       <span>{ctaLabel ?? `Explore ${name}`}</span>
