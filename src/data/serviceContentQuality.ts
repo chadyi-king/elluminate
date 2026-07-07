@@ -192,7 +192,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "battle-of-the-olympians": item(
     "A tournament-style activity for teams that want friendly competition, team pride, and visible energy.",
     "Battle of the Olympians brings teams through a sequence of facilitated challenge rounds with a clear scoring arc. It can suit school, cohort, and company groups that want active participation and a strong finish. Share pax, venue, weather needs, and intensity level early.",
-    activityFaqs("Battle of the Olympians", "challenge tournament", "activity intensity"),
+    [
+      { question: "What is Battle of the Olympians?", answer: "Battle of the Olympians is an action-packed team building programme inspired by Olympic-style competitions, combining teamwork, strategy, and friendly rivalry." },
+      { question: "Are the activities physically demanding?", answer: "The programme can be adjusted to match your participants' fitness levels and event objectives." },
+      { question: "Can it be organised indoors?", answer: "Yes. Indoor and outdoor versions are available depending on your venue." },
+      { question: "How many games are included?", answer: "The programme typically includes multiple Olympic-inspired challenges that can be customised for your event." },
+      { question: "Is it suitable for large corporate events?", answer: "Yes. We regularly organise Battle of the Olympians for groups ranging from 20 to over 500 participants." },
+    ],
     ["minute-to-win-it", "running-man", "corporate-days", "team-building"],
   ),
   "builder-cross": item(
