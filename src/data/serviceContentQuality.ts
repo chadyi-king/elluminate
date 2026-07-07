@@ -360,7 +360,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "local-retreats": item(
     "A Singapore retreat option for teams that want offsite energy without overseas travel.",
     "Local Retreats combine Singapore venues, facilitation, meals, and activity planning into a contained offsite experience. They work when teams need a reset but travel is impractical. Share pax, preferred dates, staycation needs, and desired outcomes before quoting.",
-    retreatFaqs("a local corporate retreat"),
+    [
+      { question: "What is a local corporate retreat?", answer: "A local corporate retreat is a team development programme held within Singapore, combining team building activities, workshops, planning sessions, and employee engagement without overseas travel." },
+      { question: "Where can local corporate retreats be held?", answer: "We organise retreats at hotels, resorts, Sentosa, chalets, conference venues, and other suitable locations across Singapore." },
+      { question: "What activities can be included in a local retreat?", answer: "Programmes can include team building games, leadership workshops, personality profiling, Amazing Race, CSR activities, strategic planning sessions, wellness activities, and gala dinners." },
+      { question: "Is a local retreat suitable for one-day programmes?", answer: "Yes. Local retreats can range from a half-day programme to multi-day staycations depending on your objectives and schedule." },
+      { question: "Do you provide complete event management?", answer: "Yes. We can coordinate venues, accommodation, catering, facilitators, logistics, programme planning, and on-site event execution." },
+    ],
     ["overseas-retreats", "leadership-offsites", "wellness-events", "team-building"],
   ),
   "incentive-travel": item(
