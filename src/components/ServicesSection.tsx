@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   Flag,
   Globe,
@@ -284,6 +285,8 @@ const allActivities = [
 ];
 
 export const ServicesSection = () => {
+  const [activeCard, setActiveCard] = useState<string | null>(null);
+
   return (
     <section id="services" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-primary/[0.03] to-primary/5" />
@@ -339,6 +342,13 @@ export const ServicesSection = () => {
                 clients={activity.clients}
                 image={activity.image}
                 tag={activity.tag}
+                isActive={activeCard === activity.slug}
+                onActivate={() => setActiveCard(activity.slug)}
+                onDeactivate={() =>
+                  setActiveCard((currentCard) =>
+                    currentCard === activity.slug ? null : currentCard
+                  )
+                }
               />
             </motion.div>
           ))}
