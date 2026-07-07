@@ -5678,28 +5678,29 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     faqs: [
       {
-        question: "What is an Amazing Race team building activity?",
+        question: "How many participants can join the Amazing Race?",
         answer:
-          "Amazing Race is a team building experience where participants solve clues, complete challenges, and navigate checkpoints while working together toward a common goal.",
+          "We can accommodate groups from 20 to 500+ participants. We'll structure teams and challenges based on your group size.",
       },
       {
-        question: "Is Amazing Race suitable for all fitness levels?",
+        question: "Where can the Amazing Race be held?",
         answer:
-          "Yes. We design routes and challenges to suit different age groups, fitness levels, and participant profiles.",
+          "We offer city-wide races, indoor venue races, resort races, and virtual options. Popular locations include Marina Bay, Sentosa, and various CBD areas.",
       },
       {
-        question: "What happens if it rains during the Amazing Race?",
+        question: "How long does an Amazing Race typically last?",
         answer:
-          "We provide wet-weather contingency plans and can incorporate sheltered checkpoints, indoor venues, or alternative game formats.",
+          "A standard race runs 2-3 hours, but we can customize the duration from 1.5 to 4 hours based on your schedule.",
       },
       {
-        question: "Can the Amazing Race be customised?",
-        answer: "Yes. We can customise challenges, routes, branding, company messages, and learning outcomes.",
+        question: "Is it suitable for all fitness levels?",
+        answer:
+          "Yes! We design challenges to be inclusive with a mix of physical and mental tasks. Teams can strategize based on individual strengths.",
       },
       {
-        question: "Where can Amazing Race team building activities be conducted?",
+        question: "Can challenges be customized to our company?",
         answer:
-          "Popular locations include Sentosa, Marina Bay, Gardens by the Bay, Chinatown, Civic District, Jewel Changi Airport, and custom locations across Singapore.",
+          "Absolutely! We can incorporate company trivia, branded materials, and challenges aligned with your values and objectives.",
       },
     ],
     processFlow: [
