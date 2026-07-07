@@ -324,7 +324,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "the-nuclear-fallout-escape-room-virtual": item(
     "A virtual escape-room format for teams that want time pressure, puzzles, and shared problem solving.",
     "Nuclear Fallout Escape Room turns online collaboration into a hosted puzzle mission with a countdown structure. It suits teams that enjoy deduction and clear stakes. Share pax, platform, time zone, and puzzle comfort so the game can be set up appropriately.",
-    virtualFaqs("Nuclear Fallout Escape Room"),
+    [
+      { question: "What is Nuclear Fallout Escape?", answer: "Nuclear Fallout Escape is a virtual escape room where teams solve puzzles, uncover clues, and work together to survive a post-apocalyptic mission." },
+      { question: "Is escape room experience required?", answer: "No. Our facilitators guide participants through the experience, making it suitable for first-time players." },
+      { question: "What skills does the programme develop?", answer: "The activity strengthens communication, collaboration, critical thinking, and problem-solving." },
+      { question: "Can the storyline be customised?", answer: "Yes. We can adapt elements of the experience to align with your event objectives." },
+      { question: "Is it suitable for corporate team building?", answer: "Absolutely. The programme is designed to promote teamwork while providing an engaging virtual experience." },
+    ],
     ["tomb-raider-king-treasure-hunt-virtual", "the-great-zodiac-hunt-virtual", "amazing-race-virtual", "team-building"],
   ),
   "the-patriot-act-virtual": item(
