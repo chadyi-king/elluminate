@@ -396,7 +396,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "disc": item(
     "A DiSC workshop for teams that want a shared language for behaviour, communication, and conflict.",
     "DiSC Assessment sessions help teams discuss behavioural tendencies and how those tendencies show up at work. It is useful for improving meetings, collaboration, and manager conversations. Share the team context, group size, and workshop goal before confirming the structure.",
-    trainingFaqs("a DiSC workshop", "behavioural styles and communication"),
+    [
+      { question: "What is a DISC personality assessment?", answer: "DISC is a behavioural assessment that helps individuals understand their communication style, work preferences, and interactions with others." },
+      { question: "How does DISC benefit corporate teams?", answer: "DISC improves communication, teamwork, leadership effectiveness, conflict resolution, and collaboration within the workplace." },
+      { question: "Do participants receive their own DISC report?", answer: "Yes. Every participant receives an individual DISC profile with facilitator-led interpretation and practical workplace applications." },
+      { question: "Can DISC workshops be customised?", answer: "Yes. We tailor DISC workshops to align with your organisation's goals, industry, and team development objectives." },
+      { question: "Is DISC suitable for leadership development?", answer: "Absolutely. DISC is commonly used to strengthen leadership, coaching, people management, and team performance." },
+    ],
     ["mbti", "ocean", "workshops", "leadership-offsites"],
   ),
   "ocean": item(
