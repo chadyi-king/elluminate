@@ -144,7 +144,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "csi-bones": item(
     "An indoor mystery format for teams that prefer deduction, evidence review, and quieter collaboration.",
     "CSI-Bones is a forensic-style team activity built around clues, evidence, and group reasoning. It suits teams that want problem solving without heavy physical exertion. Share pax, venue, timing, and desired intensity so the investigation can be scoped for your group.",
-    activityFaqs("CSI-Bones", "indoor investigation", "pace"),
+    [
+      { question: "What is CSI Bones?", answer: "CSI Bones is a mystery-solving team building activity where participants investigate clues, solve puzzles, and work together to uncover the truth." },
+      { question: "Does the programme require detective experience?", answer: "No. The challenges are designed for everyone regardless of prior experience." },
+      { question: "What skills are developed?", answer: "Participants strengthen communication, critical thinking, teamwork, observation, and problem-solving skills." },
+      { question: "Can CSI Bones be held indoors?", answer: "Yes. It is primarily designed for indoor venues but can also be adapted for outdoor locations." },
+      { question: "Can the storyline be customised?", answer: "Yes. We can customise scenarios, company themes, and learning objectives." },
+    ],
     ["treasure-heist", "amongst-us", "monopoly-dash", "team-building"],
   ),
   "cultural-race": item(
@@ -162,7 +168,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "amongst-us": item(
     "A social-deduction format for teams that want conversation, suspicion, laughter, and light strategy.",
     "Amongst Us turns trust, observation, and group discussion into a facilitated team game. Participants work through missions while trying to read the room and identify hidden roles. Share pax, venue, and comfort level so the session can stay fun without becoming confusing.",
-    activityFaqs("Amongst Us", "indoor social-deduction setup", "social energy"),
+    [
+      { question: "What is Amongst Us team building?", answer: "Amongst Us is a social deduction team building game where participants complete missions while identifying hidden imposters within their teams." },
+      { question: "Is prior knowledge of the game required?", answer: "No. Our facilitators explain all rules before the activity begins." },
+      { question: "What skills does the programme develop?", answer: "It strengthens communication, trust, observation, collaboration, and decision-making." },
+      { question: "Can it be played indoors?", answer: "Yes. The activity is ideal for indoor venues and conference spaces." },
+      { question: "Is it suitable for large corporate groups?", answer: "Yes. The programme can be scaled for both small teams and large company events." },
+    ],
     ["csi-bones", "alice-in-motherland", "minute-to-win-it", "team-building"],
   ),
   "alice-in-motherland": item(
@@ -180,7 +192,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "battle-of-the-olympians": item(
     "A tournament-style activity for teams that want friendly competition, team pride, and visible energy.",
     "Battle of the Olympians brings teams through a sequence of facilitated challenge rounds with a clear scoring arc. It can suit school, cohort, and company groups that want active participation and a strong finish. Share pax, venue, weather needs, and intensity level early.",
-    activityFaqs("Battle of the Olympians", "challenge tournament", "activity intensity"),
+    [
+      { question: "What is Battle of the Olympians?", answer: "Battle of the Olympians is an action-packed team building programme inspired by Olympic-style competitions, combining teamwork, strategy, and friendly rivalry." },
+      { question: "Are the activities physically demanding?", answer: "The programme can be adjusted to match your participants' fitness levels and event objectives." },
+      { question: "Can it be organised indoors?", answer: "Yes. Indoor and outdoor versions are available depending on your venue." },
+      { question: "How many games are included?", answer: "The programme typically includes multiple Olympic-inspired challenges that can be customised for your event." },
+      { question: "Is it suitable for large corporate events?", answer: "Yes. We regularly organise Battle of the Olympians for groups ranging from 20 to over 500 participants." },
+    ],
     ["minute-to-win-it", "running-man", "corporate-days", "team-building"],
   ),
   "builder-cross": item(
@@ -198,7 +216,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "minute-to-win-it": item(
     "A quick-rotation game format for teams that want easy participation, fast laughs, and room-wide energy.",
     "Minute To Win It uses short station challenges that are easy to understand and quick to rotate. It suits ballrooms, offices, and indoor venues where organisers need energy without complex briefing. Share pax, timing, and venue size so the station flow can be planned.",
-    activityFaqs("Minute To Win It", "indoor station challenge", "activity intensity"),
+    [
+      { question: "What is Minute To Win It team building?", answer: "Minute To Win It features a series of fast-paced one-minute challenges that encourage teamwork, communication, and friendly competition." },
+      { question: "Can the games be played indoors?", answer: "Yes. Minute To Win It is ideal for indoor venues, offices, and hotel function rooms." },
+      { question: "Is it suitable for all ages?", answer: "Yes. Challenges are designed to be fun, inclusive, and suitable for diverse participant groups." },
+      { question: "Can we choose the games?", answer: "Yes. We can customise the selection of games based on your event objectives and participants." },
+      { question: "How long does the programme last?", answer: "Programmes typically run between one and three hours depending on your schedule." },
+    ],
     ["monopoly-dash", "battle-of-the-olympians", "corporate-days", "team-building"],
   ),
   "monopoly-dash": item(
@@ -216,7 +240,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "running-man": item(
     "A high-energy mission format for teams that want active challenges, chases, and variety-show energy.",
     "Running Man Adventure uses team missions, quick competitions, and facilitated challenge rounds to create a lively event. It suits groups that are comfortable with movement and visible participation. Share pax, venue, safety constraints, and weather needs before planning the final format.",
-    activityFaqs("Running Man Adventure", "active mission setup", "movement"),
+    [
+      { question: "What is a Running Man team building event?", answer: "Running Man is a fast-paced team building programme inspired by the popular Korean variety show. Teams compete in a series of interactive missions, games, and challenges to earn points." },
+      { question: "Is Name Tag Elimination included?", answer: "Name Tag Elimination can be included as an optional finale activity depending on venue suitability and participant preferences." },
+      { question: "Is Running Man suitable for corporate teams?", answer: "Yes. Running Man activities are designed for corporate team bonding and focus on teamwork, communication, strategy, and engagement." },
+      { question: "Can Running Man be conducted indoors?", answer: "Yes. Indoor and outdoor versions are available depending on venue availability and weather conditions." },
+      { question: "How many participants can join a Running Man event?", answer: "We can facilitate Running Man programmes for small teams of 20 participants to large-scale corporate events with several hundred participants." },
+    ],
     ["amazing-race", "battle-of-the-olympians", "sotong-game", "team-building"],
   ),
   "sotong-game": item(
@@ -234,7 +264,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "treasure-heist": item(
     "A heist-themed puzzle format for teams that want clues, pressure, and strategic collaboration.",
     "Treasure Heist gives teams a facilitated mission built around clues, objectives, and timed decisions. It is useful when the group wants a stronger story than a standard station game. Share pax, venue, timing, and desired intensity so the puzzle flow can be calibrated.",
-    activityFaqs("Treasure Heist", "heist puzzle setup", "pace"),
+    [
+      { question: "What is Treasure Heist?", answer: "Treasure Heist is a strategy-based team building adventure where teams solve puzzles, unlock clues, and complete missions to recover the hidden treasure." },
+      { question: "What skills does Treasure Heist develop?", answer: "The programme encourages communication, collaboration, strategic thinking, creativity, and problem-solving." },
+      { question: "Can Treasure Heist be customised?", answer: "Yes. We can customise the storyline, challenges, branding, and objectives to suit your organisation." },
+      { question: "Can it be conducted indoors?", answer: "Yes. Indoor, outdoor, and hybrid formats are available depending on your venue." },
+      { question: "Is Treasure Heist suitable for large groups?", answer: "Yes. The programme is scalable for small teams as well as large corporate events with hundreds of participants." },
+    ],
     ["csi-bones", "alice-in-motherland", "amazing-race", "team-building"],
   ),
   "archery-tag": item(
