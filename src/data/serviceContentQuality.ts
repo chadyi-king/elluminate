@@ -204,7 +204,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "monopoly-dash": item(
     "An indoor strategy game for teams that want points, movement, negotiation, and friendly competition.",
     "Monopoly Dash translates board-game energy into a live facilitated team activity. Participants move through missions, make decisions, and compete for points without needing a long setup. Share pax, room layout, and timing so the game economy and rotations fit the event.",
-    activityFaqs("Monopoly Dash", "indoor strategy challenge", "movement"),
+    [
+      { question: "What is Monopoly Dash?", answer: "Monopoly Dash is a fast-paced team building game inspired by Monopoly, combining strategic decision-making, mini challenges, and resource management." },
+      { question: "Is Monopoly knowledge required?", answer: "No. The game is designed so everyone can participate regardless of familiarity with Monopoly." },
+      { question: "Can Monopoly Dash be played indoors?", answer: "Yes. It works well in function rooms, ballrooms, convention halls, and indoor event spaces." },
+      { question: "How many participants can join?", answer: "The programme is suitable for small groups as well as large corporate events with several hundred participants." },
+      { question: "Can company branding be included?", answer: "Yes. We can customise challenges, game currency, and scenarios to reflect your organisation." },
+    ],
     ["minute-to-win-it", "builder-cross", "csi-bones", "team-building"],
   ),
   "running-man": item(
