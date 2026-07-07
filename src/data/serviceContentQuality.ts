@@ -342,7 +342,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "grand-christmas-delivery": item(
     "A festive virtual activity for year-end teams that want holiday energy without a physical venue.",
     "Grand Christmas Delivery turns a remote year-end gathering into a hosted festive mission. It is useful for distributed teams that still want shared laughter, light competition, and a clear event moment. Share pax, platform, and any gifting plans early.",
-    virtualFaqs("Grand Christmas Delivery"),
+    [
+      { question: "What is Grand Christmas Delivery?", answer: "Grand Christmas Delivery is a festive virtual team building experience where teams complete holiday-themed missions to save Christmas." },
+      { question: "Is the programme suitable for year-end celebrations?", answer: "Yes. It is designed specifically for Christmas parties, employee appreciation events, and year-end gatherings." },
+      { question: "Can the programme include company branding?", answer: "Yes. We can incorporate company messages, branding, and customised festive challenges." },
+      { question: "Is it suitable for remote employees?", answer: "Absolutely. The programme is designed for virtual participation from anywhere." },
+      { question: "How many participants can join?", answer: "We can accommodate both small teams and large company-wide festive events." },
+    ],
     ["the-gameshow-experience-virtual", "amazing-race-virtual", "fit-in-your-team-virtual", "team-building"],
   ),
   "overseas-retreats": item(
