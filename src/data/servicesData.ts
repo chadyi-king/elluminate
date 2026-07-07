@@ -337,10 +337,7 @@ const trafficLightPackages = (minimumPriceLabel: string, shortName: string, acce
   },
 ];
 
-const professionalServicePackages = (
-  minimumPriceLabel: string,
-  essentialDescription: string,
-): PackageTier[] => [
+const professionalServicePackages = (minimumPriceLabel: string, essentialDescription: string): PackageTier[] => [
   {
     color: "#26D07C",
     title: "ESSENTIAL",
@@ -659,31 +656,23 @@ export const servicesData: Record<string, ServiceData> = {
       videos: [
         {
           title: "Bali Team Retreat Highlights",
-          videoUrl:
-            "/videos/overseas-retreat-edrington.mov",
-          thumbnailImage:
-            "/images/services/overseas-retreats/gallery-1.jpg",
+          videoUrl: "/videos/overseas-retreat-edrington.mp4",
+          thumbnailImage: "/images/services/overseas-retreats/gallery-1.jpg",
         },
         {
           title: "Bintan Team Retreat Highlights",
-          videoUrl:
-            "/videos/overseas-retreat-bintan.mp4",
-          thumbnailImage:
-            "/images/services/overseas-retreats/gallery-2.jpg",
+          videoUrl: "/videos/overseas-retreat-bintan.mp4",
+          thumbnailImage: "/images/services/overseas-retreats/gallery-2.jpg",
         },
         {
           title: "Batam Team Retreat Highlights",
-          videoUrl:
-            "/videos/overseas-retreat-batam.mp4",
-          thumbnailImage:
-            "/images/services/overseas-retreats/gallery-3.jpg",
+          videoUrl: "/videos/overseas-retreat-batam.mp4",
+          thumbnailImage: "/images/services/overseas-retreats/gallery-3.jpg",
         },
         {
           title: "Kuala Lumpur Team Retreat Highlights",
-          videoUrl:
-            "/videos/overseas-retreat-kuala-lumpur.mp4",
-          thumbnailImage:
-            "/images/services/overseas-retreats/gallery-4.jpg",
+          videoUrl: "/videos/overseas-retreat-kuala-lumpur.mp4",
+          thumbnailImage: "/images/services/overseas-retreats/gallery-4.jpg",
         },
 
         { title: "Japan Cultural Experience" },
@@ -700,8 +689,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "/images/services/overseas-retreats/how-it-works.jpg",
     addOnsImage: "/images/services/overseas-retreats/addons.jpg",
-    testimonialBackgroundImage:
-      "/images/services/overseas-retreats/gallery-5.jpg",
+    testimonialBackgroundImage: "/images/services/overseas-retreats/gallery-5.jpg",
     features: [
       {
         icon: Plane,
@@ -1663,8 +1651,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "/images/services/leadership-offsites/how-it-works.jpg",
     addOnsImage: "/images/services/leadership-offsites/addons.jpg",
-    testimonialBackgroundImage:
-      "/images/services/leadership-offsites/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/leadership-offsites/gallery-1.jpg",
     features: [
       {
         icon: MapPin,
@@ -2892,14 +2879,12 @@ export const servicesData: Record<string, ServiceData> = {
       title: "WELLNESS EVENTS",
       subtitle: "Training",
       tagline: "Nurturing wellbeing, inspiring balance, elevating your team.",
-      backgroundImage:
-        "/images/services/wellness-events/gallery-1.jpg",
+      backgroundImage: "/images/services/wellness-events/gallery-1.jpg",
     },
     overview: {
       description:
         "Promote employee wellbeing with thoughtfully designed wellness events that nurture mind, body, and spirit. From meditation sessions to fitness challenges, we create experiences that support holistic health and demonstrate your commitment to your team's wellness.",
-      backgroundImage:
-        "/images/services/wellness-events/gallery-2.jpg",
+      backgroundImage: "/images/services/wellness-events/gallery-2.jpg",
     },
     howItWorksImage: "/images/services/wellness-events/how-it-works.jpg",
     addOnsImage: "/images/services/wellness-events/addons.jpg",
@@ -5345,8 +5330,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "/images/services/amazing-race/how-it-works.jpg",
     addOnsImage: "/images/services/amazing-race/addons.jpg",
-    testimonialBackgroundImage:
-      "/images/services/amazing-race/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/amazing-race/gallery-1.jpg",
     overview: {
       description:
         "The Amazing Race is our signature outdoor experience where teams race across Singapore completing missions, solving puzzles, and working together under real time pressure.\n\nGroups navigate between 8 and 14 checkpoints over 2 to 3 hours, tackling a mix of physical challenges, mental puzzles, and creative tasks designed so every team member has a way to contribute and a moment to shine.\n\nThe format works for corporate teams of 20 to 500+, school cohorts, orientation programmes, and student leadership groups who want something that feels genuinely active and memorable.\n\nOur facilitators design each race route around your venue and goals, from a city-wide adventure through iconic Singapore landmarks to a heritage trail, a campus race, or a resort experience.\n\nEvery checkpoint is facilitated, every team is supported, and the debrief we run at the end consistently surfaces conversations teams carry back into the workplace.",
@@ -5853,7 +5837,8 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "TrendingUp",
         title: "Improved Communication",
-        description: "Teams practise collaboration through shared clues, checkpoint decisions, and a facilitated debrief",
+        description:
+          "Teams practise collaboration through shared clues, checkpoint decisions, and a facilitated debrief",
       },
       {
         icon: "Heart",
@@ -6165,20 +6150,16 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle: "Team Building Adventure",
       tagline:
         "Explore, laugh, and compete through Singapore’s culture with challenges built for teamwork, curiosity, and shared discovery.",
-      backgroundImage:
-        "/images/services/cultural-race/gallery-1.jpg",
+      backgroundImage: "/images/services/cultural-race/gallery-1.jpg",
     },
-    howItWorksImage:
-      "/images/services/cultural-race/gallery-2.jpg",
+    howItWorksImage: "/images/services/cultural-race/gallery-2.jpg",
     addOnsImage: "/images/services/cultural-race/addons.jpg",
-    ctaBackgroundImage:
-      "/images/services/cultural-race/gallery-3.jpg",
+    ctaBackgroundImage: "/images/services/cultural-race/gallery-3.jpg",
     testimonialBackgroundImage: "/images/services/cultural-race/testimonial.jpg",
     overview: {
       description:
         "Cultural Race is a high-energy heritage adventure where teams complete interactive missions across Singapore's cultural landmarks. It works well for corporate teams, school groups, and youth cohorts who want a format that combines exploration, teamwork, and local discovery. Explore Chinatown, Little India, Kampong Glam, and more while solving puzzles, completing creative tasks, and racing against rival teams.",
-      backgroundImage:
-        "/images/services/cultural-race/gallery-4.jpg",
+      backgroundImage: "/images/services/cultural-race/gallery-4.jpg",
     },
     features: [
       { icon: MapPin, title: "Landmark Checkpoints", description: "Routes tailored to your venue or district." },
@@ -6764,8 +6745,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/alice-in-motherland/how-it-works.jpg",
     addOnsImage: "/images/services/alice-in-motherland/addons.jpg",
     ctaBackgroundImage: "/images/services/alice-in-motherland/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/alice-in-motherland/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/alice-in-motherland/gallery-1.jpg",
     overview: {
       description:
         "Alice in Motherland is a team-building adventure inspired by Alice in Borderland, the acclaimed Netflix series, adapted into a live and fully facilitated group experience. Teams journey through themed stations, complete curious missions, solve imaginative puzzles, and collaborate their way through a surreal format that rewards creativity and team observation. It works especially well for clients or schools looking for something visually distinctive, story-driven, and genuinely memorable.",
@@ -7106,8 +7086,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/battle-of-the-olympians/how-it-works.jpg",
     addOnsImage: "/images/services/battle-of-the-olympians/addons.jpg",
     ctaBackgroundImage: "/images/services/battle-of-the-olympians/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/battle-of-the-olympians/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/battle-of-the-olympians/gallery-1.jpg",
     overview: {
       description:
         "Battle of the Olympians is a large-format team competition built for groups that want scale, energy, and a sense of event. Teams move through a mix of athletic relays, tactical tasks, mental rounds, and showpiece finales while earning points for consistency, teamwork, and determination. It works especially well for larger corporate groups, school cohorts, student camps, and department-wide offsites that need something competitive, highly visible, and easy for people to rally around.",
@@ -7436,10 +7415,8 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "/images/services/archery-tag/how-it-works.jpg",
     addOnsImage: "/images/services/archery-tag/addons.jpg",
-    ctaBackgroundImage:
-      "/images/services/archery-tag/gallery-1.jpg",
-    testimonialBackgroundImage:
-      "/images/services/archery-tag/gallery-2.jpg",
+    ctaBackgroundImage: "/images/services/archery-tag/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/archery-tag/gallery-2.jpg",
     overview: {
       description:
         "Archery Tag is a team battle experience that blends movement, strategy, and communication. It is designed to be safe, inclusive, and easy to run for workplace teams, school groups, and student leaders who want something active without losing structure. Clear rules, protective equipment, and professional facilitation keep the format fun and accessible.",
@@ -7500,10 +7477,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Aim, Shoot, Win!",
       subtitle:
         "Watch teams compete in this thrilling mix of archery and tag, where precision and strategy are key. Dodge, shoot, and outsmart your opponents to claim victory in this action-packed battle!",
-      videoUrl:
-        "/videos/elluminate-showreel.mp4",
-      thumbnailImage:
-        "/images/services/archery-tag/gallery-3.jpg",
+      videoUrl: "/videos/elluminate-showreel.mp4",
+      thumbnailImage: "/images/services/archery-tag/gallery-3.jpg",
     },
     cta: {
       headline: "Ready to Battle?",
@@ -8006,10 +7981,8 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     howItWorksImage: "/images/services/builder-cross/how-it-works.jpg",
     addOnsImage: "/images/services/builder-cross/addons.jpg",
-    ctaBackgroundImage:
-      "/images/services/builder-cross/gallery-1.jpg",
-    testimonialBackgroundImage:
-      "/images/services/builder-cross/gallery-2.jpg",
+    ctaBackgroundImage: "/images/services/builder-cross/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/builder-cross/gallery-2.jpg",
     miniGallery: {
       title: "BuilderCross Highlights",
       images: [
@@ -8046,8 +8019,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/gel-blitz/how-it-works.jpg",
     addOnsImage: "/images/services/gel-blitz/addons.jpg",
     ctaBackgroundImage: "/images/services/gel-blitz/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/gel-blitz/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/gel-blitz/gallery-1.jpg",
     overview: {
       description:
         "GelBlitz is a high-energy gel blaster team battle experience designed for safe, exciting team bonding. Using specially designed gel blasters that fire soft, biodegradable gel beads, teams compete in structured tactical rounds with clear objectives. It is a strong fit for both workplace teams and older student groups because it combines action, teamwork, and facilitation in a format that feels exciting but remains well-controlled. Whether your group prefers tactical strategy or all-out action, GelBlitz delivers an adrenaline rush that gets people communicating fast.",
@@ -8378,8 +8350,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/minute-to-win-it/how-it-works.jpg",
     addOnsImage: "/images/services/minute-to-win-it/addons.jpg",
     ctaBackgroundImage: "/images/services/minute-to-win-it/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/minute-to-win-it/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/minute-to-win-it/gallery-1.jpg",
     overview: {
       description:
         "Minute To Win It is a high-energy party-style team building experience featuring dozens of fast-paced mini challenges, each lasting just 60 seconds. Inspired by the hit TV show, teams compete across multiple rounds of quirky, hilarious, and surprisingly challenging games that test dexterity, coordination, creativity, and teamwork. It works just as well for school cohorts and student groups as it does for workplace teams because the rules are simple, the energy is immediate, and everyone can take part. Minute To Win It works brilliantly as a standalone event, a celebration segment, or an energizer during workshops and camp programmes.",
@@ -8500,10 +8471,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Quick Challenges, Big Fun!",
       subtitle:
         "Watch teams race against the clock in a series of exciting 60-second challenges. Speed, skill, and creativity are key to winning in this fast-paced, high-energy game!",
-      videoUrl:
-        "/videos/elluminate-showreel.mp4",
-      thumbnailImage:
-        "/images/services/minute-to-win-it/gallery-2.jpg",
+      videoUrl: "/videos/elluminate-showreel.mp4",
+      thumbnailImage: "/images/services/minute-to-win-it/gallery-2.jpg",
     },
     cta: {
       headline: "Ready to Play?",
@@ -8729,8 +8698,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "/images/services/monopoly-dash/how-it-works.jpg",
     addOnsImage: "/images/services/monopoly-dash/addons.jpg",
-    testimonialBackgroundImage:
-      "/images/services/monopoly-dash/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/monopoly-dash/gallery-1.jpg",
     features: [
       {
         icon: Map,
@@ -9064,8 +9032,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/monopoly-dash/how-it-works.jpg",
     addOnsImage: "/images/services/monopoly-dash/addons.jpg",
     ctaBackgroundImage: "/images/services/monopoly-dash/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/monopoly-dash/gallery-5.jpg",
+    testimonialBackgroundImage: "/images/services/monopoly-dash/gallery-5.jpg",
     overview: {
       description:
         "Nerfwar is a high-energy foam dart battle experience that transforms your outing into an action-packed tactical adventure. Equipped with Nerf blasters and foam darts, teams compete in structured match formats designed to encourage communication, strategy, and good old-fashioned fun. It is especially useful for mixed groups, schools, and student cohorts because the format is safe, easy to pick up, and full of movement without feeling intimidating. Whether you are hosting a casual team day or an energetic kickoff event, Nerfwar delivers guaranteed laughs and memorable team moments.",
@@ -9395,8 +9362,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/running-man/how-it-works.jpg",
     addOnsImage: "/images/services/running-man/addons.jpg",
     ctaBackgroundImage: "/images/services/running-man/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/running-man/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/running-man/gallery-1.jpg",
     overview: {
       description:
         "Running Man Adventure is inspired by the massively popular Korean variety show, bringing its signature blend of hilarious challenges, name-tag battles, and team missions to your event. Teams compete through multiple rounds of creative, physical, and strategic games that reward quick thinking, coordination, and plenty of laughter. It is one of our strongest crossover formats for workplace teams, school cohorts, and student groups because it feels familiar, inclusive, and instantly exciting. Suitable for outdoor parks, indoor venues, and resort settings.",
@@ -9732,8 +9698,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/sotong-game/how-it-works.jpg",
     addOnsImage: "/images/services/sotong-game/addons.jpg",
     ctaBackgroundImage: "/images/services/sotong-game/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/sotong-game/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/sotong-game/gallery-1.jpg",
     overview: {
       description:
         "Sotong Game is a themed team building experience inspired by the global phenomenon of Squid-style survival games, adapted into safe, inclusive, and thrilling team challenges. Participants enter the game world complete with themed briefings, dramatic music, and the unmistakable tension of elimination rounds. From Red Light Green Light to Dalgona challenges to the iconic Tug of War, every game is faithfully recreated with a team-building twist that keeps everyone safe while delivering maximum excitement. Teams must communicate, strategize, and support each other to survive each round and advance to the final showdown. Our facilitators dress the part and maintain the immersive atmosphere throughout, complete with dramatic commentary and live scoring. Sotong Game is consistently one of our most popular activities for groups that want something themed, competitive, and genuinely memorable.",
@@ -10071,8 +10036,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/tag-tical-laser-teambuilding/how-it-works.jpg",
     addOnsImage: "/images/services/tag-tical-laser-teambuilding/addons.jpg",
     ctaBackgroundImage: "/images/services/tag-tical-laser-teambuilding/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/tag-tical-laser-teambuilding/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/tag-tical-laser-teambuilding/gallery-1.jpg",
     overview: {
       description:
         "Tag-tical Laser Teambuilding is a premium laser tag experience designed specifically for corporate team building. Using state-of-the-art infrared laser tag equipment, teams compete in structured tactical rounds that reward strategy, communication, and coordination. Unlike casual laser tag, our corporate format features objective-based game modes including capture the base, escort missions, king of the hill, and team elimination. Each participant receives a laser tag vest and phaser with real-time hit tracking and scoring. Our facilitators design the battlefield layout, manage game flow, and provide tactical briefings between rounds. The technology is completely safe with no projectiles involved, making it suitable for all participants regardless of age or fitness level. Tag-tical Laser is perfect for teams that want a competitive, active experience with a strong strategic element.",
@@ -10283,10 +10247,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "The Ultimate Battle of Strategy",
       subtitle:
         "Watch teams compete in fast-paced laser tag challenges, testing their strategy and teamwork across dynamic arenas.",
-      videoUrl:
-        "/videos/elluminate-showreel.mp4",
-      thumbnailImage:
-        "/images/services/tag-tical-laser-teambuilding/gallery-2.jpg",
+      videoUrl: "/videos/elluminate-showreel.mp4",
+      thumbnailImage: "/images/services/tag-tical-laser-teambuilding/gallery-2.jpg",
     },
     clientLogos: ["Thales", "BAE Systems", "ST Aerospace", "Dassault", "Bosch", "Sembcorp"],
     recentEvents: [
@@ -10415,13 +10377,10 @@ export const servicesData: Record<string, ServiceData> = {
         "Inspired by Money Heist — assemble your crew, crack the defences, and steal the most gold before the clock runs out.",
       backgroundImage: "/images/services/treasure-heist/hero.jpg",
     },
-    howItWorksImage:
-      "/images/services/treasure-heist/gallery-1.jpg",
-    addOnsImage:
-      "/images/services/treasure-heist/gallery-2.jpg",
+    howItWorksImage: "/images/services/treasure-heist/gallery-1.jpg",
+    addOnsImage: "/images/services/treasure-heist/gallery-2.jpg",
     ctaBackgroundImage: "/images/services/treasure-heist/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/treasure-heist/gallery-3.jpg",
+    testimonialBackgroundImage: "/images/services/treasure-heist/gallery-3.jpg",
     overview: {
       description:
         "Taking inspiration from the global phenomenon Money Heist (La Casa de Papel), Treasure Heist is a fully facilitated team strategy adventure where crews plan and execute a gold heist against the pirates. Teams compete to steal the most gold by completing challenges, solving heist puzzles, and outmanoeuvring rival crews — while the defences get harder with each round. As the stakes rise, only the most coordinated and creative crew takes home the ultimate haul.",
@@ -10627,13 +10586,10 @@ export const servicesData: Record<string, ServiceData> = {
       tagline: "The World is waiting for you. Good Luck. Travel Safe and Go!",
       backgroundImage: "/images/services/amazing-race-virtual/hero.jpg",
     },
-    howItWorksImage:
-      "/images/services/amazing-race-virtual/gallery-1.jpg",
+    howItWorksImage: "/images/services/amazing-race-virtual/gallery-1.jpg",
     addOnsImage: "/images/services/amazing-race-virtual/addons.jpg",
-    ctaBackgroundImage:
-      "/images/services/amazing-race-virtual/gallery-2.jpg",
-    testimonialBackgroundImage:
-      "/images/services/amazing-race-virtual/gallery-3.jpg",
+    ctaBackgroundImage: "/images/services/amazing-race-virtual/gallery-2.jpg",
+    testimonialBackgroundImage: "/images/services/amazing-race-virtual/gallery-3.jpg",
     overview: {
       description:
         "Journey across the globe without leaving your seat! In this high-energy virtual adventure, teams race through countries, solve puzzles, and complete challenges inspired by destinations worldwide. Perfect for remote teams who want excitement, strategy, and bonding—all through Zoom. Requires only a laptop/desktop with camera and internet.",
@@ -10824,8 +10780,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/fit-in-your-team-virtual/how-it-works.jpg",
     addOnsImage: "/images/services/fit-in-your-team-virtual/addons.jpg",
     ctaBackgroundImage: "/images/services/fit-in-your-team-virtual/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/fit-in-your-team-virtual/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/fit-in-your-team-virtual/gallery-1.jpg",
     overview: {
       description:
         "Get your team moving with this high-energy virtual workout experience! Combining fitness challenges with team competition, Fit In Your Team promotes physical wellness, mental clarity, and social connection—all from the comfort of home. Perfect for teams looking to energize, bond, and prioritize wellbeing together via Zoom.",
@@ -11017,8 +10972,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "/images/services/the-gameshow-experience-virtual/how-it-works.jpg",
     addOnsImage: "/images/services/the-gameshow-experience-virtual/addons.jpg",
-    testimonialBackgroundImage:
-      "/images/services/the-gameshow-experience-virtual/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/the-gameshow-experience-virtual/gallery-1.jpg",
     features: [
       { icon: Gamepad2, title: "6 Gameshows", description: "Multiple formats keep things fresh and exciting." },
       { icon: Trophy, title: "Points Competition", description: "Teams compete for the highest score." },
@@ -11205,11 +11159,9 @@ export const servicesData: Record<string, ServiceData> = {
       tagline: "The Zodiac Animals have all escaped! It is up to you the Celestial Vanguards to get them all back!",
       backgroundImage: "/images/services/the-great-zodiac-hunt-virtual/hero.jpg",
     },
-    howItWorksImage:
-      "/images/services/the-great-zodiac-hunt-virtual/gallery-1.jpg",
+    howItWorksImage: "/images/services/the-great-zodiac-hunt-virtual/gallery-1.jpg",
     addOnsImage: "/images/services/the-great-zodiac-hunt-virtual/addons.jpg",
-    testimonialBackgroundImage:
-      "/images/services/the-great-zodiac-hunt-virtual/gallery-2.jpg",
+    testimonialBackgroundImage: "/images/services/the-great-zodiac-hunt-virtual/gallery-2.jpg",
     overview: {
       description:
         "Celebrate Chinese New Year virtually with this themed team adventure! The 12 Zodiac animals have escaped and your team must work together to bring them back. Through puzzles, challenges, and cultural trivia, teams race to capture all the animals and restore harmony. Perfect for CNY celebrations via Zoom.",
@@ -11397,21 +11349,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "NUCLEAR FALLOUT ESCAPE ROOM",
       subtitle: "Virtual Team Building",
       tagline: "To save the world, your team needs to work together to stop the Nuclear Countdown.",
-      backgroundImage:
-        "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-1.jpg",
+      backgroundImage: "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-1.jpg",
     },
-    howItWorksImage:
-      "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-2.jpg",
+    howItWorksImage: "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-2.jpg",
     addOnsImage: "/images/services/the-nuclear-fallout-escape-room-virtual/addons.jpg",
-    ctaBackgroundImage:
-      "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-3.jpg",
-    testimonialBackgroundImage:
-      "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-4.jpg",
+    ctaBackgroundImage: "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-3.jpg",
+    testimonialBackgroundImage: "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-4.jpg",
     overview: {
       description:
         "The clock is ticking! In this intense virtual escape room, teams must work together to stop a nuclear countdown. Communication, logic, and teamwork are crucial as you solve puzzles and crack codes under pressure. This adrenaline-pumping experience is perfect for teams who thrive on intellectual challenges via Zoom.",
-      backgroundImage:
-        "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-5.jpg",
+      backgroundImage: "/images/services/the-nuclear-fallout-escape-room-virtual/gallery-5.jpg",
     },
     features: [
       { icon: Lock, title: "Escape Room", description: "Solve puzzles and crack codes under pressure." },
@@ -11597,8 +11544,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "/images/services/the-patriot-act-virtual/how-it-works.jpg",
     addOnsImage: "/images/services/the-patriot-act-virtual/addons.jpg",
-    testimonialBackgroundImage:
-      "/images/services/the-patriot-act-virtual/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/the-patriot-act-virtual/gallery-1.jpg",
     overview: {
       description:
         "Celebrate Singapore's heritage with this patriotic virtual team experience! Teams compete through activities that blend old-school Singapore nostalgia with modern challenges. From traditional games to national trivia, this experience is perfect for National Day celebrations or any time you want to celebrate Singapore's spirit via Zoom.",
@@ -11786,8 +11732,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/tomb-raider-king-treasure-hunt-virtual/how-it-works.jpg",
     addOnsImage: "/images/services/tomb-raider-king-treasure-hunt-virtual/addons.jpg",
     ctaBackgroundImage: "/images/services/tomb-raider-king-treasure-hunt-virtual/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/tomb-raider-king-treasure-hunt-virtual/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/tomb-raider-king-treasure-hunt-virtual/gallery-1.jpg",
     overview: {
       description:
         "Embark on an epic virtual treasure hunt across 5 ancient tombs! Teams race to collect the most gold by solving puzzles, overcoming obstacles, and raiding tombs before competitors. This adventure-packed experience combines strategy, speed, and teamwork for an unforgettable virtual journey via Zoom.",
@@ -11977,8 +11922,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "/images/services/grand-christmas-delivery/how-it-works.jpg",
     addOnsImage: "/images/services/grand-christmas-delivery/addons.jpg",
-    testimonialBackgroundImage:
-      "/images/services/grand-christmas-delivery/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/grand-christmas-delivery/gallery-1.jpg",
     overview: {
       description:
         "Santa needs your help! In this festive virtual adventure, teams become the Elite Elf Force on a mission to save Christmas. Battle through party games, team challenges, and boss battles to deliver presents and defeat the forces threatening the holiday season. The team that delivers the most presents wins! Perfect for year-end celebrations via Zoom.",
@@ -12169,8 +12113,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
     addOnsImage: "/images/services/local-retreats/addons.jpg",
-    testimonialBackgroundImage:
-      "/images/services/local-retreats/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/local-retreats/gallery-1.jpg",
     overview: {
       description:
         "Not every great retreat requires a passport. Singapore's hotel scene delivers everything from affordable urban escapes to some of the most storied and architecturally celebrated properties in Asia — and we know exactly which ones perform for team retreats. We offer three distinct tiers: Staycation for whole-staff appreciation and casual connection, Heritage for a culturally rich stay in Singapore's most celebrated historical hotels, and Luxury for recognition-grade experiences that senior leaders and top earners genuinely value. You choose the tier; we handle room blocks, activities, dining, and every detail in between.",
@@ -12459,8 +12402,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
     addOnsImage: "/images/services/local-retreats/addons.jpg",
     ctaBackgroundImage: "/images/services/local-retreats/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/local-retreats/gallery-2.jpg",
+    testimonialBackgroundImage: "/images/services/local-retreats/gallery-2.jpg",
     overview: {
       description:
         "Looking to find out more about who you are and how you work with others? What's your Type? breaks down your entire personality to figure out what drives you and which types you are able to get along with! This activity is designed as a team building event, where teams will discover the frameworks of the mind, energy, nature and tactics within us. By pushing values such as exploration, awareness and insightfulness, we aim to give your group a reflective event filled with diverse growth!",
@@ -12673,8 +12615,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
     addOnsImage: "/images/services/local-retreats/addons.jpg",
     ctaBackgroundImage: "/images/services/local-retreats/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/local-retreats/gallery-3.jpg",
+    testimonialBackgroundImage: "/images/services/local-retreats/gallery-3.jpg",
     overview: {
       description:
         "Are you compatible with others? What's your personality type? We will help you break down your entire core personality and figure out what makes you, well you. Since everyone is special, we believe this exercise will help with self-awareness and tell you about your specialty. This activity should be done with team members, where teams will find out each member's mind, energy, and nature.",
@@ -12882,8 +12823,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
     addOnsImage: "/images/services/local-retreats/addons.jpg",
     ctaBackgroundImage: "/images/services/local-retreats/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/local-retreats/gallery-4.jpg",
+    testimonialBackgroundImage: "/images/services/local-retreats/gallery-4.jpg",
     overview: {
       description:
         "Rated as one of the top most accurate personality tests in the world! OCEAN Big Five are the domains that represent the basic structure behind all individual personality traits. By diving in deeper, this will allow your team to identify predictive behaviors for real-life scenarios! Gain insights into different office environment situations and how various personalities deal with them.",
@@ -13101,8 +13041,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/amazing-race/how-it-works.jpg",
     addOnsImage: "/images/services/amazing-race/addons.jpg",
     ctaBackgroundImage: "/images/services/amazing-race/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/amazing-race/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/amazing-race/gallery-1.jpg",
     overview: {
       description:
         "Transform your large-scale gatherings into unforgettable moments of inspiration and learning. Our Mass Talks bring together captivating speakers, engaging content, and professional production to deliver powerful messages that resonate with audiences of any size. Whether it's a company-wide town hall, industry conference keynote, or motivational assembly, we craft experiences that inform, inspire, and ignite action across your entire organization.",
@@ -13557,8 +13496,7 @@ export const servicesData: Record<string, ServiceData> = {
     howItWorksImage: "/images/services/youth-camps/how-it-works.jpg",
     addOnsImage: "/images/services/youth-camps/addons.jpg",
     ctaBackgroundImage: "/images/services/youth-camps/cta.jpg",
-    testimonialBackgroundImage:
-      "/images/services/youth-camps/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/youth-camps/gallery-1.jpg",
     overview: {
       description:
         "Our Youth Camps combine adventure, learning, and personal growth to create transformative experiences for young people. Designed for schools, CCAs, and youth organizations, these programs develop leadership, teamwork, and resilience through carefully structured activities and challenges. From day camps to multi-day adventures, we create safe yet challenging environments where youth discover their potential and forge lasting friendships.",
@@ -13785,10 +13723,8 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "/images/services/corporate-days/how-it-works.jpg",
     addOnsImage: "/images/services/corporate-days/addons.jpg",
-    ctaBackgroundImage:
-      "/images/services/corporate-days/gallery-1.jpg",
-    testimonialBackgroundImage:
-      "/images/services/corporate-days/gallery-2.jpg",
+    ctaBackgroundImage: "/images/services/corporate-days/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/corporate-days/gallery-2.jpg",
     overview: {
       description:
         "Transform ordinary workdays into extraordinary team experiences with our Corporate Days program. These specially designed full-day or half-day events blend professional development with engaging activities, creating the perfect balance of learning and fun. Whether you're celebrating milestones, reinforcing company culture, or simply giving your team a well-deserved break, Corporate Days deliver memorable experiences that boost morale and strengthen team bonds.",
@@ -14008,8 +13944,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     howItWorksImage: "/images/services/incentive-travel/how-it-works.jpg",
     addOnsImage: "/images/services/incentive-travel/addons.jpg",
-    testimonialBackgroundImage:
-      "/images/services/incentive-travel/gallery-1.jpg",
+    testimonialBackgroundImage: "/images/services/incentive-travel/gallery-1.jpg",
     overview: {
       description:
         "Incentive travel is one of the most powerful non-cash rewards a company can offer its top performers, sales teams, and high-growth contributors. A well-designed incentive trip communicates something no bonus cheque can: we see what you did, and we want your experience to match it. Elluminate designs end-to-end incentive travel programmes for Singapore-based organisations — from defining the eligibility criteria and building the anticipation campaign, to executing the trip itself with on-ground facilitation, a private recognition dinner, and a polished post-trip highlight reel. Destinations range from regional gems like Bali and Japan to long-haul experiences in Europe and beyond. Every programme is built around your earners, your culture, and the level of recognition your organisation is committed to delivering.",
