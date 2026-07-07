@@ -132,7 +132,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "amazing-race": item(
     "An outdoor race format for teams that want movement, clues, checkpoint missions, and shared momentum.",
     "Amazing Race turns a venue or district into a facilitated team challenge. Participants solve clues, complete checkpoint missions, and move in groups toward a final result. Share pax, date, location preference, and fitness notes so the route and challenge mix can be shaped before quoting.",
-    activityFaqs("Amazing Race", "outdoor route", "movement"),
+    [
+      { question: "What is an Amazing Race team building activity?", answer: "Amazing Race is a team building experience where participants solve clues, complete challenges, and navigate checkpoints while working together toward a common goal." },
+      { question: "Is Amazing Race suitable for all fitness levels?", answer: "Yes. We design routes and challenges to suit different age groups, fitness levels, and participant profiles." },
+      { question: "What happens if it rains during the Amazing Race?", answer: "We provide wet-weather contingency plans and can incorporate sheltered checkpoints, indoor venues, or alternative game formats." },
+      { question: "Can the Amazing Race be customised?", answer: "Yes. We can customise challenges, routes, branding, company messages, and learning outcomes." },
+      { question: "Where can Amazing Race team building activities be conducted?", answer: "Popular locations include Sentosa, Marina Bay, Gardens by the Bay, Chinatown, Civic District, Jewel Changi Airport, and custom locations across Singapore." },
+    ],
     ["cultural-race", "treasure-heist", "running-man", "team-building"],
   ),
   "csi-bones": item(
@@ -144,7 +150,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "cultural-race": item(
     "A Singapore route-based activity for teams that want local discovery, movement, and shared stories.",
     "Cultural Race uses Singapore locations, clues, and team missions to create a facilitated outdoor discovery experience. It works well for local, regional, and mixed teams who want the place itself to matter. Share route comfort, pax, timing, and weather constraints during planning.",
-    activityFaqs("Cultural Race", "outdoor heritage route", "movement"),
+    [
+      { question: "What is a Cultural Race?", answer: "A Cultural Race combines exploration, heritage, and team challenges while participants discover local landmarks and cultures." },
+      { question: "Which locations are available?", answer: "Popular routes include Chinatown, Little India, Kampong Glam, Civic District, and customised heritage trails." },
+      { question: "Can the programme include local culture?", answer: "Yes. We incorporate local history, traditions, food, architecture, and cultural storytelling into the challenges." },
+      { question: "Is it suitable for overseas visitors?", answer: "Absolutely. Cultural Race is a popular choice for international delegates and regional corporate teams visiting Singapore." },
+      { question: "Can it be customised for our company?", answer: "Yes. We can integrate company branding, messages, and learning objectives throughout the experience." },
+    ],
     ["amazing-race", "running-man", "local-retreats", "team-building"],
   ),
   "amongst-us": item(
@@ -156,7 +168,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "alice-in-motherland": item(
     "A story-led puzzle activity for teams that want themed missions, imagination, and collaborative problem solving.",
     "Alice in Motherland uses a themed storyline, puzzle stations, and facilitated team tasks to create an immersive indoor or hybrid activity. It suits groups that want character and narrative without needing intense physical movement. Share pax, venue, and theme preferences before quoting.",
-    activityFaqs("Alice in Motherland", "themed puzzle setup", "pace"),
+    [
+      { question: "What is Alice in Motherland?", answer: "Alice in Motherland is an immersive strategy-based team building experience inspired by survival games, featuring teamwork, puzzles, and decision-making challenges." },
+      { question: "Is the programme physically demanding?", answer: "No. The experience focuses more on teamwork, communication, strategy, and problem-solving than physical endurance." },
+      { question: "Can the challenges be customised?", answer: "Yes. Challenges can be tailored to suit your objectives, venue, participants, and event duration." },
+      { question: "Is it suitable for large corporate groups?", answer: "Yes. The programme scales well from small departments to company-wide events with hundreds of participants." },
+      { question: "Can the programme be conducted indoors?", answer: "Yes. Alice in Motherland can be organised indoors, outdoors, or as a hybrid experience." },
+    ],
     ["amongst-us", "treasure-heist", "the-great-zodiac-hunt-virtual", "team-building"],
   ),
   "battle-of-the-olympians": item(
@@ -168,7 +186,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "builder-cross": item(
     "A construction-style challenge for teams that want hands-on collaboration and practical problem solving.",
     "Builder Cross asks participants to plan, build, test, and improve together under a facilitated challenge structure. It works for teams that want creativity and communication in a controlled setting. Share pax, venue, timing, and space constraints so materials and flow can be planned.",
-    activityFaqs("Builder Cross", "hands-on build challenge", "space"),
+    [
+      { question: "What is Builder Cross?", answer: "Builder Cross is a collaborative team building activity where teams construct structures while overcoming changing business scenarios and unexpected challenges." },
+      { question: "What skills does Builder Cross develop?", answer: "The programme develops communication, collaboration, leadership, creativity, planning, and adaptability." },
+      { question: "Can it be conducted indoors?", answer: "Yes. Builder Cross is designed primarily as an indoor team building activity." },
+      { question: "Is it suitable for leadership teams?", answer: "Yes. It is commonly used for leadership development, project management, and cross-functional collaboration." },
+      { question: "Can the building materials be customised?", answer: "Yes. Different materials and challenge themes can be incorporated depending on your objectives." },
+    ],
     ["minute-to-win-it", "monopoly-dash", "workshops", "team-building"],
   ),
   "minute-to-win-it": item(
@@ -180,7 +204,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "monopoly-dash": item(
     "An indoor strategy game for teams that want points, movement, negotiation, and friendly competition.",
     "Monopoly Dash translates board-game energy into a live facilitated team activity. Participants move through missions, make decisions, and compete for points without needing a long setup. Share pax, room layout, and timing so the game economy and rotations fit the event.",
-    activityFaqs("Monopoly Dash", "indoor strategy challenge", "movement"),
+    [
+      { question: "What is Monopoly Dash?", answer: "Monopoly Dash is a fast-paced team building game inspired by Monopoly, combining strategic decision-making, mini challenges, and resource management." },
+      { question: "Is Monopoly knowledge required?", answer: "No. The game is designed so everyone can participate regardless of familiarity with Monopoly." },
+      { question: "Can Monopoly Dash be played indoors?", answer: "Yes. It works well in function rooms, ballrooms, convention halls, and indoor event spaces." },
+      { question: "How many participants can join?", answer: "The programme is suitable for small groups as well as large corporate events with several hundred participants." },
+      { question: "Can company branding be included?", answer: "Yes. We can customise challenges, game currency, and scenarios to reflect your organisation." },
+    ],
     ["minute-to-win-it", "builder-cross", "csi-bones", "team-building"],
   ),
   "running-man": item(
@@ -192,7 +222,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "sotong-game": item(
     "A survival-style challenge format for teams that want tension, humour, and simple rules.",
     "Sotong Game uses elimination-inspired missions in a facilitated, team-safe format. The experience is built around clear rules, short rounds, and shared suspense rather than real risk. Share pax, venue, age range, and comfort level so the tone stays appropriate.",
-    activityFaqs("Sotong Game", "mission-round setup", "activity intensity"),
+    [
+      { question: "What is Sotong Game?", answer: "Sotong Game is a corporate team building programme inspired by popular survival game concepts, featuring exciting mini games with a fun and light-hearted twist." },
+      { question: "Is the programme suitable for all ages?", answer: "Yes. Challenges are designed to be safe, engaging, and suitable for diverse corporate participants." },
+      { question: "Can the games be customised?", answer: "Yes. We can tailor the games based on your objectives, venue, and participant profile." },
+      { question: "Is it competitive?", answer: "Yes. Teams compete through multiple rounds while encouraging teamwork, communication, and strategy." },
+      { question: "Can it be conducted indoors?", answer: "Yes. Indoor, outdoor, and hybrid versions are available." },
+    ],
     ["running-man", "minute-to-win-it", "battle-of-the-olympians", "team-building"],
   ),
   "treasure-heist": item(
