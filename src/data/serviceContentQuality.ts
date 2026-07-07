@@ -330,7 +330,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "the-patriot-act-virtual": item(
     "A Singapore-themed virtual activity for teams that want local references, trivia, and hosted team play.",
     "The Patriot Act uses Singapore-inspired challenges and online team rounds to create a light, shared virtual event. It suits National Day moments, remote teams, and mixed local groups. Share pax, platform, and audience profile so references land well.",
-    virtualFaqs("The Patriot Act"),
+    [
+      { question: "What is The Patriot Act?", answer: "The Patriot Act is a virtual spy-themed mission where teams solve intelligence challenges, decode clues, and complete covert operations together." },
+      { question: "Is the programme suitable for remote teams?", answer: "Yes. It is designed specifically for virtual collaboration across different locations." },
+      { question: "Can missions be customised?", answer: "Yes. We can tailor the storyline, branding, and challenge difficulty to suit your event." },
+      { question: "What skills does the programme develop?", answer: "The experience encourages communication, teamwork, observation, and strategic thinking." },
+      { question: "How long does the programme last?", answer: "Most sessions run between one and two hours depending on the event format." },
+    ],
     ["the-gameshow-experience-virtual", "amazing-race-virtual", "cultural-race", "team-building"],
   ),
   "tomb-raider-king-treasure-hunt-virtual": item(
