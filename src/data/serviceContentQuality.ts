@@ -312,7 +312,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "the-gameshow-experience-virtual": item(
     "A virtual game show for remote teams that want quick rounds, visible hosting, and easy participation.",
     "The Gameshow Experience uses hosted online rounds, questions, and team play to create a shared screen-based activity. It suits remote teams that need energy without complex setup. Share pax, time zones, and preferred platform so the pacing can be planned.",
-    virtualFaqs("The Gameshow Experience"),
+    [
+      { question: "What is Gameshow Experience?", answer: "Gameshow Experience is a live-hosted virtual team building event inspired by popular television game shows, featuring quizzes, mini games, and team challenges." },
+      { question: "Is the programme suitable for hybrid teams?", answer: "Yes. The format works well for remote, hybrid, and distributed teams." },
+      { question: "Can the games be customised?", answer: "Yes. We can incorporate company trivia, branding, event themes, and customised questions into the programme." },
+      { question: "How long does the programme last?", answer: "Most sessions last between one and two hours, depending on the number of games selected." },
+      { question: "Is any special software required?", answer: "No. Participants simply join through the designated online meeting platform using their computer or mobile device." },
+    ],
     ["amazing-race-virtual", "the-patriot-act-virtual", "grand-christmas-delivery", "team-building"],
   ),
   "the-great-zodiac-hunt-virtual": item(
