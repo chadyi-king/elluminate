@@ -144,7 +144,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "csi-bones": item(
     "An indoor mystery format for teams that prefer deduction, evidence review, and quieter collaboration.",
     "CSI-Bones is a forensic-style team activity built around clues, evidence, and group reasoning. It suits teams that want problem solving without heavy physical exertion. Share pax, venue, timing, and desired intensity so the investigation can be scoped for your group.",
-    activityFaqs("CSI-Bones", "indoor investigation", "pace"),
+    [
+      { question: "What is CSI Bones?", answer: "CSI Bones is a mystery-solving team building activity where participants investigate clues, solve puzzles, and work together to uncover the truth." },
+      { question: "Does the programme require detective experience?", answer: "No. The challenges are designed for everyone regardless of prior experience." },
+      { question: "What skills are developed?", answer: "Participants strengthen communication, critical thinking, teamwork, observation, and problem-solving skills." },
+      { question: "Can CSI Bones be held indoors?", answer: "Yes. It is primarily designed for indoor venues but can also be adapted for outdoor locations." },
+      { question: "Can the storyline be customised?", answer: "Yes. We can customise scenarios, company themes, and learning objectives." },
+    ],
     ["treasure-heist", "amongst-us", "monopoly-dash", "team-building"],
   ),
   "cultural-race": item(
