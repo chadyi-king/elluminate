@@ -264,7 +264,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "treasure-heist": item(
     "A heist-themed puzzle format for teams that want clues, pressure, and strategic collaboration.",
     "Treasure Heist gives teams a facilitated mission built around clues, objectives, and timed decisions. It is useful when the group wants a stronger story than a standard station game. Share pax, venue, timing, and desired intensity so the puzzle flow can be calibrated.",
-    activityFaqs("Treasure Heist", "heist puzzle setup", "pace"),
+    [
+      { question: "What is Treasure Heist?", answer: "Treasure Heist is a strategy-based team building adventure where teams solve puzzles, unlock clues, and complete missions to recover the hidden treasure." },
+      { question: "What skills does Treasure Heist develop?", answer: "The programme encourages communication, collaboration, strategic thinking, creativity, and problem-solving." },
+      { question: "Can Treasure Heist be customised?", answer: "Yes. We can customise the storyline, challenges, branding, and objectives to suit your organisation." },
+      { question: "Can it be conducted indoors?", answer: "Yes. Indoor, outdoor, and hybrid formats are available depending on your venue." },
+      { question: "Is Treasure Heist suitable for large groups?", answer: "Yes. The programme is scalable for small teams as well as large corporate events with hundreds of participants." },
+    ],
     ["csi-bones", "alice-in-motherland", "amazing-race", "team-building"],
   ),
   "archery-tag": item(
