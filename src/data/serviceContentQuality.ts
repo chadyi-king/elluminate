@@ -408,7 +408,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "mass-talks": item(
     "A keynote or seminar format for larger groups that need a polished message, speaker flow, and audience focus.",
     "Mass Talks support townhall-style learning, motivation, or thematic sessions for larger audiences. Planning should cover the speaker brief, AV needs, audience profile, run-of-show, and desired takeaway. Share the event context and timing before confirming scope.",
-    trainingFaqs("a mass talk", "large-group learning or motivation"),
+    [
+      { question: "What corporate talks do you offer?", answer: "We deliver engaging keynote talks on leadership, teamwork, employee engagement, workplace culture, communication, motivation, and personal development." },
+      { question: "How many participants can attend a corporate talk?", answer: "Our talks can accommodate audiences ranging from small teams to large conferences with over a thousand participants." },
+      { question: "Can the presentation be customised?", answer: "Yes. Every talk is tailored to your organisation, event theme, audience profile, and desired learning outcomes." },
+      { question: "How long are your keynote talks?", answer: "Talks typically range from 30 minutes to two hours depending on your event schedule." },
+      { question: "Can talks include audience interaction?", answer: "Absolutely. We can incorporate live polls, activities, Q&A sessions, and audience engagement throughout the presentation." },
+    ],
     ["workshops", "leadership-offsites", "corporate-days", "team-building"],
   ),
   "corporate-days": item(
