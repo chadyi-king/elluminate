@@ -1,18 +1,24 @@
 ## Scope
-Replace shared `retreatFaqs(...)` generator calls with dedicated inline `FAQ[]` arrays for 3 service slugs in `src/data/serviceContentQuality.ts`. No visual/component/layout changes.
+Replace shared `trainingFaqs(...)` / `corporateFaqs(...)` generator calls with dedicated inline `FAQ[]` arrays for 9 service slugs in `src/data/serviceContentQuality.ts`. No visual/component/layout changes. The `FAQ[]` structure is preserved so future slugs can add their own arrays the same way.
 
 ## Slugs to update
-- `overseas-retreats` (line 351)
-- `local-retreats` (line 357)
-- `incentive-travel` (line 363)
+- `mbti` — MBTI Profiling
+- `disc` — DISC Assessment
+- `ocean` — OCEAN Profiling
+- `mass-talks`
+- `workshops`
+- `youth-camps` (verify slug exists; if not, skip and flag)
+- `corporate-days`
+- `wellness-events`
+- `leadership-offsites`
 
-Each receives the 5 exact Q&As provided, verbatim.
+Each gets the 5 exact Q&As provided, verbatim.
 
 ## Out of scope
 - FAQ accordion component/styling/animation
-- All other slugs (still use generators)
-- `retreatFaqs` helper stays (still used elsewhere if referenced)
+- Any other slugs (still use generators)
+- Generator helpers stay in place
 
 ## Verification
-- `rg` confirms the 3 updated slugs no longer reference `retreatFaqs`
-- `node --test scripts/service-content-upgrade.test.mjs` (each service still has 4–6 FAQs)
+- `rg "trainingFaqs\|corporateFaqs" src/data/serviceContentQuality.ts` shows no matches for the 9 updated slugs
+- `node --test scripts/service-content-upgrade.test.mjs` passes
