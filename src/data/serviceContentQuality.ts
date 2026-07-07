@@ -132,7 +132,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "amazing-race": item(
     "An outdoor race format for teams that want movement, clues, checkpoint missions, and shared momentum.",
     "Amazing Race turns a venue or district into a facilitated team challenge. Participants solve clues, complete checkpoint missions, and move in groups toward a final result. Share pax, date, location preference, and fitness notes so the route and challenge mix can be shaped before quoting.",
-    activityFaqs("Amazing Race", "outdoor route", "movement"),
+    [
+      { question: "What is an Amazing Race team building activity?", answer: "Amazing Race is a team building experience where participants solve clues, complete challenges, and navigate checkpoints while working together toward a common goal." },
+      { question: "Is Amazing Race suitable for all fitness levels?", answer: "Yes. We design routes and challenges to suit different age groups, fitness levels, and participant profiles." },
+      { question: "What happens if it rains during the Amazing Race?", answer: "We provide wet-weather contingency plans and can incorporate sheltered checkpoints, indoor venues, or alternative game formats." },
+      { question: "Can the Amazing Race be customised?", answer: "Yes. We can customise challenges, routes, branding, company messages, and learning outcomes." },
+      { question: "Where can Amazing Race team building activities be conducted?", answer: "Popular locations include Sentosa, Marina Bay, Gardens by the Bay, Chinatown, Civic District, Jewel Changi Airport, and custom locations across Singapore." },
+    ],
     ["cultural-race", "treasure-heist", "running-man", "team-building"],
   ),
   "csi-bones": item(
