@@ -162,7 +162,7 @@ export const ExpandableActivityCard = ({
 
         {/* Shine effect */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
           animate={{ translateX: isExpanded ? "200%" : "-100%" }}
           transition={{ duration: 0.8 }}
         />
