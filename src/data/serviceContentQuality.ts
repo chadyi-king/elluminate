@@ -420,7 +420,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "wellness-events": item(
     "A workplace wellness format for teams that need a calmer reset, healthier habits, and shared participation.",
     "Wellness Events can combine movement, mindfulness, nutrition, recovery, and team reset activities depending on the audience. The goal is a credible, accessible programme rather than forced participation. Share pax, venue, health considerations, and desired tone before planning.",
-    corporateFaqs("a corporate wellness event"),
+    [
+      { question: "What wellness programmes do you offer?", answer: "We organise wellness events featuring health talks, mindfulness sessions, wellness workshops, fitness activities, mental well-being programmes, and employee engagement experiences." },
+      { question: "Can wellness events be customised?", answer: "Yes. Every programme is tailored to your organisation's wellness objectives, participant profile, and event format." },
+      { question: "Are wellness events suitable for all employees?", answer: "Yes. Activities are designed to be inclusive and accessible for participants of different ages and fitness levels." },
+      { question: "Can wellness events be combined with team building?", answer: "Absolutely. Many organisations combine wellness initiatives with team bonding activities to promote both well-being and collaboration." },
+      { question: "Do you organise workplace wellness roadshows?", answer: "Yes. We provide wellness booths, interactive stations, talks, workshops, and full wellness event management." },
+    ],
     ["local-retreats", "fit-in-your-team-virtual", "corporate-days", "team-building"],
   ),
   "leadership-offsites": item(
