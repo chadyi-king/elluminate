@@ -80,7 +80,7 @@ export const ExpandableActivityCard = ({
         </div>
 
         {/* Content */}
-        <div className="relative h-full flex flex-col justify-between p-6 text-white">
+        <div className="relative z-10 h-full flex flex-col justify-between p-6 text-white">
           {/* Top section */}
           <div>
             <div className="mb-4 flex items-start justify-between gap-3">
