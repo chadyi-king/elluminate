@@ -348,7 +348,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "overseas-retreats": item(
     "A managed regional retreat service for companies that need travel, programme flow, and team outcomes aligned.",
     "Overseas Retreats help organisers shape the trip around destination, pax, objectives, budget, and activity flow. The work can include travel planning, venue coordination, facilitation, meals, and team-building layers. Share the rough brief first so the scope can be built responsibly.",
-    retreatFaqs("an overseas corporate retreat"),
+    [
+      { question: "What is an overseas corporate retreat?", answer: "An overseas corporate retreat combines team building, employee engagement, strategic planning, and leisure activities in destinations outside Singapore to strengthen team relationships and achieve business objectives." },
+      { question: "Which overseas destinations do you organise retreats in?", answer: "We organise corporate retreats in popular destinations including Bali, Batam, Bintan, Johor Bahru, Bangkok, Phuket, Vietnam, and other locations across Southeast Asia." },
+      { question: "Can you handle the entire retreat planning process?", answer: "Yes. We manage end-to-end planning, including programme design, accommodation, transport, meals, team building activities, workshops, facilitators, and on-site event management." },
+      { question: "How long does an overseas corporate retreat usually last?", answer: "Most overseas retreats last between two and four days, although programmes can be customised based on your objectives, destination, and budget." },
+      { question: "Can the retreat programme be customised for our company?", answer: "Absolutely. Every retreat is tailored to your company goals, culture, participants, and preferred balance of learning, team bonding, and leisure activities." },
+    ],
     ["local-retreats", "incentive-travel", "leadership-offsites", "team-building"],
   ),
   "local-retreats": item(
