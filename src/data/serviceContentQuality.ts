@@ -318,7 +318,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "the-great-zodiac-hunt-virtual": item(
     "A story-led virtual hunt for teams that want puzzles, culture, and light online adventure.",
     "The Great Zodiac Hunt gives remote teams a hosted mission built around themed clues and collaborative problem solving. It works for groups that want a virtual activity with more story than standard trivia. Share pax, platform, and timing before planning.",
-    virtualFaqs("The Great Zodiac Hunt"),
+    [
+      { question: "What is Great Zodiac Hunt?", answer: "Great Zodiac Hunt is a virtual themed adventure where teams complete puzzles and challenges inspired by the Chinese Zodiac." },
+      { question: "Is the programme suitable for festive events?", answer: "Yes. It is especially popular during Chinese New Year celebrations and company festive events." },
+      { question: "Can the storyline be customised?", answer: "Yes. We can incorporate company branding, festive themes, and customised challenges." },
+      { question: "Is the programme suitable for international teams?", answer: "Yes. The game is designed to be accessible and enjoyable for participants from different countries." },
+      { question: "What skills are developed?", answer: "Participants strengthen teamwork, communication, creativity, and problem-solving." },
+    ],
     ["amazing-race-virtual", "tomb-raider-king-treasure-hunt-virtual", "the-nuclear-fallout-escape-room-virtual", "team-building"],
   ),
   "the-nuclear-fallout-escape-room-virtual": item(
