@@ -402,7 +402,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "ocean": item(
     "An OCEAN profiling workshop for teams that want research-backed language for personality and work behaviour.",
     "OCEAN Profiling introduces the Big Five personality framework in a facilitated workplace context. The session should help teams reflect on tendencies, preferences, and collaboration patterns without overclaiming outcomes. Share the audience level, timing, and intended use case first.",
-    trainingFaqs("an OCEAN workshop", "Big Five personality traits and workplace behaviour"),
+    [
+      { question: "What is OCEAN personality profiling?", answer: "OCEAN Profiling measures the five major personality traits—Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism—to provide deeper insights into workplace behaviour." },
+      { question: "Who is OCEAN profiling suitable for?", answer: "OCEAN is suitable for employees, managers, leadership teams, and organisations looking to improve self-awareness and team effectiveness." },
+      { question: "How is OCEAN different from MBTI or DISC?", answer: "Unlike personality type models, OCEAN measures personality traits on a spectrum, providing more detailed behavioural insights backed by psychological research." },
+      { question: "Can OCEAN profiling be used for team development?", answer: "Yes. Organisations use OCEAN profiling to improve collaboration, communication, leadership development, and team dynamics." },
+      { question: "Do participants receive personalised reports?", answer: "Yes. Each participant receives an individual assessment report together with a facilitator-led debrief." },
+    ],
     ["mbti", "disc", "workshops", "leadership-offsites"],
   ),
   "mass-talks": item(
