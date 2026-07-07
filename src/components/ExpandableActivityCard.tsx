@@ -38,6 +38,8 @@ export const ExpandableActivityCard = ({
   onDeactivate,
 }: ExpandableActivityCardProps) => {
   const closeTimerRef = useRef<ReturnType<typeof window.setTimeout> | null>(null);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const pointerPositionRef = useRef({ x: 0, y: 0 });
   const targetHref = href ?? (slug ? `/services/${slug}` : undefined);
 
   const cancelClose = () => {
@@ -47,15 +49,36 @@ export const ExpandableActivityCard = ({
     }
   };
 
-  const handlePointerEnter = () => {
+  const updatePointerPosition = (event: React.PointerEvent) => {
+    pointerPositionRef.current = { x: event.clientX, y: event.clientY };
+  };
+
+  const isPointerInsideCard = () => {
+    if (!cardRef.current) return false;
+
+    const { x, y } = pointerPositionRef.current;
+    const rect = cardRef.current.getBoundingClientRect();
+
+    return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+  };
+
+  const handlePointerEnter = (event: React.PointerEvent) => {
+    updatePointerPosition(event);
     cancelClose();
     onActivate();
   };
 
-  const handlePointerLeave = () => {
+  const handlePointerMove = (event: React.PointerEvent) => {
+    updatePointerPosition(event);
+  };
+
+  const handlePointerLeave = (event: React.PointerEvent) => {
+    updatePointerPosition(event);
     cancelClose();
     closeTimerRef.current = window.setTimeout(() => {
-      onDeactivate();
+      if (!isPointerInsideCard()) {
+        onDeactivate();
+      }
       closeTimerRef.current = null;
     }, 250);
   };
@@ -65,6 +88,9 @@ export const ExpandableActivityCard = ({
   return (
     <motion.div
       className="cursor-pointer"
+      onPointerEnter={handlePointerEnter}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -73,9 +99,8 @@ export const ExpandableActivityCard = ({
       style={{ minHeight: 220 }}
     >
       <motion.div
+        ref={cardRef}
         className="relative rounded-2xl overflow-hidden shadow-lg"
-        onPointerEnter={handlePointerEnter}
-        onPointerLeave={handlePointerLeave}
         animate={{
           height: isActive ? 380 : 220,
         }}
@@ -168,6 +193,7 @@ export const ExpandableActivityCard = ({
                     <a
                       href={targetHref}
                       onPointerEnter={handlePointerEnter}
+                      onPointerMove={handlePointerMove}
                       className="relative z-20 pointer-events-auto cursor-pointer inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
                       aria-label={ctaLabel ?? `Explore ${name}`}
                     >
@@ -178,6 +204,7 @@ export const ExpandableActivityCard = ({
                     <Link
                       to={targetHref}
                       onPointerEnter={handlePointerEnter}
+                      onPointerMove={handlePointerMove}
                       className="relative z-20 pointer-events-auto cursor-pointer inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
                       aria-label={ctaLabel ?? `Explore ${name}`}
                     >
