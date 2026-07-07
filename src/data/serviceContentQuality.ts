@@ -426,7 +426,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "leadership-offsites": item(
     "A structured offsite for leadership teams that need alignment, decisions, and space away from daily work.",
     "Leadership Offsites are planned around senior team objectives, agenda flow, facilitation needs, venue fit, and confidentiality. They can include strategy sessions, team alignment, and selected bonding moments. Share the leadership context and desired decisions before scoping.",
-    corporateFaqs("a leadership offsite"),
+    [
+      { question: "What is a leadership offsite?", answer: "A leadership offsite is a dedicated programme where management teams focus on strategic planning, leadership development, team alignment, and organisational growth outside the office environment." },
+      { question: "Who are leadership offsites suitable for?", answer: "They are ideal for senior leaders, management teams, department heads, and executive committees." },
+      { question: "What activities can be included?", answer: "Programmes can include strategy workshops, personality profiling, leadership development, team building activities, facilitated discussions, and planning sessions." },
+      { question: "Can leadership offsites be held overseas?", answer: "Yes. We organise both local and overseas leadership offsites depending on your objectives and budget." },
+      { question: "Can the programme be customised?", answer: "Absolutely. Every leadership offsite is designed around your organisation's goals, challenges, and leadership priorities." },
+    ],
     ["local-retreats", "overseas-retreats", "workshops", "mbti"],
   ),
   "youth-camps": item(
