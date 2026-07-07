@@ -85,7 +85,7 @@ export const VideoSection = () => {
                   className="w-full h-full object-cover"
                   controls
                   playsInline
-                  poster="/videos/elluminate-showreel.jpg"
+                  poster="/videos/vid-tmbnail.png"
                 >
                   <source src="/videos/elluminate-showreel.mp4" type="video/mp4" />
                 </video>
