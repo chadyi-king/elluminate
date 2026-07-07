@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
@@ -16,6 +16,9 @@ interface ExpandableActivityCardProps {
   tag?: string;
   href?: string;
   ctaLabel?: string;
+  isActive: boolean;
+  onActivate: () => void;
+  onDeactivate: () => void;
 }
 
 export const ExpandableActivityCard = ({
@@ -30,30 +33,55 @@ export const ExpandableActivityCard = ({
   tag,
   href,
   ctaLabel,
+  isActive,
+  onActivate,
+  onDeactivate,
 }: ExpandableActivityCardProps) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const closeTimerRef = useRef<ReturnType<typeof window.setTimeout> | null>(null);
   const targetHref = href ?? (slug ? `/services/${slug}` : undefined);
+
+  const cancelClose = () => {
+    if (closeTimerRef.current) {
+      window.clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const handlePointerEnter = () => {
+    cancelClose();
+    onActivate();
+  };
+
+  const handlePointerLeave = () => {
+    cancelClose();
+    closeTimerRef.current = window.setTimeout(() => {
+      onDeactivate();
+      closeTimerRef.current = null;
+    }, 250);
+  };
+
+  useEffect(() => cancelClose, []);
 
   return (
     <motion.div
-      className="group cursor-pointer"
+      className="cursor-pointer"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      animate={{ minHeight: isExpanded ? 380 : 220 }}
+      animate={{ minHeight: isActive ? 380 : 220 }}
       style={{ minHeight: 220 }}
     >
       <motion.div
         className="relative rounded-2xl overflow-hidden shadow-lg"
-        onMouseEnter={() => setIsExpanded(true)}
-        onMouseLeave={() => setIsExpanded(false)}
+        onPointerEnter={handlePointerEnter}
+        onPointerLeave={handlePointerLeave}
         animate={{
-          height: isExpanded ? 380 : 220,
+          height: isActive ? 380 : 220,
         }}
         transition={{ duration: 0.4, ease: "easeOut" }}
         style={{
-          boxShadow: isExpanded
+          boxShadow: isActive
             ? `0 25px 50px ${color}40`
             : "0 4px 20px rgba(0,0,0,0.1)",
         }}
@@ -67,14 +95,15 @@ export const ExpandableActivityCard = ({
             decoding="async"
             width={640}
             height={480}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-700"
+            style={{ transform: isActive ? "scale(1.1)" : "scale(1)" }}
           />
           {/* Color overlay */}
           <div
             className="absolute inset-0 transition-opacity duration-500"
             style={{
               background: `linear-gradient(135deg, ${color}dd 0%, ${color}99 50%, ${color}cc 100%)`,
-              opacity: isExpanded ? 0.92 : 0.85,
+              opacity: isActive ? 0.92 : 0.85,
             }}
           />
         </div>
@@ -94,7 +123,7 @@ export const ExpandableActivityCard = ({
 
               <motion.div
                 className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center"
-                animate={{ rotate: isExpanded ? 10 : 0, scale: isExpanded ? 1.1 : 1 }}
+                animate={{ rotate: isActive ? 10 : 0, scale: isActive ? 1.1 : 1 }}
                 transition={{ duration: 0.3 }}
               >
                 <Icon className="w-7 h-7 text-white" />
@@ -112,7 +141,7 @@ export const ExpandableActivityCard = ({
 
           {/* Expanded content */}
           <AnimatePresence>
-            {isExpanded && (
+            {isActive && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -138,6 +167,7 @@ export const ExpandableActivityCard = ({
                   targetHref.startsWith("#") ? (
                     <a
                       href={targetHref}
+                      onPointerEnter={handlePointerEnter}
                       className="relative z-20 pointer-events-auto cursor-pointer inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
                       aria-label={ctaLabel ?? `Explore ${name}`}
                     >
@@ -147,6 +177,7 @@ export const ExpandableActivityCard = ({
                   ) : (
                     <Link
                       to={targetHref}
+                      onPointerEnter={handlePointerEnter}
                       className="relative z-20 pointer-events-auto cursor-pointer inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
                       aria-label={ctaLabel ?? `Explore ${name}`}
                     >
@@ -163,7 +194,7 @@ export const ExpandableActivityCard = ({
         {/* Shine effect */}
         <motion.div
           className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
-          animate={{ translateX: isExpanded ? "200%" : "-100%" }}
+          animate={{ translateX: isActive ? "200%" : "-100%" }}
           transition={{ duration: 0.8 }}
         />
       </motion.div>
