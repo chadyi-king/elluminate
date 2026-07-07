@@ -384,7 +384,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "workshops": item(
     "A facilitated learning format for teams that need practical workplace skills, discussion, and takeaways.",
     "Corporate Workshops give teams a structured session around communication, collaboration, leadership, or team development. The focus is practical participation, not passive slides. Share the audience level, learning objective, timing, and preferred venue so the workshop can be scoped.",
-    trainingFaqs("a corporate workshop", "workplace skills and team behaviour"),
+    [
+      { question: "What workshops do you conduct?", answer: "We conduct workshops on communication, leadership, teamwork, personality profiling, workplace collaboration, employee engagement, and personal effectiveness." },
+      { question: "Can workshops be customised?", answer: "Yes. Every workshop is tailored to your organisation's objectives, participants, and learning outcomes." },
+      { question: "Are the workshops interactive?", answer: "Yes. Our workshops combine discussions, practical activities, case studies, and experiential learning for maximum engagement." },
+      { question: "How long does a workshop usually last?", answer: "Programmes range from one-hour sessions to full-day workshops depending on your requirements." },
+      { question: "Can workshops be conducted online?", answer: "Yes. Selected workshops are available in-person, virtually, or in a hybrid format." },
+    ],
     ["mbti", "disc", "ocean", "mass-talks"],
   ),
   "mbti": item(
