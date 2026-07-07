@@ -1,24 +1,22 @@
 ## Scope
-Replace shared `trainingFaqs(...)` / `corporateFaqs(...)` generator calls with dedicated inline `FAQ[]` arrays for 9 service slugs in `src/data/serviceContentQuality.ts`. No visual/component/layout changes. The `FAQ[]` structure is preserved so future slugs can add their own arrays the same way.
+Replace 8 `virtualFaqs(...)` generator calls with dedicated inline `FAQ[]` arrays in `src/data/serviceContentQuality.ts`. No visual/component/layout changes. Data structure preserved.
 
-## Slugs to update
-- `mbti` — MBTI Profiling
-- `disc` — DISC Assessment
-- `ocean` — OCEAN Profiling
-- `mass-talks`
-- `workshops`
-- `youth-camps` (verify slug exists; if not, skip and flag)
-- `corporate-days`
-- `wellness-events`
-- `leadership-offsites`
+## Slugs to update (lines)
+- `amazing-race-virtual` (303)
+- `fit-in-your-team-virtual` (309)
+- `the-gameshow-experience-virtual` (315)
+- `the-great-zodiac-hunt-virtual` (321)
+- `nuclear-fallout-escape-room-virtual` (327)
+- `the-patriot-act-virtual` (333)
+- `tomb-raider-king-virtual` (339)
+- `grand-christmas-delivery-virtual` (345)
 
-Each gets the 5 exact Q&As provided, verbatim.
+Each gets the 5 exact provided Q&As, verbatim.
 
 ## Out of scope
-- FAQ accordion component/styling/animation
-- Any other slugs (still use generators)
-- Generator helpers stay in place
+- FAQ component/styling
+- Any other slug
 
 ## Verification
-- `rg "trainingFaqs\|corporateFaqs" src/data/serviceContentQuality.ts` shows no matches for the 9 updated slugs
+- `rg "virtualFaqs\(" src/data/serviceContentQuality.ts` returns 0 matches
 - `node --test scripts/service-content-upgrade.test.mjs` passes
