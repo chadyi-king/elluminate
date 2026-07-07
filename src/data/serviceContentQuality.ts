@@ -432,7 +432,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "youth-camps": item(
     "A facilitated camp programme for schools or cohorts that need bonding, leadership practice, and safe structure.",
     "Youth Camps combine structured activities, facilitation, safety management, and cohort-building moments for student groups. Planning should cover age range, pax, venue, learning goals, supervision needs, and accessibility. Share the school context before confirming the programme.",
-    corporateFaqs("a youth camp"),
+    [
+      { question: "What youth camps do you organise?", answer: "We organise leadership camps, orientation camps, adventure camps, values-based programmes, and personal development camps for schools and youth organisations." },
+      { question: "Who are your youth camps suitable for?", answer: "Our programmes are suitable for primary schools, secondary schools, tertiary institutions, youth groups, and student leaders." },
+      { question: "Can camp programmes be customised?", answer: "Yes. Every camp is designed around your school's objectives, participant age group, venue, and desired learning outcomes." },
+      { question: "Do you provide facilitators and logistics?", answer: "Yes. We provide facilitators, programme planning, logistics, equipment, and complete event management." },
+      { question: "Can camps include overnight activities?", answer: "Absolutely. We organise both day camps and multi-day residential camps." },
+    ],
     ["battle-of-the-olympians", "cultural-race", "workshops", "team-building"],
   ),
 };
