@@ -186,7 +186,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "builder-cross": item(
     "A construction-style challenge for teams that want hands-on collaboration and practical problem solving.",
     "Builder Cross asks participants to plan, build, test, and improve together under a facilitated challenge structure. It works for teams that want creativity and communication in a controlled setting. Share pax, venue, timing, and space constraints so materials and flow can be planned.",
-    activityFaqs("Builder Cross", "hands-on build challenge", "space"),
+    [
+      { question: "What is Builder Cross?", answer: "Builder Cross is a collaborative team building activity where teams construct structures while overcoming changing business scenarios and unexpected challenges." },
+      { question: "What skills does Builder Cross develop?", answer: "The programme develops communication, collaboration, leadership, creativity, planning, and adaptability." },
+      { question: "Can it be conducted indoors?", answer: "Yes. Builder Cross is designed primarily as an indoor team building activity." },
+      { question: "Is it suitable for leadership teams?", answer: "Yes. It is commonly used for leadership development, project management, and cross-functional collaboration." },
+      { question: "Can the building materials be customised?", answer: "Yes. Different materials and challenge themes can be incorporated depending on your objectives." },
+    ],
     ["minute-to-win-it", "monopoly-dash", "workshops", "team-building"],
   ),
   "minute-to-win-it": item(
