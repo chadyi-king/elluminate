@@ -222,7 +222,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "sotong-game": item(
     "A survival-style challenge format for teams that want tension, humour, and simple rules.",
     "Sotong Game uses elimination-inspired missions in a facilitated, team-safe format. The experience is built around clear rules, short rounds, and shared suspense rather than real risk. Share pax, venue, age range, and comfort level so the tone stays appropriate.",
-    activityFaqs("Sotong Game", "mission-round setup", "activity intensity"),
+    [
+      { question: "What is Sotong Game?", answer: "Sotong Game is a corporate team building programme inspired by popular survival game concepts, featuring exciting mini games with a fun and light-hearted twist." },
+      { question: "Is the programme suitable for all ages?", answer: "Yes. Challenges are designed to be safe, engaging, and suitable for diverse corporate participants." },
+      { question: "Can the games be customised?", answer: "Yes. We can tailor the games based on your objectives, venue, and participant profile." },
+      { question: "Is it competitive?", answer: "Yes. Teams compete through multiple rounds while encouraging teamwork, communication, and strategy." },
+      { question: "Can it be conducted indoors?", answer: "Yes. Indoor, outdoor, and hybrid versions are available." },
+    ],
     ["running-man", "minute-to-win-it", "battle-of-the-olympians", "team-building"],
   ),
   "treasure-heist": item(
