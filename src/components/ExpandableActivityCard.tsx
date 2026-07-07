@@ -101,7 +101,7 @@ export const ExpandableActivityCard = ({
     >
       <motion.div
         ref={cardRef}
-        className="relative rounded-2xl overflow-hidden shadow-lg"
+        className="relative isolate rounded-2xl overflow-hidden shadow-lg"
         animate={{
           height: isActive ? 380 : 220,
         }}
@@ -113,7 +113,7 @@ export const ExpandableActivityCard = ({
         }}
       >
         {/* Background Image */}
-        <div className="absolute inset-0">
+        <div className="pointer-events-none absolute inset-0">
           <img
             src={image}
             alt={name}
@@ -135,7 +135,8 @@ export const ExpandableActivityCard = ({
         </div>
 
         {/* Content */}
-        <div className="relative z-10 h-full flex flex-col justify-between p-6 text-white">
+        <div className="pointer-events-none relative z-40 h-full flex flex-col justify-between p-6 text-white">
+
           {/* Top section */}
           <div>
             <div className="mb-4 flex items-start justify-between gap-3">
