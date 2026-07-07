@@ -216,7 +216,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "minute-to-win-it": item(
     "A quick-rotation game format for teams that want easy participation, fast laughs, and room-wide energy.",
     "Minute To Win It uses short station challenges that are easy to understand and quick to rotate. It suits ballrooms, offices, and indoor venues where organisers need energy without complex briefing. Share pax, timing, and venue size so the station flow can be planned.",
-    activityFaqs("Minute To Win It", "indoor station challenge", "activity intensity"),
+    [
+      { question: "What is Minute To Win It team building?", answer: "Minute To Win It features a series of fast-paced one-minute challenges that encourage teamwork, communication, and friendly competition." },
+      { question: "Can the games be played indoors?", answer: "Yes. Minute To Win It is ideal for indoor venues, offices, and hotel function rooms." },
+      { question: "Is it suitable for all ages?", answer: "Yes. Challenges are designed to be fun, inclusive, and suitable for diverse participant groups." },
+      { question: "Can we choose the games?", answer: "Yes. We can customise the selection of games based on your event objectives and participants." },
+      { question: "How long does the programme last?", answer: "Programmes typically run between one and three hours depending on your schedule." },
+    ],
     ["monopoly-dash", "battle-of-the-olympians", "corporate-days", "team-building"],
   ),
   "monopoly-dash": item(
