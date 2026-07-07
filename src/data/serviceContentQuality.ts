@@ -306,7 +306,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "fit-in-your-team-virtual": item(
     "A virtual movement session for teams that want energy, wellness, and light competition online.",
     "Fit In Your Team combines hosted movement, simple challenges, and online team participation. It suits remote groups that need a reset rather than another passive call. Share pax, time zones, fitness comfort, and platform preference so the intensity can be adjusted.",
-    virtualFaqs("Fit In Your Team"),
+    [
+      { question: "What is Fit In Your Team?", answer: "Fit In Your Team is a virtual team building programme focused on communication, collaboration, and understanding team dynamics through interactive challenges." },
+      { question: "Is it suitable for newly formed teams?", answer: "Yes. It is an excellent programme for onboarding, new departments, and cross-functional teams." },
+      { question: "Can it support learning objectives?", answer: "Yes. Activities can be aligned with communication, trust, collaboration, and employee engagement goals." },
+      { question: "How long is the programme?", answer: "Sessions are typically between one and two hours depending on your objectives." },
+      { question: "Can it be customised?", answer: "Absolutely. The activities can be tailored to suit your organisation and participants." },
+    ],
     ["amazing-race-virtual", "the-gameshow-experience-virtual", "wellness-events", "team-building"],
   ),
   "the-gameshow-experience-virtual": item(
