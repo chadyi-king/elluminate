@@ -300,7 +300,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "amazing-race-virtual": item(
     "A remote race format for distributed teams that want shared missions without travelling.",
     "Virtual Amazing Race gives remote or hybrid teams a hosted challenge built around digital clues, teamwork, and paced missions. It is useful when people cannot gather in one venue but still need a shared event. Share pax, platform preference, and time zones before planning.",
-    virtualFaqs("Virtual Amazing Race"),
+    [
+      { question: "What is Amazing Race Virtual?", answer: "Amazing Race Virtual is an online team building experience where teams solve clues, complete interactive challenges, and compete remotely through a series of virtual checkpoints." },
+      { question: "Is Amazing Race Virtual suitable for remote teams?", answer: "Yes. The programme is designed specifically for remote and hybrid teams joining from different locations." },
+      { question: "What platform do participants need?", answer: "The programme can be conducted using common video conferencing platforms such as Zoom, Microsoft Teams, or Google Meet." },
+      { question: "Can the challenges be customised?", answer: "Yes. We can customise the storyline, company branding, learning objectives, and challenge difficulty to suit your organisation." },
+      { question: "How many participants can join?", answer: "We can facilitate virtual sessions for small teams as well as company-wide events with several hundred participants." },
+    ],
     ["the-gameshow-experience-virtual", "the-great-zodiac-hunt-virtual", "fit-in-your-team-virtual", "team-building"],
   ),
   "fit-in-your-team-virtual": item(
