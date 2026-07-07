@@ -150,7 +150,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "cultural-race": item(
     "A Singapore route-based activity for teams that want local discovery, movement, and shared stories.",
     "Cultural Race uses Singapore locations, clues, and team missions to create a facilitated outdoor discovery experience. It works well for local, regional, and mixed teams who want the place itself to matter. Share route comfort, pax, timing, and weather constraints during planning.",
-    activityFaqs("Cultural Race", "outdoor heritage route", "movement"),
+    [
+      { question: "What is a Cultural Race?", answer: "A Cultural Race combines exploration, heritage, and team challenges while participants discover local landmarks and cultures." },
+      { question: "Which locations are available?", answer: "Popular routes include Chinatown, Little India, Kampong Glam, Civic District, and customised heritage trails." },
+      { question: "Can the programme include local culture?", answer: "Yes. We incorporate local history, traditions, food, architecture, and cultural storytelling into the challenges." },
+      { question: "Is it suitable for overseas visitors?", answer: "Absolutely. Cultural Race is a popular choice for international delegates and regional corporate teams visiting Singapore." },
+      { question: "Can it be customised for our company?", answer: "Yes. We can integrate company branding, messages, and learning objectives throughout the experience." },
+    ],
     ["amazing-race", "running-man", "local-retreats", "team-building"],
   ),
   "amongst-us": item(
