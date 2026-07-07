@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import type { PointerEvent } from "react";
 import { ChevronRight } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
@@ -49,7 +50,7 @@ export const ExpandableActivityCard = ({
     }
   };
 
-  const updatePointerPosition = (event: React.PointerEvent) => {
+  const updatePointerPosition = (event: PointerEvent) => {
     pointerPositionRef.current = { x: event.clientX, y: event.clientY };
   };
 
@@ -62,17 +63,17 @@ export const ExpandableActivityCard = ({
     return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
   };
 
-  const handlePointerEnter = (event: React.PointerEvent) => {
+  const handlePointerEnter = (event: PointerEvent) => {
     updatePointerPosition(event);
     cancelClose();
     onActivate();
   };
 
-  const handlePointerMove = (event: React.PointerEvent) => {
+  const handlePointerMove = (event: PointerEvent) => {
     updatePointerPosition(event);
   };
 
-  const handlePointerLeave = (event: React.PointerEvent) => {
+  const handlePointerLeave = (event: PointerEvent) => {
     updatePointerPosition(event);
     cancelClose();
     closeTimerRef.current = window.setTimeout(() => {
