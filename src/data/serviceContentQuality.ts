@@ -390,7 +390,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "mbti": item(
     "An MBTI profiling workshop for teams that want clearer communication and better cross-type collaboration.",
     "MBTI Profiling helps participants discuss personality preferences, working styles, communication patterns, and possible friction points. The workshop should be framed as a guided team conversation, not a label. Share group size, seniority mix, and desired outcomes before planning.",
-    trainingFaqs("an MBTI workshop", "personality preferences and team communication"),
+    [
+      { question: "What is an MBTI personality workshop?", answer: "An MBTI workshop helps participants understand their personality preferences, communication styles, decision-making approaches, and how they work with others." },
+      { question: "Is MBTI suitable for corporate teams?", answer: "Yes. MBTI is widely used to improve teamwork, leadership, communication, conflict management, and workplace collaboration." },
+      { question: "Will every participant receive their own personality profile?", answer: "Yes. Participants complete the assessment and receive an individual personality profile, followed by a facilitated debrief session." },
+      { question: "Can MBTI workshops be combined with team building activities?", answer: "Absolutely. Many organisations combine MBTI with experiential team building to reinforce learning through practical activities." },
+      { question: "How long does an MBTI workshop typically last?", answer: "Workshops can range from half-day sessions to full-day programmes depending on your learning objectives and group size." },
+    ],
     ["disc", "ocean", "workshops", "leadership-offsites"],
   ),
   "disc": item(
