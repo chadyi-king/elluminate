@@ -136,7 +136,7 @@ test("activity filters and CTAs support enquiry, not equipment demand", () => {
 });
 
 test("WhatsApp is visible and analytics events remain diagnostic only", () => {
-  assert.match(page, /wa\.me\/6588352482/);
+  assert.match(page, /api\.whatsapp\.com\/send\?phone=6588352482/);
   assert.match(page, /WhatsApp Us/);
   assert.match(page, /WhatsApp Elluminate/);
   assert.match(page, /pushLandingEvent\("form_start"/);
