@@ -240,7 +240,13 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
   "running-man": item(
     "A high-energy mission format for teams that want active challenges, chases, and variety-show energy.",
     "Running Man Adventure uses team missions, quick competitions, and facilitated challenge rounds to create a lively event. It suits groups that are comfortable with movement and visible participation. Share pax, venue, safety constraints, and weather needs before planning the final format.",
-    activityFaqs("Running Man Adventure", "active mission setup", "movement"),
+    [
+      { question: "What is a Running Man team building event?", answer: "Running Man is a fast-paced team building programme inspired by the popular Korean variety show. Teams compete in a series of interactive missions, games, and challenges to earn points." },
+      { question: "Is Name Tag Elimination included?", answer: "Name Tag Elimination can be included as an optional finale activity depending on venue suitability and participant preferences." },
+      { question: "Is Running Man suitable for corporate teams?", answer: "Yes. Running Man activities are designed for corporate team bonding and focus on teamwork, communication, strategy, and engagement." },
+      { question: "Can Running Man be conducted indoors?", answer: "Yes. Indoor and outdoor versions are available depending on venue availability and weather conditions." },
+      { question: "How many participants can join a Running Man event?", answer: "We can facilitate Running Man programmes for small teams of 20 participants to large-scale corporate events with several hundred participants." },
+    ],
     ["amazing-race", "battle-of-the-olympians", "sotong-game", "team-building"],
   ),
   "sotong-game": item(
