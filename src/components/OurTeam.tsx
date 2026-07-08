@@ -7,7 +7,7 @@ const teamMembers = [
   {
     name: "Edmund Sim",
     title: "Director",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/edmund_team_out767.png",
+    src: "/image/our_team/edmund.png",
   },
   {
     name: "Afifah Camut",
@@ -63,7 +63,11 @@ export const OurTeam = () => {
     <section className="py-24 relative">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={teamBuildingOutdoor} alt="Elluminate team building background" className="w-full h-full object-cover" />
+        <img
+          src={teamBuildingOutdoor}
+          alt="Elluminate team building background"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-background/95" />
       </div>
 
