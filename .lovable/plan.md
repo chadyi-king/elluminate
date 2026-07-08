@@ -1,32 +1,15 @@
-## Plan: Upload team photos to `public/image/our_team/`
+## Move team photos into `public/images/our_team/` and wire About page
 
-Copy the 10 uploaded team photos into a new folder `public/image/our_team/` so they're served at stable URLs you can reference on the About page.
+The 10 team photos currently live at `public/image/our_team/` (singular `image`). They should live under the existing `public/images/` folder alongside `about/`, `client-logos/`, `destinations/`, `services/`.
 
-### Files to create
-- `public/image/our_team/afifah.png`
-- `public/image/our_team/ayume.png`
-- `public/image/our_team/edmund.png`
-- `public/image/our_team/jemwell.png`
-- `public/image/our_team/jencen.png`
-- `public/image/our_team/lisa.png`
-- `public/image/our_team/louise.png`
-- `public/image/our_team/mj.png`
-- `public/image/our_team/peace.png`
-- `public/image/our_team/peggy.png`
+### Steps
+1. Move all 10 files from `public/image/our_team/` → `public/images/our_team/`:
+   - afifah.png, ayume.png, edmund.png, jemwell.png, jencen.png, lisa.png, louise.png, mj.png, peace.png, peggy.png
+2. Delete the now-empty `public/image/` folder.
+3. Update `src/components/OurTeam.tsx` so all 10 team members point to `/images/our_team/<name>.png` (replacing the current mix of Cloudinary URLs + the one `/image/our_team/edmund.png` reference).
 
-### Resulting URLs (usable in About page)
-- `/image/our_team/afifah.png`
-- `/image/our_team/ayume.png`
-- `/image/our_team/edmund.png`
-- `/image/our_team/jemwell.png`
-- `/image/our_team/jencen.png`
-- `/image/our_team/lisa.png`
-- `/image/our_team/louise.png`
-- `/image/our_team/mj.png`
-- `/image/our_team/peace.png`
-- `/image/our_team/peggy.png`
+### Resulting URLs
+`/images/our_team/afifah.png`, `/images/our_team/ayume.png`, `/images/our_team/edmund.png`, `/images/our_team/jemwell.png`, `/images/our_team/jencen.png`, `/images/our_team/lisa.png`, `/images/our_team/louise.png`, `/images/our_team/mj.png`, `/images/our_team/peace.png`, `/images/our_team/peggy.png`
 
-### Notes
-- Filenames normalized to lowercase (e.g. `MJ_team.png` → `mj.png`) for consistent URLs.
-- No About page code changes in this step — I'll only place the files and give you the URL list. You can tell me next which member maps to which existing slot, or I can wire them up in a follow-up.
-- Not using Lovable Assets CDN here since you explicitly asked for `public/image/our_team/` URLs.
+### Note on naming
+Using `our_team` (underscore) to match the folder you already have. If you'd rather it be `our-team` (hyphen) to match `client-logos`, say the word and I'll switch.
