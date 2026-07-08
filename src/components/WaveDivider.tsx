@@ -11,7 +11,7 @@ export const WaveDivider = ({ variant = "bottom", color, className = "" }: WaveD
   
   if (variant === "top") {
     return (
-      <div className={`absolute top-0 left-0 right-0 overflow-hidden ${className}`}>
+      <div className={`pointer-events-none absolute top-0 left-0 right-0 overflow-hidden ${className}`}>
         <motion.svg
           viewBox="0 0 1440 120"
           fill="none"
@@ -36,7 +36,7 @@ export const WaveDivider = ({ variant = "bottom", color, className = "" }: WaveD
   }
 
   return (
-    <div className={`absolute bottom-0 left-0 right-0 overflow-hidden ${className}`}>
+    <div className={`pointer-events-none absolute bottom-0 left-0 right-0 overflow-hidden ${className}`}>
       <motion.svg
         viewBox="0 0 1440 120"
         fill="none"
