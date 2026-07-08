@@ -4,56 +4,16 @@ import { motion } from "framer-motion";
 import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
 
 const teamMembers = [
-  {
-    name: "Edmund Sim",
-    title: "Director",
-    image: "/image/our_team/edmund.png",
-  },
-  {
-    name: "Afifah Camut",
-    title: "Senior Sales Manager",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/afifah_team_gmy3pc.png",
-  },
-  {
-    name: "Lisa Ong",
-    title: "Senior Events Manager",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649290/lisa_team_gmcxyf.png",
-  },
-  {
-    name: "MJ",
-    title: "Operations & Design Executive",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649292/MJ_team_jrlonc.png",
-  },
-  {
-    name: "Ayume",
-    title: "Operations Executive",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649290/ayume_team_giolmm.png",
-  },
-  {
-    name: "Louise Cabales",
-    title: "Admin Manager",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649294/louise_team_vaalkr.png",
-  },
-  {
-    name: "Peggy Har",
-    title: "Finance Manager",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649292/peggy_team_uhhdvd.png",
-  },
-  {
-    name: "Jencen Ramos",
-    title: "Finance Executive",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649292/jencen_team_xzucnh.png",
-  },
-  {
-    name: "Jemwell Ramos",
-    title: "IT Executive",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649289/jemwell_team_cxkhml.png",
-  },
-  {
-    name: "Peace Chan",
-    title: "Marketing & Sales Executive",
-    image: "https://res.cloudinary.com/dk28ny4yj/image/upload/v1778649291/peace_team_tpnfoy.png",
-  },
+  { name: "Edmund Sim", title: "Director", image: "/images/our_team/edmund.png" },
+  { name: "Afifah Camut", title: "Senior Sales Manager", image: "/images/our_team/afifah.png" },
+  { name: "Lisa Ong", title: "Senior Events Manager", image: "/images/our_team/lisa.png" },
+  { name: "MJ", title: "Operations & Design Executive", image: "/images/our_team/mj.png" },
+  { name: "Ayume", title: "Operations Executive", image: "/images/our_team/ayume.png" },
+  { name: "Louise Cabales", title: "Admin Manager", image: "/images/our_team/louise.png" },
+  { name: "Peggy Har", title: "Finance Manager", image: "/images/our_team/peggy.png" },
+  { name: "Jencen Ramos", title: "Finance Executive", image: "/images/our_team/jencen.png" },
+  { name: "Jemwell Ramos", title: "IT Executive", image: "/images/our_team/jemwell.png" },
+  { name: "Peace Chan", title: "Marketing & Sales Executive", image: "/images/our_team/peace.png" },
 ];
 
 // TODO(content): Confirm public roles for Caleb E and Christian Je Suis before restoring their team cards.
