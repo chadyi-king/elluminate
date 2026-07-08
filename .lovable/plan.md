@@ -1,29 +1,32 @@
-## Plan
+## Plan: Upload team photos to `public/image/our_team/`
 
-Two small media swaps. No design or component changes.
+Copy the 10 uploaded team photos into a new folder `public/image/our_team/` so they're served at stable URLs you can reference on the About page.
 
-### 1. Replace Elluminate Showreel thumbnail
+### Files to create
+- `public/image/our_team/afifah.png`
+- `public/image/our_team/ayume.png`
+- `public/image/our_team/edmund.png`
+- `public/image/our_team/jemwell.png`
+- `public/image/our_team/jencen.png`
+- `public/image/our_team/lisa.png`
+- `public/image/our_team/louise.png`
+- `public/image/our_team/mj.png`
+- `public/image/our_team/peace.png`
+- `public/image/our_team/peggy.png`
 
-`src/components/VideoSection.tsx` currently uses:
-- Placeholder poster overlay: `background-image: url("/images/services/amazing-race/hero.jpg")`
-- HTML5 `<video poster="/videos/vid-tmbnail.png">`
+### Resulting URLs (usable in About page)
+- `/image/our_team/afifah.png`
+- `/image/our_team/ayume.png`
+- `/image/our_team/edmund.png`
+- `/image/our_team/jemwell.png`
+- `/image/our_team/jencen.png`
+- `/image/our_team/lisa.png`
+- `/image/our_team/louise.png`
+- `/image/our_team/mj.png`
+- `/image/our_team/peace.png`
+- `/image/our_team/peggy.png`
 
-Steps:
-- Add uploaded image as a Lovable asset:
-  `lovable-assets create --file /mnt/user-uploads/elluminate-showreel-thumbnail.png --filename elluminate-showreel-thumbnail.png > src/assets/elluminate-showreel-thumbnail.png.asset.json`
-- Import the pointer in `VideoSection.tsx` and use its `.url` for both:
-  - the pre-play `backgroundImage` style
-  - the `<video poster={...}>` attribute
-- Keep the dark overlay, play button, title text, and animations untouched.
-
-### 2. Replace broken `overseas-retreat-edrington.mov` with the uploaded MP4
-
-The `.mov` file downloads instead of playing in-browser. All code already references `overseas-retreat-edrington.mp4` (see `src/data/servicesData.ts:659`), so only the file on disk is wrong.
-
-Steps:
-- Copy the uploaded MP4 into place: `cp /mnt/user-uploads/overseas-retreat-edrington.mp4 public/videos/overseas-retreat-edrington.mp4`
-- Delete the stale `public/videos/overseas-retreat-edrington.mov`.
-- Update `LOVABLE_MEDIA_ASSET_MAP.md` line 71 to list `.mp4` instead of `.mov`.
-
-### Out of scope
-- No component redesign, no changes to other videos, no data changes beyond the doc line.
+### Notes
+- Filenames normalized to lowercase (e.g. `MJ_team.png` → `mj.png`) for consistent URLs.
+- No About page code changes in this step — I'll only place the files and give you the URL list. You can tell me next which member maps to which existing slot, or I can wire them up in a follow-up.
+- Not using Lovable Assets CDN here since you explicitly asked for `public/image/our_team/` URLs.
