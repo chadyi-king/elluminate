@@ -135,7 +135,7 @@ export const ExpandableActivityCard = ({
         </div>
 
         {/* Content */}
-        <div className="pointer-events-none relative z-40 h-full flex flex-col justify-between p-6 text-white">
+        <div className="relative z-40 h-full flex flex-col justify-between p-6 text-white">
 
           {/* Top section */}
           <div>
@@ -196,8 +196,12 @@ export const ExpandableActivityCard = ({
                       href={targetHref}
                       onPointerEnter={handlePointerEnter}
                       onPointerMove={handlePointerMove}
+                      onPointerDown={cancelClose}
+                      onClick={() => {
+                        cancelClose();
+                        onActivate();
+                      }}
                       className="relative z-50 pointer-events-auto cursor-pointer inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
-
                       aria-label={ctaLabel ?? `Explore ${name}`}
                     >
                       <span>{ctaLabel ?? `Explore ${name}`}</span>
@@ -208,6 +212,11 @@ export const ExpandableActivityCard = ({
                       to={targetHref}
                       onPointerEnter={handlePointerEnter}
                       onPointerMove={handlePointerMove}
+                      onPointerDown={cancelClose}
+                      onClick={() => {
+                        cancelClose();
+                        onActivate();
+                      }}
                       className="relative z-50 pointer-events-auto cursor-pointer inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all duration-300"
                       aria-label={ctaLabel ?? `Explore ${name}`}
                     >
@@ -223,7 +232,7 @@ export const ExpandableActivityCard = ({
 
         {/* Shine effect */}
         <motion.div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
+          className="pointer-events-none absolute inset-0 z-30 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
           animate={{ translateX: isActive ? "200%" : "-100%" }}
           transition={{ duration: 0.8 }}
         />
