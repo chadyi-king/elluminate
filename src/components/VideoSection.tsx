@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { useRef, useState } from "react";
+import showreelThumbnail from "@/assets/elluminate-showreel-thumbnail.png.asset.json";
 
 export const VideoSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -54,7 +55,7 @@ export const VideoSection = () => {
                 <div
                   className="absolute inset-0 bg-center bg-cover bg-no-repeat flex items-center justify-center"
                   style={{
-                    backgroundImage: 'url("/images/services/amazing-race/hero.jpg")',
+                    backgroundImage: `url("${showreelThumbnail.url}")`,
                   }}
                 >
                   <div className="absolute inset-0 bg-black/50" />
@@ -85,7 +86,7 @@ export const VideoSection = () => {
                   className="w-full h-full object-cover"
                   controls
                   playsInline
-                  poster="/videos/vid-tmbnail.png"
+                  poster={showreelThumbnail.url}
                 >
                   <source src="/videos/elluminate-showreel.mp4" type="video/mp4" />
                 </video>

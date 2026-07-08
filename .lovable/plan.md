@@ -1,17 +1,29 @@
-# Fix: Bottom-row Explore CTAs blocked by WaveDivider
+## Plan
 
-## Root cause
-`src/components/WaveDivider.tsx` renders an absolutely positioned decorative SVG at the bottom of `ServicesSection`. Its wrapper `<div>` has no `pointer-events-none`, so the SVG's bounding rectangle intercepts clicks in the last ~120px of the section. That area sits exactly over the "Explore …" CTAs of the bottom-row cards (DISC Assessment, Youth Camps, Wellness Events, Leadership Offsites) when they expand, which is why those four in particular feel unclickable while cards higher up work.
+Two small media swaps. No design or component changes.
 
-## Fix
-1. In `src/components/WaveDivider.tsx`, add `pointer-events-none` to the wrapper `<div>` of both the `top` and `bottom` variants. It is a purely decorative element and should never receive pointer events.
+### 1. Replace Elluminate Showreel thumbnail
 
-That's the only change required. No design, size, animation, or color changes.
+`src/components/VideoSection.tsx` currently uses:
+- Placeholder poster overlay: `background-image: url("/images/services/amazing-race/hero.jpg")`
+- HTML5 `<video poster="/videos/vid-tmbnail.png">`
 
-## Verification
-- Playwright: on the homepage, for each of DISC Assessment, Youth Camps, Wellness Events, Leadership Offsites — hover to expand without scrolling past the section, then click Explore and assert navigation to the correct `/services/<slug>`.
-- Also re-test one top-row card (Amazing Race) to confirm nothing regressed.
-- Visual check: wave divider still renders identically at top and bottom of the Services section.
+Steps:
+- Add uploaded image as a Lovable asset:
+  `lovable-assets create --file /mnt/user-uploads/elluminate-showreel-thumbnail.png --filename elluminate-showreel-thumbnail.png > src/assets/elluminate-showreel-thumbnail.png.asset.json`
+- Import the pointer in `VideoSection.tsx` and use its `.url` for both:
+  - the pre-play `backgroundImage` style
+  - the `<video poster={...}>` attribute
+- Keep the dark overlay, play button, title text, and animations untouched.
 
-## Out of scope
-- No changes to `ExpandableActivityCard`, `ServicesSection`, FAQ data, or any other file.
+### 2. Replace broken `overseas-retreat-edrington.mov` with the uploaded MP4
+
+The `.mov` file downloads instead of playing in-browser. All code already references `overseas-retreat-edrington.mp4` (see `src/data/servicesData.ts:659`), so only the file on disk is wrong.
+
+Steps:
+- Copy the uploaded MP4 into place: `cp /mnt/user-uploads/overseas-retreat-edrington.mp4 public/videos/overseas-retreat-edrington.mp4`
+- Delete the stale `public/videos/overseas-retreat-edrington.mov`.
+- Update `LOVABLE_MEDIA_ASSET_MAP.md` line 71 to list `.mp4` instead of `.mov`.
+
+### Out of scope
+- No component redesign, no changes to other videos, no data changes beyond the doc line.

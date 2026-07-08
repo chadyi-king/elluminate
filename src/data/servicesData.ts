@@ -656,7 +656,7 @@ export const servicesData: Record<string, ServiceData> = {
       videos: [
         {
           title: "Bali Team Retreat Highlights",
-          videoUrl: "/videos/overseas-retreat-edrington.mp4",
+          videoUrl: "/__l5e/assets-v1/d1bee47e-02d8-4e40-ab94-3ea1bc758e79/overseas-retreat-edrington.mp4",
           thumbnailImage: "/images/services/overseas-retreats/gallery-1.jpg",
         },
         {
