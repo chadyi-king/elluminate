@@ -68,7 +68,7 @@ Use local videos from:
 /videos/amazing-race-decathlon.mp4
 /videos/overseas-retreat-batam.mp4
 /videos/overseas-retreat-bintan.mp4
-/videos/overseas-retreat-edrington.mov
+/videos/overseas-retreat-edrington.mp4
 /videos/overseas-retreat-kuala-lumpur.mp4
 ```
 
