@@ -135,7 +135,7 @@ export const ExpandableActivityCard = ({
         </div>
 
         {/* Content */}
-        <div className="pointer-events-none relative z-40 h-full flex flex-col justify-between p-6 text-white">
+        <div className="relative z-40 h-full flex flex-col justify-between p-6 text-white">
 
           {/* Top section */}
           <div>
