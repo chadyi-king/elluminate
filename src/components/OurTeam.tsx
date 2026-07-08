@@ -7,7 +7,7 @@ const teamMembers = [
   {
     name: "Edmund Sim",
     title: "Director",
-    src: "/image/our_team/edmund.png",
+    image: "/image/our_team/edmund.png",
   },
   {
     name: "Afifah Camut",
