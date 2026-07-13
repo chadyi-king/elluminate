@@ -8471,8 +8471,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Quick Challenges, Big Fun!",
       subtitle:
         "Watch teams race against the clock in a series of exciting 60-second challenges. Speed, skill, and creativity are key to winning in this fast-paced, high-energy game!",
-      videoUrl: "/videos/elluminate-showreel.mp4",
-      thumbnailImage: "/images/services/minute-to-win-it/gallery-2.jpg",
+      videoUrl: "/videos/mtwi.mp4",
+      thumbnailImage: "/images/service-thumbnails/mtwi-tn.png",
     },
     cta: {
       headline: "Ready to Play?",
