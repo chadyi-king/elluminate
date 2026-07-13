@@ -1,105 +1,59 @@
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
-import { Sparkles } from "lucide-react";
 
 export const CTASection = () => {
   const { openContactModal } = useContactModal();
+
   return (
-    <section id="contact" className="py-32 relative overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&h=1080&fit=crop"
-          alt="Corporate event"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-sky-500/90" />
-      </div>
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
-        <div className="absolute bottom-10 right-10 w-48 h-48 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-yellow-300/20 rounded-full blur-2xl" />
-      </div>
+    <section id="contact" className="relative overflow-hidden bg-primary py-24 text-white md:py-32">
+      <img
+        src="/images/services/amazing-race/cta.jpg"
+        alt="Company participants celebrating together at a team-building event"
+        loading="lazy"
+        decoding="async"
+        width={1800}
+        height={1000}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-deep/95 via-primary/90 to-primary/65" />
 
-      {/* Floating icons */}
-      <motion.div
-        className="absolute top-20 right-20 text-white/20"
-        animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-        transition={{ duration: 5, repeat: Infinity }}
-      >
-        <Sparkles className="w-16 h-16" />
-      </motion.div>
-
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container relative z-10 mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto text-center"
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl"
         >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white mb-6"
-          >
-            Let Us <span className="text-yellow-300">Elluminate</span> Your Next Experience
-          </motion.h2>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-white/90 text-xl mb-10"
-          >
-            Tell us your goals, audience, and budget, and we will shape the right format for your workplace, school, class, or student cohort.
-          </motion.p>
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-sky-200">Your event starts here</p>
+          <h2 className="mt-4 font-display text-4xl font-black leading-tight text-white md:text-6xl">
+            Bring us the brief. We will help shape the day.
+          </h2>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/85 md:text-xl">
+            Share your pax, timing, venue preference and event objective. Elluminate will help turn those details into a practical experience direction and quote.
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
-          >
-            <Button 
-              size="xl" 
-              className="bg-white text-primary hover:bg-white/90 font-display font-bold shadow-xl hover:shadow-2xl transition-all duration-300 group" 
-              onClick={openContactModal}
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Button
+              size="xl"
+              onClick={() => openContactModal()}
+              className="w-full bg-white text-primary shadow-xl hover:bg-sky-50 sm:w-auto"
             >
-              <span>Plan My Event</span>
-              <motion.span
-                className="inline-block ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                →
-              </motion.span>
+              Plan My Event
+              <ArrowRight aria-hidden="true" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
+            <Button
+              variant="outline"
+              size="xl"
               asChild
-              className="border-white text-white hover:bg-white/10 font-display font-bold bg-transparent" 
+              className="w-full border-white/60 bg-transparent text-white hover:bg-white hover:text-primary sm:w-auto"
             >
-              <a href="#services">Explore Services</a>
+              <Link to="/services/team-building">Explore Team Building</Link>
             </Button>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-white/70 text-sm font-display"
-          >
-            Expect a response from our team within 24 hours.
-          </motion.p>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 export const DEFAULT_GA4_MEASUREMENT_ID = "G-R4S0RLKQ67";
-export const DEFAULT_GOOGLE_ADS_SEND_TO = "AW-18084927892/JP7bCOTktrscEJSzyK9D";
+export const DEFAULT_GOOGLE_ADS_SEND_TO = "AW-704277198/24mXCJ2Q_s8cEM7V6c8C";
 
 export const getGa4MeasurementId = () =>
   import.meta.env.VITE_GA4_MEASUREMENT_ID?.trim() || DEFAULT_GA4_MEASUREMENT_ID;

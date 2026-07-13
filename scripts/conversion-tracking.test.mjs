@@ -19,7 +19,8 @@ test("site bootstraps a real environment-driven Google tag", () => {
   assert.match(main, /bootstrapGoogleTags\(\)/);
   assert.match(trackingConfig, /VITE_GA4_MEASUREMENT_ID/);
   assert.match(trackingConfig, /G-R4S0RLKQ67/);
-  assert.match(trackingConfig, /AW-18084927892\/JP7bCOTktrscEJSzyK9D/);
+  assert.match(trackingConfig, /AW-704277198\/24mXCJ2Q_s8cEM7V6c8C/);
+  assert.doesNotMatch(trackingConfig, /AW-18084927892/);
   assert.match(googleTag, /googletagmanager\.com\/gtag\/js\?id=/);
   assert.match(trackingConfig, /VITE_GTM_CONTAINER_ID/);
   assert.match(googleTag, /googletagmanager\.com\/gtm\.js\?id=/);
@@ -36,6 +37,9 @@ test("lead conversion helper fires GA4, optional Google Ads, and diagnostics", (
   assert.match(tracking, /gtag\("event", "conversion"/);
   assert.match(tracking, /send_to: googleAdsSendTo/);
   assert.match(tracking, /transaction_id: lead_id/);
+  assert.doesNotMatch(tracking, /DEFAULT_VALUE/);
+  assert.doesNotMatch(tracking, /DEFAULT_CURRENCY/);
+  assert.doesNotMatch(tracking, /value:\s*150/);
   assert.match(tracking, /elluminate_lead_submitted/);
   assert.match(tracking, /elluminate_ads_conversion_not_configured/);
   assert.doesNotMatch(tracking, /dataLayer\.push\(\{\s*event: "generate_lead"/);
@@ -61,7 +65,7 @@ test("shared contact modal tracks only after a successful Supabase insert", () =
 
 test("team building form uses the same post-insert conversion path", () => {
   assert.match(teamBuilding, /trackLeadConversion/);
-  assert.match(teamBuilding, /form_name: "plan_my_event"/);
+  assert.match(teamBuilding, /form_name: "team_building_quote_brief"/);
   assert.match(teamBuilding, /lead_id: submissionId/);
   assert.match(teamBuilding, /brand: "elluminate"/);
   assert.match(teamBuilding, /service: "corporate_physical_team_building"/);
@@ -79,7 +83,8 @@ test("team building form uses the same post-insert conversion path", () => {
 
 test("portfolio CTA uses the shared contact modal conversion path", () => {
   assert.match(portfolioPage, /useContactModal/);
-  assert.match(portfolioPage, /onOpenContact=\{openContactModal\}/);
+  assert.match(portfolioPage, /onOpenContact=\{openPortfolioEnquiry\}/);
+  assert.match(portfolioPage, /openContactModal\(\{/);
   assert.doesNotMatch(portfolioPage, /components\/portfolio\/ContactModal/);
   assert.doesNotMatch(portfolioPage, /setIsContactModalOpen/);
 });

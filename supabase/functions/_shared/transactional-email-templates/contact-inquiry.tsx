@@ -43,7 +43,7 @@ interface ContactInquiryProps {
 
 const Row = ({ label, value }: { label: string; value?: string }) => (
   <Text style={row}>
-    <strong style={rowLabel}>{label}:</strong> {value && value.trim() ? value : '—'}
+    <strong style={rowLabel}>{label}:</strong> {value && value.trim() ? value : 'Not provided'}
   </Text>
 )
 
@@ -58,9 +58,9 @@ const hostFromUrl = (url?: string) => {
 
 const sourceSummary = (p: ContactInquiryProps) => {
   if (p.gclid) return 'Google Ads (paid click)'
-  if (p.utm_source) return `${p.utm_source}${p.utm_medium ? ` / ${p.utm_medium}` : ''}${p.utm_campaign ? ` — ${p.utm_campaign}` : ''}`
+  if (p.utm_source) return `${p.utm_source}${p.utm_medium ? ` / ${p.utm_medium}` : ''}${p.utm_campaign ? ` - ${p.utm_campaign}` : ''}`
   const refHost = hostFromUrl(p.referrer)
-  if (refHost) return `Referral — ${refHost}`
+  if (refHost) return `Referral - ${refHost}`
   return 'Direct / Organic'
 }
 
@@ -78,7 +78,7 @@ const parseUA = (ua?: string) => {
   else if (/Chrome\//i.test(ua) && !/Chromium/i.test(ua)) browser = 'Chrome'
   else if (/Firefox\//i.test(ua)) browser = 'Firefox'
   else if (/Safari\//i.test(ua) && !/Chrome\//i.test(ua)) browser = 'Safari'
-  return `${device} · ${browser}`
+  return `${device} / ${browser}`
 }
 
 const formatSGTime = (iso?: string) => {
@@ -97,7 +97,7 @@ const formatSGTime = (iso?: string) => {
 const ContactInquiryEmail = (props: ContactInquiryProps) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>New inquiry from {props.name ?? 'a website visitor'} — {sourceSummary(props)}</Preview>
+    <Preview>New inquiry from {props.name ?? 'a website visitor'} - {sourceSummary(props)}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>New {SITE_NAME} Inquiry</Heading>
@@ -165,7 +165,7 @@ const ContactInquiryEmail = (props: ContactInquiryProps) => (
 export const template = {
   component: ContactInquiryEmail,
   subject: (data: Record<string, any>) =>
-    `New Inquiry — ${data.name ?? 'Website Lead'}${data.organisation ? ` (${data.organisation})` : ''}`,
+    `New Inquiry - ${data.name ?? 'Website Lead'}${data.organisation ? ` (${data.organisation})` : ''}`,
   displayName: 'Contact form inquiry',
   previewData: {
     name: 'Jane Tan',

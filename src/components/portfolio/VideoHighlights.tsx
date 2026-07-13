@@ -1,173 +1,171 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Play, X } from "lucide-react";
 
-const videos = [
-  { id: 1, title: "2024 Showreel", thumbnail: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80", isMain: true, videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-  { id: 2, title: "Tech Summit 2024", thumbnail: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80", isMain: false, videoUrl: "" },
-  { id: 3, title: "Annual Gala Night", thumbnail: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80", isMain: false, videoUrl: "" },
-  { id: 4, title: "Team Building Retreat", thumbnail: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80", isMain: false, videoUrl: "" },
-  { id: 5, title: "Product Launch Event", thumbnail: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80", isMain: false, videoUrl: "" },
-  { id: 6, title: "Awards Ceremony", thumbnail: "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800&q=80", isMain: false, videoUrl: "" },
-  { id: 7, title: "Festival Experience", thumbnail: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80", isMain: false, videoUrl: "" },
+const videoHighlights = [
+  {
+    title: "Amazing Race",
+    description: "Outdoor checkpoints, challenges and team movement.",
+    poster: "/images/service-thumbnails/amazing-race-tn.png",
+    videoUrl: "/__l5e/assets-v1/778352aa-d8b6-4254-8c08-e3b86209a00f/amazing-race.mp4",
+  },
+  {
+    title: "CSI-Bones",
+    description: "An indoor investigation built around shared clues.",
+    poster: "/images/services/csi-bones/gallery-1.jpg",
+    videoUrl: "/__l5e/assets-v1/0acf8c9d-f343-4b78-a415-59aed72619c2/csi-bones.mp4",
+  },
+  {
+    title: "Builder Cross",
+    description: "Hands-on planning, construction and collaboration.",
+    poster: "/images/service-thumbnails/builders-cross-tn.jpg",
+    videoUrl: "/__l5e/assets-v1/907ab204-8b56-4c6b-bfd9-48f917586db7/builders-cross.mp4",
+  },
+  {
+    title: "Monopoly Dash",
+    description: "Route choices and strategy in an outdoor format.",
+    poster: "/images/service-thumbnails/monopoly-dash-tn.jpg",
+    videoUrl: "/__l5e/assets-v1/0199ba31-5e1b-4891-b4af-d271f59a62dc/monopoly-dash.mp4",
+  },
+  {
+    title: "Running Man",
+    description: "Facilitated station challenges with an active pace.",
+    poster: "/images/service-thumbnails/running-man-tn.png",
+    videoUrl: "/__l5e/assets-v1/1f7d858a-40c7-493e-ad1d-b239c73cc6fe/running-man.mp4",
+  },
+  {
+    title: "Sotong Game",
+    description: "A sequence of accessible multi-stage challenges.",
+    poster: "/images/service-thumbnails/sotong-game-tn.jpg",
+    videoUrl: "/__l5e/assets-v1/9ec7b422-594f-44fd-9abc-6ff7b15f0413/sotong-game.mp4",
+  },
+  {
+    title: "Minute To Win It",
+    description: "Quick competitive rounds for broad participation.",
+    poster: "/images/service-thumbnails/mtwi-tn.png",
+    videoUrl: "/videos/mtwi.mp4",
+  },
+  {
+    title: "Overseas Retreat",
+    description: "Team time and shared experiences beyond Singapore.",
+    poster: "/images/services/overseas-retreats/gallery-2.jpg",
+    videoUrl: "/videos/overseas-retreat-bintan.mp4",
+  },
 ];
 
-export const VideoHighlights = () => {
-  const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
+type VideoHighlight = (typeof videoHighlights)[number];
 
-  const mainVideo = videos.find((v) => v.isMain);
-  const otherVideos = videos.filter((v) => !v.isMain);
+export const VideoHighlights = () => {
+  const [selectedVideo, setSelectedVideo] = useState<VideoHighlight | null>(null);
+
+  useEffect(() => {
+    if (!selectedVideo) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedVideo(null);
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [selectedVideo]);
 
   return (
-    <section className="py-20 relative">
-      {/* Background */}
-      <div className="absolute inset-0 bg-background-deep">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-[0.05]"
-          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920)` }}
-        />
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
-            Video Highlights
-          </h2>
-          <motion.div 
-            className="w-24 h-0.5 mx-auto"
-            style={{ background: "linear-gradient(90deg, transparent, hsl(43 65% 52%), transparent)" }}
-          />
-        </motion.div>
-
-        {/* Main Video */}
-        {mainVideo && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="mb-8"
-          >
-            <div
-              onClick={() => setSelectedVideo(mainVideo.id)}
-              className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group"
-            >
-              <img
-                src={mainVideo.thumbnail}
-                alt={mainVideo.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-              
-              {/* Play button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  className="w-20 h-20 rounded-full bg-primary flex items-center justify-center"
-                  style={{ boxShadow: "0 0 40px hsl(43 65% 52% / 0.5)" }}
-                >
-                  <Play className="w-8 h-8 text-black ml-1" fill="currentColor" />
-                </motion.div>
-              </div>
-
-              {/* Title */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent">
-                <h3 className="text-2xl font-display font-bold text-white">{mainVideo.title}</h3>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Video Carousel */}
-        <div className="overflow-x-auto pb-4 -mx-6 px-6">
-          <div className="flex gap-4" style={{ minWidth: "max-content" }}>
-            {otherVideos.map((video, index) => (
-              <motion.div
-                key={video.id}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                onClick={() => setSelectedVideo(video.id)}
-                className="relative w-64 aspect-video rounded-lg overflow-hidden cursor-pointer group flex-shrink-0"
-              >
-                <img
-                  src={video.thumbnail}
-                  alt={video.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-                
-                {/* Play button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity"
-                  >
-                    <Play className="w-5 h-5 text-black ml-0.5" fill="currentColor" />
-                  </motion.div>
-                </div>
-
-                {/* Title */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black to-transparent">
-                  <h4 className="text-sm font-medium text-white">{video.title}</h4>
-                </div>
-              </motion.div>
-            ))}
+    <section className="bg-secondary/35 py-20 sm:py-24">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">See the events move</p>
+            <h2 className="mt-4 font-display text-3xl font-black leading-tight text-foreground sm:text-5xl">
+              Watch the Elluminate showreel.
+            </h2>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground">
+              Photos show the setup. Video shows the pace, facilitation and way people actually take part.
+            </p>
           </div>
+
+          <div className="overflow-hidden rounded-2xl border border-border bg-foreground shadow-xl">
+            <video
+              className="aspect-video w-full bg-foreground object-cover"
+              controls
+              playsInline
+              preload="metadata"
+              poster="/images/services/amazing-race/hero.jpg"
+              aria-label="Elluminate team-building event showreel"
+            >
+              <source src="/videos/elluminate-showreel.mp4" type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
+          </div>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {videoHighlights.map((video) => (
+            <button
+              key={video.title}
+              type="button"
+              onClick={() => setSelectedVideo(video)}
+              className="group overflow-hidden rounded-2xl border border-border bg-background text-left shadow-sm transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-blue focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4"
+              aria-label={`Play ${video.title} event video`}
+            >
+              <span className="relative block aspect-video overflow-hidden bg-foreground">
+                <img
+                  src={video.poster}
+                  alt=""
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  width={640}
+                  height={360}
+                  loading="lazy"
+                />
+                <span className="absolute inset-0 bg-foreground/30 transition group-hover:bg-foreground/18" />
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition group-hover:scale-105">
+                    <Play className="ml-0.5 h-5 w-5 fill-current" />
+                  </span>
+                </span>
+              </span>
+              <span className="block p-5">
+                <span className="block font-display text-lg font-black text-foreground">{video.title}</span>
+                <span className="mt-2 block text-sm leading-6 text-muted-foreground">{video.description}</span>
+              </span>
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* Video Modal */}
-      <AnimatePresence>
-        {selectedVideo !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedVideo(null)}
-          >
+      {selectedVideo ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedVideo.title} video`}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/95 p-4 sm:p-8"
+          onMouseDown={(event) => {
+            if (event.currentTarget === event.target) setSelectedVideo(null);
+          }}
+        >
+          <div className="relative w-full max-w-5xl">
             <button
+              type="button"
               onClick={() => setSelectedVideo(null)}
-              className="absolute top-4 right-4 p-2 text-white hover:text-primary transition-colors"
+              className="absolute -top-14 right-0 flex h-11 w-11 items-center justify-center rounded-full border border-background/20 text-background transition hover:bg-background/10 focus:outline-none focus:ring-2 focus:ring-primary"
+              aria-label="Close video"
             >
-              <X className="w-8 h-8" />
+              <X className="h-5 w-5" />
             </button>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="max-w-4xl w-full aspect-video bg-black rounded-lg overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
+            <video
+              key={selectedVideo.videoUrl}
+              className="aspect-video w-full rounded-2xl bg-foreground object-contain shadow-2xl"
+              controls
+              autoPlay
+              playsInline
+              preload="metadata"
+              poster={selectedVideo.poster}
             >
-              {videos.find((v) => v.id === selectedVideo)?.videoUrl ? (
-                <iframe
-                  src={videos.find((v) => v.id === selectedVideo)?.videoUrl}
-                  className="w-full h-full"
-                  allowFullScreen
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <Play className="w-16 h-16 text-primary mx-auto mb-4" />
-                    <p className="text-white/70">Video coming soon</p>
-                    <p className="text-primary text-sm mt-2">
-                      {videos.find((v) => v.id === selectedVideo)?.title}
-                    </p>
-                  </div>
-                </div>
-              )}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <source src={selectedVideo.videoUrl} type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
+            <p className="mt-4 font-display text-xl font-black text-background">{selectedVideo.title}</p>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 };

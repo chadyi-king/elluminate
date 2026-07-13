@@ -12,6 +12,8 @@ const corsHeaders = {
 const SENDER_DOMAIN = 'notify.elluminate.sg'
 const FROM_DOMAIN = 'elluminate.sg'
 const FROM_NAME = 'Elluminate'
+const DEFAULT_CONTACT_NOTIFICATION_EMAIL = 'info@elluminate.sg'
+const EMAIL_ADDRESS_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 interface SendRequest {
   templateName: string
@@ -58,13 +60,29 @@ function formatExpectedDate(iso?: string | null) {
   }
 }
 
+function getContactNotificationEmail() {
+  const configuredEmail = Deno.env.get('CONTACT_NOTIFICATION_EMAIL')?.trim().toLowerCase()
+  if (!configuredEmail) return DEFAULT_CONTACT_NOTIFICATION_EMAIL
+
+  if (!EMAIL_ADDRESS_PATTERN.test(configuredEmail)) {
+    console.error('Invalid CONTACT_NOTIFICATION_EMAIL; using the default contact inbox')
+    return DEFAULT_CONTACT_NOTIFICATION_EMAIL
+  }
+
+  return configuredEmail
+}
+
 function buildPublicTemplateData(
   templateName: string,
   row: Record<string, any>,
+  contactNotificationEmail: string,
 ): { recipientEmail: string; replyTo?: string; templateData: Record<string, any> } {
+  const leadEmail = String(row.email).trim().toLowerCase()
+
   if (templateName === 'contact-confirmation') {
     return {
-      recipientEmail: String(row.email),
+      recipientEmail: leadEmail,
+      replyTo: contactNotificationEmail,
       templateData: { name: row.name },
     }
   }
@@ -101,8 +119,8 @@ function buildPublicTemplateData(
     submitted_at: formatSubmittedAt(row.created_at),
   }
   return {
-    recipientEmail: 'info@exstatic.one',
-    replyTo: String(row.email),
+    recipientEmail: contactNotificationEmail,
+    replyTo: leadEmail,
     templateData: td,
   }
 }
@@ -241,7 +259,11 @@ Deno.serve(async (req) => {
     if (rowErr || !row) {
       return json({ error: 'Submission not found' }, 404)
     }
-    const derived = buildPublicTemplateData(templateName, row)
+    const derived = buildPublicTemplateData(
+      templateName,
+      row,
+      getContactNotificationEmail(),
+    )
     effectiveRecipient = derived.recipientEmail
     effectiveTemplateData = derived.templateData
     effectiveReplyTo = derived.replyTo

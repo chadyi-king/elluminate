@@ -23,13 +23,13 @@ interface ContactConfirmationProps {
 const ContactConfirmationEmail = ({ name }: ContactConfirmationProps) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>Thanks for reaching out to {SITE_NAME} — we'll be in touch shortly.</Preview>
+    <Preview>Thanks for reaching out to {SITE_NAME}. We have received your enquiry.</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}>{name ? `Thanks, ${name}!` : "Thanks for reaching out!"}</Heading>
         <Text style={lead}>
-          We've received your message and our team will be in touch within <strong>1 business day</strong> with next
-          steps and ideas tailored to your event.
+          We've received your message. Our team will review your event details and follow up with helpful next steps
+          and ideas for your event.
         </Text>
 
         <Section style={card}>
@@ -44,13 +44,13 @@ const ContactConfirmationEmail = ({ name }: ContactConfirmationProps) => (
 
         <Hr style={hr} />
         <Text style={footer}>
-          Need to reach us sooner? Reply to this email or write to{" "}
+          You can reply to this email or write to{" "}
           <a href="mailto:info@elluminate.sg" style={link}>
             info@elluminate.sg
           </a>
           .
         </Text>
-        <Text style={signoff}>— The {SITE_NAME} Team</Text>
+        <Text style={signoff}>- The {SITE_NAME} Team</Text>
       </Container>
     </Body>
   </Html>
@@ -58,7 +58,7 @@ const ContactConfirmationEmail = ({ name }: ContactConfirmationProps) => (
 
 export const template = {
   component: ContactConfirmationEmail,
-  subject: "We received your inquiry — Elluminate",
+  subject: "We received your enquiry - Elluminate",
   displayName: "Contact form auto-reply",
   previewData: { name: "Jane" },
 } satisfies TemplateEntry;

@@ -1,361 +1,103 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import {
-  Flag,
-  Globe,
-  Target,
-  Monitor,
-  BookOpen,
-  Sparkles,
-  Timer,
-  Footprints,
-  Users,
-  Skull,
-  Brain,
-  GraduationCap,
-  Ghost,
-  Rabbit,
-  Crown,
-  Plane,
-  Building,
-  Award,
-  Heart,
-  Briefcase,
-} from "lucide-react";
-import { ExpandableActivityCard } from "./ExpandableActivityCard";
-import { WaveDivider } from "./WaveDivider";
-import { FloatingBlobs } from "./FloatingBlobs";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-import heroAmazingRace from "@/assets/hero/amazing-race.jpg";
-import heroCreativeWorkshop from "@/assets/hero/creative-workshop.jpg";
-import heroCsiInvestigation from "@/assets/hero/csi-investigation.jpg";
-import heroAdventureChallenge from "@/assets/hero/adventure-challenge.jpg";
-import heroTeamCelebration from "@/assets/hero/team-celebration.jpg";
-import heroCulturalRace from "@/assets/hero/cultural-race.jpg";
-import heroOverseasRetreat from "@/assets/hero/overseas-retreat.jpg";
-
-const activityColors = {
-  amazingRace: "#FFC400",
-  csiInvestigation: "#26D07C",
-  culturalRace: "#FF4F4F",
-  archeryLaserTag: "#2A8DFF",
-  creativeWorkshops: "#A768FF",
-  wellness: "#62E2C4",
-  adventureRaces: "#FF8A3D",
-  mystery: "#8B5CF6",
-  action: "#F97316",
-};
-
-const allActivities = [
+const serviceLanes = [
   {
-    name: "Amazing Race",
-    icon: Flag,
-    slug: "amazing-race",
-    color: activityColors.amazingRace,
+    title: "Team Building",
     description:
-      "Exciting city-wide treasure hunts with challenges and puzzles that test teamwork and problem-solving.",
-    stats: "300+ Amazing Races organized",
-    clients: "For Google, DBS, Shopee, and more",
-    image: "/images/services/amazing-race/hero.jpg",
-    tag: "Physical",
+      "Physical, indoor, outdoor and virtual formats planned around your group, venue and reason for bringing people together.",
+    image: "/images/services/amazing-race/gallery-5.jpg",
+    alt: "Participants collaborating during an Elluminate team-building event",
+    href: "/services/team-building",
+    linkLabel: "Explore team building",
+    layout: "lg:col-span-7",
   },
   {
-    name: "CSI-Bones",
-    icon: Skull,
-    slug: "csi-bones",
-    color: activityColors.csiInvestigation,
+    title: "Retreats & Offsites",
     description:
-      "Forensic investigation experience where teams solve mysteries using clues, evidence, and deduction skills.",
-    stats: "150+ CSI events delivered",
-    clients: "Popular with banks, schools, and tech companies",
-    image: "/images/services/csi-bones/hero.jpg",
-    tag: "Physical",
+      "Local and overseas programmes that connect the itinerary, team moments and event logistics into one coherent experience.",
+    image: "/images/services/overseas-retreats/gallery-1.jpg",
+    alt: "Company group on an overseas retreat",
+    href: "/services/overseas-retreats",
+    linkLabel: "Explore retreats",
+    layout: "lg:col-span-5",
   },
   {
-    name: "Cultural Race",
-    icon: Globe,
-    slug: "cultural-race",
-    color: activityColors.culturalRace,
-    description: "Explore Singapore's rich heritage through interactive challenges in historic districts.",
-    stats: "200+ Cultural Races completed",
-    clients: "Perfect for multinational teams and student groups",
-    image:
-      "/images/services/amazing-race/hero.jpg",
-    tag: "Physical",
-  },
-  {
-    name: "Amongst Us",
-    icon: Ghost,
-    slug: "amongst-us",
-    color: activityColors.mystery,
+    title: "Training & Workshops",
     description:
-      "A live social-deduction concept where your group hunts for the imposters before the room turns on itself.",
-    stats: "80+ games played",
-    clients: "Popular for workplaces, camps, and student leaders",
-    image: "/images/services/amongst-us/hero.jpg",
-    tag: "Physical",
-  },
-  {
-    name: "Alice in Motherland",
-    icon: Rabbit,
-    slug: "alice-in-motherland",
-    color: activityColors.creativeWorkshops,
-    description:
-      "A whimsical, story-led journey packed with themed stations, playful puzzles, and immersive team moments.",
-    stats: "40+ experiences created",
-    clients: "Loved by creative brands, schools, and curated events",
-    image: "/images/services/monopoly-dash/hero.jpg",
-    tag: "Physical",
-  },
-  {
-    name: "Battle of the Olympians",
-    icon: Crown,
-    slug: "battle-of-the-olympians",
-    color: activityColors.amazingRace,
-    description: "An epic competition format that blends athletic rounds, mental games, and all-out team pride.",
-    stats: "40+ battles fought",
-    clients: "Built for large cohorts, schools, and full-company showdowns",
-    image: "/images/services/battle-of-the-olympians/hero.jpg",
-    tag: "Physical",
-  },
-  {
-    name: "Archery Tag",
-    icon: Target,
-    slug: "archery-tag",
-    color: activityColors.archeryLaserTag,
-    description: "Action-packed archery battles that sharpen team strategy, communication, and fast decision-making.",
-    stats: "120+ archery events",
-    clients: "Great for competitive teams and student cohorts",
-    image: "/images/services/archery-tag/hero.jpg",
-    tag: "Physical",
-  },
-  {
-    name: "Minute to Win It",
-    icon: Timer,
-    slug: "minute-to-win-it",
-    color: activityColors.action,
-    description: "Fast-paced one-minute challenges that bring out competitive spirit and lots of laughter.",
-    stats: "200+ events hosted",
-    clients: "Perfect for D&D, schools, and celebrations",
-    image: "/images/services/minute-to-win-it/hero.jpg",
-    tag: "Physical",
-  },
-  {
-    name: "Running Man Adventure",
-    icon: Footprints,
-    slug: "running-man",
-    color: activityColors.culturalRace,
-    description: "Korean Running Man-inspired games with name tag ripping, missions, and hilarious challenges.",
-    stats: "120+ adventures ran",
-    clients: "Popular with K-culture fans and youth groups",
-    image: "/images/services/running-man/hero.jpg",
-    tag: "Physical",
-  },
-  {
-    name: "Amazing Race Virtual",
-    icon: Monitor,
-    slug: "amazing-race-virtual",
-    color: activityColors.csiInvestigation,
-    description:
-      "A remote-friendly Amazing Race experience that keeps distributed teams engaged through live digital challenges.",
-    stats: "150+ virtual races",
-    clients: "Global teams and hybrid cohorts",
-    image: "/images/services/amazing-race-virtual/hero.jpg",
-    tag: "Virtual",
-  },
-  {
-    name: "Gameshow Experience",
-    icon: Sparkles,
-    slug: "the-gameshow-experience-virtual",
-    color: activityColors.mystery,
-    description:
-      "An interactive online game show format designed for fast laughs, remote participation, and easy engagement.",
-    stats: "120+ virtual game shows",
-    clients: "Distributed teams worldwide",
-    image: "/images/services/the-gameshow-experience-virtual/hero.jpg",
-    tag: "Virtual",
-  },
-  {
-    name: "Overseas Retreats",
-    icon: Plane,
-    slug: "overseas-retreats",
-    color: activityColors.adventureRaces,
-    description:
-      "Retreat experiences designed for deeper connection, offsite focus, and shared momentum outside the usual setting.",
-    stats: "Regional retreats across Asia",
-    clients: "Leadership teams, departments, and top performers",
-    image: "/images/services/overseas-retreats/hero.jpg",
-    tag: "Retreat",
-  },
-  {
-    name: "Local Retreats",
-    icon: Building,
-    slug: "local-retreats",
-    color: activityColors.wellness,
-    description:
-      "Three tiers of Singapore hotel retreats — Staycation, Heritage, or Luxury — designed to reward your team without leaving the island.",
-    stats: "Staycation, Heritage & Luxury tiers",
-    clients: "Whole-staff, leadership teams, and top performers",
-    image: "/images/services/overseas-retreats/hero.jpg",
-    tag: "Retreat",
-  },
-  {
-    name: "Incentive Travel",
-    icon: Award,
-    slug: "incentive-travel",
-    color: activityColors.amazingRace,
-    description:
-      "Reward-based travel programmes for top performers — fully managed from criteria design to on-ground execution and post-trip recognition.",
-    stats: "Regional & long-haul programmes",
-    clients: "Sales teams, top earners, and leadership cohorts",
-    image: "/images/services/overseas-retreats/hero.jpg",
-    tag: "Retreat",
-  },
-  {
-    name: "Workshops",
-    icon: BookOpen,
-    slug: "workshops",
-    color: activityColors.creativeWorkshops,
-    description:
-      "Interactive learning sessions built around communication, collaboration, leadership, and team development.",
-    stats: "150+ training programmes",
-    clients: "MNCs, public sector teams, and schools",
+      "Facilitated sessions for communication, collaboration, leadership and practical team development.",
     image: "/images/services/workshops/hero.jpg",
-    tag: "Training",
+    alt: "Participants taking part in a facilitated company workshop",
+    href: "/services/workshops",
+    linkLabel: "Explore training",
+    layout: "lg:col-span-5",
   },
   {
-    name: "MBTI Profiling",
-    icon: Users,
-    slug: "mbti",
-    color: activityColors.wellness,
+    title: "Company Experiences",
     description:
-      "A practical profiling workshop that helps teams understand personality differences and work better together.",
-    stats: "100+ profiling sessions",
-    clients: "Leadership, HR, and student leaders",
-    image: "/images/services/mbti/hero.jpg",
-    tag: "Training",
-  },
-  {
-    name: "DISC Assessment",
-    icon: Brain,
-    slug: "disc",
-    color: activityColors.archeryLaserTag,
-    description:
-      "A practical behavioural profiling session that helps teams communicate better and collaborate more effectively.",
-    stats: "80+ DISC sessions",
-    clients: "Managers, schools, and leadership teams",
-    image: "/images/services/disc/hero.jpg",
-    tag: "Training",
-  },
-  {
-    name: "Youth Camps",
-    icon: GraduationCap,
-    slug: "youth-camps",
-    color: activityColors.wellness,
-    description:
-      "High-energy school and youth experiences designed for bonding, leadership, and memorable cohort moments.",
-    stats: "120+ school and youth programmes",
-    clients: "Schools, student leaders, and youth groups",
-    image: "/images/services/youth-camps/hero.jpg",
-    tag: "School",
-  },
-  {
-    name: "Wellness Events",
-    icon: Heart,
-    slug: "wellness-events",
-    color: activityColors.wellness,
-    description: "Corporate wellness days that combine movement, mindfulness, and nutrition into a shared team reset.",
-    stats: "Mind, body & spirit formats",
-    clients: "HR teams, leadership groups, and whole-staff",
-    image: "/images/services/wellness-events/hero.jpg",
-    tag: "Training",
-  },
-  {
-    name: "Leadership Offsites",
-    icon: Briefcase,
-    slug: "leadership-offsites",
-    color: activityColors.archeryLaserTag,
-    description:
-      "Focused offsite experiences for senior teams — blending strategy facilitation, team alignment, and premium hospitality.",
-    stats: "1.5 to 3-day programmes",
-    clients: "C-suite, directors, and management teams",
-    image: "/images/services/wellness-events/hero.jpg",
-    tag: "Training",
+      "Large-group moments, celebrations and event concepts shaped around the programme, audience and setting.",
+    image: "/images/services/corporate-days/hero.jpg",
+    alt: "A company experience delivered for a large group",
+    href: "/portfolio",
+    linkLabel: "See our event work",
+    layout: "lg:col-span-7",
   },
 ];
 
-export const ServicesSection = () => {
-  const [activeCard, setActiveCard] = useState<string | null>(null);
+export const ServicesSection = () => (
+  <section id="services" className="bg-white py-20 md:py-28">
+    <div className="container mx-auto px-6">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55 }}
+        className="mx-auto mb-12 max-w-3xl text-center md:mb-16"
+      >
+        <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">What we plan</p>
+        <h2 className="mt-4 font-display text-3xl font-black text-foreground md:text-5xl">
+          Start with the kind of experience you need.
+        </h2>
+        <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+          You do not need to arrive with an activity name. Start with your team and event goal, then we will help shape the right direction.
+        </p>
+      </motion.div>
 
-  return (
-    <section id="services" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-primary/[0.03] to-primary/5" />
-      <FloatingBlobs opacity={0.06} />
-      <WaveDivider variant="top" className="z-10" />
-
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <motion.span
-            className="text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block"
-            initial={{ opacity: 0, letterSpacing: "0.1em" }}
-            whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
+      <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-12">
+        {serviceLanes.map((service, index) => (
+          <motion.article
+            key={service.title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.06 }}
+            className={`group relative min-h-[340px] overflow-hidden rounded-lg bg-slate-950 ${service.layout}`}
           >
-            What We Do
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-6">
-            Team Building, Retreats & <span className="text-primary">Training</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Explore physical team building, virtual team building, retreats, and training formats clients, schools, and
-            student groups book us for most.
-          </p>
-          <p className="text-muted-foreground/70 max-w-3xl mx-auto text-sm mt-4">
-            The mix below makes the offer clearer at a glance, while keeping your most distinctive experiences front and
-            centre.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {allActivities.map((activity, index) => (
-            <motion.div
-              key={activity.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.03 }}
-            >
-              <ExpandableActivityCard
-                name={activity.name}
-                icon={activity.icon}
-                slug={activity.slug}
-                color={activity.color}
-                description={activity.description}
-                stats={activity.stats}
-                clients={activity.clients}
-                image={activity.image}
-                tag={activity.tag}
-                isActive={activeCard === activity.slug}
-                onActivate={() => setActiveCard(activity.slug)}
-                onDeactivate={() =>
-                  setActiveCard((currentCard) =>
-                    currentCard === activity.slug ? null : currentCard
-                  )
-                }
-              />
-            </motion.div>
-          ))}
-        </div>
+            <img
+              src={service.image}
+              alt={service.alt}
+              loading="lazy"
+              decoding="async"
+              width={1200}
+              height={800}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-8">
+              <h3 className="font-display text-2xl font-black text-white md:text-3xl">{service.title}</h3>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/80 md:text-base">{service.description}</p>
+              <Link
+                to={service.href}
+                className="mt-5 inline-flex items-center gap-2 font-semibold text-sky-300 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                {service.linkLabel}
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </motion.article>
+        ))}
       </div>
-
-      <WaveDivider variant="bottom" className="z-10" />
-    </section>
-  );
-};
+    </div>
+  </section>
+);

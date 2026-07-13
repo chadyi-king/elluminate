@@ -1,99 +1,87 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
-import { useRef, useState } from "react";
-import showreelThumbnail from "@/assets/elluminate-showreel-thumbnail.png.asset.json";
+import { useEffect, useRef, useState } from "react";
+
+const showreelPoster = "/images/services/amazing-race/gallery-1.jpg";
 
 export const VideoSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  const handlePlay = () => {
-    setIsPlaying(true);
-
-    // Wait for the video element to mount, then play it
-    setTimeout(() => {
-      videoRef.current?.play().catch((err) => {
-        console.error("Video play failed:", err);
-      });
-    }, 50);
-  };
+  useEffect(() => {
+    if (!isPlaying) return;
+    videoRef.current?.play().catch(() => {
+      setIsPlaying(false);
+    });
+  }, [isPlaying]);
 
   return (
-    <section className="py-16 relative overflow-hidden bg-gradient-to-b from-background via-secondary/20 to-background">
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-10"
-        >
-          <span className="text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
-            See Us In Action
-          </span>
-          <h2 className="text-3xl md:text-4xl font-display font-black text-foreground">
-            Watch How We Bring{" "}
-            <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
-              Teams Together
-            </span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mt-4 text-base md:text-lg">
-            A quick look at the energy, facilitation, and production style behind Elluminate experiences.
-          </p>
-        </motion.div>
+    <section className="bg-secondary/25 py-20 md:py-24">
+      <div className="container mx-auto px-6">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">See the work</p>
+            <h2 className="mt-4 font-display text-3xl font-black leading-tight text-foreground md:text-5xl">
+              Real teams. Real venues. Real event energy.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+              The best way to understand an Elluminate experience is to see people inside it. This showreel brings together moments from activities and company events delivered by the team.
+            </p>
+            <p className="mt-5 border-l-2 border-primary pl-4 text-sm leading-relaxed text-muted-foreground">
+              Event footage includes work delivered under Team Elevate and Elluminate by EXSTATIC PTE LTD.
+            </p>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
-        >
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-border">
-            {!isPlaying ? (
-              <>
-                <div
-                  className="absolute inset-0 bg-center bg-cover bg-no-repeat flex items-center justify-center"
-                  style={{
-                    backgroundImage: `url("${showreelThumbnail.url}")`,
-                  }}
-                >
-                  <div className="absolute inset-0 bg-black/50" />
-
-                  <div className="relative z-10 text-center text-white pointer-events-none">
-                    <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }}>
-                      <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-6">
-                        <Play className="w-10 h-10 text-white ml-1" />
-                      </div>
-                    </motion.div>
-
-                    <h3 className="text-2xl md:text-3xl font-display font-bold mb-2 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                      Elluminate Showreel
-                    </h3>
-
-                    <p className="text-white text-sm md:text-base font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-                      1,000+ Events | 100,000+ Participants | 8+ Years
-                    </p>
-                  </div>
-                </div>
-
-                <button onClick={handlePlay} className="absolute inset-0 z-20 w-full h-full" aria-label="Play video" />
-              </>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="relative aspect-video overflow-hidden rounded-lg bg-slate-950 shadow-2xl"
+          >
+            {isPlaying ? (
+              <video
+                ref={videoRef}
+                className="h-full w-full object-cover"
+                controls
+                playsInline
+                preload="metadata"
+                poster={showreelPoster}
+              >
+                <source src="/videos/elluminate-showreel.mp4" type="video/mp4" />
+              </video>
             ) : (
-              <div className="absolute inset-0">
-                <video
-                  ref={videoRef}
-                  className="w-full h-full object-cover"
-                  controls
-                  playsInline
-                  poster={showreelThumbnail.url}
-                >
-                  <source src="/videos/elluminate-showreel.mp4" type="video/mp4" />
-                </video>
-              </div>
+              <button
+                type="button"
+                onClick={() => setIsPlaying(true)}
+                className="group absolute inset-0 h-full w-full focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary focus-visible:ring-inset"
+                aria-label="Play the Elluminate event showreel"
+              >
+                <img
+                  src={showreelPoster}
+                  alt="Preview of the Elluminate event showreel"
+                  className="h-full w-full object-cover"
+                  width={1280}
+                  height={720}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="absolute inset-0 bg-slate-950/45 transition-colors group-hover:bg-slate-950/35" />
+                <span className="absolute inset-0 flex flex-col items-center justify-center text-white">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-xl transition-transform group-hover:scale-105 md:h-20 md:w-20">
+                    <Play className="ml-1 h-7 w-7 fill-current md:h-8 md:w-8" aria-hidden="true" />
+                  </span>
+                  <span className="mt-4 font-display text-base font-bold md:text-lg">Watch the showreel</span>
+                </span>
+              </button>
             )}
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

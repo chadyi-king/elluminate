@@ -4,8 +4,6 @@ import { getGoogleAdsSendTo } from "@/lib/trackingConfig";
 const DEFAULT_FORM_NAME = "plan_my_event";
 const DEFAULT_BRAND = "elluminate";
 const DEFAULT_SERVICE = "corporate_physical_team_building";
-const DEFAULT_VALUE = 150;
-const DEFAULT_CURRENCY = "SGD";
 
 type DataLayerItem = Record<string, unknown> | IArguments;
 
@@ -52,8 +50,8 @@ export function buildLeadConversionPayload(input: LeadConversionInput) {
     form_name: input.form_name ?? DEFAULT_FORM_NAME,
     brand: input.brand ?? DEFAULT_BRAND,
     service: input.service ?? DEFAULT_SERVICE,
-    value: input.value ?? DEFAULT_VALUE,
-    currency: input.currency ?? DEFAULT_CURRENCY,
+    value: input.value,
+    currency: input.value !== undefined ? input.currency : undefined,
     lead_id,
     transaction_id: lead_id,
     event_category: input.event_category,
@@ -66,8 +64,6 @@ export function trackLeadConversion(input: LeadConversionInput) {
   if (typeof window === "undefined") return;
 
   const lead_id = input.lead_id;
-  const value = input.value ?? DEFAULT_VALUE;
-  const currency = input.currency ?? DEFAULT_CURRENCY;
   const googleAdsSendTo = getGoogleAdsSendTo();
   const w = window as TrackingWindow;
   const leadPayload = buildLeadConversionPayload(input);
@@ -94,8 +90,6 @@ export function trackLeadConversion(input: LeadConversionInput) {
   if (googleAdsSendTo && typeof w.gtag === "function") {
     w.gtag("event", "conversion", {
       send_to: googleAdsSendTo,
-      value,
-      currency,
       transaction_id: lead_id,
     });
     return;

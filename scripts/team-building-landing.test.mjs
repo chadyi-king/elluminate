@@ -2,187 +2,106 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 
-const page = readFileSync("src/pages/TeamBuildingHubPage.tsx", "utf8");
-const app = readFileSync("src/App.tsx", "utf8");
-const navbar = readFileSync("src/components/Navbar.tsx", "utf8");
-const thankYou = readFileSync("src/pages/ThankYouPage.tsx", "utf8");
-const prerenderSeo = readFileSync("scripts/prerender-seo.mjs", "utf8");
-const sitemap = readFileSync("public/sitemap.xml", "utf8");
+const read = (path) => readFileSync(path, "utf8");
+const page = read("src/pages/TeamBuildingHubPage.tsx");
+const app = read("src/App.tsx");
+const navbar = read("src/components/Navbar.tsx");
+const tracking = read("src/lib/tracking.ts");
+const trackingConfig = read("src/lib/trackingConfig.ts");
+const structuredData = read("src/components/StructuredData.tsx");
+const prerenderSeo = read("scripts/prerender-seo.mjs");
+const sitemap = read("public/sitemap.xml");
 
-const normalize = (value) => value.replace(/\s+/g, " ");
-const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-test("team building route is declared before generic service route", () => {
-  const hubRouteIndex = app.indexOf('path="/services/team-building"');
-  const genericRouteIndex = app.indexOf('path="/services/:slug"');
-
-  assert.notEqual(hubRouteIndex, -1, "missing /services/team-building route");
-  assert.notEqual(genericRouteIndex, -1, "missing generic service route");
-  assert.ok(hubRouteIndex < genericRouteIndex, "team building route must be declared before /services/:slug");
-});
-
-test("page uses the shared site navbar and not a page-specific header", () => {
-  assert.match(page, /import \{ Navbar \} from "@\/components\/Navbar"/);
+test("dedicated route uses the shared site navigation", () => {
+  const hubRoute = app.indexOf('path="/services/team-building"');
+  const genericRoute = app.indexOf('path="/services/:slug"');
+  assert.ok(hubRoute > -1 && genericRoute > hubRoute);
   assert.match(page, /<Navbar \/>/);
+  assert.match(page, /<Footer \/>/);
   assert.doesNotMatch(page, /<header\b/);
   assert.match(navbar, /(?:to|parentPath)="\/services\/team-building"/);
-  assert.doesNotMatch(navbar, /Team Building Overview/);
 });
 
-test("V3 page has one H1, Free Planning Session offer, and route SEO", () => {
+test("page has one message-matched H1 and a single enquiry action", () => {
   assert.equal((page.match(/<h1\b/g) ?? []).length, 1);
-  assert.match(page, /Corporate team building in Singapore without babysitting another vendor\./);
-  assert.match(page, /Start My Free Planning Session/);
+  assert.match(page, /Corporate Team Building in Singapore, Planned Around Your Team/);
+  assert.match(page, /Plan My Team Building Event/);
   assert.match(page, /Tell Us About Your Team Event/);
   assert.match(page, /Send My Team Building Enquiry/);
-  assert.match(page, /Free Planning Session Request/);
-  assert.match(page, /Corporate Team Building Singapore \| Elluminate/);
-  assert.match(prerenderSeo, /Corporate Team Building Singapore \| Elluminate/);
-  assert.match(
-    prerenderSeo,
-    /Plan corporate team building in Singapore without babysitting another vendor\. Share your pax, date, venue and goal, then start a free planning session with Elluminate\./,
-  );
+  assert.doesNotMatch(page, /Free Planning Session|The Classic|The Takeover|The Signature|three matched options/i);
 });
 
-test("event planning form writes to the existing contact submission and email path", () => {
-  assert.match(page, /id="quote"/);
-  assert.match(page, /name="name"/);
-  assert.match(page, /name="email"/);
-  assert.match(page, /name="pax"/);
-  assert.match(page, /name="timing"/);
-  assert.match(page, /name="venue"/);
-  assert.match(page, /name="objective"/);
-  assert.match(page, /preferredTier/);
-  assert.match(page, /setPreferredTier/);
+test("short event brief keeps only the agreed required fields", () => {
+  for (const name of ["name", "email", "pax", "timing", "phone", "venue", "objective"]) {
+    assert.match(page, new RegExp(`name="${name}"`));
+  }
+  assert.match(page, /!quoteForm\.name\.trim\(\)/);
+  assert.match(page, /!quoteForm\.email\.trim\(\)/);
+  assert.match(page, /!quoteForm\.pax\.trim\(\)/);
+  assert.match(page, /!quoteForm\.timing\.trim\(\)/);
+  assert.doesNotMatch(page, /!quoteForm\.phone\.trim\(\)/);
+  assert.doesNotMatch(page, /!quoteForm\.venue\.trim\(\)/);
+  assert.doesNotMatch(page, /!quoteForm\.objective\.trim\(\)/);
   assert.match(page, /privacyConsent/);
   assert.match(page, /honeypot/);
-  assert.match(page, /team_building_quote_brief/);
-  assert.match(page, /Team Building Event Planning Enquiry/);
-  assert.match(page, /Free Planning Session Request/);
-  assert.match(page, /Preferred planning level:/);
-  assert.match(page, /supabase\.from\("contact_submissions"\)\.insert/);
-  assert.match(page, /send-transactional-email/);
-  assert.match(page, /contact-inquiry/);
-  assert.match(page, /event_category: "Physical Team Building"/);
-  assert.match(page, /additional_details: buildBriefDetails/);
 });
 
-test("V3 sections carry the packages and wow landing page narrative", () => {
-  const requiredCopy = [
-    "Selected organisations we have worked with",
-    "You've been to that event",
+test("form saves, queues both emails, then fires conversion", () => {
+  const insert = page.indexOf('supabase.from("contact_submissions").insert');
+  const inquiry = page.indexOf('templateName: "contact-inquiry"');
+  const confirmation = page.indexOf('templateName: "contact-confirmation"');
+  const conversion = page.indexOf("trackLeadConversion({");
+  assert.ok(insert > -1 && inquiry > insert && confirmation > inquiry && conversion > confirmation);
+  assert.match(page, /form_name: "team_building_quote_brief"/);
+  assert.match(page, /Team Building Event Planning Enquiry/);
+  assert.match(page, /event_category: "Physical Team Building"/);
+});
+
+test("conversion points to the dedicated Ads action without invented value", () => {
+  assert.match(trackingConfig, /AW-704277198\/24mXCJ2Q_s8cEM7V6c8C/);
+  assert.doesNotMatch(trackingConfig, /AW-18084927892/);
+  assert.match(tracking, /transaction_id: lead_id/);
+  assert.match(tracking, /gtag\("event", "generate_lead"/);
+  assert.match(tracking, /gtag\("event", "conversion"/);
+  assert.doesNotMatch(tracking, /DEFAULT_VALUE|value:\s*150/);
+});
+
+test("landing narrative covers planning, activities, logistics, proof and FAQs", () => {
+  for (const copy of [
     "Generic team building vs. team building planned properly",
-    "Industry catalogue approach",
-    "The Elluminate planning approach",
-    "The Monday Test",
-    "Will the silos actually mix?",
-    "Will the arms-crossed crowd join in?",
-    "Will there be a story on Monday?",
-    "The Classic",
-    "The Takeover",
-    "The Signature",
-    "Activity formats from $45/pax",
-    "Activity pricing plus venue, food and transport quoted separately",
-    "Custom quote",
-    "These are the formats The Classic is built from",
-    "Steal Our Run Sheet",
-    "example run sheet",
-    "Where Your Money Actually Goes",
-    "We're Not For Everyone",
+    "One brief. One sensible planning path.",
+    "Real teams. Real movement. Real event energy.",
+    "Physical first. Virtual when the team needs it.",
+    "What shapes the event plan and quote",
     "What teams have said",
-    "Practical planning reassurance",
-    "Plan the event before the activity becomes a problem.",
-  ];
-
-  for (const copy of requiredCopy) {
-    assert.match(page, new RegExp(escapeRegExp(copy)));
-  }
-
+    "Corporate team-building FAQ",
+  ]) assert.ok(page.includes(copy), `Missing page copy: ${copy}`);
+  assert.match(page, /\/videos\/elluminate-showreel\.mp4/);
   assert.match(page, /<FAQSchema faqs=\{faqs\}/);
   assert.match(page, /<OrganizationSchema type="LocalBusiness"/);
   assert.match(sitemap, /https:\/\/elluminate\.sg\/services\/team-building/);
-  assert.doesNotMatch(page, /teamMembers/);
-  assert.doesNotMatch(page, /Facilitated by the Elluminate team/);
 });
 
-test("package CTAs target the quote form and record preferred tier", () => {
-  assert.match(page, /handleTierCta/);
-  assert.match(page, /handleTierCta\(tier\.tier/);
-  assert.match(page, /href="#quote"/);
-  assert.match(page, /preferredTier === tier\.tier/);
-  assert.match(page, /Classic/);
-  assert.match(page, /Takeover/);
-  assert.match(page, /Signature/);
-  assert.doesNotMatch(page, /\$XX/);
-  assert.doesNotMatch(page, /most booked/i);
-});
-
-test("activity filters and CTAs support enquiry, not equipment demand", () => {
-  assert.match(page, /activityFilter/);
-  assert.match(page, /All/);
-  assert.match(page, /Outdoor/);
-  assert.match(page, /Indoor/);
-  assert.match(page, /High energy/);
-  assert.match(page, /Low exertion/);
-  assert.match(page, /Virtual/);
-  assert.match(page, /Ask if this fits my team/);
-  assert.match(page, /Amazing Race/);
-  assert.match(page, /Cultural Race/);
-  assert.match(page, /CSI-Bones/);
-  assert.match(page, /Minute To Win It/);
-  assert.match(page, /Monopoly Dash/);
-  assert.match(page, /Virtual Amazing Race/);
-  assert.doesNotMatch(page, /getServicePrice/);
-});
-
-test("WhatsApp is visible and analytics events remain diagnostic only", () => {
-  assert.match(page, /api\.whatsapp\.com\/send\?phone=6588352482/);
+test("scope and claim safety are explicit", () => {
+  assert.match(page, /Elluminate and Team Elevate are operated by EXSTATIC PTE LTD/);
   assert.match(page, /WhatsApp Us/);
-  assert.match(page, /WhatsApp Elluminate/);
-  assert.match(page, /pushLandingEvent\("form_start"/);
-  assert.match(page, /pushLandingEvent\("cta_click"/);
-  assert.doesNotMatch(page, /pushLandingEvent\("form_submit"/);
-  assert.doesNotMatch(page, /qualified_lead/);
+  assert.match(page, /wa\.me\/6588352482/);
+  for (const banned of [
+    /laser tag/i,
+    /archery tag/i,
+    /gelblitz/i,
+    /nerfwar/i,
+    /birthday/i,
+    /guarantee(?:d)?/i,
+    /within 24 hours|24h/i,
+    /bg-\[#f4730c\]/i,
+    /existing source material/i,
+  ]) assert.doesNotMatch(page, banned);
 });
 
-test("V3 landing page avoids unsafe claims, placeholders, old mechanics, and orange CTA palette", () => {
-  const checked = normalize([page, thankYou].join("\n")).toLowerCase();
-  const banned = [
-    "Ã¢â€”â€†",
-    "◆",
-    "$xx",
-    "planning confidence",
-    "until owner-approved",
-    "existing elluminate",
-    "source material",
-    "for hr",
-    "constraints",
-    "3 matched",
-    "50-activity",
-    "send me 3 options",
-    "get my free quote",
-    "within 24 hours",
-    "24h",
-    "24-hour",
-    "24 hour",
-    "guarantee",
-    "guaranteed",
-    "within 1 business day",
-    "#1",
-    "best team building",
-    "birthday",
-    "rental",
-    "real run sheet",
-    "anonymised run sheet",
-    "anonymized run sheet",
-    "bg-[#f4730c]",
-    "bg-[#c24e00]",
-    "hover:bg-[#a63d00]",
-    "text-[#ffc83d]",
-    "bg-[#0a1b33]",
-  ];
-
-  for (const term of banned) {
-    assert.equal(checked.includes(term), false, `Unexpected term: ${term}`);
-  }
+test("SEO and structured data use the safe public wording", () => {
+  assert.match(page, /Corporate Team Building Singapore \| Elluminate/);
+  assert.match(prerenderSeo, /Corporate Team Building Singapore \| Elluminate/);
+  assert.match(prerenderSeo, /Plan corporate team building in Singapore around your team, objective, venue and timing/);
+  assert.doesNotMatch(structuredData, /aggregateRating/);
 });

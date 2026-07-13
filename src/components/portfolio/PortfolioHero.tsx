@@ -1,61 +1,61 @@
-import { motion } from "framer-motion";
-import { GoldParticles } from "@/components/GoldParticles";
+import { ArrowDown, ArrowRight, PlayCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-export const PortfolioHero = () => {
+interface PortfolioHeroProps {
+  onOpenContact: () => void;
+}
+
+export const PortfolioHero = ({ onOpenContact }: PortfolioHeroProps) => {
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-      {/* Black background */}
-      <div className="absolute inset-0 bg-black" />
-      
-      {/* Cinematic background image with slow parallax */}
-      <motion.div 
-        className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920)` }}
-        animate={{ scale: [1, 1.05, 1] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+    <section className="relative isolate min-h-[78vh] overflow-hidden bg-foreground text-background">
+      <img
+        src="/images/services/amazing-race/gallery-1.jpg"
+        alt="A company team working together during an outdoor challenge"
+        className="absolute inset-0 h-full w-full object-cover object-[58%_center]"
+        width={1200}
+        height={900}
+        fetchPriority="high"
       />
-      
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
-      
-      {/* Gold particles */}
-      <GoldParticles />
-      
-      {/* Spotlight glow */}
-      <motion.div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full blur-[150px]"
-        style={{ background: "radial-gradient(ellipse, hsl(43 65% 52% / 0.15), transparent)" }}
-        animate={{ opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 5, repeat: Infinity }}
-      />
+      <div className="absolute inset-0 bg-gradient-to-r from-foreground via-foreground/90 to-foreground/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-foreground/20" />
 
-      <div className="container mx-auto px-6 relative z-10 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-primary mb-6"
-        >
-          Our Masterpieces
-        </motion.h1>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-light"
-        >
-          A curated showcase of elevated experiences crafted for Singapore's finest teams.
-        </motion.p>
-        
-        {/* Decorative gold line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.2, delay: 0.6 }}
-          className="w-32 h-0.5 mx-auto mt-8"
-          style={{ background: "linear-gradient(90deg, transparent, hsl(43 65% 52%), transparent)" }}
-        />
+      <div className="container relative z-10 mx-auto flex min-h-[78vh] items-end px-6 pb-14 pt-28 sm:items-center sm:pb-20 lg:px-12">
+        <div className="max-w-3xl">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-background/20 bg-background/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-primary backdrop-blur-sm">
+            <PlayCircle className="h-4 w-4" />
+            Real event portfolio
+          </p>
+          <h1 className="max-w-[13ch] font-display text-[2.7rem] font-black leading-[0.98] tracking-normal text-background sm:text-6xl">
+            Real teams. Real moments. Built around the brief.
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-background/82 sm:text-xl sm:leading-8">
+            Explore team challenges, facilitated activity formats and company retreats captured during actual event delivery.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button onClick={onOpenContact} variant="hero" size="xl" className="w-full sm:w-auto">
+              Plan My Event
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+            <Button
+              asChild
+              variant="primary-outline"
+              size="xl"
+              className="w-full border-background/60 text-background hover:border-background hover:bg-background hover:text-foreground sm:w-auto"
+            >
+              <a href="#event-work">
+                Explore The Work
+                <ArrowDown className="h-5 w-5" />
+              </a>
+            </Button>
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm font-semibold text-background/72">
+            <span>Indoor and outdoor formats</span>
+            <span>Facilitated team challenges</span>
+            <span>Company retreats</span>
+          </div>
+        </div>
       </div>
     </section>
   );

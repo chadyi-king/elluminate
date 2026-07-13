@@ -8,29 +8,34 @@ import {
 
 const faqs = [
   {
-    question: "What corporate team building activities do you offer in Singapore?",
+    question: "Do I need to know which activity I want before I enquire?",
     answer:
-      "We offer a wide range of corporate team building activities in Singapore, including Amazing Race, Running Man, CSI mystery challenges, problem-solving games, outdoor adventures, indoor team bonding activities, personality profiling workshops, and corporate retreats. Our programmes are customised based on your objectives, group size, venue, and budget.",
+      "No. Share your group size, date or timing window, venue preference and what you want the event to achieve. We can use those details to recommend a practical activity or event direction.",
   },
   {
-    question: "How many participants can join your team building programmes?",
+    question: "What kinds of company experiences can Elluminate plan?",
     answer:
-      "Our programmes can accommodate groups ranging from 10 participants to over 1,000 participants. Activities can be customised for small leadership teams, department gatherings, or large company-wide events.",
+      "Elluminate supports physical and virtual team building, local and overseas retreats, facilitated workshops, training sessions and larger company experiences. The scope is shaped around the audience, setting and event objective.",
   },
   {
-    question: "Can your programmes be customised for our company?",
+    question: "Can team building work indoors or outdoors?",
     answer:
-      "Yes. We customise team building programmes based on your organisation's goals, company culture, event theme, venue, and participant profile. We can also incorporate company values, products, or learning objectives into the experience.",
+      "Yes. The suitable format depends on your venue, group size, activity level and programme duration. For outdoor plans, weather and fallback requirements can be discussed while the event is being shaped.",
   },
   {
-    question: "Do you provide venues for team building events?",
+    question: "Can you help with the venue and event logistics?",
     answer:
-      "Yes. We can recommend and coordinate suitable venues across Singapore, including hotels, resorts, event spaces, parks, Sentosa, and indoor function rooms.",
+      "Venue and logistics support can be discussed as part of the brief. Tell us what is already confirmed and where you need help so the recommendation and quote reflect the right scope.",
   },
   {
-    question: "What is the best team building activity for corporate teams?",
+    question: "What should I send to get an event quote?",
     answer:
-      "The best activity depends on your objectives. Amazing Race programmes are ideal for engagement and exploration, Running Man promotes friendly competition, while CSI challenges focus on communication, problem-solving, and teamwork.",
+      "Start with your expected pax, preferred date or timing window, venue or area, event objective and any budget guidance you can share. If some details are still open, send what you know and we can clarify the rest with you.",
+  },
+  {
+    question: "How are Elluminate and Team Elevate connected?",
+    answer:
+      "Elluminate and Team Elevate are operated by EXSTATIC PTE LTD. Selected client history, reviews, event footage and cumulative experience shown on this website include work delivered under Team Elevate and Elluminate.",
   },
 ];
 
@@ -38,70 +43,57 @@ export const HomeFAQSection = () => {
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer },
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-background via-secondary/20 to-background">
-      {/* Soft decorative blobs to match site style */}
-      <div className="absolute top-20 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 left-0 w-72 h-72 bg-yellow-100/30 rounded-full blur-3xl" />
-
+    <section className="border-t border-border bg-secondary/25 py-20 md:py-28">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-14"
-        >
-          <span className="text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
-            FAQ
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-6">
-            Frequently Asked <span className="text-primary">Questions</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Everything you need to know about our corporate team building programmes in Singapore.
-          </p>
-        </motion.div>
+      <div className="container mx-auto px-6">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">Planning questions</p>
+            <h2 className="mt-4 font-display text-3xl font-black text-foreground md:text-5xl">
+              What clients usually want to know first.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+              You can enquire before every detail is final. A useful brief is enough to begin the conversation.
+            </p>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="max-w-3xl mx-auto"
-        >
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`faq-${index}`}
-                className="bg-card border border-border rounded-2xl px-6 shadow-card hover:shadow-blue hover:border-primary/40 transition-all duration-300"
-              >
-                <AccordionTrigger className="text-left font-display font-semibold text-base md:text-lg text-foreground hover:no-underline py-5">
-                  <span className="flex items-center gap-3 pr-4">
-                    <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.08 }}
+          >
+            <Accordion type="single" collapsible className="border-t border-border">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={faq.question} value={`faq-${index}`} className="border-border">
+                  <AccordionTrigger className="py-5 text-left font-display text-base font-bold text-foreground hover:no-underline md:text-lg">
                     {faq.question}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-5 pl-5">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </motion.div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-5 pr-5 text-base leading-relaxed text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

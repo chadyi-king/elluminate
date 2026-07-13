@@ -3,6 +3,8 @@ import { Footer } from "@/components/Footer";
 import { PortfolioHero } from "@/components/portfolio/PortfolioHero";
 import { BehindTheScenes } from "@/components/portfolio/BehindTheScenes";
 import { PortfolioCTA } from "@/components/portfolio/PortfolioCTA";
+import { EventShowcase } from "@/components/portfolio/EventShowcase";
+import { VideoHighlights } from "@/components/portfolio/VideoHighlights";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { OrganizationSchema } from "@/components/StructuredData";
@@ -10,13 +12,17 @@ import { useContactModal } from "@/contexts/ContactModalContext";
 
 const PortfolioPage = () => {
   const { openContactModal } = useContactModal();
+  const openPortfolioEnquiry = () =>
+    openContactModal({
+      additionalDetails: "I would like to plan an event inspired by the Elluminate portfolio.",
+    });
 
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Portfolio | Elluminate"
-        description="1,000+ corporate events in Singapore. Case studies, photos and videos of team building, dinner & dance, and awards ceremonies."
-        keywords="event portfolio Singapore, corporate event gallery, team building photos, event case studies, Elluminate portfolio"
+        title="Team Building & Retreat Portfolio Singapore | Elluminate"
+        description="See real team-building activities, facilitated challenges and company retreat moments delivered by the Elluminate and Team Elevate team."
+        keywords="team building portfolio Singapore, corporate retreat photos, real team building events, Elluminate portfolio"
         canonical="https://elluminate.sg/portfolio"
       />
       <OrganizationSchema />
@@ -26,10 +32,11 @@ const PortfolioPage = () => {
         { label: "Portfolio" },
       ]} />
       <main>
-        <PortfolioHero />
-        {/* TODO(content): Restore portfolio case studies, gallery, videos, testimonials, and client proof only after client names, pax counts, media, and permissions are verified. */}
+        <PortfolioHero onOpenContact={openPortfolioEnquiry} />
+        <EventShowcase />
+        <VideoHighlights />
         <BehindTheScenes />
-        <PortfolioCTA onOpenContact={openContactModal} />
+        <PortfolioCTA onOpenContact={openPortfolioEnquiry} />
       </main>
       <Footer />
     </div>

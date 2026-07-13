@@ -16,9 +16,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Team Building Singapore | Corporate Events | Elluminate"
-        description="Singapore's trusted team building company. 1,000+ events for top companies, schools and government teams. Get a free quote today."
-        keywords="team building Singapore, corporate team building, virtual team building, amazing race, company retreats, corporate training"
+        title="Corporate Team Building & Company Experiences | Elluminate"
+        description="Plan corporate team building, retreats and company experiences in Singapore around your people, objective, venue and timing. Tell Elluminate about your event."
+        keywords="team building Singapore, corporate team building, company experiences, corporate retreats, team bonding activities, corporate training"
         canonical="https://elluminate.sg/"
       />
       <OrganizationSchema type="LocalBusiness" />
@@ -27,8 +27,8 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <VideoSection />
         <SocialProofSection />
+        <VideoSection />
         <ServicesSection />
         <TrafficLightSection />
         <CaseStudiesSection />

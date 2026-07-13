@@ -12,7 +12,7 @@ interface SEOProps {
 
 export const SEO = ({
   title = "Elluminate | Singapore's Premier Team Building Specialists",
-  description = "Elluminate creates engaging team building experiences, corporate retreats, and training programs in Singapore. Physical & virtual activities for companies and schools. 1,000+ events delivered.",
+  description = "Elluminate plans team building, retreats, training, and company experiences around the people, objective, venue, and timing.",
   keywords = "team building Singapore, corporate team building, virtual team building, team bonding activities, corporate retreat Singapore, training workshops Singapore, school programmes Singapore",
   ogImage = "https://elluminate.sg/og-image.jpg",
   canonical = "https://elluminate.sg",

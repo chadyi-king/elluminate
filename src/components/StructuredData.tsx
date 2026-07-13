@@ -12,7 +12,7 @@ export const OrganizationSchema = ({ type = "Organization" }: OrganizationSchema
     url: "https://elluminate.sg",
     logo: "https://elluminate.sg/logo.png",
     description:
-      "Singapore's trusted corporate team building company. Specialists in physical and virtual team building, retreats, and training for companies, schools, and government teams.",
+      "Singapore team building and company experiences planned around the people, objective, venue, and timing.",
     telephone: "+6588352482",
     email: "info@elluminate.sg",
     contactPoint: {
@@ -31,12 +31,6 @@ export const OrganizationSchema = ({ type = "Organization" }: OrganizationSchema
     },
     areaServed: "Singapore",
     priceRange: "$$",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "776",
-      bestRating: "5",
-    },
     foundingDate: "2017",
   };
 

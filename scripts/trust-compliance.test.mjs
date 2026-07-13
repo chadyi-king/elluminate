@@ -20,12 +20,13 @@ test("team section does not show joke or placeholder titles", () => {
   assert.match(ourTeam, /TODO\(content\): Confirm public roles for Caleb E and Christian Je Suis/);
 });
 
-test("about counters fall back to final values and use the verified review count", () => {
-  assert.match(aboutPage, /useState\(end\)/);
-  assert.match(aboutPage, /useCountUp\(1000,\s*2500\)/);
-  assert.match(aboutPage, /useCountUp\(100000,\s*3000\)/);
-  assert.match(aboutPage, /useCountUp\(776,\s*2000\)/);
-  assert.match(aboutPage, /useCountUp\(8,\s*1500\)/);
+test("about proof shows owner-approved history with its original attribution", () => {
+  assert.match(aboutPage, /1,000\+/);
+  assert.match(aboutPage, /100,000\+/);
+  assert.match(aboutPage, /776\+ Team Elevate Google reviews/);
+  assert.match(aboutPage, /8\+[^\n]*years of operating history/);
+  assert.match(aboutPage, /Elluminate and Team Elevate are operated by EXSTATIC PTE LTD/);
+  assert.match(aboutPage, /figures remain attributed to Team Elevate/);
 });
 
 test("marketing copy does not ship unsourced percentage claims", () => {
@@ -49,15 +50,17 @@ test("service recent-events ticker does not show unverified pax counts publicly"
   assert.match(serviceRecentEventsTicker, /TODO\(content\): Verify recent-event pax counts before displaying them publicly/);
 });
 
-test("portfolio page does not publish unverified placeholder proof sections", () => {
-  assert.match(portfolioPage, /TODO\(content\): Restore portfolio case studies, gallery, videos, testimonials, and client proof/);
-  assert.doesNotMatch(portfolioPage, /FeaturedCaseStudies|MiniCaseStudies|TestimonialWall|ClientLogosGrid|VideoHighlights|PhotoGallery|PortfolioFilters/);
+test("portfolio publishes real event media without stock or placeholder sources", () => {
+  assert.match(portfolioPage, /EventShowcase/);
+  assert.match(portfolioPage, /VideoHighlights/);
+  assert.match(portfolioPage, /Team Elevate/);
+  assert.doesNotMatch(portfolioPage, /images\.unsplash\.com|dQw4w9WgXcQ/);
 });
 
-test("client logo surfaces carry an evidence and permission reminder", () => {
-  const permissionReminder = /TODO\(content\): Keep a permission\/evidence checklist for client logo usage/;
-  assert.match(aboutPage, permissionReminder);
-  assert.match(socialProofSection, permissionReminder);
+test("client logo surfaces disclose the shared operating history", () => {
+  assert.match(aboutPage, /Elluminate and Team Elevate are operated by EXSTATIC PTE LTD/);
+  assert.match(socialProofSection, /Elluminate and Team Elevate are operated by EXSTATIC PTE LTD/);
+  assert.match(socialProofSection, /as at July 2026/);
 });
 
 test("footer keeps review source transparency visible", () => {
