@@ -472,11 +472,7 @@ const AboutPage = () => {
                 initial={{ rotate: 2 }}
                 animate={{ rotate: 2 }}
               >
-                <img
-                  src="/images/about/about-1.jpg"
-                  alt="Team Celebration"
-                  className="w-full h-full object-cover"
-                />
+                <img src="/images/about/about-1.jpg" alt="Team Celebration" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </motion.div>
 
@@ -502,11 +498,7 @@ const AboutPage = () => {
                 initial={{ rotate: -2 }}
                 animate={{ rotate: -2 }}
               >
-                <img
-                  src="/images/about/about-3.jpg"
-                  alt="Dinner & Dance"
-                  className="w-full h-full object-cover"
-                />
+                <img src="/images/about/about-3.jpg" alt="Dinner & Dance" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/15 to-transparent" />
               </motion.div>
 
@@ -517,11 +509,7 @@ const AboutPage = () => {
                 initial={{ rotate: 3 }}
                 animate={{ rotate: 3 }}
               >
-                <img
-                  src="/images/about/about-4.jpg"
-                  alt="Overseas Retreat"
-                  className="w-full h-full object-cover"
-                />
+                <img src="/images/about/about-4.jpg" alt="Overseas Retreat" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-sky-500/15 to-transparent" />
               </motion.div>
 
@@ -539,11 +527,7 @@ const AboutPage = () => {
       <section className="py-24 relative">
         {/* Background Image - Asian corporate setting */}
         <div className="absolute inset-0">
-          <img
-            src="/images/about/about-5.jpg"
-            alt="Asian Corporate Team"
-            className="w-full h-full object-cover"
-          />
+          <img src="/images/about/about-5.jpg" alt="Asian Corporate Team" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
         </div>
 
@@ -606,11 +590,7 @@ const AboutPage = () => {
       <section className="py-24 relative bg-slate-950">
         {/* Background */}
         <div className="absolute inset-0">
-          <img
-            src="/images/about/about-1.jpg"
-            alt="Event Background"
-            className="w-full h-full object-cover"
-          />
+          <img src="/images/about/about-1.jpg" alt="Event Background" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/80" />
         </div>
 
@@ -794,19 +774,19 @@ const AboutPage = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {[
               {
-                src: "/images/services/amazing-race/hero.jpg",
+                src: "/images/services/leadership-offsites/gallery-1.jpg",
                 alt: "Team celebration moment",
               },
               {
-                src: "/images/services/amazing-race/hero.jpg",
+                src: "/images/services/leadership-offsites/gallery-2.jpg",
                 alt: "Dinner and dance experience",
               },
               {
-                src: "/images/services/amazing-race/hero.jpg",
+                src: "/images/services/leadership-offsites/gallery-1.jpg",
                 alt: "Outdoor team building activity",
               },
               {
-                src: "/images/services/amazing-race/hero.jpg",
+                src: "/images/services/leadership-offsites/gallery-1.jpg",
                 alt: "Retreat experience",
               },
             ].map((image, index) => (
@@ -985,11 +965,7 @@ const AboutPage = () => {
       {/* SECTION 7 - TESTIMONIALS */}
       <section className="py-24 relative bg-slate-950">
         <div className="absolute inset-0">
-          <img
-            src="/images/services/amazing-race/hero.jpg"
-            alt="Event"
-            className="w-full h-full object-cover"
-          />
+          <img src="/images/services/amazing-race/hero.jpg" alt="Event" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/80" />
         </div>
 
