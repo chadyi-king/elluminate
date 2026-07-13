@@ -7797,8 +7797,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Build, Create, Compete!",
       subtitle:
         "Watch teams race against the clock to build the tallest and most creative structure while overcoming exciting challenges. Teamwork and innovation are essential in this fun and competitive building showdown!",
-      videoUrl: "/videos/elluminate-showreel.mp4",
-      thumbnailImage: "/images/services/builder-cross/hero.jpg",
+      videoUrl: "/__l5e/assets-v1/907ab204-8b56-4c6b-bfd9-48f917586db7/builders-cross.mp4",
+      thumbnailImage: "/images/service-thumbnails/builders-cross-tn.jpg",
     },
     cta: {
       headline: "Ready to Build Together?",
