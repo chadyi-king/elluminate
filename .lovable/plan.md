@@ -1,15 +1,19 @@
-## Move team photos into `public/images/our_team/` and wire About page
+## Upload service thumbnails
 
-The 10 team photos currently live at `public/image/our_team/` (singular `image`). They should live under the existing `public/images/` folder alongside `about/`, `client-logos/`, `destinations/`, `services/`.
+Create `public/images/service-thumbnails/` and copy the 6 uploaded thumbnails into it, preserving each original format. No code, components, or service pages will be touched.
 
-### Steps
-1. Move all 10 files from `public/image/our_team/` → `public/images/our_team/`:
-   - afifah.png, ayume.png, edmund.png, jemwell.png, jencen.png, lisa.png, louise.png, mj.png, peace.png, peggy.png
-2. Delete the now-empty `public/image/` folder.
-3. Update `src/components/OurTeam.tsx` so all 10 team members point to `/images/our_team/<name>.png` (replacing the current mix of Cloudinary URLs + the one `/image/our_team/edmund.png` reference).
+### Files to add
 
-### Resulting URLs
-`/images/our_team/afifah.png`, `/images/our_team/ayume.png`, `/images/our_team/edmund.png`, `/images/our_team/jemwell.png`, `/images/our_team/jencen.png`, `/images/our_team/lisa.png`, `/images/our_team/louise.png`, `/images/our_team/mj.png`, `/images/our_team/peace.png`, `/images/our_team/peggy.png`
+| Source upload | Destination |
+|---|---|
+| `user-uploads://amazing-race-tn.PNG` | `public/images/service-thumbnails/amazing-race-tn.png` |
+| `user-uploads://builders-cross-tn.jpg` | `public/images/service-thumbnails/builders-cross-tn.jpg` |
+| `user-uploads://monopoly-dash-tn.jpg` | `public/images/service-thumbnails/monopoly-dash-tn.jpg` |
+| `user-uploads://mtwi-tn.png` | `public/images/service-thumbnails/mtwi-tn.png` |
+| `user-uploads://running-main-tn.png` | `public/images/service-thumbnails/running-man-tn.png` (filename normalized to `running-man-tn` per your naming convention) |
+| `user-uploads://sotong-game-tn.jpg` | `public/images/service-thumbnails/sotong-game-tn.jpg` |
 
-### Note on naming
-Using `our_team` (underscore) to match the folder you already have. If you'd rather it be `our-team` (hyphen) to match `client-logos`, say the word and I'll switch.
+### Notes
+- The `amazing-race-tn.PNG` extension will be lowercased to `.png` for consistency with the rest of `/public/images/`.
+- The uploaded file `running-main-tn.png` appears to be a typo of `running-man-tn` (the image shows "RUNNING MAN ADVENTURE"); saving it as `running-man-tn.png` to match your naming convention. Let me know if you'd rather keep `running-main-tn.png`.
+- No existing files will be modified or replaced.
