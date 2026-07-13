@@ -5713,7 +5713,7 @@ export const servicesData: Record<string, ServiceData> = {
     videoSection: {
       title: "See the Race in Action",
       subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
-      videoUrl: "/videos/amazing-race.mp4",
+      videoUrl: "/__l5e/assets-v1/778352aa-d8b6-4254-8c08-e3b86209a00f/amazing-race.mp4",
       thumbnailImage: "/images/service-thumbnails/amazing-race-tn.png",
     },
     cta: {

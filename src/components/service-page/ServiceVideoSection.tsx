@@ -74,12 +74,26 @@ export const ServiceVideoSection = ({
             style={{ borderColor: `${accentColor}30` }}
           >
             {isPlaying && videoUrl ? (
-              <iframe
-                src={videoUrl}
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              /\.(mp4|webm|mov)$/i.test(videoUrl) ||
+              videoUrl.startsWith("/__l5e/") ||
+              videoUrl.startsWith("/videos/") ? (
+                <video
+                  className="absolute inset-0 w-full h-full object-cover"
+                  controls
+                  autoPlay
+                  playsInline
+                  poster={thumbnailImage}
+                >
+                  <source src={videoUrl} type="video/mp4" />
+                </video>
+              ) : (
+                <iframe
+                  src={videoUrl}
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              )
             ) : (
               <>
                 {/* Thumbnail / Placeholder */}
