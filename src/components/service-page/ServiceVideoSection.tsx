@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
@@ -27,6 +27,20 @@ export const ServiceVideoSection = ({
         videoUrl.startsWith("/__l5e/") ||
         videoUrl.startsWith("/videos/"))
   );
+
+  useEffect(() => {
+    setIsPlaying(false);
+    setIsLoading(false);
+
+    const video = videoRef.current;
+    if (!video || !isNativeVideo) {
+      return;
+    }
+
+    video.pause();
+    video.currentTime = 0;
+    video.load();
+  }, [videoUrl, isNativeVideo]);
 
   const handlePlay = () => {
     if (!videoUrl || isLoading) {
