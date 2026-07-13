@@ -9483,8 +9483,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "The Ultimate Team Challenge",
       subtitle:
         "Watch teams compete in exciting and unpredictable challenges inspired by the hit show Running Man. From name tag elimination to thrilling obstacle courses, teamwork and strategy are key to outsmarting your opponents and winning!",
-      videoUrl: "/images/services/running-man/hero.jpg",
-      thumbnailImage: "/images/services/running-man/hero.jpg",
+      videoUrl: "/__l5e/assets-v1/1f7d858a-40c7-493e-ad1d-b239c73cc6fe/running-man.mp4",
+      thumbnailImage: "/images/service-thumbnails/running-man-tn.png",
     },
     cta: {
       headline: "Ready for Running Man?",
