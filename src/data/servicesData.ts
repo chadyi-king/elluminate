@@ -5714,7 +5714,7 @@ export const servicesData: Record<string, ServiceData> = {
       title: "See the Race in Action",
       subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
       videoUrl: "/videos/amazing-race.mp4",
-      thumbnailImage: "/images/services-thumbnails/amazing-race-tn.jpg",
+      thumbnailImage: "/images/service-thumbnails/amazing-race-tn.png",
     },
     cta: {
       headline: "Ready for Your Amazing Race?",
