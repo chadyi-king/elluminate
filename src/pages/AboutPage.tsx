@@ -778,7 +778,7 @@ const AboutPage = () => {
                 alt: "Team celebration moment",
               },
               {
-                src: "/images/services/local-retreats/gallery-4.jpg",
+                src: "/images/services/local-retreats/gallery-3.jpg",
                 alt: "Dinner and dance experience",
               },
               {
