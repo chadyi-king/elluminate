@@ -778,15 +778,15 @@ const AboutPage = () => {
                 alt: "Team celebration moment",
               },
               {
-                src: "/images/services/leadership-offsites/gallery-2.jpg",
+                src: "/images/services/local-retreats/gallery-4.jpg",
                 alt: "Dinner and dance experience",
               },
               {
-                src: "/images/services/leadership-offsites/gallery-1.jpg",
+                src: "/images/services/amazing-race/gallery-5.jpg",
                 alt: "Outdoor team building activity",
               },
               {
-                src: "/images/services/leadership-offsites/gallery-1.jpg",
+                src: "/images/services/overseas-retreats/cta.jpg",
                 alt: "Retreat experience",
               },
             ].map((image, index) => (
