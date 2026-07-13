@@ -125,28 +125,14 @@ export const ServiceVideoSection = ({
               </video>
             )}
 
-            {isPlaying && videoUrl ? (
-              isNativeVideo ? null : (
-                <video
-                  className="absolute inset-0 w-full h-full object-cover"
-                  controls
-                  autoPlay
-                  playsInline
-                  poster={thumbnailImage}
-                >
-                  <source src={videoUrl} type="video/mp4" />
-                </video>
-              )
-            ) : isPlaying && videoUrl ? null : (
-              isPlaying && videoUrl ? null : !isNativeVideo && videoUrl ? (
-                <iframe
-                  src={videoUrl}
-                  className="absolute inset-0 w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              ) : null
-            ) : (
+            {isPlaying && videoUrl && !isNativeVideo ? (
+              <iframe
+                src={videoUrl}
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : !isPlaying ? (
               <>
                 {/* Thumbnail / Placeholder */}
                 {thumbnailImage ? (
@@ -229,7 +215,7 @@ export const ServiceVideoSection = ({
                   </div>
                 )}
               </>
-            )}
+            ) : null}
           </div>
         </motion.div>
       </div>
