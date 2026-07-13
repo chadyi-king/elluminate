@@ -18,7 +18,7 @@ const caseStudies = [
       "Elluminate created an unforgettable experience that had our entire team talking for weeks. The Amazing Race format was perfect for building connections across departments.",
     industry: "Technology",
     year: "2024",
-    image: "/images/services/amazing-race/hero.jpg",
+    image: "/images/services/amazing-race/gallery-5.jpg",
     accentColor: "#FFC400",
   },
   {
@@ -37,7 +37,7 @@ const caseStudies = [
       "The level of creativity and attention to detail was impressive. Our teams were fully engaged from start to finish. A truly world-class team building experience.",
     industry: "Banking & Finance",
     year: "2024",
-    image: "/images/services/amazing-race/hero.jpg",
+    image: "/images/services/csi-bones/gallery-1.jpg",
     accentColor: "#26D07C",
   },
   {
