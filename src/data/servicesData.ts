@@ -7797,8 +7797,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Build, Create, Compete!",
       subtitle:
         "Watch teams race against the clock to build the tallest and most creative structure while overcoming exciting challenges. Teamwork and innovation are essential in this fun and competitive building showdown!",
-      videoUrl: "/videos/elluminate-showreel.mp4",
-      thumbnailImage: "/images/services/builder-cross/hero.jpg",
+      videoUrl: "/__l5e/assets-v1/907ab204-8b56-4c6b-bfd9-48f917586db7/builders-cross.mp4",
+      thumbnailImage: "/images/service-thumbnails/builders-cross-tn.jpg",
     },
     cta: {
       headline: "Ready to Build Together?",
@@ -8471,8 +8471,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Quick Challenges, Big Fun!",
       subtitle:
         "Watch teams race against the clock in a series of exciting 60-second challenges. Speed, skill, and creativity are key to winning in this fast-paced, high-energy game!",
-      videoUrl: "/videos/elluminate-showreel.mp4",
-      thumbnailImage: "/images/services/minute-to-win-it/gallery-2.jpg",
+      videoUrl: "/videos/mtwi.mp4",
+      thumbnailImage: "/images/service-thumbnails/mtwi-tn.png",
     },
     cta: {
       headline: "Ready to Play?",
@@ -8814,8 +8814,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Race to the Finish Line!",
       subtitle:
         "Watch teams race through fast-paced challenges inspired by the classic board game. Complete tasks, collect points, and outsmart your opponents in this exciting and competitive game of strategy and speed!",
-      videoUrl: "/videos/elluminate-showreel.mp4",
-      thumbnailImage: "/images/services/monopoly-dash/hero.jpg",
+      videoUrl: "/__l5e/assets-v1/0199ba31-5e1b-4891-b4af-d271f59a62dc/monopoly-dash.mp4",
+      thumbnailImage: "/images/service-thumbnails/monopoly-dash-tn.jpg",
     },
     cta: {
       headline: "Ready to Dash?",
@@ -9483,8 +9483,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "The Ultimate Team Challenge",
       subtitle:
         "Watch teams compete in exciting and unpredictable challenges inspired by the hit show Running Man. From name tag elimination to thrilling obstacle courses, teamwork and strategy are key to outsmarting your opponents and winning!",
-      videoUrl: "/images/services/running-man/hero.jpg",
-      thumbnailImage: "/images/services/running-man/hero.jpg",
+      videoUrl: "/__l5e/assets-v1/1f7d858a-40c7-493e-ad1d-b239c73cc6fe/running-man.mp4",
+      thumbnailImage: "/images/service-thumbnails/running-man-tn.png",
     },
     cta: {
       headline: "Ready for Running Man?",
@@ -9819,8 +9819,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Tense Challenges, Teamwork Wins!",
       subtitle:
         "Watch teams tackle unique and fun challenges in this exciting game of strategy and teamwork. From blind paths to pressure puzzles, every challenge tests your group's ability to think fast and work together!",
-      videoUrl: "/videos/elluminate-showreel.mp4",
-      thumbnailImage: "/images/services/sotong-game/hero.jpg",
+      videoUrl: "/__l5e/assets-v1/9ec7b422-594f-44fd-9abc-6ff7b15f0413/sotong-game.mp4",
+      thumbnailImage: "/images/service-thumbnails/sotong-game-tn.jpg",
     },
     cta: {
       headline: "Ready for Sotong Game?",
