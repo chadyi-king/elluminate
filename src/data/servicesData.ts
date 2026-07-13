@@ -5954,8 +5954,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Unravel the Mystery!",
       subtitle:
         "Watch teams dive into a thrilling mystery as they piece together clues to solve a crime. With sharp observation and teamwork, uncover the truth in this exciting detective challenge!",
-      videoUrl: "/videos/elluminate-showreel.mp4",
-      thumbnailImage: "/images/services/csi-bones/hero.jpg",
+      videoUrl: "/__l5e/assets-v1/0acf8c9d-f343-4b78-a415-59aed72619c2/csi-bones.mp4",
+      thumbnailImage: "/__l5e/assets-v1/e8e6ed72-c35c-48d4-96d7-cc86dff9dffe/csi-tn.png",
     },
     cta: {
       headline: "Ready to Solve the Case?",
