@@ -965,7 +965,7 @@ const AboutPage = () => {
       {/* SECTION 7 - TESTIMONIALS */}
       <section className="py-24 relative bg-slate-950">
         <div className="absolute inset-0">
-          <img src="/images/services/amazing-race/hero.jpg" alt="Event" className="w-full h-full object-cover" />
+          <img src="/images/services/workshop/gallery-3.jpg" alt="Event" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/80" />
         </div>
 
