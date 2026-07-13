@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
@@ -18,11 +18,56 @@ export const ServiceVideoSection = ({
   accentColor,
 }: ServiceVideoSectionProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const isNativeVideo = Boolean(
+    videoUrl &&
+      (/\.(mp4|webm|mov)(\?.*)?$/i.test(videoUrl) ||
+        videoUrl.startsWith("/__l5e/") ||
+        videoUrl.startsWith("/videos/"))
+  );
+
+  useEffect(() => {
+    setIsPlaying(false);
+    setIsLoading(false);
+
+    const video = videoRef.current;
+    if (!video || !isNativeVideo) {
+      return;
+    }
+
+    video.pause();
+    video.currentTime = 0;
+    video.load();
+  }, [videoUrl, isNativeVideo]);
 
   const handlePlay = () => {
-    if (videoUrl) {
-      setIsPlaying(true);
+    if (!videoUrl || isLoading) {
+      return;
     }
+
+    if (!isNativeVideo) {
+      setIsPlaying(true);
+      return;
+    }
+
+    const video = videoRef.current;
+
+    if (!video) {
+      setIsPlaying(true);
+      return;
+    }
+
+    setIsLoading(true);
+    setIsPlaying(true);
+
+    video.play().catch((error) => {
+      console.error("Service video play failed:", error);
+      setIsPlaying(false);
+    }).finally(() => {
+      setIsLoading(false);
+    });
   };
 
   return (
@@ -73,28 +118,35 @@ export const ServiceVideoSection = ({
             className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2"
             style={{ borderColor: `${accentColor}30` }}
           >
-            {isPlaying && videoUrl ? (
-              /\.(mp4|webm|mov)$/i.test(videoUrl) ||
-              videoUrl.startsWith("/__l5e/") ||
-              videoUrl.startsWith("/videos/") ? (
-                <video
-                  className="absolute inset-0 w-full h-full object-cover"
-                  controls
-                  autoPlay
-                  playsInline
-                  poster={thumbnailImage}
-                >
-                  <source src={videoUrl} type="video/mp4" />
-                </video>
-              ) : (
-                <iframe
-                  src={videoUrl}
-                  className="absolute inset-0 w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              )
-            ) : (
+            {videoUrl && isNativeVideo && (
+              <video
+                ref={videoRef}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                  isPlaying ? "opacity-100" : "opacity-0 pointer-events-none"
+                }`}
+                controls={isPlaying}
+                playsInline
+                preload="metadata"
+                poster={thumbnailImage}
+                onCanPlay={() => setIsLoading(false)}
+                onError={() => {
+                  setIsLoading(false);
+                  setIsPlaying(false);
+                }}
+                onEnded={() => setIsPlaying(false)}
+              >
+                <source src={videoUrl} type="video/mp4" />
+              </video>
+            )}
+
+            {isPlaying && videoUrl && !isNativeVideo ? (
+              <iframe
+                src={videoUrl}
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : !isPlaying ? (
               <>
                 {/* Thumbnail / Placeholder */}
                 {thumbnailImage ? (
@@ -139,7 +191,9 @@ export const ServiceVideoSection = ({
                   onClick={handlePlay}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
+                  disabled={isLoading}
                   className="absolute inset-0 flex items-center justify-center group cursor-pointer"
+                  aria-label={videoUrl ? `Play ${title} video` : `${title} video coming soon`}
                 >
                   <div
                     className="relative w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center transition-all duration-300"
@@ -175,7 +229,7 @@ export const ServiceVideoSection = ({
                   </div>
                 )}
               </>
-            )}
+            ) : null}
           </div>
         </motion.div>
       </div>
