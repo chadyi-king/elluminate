@@ -8814,8 +8814,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Race to the Finish Line!",
       subtitle:
         "Watch teams race through fast-paced challenges inspired by the classic board game. Complete tasks, collect points, and outsmart your opponents in this exciting and competitive game of strategy and speed!",
-      videoUrl: "/videos/elluminate-showreel.mp4",
-      thumbnailImage: "/images/services/monopoly-dash/hero.jpg",
+      videoUrl: "/__l5e/assets-v1/0199ba31-5e1b-4891-b4af-d271f59a62dc/monopoly-dash.mp4",
+      thumbnailImage: "/images/service-thumbnails/monopoly-dash-tn.jpg",
     },
     cta: {
       headline: "Ready to Dash?",
