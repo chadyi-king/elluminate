@@ -9819,7 +9819,7 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Tense Challenges, Teamwork Wins!",
       subtitle:
         "Watch teams tackle unique and fun challenges in this exciting game of strategy and teamwork. From blind paths to pressure puzzles, every challenge tests your group's ability to think fast and work together!",
-      videoUrl: "/__l5e/assets-v1/9ec7b422-594f-44fd-9abc-6ff7b15f0413/sotong-game.mp4",
+      videoUrl: "/video/sotong-game.mp4",
       thumbnailImage: "/images/service-thumbnails/sotong-game-tn.jpg",
     },
     cta: {
