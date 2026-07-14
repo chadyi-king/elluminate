@@ -12610,16 +12610,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "DISC ASSESSMENT",
       subtitle: "Training",
       tagline: "The biggest communication problem is that we do not listen to understand. We only listen to reply.",
-      backgroundImage: "/images/services/local-retreats/hero.jpg",
+      backgroundImage: "/images/services/disc/hero.jpg",
     },
-    howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
-    addOnsImage: "/images/services/local-retreats/addons.jpg",
-    ctaBackgroundImage: "/images/services/local-retreats/cta.jpg",
-    testimonialBackgroundImage: "/images/services/local-retreats/gallery-3.jpg",
+    howItWorksImage: "/images/services/disc/how-it-works.jpg",
+    addOnsImage: "/images/services/disc/addons.jpg",
+    ctaBackgroundImage: "/images/services/disc/cta.jpg",
+    testimonialBackgroundImage: "/images/services/disc/gallery-3.jpg",
     overview: {
       description:
         "Are you compatible with others? What's your personality type? We will help you break down your entire core personality and figure out what makes you, well you. Since everyone is special, we believe this exercise will help with self-awareness and tell you about your specialty. This activity should be done with team members, where teams will find out each member's mind, energy, and nature.",
-      backgroundImage: "/images/services/local-retreats/hero.jpg",
+      backgroundImage: "/images/services/disc/hero.jpg",
     },
     features: [
       { icon: Brain, title: "Core Personality", description: "Discover what makes you unique." },
