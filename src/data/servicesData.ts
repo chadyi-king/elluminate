@@ -13047,7 +13047,38 @@ export const servicesData: Record<string, ServiceData> = {
         "Transform your large-scale gatherings into unforgettable moments of inspiration and learning. Our Mass Talks bring together captivating speakers, engaging content, and professional production to deliver powerful messages that resonate with audiences of any size. Whether it's a company-wide town hall, industry conference keynote, or motivational assembly, we craft experiences that inform, inspire, and ignite action across your entire organization.",
       backgroundImage: "/__l5e/assets-v1/e4ff570b-3256-4028-a6e9-434f67381853/hero.jpg",
     },
-...
+    features: [
+      {
+        icon: Mic,
+        title: "Professional Speakers",
+        description: "Access our network of industry experts and motivational speakers.",
+      },
+      {
+        icon: Users,
+        title: "Large Audience Engagement",
+        description: "Interactive elements designed for hundreds of participants.",
+      },
+      {
+        icon: Video,
+        title: "Full AV Production",
+        description: "Professional sound, lighting, and visual presentations.",
+      },
+      {
+        icon: Sparkles,
+        title: "Customized Content",
+        description: "Tailored messaging aligned with your company values.",
+      },
+    ],
+    benefits: [
+      {
+        icon: Target,
+        title: "Unified Messaging",
+        description: "Deliver consistent messaging across your entire organization.",
+      },
+      { icon: Zap, title: "Instant Impact", description: "Create memorable moments that spark immediate action." },
+      { icon: Heart, title: "Cultural Reinforcement", description: "Strengthen company culture and shared values." },
+      { icon: Trophy, title: "Inspire Excellence", description: "Motivate teams to reach new heights of performance." },
+    ],
     alternatingSections: [],
     gallery: [
       "/__l5e/assets-v1/8bf2547d-5f95-4f7e-be67-3a2817746c97/gallery-1.jpg",
