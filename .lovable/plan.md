@@ -1,18 +1,22 @@
 ## Plan
 
-1. **Upload the two files as Lovable CDN assets**
-   - `user-uploads://csi-bones.mp4` → `public/videos/csi-bones.mp4.asset.json`
-   - `user-uploads://csi-tn.png` → `public/images/service-thumbnails/csi-tn.png.asset.json`
-   - Use the `lovable-assets create` CLI reading directly from `/mnt/user-uploads/` (no binary copied into the repo).
+1. **Upload all Mass Talks images as CDN assets** (via `lovable-assets create --file /mnt/user-uploads/<name>`), writing pointer JSON to `public/images/services/mass-talks/`:
+   - `hero.jpg.asset.json`
+   - `how-it-works.jpg.asset.json`
+   - `addons.jpg.asset.json`
+   - `cta.jpg.asset.json`
+   - `testimonial.jpg.asset.json`
+   - `gallery-1.jpg.asset.json` through `gallery-5.jpg.asset.json`
 
-2. **Update the CSI: Bones entry in `src/data/servicesData.ts`** (lines 5953–5959)
-   - Replace `videoUrl: "/videos/elluminate-showreel.mp4"` with the new CDN URL from the uploaded MP4's `.asset.json`.
-   - Replace `thumbnailImage: "/images/services/csi-bones/hero.jpg"` with the new CDN URL from the uploaded thumbnail's `.asset.json`.
-   - Keep all other fields (title, subtitle, layout, animations) untouched.
+2. **Update the `"mass-talks"` entry in `src/data/servicesData.ts`** (lines 13032–13083):
+   - `hero.backgroundImage` → hero CDN URL
+   - `howItWorksImage` → how-it-works CDN URL
+   - `addOnsImage` → addons CDN URL
+   - `ctaBackgroundImage` → cta CDN URL
+   - `testimonialBackgroundImage` → testimonial CDN URL
+   - `overview.backgroundImage` → hero CDN URL
+   - **Populate `gallery: []`** with 5 entries pointing to gallery-1…gallery-5 CDN URLs (with descriptive alt text like "Mass talk keynote speaker addressing audience").
 
-3. **No other changes**
-   - Do not touch `ServiceVideoSection.tsx` (already handles CDN `/__l5e/` URLs correctly after the earlier fix).
-   - Do not modify other service pages, FAQs, or navigation.
+3. **No other changes** — copy, features, FAQs, pricing, testimonials, and flows remain untouched.
 
-4. **Verify**
-   - Run `bun run build` and load `/services/csi-bones` to confirm the new thumbnail appears and the video plays on click without refresh.
+4. **Verify** — Run `bun run build` and confirm `/services/mass-talks` renders new hero, section backgrounds, and the 5-image gallery.
