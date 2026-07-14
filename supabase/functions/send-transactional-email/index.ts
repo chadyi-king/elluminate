@@ -19,7 +19,7 @@ interface SendRequest {
   templateName: string
   recipientEmail?: string
   idempotencyKey: string
-  templateData?: Record<string, any>
+  templateData?: Record<string, unknown>
   /** Optional override of the From name (default: "Elluminate"). Ignored for public templates. */
   fromName?: string
   /** Optional reply-to address. Ignored for public templates (derived server-side). */
@@ -49,7 +49,9 @@ function formatSubmittedAt(iso?: string | null) {
 function formatExpectedDate(iso?: string | null) {
   if (!iso) return undefined
   try {
-    return new Date(iso).toLocaleDateString('en-SG', {
+    const parsed = new Date(iso)
+    if (Number.isNaN(parsed.getTime())) return undefined
+    return parsed.toLocaleDateString('en-SG', {
       timeZone: 'Asia/Singapore',
       year: 'numeric',
       month: 'long',
@@ -58,6 +60,46 @@ function formatExpectedDate(iso?: string | null) {
   } catch {
     return undefined
   }
+}
+
+interface ContactSubmissionRow {
+  id?: string | null
+  name: string
+  email: string
+  phone?: string | null
+  event_category?: string | null
+  organisation?: string | null
+  organisation_type?: string | null
+  expected_attendees?: string | null
+  expected_date?: string | null
+  additional_customisation?: string | null
+  game_customisation?: string | null
+  add_on_services?: unknown
+  additional_details?: string | null
+  lead_id?: string | null
+  brand?: string | null
+  service?: string | null
+  form_name?: string | null
+  gclid?: string | null
+  gbraid?: string | null
+  wbraid?: string | null
+  gad_source?: string | null
+  utm_source?: string | null
+  utm_medium?: string | null
+  utm_campaign?: string | null
+  utm_term?: string | null
+  utm_content?: string | null
+  referrer?: string | null
+  landing_page?: string | null
+  submission_page?: string | null
+  attribution_captured_at?: string | null
+  created_at?: string | null
+}
+
+function extractAdditionalDetail(details: string | null | undefined, label: string) {
+  if (!details) return undefined
+  const line = details.split('\n').find((item) => item.startsWith(label))
+  return line?.slice(label.length).trim() || undefined
 }
 
 function getContactNotificationEmail() {
@@ -74,20 +116,27 @@ function getContactNotificationEmail() {
 
 function buildPublicTemplateData(
   templateName: string,
-  row: Record<string, any>,
+  row: ContactSubmissionRow,
   contactNotificationEmail: string,
-): { recipientEmail: string; replyTo?: string; templateData: Record<string, any> } {
+): { recipientEmail: string; replyTo?: string; templateData: Record<string, unknown> } {
   const leadEmail = String(row.email).trim().toLowerCase()
 
   if (templateName === 'contact-confirmation') {
     return {
       recipientEmail: leadEmail,
       replyTo: contactNotificationEmail,
-      templateData: { name: row.name },
+      templateData: {
+        name: row.name,
+        eventCategory: row.event_category ?? undefined,
+        expectedAttendees: row.expected_attendees ?? undefined,
+        expectedDate:
+          formatExpectedDate(row.expected_date) ??
+          extractAdditionalDetail(row.additional_details, 'Date or timing window:'),
+      },
     }
   }
   // contact-inquiry
-  const td: Record<string, any> = {
+  const td: Record<string, unknown> = {
     name: row.name,
     email: row.email,
     phone: row.phone ?? undefined,
@@ -103,6 +152,7 @@ function buildPublicTemplateData(
     lead_id: row.lead_id ?? row.id ?? undefined,
     brand: row.brand ?? undefined,
     service: row.service ?? undefined,
+    formName: row.form_name ?? undefined,
     gclid: row.gclid ?? undefined,
     gbraid: row.gbraid ?? undefined,
     wbraid: row.wbraid ?? undefined,
@@ -212,7 +262,7 @@ Deno.serve(async (req) => {
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
   let effectiveRecipient: string
-  let effectiveTemplateData: Record<string, any>
+  let effectiveTemplateData: Record<string, unknown>
   let effectiveReplyTo: string | undefined
   let effectiveFromName: string
 

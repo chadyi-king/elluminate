@@ -23,6 +23,7 @@ interface ContactInquiryProps {
   lead_id?: string
   brand?: string
   service?: string
+  formName?: string
   // attribution
   gclid?: string
   gbraid?: string
@@ -136,6 +137,7 @@ const ContactInquiryEmail = (props: ContactInquiryProps) => (
           <Row label="Lead / Submission ID" value={props.lead_id} />
           <Row label="Brand" value={props.brand} />
           <Row label="Service" value={props.service} />
+          <Row label="Form" value={props.formName} />
           <Row label="Google Click ID" value={props.gclid} />
           <Row label="GBRAID" value={props.gbraid} />
           <Row label="WBRAID" value={props.wbraid} />
@@ -164,7 +166,7 @@ const ContactInquiryEmail = (props: ContactInquiryProps) => (
 
 export const template = {
   component: ContactInquiryEmail,
-  subject: (data: Record<string, any>) =>
+  subject: (data: Pick<ContactInquiryProps, 'name' | 'organisation'>) =>
     `New Inquiry - ${data.name ?? 'Website Lead'}${data.organisation ? ` (${data.organisation})` : ''}`,
   displayName: 'Contact form inquiry',
   previewData: {

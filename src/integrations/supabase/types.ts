@@ -77,21 +77,28 @@ export type Database = {
           expected_date: string | null
           form_name: string | null
           game_customisation: string | null
+          gad_source: string | null
+          gbraid: string | null
           gclid: string | null
           id: string
           landing_page: string | null
+          lead_id: string | null
           name: string
           organisation: string | null
           organisation_type: string | null
           phone: string | null
           recaptcha_score: number | null
           referrer: string | null
+          brand: string | null
+          service: string | null
           submission_page: string | null
+          attribution_captured_at: string | null
           utm_campaign: string | null
           utm_content: string | null
           utm_medium: string | null
           utm_source: string | null
           utm_term: string | null
+          wbraid: string | null
         }
         Insert: {
           add_on_services?: string[] | null
@@ -104,21 +111,28 @@ export type Database = {
           expected_date?: string | null
           form_name?: string | null
           game_customisation?: string | null
+          gad_source?: string | null
+          gbraid?: string | null
           gclid?: string | null
           id?: string
           landing_page?: string | null
+          lead_id?: string | null
           name: string
           organisation?: string | null
           organisation_type?: string | null
           phone?: string | null
           recaptcha_score?: number | null
           referrer?: string | null
+          brand?: string | null
+          service?: string | null
           submission_page?: string | null
+          attribution_captured_at?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
           utm_term?: string | null
+          wbraid?: string | null
         }
         Update: {
           add_on_services?: string[] | null
@@ -131,21 +145,28 @@ export type Database = {
           expected_date?: string | null
           form_name?: string | null
           game_customisation?: string | null
+          gad_source?: string | null
+          gbraid?: string | null
           gclid?: string | null
           id?: string
           landing_page?: string | null
+          lead_id?: string | null
           name?: string
           organisation?: string | null
           organisation_type?: string | null
           phone?: string | null
           recaptcha_score?: number | null
           referrer?: string | null
+          brand?: string | null
+          service?: string | null
           submission_page?: string | null
+          attribution_captured_at?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
           utm_term?: string | null
+          wbraid?: string | null
         }
         Relationships: []
       }

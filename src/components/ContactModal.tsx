@@ -13,9 +13,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
-import { supabase } from "@/integrations/supabase/client";
-import { getAttribution } from "@/lib/attribution";
-import { trackLeadConversion } from "@/lib/tracking";
+import { submitLead } from "@/lib/leadSubmission";
 
 const eventCategories = [
   "Physical Team Building",
@@ -184,71 +182,33 @@ export const ContactModal = () => {
 
     setIsSubmitting(true);
 
-    const attribution = getAttribution();
     const submissionPage =
       typeof window !== "undefined" ? window.location.pathname + window.location.search : null;
 
     try {
-      const submissionId = crypto.randomUUID();
-      const { error } = await supabase.from("contact_submissions").insert({
-        id: submissionId,
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone || null,
-        event_category: formData.eventCategory || null,
-        organisation: formData.organisation || null,
-        organisation_type: formData.organisationType || null,
-        expected_attendees: formData.expectedAttendees || null,
-        additional_customisation: formData.additionalCustomisation || null,
-        game_customisation: formData.gameCustomisation || null,
-        add_on_services: formData.addOnServices.length > 0 ? formData.addOnServices : null,
-        additional_details: formData.additionalDetails || null,
-        expected_date: selectedDate?.toISOString() || null,
-        // attribution
-        gclid: attribution.gclid || null,
-        gbraid: attribution.gbraid || null,
-        wbraid: attribution.wbraid || null,
-        gad_source: attribution.gad_source || null,
-        utm_source: attribution.utm_source || null,
-        utm_medium: attribution.utm_medium || null,
-        utm_campaign: attribution.utm_campaign || null,
-        utm_term: attribution.utm_term || null,
-        utm_content: attribution.utm_content || null,
-        referrer: attribution.referrer || null,
-        landing_page: attribution.landing_page || null,
-        submission_page: submissionPage,
-        form_name: "plan_my_event",
-        lead_id: submissionId,
-        brand: "elluminate",
-        service: "corporate_physical_team_building",
-        attribution_captured_at: attribution.captured_at || null,
-      });
-
-      if (error) throw error;
-
-      // Send notification email + auto-reply (fire-and-forget; failures shouldn't block the user).
-      // The edge function derives all template data server-side from the submission row.
-      void supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-inquiry",
-          idempotencyKey: `contact-inquiry-${submissionId}`,
-          submissionId,
+      await submitLead({
+        formName: "plan_my_event",
+        service: formData.eventCategory === "Corporate Retreat"
+          ? "corporate_retreats"
+          : formData.eventCategory === "Training Workshop"
+            ? "corporate_training"
+            : "company_experiences",
+        submissionPage,
+        emailKeyPrefix: "plan-my-event",
+        fields: {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || null,
+          event_category: formData.eventCategory || null,
+          organisation: formData.organisation.trim() || null,
+          organisation_type: formData.organisationType || null,
+          expected_attendees: formData.expectedAttendees || null,
+          additional_customisation: formData.additionalCustomisation || null,
+          game_customisation: formData.gameCustomisation || null,
+          add_on_services: formData.addOnServices.length > 0 ? formData.addOnServices : null,
+          additional_details: formData.additionalDetails.trim() || null,
+          expected_date: selectedDate?.toISOString() || null,
         },
-      });
-
-      void supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-confirmation",
-          idempotencyKey: `contact-confirmation-${submissionId}`,
-          submissionId,
-        },
-      });
-
-      trackLeadConversion({
-        lead_id: submissionId,
-        event_category: formData.eventCategory || null,
-        page_path: submissionPage,
-        attribution,
       });
 
       // Reset and redirect. The thank-you page is diagnostic-only; conversions fire above after insert success.

@@ -18,9 +18,12 @@ const BRAND = "#1F7CFF";
 
 interface ContactConfirmationProps {
   name?: string;
+  eventCategory?: string;
+  expectedAttendees?: string;
+  expectedDate?: string;
 }
 
-const ContactConfirmationEmail = ({ name }: ContactConfirmationProps) => (
+const ContactConfirmationEmail = ({ name, eventCategory, expectedAttendees, expectedDate }: ContactConfirmationProps) => (
   <Html lang="en" dir="ltr">
     <Head />
     <Preview>Thanks for reaching out to {SITE_NAME}. We have received your enquiry.</Preview>
@@ -33,10 +36,10 @@ const ContactConfirmationEmail = ({ name }: ContactConfirmationProps) => (
         </Text>
 
         <Section style={card}>
-          <Text style={cardText}>
-            In the meantime, feel free to explore some of our recent work and the experiences we've created for teams
-            like yours.
-          </Text>
+          <Text style={cardText}>Here is the event information we received:</Text>
+          {eventCategory ? <Text style={summaryLine}><strong>Event:</strong> {eventCategory}</Text> : null}
+          {expectedAttendees ? <Text style={summaryLine}><strong>Group size:</strong> {expectedAttendees}</Text> : null}
+          {expectedDate ? <Text style={summaryLine}><strong>Date or timing:</strong> {expectedDate}</Text> : null}
           <Button style={button} href="https://elluminate.sg/">
             See Our Recent Events
           </Button>
@@ -60,7 +63,12 @@ export const template = {
   component: ContactConfirmationEmail,
   subject: "We received your enquiry - Elluminate",
   displayName: "Contact form auto-reply",
-  previewData: { name: "Jane" },
+  previewData: {
+    name: "Jane",
+    eventCategory: "Physical Team Building",
+    expectedAttendees: "60",
+    expectedDate: "18 September 2026",
+  },
 } satisfies TemplateEntry;
 
 const main = {
@@ -79,6 +87,7 @@ const card = {
   textAlign: "center" as const,
 };
 const cardText = { fontSize: "14px", color: "#475569", lineHeight: 1.55, margin: "0 0 16px" };
+const summaryLine = { fontSize: "14px", color: "#334155", lineHeight: 1.5, margin: "0 0 8px", textAlign: "left" as const };
 const button = {
   backgroundColor: BRAND,
   color: "#ffffff",
