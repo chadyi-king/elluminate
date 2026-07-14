@@ -10,6 +10,7 @@ import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import { getRouteSeo } from "@/data/seoRoutes";
 
 interface BlogPost {
   id: string;
@@ -77,6 +78,9 @@ const BlogPostPage = () => {
   }
 
   const readingTime = Math.max(1, Math.ceil(post.content.split(/\s+/).length / 200));
+  const routeMeta = getRouteSeo(`/blog/${post.slug}`);
+  const displayTitle = routeMeta?.title?.replace(/ \| Elluminate$/, "") ?? post.title;
+  const displayDescription = routeMeta?.description ?? post.meta_description ?? post.excerpt ?? post.content.slice(0, 155);
   const formattedDate = new Date(post.published_at || post.created_at).toLocaleDateString("en-SG", {
     year: "numeric",
     month: "long",
@@ -86,8 +90,8 @@ const BlogPostPage = () => {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: post.title,
-    description: post.meta_description || post.excerpt || post.content.slice(0, 155),
+    headline: displayTitle,
+    description: displayDescription,
     image: post.cover_image_url,
     author: { "@type": "Organization", name: "Elluminate" },
     publisher: {
@@ -110,10 +114,10 @@ const BlogPostPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={`${post.title} | Elluminate Blog`}
-        description={post.meta_description || post.excerpt || post.content.slice(0, 155)}
+        title={routeMeta?.title ?? `${post.title} | Elluminate Blog`}
+        description={displayDescription}
         keywords={post.tags?.join(", ") || "team building Singapore, corporate events"}
-        canonical={`https://elluminate.sg/blog/${post.slug}`}
+        canonical={routeMeta?.canonical ?? `https://elluminate.sg/blog/${post.slug}`}
         type="article"
       />
       <Helmet>
@@ -139,7 +143,7 @@ const BlogPostPage = () => {
             </span>
           )}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4 leading-tight">
-            {post.title}
+            {displayTitle}
           </h1>
           <div className="flex items-center gap-4 text-sm text-muted-foreground mb-8">
             <span>By {post.author}</span>
@@ -174,6 +178,16 @@ const BlogPostPage = () => {
         >
           <ReactMarkdown>{post.content}</ReactMarkdown>
         </motion.div>
+
+        <aside className="mt-12 rounded-lg border border-border bg-secondary/30 p-6">
+          <h2 className="font-display text-2xl font-bold text-foreground">Planning a team-building event?</h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            Compare activity formats around your group size, venue, timing and event objective.
+          </p>
+          <Link to="/services/team-building" className="mt-5 inline-flex font-semibold text-primary hover:underline">
+            Plan my team-building event
+          </Link>
+        </aside>
 
         {/* Tags */}
         {post.tags && post.tags.length > 0 && (

@@ -1,65 +1,47 @@
 # Elluminate
 
-> Singapore's most eccentric corporate team building company. We design and deliver physical and virtual team building activities, corporate events, retreats, and training programs — 1,000+ events delivered for companies, schools, and government teams.
+> Elluminate plans physical and virtual team building, company retreats, and corporate workshops around the people, objective, venue, and timing. Elluminate and Team Elevate are operated by EXSTATIC PTE LTD; cumulative event history is shared across the two brands.
 
-## Pages
+## Main pages
 
-- [Home](/): Overview of Elluminate's services, signature activities, and pricing.
-- [About](/about): Our story, team, and approach to team building in Singapore.
-- [Portfolio](/portfolio): Case studies, client logos, photos, and videos from past events.
-- [Blog](/blog): Articles on team building ideas, planning, and employee engagement.
+- [Home](/): Team building and company experience planning.
+- [Team Building](/services/team-building): Corporate physical and virtual team-building overview and enquiry.
+- [Retreats](/services/retreats): Local and overseas company retreat options.
+- [Training](/services/training): Corporate workshops and facilitated team sessions.
+- [About](/about): The Elluminate team and shared EXSTATIC operating history.
+- [Portfolio](/portfolio): Real activity, workshop, and retreat media.
+- [Blog](/blog): Team-building and event-planning guides.
 
-## Physical team building activities
+## Physical team-building activities
 
-- [Amazing Race](/services/amazing-race): Singapore's signature city-wide team race.
-- [Running Man](/services/running-man): High-energy challenge based on the hit show.
-- [Sotong Game](/services/sotong-game): Squid Game inspired team competition.
-- [NerfWar](/services/nerfwar): Team-based foam dart battles.
-- [Archery Tag](/services/archery-tag): Combat archery with foam-tipped arrows.
-- [Gel Blitz](/services/gel-blitz): Tactical gel blaster team game.
-- [Tag-tical Laser](/services/tag-tical-laser-teambuilding): Indoor laser tag team building.
-- [CSI Bones](/services/csi-bones): Forensic-themed mystery solving.
-- [Treasure Heist](/services/treasure-heist): Heist-themed escape challenge.
-- [Cultural Race](/services/cultural-race): Singapore heritage discovery race.
-- [Amongst Us](/services/amongst-us): Among Us inspired social deduction game.
-- [Alice in Motherland](/services/alice-in-motherland): Themed adventure quest.
-- [Battle of the Olympians](/services/battle-of-the-olympians): Greek-themed challenge games.
-- [Builder Cross](/services/builder-cross): Hands-on construction challenge.
-- [Minute to Win It](/services/minute-to-win-it): Quickfire party-style games.
-- [Monopoly Dash](/services/monopoly-dash): Life-size Monopoly race around Singapore.
+- [Amazing Race](/services/amazing-race): Outdoor race with team checkpoints and missions.
+- [Cultural Race](/services/cultural-race): Singapore discovery race with local routes and challenges.
+- [CSI-Bones](/services/csi-bones): Indoor forensic mystery challenge.
+- [Minute To Win It](/services/minute-to-win-it): Quick-rotation team games.
+- [Monopoly Dash](/services/monopoly-dash): Strategy race and facilitated team challenge.
+- [Running Man](/services/running-man): Active mission-based team format.
+- [Builder Cross](/services/builder-cross): Hands-on team construction challenge.
+- [Treasure Heist](/services/treasure-heist): Strategy and puzzle team activity.
 
-## Virtual team building activities
+## Virtual team-building activities
 
-- [Amazing Race Virtual](/services/amazing-race-virtual): Online version of our flagship race.
-- [The Gameshow Experience](/services/the-gameshow-experience-virtual): Live-hosted virtual gameshow.
-- [Fit in Your Team](/services/fit-in-your-team-virtual): Get-to-know-you virtual icebreaker.
-- [The Great Zodiac Hunt](/services/the-great-zodiac-hunt-virtual): Lunar New Year themed virtual hunt.
-- [Nuclear Fallout Escape Room](/services/the-nuclear-fallout-escape-room-virtual): Virtual escape room.
-- [The Patriot Act](/services/the-patriot-act-virtual): Spy-themed virtual challenge.
-- [Tomb Raider King Treasure Hunt](/services/tomb-raider-king-treasure-hunt-virtual): Virtual treasure hunt.
-- [Grand Christmas Delivery](/services/grand-christmas-delivery): Festive virtual team activity.
+- [Virtual Amazing Race](/services/amazing-race-virtual)
+- [Virtual Gameshow](/services/the-gameshow-experience-virtual)
+- [Virtual Escape Room](/services/the-nuclear-fallout-escape-room-virtual)
+- [Virtual Treasure Hunt](/services/tomb-raider-king-treasure-hunt-virtual)
 
-## Corporate events
+## Retreats and training
 
-- [Team Building](/services/team-building): Full team building service overview.
-- [Leadership Offsites](/services/leadership-offsites): Leadership team retreats.
+- [Local Retreats](/services/local-retreats)
+- [Overseas Retreats](/services/overseas-retreats)
+- [Incentive Travel](/services/incentive-travel)
+- [Corporate Workshops](/services/workshops)
+- [MBTI Team Workshop](/services/mbti)
+- [DiSC Team Workshop](/services/disc)
+- [OCEAN Workshop](/services/ocean)
 
-## Retreats and travel
+## Planning guides
 
-- [Local Retreats](/services/local-retreats): Singapore-based corporate retreats.
-- [Overseas Retreats](/services/overseas-retreats): International corporate retreats.
-- [Incentive Travel](/services/incentive-travel): Reward trips for top performers.
-
-## Training and profiling
-
-- [MBTI](/services/mbti): MBTI personality profiling workshops.
-- [DISC](/services/disc): DISC behavioral profiling workshops.
-- [OCEAN](/services/ocean): Big Five personality profiling.
-- [Workshops](/services/workshops): Custom corporate workshops.
-- [Mass Talks](/services/mass-talks): Large-audience corporate talks.
-
-## Optional
-
-- [Blog: Top 10 Team Building Activities Singapore 2026](/blog/top-10-team-building-activities-singapore-2026)
-- [Blog: How to Plan an Amazing Race for Your Company](/blog/how-to-plan-amazing-race-company)
-- [Blog: Indoor vs Outdoor Team Building](/blog/indoor-vs-outdoor-team-building)
+- [10 Team Building Activities to Consider in Singapore](/blog/top-10-team-building-activities-singapore-2026)
+- [How to Plan an Amazing Race for Your Company](/blog/how-to-plan-amazing-race-company)
+- [Indoor vs Outdoor Team Building](/blog/indoor-vs-outdoor-team-building)

@@ -8,6 +8,7 @@ import { BlogCard } from "@/components/blog/BlogCard";
 import { BlogSidebar } from "@/components/blog/BlogSidebar";
 import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
+import { getRouteSeo } from "@/data/seoRoutes";
 
 interface BlogPost {
   id: string;
@@ -58,10 +59,8 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Blog | Elluminate"
-        description="Read our latest insights on team building, corporate events, and employee engagement in Singapore. Tips, guides, and best practices from Elluminate."
+        {...getRouteSeo("/blog")}
         keywords="team building blog Singapore, corporate events tips, employee engagement, team building ideas, event planning guide"
-        canonical="https://elluminate.sg/blog"
       />
       <Navbar />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
