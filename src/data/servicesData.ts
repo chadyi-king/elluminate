@@ -12818,16 +12818,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "O.C.E.A.N PROFILING",
       subtitle: "Training",
       tagline: "The world's most research-backed personality framework, applied to how your team actually works.",
-      backgroundImage: "/images/services/local-retreats/hero.jpg",
+      backgroundImage: "/images/services/ocean/hero.jpg",
     },
-    howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
-    addOnsImage: "/images/services/local-retreats/addons.jpg",
-    ctaBackgroundImage: "/images/services/local-retreats/cta.jpg",
-    testimonialBackgroundImage: "/images/services/local-retreats/gallery-4.jpg",
+    howItWorksImage: "/images/services/ocean/how-it-works.jpg",
+    addOnsImage: "/images/services/ocean/addons.jpg",
+    ctaBackgroundImage: "/images/services/ocean/cta.jpg",
+    testimonialBackgroundImage: "/images/services/ocean/gallery-4.jpg",
     overview: {
       description:
         "Rated as one of the top most accurate personality tests in the world! OCEAN Big Five are the domains that represent the basic structure behind all individual personality traits. By diving in deeper, this will allow your team to identify predictive behaviors for real-life scenarios! Gain insights into different office environment situations and how various personalities deal with them.",
-      backgroundImage: "/images/services/local-retreats/hero.jpg",
+      backgroundImage: "/images/services/ocean/hero.jpg",
     },
     features: [
       { icon: Brain, title: "Scientific Accuracy", description: "One of the most validated personality models." },
