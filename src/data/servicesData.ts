@@ -13036,51 +13036,26 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MASS TALKS",
       subtitle: "Training",
       tagline: "Inspire Hundreds, Impact Thousands",
-      backgroundImage: "/images/services/amazing-race/hero.jpg",
+      backgroundImage: "/__l5e/assets-v1/e4ff570b-3256-4028-a6e9-434f67381853/hero.jpg",
     },
-    howItWorksImage: "/images/services/amazing-race/how-it-works.jpg",
-    addOnsImage: "/images/services/amazing-race/addons.jpg",
-    ctaBackgroundImage: "/images/services/amazing-race/cta.jpg",
-    testimonialBackgroundImage: "/images/services/amazing-race/gallery-1.jpg",
+    howItWorksImage: "/__l5e/assets-v1/0ee7ad01-d932-4241-a00a-cf8ba4e94bda/how-it-works.jpg",
+    addOnsImage: "/__l5e/assets-v1/65b4da44-e8c0-4275-ab69-0a8531041f4e/addons.jpg",
+    ctaBackgroundImage: "/__l5e/assets-v1/d94606fd-b928-4420-b4fe-f662c79f439c/cta.jpg",
+    testimonialBackgroundImage: "/__l5e/assets-v1/900479e1-713f-421a-af84-5747b901068e/testimonial.jpg",
     overview: {
       description:
         "Transform your large-scale gatherings into unforgettable moments of inspiration and learning. Our Mass Talks bring together captivating speakers, engaging content, and professional production to deliver powerful messages that resonate with audiences of any size. Whether it's a company-wide town hall, industry conference keynote, or motivational assembly, we craft experiences that inform, inspire, and ignite action across your entire organization.",
-      backgroundImage: "/images/services/amazing-race/hero.jpg",
+      backgroundImage: "/__l5e/assets-v1/e4ff570b-3256-4028-a6e9-434f67381853/hero.jpg",
     },
-    features: [
-      {
-        icon: Mic,
-        title: "Professional Speakers",
-        description: "Access our network of industry experts and motivational speakers.",
-      },
-      {
-        icon: Users,
-        title: "Large Audience Engagement",
-        description: "Interactive elements designed for hundreds of participants.",
-      },
-      {
-        icon: Video,
-        title: "Full AV Production",
-        description: "Professional sound, lighting, and visual presentations.",
-      },
-      {
-        icon: Sparkles,
-        title: "Customized Content",
-        description: "Tailored messaging aligned with your company values.",
-      },
-    ],
-    benefits: [
-      {
-        icon: Target,
-        title: "Unified Messaging",
-        description: "Deliver consistent messaging across your entire organization.",
-      },
-      { icon: Zap, title: "Instant Impact", description: "Create memorable moments that spark immediate action." },
-      { icon: Heart, title: "Cultural Reinforcement", description: "Strengthen company culture and shared values." },
-      { icon: Trophy, title: "Inspire Excellence", description: "Motivate teams to reach new heights of performance." },
-    ],
+...
     alternatingSections: [],
-    gallery: [],
+    gallery: [
+      "/__l5e/assets-v1/8bf2547d-5f95-4f7e-be67-3a2817746c97/gallery-1.jpg",
+      "/__l5e/assets-v1/568804ec-d078-4f1b-bac6-4aa35902ac42/gallery-2.jpg",
+      "/__l5e/assets-v1/92c93fe9-2d21-49df-ae88-e3ef1eb8a879/gallery-3.jpg",
+      "/__l5e/assets-v1/fef575ad-e246-40fe-9e8b-f9a34e113c43/gallery-4.jpg",
+      "/__l5e/assets-v1/7d9bed4c-17c4-47a5-9a04-14314a1e4399/gallery-5.jpg",
+    ],
     testimonials: [
       {
         quote:
