@@ -243,7 +243,8 @@ export const Navbar = () => {
               items={retreatServices}
               isOpen={openDropdown === 'retreats'}
               onToggle={() => handleDropdownToggle('retreats')}
-              onClose={handleDropdownClose} />
+              onClose={handleDropdownClose}
+              parentPath="/services/retreats" />
             
           </div>
 
@@ -259,7 +260,8 @@ export const Navbar = () => {
               items={trainingServices}
               isOpen={openDropdown === 'training'}
               onToggle={() => handleDropdownToggle('training')}
-              onClose={handleDropdownClose} />
+              onClose={handleDropdownClose}
+              parentPath="/services/training" />
             
             <ComingSoonNavButton topic="large-scale" onSelect={handleComingSoonSelect} />
             <ComingSoonNavButton topic="school" onSelect={handleComingSoonSelect} />
@@ -345,7 +347,13 @@ export const Navbar = () => {
 
               {/* Retreats Section */}
               <div className="border-t border-border pt-4">
-                <span className="text-primary text-sm font-semibold mb-2 block">Retreats</span>
+                <Link
+                to="/services/retreats"
+                onClick={() => setIsOpen(false)}
+                className="mb-3 block rounded-lg border border-primary/15 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
+
+                  Retreats
+                </Link>
                 {retreatServices.map((item) =>
               <Link
                 key={item.slug}
@@ -360,7 +368,13 @@ export const Navbar = () => {
 
               {/* Training Section */}
               <div className="border-t border-border pt-4">
-                <span className="text-primary text-sm font-semibold mb-2 block">Training</span>
+                <Link
+                to="/services/training"
+                onClick={() => setIsOpen(false)}
+                className="mb-3 block rounded-lg border border-primary/15 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary">
+
+                  Training
+                </Link>
                 {trainingServices.map((item) =>
               <Link
                 key={item.slug}

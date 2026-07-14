@@ -11,6 +11,7 @@ import { captureAttribution } from "@/lib/attribution";
 import Index from "./pages/Index";
 import ServicePage from "./pages/ServicePage";
 import TeamBuildingHubPage from "./pages/TeamBuildingHubPage";
+import CategoryHubPage from "./pages/CategoryHubPage";
 import AboutPage from "./pages/AboutPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import BlogPage from "./pages/BlogPage";
@@ -66,6 +67,9 @@ const App = () => (
             <Route path="/about" element={<AboutPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/services/team-building" element={<TeamBuildingHubPage />} />
+            <Route path="/teambuilding" element={<Navigate to="/services/team-building" replace />} />
+            <Route path="/services/retreats" element={<CategoryHubPage kind="retreats" />} />
+            <Route path="/services/training" element={<CategoryHubPage kind="training" />} />
             {quarantinedServiceSlugs.map((slug) => (
               <Route key={slug} path={`/services/${slug}`} element={<QuarantinedServiceRedirect />} />
             ))}
