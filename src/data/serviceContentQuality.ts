@@ -1,11 +1,22 @@
 import type { FAQ } from "./servicesData";
 
 export interface ServiceContentQuality {
+  heroTitle?: string;
+  heroSubtitle?: string;
   heroSubline: string;
   overviewDescription: string;
   faqs: FAQ[];
   relatedSlugs: string[];
   todos: string[];
+  planningSectionTitle?: string;
+  planningSectionIntro?: string;
+  planningPoints?: Array<{ title: string; description: string }>;
+  ctaHeadline?: string;
+  ctaSubtext?: string;
+  hideLegacyPricing?: boolean;
+  hideRecentEvents?: boolean;
+  hideOutcomes?: boolean;
+  hideTestimonials?: boolean;
 }
 
 const proofTodo = "TODO(content): Verify client logos, named-company references, and recent-event pax counts before using them as public proof.";
@@ -114,12 +125,14 @@ const item = (
   faqs: FAQ[],
   relatedSlugs: string[],
   todos: string[] = proofTodos,
+  options: Partial<ServiceContentQuality> = {},
 ): ServiceContentQuality => ({
   heroSubline,
   overviewDescription,
   faqs,
   relatedSlugs,
   todos,
+  ...options,
 });
 
 export const serviceContentQuality: Record<string, ServiceContentQuality> = {
@@ -140,6 +153,25 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
       { question: "Where can Amazing Race team building activities be conducted?", answer: "Popular locations include Sentosa, Marina Bay, Gardens by the Bay, Chinatown, Civic District, Jewel Changi Airport, and custom locations across Singapore." },
     ],
     ["cultural-race", "treasure-heist", "running-man", "team-building"],
+    proofTodos,
+    {
+      heroTitle: "Amazing Race Team Building",
+      heroSubtitle: "Outdoor Team Challenge",
+      planningSectionTitle: "Plan the race around your group",
+      planningSectionIntro: "The route, pace and checkpoint mix should follow the people and location, not the other way around.",
+      planningPoints: [
+        { title: "Route and venue", description: "Choose a district, attraction or venue footprint that suits the time available and how far the group should move." },
+        { title: "Team mix", description: "Plan team sizes and missions around mobility, confidence and the balance between physical and puzzle-based tasks." },
+        { title: "Event flow", description: "Build in briefing, checkpoint movement, scoring and a clear finish so participants always know what happens next." },
+        { title: "Weather planning", description: "Discuss sheltered routes, indoor alternatives and the decision point for changing the format before event day." },
+      ],
+      ctaHeadline: "Plan an Amazing Race for your team",
+      ctaSubtext: "Share your pax, date, preferred location and team profile so we can advise the route and activity flow.",
+      hideLegacyPricing: true,
+      hideRecentEvents: true,
+      hideOutcomes: true,
+      hideTestimonials: true,
+    },
   ),
   "csi-bones": item(
     "An indoor mystery format for teams that prefer deduction, evidence review, and quieter collaboration.",
@@ -152,6 +184,25 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
       { question: "Can the storyline be customised?", answer: "Yes. We can customise scenarios, company themes, and learning objectives." },
     ],
     ["treasure-heist", "amongst-us", "monopoly-dash", "team-building"],
+    proofTodos,
+    {
+      heroTitle: "CSI-Bones Team Building",
+      heroSubtitle: "Indoor Mystery Challenge",
+      planningSectionTitle: "Shape the investigation for your team",
+      planningSectionIntro: "CSI-Bones works best when the clues, room setup and facilitation pace match the group.",
+      planningPoints: [
+        { title: "Indoor setup", description: "Confirm the room layout, table space and movement areas needed for evidence review and team discussion." },
+        { title: "Team roles", description: "Use a mix of observation, reasoning and communication tasks so different participants can contribute." },
+        { title: "Challenge level", description: "Adjust the pace and complexity to the audience rather than assuming every group wants the same difficulty." },
+        { title: "Facilitated close", description: "Bring teams back together for the reveal, scoring and a short reflection on how they worked through the case." },
+      ],
+      ctaHeadline: "Plan a CSI-Bones session",
+      ctaSubtext: "Send your pax, venue, timing and preferred challenge level so we can scope the investigation.",
+      hideLegacyPricing: true,
+      hideRecentEvents: true,
+      hideOutcomes: true,
+      hideTestimonials: true,
+    },
   ),
   "cultural-race": item(
     "A Singapore route-based activity for teams that want local discovery, movement, and shared stories.",
@@ -224,6 +275,25 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
       { question: "How long does the programme last?", answer: "Programmes typically run between one and three hours depending on your schedule." },
     ],
     ["monopoly-dash", "battle-of-the-olympians", "corporate-days", "team-building"],
+    proofTodos,
+    {
+      heroTitle: "Minute To Win It Team Building",
+      heroSubtitle: "Fast-Paced Indoor Team Games",
+      planningSectionTitle: "Build the right station flow",
+      planningSectionIntro: "Short challenges feel effortless to participants only when the rotations, room and facilitation are planned carefully.",
+      planningPoints: [
+        { title: "Energy level", description: "Choose a challenge mix that feels lively without requiring every participant to perform at the same intensity." },
+        { title: "Venue layout", description: "Plan stations around the usable floor area, audience sightlines and safe movement between rounds." },
+        { title: "Team rotation", description: "Set team sizes and round timing so people spend more time taking part and less time waiting." },
+        { title: "Event role", description: "Use the format as a full activity, a celebration segment or an energiser within a wider programme." },
+      ],
+      ctaHeadline: "Plan Minute To Win It for your team",
+      ctaSubtext: "Share your pax, venue and timing so we can advise the station mix and event flow.",
+      hideLegacyPricing: true,
+      hideRecentEvents: true,
+      hideOutcomes: true,
+      hideTestimonials: true,
+    },
   ),
   "monopoly-dash": item(
     "An indoor strategy game for teams that want points, movement, negotiation, and friendly competition.",
@@ -236,6 +306,25 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
       { question: "Can company branding be included?", answer: "Yes. We can customise challenges, game currency, and scenarios to reflect your organisation." },
     ],
     ["minute-to-win-it", "builder-cross", "csi-bones", "team-building"],
+    proofTodos,
+    {
+      heroTitle: "Monopoly Dash Team Building",
+      heroSubtitle: "Strategy Race and Team Challenge",
+      planningSectionTitle: "Plan the strategy around the setting",
+      planningSectionIntro: "The format can be shaped around a city route or suitable event space, depending on how much movement and competition the group wants.",
+      planningPoints: [
+        { title: "Location", description: "Confirm whether the team should explore a route or stay within a controlled venue footprint." },
+        { title: "Strategy balance", description: "Mix decisions, negotiation and activity tasks so the experience is not won by speed alone." },
+        { title: "Pace and access", description: "Set movement expectations around the participant profile, available time and accessibility needs." },
+        { title: "Scoring flow", description: "Keep teams clear on objectives, progress and the finish so the competitive layer remains easy to follow." },
+      ],
+      ctaHeadline: "Plan a Monopoly Dash event",
+      ctaSubtext: "Send your pax, venue preference, timing and desired intensity so we can advise the format.",
+      hideLegacyPricing: true,
+      hideRecentEvents: true,
+      hideOutcomes: true,
+      hideTestimonials: true,
+    },
   ),
   "running-man": item(
     "A high-energy mission format for teams that want active challenges, chases, and variety-show energy.",
@@ -404,6 +493,25 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
       { question: "Can the retreat programme be customised for our company?", answer: "Absolutely. Every retreat is tailored to your company goals, culture, participants, and preferred balance of learning, team bonding, and leisure activities." },
     ],
     ["local-retreats", "incentive-travel", "leadership-offsites", "team-building"],
+    proofTodos,
+    {
+      heroTitle: "Overseas Corporate Retreats",
+      heroSubtitle: "Regional Company Retreat Planning",
+      planningSectionTitle: "Turn the trip into one coherent programme",
+      planningSectionIntro: "A useful retreat plan connects travel, accommodation, meals, team time and the business purpose of bringing everyone away.",
+      planningPoints: [
+        { title: "Destination fit", description: "Choose the destination around travel time, budget, participant needs and what the team should experience together." },
+        { title: "Itinerary rhythm", description: "Balance structured sessions, team activities, meals and free time without making the trip feel over-programmed." },
+        { title: "Travel logistics", description: "Confirm transport, accommodation, rooming, dietary needs and supplier responsibilities early in planning." },
+        { title: "On-site delivery", description: "Define who coordinates each part of the programme and how changes are handled while the group is overseas." },
+      ],
+      ctaHeadline: "Plan an overseas company retreat",
+      ctaSubtext: "Share your pax, date window, destination ideas and retreat objective so we can shape the scope.",
+      hideLegacyPricing: true,
+      hideRecentEvents: true,
+      hideOutcomes: true,
+      hideTestimonials: true,
+    },
   ),
   "local-retreats": item(
     "A Singapore retreat option for teams that want offsite energy without overseas travel.",
@@ -416,6 +524,25 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
       { question: "Do you provide complete event management?", answer: "Yes. We can coordinate venues, accommodation, catering, facilitators, logistics, programme planning, and on-site event execution." },
     ],
     ["overseas-retreats", "leadership-offsites", "wellness-events", "team-building"],
+    proofTodos,
+    {
+      heroTitle: "Local Corporate Retreats",
+      heroSubtitle: "Singapore Company Offsites",
+      planningSectionTitle: "Create an offsite without the travel burden",
+      planningSectionIntro: "A local retreat can still feel meaningfully different from a normal workday when the venue, agenda and shared moments support the purpose.",
+      planningPoints: [
+        { title: "Venue and stay", description: "Decide whether the event needs a day venue, hotel stay or multi-day format based on the team and objective." },
+        { title: "Programme mix", description: "Combine work sessions, team activities, meals and downtime in a sequence that keeps the day moving." },
+        { title: "Participant needs", description: "Plan around accessibility, dietary requirements, rooming expectations and the energy level of the group." },
+        { title: "Supplier scope", description: "Clarify what Elluminate, the venue and any other suppliers are each responsible for before confirmation." },
+      ],
+      ctaHeadline: "Plan a local company retreat",
+      ctaSubtext: "Send your pax, dates, venue preferences and offsite goal so we can discuss a practical programme.",
+      hideLegacyPricing: true,
+      hideRecentEvents: true,
+      hideOutcomes: true,
+      hideTestimonials: true,
+    },
   ),
   "incentive-travel": item(
     "A reward-trip planning service for companies that need recognition, travel, and experience design handled carefully.",
@@ -440,6 +567,25 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
       { question: "Can workshops be conducted online?", answer: "Yes. Selected workshops are available in-person, virtually, or in a hybrid format." },
     ],
     ["mbti", "disc", "ocean", "mass-talks"],
+    proofTodos,
+    {
+      heroTitle: "Corporate Team Workshops",
+      heroSubtitle: "Facilitated Workplace Learning",
+      planningSectionTitle: "Start with the workplace outcome",
+      planningSectionIntro: "The topic, exercises and session depth should follow what the team needs to discuss or practise together.",
+      planningPoints: [
+        { title: "Audience", description: "Share participants' roles, seniority and existing context so the session can meet the room at the right level." },
+        { title: "Workshop objective", description: "Define the conversation, skill or team challenge the session should address before choosing activities." },
+        { title: "Format", description: "Choose an in-person, virtual or hybrid structure based on the team, venue and type of participation required." },
+        { title: "Session design", description: "Confirm the balance of explanation, discussion, practice and facilitated reflection in the proposal." },
+      ],
+      ctaHeadline: "Plan a workshop for your team",
+      ctaSubtext: "Share the audience, objective and timing so we can discuss a suitable workshop structure.",
+      hideLegacyPricing: true,
+      hideRecentEvents: true,
+      hideOutcomes: true,
+      hideTestimonials: true,
+    },
   ),
   "mbti": item(
     "An MBTI profiling workshop for teams that want clearer communication and better cross-type collaboration.",
@@ -447,11 +593,30 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     [
       { question: "What is an MBTI personality workshop?", answer: "An MBTI workshop helps participants understand their personality preferences, communication styles, decision-making approaches, and how they work with others." },
       { question: "Is MBTI suitable for corporate teams?", answer: "Yes. MBTI is widely used to improve teamwork, leadership, communication, conflict management, and workplace collaboration." },
-      { question: "Will every participant receive their own personality profile?", answer: "Yes. Participants complete the assessment and receive an individual personality profile, followed by a facilitated debrief session." },
+      { question: "Is an assessment or individual profile included?", answer: "Assessment, profile and report requirements must be confirmed in the proposal. The workshop can also be scoped as a facilitated introduction to MBTI concepts without promising a specific instrument or report." },
       { question: "Can MBTI workshops be combined with team building activities?", answer: "Absolutely. Many organisations combine MBTI with experiential team building to reinforce learning through practical activities." },
       { question: "How long does an MBTI workshop typically last?", answer: "Workshops can range from half-day sessions to full-day programmes depending on your learning objectives and group size." },
     ],
     ["disc", "ocean", "workshops", "leadership-offsites"],
+    proofTodos,
+    {
+      heroTitle: "MBTI Team Workshop",
+      heroSubtitle: "Personality Preferences and Team Communication",
+      planningSectionTitle: "Use the framework to support a real team conversation",
+      planningSectionIntro: "An MBTI-framed session should help participants explore differences in working and communication preferences without reducing people to a label.",
+      planningPoints: [
+        { title: "Team context", description: "Share why the workshop is happening and what the group needs to understand or discuss together." },
+        { title: "Session depth", description: "Confirm whether the need is an introductory workshop, a team debrief or a broader learning programme." },
+        { title: "Assessment scope", description: "Any assessment instrument, profile or report is confirmed explicitly in the proposal before it is promised to participants." },
+        { title: "Practical application", description: "Use examples and exercises that connect personality preferences to communication and collaboration at work." },
+      ],
+      ctaHeadline: "Discuss an MBTI team workshop",
+      ctaSubtext: "Send your group size, team context and intended outcome so we can confirm a suitable scope.",
+      hideLegacyPricing: true,
+      hideRecentEvents: true,
+      hideOutcomes: true,
+      hideTestimonials: true,
+    },
   ),
   "disc": item(
     "A DiSC workshop for teams that want a shared language for behaviour, communication, and conflict.",

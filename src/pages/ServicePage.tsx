@@ -23,6 +23,7 @@ import { ServiceMiniGallery } from "@/components/service-page/ServiceMiniGallery
 import { ServiceDestinationsGrid } from "@/components/service-page/ServiceDestinationsGrid";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/StructuredData";
 import { ServiceFAQAccordion } from "@/components/service-page/ServiceFAQAccordion";
+import { getRouteSeo } from "@/data/seoRoutes";
 
 const overseasRetreatsFaqs = [
   {
@@ -244,8 +245,10 @@ const ServicePage = () => {
     "leadership-offsites": { title: "Leadership Offsite Singapore | Elluminate", description: "Strategy-focused leadership offsites for senior teams in Singapore. Premium venues, expert facilitation, structured alignment. Book with Elluminate.", canonical: "https://elluminate.sg/services/leadership-offsites" },
   };
 
-  const seoData = serviceSEO[slug || ""];
+  const seoData = getRouteSeo(`/services/${slug || ""}`) ?? serviceSEO[slug || ""];
   const contentQuality = slug ? serviceContentQuality[slug] : undefined;
+  const displayHeroTitle = contentQuality?.heroTitle ?? service.hero.title;
+  const displayHeroSubtitle = contentQuality?.heroSubtitle ?? service.hero.subtitle;
   const displayHeroTagline = contentQuality?.heroSubline ?? service.hero.tagline;
   const displayOverviewDescription = contentQuality?.overviewDescription ?? service.overview.description;
   const legacyFaqsBySlug: Record<string, typeof service.faqs> = {
@@ -263,6 +266,7 @@ const ServicePage = () => {
 
   // Check if this service has the new enhanced structure
   const hasEnhancedStructure = service.clientLogos || service.recentEvents || service.pricing;
+  const showLegacyEnhancedStructure = hasEnhancedStructure && !contentQuality?.hideLegacyPricing;
 
   // Determine service category for breadcrumbs
   const getCategory = () => ({
@@ -281,10 +285,10 @@ const ServicePage = () => {
         canonical={seoData?.canonical ?? `https://elluminate.sg/services/${slug}`}
       />
       <ServiceSchema 
-        name={service.hero.title}
+        name={displayHeroTitle}
         description={displayOverviewDescription.slice(0, 200)}
         slug={slug || ""}
-        price={service.pricing?.startingPrice}
+        price={contentQuality?.hideLegacyPricing ? undefined : service.pricing?.startingPrice}
       />
       {displayFaqs && displayFaqs.length > 0 && (
         <FAQSchema faqs={displayFaqs} />
@@ -296,13 +300,13 @@ const ServicePage = () => {
       <BreadcrumbSchema items={[
         { name: "Home", url: "https://elluminate.sg/" },
         { name: category.label, url: "https://elluminate.sg/" },
-        { name: service.hero.title, url: `https://elluminate.sg/services/${slug}` },
+        { name: displayHeroTitle, url: `https://elluminate.sg/services/${slug}` },
       ]} />
 
       {/* 1. Hero Section */}
       <ServiceHeroSplit
-        title={service.hero.title}
-        subtitle={service.hero.subtitle}
+        title={displayHeroTitle}
+        subtitle={displayHeroSubtitle}
         tagline={displayHeroTagline}
         backgroundImage={service.hero.backgroundImage}
         accentColor={service.accentColor}
@@ -332,7 +336,7 @@ const ServicePage = () => {
       ) : null}
 
       {/* 3. Recent Events Ticker */}
-      {service.recentEvents && (
+      {service.recentEvents && !contentQuality?.hideRecentEvents && (
         <section className="py-8 px-4 bg-background">
           <ServiceRecentEventsTicker events={service.recentEvents} accentColor={service.accentColor} />
         </section>
@@ -340,6 +344,30 @@ const ServicePage = () => {
 
       {/* 4. What Is This Service? (Overview) */}
       <ServiceOverviewNew description={displayOverviewDescription} accentColor={service.accentColor} accentColorSecondary={service.accentColorSecondary} />
+
+      {contentQuality?.planningPoints && contentQuality.planningPoints.length > 0 && (
+        <section className="bg-background px-4 py-16 md:py-20">
+          <div className="container mx-auto max-w-6xl">
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
+                {contentQuality.planningSectionTitle}
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                {contentQuality.planningSectionIntro}
+              </p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {contentQuality.planningPoints.map((point) => (
+                <div key={point.title} className="rounded-lg border border-border bg-card p-6">
+                  <div className="mb-4 h-1 w-10 rounded-full" style={{ backgroundColor: service.accentColor }} />
+                  <h3 className="font-display text-xl font-bold text-foreground">{point.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{point.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 4.5 Destinations Grid (for retreat/travel services) */}
       {service.destinationsGrid && (
@@ -352,7 +380,7 @@ const ServicePage = () => {
       )}
 
       {/* 6. How It Works with Pricing & Add-ons (NEW - for enhanced structure) */}
-      {hasEnhancedStructure && service.howItWorksFlow && service.pricing && service.addOns && (
+      {showLegacyEnhancedStructure && service.howItWorksFlow && service.pricing && service.addOns && (
         <ServiceHowItWorksWithPricing
           sectionTitle={service.howItWorksFlow.sectionTitle}
           sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
@@ -369,7 +397,7 @@ const ServicePage = () => {
       )}
 
       {/* Fallback: Original How It Works Flow (for services without enhanced structure) */}
-      {!hasEnhancedStructure && service.howItWorksFlow && (
+      {!hasEnhancedStructure && !contentQuality?.planningPoints && service.howItWorksFlow && (
         <ServiceFlowSection
           sectionTitle={service.howItWorksFlow.sectionTitle}
           sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
@@ -381,7 +409,7 @@ const ServicePage = () => {
       )}
 
       {/* 7. Benefits/Outcomes (NEW - for enhanced structure) */}
-      {service.outcomes && !service.hideOutcomes && (
+      {service.outcomes && !service.hideOutcomes && !contentQuality?.hideOutcomes && (
         <ServiceOutcomes
           outcomes={service.outcomes}
           accentColor={service.accentColor}
@@ -389,7 +417,7 @@ const ServicePage = () => {
       )}
 
       {/* Other Flow Sections (for services without enhanced structure) */}
-      {!hasEnhancedStructure && service.whatToExpectFlow && (
+      {!hasEnhancedStructure && !contentQuality?.planningPoints && service.whatToExpectFlow && (
         <ServiceFlowSection
           sectionTitle={service.whatToExpectFlow.sectionTitle}
           sectionSubtitle={service.whatToExpectFlow.sectionSubtitle}
@@ -400,7 +428,7 @@ const ServicePage = () => {
         />
       )}
 
-      {!hasEnhancedStructure && service.raceFormatsFlow && (
+      {!hasEnhancedStructure && !contentQuality?.planningPoints && service.raceFormatsFlow && (
         <ServiceFlowSection
           sectionTitle={service.raceFormatsFlow.sectionTitle}
           sectionSubtitle={service.raceFormatsFlow.sectionSubtitle}
@@ -411,7 +439,7 @@ const ServicePage = () => {
         />
       )}
 
-      {!hasEnhancedStructure && service.challengeTypesFlow && (
+      {!hasEnhancedStructure && !contentQuality?.planningPoints && service.challengeTypesFlow && (
         <ServiceFlowSection
           sectionTitle={service.challengeTypesFlow.sectionTitle}
           sectionSubtitle={service.challengeTypesFlow.sectionSubtitle}
@@ -425,8 +453,8 @@ const ServicePage = () => {
       {/* 8. Mid-Page CTA */}
       {!service.hideMidCta && (
         <ServiceCTANew
-          headline={service.cta.headline}
-          subtext={service.cta.subtext}
+          headline={contentQuality?.ctaHeadline ?? service.cta.headline}
+          subtext={contentQuality?.ctaSubtext ?? service.cta.subtext}
           accentColor={service.accentColor}
           accentColorSecondary={service.accentColorSecondary}
           backgroundImage={service.ctaBackgroundImage}
@@ -459,8 +487,8 @@ const ServicePage = () => {
       {/* FAQ */}
       {displayFaqs && displayFaqs.length > 0 && (
         <ServiceFAQAccordion
-          title={`${service.hero.title} FAQ`}
-          subtitle={`Frequently asked questions about planning ${service.hero.title} with Elluminate.`}
+          title={`${displayHeroTitle} FAQ`}
+          subtitle={`Frequently asked questions about planning ${displayHeroTitle} with Elluminate.`}
           accentColor={service.accentColor}
           faqs={displayFaqs}
         />
@@ -508,11 +536,13 @@ const ServicePage = () => {
       <div className="h-px" style={{ background: `linear-gradient(90deg, transparent, ${service.accentColor}80, transparent)` }} />
 
       {/* 10. Testimonials */}
-      <ServiceTestimonialNew 
-        testimonials={service.testimonials} 
-        accentColor={service.accentColor}
-        backgroundImage={service.testimonialBackgroundImage}
-      />
+      {!contentQuality?.hideTestimonials && (
+        <ServiceTestimonialNew
+          testimonials={service.testimonials}
+          accentColor={service.accentColor}
+          backgroundImage={service.testimonialBackgroundImage}
+        />
+      )}
 
       {/* 11. Final CTA */}
       <ServiceFinalCTA accentColor={service.accentColor} />
