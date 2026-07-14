@@ -12397,16 +12397,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MBTI PERSONALITY PROFILING",
       subtitle: "Training",
       tagline: "Understand what drives your team — and how to work better across personality types.",
-      backgroundImage: "/images/services/local-retreats/hero.jpg",
+      backgroundImage: "/images/services/mbti/hero.jpg",
     },
-    howItWorksImage: "/images/services/local-retreats/how-it-works.jpg",
-    addOnsImage: "/images/services/local-retreats/addons.jpg",
-    ctaBackgroundImage: "/images/services/local-retreats/cta.jpg",
-    testimonialBackgroundImage: "/images/services/local-retreats/gallery-2.jpg",
+    howItWorksImage: "/images/services/mbti/how-it-works.jpg",
+    addOnsImage: "/images/services/mbti/addons.jpg",
+    ctaBackgroundImage: "/images/services/mbti/cta.jpg",
+    testimonialBackgroundImage: "/images/services/mbti/gallery-2.jpg",
     overview: {
       description:
         "Looking to find out more about who you are and how you work with others? What's your Type? breaks down your entire personality to figure out what drives you and which types you are able to get along with! This activity is designed as a team building event, where teams will discover the frameworks of the mind, energy, nature and tactics within us. By pushing values such as exploration, awareness and insightfulness, we aim to give your group a reflective event filled with diverse growth!",
-      backgroundImage: "/images/services/local-retreats/hero.jpg",
+      backgroundImage: "/images/services/mbti/hero.jpg",
     },
     features: [
       { icon: Brain, title: "Personality Discovery", description: "Understand what drives you and others." },
