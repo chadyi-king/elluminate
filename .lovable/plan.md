@@ -1,22 +1,25 @@
-## Plan
+## Plan — Replace Leadership Offsites images
 
-1. **Upload all Mass Talks images as CDN assets** (via `lovable-assets create --file /mnt/user-uploads/<name>`), writing pointer JSON to `public/images/services/mass-talks/`:
-   - `hero.jpg.asset.json`
-   - `how-it-works.jpg.asset.json`
-   - `addons.jpg.asset.json`
-   - `cta.jpg.asset.json`
-   - `testimonial.jpg.asset.json`
-   - `gallery-1.jpg.asset.json` through `gallery-5.jpg.asset.json`
+The 7 uploaded photos map cleanly to existing image slots. I'll upload each to the Lovable CDN, write `.asset.json` pointers into `public/images/services/leadership-offsites/`, then update the URLs in `src/data/servicesData.ts`.
 
-2. **Update the `"mass-talks"` entry in `src/data/servicesData.ts`** (lines 13032–13083):
-   - `hero.backgroundImage` → hero CDN URL
-   - `howItWorksImage` → how-it-works CDN URL
-   - `addOnsImage` → addons CDN URL
-   - `ctaBackgroundImage` → cta CDN URL
-   - `testimonialBackgroundImage` → testimonial CDN URL
-   - `overview.backgroundImage` → hero CDN URL
-   - **Populate `gallery: []`** with 5 entries pointing to gallery-1…gallery-5 CDN URLs (with descriptive alt text like "Mass talk keynote speaker addressing audience").
+### Uploads → target slot
+| Uploaded file | Target pointer |
+|---|---|
+| `hero-2.jpg` | `hero.jpg.asset.json` |
+| `how-it-works-2.jpg` | `how-it-works.jpg.asset.json` |
+| `addons.png` | `addons.jpg.asset.json` |
+| `cta-2.jpg` | `cta.jpg.asset.json` |
+| `testimonial-2.jpg` | `testimonial.jpg.asset.json` |
+| `gallery-1.jpeg` | `gallery-1.jpg.asset.json` |
+| `gallery-2-2.jpg` | `gallery-2.jpg.asset.json` |
 
-3. **No other changes** — copy, features, FAQs, pricing, testimonials, and flows remain untouched.
+Existing `gallery-3.jpg` … `gallery-7.jpg` remain untouched (no replacements were uploaded for them).
 
-4. **Verify** — Run `bun run build` and confirm `/services/mass-talks` renders new hero, section backgrounds, and the 5-image gallery.
+### Code changes in `src/data/servicesData.ts` (`"leadership-offsites"` entry, ~lines 1638–1654)
+Swap the 6 referenced URLs (hero ×2, howItWorksImage, addOnsImage, testimonialBackgroundImage → gallery-1, plus overview background if present) to the new CDN URLs from the `.asset.json` pointers. If a `gallery: []` array exists, update entries 1 and 2 to the new CDN URLs.
+
+### Cleanup
+Delete the old raw `.jpg` files being replaced (hero, how-it-works, addons, cta, testimonial, gallery-1, gallery-2) so only the `.asset.json` pointers remain for those slots.
+
+### Verify
+Run `bun run build` and confirm `/services/leadership-offsites` renders the new hero, section backgrounds, and refreshed gallery-1/gallery-2 tiles.

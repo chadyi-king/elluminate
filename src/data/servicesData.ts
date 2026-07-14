@@ -1642,16 +1642,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "LEADERSHIP OFFSITES",
       subtitle: "Training",
       tagline: "Where vision meets strategy in inspiring settings.",
-      backgroundImage: "/images/services/leadership-offsites/hero.jpg",
+      backgroundImage: "/__l5e/assets-v1/78588c3d-a610-4e66-9550-43ba57fcbdb8/hero.jpg",
     },
     overview: {
       description:
         "Empower your leadership team with focused offsite experiences designed for strategic thinking and team alignment. Our executive retreats combine productive sessions with premium hospitality for maximum impact. Step away from the office to gain fresh perspectives and align on your organization's future.",
-      backgroundImage: "/images/services/leadership-offsites/hero.jpg",
+      backgroundImage: "/__l5e/assets-v1/78588c3d-a610-4e66-9550-43ba57fcbdb8/hero.jpg",
     },
-    howItWorksImage: "/images/services/leadership-offsites/how-it-works.jpg",
-    addOnsImage: "/images/services/leadership-offsites/addons.jpg",
-    testimonialBackgroundImage: "/images/services/leadership-offsites/gallery-1.jpg",
+    howItWorksImage: "/__l5e/assets-v1/97b8fd8d-5988-42a5-8e8e-0c057a03d6b4/how-it-works.jpg",
+    addOnsImage: "/__l5e/assets-v1/0e84ce35-709f-4e9f-8726-89e26e09f449/addons.png",
+    testimonialBackgroundImage: "/__l5e/assets-v1/f5144b2f-5c0c-48b8-b853-b01b1a679fdc/testimonial.jpg",
     features: [
       {
         icon: MapPin,
