@@ -1,189 +1,119 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
+  Award,
+  BookOpen,
+  Brain,
+  Building,
   Flag,
   Globe,
-  Target,
   Monitor,
-  BookOpen,
-  Sparkles,
-  Timer,
-  Footprints,
-  Users,
-  Skull,
-  Brain,
-  GraduationCap,
-  Ghost,
-  Rabbit,
-  Crown,
   Plane,
-  Building,
-  Award,
-  Heart,
-  Briefcase,
+  Skull,
+  Target,
+  Timer,
+  Users,
 } from "lucide-react";
 import { ExpandableActivityCard } from "./ExpandableActivityCard";
-import { WaveDivider } from "./WaveDivider";
 import { FloatingBlobs } from "./FloatingBlobs";
-
-import heroAmazingRace from "@/assets/hero/amazing-race.jpg";
-import heroCreativeWorkshop from "@/assets/hero/creative-workshop.jpg";
-import heroCsiInvestigation from "@/assets/hero/csi-investigation.jpg";
-import heroAdventureChallenge from "@/assets/hero/adventure-challenge.jpg";
-import heroTeamCelebration from "@/assets/hero/team-celebration.jpg";
-import heroCulturalRace from "@/assets/hero/cultural-race.jpg";
-import heroOverseasRetreat from "@/assets/hero/overseas-retreat.jpg";
+import { WaveDivider } from "./WaveDivider";
 
 const activityColors = {
-  amazingRace: "#FFC400",
-  csiInvestigation: "#26D07C",
-  culturalRace: "#FF4F4F",
-  archeryLaserTag: "#2A8DFF",
-  creativeWorkshops: "#A768FF",
-  wellness: "#62E2C4",
-  adventureRaces: "#FF8A3D",
-  mystery: "#8B5CF6",
-  action: "#F97316",
+  yellow: "#FFC400",
+  green: "#26D07C",
+  red: "#FF4F4F",
+  blue: "#2A8DFF",
+  purple: "#A768FF",
+  mint: "#62E2C4",
+  orange: "#FF8A3D",
 };
 
 const allActivities = [
   {
+    name: "Team Building",
+    icon: Users,
+    slug: "team-building",
+    color: activityColors.blue,
+    description: "Plan a physical or virtual team activity around your people, venue, timing, and event objective.",
+    stats: "Physical, indoor, outdoor, and virtual directions",
+    clients: "Start with pax, date, venue, and goal",
+    image: "/images/services/amazing-race/gallery-1.jpg",
+    tag: "Overview",
+  },
+  {
     name: "Amazing Race",
     icon: Flag,
     slug: "amazing-race",
-    color: activityColors.amazingRace,
-    description:
-      "Exciting city-wide treasure hunts with challenges and puzzles that test teamwork and problem-solving.",
-    stats: "300+ Amazing Races organized",
-    clients: "For Google, DBS, Shopee, and more",
-    image: "/images/services/amazing-race/hero.jpg",
+    color: activityColors.yellow,
+    description: "An outdoor route with checkpoints, clues, and facilitated challenges that teams complete together.",
+    stats: "Movement, exploration, and team missions",
+    clients: "Useful for teams that want an active shared finish",
+    image: "/images/services/amazing-race/gallery-1.jpg",
     tag: "Physical",
   },
   {
     name: "CSI-Bones",
     icon: Skull,
     slug: "csi-bones",
-    color: activityColors.csiInvestigation,
-    description:
-      "Forensic investigation experience where teams solve mysteries using clues, evidence, and deduction skills.",
-    stats: "150+ CSI events delivered",
-    clients: "Popular with banks, schools, and tech companies",
-    image: "/images/services/csi-bones/hero.jpg",
+    color: activityColors.green,
+    description: "An indoor investigation where teams examine evidence, compare theories, and solve the case.",
+    stats: "Indoor, collaborative, and lower movement",
+    clients: "Useful for analytical groups and controlled venues",
+    image: "/images/services/csi-bones/gallery-1.jpg",
     tag: "Physical",
   },
   {
     name: "Cultural Race",
     icon: Globe,
     slug: "cultural-race",
-    color: activityColors.culturalRace,
-    description: "Explore Singapore's rich heritage through interactive challenges in historic districts.",
-    stats: "200+ Cultural Races completed",
-    clients: "Perfect for multinational teams and student groups",
-    image:
-      "/images/services/amazing-race/hero.jpg",
+    color: activityColors.red,
+    description: "A Singapore discovery route that combines local districts, team missions, clues, and movement.",
+    stats: "Location-led outdoor team format",
+    clients: "Useful for local and visiting company groups",
+    image: "/images/services/cultural-race/gallery-5.jpg",
     tag: "Physical",
   },
   {
-    name: "Amongst Us",
-    icon: Ghost,
-    slug: "amongst-us",
-    color: activityColors.mystery,
-    description:
-      "A live social-deduction concept where your group hunts for the imposters before the room turns on itself.",
-    stats: "80+ games played",
-    clients: "Popular for workplaces, camps, and student leaders",
-    image: "/images/services/amongst-us/hero.jpg",
-    tag: "Physical",
-  },
-  {
-    name: "Alice in Motherland",
-    icon: Rabbit,
-    slug: "alice-in-motherland",
-    color: activityColors.creativeWorkshops,
-    description:
-      "A whimsical, story-led journey packed with themed stations, playful puzzles, and immersive team moments.",
-    stats: "40+ experiences created",
-    clients: "Loved by creative brands, schools, and curated events",
-    image: "/images/services/monopoly-dash/hero.jpg",
-    tag: "Physical",
-  },
-  {
-    name: "Battle of the Olympians",
-    icon: Crown,
-    slug: "battle-of-the-olympians",
-    color: activityColors.amazingRace,
-    description: "An epic competition format that blends athletic rounds, mental games, and all-out team pride.",
-    stats: "40+ battles fought",
-    clients: "Built for large cohorts, schools, and full-company showdowns",
-    image: "/images/services/battle-of-the-olympians/hero.jpg",
-    tag: "Physical",
-  },
-  {
-    name: "Archery Tag",
-    icon: Target,
-    slug: "archery-tag",
-    color: activityColors.archeryLaserTag,
-    description: "Action-packed archery battles that sharpen team strategy, communication, and fast decision-making.",
-    stats: "120+ archery events",
-    clients: "Great for competitive teams and student cohorts",
-    image: "/images/services/archery-tag/hero.jpg",
-    tag: "Physical",
-  },
-  {
-    name: "Minute to Win It",
+    name: "Minute To Win It",
     icon: Timer,
     slug: "minute-to-win-it",
-    color: activityColors.action,
-    description: "Fast-paced one-minute challenges that bring out competitive spirit and lots of laughter.",
-    stats: "200+ events hosted",
-    clients: "Perfect for D&D, schools, and celebrations",
-    image: "/images/services/minute-to-win-it/hero.jpg",
+    color: activityColors.orange,
+    description: "Short station challenges that create quick rotations, visible scoring, and accessible participation.",
+    stats: "Compact energy for indoor venues",
+    clients: "Useful for offices, function rooms, and ballrooms",
+    image: "/images/services/minute-to-win-it/gallery-3.jpg",
     tag: "Physical",
   },
   {
-    name: "Running Man Adventure",
-    icon: Footprints,
-    slug: "running-man",
-    color: activityColors.culturalRace,
-    description: "Korean Running Man-inspired games with name tag ripping, missions, and hilarious challenges.",
-    stats: "120+ adventures ran",
-    clients: "Popular with K-culture fans and youth groups",
-    image: "/images/services/running-man/hero.jpg",
+    name: "Monopoly Dash",
+    icon: Target,
+    slug: "monopoly-dash",
+    color: activityColors.red,
+    description: "A facilitated challenge format combining light strategy, movement, points, and friendly competition.",
+    stats: "Strategy and movement in one format",
+    clients: "Useful when the group wants easy-to-follow momentum",
+    image: "/images/services/monopoly-dash/gallery-2.jpg",
     tag: "Physical",
   },
   {
-    name: "Amazing Race Virtual",
+    name: "Virtual Amazing Race",
     icon: Monitor,
     slug: "amazing-race-virtual",
-    color: activityColors.csiInvestigation,
-    description:
-      "A remote-friendly Amazing Race experience that keeps distributed teams engaged through live digital challenges.",
-    stats: "150+ virtual races",
-    clients: "Global teams and hybrid cohorts",
-    image: "/images/services/amazing-race-virtual/hero.jpg",
-    tag: "Virtual",
-  },
-  {
-    name: "Gameshow Experience",
-    icon: Sparkles,
-    slug: "the-gameshow-experience-virtual",
-    color: activityColors.mystery,
-    description:
-      "An interactive online game show format designed for fast laughs, remote participation, and easy engagement.",
-    stats: "120+ virtual game shows",
-    clients: "Distributed teams worldwide",
-    image: "/images/services/the-gameshow-experience-virtual/hero.jpg",
+    color: activityColors.purple,
+    description: "A hosted online race that gives remote and multi-office teams a shared challenge and finish.",
+    stats: "Facilitated virtual team experience",
+    clients: "Useful when the team cannot gather in one venue",
+    image: "/images/services/amazing-race-virtual/gallery-1.jpg",
     tag: "Virtual",
   },
   {
     name: "Overseas Retreats",
     icon: Plane,
     slug: "overseas-retreats",
-    color: activityColors.adventureRaces,
-    description:
-      "Retreat experiences designed for deeper connection, offsite focus, and shared momentum outside the usual setting.",
-    stats: "Regional retreats across Asia",
-    clients: "Leadership teams, departments, and top performers",
+    color: activityColors.orange,
+    description: "Company retreats shaped around destination, itinerary, group needs, activities, and travel logistics.",
+    stats: "Travel, accommodation, itinerary, and activities",
+    clients: "Start with destination range, dates, pax, and purpose",
     image: "/images/services/overseas-retreats/hero.jpg",
     tag: "Retreat",
   },
@@ -191,95 +121,44 @@ const allActivities = [
     name: "Local Retreats",
     icon: Building,
     slug: "local-retreats",
-    color: activityColors.wellness,
-    description:
-      "Three tiers of Singapore hotel retreats — Staycation, Heritage, or Luxury — designed to reward your team without leaving the island.",
-    stats: "Staycation, Heritage & Luxury tiers",
-    clients: "Whole-staff, leadership teams, and top performers",
-    image: "/images/services/overseas-retreats/hero.jpg",
+    color: activityColors.mint,
+    description: "Singapore offsites planned around the right balance of work sessions, bonding, meals, and downtime.",
+    stats: "Local offsite and stay-based directions",
+    clients: "Useful when the team needs a change of setting",
+    image: "/images/services/local-retreats/hero.jpg",
     tag: "Retreat",
   },
   {
     name: "Incentive Travel",
     icon: Award,
     slug: "incentive-travel",
-    color: activityColors.amazingRace,
-    description:
-      "Reward-based travel programmes for top performers — fully managed from criteria design to on-ground execution and post-trip recognition.",
-    stats: "Regional & long-haul programmes",
-    clients: "Sales teams, top earners, and leadership cohorts",
-    image: "/images/services/overseas-retreats/hero.jpg",
+    color: activityColors.yellow,
+    description: "Reward travel planned around the qualifying group, destination, itinerary, and recognition moment.",
+    stats: "Travel direction and programme planning",
+    clients: "Useful for reward and recognition programmes",
+    image: "/images/services/incentive-travel/hero.jpg",
     tag: "Retreat",
   },
   {
     name: "Workshops",
     icon: BookOpen,
     slug: "workshops",
-    color: activityColors.creativeWorkshops,
-    description:
-      "Interactive learning sessions built around communication, collaboration, leadership, and team development.",
-    stats: "150+ training programmes",
-    clients: "MNCs, public sector teams, and schools",
+    color: activityColors.purple,
+    description: "Facilitated workplace sessions shaped around the audience, time available, and intended discussion.",
+    stats: "Interactive workshop and talk directions",
+    clients: "Start with audience, context, duration, and objective",
     image: "/images/services/workshops/hero.jpg",
     tag: "Training",
   },
   {
-    name: "MBTI Profiling",
-    icon: Users,
-    slug: "mbti",
-    color: activityColors.wellness,
-    description:
-      "A practical profiling workshop that helps teams understand personality differences and work better together.",
-    stats: "100+ profiling sessions",
-    clients: "Leadership, HR, and student leaders",
-    image: "/images/services/mbti/hero.jpg",
-    tag: "Training",
-  },
-  {
-    name: "DISC Assessment",
+    name: "MBTI Workshop",
     icon: Brain,
-    slug: "disc",
-    color: activityColors.archeryLaserTag,
-    description:
-      "A practical behavioural profiling session that helps teams communicate better and collaborate more effectively.",
-    stats: "80+ DISC sessions",
-    clients: "Managers, schools, and leadership teams",
-    image: "/images/services/disc/hero.jpg",
-    tag: "Training",
-  },
-  {
-    name: "Youth Camps",
-    icon: GraduationCap,
-    slug: "youth-camps",
-    color: activityColors.wellness,
-    description:
-      "High-energy school and youth experiences designed for bonding, leadership, and memorable cohort moments.",
-    stats: "120+ school and youth programmes",
-    clients: "Schools, student leaders, and youth groups",
-    image: "/images/services/youth-camps/hero.jpg",
-    tag: "School",
-  },
-  {
-    name: "Wellness Events",
-    icon: Heart,
-    slug: "wellness-events",
-    color: activityColors.wellness,
-    description: "Corporate wellness days that combine movement, mindfulness, and nutrition into a shared team reset.",
-    stats: "Mind, body & spirit formats",
-    clients: "HR teams, leadership groups, and whole-staff",
-    image: "/images/services/wellness-events/hero.jpg",
-    tag: "Training",
-  },
-  {
-    name: "Leadership Offsites",
-    icon: Briefcase,
-    slug: "leadership-offsites",
-    color: activityColors.archeryLaserTag,
-    description:
-      "Focused offsite experiences for senior teams — blending strategy facilitation, team alignment, and premium hospitality.",
-    stats: "1.5 to 3-day programmes",
-    clients: "C-suite, directors, and management teams",
-    image: "/images/services/wellness-events/hero.jpg",
+    slug: "mbti",
+    color: activityColors.mint,
+    description: "A guided team conversation about personality preferences, working styles, and communication patterns.",
+    stats: "Facilitated reflection and team discussion",
+    clients: "Useful when the goal is shared language and awareness",
+    image: "/images/services/mbti/hero.jpg",
     tag: "Training",
   },
 ];
@@ -313,13 +192,9 @@ export const ServicesSection = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-6">
             Team Building, Retreats & <span className="text-primary">Training</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Explore physical team building, virtual team building, retreats, and training formats clients, schools, and
-            student groups book us for most.
-          </p>
-          <p className="text-muted-foreground/70 max-w-3xl mx-auto text-sm mt-4">
-            The mix below makes the offer clearer at a glance, while keeping your most distinctive experiences front and
-            centre.
+          <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
+            Explore the main experience directions, then share your group, timing, venue, and objective so the plan can
+            be narrowed around the people attending.
           </p>
         </motion.div>
 
@@ -345,9 +220,7 @@ export const ServicesSection = () => {
                 isActive={activeCard === activity.slug}
                 onActivate={() => setActiveCard(activity.slug)}
                 onDeactivate={() =>
-                  setActiveCard((currentCard) =>
-                    currentCard === activity.slug ? null : currentCard
-                  )
+                  setActiveCard((currentCard) => (currentCard === activity.slug ? null : currentCard))
                 }
               />
             </motion.div>

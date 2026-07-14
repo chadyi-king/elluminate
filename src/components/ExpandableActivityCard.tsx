@@ -180,7 +180,7 @@ export const ExpandableActivityCard = ({
                 {stats && (
                   <div className="bg-white/15 backdrop-blur-sm rounded-lg px-4 py-3 mb-4">
                     <p className="text-white/80 text-xs uppercase tracking-wider mb-1">
-                      Track Record
+                      Planning Fit
                     </p>
                     <p className="text-white font-semibold text-sm">{stats}</p>
                     {clients && (

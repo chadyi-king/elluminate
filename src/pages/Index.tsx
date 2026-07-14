@@ -11,15 +11,16 @@ import { HomeFAQSection } from "@/components/HomeFAQSection";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebSiteSchema } from "@/components/StructuredData";
+import { getRouteSeo } from "@/data/seoRoutes";
+
+const homeSeo = getRouteSeo("/");
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Team Building Singapore | Corporate Events | Elluminate"
-        description="Singapore's trusted team building company. 1,000+ events for top companies, schools and government teams. Get a free quote today."
+        {...homeSeo}
         keywords="team building Singapore, corporate team building, virtual team building, amazing race, company retreats, corporate training"
-        canonical="https://elluminate.sg/"
       />
       <OrganizationSchema type="LocalBusiness" />
       <WebSiteSchema />

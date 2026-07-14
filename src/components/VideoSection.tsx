@@ -72,7 +72,7 @@ export const VideoSection = () => {
                     </h3>
 
                     <p className="text-white text-sm md:text-base font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-                      1,000+ Events | 100,000+ Participants | 8+ Years
+                      Shared Team Elevate + Elluminate history: 1,000+ events | 100,000+ participants | 8+ years
                     </p>
                   </div>
                 </div>

@@ -10,8 +10,8 @@ export const CTASection = () => {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&h=1080&fit=crop"
-          alt="Corporate event"
+          src="/images/services/amazing-race/gallery-1.jpg"
+          alt="Company team taking part in a facilitated outdoor challenge"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-sky-500/90" />
@@ -57,7 +57,8 @@ export const CTASection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white/90 text-xl mb-10"
           >
-            Tell us your goals, audience, and budget, and we will shape the right format for your workplace, school, class, or student cohort.
+            Tell us who is attending, what you want the event to achieve, and the practical details you already know.
+            We will help you shape the right next step.
           </motion.p>
 
           <motion.div
@@ -98,7 +99,7 @@ export const CTASection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-white/70 text-sm font-display"
           >
-            Expect a response from our team within 24 hours.
+            Share the details you know. It is fine if the venue or final format is still open.
           </motion.p>
         </motion.div>
       </div>

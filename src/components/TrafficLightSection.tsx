@@ -7,42 +7,42 @@ const trafficLights = [
   {
     color: "#26D07C", // Green
     icon: Zap,
-    title: "Minimum Package",
-    subtitle: "Green Light",
-    description: "Start with a proven format that is ready to run. Ideal when you want a strong experience without a lengthy planning cycle.",
+    title: "Share the brief",
+    subtitle: "Step 1",
+    description: "Tell us about the people attending, when the event may happen, and what you want the experience to achieve.",
     features: [
-      "Pre-designed activity packages",
-      "Fast turnaround time",
-      "Proven team building formats",
-      "Simple booking process",
+      "Estimated pax and participant profile",
+      "Date or timing window",
+      "Venue preference",
+      "Event objective",
     ],
-    cta: "Browse Programs",
+    cta: "Plan My Event",
   },
   {
     color: "#FFC400", // Amber
     icon: Package,
-    title: "Enhanced Package",
-    subtitle: "Amber Light",
-    description: "Add the support services that make the day feel easier, smoother, and more complete for your team and organisers.",
+    title: "Narrow the direction",
+    subtitle: "Step 2",
+    description: "Use the brief to discuss the activity, retreat, or workshop direction that makes practical sense for the group.",
     features: [
-      "Venue sourcing & booking",
-      "Catering arrangements",
-      "Prizes & merchandise",
-      "Transportation & logistics",
+      "Format and energy level",
+      "Indoor, outdoor, or virtual fit",
+      "Event flow and facilitation",
+      "Open venue and logistics questions",
     ],
-    cta: "Customize Package",
+    cta: "Discuss My Brief",
   },
   {
     color: "#FF4F4F", // Red
     icon: Crown,
-    title: "Premium Package",
-    subtitle: "Red Light",
-    description: "Build a fully customised experience from the ground up, with concepting, production, and delivery shaped around your goals.",
+    title: "Confirm the event",
+    subtitle: "Step 3",
+    description: "Align the scope, quote, operating details, and responsibilities before the event is locked in.",
     features: [
-      "Custom theme development",
-      "Multi-day event planning",
-      "Unique activity creation",
-      "End-to-end project management",
+      "Agreed programme scope",
+      "Quote assumptions and inclusions",
+      "Setup and event-day details",
+      "Final participant information",
     ],
     cta: "Start Planning",
   },
@@ -68,13 +68,13 @@ export const TrafficLightSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
-            Your Way, Your Pace
+            From Brief to Event
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-4">
-            The <span className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 bg-clip-text text-transparent">Traffic Light</span> System
+            A <span className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 bg-clip-text text-transparent">Clear Planning Path</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Choose how much support and customisation you need — from ready-to-run formats to fully bespoke event design.
+            Three practical steps keep the conversation focused on what the event needs, not just what it is called.
           </p>
         </motion.div>
 

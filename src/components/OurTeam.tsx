@@ -42,7 +42,8 @@ export const OurTeam = () => {
             Our <span className="text-primary">Team</span>
           </h2>
           <p className="text-muted-foreground/80 font-sans max-w-xl mx-auto text-sm">
-            The planners, facilitators, and creative minds behind each Elluminate experience.
+            The ten verified team members supporting planning, events, operations, administration, finance,
+            technology, marketing, and sales across Elluminate and the shared EXSTATIC PTE LTD operation.
           </p>
         </motion.div>
 

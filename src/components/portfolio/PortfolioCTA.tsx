@@ -12,7 +12,7 @@ export const PortfolioCTA = ({ onOpenContact }: PortfolioCTAProps) => {
       <div className="absolute inset-0 bg-black">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920)` }}
+          style={{ backgroundImage: "url(/images/services/amazing-race/gallery-6.jpg)" }}
         />
       </div>
 
@@ -35,11 +35,11 @@ export const PortfolioCTA = ({ onOpenContact }: PortfolioCTAProps) => {
           className="text-center max-w-3xl mx-auto"
         >
           <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
-            Ready to Elevate Your Next Event?
+            Planning a Company Event?
           </h2>
           
           <p className="text-xl text-white/70 mb-8">
-            Let's design a masterpiece together.
+            Share the people, purpose, venue and timing. We will help you shape an activity or experience that fits.
           </p>
 
           <motion.button

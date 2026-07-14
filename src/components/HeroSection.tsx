@@ -7,6 +7,7 @@ import { PhotoWall } from "./hero/PhotoWall";
 import { RotatingWord, wordData } from "./hero/RotatingWord";
 
 import { HeroCharacters } from "./hero/HeroCharacters";
+import { ArrowRight } from "lucide-react";
 
 // SPARK letters
 const sparkLetters = [
@@ -48,9 +49,6 @@ export const HeroSection = () => {
       {/* Layer 2: Main Content — text behind characters, buttons on top */}
       <div className="container mx-auto px-4 relative z-20 pt-[55px] pb-12 pointer-events-none">
         <div className="flex flex-col items-center text-center w-full">
-          {/* SEO H1 — visually hidden, readable by Google */}
-          <h1 className="sr-only">Team Building Singapore — Energise Your Team With Elluminate</h1>
-
           {/* Main Headline - Dramatic visual hierarchy */}
           <motion.div
             aria-hidden="true"
@@ -119,6 +117,15 @@ export const HeroSection = () => {
             </motion.div>
           </motion.div>
 
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.05 }}
+            className="mb-4 max-w-3xl font-display text-xl font-black leading-tight text-foreground sm:text-2xl md:text-3xl"
+          >
+            Team Building and Company Experiences Planned Around Your People
+          </motion.h1>
+
           {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -126,8 +133,8 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1.1 }}
             className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl mb-6 font-sans"
           >
-            Team building, school programmes, training, and retreats designed to energise teams,
-            classes, and student groups across Singapore.
+            Plan physical or virtual team building, company retreats, and facilitated workshops around your group,
+            objective, venue, and timing.
           </motion.p>
 
           <motion.p
@@ -136,7 +143,8 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1.15 }}
             className="text-xs sm:text-sm text-foreground/70 max-w-2xl mb-8 font-sans tracking-wide uppercase"
           >
-            Trusted by companies, schools, and public-sector teams with <span className="text-primary font-semibold">1,000+ events delivered</span>
+            <span className="text-primary font-semibold">1,000+ events delivered</span> across the shared Team Elevate
+            and Elluminate operating history under EXSTATIC PTE LTD.
           </motion.p>
 
           {/* CTA Buttons — topmost layer */}
@@ -154,12 +162,8 @@ export const HeroSection = () => {
                 className="group shadow-xl text-base px-6 py-5"
               >
                 <span>Plan My Event</span>
-                <motion.span
-                  className="inline-block ml-2"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.2, repeat: Infinity }}
-                >
-                  →
+                <motion.span className="ml-2 inline-block" animate={{ x: [0, 5, 0] }} transition={{ duration: 1.2, repeat: Infinity }}>
+                  <ArrowRight className="h-4 w-4" />
                 </motion.span>
               </Button>
             </motion.div>

@@ -348,34 +348,48 @@ const defaultClientLogos = [
   },
 ];
 
+const approvedClientLogoNames = new Set([
+  "DBS",
+  "Singtel",
+  "GovTech",
+  "CapitaLand",
+  "Singapore Airlines",
+  "Changi Airport",
+  "Google",
+  "Microsoft",
+  "Deloitte",
+  "NUS",
+  "DHL",
+  "Mediacorp",
+]);
+
 
 const stats = [
   {
     icon: Calendar,
     number: "1,000+",
-    label: "Events Executed",
-    description: "Across all corporate formats.",
+    label: "Cumulative Events",
+    description: "Shared Team Elevate and Elluminate history.",
   },
   {
     icon: Users,
     number: "100,000+",
-    label: "Participants Impacted",
-    description: "Singapore & regional teams.",
+    label: "Cumulative Participants",
+    description: "Across the shared operating history.",
   },
   {
     icon: Award,
     number: "8+",
-    label: "Years Delivering",
-    description: "Consistent experiences for teams across Singapore.",
+    label: "Years of Operating History",
+    description: "Team Elevate and Elluminate under EXSTATIC PTE LTD.",
   },
 ];
 
 export const SocialProofSection = () => {
   const [currentGroup, setCurrentGroup] = useState(0);
-  const clientLogos = defaultClientLogos;
+  const clientLogos = defaultClientLogos.filter((logo) => approvedClientLogoNames.has(logo.name));
 
-  // Split logos into groups of 24 (4 rows x 6 columns) for carousel
-  const logoGroups = [clientLogos.slice(0, 24), clientLogos.slice(24, 48), clientLogos.slice(48, 72)];
+  const logoGroups = [clientLogos];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -399,7 +413,7 @@ export const SocialProofSection = () => {
           className="mb-16"
         >
           <h3 className="text-center text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-10">
-            Trusted By Leading Brands
+            Selected Organisations From Our Shared Event History
           </h3>
 
           {/* Logo Carousel - 4 rows x 6 columns */}
@@ -491,15 +505,15 @@ export const SocialProofSection = () => {
               </div>
 
               <p className="text-muted-foreground font-display">
-                Based on <span className="text-primary font-bold">776+</span> Google Reviews
+                Based on <span className="text-primary font-bold">776+</span> Google reviews published for Team Elevate
               </p>
 
               <p className="text-muted-foreground/80 text-sm font-display">
-                Trusted by companies all across Singapore.
+                Team Elevate and Elluminate are operated by EXSTATIC PTE LTD.
               </p>
 
               <p className="text-muted-foreground/70 text-xs font-display mt-2 italic">
-                Reviews collected via our partner brand,{" "}
+                View the original Team Elevate review source:{" "}
                 <a
                   href="https://www.google.com/search?q=team+elevate+singapore"
                   target="_blank"
@@ -549,6 +563,10 @@ export const SocialProofSection = () => {
             ))}
           </div>
         </motion.div>
+        <p className="mx-auto mt-8 max-w-4xl text-center text-xs leading-5 text-muted-foreground">
+          Cumulative statistics and selected organisation history are shown across Team Elevate and Elluminate under
+          EXSTATIC PTE LTD, as at July 2026. Historical events and reviews may have been delivered under Team Elevate.
+        </p>
       </div>
     </section>
   );

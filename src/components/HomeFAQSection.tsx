@@ -10,27 +10,27 @@ const faqs = [
   {
     question: "What corporate team building activities do you offer in Singapore?",
     answer:
-      "We offer a wide range of corporate team building activities in Singapore, including Amazing Race, Running Man, CSI mystery challenges, problem-solving games, outdoor adventures, indoor team bonding activities, personality profiling workshops, and corporate retreats. Our programmes are customised based on your objectives, group size, venue, and budget.",
+      "Elluminate offers physical, indoor, outdoor, and virtual formats including Amazing Race, Cultural Race, CSI-Bones, Minute To Win It, and online team activities. Start with your group size, venue, timing, and event objective if you are unsure which format fits.",
   },
   {
     question: "How many participants can join your team building programmes?",
     answer:
-      "Our programmes can accommodate groups ranging from 10 participants to over 1,000 participants. Activities can be customised for small leadership teams, department gatherings, or large company-wide events.",
+      "Group size affects team allocation, pacing, facilitation, venue fit, and the activity direction. Share an estimated headcount and we can discuss what is practical for that format.",
   },
   {
     question: "Can your programmes be customised for our company?",
     answer:
-      "Yes. We customise team building programmes based on your organisation's goals, company culture, event theme, venue, and participant profile. We can also incorporate company values, products, or learning objectives into the experience.",
+      "The planning conversation can account for your organisation's objective, participant profile, venue, timing, and event theme. The available level of customisation depends on the selected format and scope.",
   },
   {
     question: "Do you provide venues for team building events?",
     answer:
-      "Yes. We can recommend and coordinate suitable venues across Singapore, including hotels, resorts, event spaces, parks, Sentosa, and indoor function rooms.",
+      "Venue support depends on the event scope. Share whether you already have a venue, need suggestions, or want an activity that can work in your office or function space.",
   },
   {
-    question: "What is the best team building activity for corporate teams?",
+    question: "How do we choose the right team building activity?",
     answer:
-      "The best activity depends on your objectives. Amazing Race programmes are ideal for engagement and exploration, Running Man promotes friendly competition, while CSI challenges focus on communication, problem-solving, and teamwork.",
+      "Start with the people attending, the event objective, venue, timing, and desired energy level. Elluminate can then help narrow the activity direction instead of asking you to choose from a long list alone.",
   },
 ];
 

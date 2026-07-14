@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { FloatingBlobs } from "@/components/FloatingBlobs";
 import { OurTeam } from "@/components/OurTeam";
 import { SEO } from "@/components/SEO";
+import { getRouteSeo } from "@/data/seoRoutes";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { OrganizationSchema } from "@/components/StructuredData";
 import { useContactModal } from "@/contexts/ContactModalContext";
@@ -24,12 +25,6 @@ import {
   Globe,
   ArrowRight,
 } from "lucide-react";
-
-// Import generated event photos
-import teamCelebration from "@/assets/events/team-celebration-1.jpg";
-import dinnerDance from "@/assets/events/dinner-dance-1.jpg";
-import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
-import overseasRetreat from "@/assets/events/overseas-retreat-1.jpg";
 
 // Counter animation hook
 const useCountUp = (end: number, duration: number = 2000, startOnView: boolean = true) => {
@@ -60,75 +55,75 @@ const values = [
   {
     name: "Creative",
     icon: Lightbulb,
-    description: "Cinematic, memorable concepts that tell your brand's story",
+    description: "Ideas shaped around the people, purpose, and setting",
     details:
-      "We approach every event as a blank canvas, designing experiences that are visually stunning, emotionally resonant, and uniquely tailored to your objectives.",
+      "We use the event brief to decide where creative detail will improve participation, clarity, or the overall flow.",
   },
   {
     name: "Authentic",
     icon: Heart,
-    description: "Genuine human connection at the heart of every experience",
+    description: "Participation that feels human rather than forced",
     details:
-      "We believe the best events create real moments between real people. Our facilitation style prioritizes authentic interactions over scripted activities.",
+      "We plan for different personalities and energy levels so more people have a sensible way to take part.",
   },
   {
     name: "Lasting",
     icon: Globe,
-    description: "Enduring impact that extends far beyond the event day",
+    description: "A clear shared experience people can refer back to",
     details:
-      "The measure of a great event isn't just the applause at the end—it's the conversations that happen weeks later.",
+      "The event should have a clear opening, meaningful participation, and a finish that gives the group a shared reference point.",
   },
   {
     name: "Exceptional",
     icon: Award,
-    description: "Flawless execution and premium quality in every detail",
-    details: "From the first handshake to the final farewell, every touchpoint is crafted to exceed expectations.",
+    description: "Careful attention to the operating details",
+    details: "We surface venue, timing, setup, facilitation, and logistics questions before they become event-day surprises.",
   },
   {
     name: "Boundless",
     icon: Rocket,
-    description: "Whatever you dream, we deliver—no limits, no boundaries",
+    description: "Flexible thinking within a practical event plan",
     details:
-      "We don't believe in 'impossible.' Whether it's transforming a warehouse into a tropical paradise or orchestrating a 5,000-person conference, we bring any idea to life.",
+      "We explore what is possible within the available time, venue, group profile, scope, and operating requirements.",
   },
   {
     name: "Eccentric",
     icon: Sparkles,
-    description: "A splash of creative fun and uniqueness in every event",
+    description: "Enough personality to make the experience feel distinct",
     details:
-      "We embrace the unexpected. Our events have personality—surprise moments, playful twists, and delightful details.",
+      "Themes, challenges, and facilitation can bring character to the event without losing sight of the people attending.",
   },
 ];
 
 const features = [
   {
     icon: Users,
-    title: "Team Building That Actually Works",
+    title: "Start With the Event Brief",
     description:
-      "We design activities that go beyond icebreakers. Every game, challenge, and debrief is built to strengthen real team dynamics and communication.",
+      "Group size, venue, timing, participant profile, and objective guide the activity direction from the beginning.",
   },
   {
     icon: Lightbulb,
-    title: "Training With Real Takeaways",
+    title: "Choose the Format Around the Audience",
     description:
-      "Our MBTI, DISC, and workshop sessions are practical, interactive, and tailored to your team's growth areas. No death-by-PowerPoint.",
+      "Physical, virtual, retreat, and workshop formats each suit different people, settings, and internal goals.",
   },
   {
     icon: Mic,
-    title: "Experienced Facilitators, Not Just Hosts",
+    title: "Plan the Facilitation and Flow",
     description:
-      "Our facilitators are trained to read the room, adapt on the fly, and bring out the best in every participant.",
+      "Briefing, team allocation, pacing, scoring, transitions, and the close are considered as one event experience.",
   },
   {
     icon: Sparkles,
-    title: "Customised to Your Team's Needs",
+    title: "Discuss the Practical Details Early",
     description:
-      "No two teams are the same. We tailor every programme to your objectives, group size, and team culture.",
+      "Venue fit, setup, weather considerations, timing, and logistics are easier to solve before the final format is confirmed.",
   },
 ];
 
 // TODO(content): Keep a permission/evidence checklist for client logo usage before adding or restoring brand proof.
-const clientLogos = [
+const allClientLogos = [
   {
     name: "DBS",
     logo: "/images/client-logos/dbs_bank_logo_p1zixs.png",
@@ -227,112 +222,27 @@ const clientLogos = [
   },
 ];
 
+const approvedClientLogoNames = new Set([
+  "DBS",
+  "Singtel",
+  "GovTech",
+  "CapitaLand",
+  "Singapore Airlines",
+  "Changi Airport",
+]);
+
+const clientLogos = allClientLogos.filter((client) => approvedClientLogoNames.has(client.name));
+
 const testimonials = [
   {
-    quote:
-      "Elluminate delivered the best team-building event we've ever had. The energy was incredible and our team is still talking about it months later.",
-    company: "Shopee Singapore",
-    logo: "/images/client-logos/shopee-logo_sce8bs_r7xa9k.png",
+    quote: "All of us had a real fun blast and we have nothing but good things to say about the facilitators and the games!",
+    company: "Darren Tey, Operations Manager at Lonza",
+    logo: "/logo.png",
   },
   {
-    quote:
-      "Professional, energetic, and flawless execution. They understood our corporate culture perfectly and designed an experience that resonated with everyone.",
-    company: "SP Group",
-    logo: "/images/client-logos/sp_group_logo_zbi2wt.svg",
-  },
-  {
-    quote:
-      "Immersive activities with meaningful takeaways. Our employees left feeling connected and inspired. Highly recommend for any corporate event.",
-    company: "NTUC Enterprise",
-    logo: "/images/client-logos/ntuc_logo_v2xyjl.png",
-  },
-  {
-    quote:
-      "The attention to detail was extraordinary. Every moment was carefully crafted to engage and inspire our team.",
-    company: "DBS Bank",
-    logo: "/images/client-logos/dbs_bank_logo_p1zixs.png",
-  },
-  {
-    quote: "Our D&D was transformed into an unforgettable night. The production quality was cinema-level!",
-    company: "Singtel",
-    logo: "/images/client-logos/singtel_logo_nmsek6.svg",
-  },
-  {
-    quote: "They brought creativity and professionalism in equal measure. Our team bonding has never been stronger.",
-    company: "Grab",
-    logo: "/images/client-logos/grab-logo_h3i5lc.jpg",
-  },
-  {
-    quote: "From concept to execution, everything was seamless. The facilitators were absolutely phenomenal.",
-    company: "GovTech Singapore",
-    logo: "/images/client-logos/govtech_logo_lctwtl.png",
-  },
-  {
-    quote: "The best investment we made for our company retreat. Every activity had purpose and every moment counted.",
-    company: "OCBC Bank",
-    logo: "/images/client-logos/logo-ocbc.svg_khvach.png",
-  },
-  {
-    quote:
-      "Elluminate exceeded all expectations. Our 500-person event ran like clockwork with incredible energy throughout.",
-    company: "UOB",
-    logo: "/images/client-logos/uob_logo_n4hrvh.png",
-  },
-  {
-    quote: "Creative, organized, and truly memorable. This was the highlight of our corporate calendar.",
-    company: "Marina Bay Sands",
-    logo: "/images/client-logos/marina_bay_sands_logo_hx5ui7.png",
-  },
-  {
-    quote: "The immersive experience they created was unlike anything we'd seen before. Absolutely world-class.",
-    company: "Singapore Airlines",
-    logo: "/images/client-logos/singapore-airlines-logo_jzs3bh_mngdzj.png",
-  },
-  {
-    quote: "Professional hosts who kept our entire team engaged from start to finish. Highly recommended!",
-    company: "Prudential",
-    logo: "/images/client-logos/prudentialgroup_logo_keiccj.png",
-  },
-  {
-    quote: "Our town hall was transformed into an inspiring experience. The production quality was outstanding.",
-    company: "CapitaLand",
-    logo: "/images/client-logos/capitaland_logo_lswm7l.png",
-  },
-  {
-    quote: "They took our vague ideas and turned them into a spectacular reality. Creative geniuses!",
-    company: "StarHub",
-    logo: "/images/client-logos/starhub_logo_cdoeat.svg",
-  },
-  {
-    quote: "The team building activities were fun yet meaningful. Our staff couldn't stop talking about it.",
-    company: "SMRT",
-    logo: "/images/client-logos/smrt_logo_hdwk9d.png",
-  },
-  {
-    quote: "Exceptional service from planning to execution. They made our anniversary celebration truly special.",
-    company: "Great Eastern",
-    logo: "/images/client-logos/great_eastern_logo_ice1ox.png",
-  },
-  {
-    quote:
-      "The level of customization and creativity was impressive. Every detail was perfectly aligned with our brand.",
-    company: "AIA",
-    logo: "/images/client-logos/aia-logo_x4n6n4.png",
-  },
-  {
-    quote: "Our product launch was a massive success thanks to Elluminate's vision and execution.",
-    company: "M1",
-    logo: "/images/client-logos/m1_logo_mbjg9i.svg",
-  },
-  {
-    quote: "From the initial consultation to the final bow, professionalism and passion were evident at every step.",
-    company: "HSBC",
-    logo: "/images/client-logos/hsbc-logo_clxve1_hjk23e.png",
-  },
-  {
-    quote: "They understand corporate events like no one else. Our leadership offsite was transformative.",
-    company: "Standard Chartered",
-    logo: "/images/client-logos/standard_chartered_logo_u1hs4g.png",
+    quote: "All our different departments have enjoyed the activities, from our newest members to our management teams.",
+    company: "Farzanah Begum, Senior Officer for Development and Engagement at SIMTech",
+    logo: "/logo.png",
   },
 ];
 
@@ -353,12 +263,10 @@ const AboutPage = () => {
   const yearsCounter = useCountUp(8, 1500);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen overflow-x-hidden bg-background">
       <SEO
-        title="About Elluminate | Team Building Singapore"
-        description="8+ years delivering team building, retreats, and training across Singapore. Meet the team behind 1,000+ events and 100,000+ participants."
+        {...getRouteSeo("/about")}
         keywords="about Elluminate, Singapore team building company, school programmes Singapore, training workshops Singapore"
-        canonical="https://elluminate.sg/about"
       />
       <OrganizationSchema />
       <Navbar />
@@ -414,8 +322,8 @@ const AboutPage = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg text-muted-foreground/90 font-sans mb-8 max-w-md leading-relaxed"
               >
-                We design team building, school programmes, retreats, and training that feel seamless to run and
-                meaningful to attend.
+                We plan team building and company experiences around the people attending, the event objective, the
+                venue, and the time available.
               </motion.p>
 
               {/* Stats Badges */}
@@ -442,6 +350,10 @@ const AboutPage = () => {
                   </motion.div>
                 ))}
               </motion.div>
+
+              <p className="mb-8 max-w-xl text-xs leading-5 text-muted-foreground">
+                Cumulative figures shown across Team Elevate and Elluminate under EXSTATIC PTE LTD, as at July 2026.
+              </p>
 
               <motion.button
                 type="button"
@@ -472,7 +384,7 @@ const AboutPage = () => {
                 initial={{ rotate: 2 }}
                 animate={{ rotate: 2 }}
               >
-                <img src="/images/about/about-1.jpg" alt="Team Celebration" className="w-full h-full object-cover" />
+                <img src="/images/services/amazing-race/gallery-1.jpg" alt="Company team completing an outdoor challenge" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </motion.div>
 
@@ -484,8 +396,8 @@ const AboutPage = () => {
                 animate={{ rotate: -3 }}
               >
                 <img
-                  src="/images/about/about-2.jpg"
-                  alt="Outdoor Team Building"
+                  src="/images/services/csi-bones/gallery-1.jpg"
+                  alt="Corporate group examining clues during an indoor activity"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-sky-500/20 to-transparent" />
@@ -498,7 +410,7 @@ const AboutPage = () => {
                 initial={{ rotate: -2 }}
                 animate={{ rotate: -2 }}
               >
-                <img src="/images/about/about-3.jpg" alt="Dinner & Dance" className="w-full h-full object-cover" />
+                <img src="/images/services/cultural-race/gallery-5.jpg" alt="Team members at a Cultural Race checkpoint" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/15 to-transparent" />
               </motion.div>
 
@@ -509,7 +421,7 @@ const AboutPage = () => {
                 initial={{ rotate: 3 }}
                 animate={{ rotate: 3 }}
               >
-                <img src="/images/about/about-4.jpg" alt="Overseas Retreat" className="w-full h-full object-cover" />
+                <img src="/images/services/overseas-retreats/gallery-1.jpg" alt="Company retreat group experience" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-sky-500/15 to-transparent" />
               </motion.div>
 
@@ -527,7 +439,7 @@ const AboutPage = () => {
       <section className="py-24 relative">
         {/* Background Image - Asian corporate setting */}
         <div className="absolute inset-0">
-          <img src="/images/about/about-5.jpg" alt="Asian Corporate Team" className="w-full h-full object-cover" />
+          <img src="/images/services/amazing-race/gallery-4.jpg" alt="Corporate team-building event" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
         </div>
 
@@ -545,18 +457,18 @@ const AboutPage = () => {
 
               <div className="space-y-5 text-muted-foreground font-sans leading-relaxed">
                 <p>
-                  Elluminate was founded in Singapore with one belief: great team experiences should create real
-                  connection, not just fill an agenda.
+                  Elluminate is the team-building and company-experiences brand operated by EXSTATIC PTE LTD alongside
+                  Team Elevate.
                 </p>
                 <p>
-                  Since 2017, we have helped organisations, schools, and student groups turn team building, retreats,
-                  celebrations, and training days into experiences people genuinely remember.
+                  Team Elevate carries the earlier operating history. Elluminate builds on that experience with a
+                  clearer focus on planning team activities around the people, purpose, venue, and timing.
                 </p>
                 <p>
-                  Today, our team brings together creative design, facilitation, and on-ground execution to deliver{" "}
-                  <span className="text-primary font-medium">1,000+ events</span> for more than{" "}
-                  <span className="text-primary font-medium">100,000 participants</span> across Singapore and the
-                  region.
+                  Across the shared Team Elevate and Elluminate history, the team has delivered{" "}
+                  <span className="text-primary font-medium">1,000+ events</span> involving more than{" "}
+                  <span className="text-primary font-medium">100,000 participants</span>. Historical reviews and event
+                  evidence are labelled with their original Team Elevate attribution.
                 </p>
               </div>
             </motion.div>
@@ -571,8 +483,8 @@ const AboutPage = () => {
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-sky-500/20 shadow-blue">
                 <img
-                  src="/images/about/about-6.jpg"
-                  alt="Asian Team Celebration"
+                  src="/images/services/minute-to-win-it/gallery-3.jpg"
+                  alt="Participants during an indoor station activity"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
@@ -590,7 +502,7 @@ const AboutPage = () => {
       <section className="py-24 relative bg-slate-950">
         {/* Background */}
         <div className="absolute inset-0">
-          <img src="/images/about/about-1.jpg" alt="Event Background" className="w-full h-full object-cover" />
+          <img src="/images/services/cultural-race/gallery-6.jpg" alt="Team activity background" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/80" />
         </div>
 
@@ -612,12 +524,12 @@ const AboutPage = () => {
                   </div>
                   <h3 className="text-xl font-display font-medium text-white mb-3">Our Mission</h3>
                   <p className="text-slate-200 font-sans leading-relaxed mb-3">
-                    To design experiences that bring people together, strengthen culture, and make every event feel
-                    worth attending.
+                    To help organisations plan team experiences that fit the people attending and the practical reality
+                    of the event.
                   </p>
                   <p className="text-slate-300/80 font-sans text-sm leading-relaxed">
-                    We combine thoughtful strategy, strong facilitation, and polished execution so teams leave more
-                    connected than when they arrived.
+                    We connect activity direction, facilitation, venue fit, timing, and logistics in one clear planning
+                    conversation.
                   </p>
                 </div>
               </motion.div>
@@ -637,12 +549,11 @@ const AboutPage = () => {
                   </div>
                   <h3 className="text-xl font-display font-medium text-white mb-3">Our Vision</h3>
                   <p className="text-slate-200 font-sans leading-relaxed mb-3">
-                    To be the partner teams trust when the experience needs to feel engaging, well-run, and genuinely
-                    memorable.
+                    To make company team building easier to choose, explain internally, and run with confidence.
                   </p>
                   <p className="text-slate-300/80 font-sans text-sm leading-relaxed">
-                    We believe the best experiences do more than entertain. They support culture, confidence,
-                    leadership, and long-term connection across workplaces and classrooms.
+                    We want planners to understand why a format fits their group before the event is confirmed, not
+                    after everyone arrives.
                   </p>
                 </div>
               </motion.div>
@@ -707,8 +618,8 @@ const AboutPage = () => {
         {/* Background */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&h=1080&fit=crop"
-            alt="Event Production"
+            src="/images/services/csi-bones/gallery-2.jpg"
+            alt="Facilitated company team activity"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-background/95" />
@@ -774,20 +685,20 @@ const AboutPage = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {[
               {
-                src: "/images/services/leadership-offsites/gallery-1.jpg",
-                alt: "Team celebration moment",
+                src: "/images/services/amazing-race/gallery-1.jpg",
+                alt: "Outdoor team challenge",
               },
               {
-                src: "/images/services/local-retreats/gallery-3.jpg",
-                alt: "Dinner and dance experience",
+                src: "/images/services/csi-bones/gallery-1.jpg",
+                alt: "Indoor investigation activity",
               },
               {
-                src: "/images/services/amazing-race/gallery-5.jpg",
-                alt: "Outdoor team building activity",
+                src: "/images/services/minute-to-win-it/gallery-3.jpg",
+                alt: "Indoor station challenge",
               },
               {
-                src: "/images/services/overseas-retreats/cta.jpg",
-                alt: "Retreat experience",
+                src: "/images/services/monopoly-dash/gallery-2.jpg",
+                alt: "Facilitated beach activity",
               },
             ].map((image, index) => (
               <motion.div
@@ -820,8 +731,8 @@ const AboutPage = () => {
         {/* Background */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920&h=1080&fit=crop"
-            alt="Conference"
+            src="/images/services/amazing-race/gallery-4.jpg"
+            alt="Company event"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-background/90" />
@@ -840,7 +751,7 @@ const AboutPage = () => {
               <div className="text-4xl md:text-5xl font-display font-semibold text-primary mb-2">
                 {eventsCounter.count.toLocaleString()}+
               </div>
-              <p className="text-muted-foreground/80 font-sans text-sm">Events Delivered</p>
+              <p className="text-muted-foreground/80 font-sans text-sm">Cumulative Events</p>
             </motion.div>
 
             <motion.div
@@ -854,7 +765,7 @@ const AboutPage = () => {
               <div className="text-4xl md:text-5xl font-display font-semibold text-primary mb-2">
                 {participantsCounter.count.toLocaleString()}+
               </div>
-              <p className="text-muted-foreground/80 font-sans text-sm">Participants Engaged</p>
+              <p className="text-muted-foreground/80 font-sans text-sm">Cumulative Participants</p>
             </motion.div>
 
             <motion.div
@@ -868,7 +779,7 @@ const AboutPage = () => {
               <div className="text-4xl md:text-5xl font-display font-semibold text-primary mb-2 flex items-center justify-center gap-2">
                 4.8 <Star className="w-8 h-8 fill-primary text-primary" />
               </div>
-              <p className="text-muted-foreground/80 font-sans text-sm">{reviewsCounter.count}+ Reviews</p>
+              <p className="text-muted-foreground/80 font-sans text-sm">{reviewsCounter.count}+ Team Elevate Reviews</p>
               <p className="text-muted-foreground/60 font-sans text-xs italic mt-1">
                 via{" "}
                 <a
@@ -893,9 +804,13 @@ const AboutPage = () => {
               <div className="text-4xl md:text-5xl font-display font-semibold text-primary mb-2">
                 {yearsCounter.count}+
               </div>
-              <p className="text-muted-foreground/80 font-sans text-sm">Years Delivering Experiences</p>
+              <p className="text-muted-foreground/80 font-sans text-sm">Years of Shared Operating History</p>
             </motion.div>
           </div>
+          <p className="mx-auto mt-8 max-w-4xl text-center text-xs leading-5 text-muted-foreground">
+            Cumulative Team Elevate and Elluminate history under EXSTATIC PTE LTD, as at July 2026. Google reviews
+            remain attributed to their original Team Elevate source.
+          </p>
         </div>
       </section>
 
@@ -906,8 +821,8 @@ const AboutPage = () => {
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1531058020387-3be344556be6?w=1920&h=1080&fit=crop"
-            alt="Event"
+            src="/images/services/cultural-race/gallery-5.jpg"
+            alt="Company team activity"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-background/95" />
@@ -921,7 +836,7 @@ const AboutPage = () => {
             className="text-center mb-10"
           >
             <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
-              Trusted By <span className="text-primary">Leading Brands</span>
+              Selected Organisations From Our <span className="text-primary">Shared Event History</span>
             </h2>
           </motion.div>
 
@@ -956,6 +871,9 @@ const AboutPage = () => {
               ))}
             </motion.div>
           </div>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-5 text-muted-foreground">
+            Selected organisation history across Team Elevate and Elluminate under EXSTATIC PTE LTD.
+          </p>
         </div>
       </section>
 
@@ -965,7 +883,7 @@ const AboutPage = () => {
       {/* SECTION 7 - TESTIMONIALS */}
       <section className="py-24 relative bg-slate-950">
         <div className="absolute inset-0">
-          <img src="/images/services/workshops/gallery-3.jpg" alt="Event" className="w-full h-full object-cover" />
+          <img src="/images/services/minute-to-win-it/gallery-4.jpg" alt="Facilitated company activity" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/80" />
         </div>
 
@@ -977,7 +895,7 @@ const AboutPage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">
-              What Our <span className="text-primary">Clients Say</span>
+              What Teams Said Through <span className="text-primary">Team Elevate</span>
             </h2>
           </motion.div>
 
@@ -1010,6 +928,9 @@ const AboutPage = () => {
                       </div>
                       <span className="text-sky-200 font-display font-medium text-sm">{testimonial.company}</span>
                     </div>
+                    <p className="mt-3 text-xs font-semibold uppercase tracking-[0.12em] text-primary">
+                      Originally published by Team Elevate
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -1042,10 +963,10 @@ const AboutPage = () => {
               ))}
             </div>
             <p className="text-lg font-display font-medium text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-              776+ Reviews • 4.8-Star Google Rating
+              776+ Team Elevate Reviews | 4.8 Google Rating
             </p>
             <p className="text-xs md:text-sm text-white/80 italic mt-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-              Reviews collected via our partner brand,{" "}
+              Original review source:{" "}
               <a
                 href="https://www.google.com/search?q=team+elevate+singapore"
                 target="_blank"
@@ -1067,8 +988,8 @@ const AboutPage = () => {
       <section className="py-28 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&h=1080&fit=crop"
-            alt="Celebration"
+            src="/images/services/amazing-race/gallery-1.jpg"
+            alt="Company team-building event"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-background/85" />
@@ -1083,11 +1004,11 @@ const AboutPage = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-2xl md:text-4xl font-display font-medium text-foreground mb-4">
-              Ready to Plan Your Next <span className="text-primary">Team or School Experience</span>?
+              Ready to Plan Your Next <span className="text-primary">Company Experience</span>?
             </h2>
             <p className="text-muted-foreground/80 font-sans mb-8">
-              Whether you are planning team building, training, a retreat, or a school programme, we can help you shape
-              the right format.
+              Whether you are planning team building, a workshop, or a retreat, start with the people, objective,
+              venue, and timing.
             </p>
             <motion.button
               type="button"

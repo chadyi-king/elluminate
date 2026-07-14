@@ -10,7 +10,7 @@ export const PortfolioHero = () => {
       {/* Cinematic background image with slow parallax */}
       <motion.div 
         className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920)` }}
+        style={{ backgroundImage: "url(/images/services/amazing-race/gallery-1.jpg)" }}
         animate={{ scale: [1, 1.05, 1] }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       />
@@ -36,7 +36,7 @@ export const PortfolioHero = () => {
           transition={{ duration: 1 }}
           className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-primary mb-6"
         >
-          Our Masterpieces
+          Real Events. Real Teams.
         </motion.h1>
         
         <motion.p
@@ -45,7 +45,7 @@ export const PortfolioHero = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-light"
         >
-          A curated showcase of elevated experiences crafted for Singapore's finest teams.
+          A look at team-building activities, workshops and company retreats delivered by our facilitators and event team.
         </motion.p>
         
         {/* Decorative gold line */}

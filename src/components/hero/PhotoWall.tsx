@@ -81,7 +81,6 @@ export const PhotoWall = () => {
                   alt={photo.alt}
                   className="w-full h-full object-cover"
                   loading={photoIndex < 3 ? "eager" : "lazy"}
-                  {...(photoIndex === 0 ? { fetchPriority: "high" as const } : {})}
                 />
               </div>
             ))}
