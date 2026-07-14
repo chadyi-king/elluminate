@@ -1,99 +1,195 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Quote, MapPin, Users, CheckCircle } from "lucide-react";
 
-const eventDirections = [
+const caseStudies = [
   {
-    title: "Outdoor team energy",
-    format: "Amazing Race",
-    description:
-      "A mobile challenge format for teams that want movement, shared problem-solving and a strong sense of progress through the day.",
-    planningFocus: "Route, weather, mobility, team balance and programme timing",
-    image: "/images/services/amazing-race/gallery-2.jpg",
-    alt: "A team completing an Amazing Race challenge",
-    href: "/services/amazing-race",
+    id: 1,
+    title: "Tech Company Amazing Race",
+    location: "Marina Bay, Singapore",
+    participants: "150",
+    keyElements: ["Amazing Race", "Team Challenges", "City Exploration"],
+    highlights: [
+      "Custom Amazing Race across iconic Singapore landmarks",
+      "15 different challenge stations with themed puzzles",
+      "Live leaderboard and real-time team tracking",
+      "Post-event team celebration with prizes",
+    ],
+    quote:
+      "Elluminate created an unforgettable experience that had our entire team talking for weeks. The Amazing Race format was perfect for building connections across departments.",
+    industry: "Technology",
+    year: "2024",
+    image: "/images/services/amazing-race/gallery-5.jpg",
+    accentColor: "#FFC400",
   },
   {
-    title: "Indoor collaboration",
-    format: "CSI-Bones",
-    description:
-      "A facilitated mystery format for groups that want discussion, observation and problem-solving without relying on physical intensity.",
-    planningFocus: "Room layout, group size, briefing flow and challenge difficulty",
+    id: 2,
+    title: "Financial Services Team Day",
+    location: "Sentosa Island",
+    participants: "300",
+    keyElements: ["CSI Investigation", "Team Strategy", "Problem Solving"],
+    highlights: [
+      "Immersive CSI mystery solving experience",
+      "Cross-functional team collaboration challenges",
+      "Leadership development activities",
+      "Beach activities and team bonding",
+    ],
+    quote:
+      "The level of creativity and attention to detail was impressive. Our teams were fully engaged from start to finish. A truly world-class team building experience.",
+    industry: "Banking & Finance",
+    year: "2024",
     image: "/images/services/csi-bones/gallery-1.jpg",
-    alt: "A company team working through a CSI-Bones investigation",
-    href: "/services/csi-bones",
+    accentColor: "#26D07C",
   },
   {
-    title: "Time away together",
-    format: "Company Retreat",
-    description:
-      "A broader offsite programme for teams that need space for connection, celebration, alignment or a change of pace.",
-    planningFocus: "Destination, itinerary, accommodation, transport and team moments",
-    image: "/images/services/overseas-retreats/gallery-1.jpg",
-    alt: "A company group together during an overseas retreat",
-    href: "/services/overseas-retreats",
+    id: 3,
+    title: "Healthcare Wellness Retreat",
+    location: "Bintan, Indonesia",
+    participants: "200",
+    keyElements: ["Wellness Activities", "Mindfulness", "Team Bonding"],
+    highlights: [
+      "3-day wellness-focused retreat program",
+      "Yoga and meditation sessions",
+      "Adventure activities and beach games",
+      "Evening team dinners and celebrations",
+    ],
+    quote:
+      "Elluminate understood exactly what our healthcare workers needed – a rejuvenating experience that brought our teams closer together while promoting wellbeing.",
+    industry: "Healthcare",
+    year: "2023",
+    image: "/images/services/wellness-events/hero.jpg",
+    accentColor: "#62E2C4",
+  },
+  {
+    id: 4,
+    title: "Startup Culture Race",
+    location: "Chinatown & Little India",
+    participants: "80",
+    keyElements: ["Cultural Race", "Heritage Exploration", "Team Discovery"],
+    highlights: [
+      "Cultural immersion through heritage districts",
+      "Local food tasting challenges",
+      "Interactive cultural activities",
+      "Team bonding through shared experiences",
+    ],
+    quote:
+      "The Cultural Race was a brilliant way to help our international team connect with Singapore's rich heritage while building stronger bonds with each other.",
+    industry: "Technology Startup",
+    year: "2023",
+    image: "/images/services/minute-to-win-it/hero.jpg",
+    accentColor: "#FF4F4F",
   },
 ];
 
-export const CaseStudiesSection = () => (
-  <section className="bg-secondary/25 py-20 md:py-28">
-    <div className="container mx-auto px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.55 }}
-        className="mx-auto mb-12 max-w-3xl text-center md:mb-16"
-      >
-        <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">Event directions</p>
-        <h2 className="mt-4 font-display text-3xl font-black text-foreground md:text-5xl">
-          Different briefs need different answers.
-        </h2>
-        <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-          These are real formats in the Elluminate event library. The right one depends on what your team and event need, not which card happens to look most exciting.
-        </p>
-      </motion.div>
+export const CaseStudiesSection = () => {
+  return (
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-blue-50 via-primary/5 to-blue-50">
+      {/* Background decorative elements */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-green-100/30 rounded-full blur-3xl" />
 
-      <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-3">
-        {eventDirections.map((event, index) => (
-          <motion.article
-            key={event.format}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.07 }}
-            className="overflow-hidden rounded-lg border border-border bg-white"
-          >
-            <div className="aspect-[4/3] overflow-hidden bg-secondary">
-              <img
-                src={event.image}
-                alt={event.alt}
-                loading="lazy"
-                decoding="async"
-                width={900}
-                height={675}
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
-              />
-            </div>
-            <div className="p-6">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">{event.title}</p>
-              <h3 className="mt-2 font-display text-2xl font-black text-foreground">{event.format}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{event.description}</p>
-              <div className="mt-5 border-t border-border pt-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-foreground">Planning focus</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{event.planningFocus}</p>
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <span className="text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
+            Success Stories
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-6">
+            Case Studies
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            A closer look at how we design experiences around different team goals, event formats, and group sizes.
+          </p>
+        </motion.div>
+
+        {/* Case Study Cards - 2x2 Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {caseStudies.map((study, i) => (
+            <motion.div
+              key={study.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.15 }}
+              className="group relative"
+            >
+              {/* Card */}
+              <div className="relative bg-white border border-border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 h-full flex flex-col">
+                {/* Accent bar */}
+                <div className="h-1 w-full" style={{ backgroundColor: study.accentColor }} />
+
+                {/* Image */}
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-110"
+                    style={{ backgroundImage: `url(${study.image})` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span
+                      className="text-xs font-display font-semibold px-2 py-1 rounded-full"
+                      style={{ backgroundColor: `${study.accentColor}20`, color: study.accentColor }}
+                    >
+                      {study.industry}
+                    </span>
+                    <span className="text-muted-foreground text-xs font-display">{study.year}</span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4">{study.title}</h3>
+
+                  {/* Meta info */}
+                  <div className="flex flex-wrap gap-4 mb-4 text-sm">
+                    <div className="flex items-center gap-2 text-muted-foreground font-display">
+                      <MapPin className="w-4 h-4 text-primary" />
+                      {study.location}
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground font-display">
+                      <Users className="w-4 h-4 text-primary" />
+                      {study.participants} participants
+                    </div>
+                  </div>
+
+                  {/* Key Elements */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {study.keyElements.map((element) => (
+                      <span
+                        key={element}
+                        className="px-3 py-1 text-xs bg-secondary border border-border rounded-full text-foreground font-display font-medium"
+                      >
+                        {element}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Highlights */}
+                  <div className="mb-4 space-y-2">
+                    {study.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-muted-foreground text-sm font-display">{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Quote */}
+                  <div className="relative mt-auto pt-4 border-t border-border">
+                    <Quote className="w-6 h-6 text-primary/30 mb-2" />
+                    <p className="text-muted-foreground text-sm italic leading-relaxed font-display">"{study.quote}"</p>
+                  </div>
+                </div>
               </div>
-              <Link
-                to={event.href}
-                className="mt-5 inline-flex items-center gap-2 font-semibold text-primary hover:text-primary-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              >
-                Explore {event.format}
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </div>
-          </motion.article>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

@@ -83,8 +83,7 @@ test("team building form uses the same post-insert conversion path", () => {
 
 test("portfolio CTA uses the shared contact modal conversion path", () => {
   assert.match(portfolioPage, /useContactModal/);
-  assert.match(portfolioPage, /onOpenContact=\{openPortfolioEnquiry\}/);
-  assert.match(portfolioPage, /openContactModal\(\{/);
+  assert.match(portfolioPage, /onOpenContact=\{openContactModal\}/);
   assert.doesNotMatch(portfolioPage, /components\/portfolio\/ContactModal/);
   assert.doesNotMatch(portfolioPage, /setIsContactModalOpen/);
 });
