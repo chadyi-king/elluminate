@@ -13273,16 +13273,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "WORKSHOPS",
       subtitle: "Training",
       tagline: "Learn by Doing, Grow by Practicing",
-      backgroundImage: "/images/services/amazing-race/hero.jpg",
+      backgroundImage: "/images/services/workshops/hero.jpg",
     },
-    howItWorksImage: "/images/services/amazing-race/how-it-works.jpg",
-    addOnsImage: "/images/services/amazing-race/addons.jpg",
-    ctaBackgroundImage: "/images/services/amazing-race/cta.jpg",
-    testimonialBackgroundImage: "/images/services/amazing-race/testimonial.jpg",
+    howItWorksImage: "/images/services/workshops/how-it-works.jpg",
+    addOnsImage: "/images/services/workshops/addons.jpg",
+    ctaBackgroundImage: "/images/services/workshops/cta.jpg",
+    testimonialBackgroundImage: "/images/services/workshops/testimonial.jpg",
     overview: {
       description:
         "Our interactive workshops go beyond passive learning to create immersive skill-building experiences. With hands-on activities, real-world scenarios, and expert facilitation, participants don't just learn concepts - they practice and internalize them. From communication and leadership to creativity and problem-solving, our workshops transform knowledge into actionable skills that drive immediate results in the workplace.",
-      backgroundImage: "/images/services/amazing-race/hero.jpg",
+      backgroundImage: "/images/services/workshops/hero.jpg",
     },
     features: [
       {
