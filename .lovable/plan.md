@@ -1,16 +1,14 @@
-## Plan — Amazing Race hero logo
+## Plan — Replace Amazing Race logo with SVG + fix lead_id build error
 
-### 1. Upload the image
-Create `public/images/service-page-logos/` and add the uploaded file as `amazing-race.png` (via `lovable-assets` → `.asset.json` pointer, matching how other service images are stored).
+### 1. Replace the Amazing Race hero logo asset
+- Delete the previously uploaded PNG pointer: `lovable-assets delete --file public/images/service-page-logos/amazing-race.png.asset.json` (removes the CDN object and the pointer file).
+- Upload the new SVG from `user-uploads://amazing-race-sl.svg` as `public/images/service-page-logos/amazing-race.svg.asset.json` via `lovable-assets create`.
+- Update `src/components/service-page/ServiceHeroSplit.tsx` `case "amazing-race"` to point `<img src>` at the new SVG's CDN URL (keep 280×280 footprint, `object-contain`, `alt="Amazing Race"`).
 
-### 2. Replace the "ROUTE CARD" SVG in the hero
-File: `src/components/service-page/ServiceHeroSplit.tsx`, `ServiceProp` component (lines ~24–44).
+Note: the SVG is loaded via `<img>` (not inline `<use>`), which is the case the migrate-to-assets skill explicitly allows for SVGs on the Lovable CDN.
 
-Currently the `amazing-race`, `amazing-race-virtual`, and `cultural-race` slugs share an inline SVG (yellow envelope + "ROUTE / CARD" text + wax seal). Split that case so:
-- `case "amazing-race"` returns an `<img>` (280×280, same footprint as the SVG) pointing at the new logo URL, with `alt="Amazing Race"`.
-- `case "amazing-race-virtual"` and `case "cultural-race"` keep the existing route-card SVG unchanged.
-
-No other component, layout, animation, styling, or data change.
+### 2. Fix the `lead_id` TS error in `src/lib/leadSubmission.ts`
+The generated Supabase type for `contact_submissions` has no `lead_id` column — the row is already identified by `id` (line 89 sets `id: submissionId`). Remove line 90 (`lead_id: submissionId,`) from the `payload` object. The tracking object at lines 98–106 keeps its own `lead_id` field (it's a dataLayer event, not a DB row), so no change there.
 
 ### 3. Verify
-Load `/services/amazing-race` — the banner prop should now render the uploaded logo instead of the envelope/route-card icon. `/services/cultural-race` and `/services/amazing-race-virtual` should look identical to before.
+Build should pass. `/services/amazing-race` renders the new SVG logo in the hero prop slot; other services and the lead submission flow are unchanged.
