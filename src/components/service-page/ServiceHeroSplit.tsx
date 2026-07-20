@@ -26,7 +26,7 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
     case "amazing-race":
       return (
         <img
-          src="/__l5e/assets-v1/3cae904e-2385-4ea6-a9e2-73bd57735fb2/amazing-race.png"
+          src="/__l5e/assets-v1/369ac9aa-8994-4402-a4f1-8f9b3140bcf4/amazing-race.svg"
           alt="Amazing Race"
           width={size}
           height={size}
