@@ -63,29 +63,7 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
 
     /* ─── CSI Bones: chalk body outline ─── */
     case "csi-bones":
-      return (
-        <svg {...common}>
-          {/* Tape strips */}
-          <rect x="20" y="15" width="60" height="12" rx="2" fill="#FFD700" opacity="0.7" transform="rotate(-15 50 21)" />
-          <rect x="130" y="170" width="55" height="12" rx="2" fill="#FFD700" opacity="0.7" transform="rotate(10 155 176)" />
-          {/* Chalk outline body */}
-          <g stroke="white" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.9">
-            {/* Head */}
-            <circle cx="100" cy="42" r="16" />
-            {/* Body */}
-            <line x1="100" y1="58" x2="100" y2="115" />
-            {/* Arms */}
-            <line x1="100" y1="72" x2="60" y2="52" />
-            <line x1="100" y1="72" x2="145" y2="90" />
-            {/* Legs */}
-            <line x1="100" y1="115" x2="65" y2="165" />
-            <line x1="100" y1="115" x2="140" y2="160" />
-          </g>
-          {/* Magnifying glass */}
-          <circle cx="152" cy="50" r="18" stroke={accentColor} strokeWidth="3" fill={`${accentColor}20`} />
-          <line x1="165" y1="63" x2="178" y2="76" stroke={accentColor} strokeWidth="3" strokeLinecap="round" />
-        </svg>
-      );
+      return renderLogo(csiBonesLogo.url, "CSI Bones", size);
 
     /* ─── Monopoly Dash: money bag ─── */
     case "monopoly-dash":
