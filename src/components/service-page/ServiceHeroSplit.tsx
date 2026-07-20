@@ -1,6 +1,17 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
+import amazingRaceLogo from "../../../public/images/service-page-logos/amazing-race.svg.asset.json";
+import culturalRaceLogo from "../../../public/images/service-page-logos/cultural-race.svg.asset.json";
+import buildersCrossLogo from "../../../public/images/service-page-logos/builders-cross.svg.asset.json";
+import csiBonesLogo from "../../../public/images/service-page-logos/csi-bones.svg.asset.json";
+import monopolyDashLogo from "../../../public/images/service-page-logos/monopoly-dash.svg.asset.json";
+import mtwiLogo from "../../../public/images/service-page-logos/mtwi.svg.asset.json";
+import aliceInMotherlandLogo from "../../../public/images/service-page-logos/alice-in-motherland.svg.asset.json";
+
+const renderLogo = (src: string, alt: string, size: number) => (
+  <img src={src} alt={alt} width={size} height={size} className="object-contain" />
+);
 
 interface ServiceHeroSplitProps {
   title: string;
