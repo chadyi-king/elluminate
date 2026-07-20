@@ -10,11 +10,11 @@ export const CTASection = () => {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/images/services/amazing-race/gallery-1.jpg"
-          alt="Company team taking part in a facilitated outdoor challenge"
+          src="/images/about/about-3.jpg"
+          alt="Company group gathered together after an Elluminate experience"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-sky-500/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/[0.85] to-sky-500/90" />
       </div>
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full">

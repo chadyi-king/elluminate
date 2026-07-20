@@ -58,9 +58,6 @@ export const Footer = ({
               Team building, retreats, training, and corporate event experiences designed to strengthen culture and
               create lasting connection.
             </p>
-            <p className="text-background/45 text-xs leading-relaxed mt-3">
-              Reviews shown on this site are collected via our partner brand, Team Elevate, where noted.
-            </p>
           </div>
 
           {/* Quick Links */}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import charBlueMan from "@/assets/hero/char-blue-man.webp";
@@ -56,14 +56,6 @@ export const HeroSection = () => {
 
       <div className="container relative z-30 mx-auto px-4 pb-20 pt-6 pointer-events-none sm:pt-7 lg:pt-5">
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
-          <motion.div
-            {...reveal(0.08)}
-            className="mb-1 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/80 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/65 shadow-sm backdrop-blur-md sm:text-[11px]"
-          >
-            <Sparkles className="h-4 w-4 text-primary" aria-hidden="true" />
-            Team building · Retreats · Training
-          </motion.div>
-
           <div aria-hidden="true" className="mb-3 w-full font-display font-black leading-[0.88]">
             <motion.div {...reveal(0.14)} className="mb-1 text-primary">
               <span className="text-[clamp(1.1rem,3.8vw,2.15rem)] uppercase tracking-[0.12em]">Ignite the</span>
@@ -98,25 +90,6 @@ export const HeroSection = () => {
             </motion.div>
           </div>
 
-          <motion.div {...reveal(0.68)} className="mb-5 grid w-full max-w-sm grid-cols-4 gap-2 px-1 lg:hidden">
-            {mobileCharacters.map((character) => (
-              <div key={character.label} className="min-w-0">
-                <div className={`relative h-[76px] overflow-hidden rounded-[1.1rem] bg-gradient-to-b ${character.color} shadow-sm`}>
-                  <img
-                    src={character.image}
-                    alt=""
-                    className="h-full w-full object-contain object-bottom"
-                    loading="eager"
-                    decoding="async"
-                  />
-                </div>
-                <span className="mt-1.5 block text-[10px] font-bold uppercase tracking-[0.1em] text-foreground/60">
-                  {character.label}
-                </span>
-              </div>
-            ))}
-          </motion.div>
-
           <motion.h1
             {...reveal(0.74)}
             className="relative z-10 mb-2 max-w-[720px] font-display text-2xl font-black leading-[1.08] text-foreground md:text-[28px]"
@@ -128,8 +101,8 @@ export const HeroSection = () => {
             {...reveal(0.8)}
             className="relative z-10 mb-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base"
           >
-            From team challenges and retreats to facilitated workshops, we shape the format around your group,
-            objective, venue, and timing.
+            From high-energy team challenges to retreats and facilitated workshops, we shape the experience around
+            your people, purpose, place and timing.
           </motion.p>
 
           <motion.div
@@ -158,10 +131,33 @@ export const HeroSection = () => {
                 additionalDetails: "I would like help choosing the right experience for my group.",
               })
             }
-            className="pointer-events-auto mt-4 text-sm font-semibold text-foreground/65 underline decoration-primary/35 underline-offset-4 transition-colors hover:text-primary"
+              className="pointer-events-auto mt-4 text-sm font-semibold text-foreground/[0.65] underline decoration-primary/[0.35] underline-offset-4 transition-colors hover:text-primary"
           >
-            Not sure which experience fits? Help me choose.
+            Not sure where to start? We&rsquo;ll help you find the right fit.
           </motion.button>
+
+          <motion.div
+            {...reveal(0.98)}
+            className="pointer-events-auto mt-5 grid w-full max-w-lg grid-cols-4 gap-1.5 rounded-[1.4rem] border border-primary/10 bg-white/80 p-2 shadow-sm backdrop-blur-md xl:hidden"
+            aria-label="Experience areas"
+          >
+            {mobileCharacters.map((character) => (
+              <div key={character.label} className="group flex min-w-0 flex-col items-center gap-1.5 rounded-xl py-1.5">
+                <span className={`relative h-10 w-10 overflow-hidden rounded-full bg-gradient-to-b ${character.color}`}>
+                  <img
+                    src={character.image}
+                    alt=""
+                    className="h-full w-full object-contain object-bottom transition-transform duration-300 group-hover:scale-105"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </span>
+                <span className="max-w-full text-center text-[9px] font-bold uppercase tracking-[0.08em] text-foreground/[0.55] sm:text-[10px]">
+                  {character.label}
+                </span>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
 

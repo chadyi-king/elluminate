@@ -5325,16 +5325,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "THE AMAZING RACE",
       subtitle: "Team Building Adventure",
       tagline:
-        "A fast-moving race across Singapore built for teams, schools, and student groups who want to move, solve, and win together.",
-      backgroundImage: "/images/services/amazing-race/hero.jpg",
+        "Clues are waiting. The clock is running. Your mission: move, solve and race for the win together.",
+      backgroundImage: "/images/services/amazing-race/gallery-7.jpg",
     },
-    howItWorksImage: "/images/services/amazing-race/how-it-works.jpg",
-    addOnsImage: "/images/services/amazing-race/addons.jpg",
-    testimonialBackgroundImage: "/images/services/amazing-race/gallery-1.jpg",
+    howItWorksImage: "/images/services/amazing-race/gallery-6.jpg",
+    addOnsImage: "/images/services/amazing-race/gallery-4.jpg",
+    testimonialBackgroundImage: "/images/services/amazing-race/gallery-5.jpg",
     overview: {
       description:
         "The Amazing Race is our signature outdoor experience where teams race across Singapore completing missions, solving puzzles, and working together under real time pressure.\n\nGroups navigate between 8 and 14 checkpoints over 2 to 3 hours, tackling a mix of physical challenges, mental puzzles, and creative tasks designed so every team member has a way to contribute and a moment to shine.\n\nThe format works for corporate teams of 20 to 500+, school cohorts, orientation programmes, and student leadership groups who want something that feels genuinely active and memorable.\n\nOur facilitators design each race route around your venue and goals, from a city-wide adventure through iconic Singapore landmarks to a heritage trail, a campus race, or a resort experience.\n\nEvery checkpoint is facilitated, every team is supported, and the debrief we run at the end consistently surfaces conversations teams carry back into the workplace.",
-      backgroundImage: "/images/services/amazing-race/hero.jpg",
+      backgroundImage: "/images/services/amazing-race/gallery-6.jpg",
     },
     features: [
       {
@@ -5711,8 +5711,8 @@ export const servicesData: Record<string, ServiceData> = {
       { icon: Trophy, title: "Celebrate", description: "Awards, photos, and memories to treasure." },
     ],
     videoSection: {
-      title: "See the Race in Action",
-      subtitle: "Watch teams compete through exciting challenges across Singapore's iconic landmarks",
+      title: "Watch the Race Come Alive",
+      subtitle: "Clues, checkpoints, quick decisions and the finish-line rush, all in motion.",
       videoUrl: "/__l5e/assets-v1/778352aa-d8b6-4254-8c08-e3b86209a00f/amazing-race.mp4",
       thumbnailImage: "/images/service-thumbnails/amazing-race-tn.png",
     },
@@ -5809,27 +5809,19 @@ export const servicesData: Record<string, ServiceData> = {
       },
     ],
     miniGallery: {
-      title: "Amazing Race in Action",
+      title: "Out on the Course",
       images: [
         {
-          src: "/images/services/amazing-race/gallery-7.jpg",
-          alt: "Amazing Race team building checkpoint challenge",
-        },
-        {
           src: "/images/services/amazing-race/gallery-1.jpg",
-          alt: "Teams racing during an Amazing Race activity",
+          alt: "Teams pulling together during an outdoor race mission",
         },
         {
           src: "/images/services/amazing-race/gallery-2.jpg",
-          alt: "Amazing Race outdoor team challenge",
+          alt: "Amazing Race teams gathered at an outdoor landmark",
         },
         {
           src: "/images/services/amazing-race/gallery-3.jpg",
-          alt: "Teams solving puzzles during Amazing Race",
-        },
-        {
-          src: "/images/services/amazing-race/gallery-4.jpg",
-          alt: "Amazing Race starting line team moment",
+          alt: "Teams taking on an outdoor mission by the beach",
         },
       ],
     },
@@ -5856,7 +5848,7 @@ export const servicesData: Record<string, ServiceData> = {
     ],
 
     // Amazing Race page tweaks
-    hideMidCta: true,
+    hideMidCta: false,
     perfectForVariant: "pills",
     recentEventsHeadline: "Companies who've experienced our Amazing Race",
   },

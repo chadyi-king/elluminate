@@ -13,13 +13,6 @@ interface ServiceTestimonialNewProps {
   backgroundImage?: string;
 }
 
-// Format "Michelle Goh" → "Michelle G."
-const formatAuthorName = (name: string) => {
-  const parts = name.trim().split(/\s+/);
-  if (parts.length <= 1) return name;
-  return `${parts[0]} ${parts[parts.length - 1][0]}.`;
-};
-
 export const ServiceTestimonialNew = ({ testimonials, accentColor, backgroundImage }: ServiceTestimonialNewProps) => {
   return (
     <section className="py-24 relative overflow-hidden bg-gray-900">
@@ -48,7 +41,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor, backgroundIma
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-            What Our Clients Say
+            What Clients Love About Us
           </h2>
           
           {/* Google rating badge with accent color */}
@@ -65,23 +58,8 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor, backgroundIma
                 />
               ))}
             </div>
-            <span className="text-sm text-gray-300">
-              4.8 / 800+ Verified Reviews
-            </span>
+            <span className="text-sm text-gray-300">4.8 / 5 · 800+ Google reviews</span>
           </div>
-          <p className="text-xs text-white/60 italic mt-3">
-            Reviews collected via our partner brand,{" "}
-            <a
-              href="https://www.google.com/search?q=team+elevate+singapore"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold hover:underline"
-              style={{ color: accentColor }}
-            >
-              Team Elevate
-            </a>
-            .
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -121,7 +99,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor, backgroundIma
                 style={{ borderColor: `${accentColor}20` }}
               >
                 <p className="font-display font-bold text-white text-sm">
-                  {formatAuthorName(testimonial.author)}
+                  {testimonial.author}
                 </p>
                 <p className="text-xs text-gray-400">
                   {testimonial.company}

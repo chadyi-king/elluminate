@@ -31,7 +31,7 @@ const CharacterFigure = ({
 
   return (
     <motion.div
-      className={`absolute hidden lg:block pointer-events-auto ${posClass}`}
+      className={`absolute hidden xl:block pointer-events-auto ${posClass}`}
       initial={{ opacity: 0, y: 60 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.9, delay, ease: "easeOut" }}
@@ -50,7 +50,7 @@ const CharacterFigure = ({
       >
         <img
           src={image}
-          alt="Team member"
+          alt=""
           width={size.w}
           height={size.h}
           className="w-full h-full object-contain object-bottom"

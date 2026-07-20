@@ -88,7 +88,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecon
                 }}
                 onClick={openContactModal}
               >
-                <span className="relative z-10">Book This Experience</span>
+                <span className="relative z-10">Plan My Event</span>
               </Button>
             </motion.div>
             
@@ -106,14 +106,11 @@ export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecon
                 }}
                 onClick={openContactModal}
               >
-                Request a Custom Quote
+                Ask for a Quote
               </Button>
             </motion.div>
           </div>
           
-          <p className="mt-8 text-sm text-gray-400 italic">
-            "Let's create a memorable experience together."
-          </p>
         </motion.div>
       </div>
     </section>

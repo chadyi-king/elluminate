@@ -1,6 +1,6 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { Star, Calendar, Users, Award } from "lucide-react";
-import { useState, useEffect } from "react";
 
 // TODO(content): Keep a permission/evidence checklist for client logo usage before adding or restoring brand proof.
 // Real client logos - 72 companies across 3 carousel pages
@@ -348,224 +348,162 @@ const defaultClientLogos = [
   },
 ];
 
-const approvedClientLogoNames = new Set([
-  "DBS",
-  "Singtel",
-  "GovTech",
-  "CapitaLand",
-  "Singapore Airlines",
-  "Changi Airport",
-  "Google",
-  "Microsoft",
-  "Deloitte",
-  "NUS",
-  "DHL",
-  "Mediacorp",
-]);
-
-
 const stats = [
   {
     icon: Calendar,
     number: "1,000+",
-    label: "Cumulative Events",
-    description: "Shared Team Elevate and Elluminate history.",
+    label: "Events",
+    description: "Planned, produced and brought to life.",
   },
   {
     icon: Users,
     number: "100,000+",
-    label: "Cumulative Participants",
-    description: "Across the shared operating history.",
+    label: "Participants",
+    description: "People who have joined the experience.",
   },
   {
     icon: Award,
     number: "8+",
-    label: "Years of Operating History",
-    description: "Team Elevate and Elluminate under EXSTATIC PTE LTD.",
+    label: "Years of Experience",
+    description: "Learning what makes a room come alive.",
   },
 ];
 
 export const SocialProofSection = () => {
-  const [currentGroup, setCurrentGroup] = useState(0);
-  const clientLogos = defaultClientLogos.filter((logo) => approvedClientLogoNames.has(logo.name));
-
-  const logoGroups = [clientLogos];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentGroup((prev) => (prev + 1) % logoGroups.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [logoGroups.length]);
+  const reduceMotion = useReducedMotion();
+  const logoWallRef = useRef<HTMLDivElement | null>(null);
+  const logoWallInView = useInView(logoWallRef, { margin: "-120px 0px" });
+  const logoRows = Array.from({ length: 5 }, (_, rowIndex) =>
+    defaultClientLogos.filter((_, logoIndex) => logoIndex % 5 === rowIndex),
+  );
 
   return (
-    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-secondary/50 via-background to-secondary/30">
-      {/* Background decorative elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-blue-50 py-20 sm:py-24">
+      <div className="absolute left-1/2 top-1/2 h-[620px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Logo Wall - 4x6 Grid Auto-scrolling Carousel */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      <div className="container relative z-10 mx-auto px-5 sm:px-6">
+        <motion.header
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
+          transition={{ duration: reduceMotion ? 0 : 0.6 }}
+          className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <h3 className="text-center text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-10">
-            Selected Organisations From Our Shared Event History
-          </h3>
+          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.28em] text-primary">Proof Before the Pitch</span>
+          <h2 className="font-display text-4xl font-black leading-none text-foreground sm:text-5xl lg:text-6xl">
+            See the Energy. Check the Track Record.
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            More than 1,000 events, 800+ reviews and a client list built one experience at a time.
+          </p>
+        </motion.header>
 
-          {/* Logo Carousel - 4 rows x 6 columns */}
-          <div className="relative overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentGroup}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }}
-                className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 md:gap-4"
-              >
-                {logoGroups[currentGroup].map((logo) => (
-                  <div
-                    key={logo.id}
-                    className="group aspect-[3/2] bg-white border border-border rounded-xl flex items-center justify-center hover:border-primary/40 hover:shadow-lg transition-all duration-300 p-3 relative overflow-hidden"
-                  >
-                    <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                    <img
-                      src={logo.logo}
-                      alt={logo.name}
-                      loading="lazy"
-                      decoding="async"
-                      width={240}
-                      height={160}
-                      className="max-w-full max-h-full object-contain relative z-10 grayscale group-hover:grayscale-0 transition-all duration-300"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = "none";
-                        const parent = target.parentElement;
-                        if (parent && !parent.querySelector("[data-logo-fallback]")) {
-                          const fallback = document.createElement("span");
-                          fallback.className = "text-foreground text-xs font-display font-bold relative z-10";
-                          fallback.dataset.logoFallback = "true";
-                          fallback.textContent = logo.name;
-                          parent.appendChild(fallback);
-                        }
-                      }}
-                    />
-                  </div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Carousel dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {logoGroups.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentGroup(i)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === currentGroup ? "bg-primary w-6" : "bg-primary/30 hover:bg-primary/50"
-                }`}
-              />
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Google Rating Panel - Centered with stars on top */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-16"
-        >
-          <div className="relative bg-white border border-border rounded-2xl px-8 py-8 overflow-hidden max-w-xl mx-auto shadow-lg">
-            <div className="relative z-10 flex flex-col items-center text-center">
-              {/* Stars on top */}
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + i * 0.1, duration: 0.3 }}
-                  >
-                    <Star className="w-10 h-10 text-yellow-400 fill-yellow-400" />
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Rating text below stars */}
-              <div className="mb-2">
-                <span className="text-4xl md:text-5xl font-display font-black text-foreground">4.8 / 5.0</span>
-              </div>
-
-              <p className="text-muted-foreground font-display">
-                Based on <span className="text-primary font-bold">800+</span> Google reviews published for Team Elevate
-              </p>
-
-              <p className="text-muted-foreground/80 text-sm font-display">
-                Team Elevate and Elluminate are operated by EXSTATIC PTE LTD.
-              </p>
-
-              <p className="text-muted-foreground/70 text-xs font-display mt-2 italic">
-                View the original Team Elevate review source:{" "}
-                <a
-                  href="https://www.google.com/search?q=team+elevate+singapore"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary font-semibold hover:underline"
-                >
-                  Team Elevate
-                </a>
-                .
-              </p>
+        <div className="mx-auto mb-16 grid max-w-6xl gap-4 lg:grid-cols-[1.2fr_2fr]">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-[2rem] bg-[#071a2a] p-7 text-white shadow-xl sm:p-9"
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-sky-200">Google Reviews</p>
+            <div className="mt-5 flex gap-1" aria-label="4.8 out of 5 stars">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <Star key={index} className="h-6 w-6 fill-amber-400 text-amber-400" aria-hidden="true" />
+              ))}
             </div>
-          </div>
-        </motion.div>
+            <p className="mt-4 font-display text-5xl font-black leading-none sm:text-6xl">4.8 / 5</p>
+            <p className="mt-3 text-base font-semibold text-white/[0.78]">800+ Google reviews</p>
+          </motion.div>
 
-        {/* Event Impact Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            {stats.map((stat, i) => (
-              <motion.div
+          <div className="grid gap-4 sm:grid-cols-3">
+            {stats.map((stat, index) => (
+              <motion.article
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={reduceMotion ? false : { opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.5 + i * 0.15, duration: 0.6 }}
-                className="text-center group"
+                transition={{ delay: reduceMotion ? 0 : index * 0.08 }}
+                className="rounded-[2rem] border border-primary/10 bg-white p-6 shadow-[0_16px_50px_rgba(20,40,80,0.08)]"
               >
-                {/* Icon */}
-                <div className="flex justify-center mb-4">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300">
-                    <stat.icon className="w-6 h-6 text-primary" />
-                  </div>
-                </div>
-
-                <div className="relative inline-block mb-3">
-                  <span className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-primary">
-                    {stat.number}
-                  </span>
-                </div>
-                <h4 className="text-lg md:text-xl font-display font-bold text-foreground mb-2">{stat.label}</h4>
-                <p className="text-muted-foreground text-sm font-display">{stat.description}</p>
-              </motion.div>
+                <span className="mb-8 flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <stat.icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <p className="font-display text-4xl font-black leading-none text-primary">{stat.number}</p>
+                <h3 className="mt-2 font-display text-lg font-black text-foreground">{stat.label}</h3>
+                <p className="mt-2 text-sm leading-5 text-muted-foreground">{stat.description}</p>
+              </motion.article>
             ))}
           </div>
-        </motion.div>
-        <p className="mx-auto mt-8 max-w-4xl text-center text-xs leading-5 text-muted-foreground">
-          Cumulative statistics and selected organisation history are shown across Team Elevate and Elluminate under
-          EXSTATIC PTE LTD, as at July 2026. Historical events and reviews may have been delivered under Team Elevate.
+        </div>
+
+        <div className="mb-7 text-center">
+          <span className="text-xs font-bold uppercase tracking-[0.28em] text-primary">Trusted by Teams Across Singapore</span>
+          <h3 className="mt-3 font-display text-2xl font-black text-foreground sm:text-3xl">Teams We&rsquo;ve Worked With</h3>
+        </div>
+
+        {reduceMotion ? (
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+            {defaultClientLogos.map((logo) => (
+              <div
+                key={logo.id}
+                className="flex h-16 min-w-0 items-center justify-center rounded-xl border border-slate-200 bg-white px-3 shadow-sm sm:h-20"
+              >
+                <img
+                  src={logo.logo}
+                  alt={`${logo.name} logo`}
+                  loading="lazy"
+                  decoding="async"
+                  width={180}
+                  height={80}
+                  className="max-h-10 max-w-full object-contain grayscale"
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div ref={logoWallRef} className="relative -mx-5 space-y-3 overflow-hidden py-2 sm:-mx-6">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-28" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-28" />
+            {logoRows.map((row, rowIndex) => {
+              return (
+                <motion.div
+                  key={rowIndex}
+                  className="flex w-max"
+                  animate={logoWallInView
+                    ? { x: rowIndex % 2 === 0 ? ["0%", "-50%"] : ["-50%", "0%"] }
+                    : { x: rowIndex % 2 === 0 ? "0%" : "-50%" }}
+                  transition={logoWallInView
+                    ? { duration: 28 + rowIndex * 3, ease: "linear", repeat: Infinity }
+                    : { duration: 0 }}
+                >
+                  {[0, 1].map((copyIndex) => (
+                    <div key={copyIndex} className="flex shrink-0 gap-3 pr-3" aria-hidden={copyIndex === 1 ? "true" : undefined}>
+                      {row.map((logo) => (
+                        <div
+                          key={`${copyIndex}-${logo.id}`}
+                          className="flex h-16 w-32 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 shadow-sm sm:h-20 sm:w-40"
+                        >
+                          <img
+                            src={logo.logo}
+                            alt={copyIndex === 0 ? `${logo.name} logo` : ""}
+                            loading="lazy"
+                            decoding="async"
+                            width={180}
+                            height={80}
+                            className="max-h-10 max-w-full object-contain grayscale transition duration-300 hover:grayscale-0"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </motion.div>
+              );
+            })}
+          </div>
+        )}
+
+        <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-5 text-muted-foreground">
+          Figures updated in 2026.
         </p>
       </div>
     </section>

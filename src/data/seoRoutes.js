@@ -2,7 +2,7 @@ const service = (slug, title, description) => ({ path: `/services/${slug}`, titl
 
 export const routeSeo = [
   { path: "/", title: "Team Building and Company Experiences Singapore | Elluminate", description: "Plan physical and virtual team building, company retreats and corporate workshops around your people, objective, venue and timing." },
-  { path: "/about", title: "About Elluminate and Team Elevate | EXSTATIC PTE LTD", description: "Meet the Elluminate team and learn how Elluminate and Team Elevate share the operating history of EXSTATIC PTE LTD." },
+  { path: "/about", title: "About Elluminate | Team Experiences Singapore", description: "Meet Elluminate and discover the people, values, and thinking behind our team-building, retreat, and training experiences in Singapore." },
   { path: "/portfolio", title: "Team Building and Company Event Portfolio | Elluminate", description: "See real team-building activities, workshops and company retreats delivered by the Elluminate and Team Elevate team." },
   { path: "/blog", title: "Team Building Planning Guides | Elluminate", description: "Practical guides for planning team-building activities, company retreats and workplace experiences in Singapore." },
   { path: "/services/retreats", title: "Company Retreats and Offsites Singapore | Elluminate", description: "Explore local and overseas company retreats planned around your group, schedule, objective and travel needs." },

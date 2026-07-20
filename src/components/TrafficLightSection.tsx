@@ -21,30 +21,30 @@ const trafficLights = [
   {
     color: "#FFC400", // Amber
     icon: Package,
-    title: "Narrow the direction",
+    title: "Find the right format",
     subtitle: "Step 2",
-    description: "Use the brief to discuss the activity, retreat, or workshop direction that makes practical sense for the group.",
+    description: "We shortlist the activities, retreat or workshop formats that suit your group, venue and goals.",
     features: [
       "Format and energy level",
       "Indoor, outdoor, or virtual fit",
       "Event flow and facilitation",
-      "Open venue and logistics questions",
+      "Venue and logistics checks",
     ],
-    cta: "Discuss My Brief",
+    cta: "Find My Format",
   },
   {
     color: "#FF4F4F", // Red
     icon: Crown,
     title: "Confirm the event",
     subtitle: "Step 3",
-    description: "Align the scope, quote, operating details, and responsibilities before the event is locked in.",
+    description: "Once the format, quote and logistics are agreed, we lock in the plan and get ready for event day.",
     features: [
-      "Agreed programme scope",
-      "Quote assumptions and inclusions",
+      "Your confirmed event plan",
+      "What is included in your quote",
       "Setup and event-day details",
       "Final participant information",
     ],
-    cta: "Start Planning",
+    cta: "Plan My Event",
   },
 ];
 
@@ -74,7 +74,7 @@ export const TrafficLightSection = () => {
             A <span className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 bg-clip-text text-transparent">Clear Planning Path</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Three practical steps keep the conversation focused on what the event needs, not just what it is called.
+            From your first enquiry to event day, every step stays clear.
           </p>
         </motion.div>
 

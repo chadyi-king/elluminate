@@ -33,8 +33,6 @@ interface WorldConfig {
   dataValue: "expedition" | "forensics";
   eyebrow: string;
   title: string;
-  railLabel: string;
-  railMeta: string;
   items: BriefingItem[];
 }
 
@@ -43,20 +41,16 @@ const worldConfigs: Record<ServiceWorldSlug, WorldConfig> = {
     dataValue: "expedition",
     eyebrow: "Field brief",
     title: "How the mission moves",
-    railLabel: "Field route",
-    railMeta: "Checkpoints active",
     items: [
-      { label: "Format", value: "Checkpoint race", icon: MapPin },
-      { label: "Player rhythm", value: "Move · solve · collaborate", icon: Route },
-      { label: "Route brief", value: "Shaped around your venue", icon: Compass },
+      { label: "Format", value: "A live race through clues, challenges and checkpoints", icon: MapPin },
+      { label: "How it feels", value: "Fast thinking, teamwork and a big finish", icon: Route },
+      { label: "Built for", value: "Your venue, group and preferred pace", icon: Compass },
     ],
   },
   "csi-bones": {
     dataValue: "forensics",
     eyebrow: "Case file",
     title: "How the investigation unfolds",
-    railLabel: "Evidence log",
-    railMeta: "Case file active",
     items: [
       { label: "Format", value: "Team investigation", icon: FileSearch },
       { label: "Player rhythm", value: "Examine · connect · decide", icon: ScanSearch },
@@ -103,40 +97,12 @@ export function ServiceWorldFrame({ slug, children }: ServiceWorldFrameProps) {
     return <>{children}</>;
   }
 
-  const isExpedition = world.dataValue === "expedition";
-  const RailIcon = isExpedition ? Map : Fingerprint;
-
   return (
     <div
       data-service-world={world.dataValue}
       className="relative isolate overflow-x-clip"
     >
       <style>{worldTextureStyles}</style>
-
-      <div
-        aria-hidden="true"
-        className={`pointer-events-none fixed inset-y-0 z-30 hidden w-px xl:block ${
-          isExpedition ? "left-5 bg-[#ffc400]/35" : "right-5 bg-[#26d07c]/35"
-        }`}
-      />
-
-      <aside
-        aria-hidden="true"
-        className={`pointer-events-none fixed top-1/2 z-30 hidden -translate-y-1/2 items-center gap-3 xl:flex ${
-          isExpedition
-            ? "left-3 -rotate-90 text-[#5d4a00] dark:text-[#ffe070]"
-            : "right-2 rotate-90 text-[#075a34] dark:text-[#76f2b6]"
-        }`}
-      >
-        <RailIcon className="h-4 w-4" strokeWidth={1.75} />
-        <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.34em]">
-          {world.railLabel}
-        </span>
-        <span className="h-px w-10 bg-current opacity-50" />
-        <span className="font-mono text-[9px] uppercase tracking-[0.2em] opacity-70">
-          {world.railMeta}
-        </span>
-      </aside>
 
       {children}
     </div>
@@ -157,8 +123,8 @@ export function ServiceWorldBriefing({ slug, accentColor }: ServiceWorldBriefing
       aria-labelledby={`${slug}-world-briefing-title`}
       className={`relative isolate overflow-hidden border-y px-4 py-7 md:py-9 ${
         isExpedition
-          ? "border-[#ffc400]/45 bg-[#07160f] text-[#fff9dc]"
-          : "border-[#26d07c]/45 bg-[#0b1110] text-[#f0fff7]"
+                  ? "border-[#ffc400]/[0.45] bg-[#07160f] text-[#fff9dc]"
+                  : "border-[#26d07c]/[0.45] bg-[#0b1110] text-[#f0fff7]"
       }`}
     >
       <WorldBackdrop world={world.dataValue} />
@@ -200,7 +166,7 @@ export function ServiceWorldBriefing({ slug, accentColor }: ServiceWorldBriefing
             <div
               aria-hidden="true"
               className={`absolute top-7 right-[16.66%] left-[16.66%] hidden border-t sm:block ${
-                isExpedition ? "border-dashed border-[#ffc400]/35" : "border-[#26d07c]/25"
+                    isExpedition ? "border-dashed border-[#ffc400]/[0.35]" : "border-[#26d07c]/25"
               }`}
             />
             <ol className="relative grid gap-3 sm:grid-cols-3">
@@ -250,7 +216,7 @@ function BriefingItemCard({ item, index, accentColor, world }: BriefingItemCardP
         <span className="sr-only">Step {index + 1}</span>
       </div>
       <div className="min-w-0">
-        <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-white/55">
+                      <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-white/[0.55]">
           {String(index + 1).padStart(2, "0")} · {item.label}
         </p>
         <p className="mt-1 text-sm font-semibold leading-tight text-white sm:text-[13px]">
@@ -307,10 +273,10 @@ function WorldBackdrop({ world }: { world: WorldConfig["dataValue"] }) {
         }}
       />
       <div className="absolute -right-16 top-1/2 h-48 w-48 -translate-y-1/2 rounded-full border border-[#26d07c]/30">
-        <div className="absolute inset-8 rounded-full border border-dashed border-[#26d07c]/35" />
+                    <div className="absolute inset-8 rounded-full border border-dashed border-[#26d07c]/[0.35]" />
         <div className="absolute left-1/2 top-0 h-full w-px bg-[#26d07c]/25" />
         <div className="absolute left-0 top-1/2 h-px w-full bg-[#26d07c]/25" />
-        <CheckCircle2 className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 text-[#26d07c]/45" />
+                    <CheckCircle2 className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 text-[#26d07c]/[0.45]" />
       </div>
     </div>
   );

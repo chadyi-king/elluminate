@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
-import amazingRaceLogo from "../../../public/images/service-page-logos/amazing-race.svg.asset.json";
 import culturalRaceLogo from "../../../public/images/service-page-logos/cultural-race.svg.asset.json";
 import buildersCrossLogo from "../../../public/images/service-page-logos/builders-cross.svg.asset.json";
 import csiBonesLogo from "../../../public/images/service-page-logos/csi-bones.svg.asset.json";
@@ -40,7 +40,25 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
   switch (slug) {
     /* ─── Amazing Race: uploaded logo ─── */
     case "amazing-race":
-      return renderLogo(amazingRaceLogo.url, "Amazing Race", size);
+      return (
+        <svg {...common} role="img" aria-label="Amazing Race route">
+          <circle cx="100" cy="100" r="72" fill={`${accentColor}18`} stroke={`${accentColor}88`} strokeWidth="2" />
+          <path
+            d="M48 138 C60 112 53 82 81 73 C108 64 113 100 140 87 C157 79 157 57 150 43"
+            stroke="white"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeDasharray="8 9"
+          />
+          <circle cx="48" cy="138" r="11" fill={accentColor} stroke="white" strokeWidth="3" />
+          <circle cx="48" cy="138" r="3" fill="#07151f" />
+          <path d="M150 43 V89" stroke="white" strokeWidth="4" strokeLinecap="round" />
+          <path d="M153 45 H181 L169 59 L181 73 H153 Z" fill={accentColor} stroke="white" strokeWidth="2" />
+          <circle cx="100" cy="100" r="18" fill="#07151f" stroke="white" strokeWidth="2" />
+          <path d="M105 83 L110 103 L91 114 L96 94 Z" fill={accentColor} />
+          <circle cx="100" cy="100" r="4" fill="white" />
+        </svg>
+      );
 
     /* ─── Cultural Race: uploaded logo ─── */
     case "cultural-race":
@@ -674,7 +692,7 @@ export const ServiceHeroSplit = ({
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/30 to-black/55" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/30 to-black/[0.55]" />
         <div 
           className="absolute inset-0 opacity-20"
           style={{ background: `linear-gradient(135deg, ${accentColor}30 0%, transparent 60%)` }}
@@ -788,7 +806,7 @@ export const ServiceHeroSplit = ({
             >
               <Button 
                 size="xl"
-                className="group relative overflow-hidden font-display font-semibold tracking-wide"
+                className="group relative w-full overflow-hidden font-display font-semibold tracking-wide sm:w-auto"
                 style={{ 
                   background: gradient,
                   color: '#000',
@@ -796,7 +814,11 @@ export const ServiceHeroSplit = ({
                 }}
                 onClick={openContactModal}
               >
-                <span className="relative z-10">Plan Your {subtitle} →</span>
+                <span className="relative z-10 inline-flex items-center justify-center gap-2">
+                  <span className="sm:hidden">Plan My Event</span>
+                  <span className="hidden sm:inline">Plan Your {subtitle}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </span>
               </Button>
             </motion.div>
           </motion.div>

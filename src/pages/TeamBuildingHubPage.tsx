@@ -136,19 +136,19 @@ const catalogueGroups = [
     title: "Story-led physical experiences",
     description: "Races, mysteries, missions, and facilitated challenge formats.",
     items: physicalTeamBuildingServices,
-    accent: "border-blue-200 bg-blue-50/65",
+    accent: "border-blue-200 bg-blue-50/[0.65]",
   },
   {
     title: "Equipment activities",
     description: "Action-led formats for groups that want a more physical game layer.",
     items: equipmentActivityServices,
-    accent: "border-amber-200 bg-amber-50/65",
+    accent: "border-amber-200 bg-amber-50/[0.65]",
   },
   {
     title: "Virtual experiences",
     description: "Hosted shared challenges for remote and multi-office teams.",
     items: virtualTeamBuildingServices,
-    accent: "border-violet-200 bg-violet-50/65",
+    accent: "border-violet-200 bg-violet-50/[0.65]",
   },
 ];
 
@@ -464,7 +464,7 @@ const TeamBuildingHubPage = () => {
             height={1080}
             className="absolute inset-0 -z-20 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground via-foreground/88 to-foreground/45" />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground via-foreground/[0.88] to-foreground/[0.45]" />
 
           <div className="container mx-auto grid min-h-[720px] items-center gap-10 px-6 py-14 lg:grid-cols-[1.08fr_0.92fr] lg:px-12 lg:py-20">
             <div className="min-w-0 max-w-3xl">
@@ -474,7 +474,7 @@ const TeamBuildingHubPage = () => {
               <h1 className="font-display text-4xl font-black leading-[1.08] text-background sm:text-5xl lg:text-7xl">
                 Corporate Team Building in Singapore, Planned Around Your Team
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-background/82 sm:text-xl">
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-background/[0.82] sm:text-xl">
                 Share your group size, preferred date, venue and what you want the day to achieve. Elluminate helps
                 you choose and plan a facilitated physical or virtual activity that fits.
               </p>
@@ -487,12 +487,12 @@ const TeamBuildingHubPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => handleCtaClick("hero_whatsapp", "WhatsApp Elluminate")}
-                  className="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl border border-background/35 px-6 py-3 text-base font-semibold text-background transition hover:bg-background/10 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-foreground"
+                    className="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl border border-background/[0.35] px-6 py-3 text-base font-semibold text-background transition hover:bg-background/10 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-foreground"
                 >
                   <MessageCircle className="h-5 w-5" /> WhatsApp Elluminate
                 </a>
               </div>
-              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-background/78">
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-background/[0.78]">
                 {["Indoor or outdoor", "Physical or virtual", "Planned around your brief"].map((item) => (
                   <span key={item} className="inline-flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-primary" /> {item}
@@ -501,7 +501,7 @@ const TeamBuildingHubPage = () => {
               </div>
             </div>
 
-            <div id="quote" className="min-w-0 scroll-mt-32 rounded-2xl border border-white/15 bg-background p-6 text-foreground shadow-2xl sm:p-8">
+              <div id="quote" className="min-w-0 scroll-mt-32 rounded-2xl border border-white/[0.15] bg-background p-6 text-foreground shadow-2xl sm:p-8">
               {submitStatus === "success" ? (
                 <div className="flex min-h-[520px] flex-col items-center justify-center text-center" role="status">
                   <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -659,7 +659,7 @@ const TeamBuildingHubPage = () => {
         <section className="border-b border-border bg-background py-10">
           <div className="container mx-auto px-6 lg:px-12">
             <p className="text-center text-sm font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-              Selected organisations served through Team Elevate's event history
+              Trusted by teams across Singapore
             </p>
             <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
               {proofOrganisations.map((organisation) => (
@@ -668,10 +668,6 @@ const TeamBuildingHubPage = () => {
                 </div>
               ))}
             </div>
-            <p className="mx-auto mt-5 max-w-4xl text-center text-xs leading-5 text-muted-foreground">
-              Elluminate and Team Elevate are operated by EXSTATIC PTE LTD. Selected reviews and event history shown
-              were delivered under Team Elevate.
-            </p>
           </div>
         </section>
 
@@ -692,7 +688,7 @@ const TeamBuildingHubPage = () => {
               {planningFactors.map((factor) => {
                 const Icon = factor.icon;
                 return (
-                  <article key={factor.title} className="rounded-lg border border-border bg-secondary/35 p-7">
+              <article key={factor.title} className="rounded-lg border border-border bg-secondary/[0.35] p-7">
                     <Icon className="h-8 w-8 text-primary" />
                     <h3 className="mt-6 font-display text-2xl font-black">{factor.title}</h3>
                     <p className="mt-4 leading-7 text-muted-foreground">{factor.copy}</p>
@@ -703,7 +699,7 @@ const TeamBuildingHubPage = () => {
           </div>
         </section>
 
-        <section id="activities" className="bg-secondary/35 py-20">
+      <section id="activities" className="bg-secondary/[0.35] py-20">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl">
@@ -790,7 +786,7 @@ const TeamBuildingHubPage = () => {
                   <article key={group.title} className={`rounded-2xl border p-5 ${group.accent}`}>
                     <div className="mb-5 flex items-start justify-between gap-4">
                       <div>
-                        <p className="text-xs font-bold uppercase tracking-[0.16em] text-foreground/55">
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-foreground/[0.55]">
                           {group.items.length} experiences
                         </p>
                         <h4 className="mt-2 font-display text-xl font-black text-foreground">{group.title}</h4>
@@ -799,13 +795,13 @@ const TeamBuildingHubPage = () => {
                         {group.items.length}
                       </span>
                     </div>
-                    <p className="mb-5 text-sm leading-6 text-foreground/65">{group.description}</p>
+                      <p className="mb-5 text-sm leading-6 text-foreground/[0.65]">{group.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {group.items.map((item) => (
                         <Link
                           key={item.slug}
                           to={`/services/${item.slug}`}
-                          className="rounded-full border border-foreground/10 bg-background px-3 py-1.5 text-xs font-semibold text-foreground/75 transition hover:border-primary/35 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                            className="rounded-full border border-foreground/10 bg-background px-3 py-1.5 text-xs font-semibold text-foreground/75 transition hover:border-primary/[0.35] hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                         >
                           {item.name}
                         </Link>
@@ -833,7 +829,7 @@ const TeamBuildingHubPage = () => {
                 <ul className="mt-7 space-y-4">
                   {comparison.catalogue.map((item) => (
                     <li key={item} className="flex gap-3 text-foreground/75">
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-muted-foreground/45" /> {item}
+                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-muted-foreground/[0.45]" /> {item}
                     </li>
                   ))}
                 </ul>
@@ -861,7 +857,7 @@ const TeamBuildingHubPage = () => {
                 <h2 className="mt-4 font-display text-3xl font-black leading-tight sm:text-5xl">
                   The activity is only one part of a team-building day.
                 </h2>
-                <p className="mt-6 text-lg leading-8 text-background/72">
+              <p className="mt-6 text-lg leading-8 text-background/[0.72]">
                   The planning conversation connects the activity to the venue, event flow, facilitation, and the
                   practical details your internal stakeholders will ask about.
                 </p>
@@ -873,7 +869,7 @@ const TeamBuildingHubPage = () => {
                 {whatWeHandle.map((item) => {
                   const Icon = item.icon;
                   return (
-                    <article key={item.title} className="rounded-lg border border-background/15 bg-background/[0.07] p-6">
+                <article key={item.title} className="rounded-lg border border-background/[0.15] bg-background/[0.07] p-6">
                       <Icon className="h-7 w-7 text-primary" />
                       <h3 className="mt-5 font-display text-xl font-black">{item.title}</h3>
                       <p className="mt-3 text-sm leading-6 text-background/70">{item.copy}</p>
@@ -896,7 +892,7 @@ const TeamBuildingHubPage = () => {
             <div className="mt-12 grid gap-5 lg:grid-cols-3">
               {processSteps.map((step, index) => (
                 <article key={step.title} className="relative rounded-lg border border-border bg-secondary/30 p-7">
-                  <span className="font-display text-5xl font-black text-primary/18">0{index + 1}</span>
+                    <span className="font-display text-5xl font-black text-primary/[0.18]">0{index + 1}</span>
                   <h3 className="mt-6 font-display text-2xl font-black">{step.title}</h3>
                   <p className="mt-4 leading-7 text-muted-foreground">{step.copy}</p>
                 </article>
@@ -905,7 +901,7 @@ const TeamBuildingHubPage = () => {
           </div>
         </section>
 
-        <section className="bg-secondary/35 py-20">
+      <section className="bg-secondary/[0.35] py-20">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl">
@@ -939,11 +935,10 @@ const TeamBuildingHubPage = () => {
         <section className="bg-background py-20">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Shared operating history</p>
-              <h2 className="mt-4 font-display text-3xl font-black leading-tight sm:text-5xl">What teams have said</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Client voices</p>
+              <h2 className="mt-4 font-display text-3xl font-black leading-tight sm:text-5xl">What clients love about us</h2>
               <p className="mt-5 leading-7 text-muted-foreground">
-                These reviews were originally published for events delivered under Team Elevate, which is operated
-                alongside Elluminate by EXSTATIC PTE LTD.
+                The facilitation, the games and the moments that made the day land with the people in the room.
               </p>
             </div>
             <div className="mx-auto mt-10 grid max-w-5xl gap-5 lg:grid-cols-2">
@@ -953,7 +948,6 @@ const TeamBuildingHubPage = () => {
                   <figcaption className="mt-6 border-t border-border pt-5">
                     <p className="font-display text-lg font-black">{review.author}</p>
                     <p className="mt-1 text-sm text-muted-foreground">{review.role}, {review.company}</p>
-                    <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-primary">Originally published by Team Elevate</p>
                   </figcaption>
                 </figure>
               ))}
@@ -961,7 +955,7 @@ const TeamBuildingHubPage = () => {
           </div>
         </section>
 
-        <section id="faq" className="bg-secondary/35 py-20">
+      <section id="faq" className="bg-secondary/[0.35] py-20">
           <div className="container mx-auto max-w-4xl px-6 lg:px-12">
             <div className="text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Practical questions</p>
@@ -983,13 +977,13 @@ const TeamBuildingHubPage = () => {
 
         <section className="bg-foreground px-6 py-20 text-background lg:px-12">
           <div className="container mx-auto text-center">
-            <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/15 text-primary">
+            <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/[0.15] text-primary">
               <ClipboardCheck className="h-7 w-7" />
             </span>
             <h2 className="mx-auto mt-6 max-w-4xl font-display text-3xl font-black leading-tight sm:text-6xl">
               Plan a team-building activity your people can actually get into.
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-background/72">
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-background/[0.72]">
               Send your group size, timing, venue preference, and event goal. Elluminate will help you shape the right
               activity direction.
             </p>

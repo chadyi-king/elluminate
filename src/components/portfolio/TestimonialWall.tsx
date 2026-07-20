@@ -4,50 +4,18 @@ import { Star, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Chen",
-    company: "Tech Solutions Pte Ltd",
-    eventType: "Annual D&D",
-    text: "Elluminate transformed our annual dinner into an unforgettable experience. The attention to detail was impeccable.",
+    name: "Darren Tey",
+    company: "Operations Manager, Lonza",
+    eventType: "Team Experience",
+    text: "All of us had a real fun blast and we have nothing but good things to say about the facilitators and the games!",
     rating: 5,
   },
   {
     id: 2,
-    name: "Michael Tan",
-    company: "Global Finance Group",
-    eventType: "Team Building",
-    text: "The best team building event we've ever had. Our employees are still talking about it months later!",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Jennifer Lee",
-    company: "Healthcare Corp",
-    eventType: "Awards Ceremony",
-    text: "Professional, creative, and absolutely stunning execution. They truly elevated our awards night.",
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: "David Wong",
-    company: "Luxury Retail Brand",
-    eventType: "Product Launch",
-    text: "Our product launch exceeded all expectations. The immersive experience they created was truly world-class.",
-    rating: 5,
-  },
-  {
-    id: 5,
-    name: "Amanda Lim",
-    company: "Engineering Solutions",
-    eventType: "Corporate Retreat",
-    text: "From planning to execution, everything was seamless. Our team came back more connected than ever.",
-    rating: 5,
-  },
-  {
-    id: 6,
-    name: "Kevin Ng",
-    company: "Insurance Partners",
-    eventType: "Gala Night",
-    text: "The venue transformation was breathtaking. Our guests were in awe from the moment they arrived.",
+    name: "Farzanah Begum",
+    company: "Senior Officer for Development and Engagement, SIMTech",
+    eventType: "Team Experience",
+    text: "All our different departments have enjoyed the activities, from our newest members to our management teams.",
     rating: 5,
   },
 ];
@@ -77,20 +45,8 @@ export const TestimonialWall = () => {
             ))}
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-2">
-            4.8 / 800+ Verified Google Reviews
+            4.8 / 5 from 800+ Google Reviews
           </h2>
-          <p className="text-xs md:text-sm text-white/60 italic mt-2">
-            Reviews collected via our partner brand,{" "}
-            <a
-              href="https://www.google.com/search?q=team+elevate+singapore"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary font-semibold hover:underline"
-            >
-              Team Elevate
-            </a>
-            .
-          </p>
           <motion.div 
             className="w-24 h-0.5 mx-auto mt-4"
             style={{ background: "linear-gradient(90deg, transparent, hsl(43 65% 52%), transparent)" }}
@@ -98,7 +54,7 @@ export const TestimonialWall = () => {
         </motion.div>
 
         {/* Testimonial Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mx-auto grid max-w-5xl md:grid-cols-2 gap-6">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}

@@ -1,146 +1,101 @@
-import { motion } from "framer-motion";
-import { CheckCircle, MapPin } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Quote, Sparkles, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const eventStories = [
+const clientStories = [
   {
-    id: 1,
-    title: "Outdoor Team Challenge",
-    setting: "Singapore outdoor venue",
-    format: "Active team building",
-    highlights: [
-      "Teams working through a shared physical challenge",
-      "Facilitated participation and visible group momentum",
-      "A format that can sit inside a wider company day",
-    ],
-    note: "Useful evidence for planners considering an active outdoor direction and mixed-team participation.",
-    image: "/images/services/amazing-race/gallery-1.jpg",
-    accentColor: "#FFC400",
+    company: "Lonza",
+    person: "Darren Tey, Operations Manager",
+    title: "An experience people wanted to talk about",
+    quote: "All of us had a real fun blast and we have nothing but good things to say about the facilitators and the games!",
+    focus: ["High-energy games", "Facilitators who kept the room moving", "A shared experience the team enjoyed together"],
+    accent: "#2A8DFF",
   },
   {
-    id: 2,
-    title: "CSI-Bones Investigation",
-    setting: "Indoor function space",
-    format: "Mystery and problem solving",
-    highlights: [
-      "Teams examining physical clues and case materials",
-      "A lower-movement format built around discussion",
-      "Indoor setup suited to a controlled event space",
-    ],
-    note: "Useful evidence for teams that prefer observation, reasoning, and collaboration over high physical intensity.",
-    image: "/images/services/csi-bones/gallery-1.jpg",
-    accentColor: "#26D07C",
-  },
-  {
-    id: 3,
-    title: "Indoor Station Challenge",
-    setting: "Office or function room",
-    format: "Short rotating activities",
-    highlights: [
-      "Compact challenges that are easy to explain",
-      "Multiple participation styles across the group",
-      "Visible scoring, cheering, and quick transitions",
-    ],
-    note: "Useful evidence when the brief calls for energy without moving the group across an outdoor route.",
-    image: "/images/services/minute-to-win-it/gallery-3.jpg",
-    accentColor: "#A768FF",
-  },
-  {
-    id: 4,
-    title: "Facilitated Beach Activity",
-    setting: "Retreat or offsite venue",
-    format: "Team activity within an itinerary",
-    highlights: [
-      "A team challenge integrated into an offsite setting",
-      "Group movement and coordination in an open space",
-      "An activity direction that can complement meals and downtime",
-    ],
-    note: "Useful evidence for planners deciding how team building can fit into a retreat or longer company programme.",
-    image: "/images/services/monopoly-dash/gallery-2.jpg",
-    accentColor: "#2A8DFF",
+    company: "SIMTech",
+    person: "Farzanah Begum, Senior Officer for Development and Engagement",
+    title: "A day everyone could get into",
+    quote: "All our different departments have enjoyed the activities, from our newest members to our management teams.",
+    focus: ["Enjoyed across departments", "Worked for new joiners and management", "Brought different levels into the same experience"],
+    accent: "#8B5CF6",
   },
 ];
 
 export const CaseStudiesSection = () => {
-  return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-blue-50 via-primary/5 to-blue-50">
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-green-100/30 rounded-full blur-3xl" />
+  const reduceMotion = useReducedMotion();
 
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+  return (
+    <section className="relative overflow-hidden bg-[#071a2a] py-20 text-white sm:py-24">
+      <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-primary/20 blur-[120px]" />
+      <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-violet-500/20 blur-[130px]" />
+      <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.2)_1px,transparent_1px)] [background-size:54px_54px]" />
+
+      <div className="container relative z-10 mx-auto px-5 sm:px-6">
+        <motion.header
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: reduceMotion ? 0 : 0.6 }}
+          className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <span className="text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
-            Event Evidence
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-6">
-            Formats in Action
-          </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-            Real event photographs from the shared Team Elevate and Elluminate operating history, mapped to the
-            practical planning questions each format helps answer.
+          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.28em] text-sky-200">Client Stories</span>
+          <h2 className="font-display text-4xl font-black leading-none sm:text-5xl lg:text-6xl">What Their Teams Remembered</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
+            Two clients share what made the experience work for their teams.
           </p>
-        </motion.div>
+        </motion.header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {eventStories.map((story, index) => (
+        <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-2">
+          {clientStories.map((story, index) => (
             <motion.article
-              key={story.id}
-              initial={{ opacity: 0, y: 40 }}
+              key={story.company}
+              initial={reduceMotion ? false : { opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.12 }}
-              className="group relative"
+              transition={{ duration: reduceMotion ? 0 : 0.55, delay: reduceMotion ? 0 : index * 0.1 }}
+              className="relative overflow-hidden rounded-[2rem] border border-white/[0.12] bg-white/[0.07] p-7 backdrop-blur-sm sm:p-9"
             >
-              <div className="relative bg-white border border-border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 h-full flex flex-col">
-                <div className="h-1 w-full" style={{ backgroundColor: story.accentColor }} />
-                <div className="relative aspect-[16/9] overflow-hidden">
-                  <img
-                    src={story.image}
-                    alt={story.title}
-                    width={960}
-                    height={540}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+              <div className="absolute right-0 top-0 h-40 w-40 rounded-full opacity-20 blur-3xl" style={{ backgroundColor: story.accent }} />
+              <div className="relative">
+                <div className="mb-8 flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.22em] text-sky-200">{story.company}</p>
+                  <p className="mt-1 text-sm text-white/[0.55]">{story.person}</p>
+                  </div>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
+                    <Quote className="h-6 w-6 text-white/70" aria-hidden="true" />
+                  </span>
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col">
-                  <span className="mb-3 w-fit rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-foreground">
-                    {story.format}
-                  </span>
-                  <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mb-4">{story.title}</h3>
-                  <div className="mb-5 flex items-center gap-2 text-sm text-muted-foreground">
-                    <MapPin className="h-4 w-4 text-primary" /> {story.setting}
-                  </div>
+                <h3 className="font-display text-3xl font-black leading-tight">{story.title}</h3>
+                <blockquote className="mt-5 text-lg leading-8 text-white/[0.85]">&ldquo;{story.quote}&rdquo;</blockquote>
 
-                  <div className="mb-5 space-y-2">
-                    {story.highlights.map((highlight) => (
-                      <div key={highlight} className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground text-sm">{highlight}</span>
-                      </div>
+                <div className="mt-8 border-t border-white/10 pt-6">
+                  <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-white/[0.45]">What stood out</p>
+                  <ul className="space-y-3">
+                    {story.focus.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-white/[0.72]">
+                        <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-amber-300" aria-hidden="true" />
+                        {item}
+                      </li>
                     ))}
-                  </div>
-
-                  <p className="mt-auto border-t border-border pt-4 text-sm leading-6 text-muted-foreground">
-                    {story.note}
-                  </p>
+                  </ul>
                 </div>
               </div>
             </motion.article>
           ))}
         </div>
 
-        <p className="mx-auto mt-8 max-w-4xl text-center text-xs leading-5 text-muted-foreground">
-          Elluminate and Team Elevate are operated by EXSTATIC PTE LTD. Event history shown may have been delivered
-          under Team Elevate.
-        </p>
+        <div className="mx-auto mt-8 flex max-w-6xl flex-col items-start justify-between gap-5 rounded-[1.5rem] border border-white/10 bg-white/[0.05] px-6 py-5 sm:flex-row sm:items-center">
+          <div className="flex items-center gap-3">
+            <Users className="h-5 w-5 text-sky-200" aria-hidden="true" />
+            <p className="text-sm text-white/[0.72]">Looking for the format that fits your own team?</p>
+          </div>
+          <Link to="/services/team-building" className="inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-sky-200">
+            Explore Team Building
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
       </div>
     </section>
   );

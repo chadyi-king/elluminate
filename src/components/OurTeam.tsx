@@ -1,77 +1,64 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { CalendarCheck, Headphones, Lightbulb, Users } from "lucide-react";
 
-// Import team background image (team photo)
-import teamBuildingOutdoor from "@/assets/events/team-building-outdoor-1.jpg";
-
-const teamMembers = [
-  { name: "Edmund Sim", title: "Director", image: "/images/our_team/edmund.png" },
-  { name: "Afifah Camut", title: "Senior Sales Manager", image: "/images/our_team/afifah.png" },
-  { name: "Lisa Ong", title: "Senior Events Manager", image: "/images/our_team/lisa.png" },
-  { name: "MJ", title: "Operations & Design Executive", image: "/images/our_team/mj.png" },
-  { name: "Ayume", title: "Operations Executive", image: "/images/our_team/ayume.png" },
-  { name: "Louise Cabales", title: "Admin Manager", image: "/images/our_team/louise.png" },
-  { name: "Peggy Har", title: "Finance Manager", image: "/images/our_team/peggy.png" },
-  { name: "Jencen Ramos", title: "Finance Executive", image: "/images/our_team/jencen.png" },
-  { name: "Jemwell Ramos", title: "IT Executive", image: "/images/our_team/jemwell.png" },
-  { name: "Peace Chan", title: "Marketing & Sales Executive", image: "/images/our_team/peace.png" },
+const teamRoles = [
+  { label: "Creative planning", icon: Lightbulb },
+  { label: "Event production", icon: CalendarCheck },
+  { label: "Facilitation", icon: Users },
+  { label: "On-the-day support", icon: Headphones },
 ];
 
-// TODO(content): Confirm public roles for Caleb E and Christian Je Suis before restoring their team cards.
-
 export const OurTeam = () => {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section className="py-24 relative">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img
-          src={teamBuildingOutdoor}
-          alt="Elluminate team building background"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-background/95" />
-      </div>
+    <section className="relative overflow-hidden bg-[#071a2a] py-20 text-white sm:py-24">
+      <div className="absolute -left-20 top-10 h-72 w-72 rounded-full bg-primary/20 blur-[120px]" />
+      <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-sky-400/[0.15] blur-[120px]" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-2xl md:text-3xl font-display font-medium text-foreground mb-3">
-            Our <span className="text-primary">Team</span>
-          </h2>
-          <p className="text-muted-foreground/80 font-sans max-w-xl mx-auto text-sm">
-            The ten verified team members supporting planning, events, operations, administration, finance,
-            technology, marketing, and sales across Elluminate and the shared EXSTATIC PTE LTD operation.
-          </p>
-        </motion.div>
+      <div className="container relative z-10 mx-auto px-5 sm:px-6">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: reduceMotion ? 0 : 0.6 }}
+          >
+            <span className="mb-4 block text-xs font-bold uppercase tracking-[0.26em] text-sky-200">The People Behind the Day</span>
+            <h2 className="font-display text-4xl font-black leading-none sm:text-5xl">Our Team</h2>
+            <p className="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
+              Meet the planners, producers and facilitators who turn a brief into a room full of energy.
+            </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              className="group text-center"
-            >
-              <div className="relative mb-4 overflow-hidden rounded-xl">
-                <div className="aspect-square overflow-hidden rounded-xl border border-border-gold/30 group-hover:border-primary/50 transition-all duration-500">
-                  <img
-                    src={member.image}
-                    alt={`${member.name}, ${member.title} at Elluminate`}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-                  />
+            <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              {teamRoles.map((role) => (
+                <div key={role.label} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/20 text-sky-200">
+                    <role.icon className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  <span className="text-sm font-semibold text-white/80">{role.label}</span>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <h3 className="text-foreground font-display font-medium text-sm mb-1">{member.name}</h3>
-              <p className="text-primary/80 text-xs font-sans">{member.title}</p>
-            </motion.div>
-          ))}
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: reduceMotion ? 0 : 0.65, delay: reduceMotion ? 0 : 0.08 }}
+            className="grid grid-cols-[1.25fr_0.75fr] gap-3 sm:gap-4"
+          >
+            <div className="row-span-2 min-h-[390px] overflow-hidden rounded-[2rem] border border-white/10 sm:min-h-[540px]">
+              <img src="/images/about/about-6.jpg" alt="Facilitator supporting a team during an outdoor activity" loading="lazy" className="h-full w-full object-cover" />
+            </div>
+            <div className="min-h-[188px] overflow-hidden rounded-[1.5rem] border border-white/10 sm:min-h-[262px]">
+              <img src="/images/about/about-4.jpg" alt="Facilitator briefing participants" loading="lazy" className="h-full w-full object-cover" />
+            </div>
+            <div className="min-h-[188px] overflow-hidden rounded-[1.5rem] border border-white/10 sm:min-h-[262px]">
+              <img src="/images/services/workshops/gallery-4.jpg" alt="Facilitator and participants celebrating a completed team project" loading="lazy" className="h-full w-full object-cover" />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

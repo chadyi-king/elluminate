@@ -5,22 +5,34 @@ interface ServiceOverviewNewProps {
   description: string;
   accentColor: string;
   accentColorSecondary?: string;
+  title?: string;
+  eyebrow?: string;
+  backgroundImage?: string;
 }
 
 const getAccentGradient = (primary: string, secondary?: string) => 
   secondary ? `linear-gradient(135deg, ${primary}, ${secondary})` : primary;
 
-export const ServiceOverviewNew = ({ description, accentColor, accentColorSecondary }: ServiceOverviewNewProps) => {
+export const ServiceOverviewNew = ({
+  description,
+  accentColor,
+  accentColorSecondary,
+  title = "What’s Inside",
+  eyebrow,
+  backgroundImage,
+}: ServiceOverviewNewProps) => {
   const gradient = getAccentGradient(accentColor, accentColorSecondary);
+  const paragraphs = description.split(/\n\s*\n/).filter(Boolean);
   
   return (
     <section className="py-24 relative overflow-hidden bg-muted/40">
-      {/* Light background with subtle pattern */}
       <div className="absolute inset-0 bg-muted/60">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920)` }}
-        />
+        {backgroundImage && (
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-[0.14]"
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          />
+        )}
       </div>
 
       {/* Accent-tinted gradient overlay */}
@@ -53,7 +65,12 @@ export const ServiceOverviewNew = ({ description, accentColor, accentColorSecond
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 
+          {eyebrow && (
+            <span className="mb-4 block text-xs font-bold uppercase tracking-[0.26em]" style={{ color: accentColor }}>
+              {eyebrow}
+            </span>
+          )}
+          <h2
             className="text-3xl md:text-4xl font-display font-bold mb-6"
             style={{ 
               background: accentColorSecondary ? gradient : undefined,
@@ -62,7 +79,7 @@ export const ServiceOverviewNew = ({ description, accentColor, accentColorSecond
               color: accentColorSecondary ? undefined : getReadableTextColor(accentColor)
             }}
           >
-            What's Inside
+            {title}
           </h2>
           
           {/* Decorative underline with accent color (or gradient) */}
@@ -77,9 +94,11 @@ export const ServiceOverviewNew = ({ description, accentColor, accentColorSecond
             transition={{ duration: 1, delay: 0.3 }}
           />
           
-          <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
-            {description}
-          </p>
+          <div className="space-y-5 text-lg leading-relaxed text-foreground/80 md:text-xl">
+            {paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

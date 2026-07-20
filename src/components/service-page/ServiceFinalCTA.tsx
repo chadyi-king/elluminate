@@ -36,7 +36,7 @@ export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
           className="text-center"
         >
           <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-8">
-            Ready to Create Something Extraordinary?
+            Ready to Build Your Event?
           </h2>
           
           <motion.div
@@ -53,7 +53,7 @@ export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
               }}
               onClick={openContactModal}
             >
-              Start Planning With Us
+              Build My Event
             </Button>
           </motion.div>
         </motion.div>

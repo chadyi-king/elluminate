@@ -85,6 +85,33 @@ const amazingRaceFaqs = [
   },
 ];
 
+const amazingRaceJourney = [
+  {
+    title: "Set the Scene",
+    description: "Marina Bay, Sentosa, a campus or your own venue: the location becomes the board your teams will play across.",
+    image: "/images/about/about-3.jpg",
+    step: "01",
+  },
+  {
+    title: "Form the Crews",
+    description: "We split the group into balanced crews so everyone has a part to play, not just the fastest runners.",
+    image: "/images/about/about-2.jpg",
+    step: "02",
+  },
+  {
+    title: "Open the First Clue",
+    description: "Each checkpoint brings a new twist: puzzles, photo missions, creative tasks and hands-on challenges that call for different strengths.",
+    image: "/images/services/amazing-race/gallery-6.jpg",
+    step: "03",
+  },
+  {
+    title: "Race to the Reveal",
+    description: "Scores come together at the finish as teams return, compare stories and discover who took the win.",
+    image: "/images/services/amazing-race/gallery-5.jpg",
+    step: "04",
+  },
+];
+
 const runningManFaqs = [
   {
     question: "What is a Running Man team building event?",
@@ -208,7 +235,7 @@ const ServicePage = () => {
       description: "Plan corporate physical team building in Singapore with facilitated indoor and outdoor activities, trusted event support, and a fast Plan My Event enquiry form.",
       canonical: "https://elluminate.sg/services/team-building",
     },
-    "amazing-race": { title: "Amazing Race Team Building Singapore | Elluminate", description: "Singapore's most popular team building activity. City-wide Amazing Race with custom challenges, live leaderboards, and full facilitation. Book now.", canonical: "https://elluminate.sg/services/amazing-race" },
+    "amazing-race": { title: "Amazing Race Team Building Singapore | Elluminate", description: "Plan a facilitated Amazing Race team-building experience in Singapore with customised routes, clues and checkpoint challenges shaped around your group.", canonical: "https://elluminate.sg/services/amazing-race" },
     "archery-tag": { title: "Archery Tag Singapore | Team Building Activity | Elluminate", description: "Action-packed Archery Tag battles for corporate teams. Safe, thrilling, and fully facilitated. Perfect for groups of 20–300 pax in Singapore.", canonical: "https://elluminate.sg/services/archery-tag" },
     "gel-blitz": { title: "GelBlitz Singapore | Gel Blaster Team Building | Elluminate", description: "GelBlitz gel ball blaster battles for corporate teams in Singapore. High-energy, safe, and unforgettable. Perfect for groups who want real adrenaline.", canonical: "https://elluminate.sg/services/gel-blitz" },
     "nerfwar": { title: "Nerfwar Team Building Singapore | Elluminate", description: "Nerfwar foam blaster team battles for corporate groups in Singapore. Competitive, safe, and energetic. Ideal for 20–500 pax. Book with Elluminate.", canonical: "https://elluminate.sg/services/nerfwar" },
@@ -350,30 +377,59 @@ const ServicePage = () => {
       )}
 
       {/* 4. What Is This Service? (Overview) */}
-      <ServiceOverviewNew description={displayOverviewDescription} accentColor={service.accentColor} accentColorSecondary={service.accentColorSecondary} />
+      <ServiceOverviewNew
+        description={displayOverviewDescription}
+        accentColor={service.accentColor}
+        accentColorSecondary={service.accentColorSecondary}
+        eyebrow={slug === "amazing-race" ? "The Adventure" : undefined}
+        title={slug === "amazing-race" ? "Your Race Day, From First Clue to Final Flag" : undefined}
+        backgroundImage={slug === "amazing-race" ? service.overview.backgroundImage : undefined}
+      />
 
       {contentQuality?.planningPoints && contentQuality.planningPoints.length > 0 && (
-        <section className="bg-background px-4 py-16 md:py-20">
-          <div className="container mx-auto max-w-6xl">
-            <div className="mx-auto mb-10 max-w-3xl text-center">
-              <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-                {contentQuality.planningSectionTitle}
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                {contentQuality.planningSectionIntro}
-              </p>
+        slug === "amazing-race" ? (
+          <section className="relative overflow-hidden bg-[#07160f] px-4 py-20 text-white md:py-24">
+            <div className="absolute inset-0 opacity-[0.12] [background-image:radial-gradient(circle_at_1px_1px,#ffc400_1px,transparent_1.2px)] [background-size:30px_30px]" />
+            <div className="container relative z-10 mx-auto max-w-6xl">
+              <div className="mx-auto mb-12 max-w-3xl text-center">
+                <span className="mb-4 block font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#ffc400]">Route Builder</span>
+                <h2 className="font-display text-4xl font-black md:text-5xl">{contentQuality.planningSectionTitle}</h2>
+                <p className="mt-5 text-base leading-7 text-white/[0.68] md:text-lg">{contentQuality.planningSectionIntro}</p>
+              </div>
+              <div className="grid gap-5 md:grid-cols-2">
+                {amazingRaceJourney.map((point) => (
+                  <article key={point.title} className="group relative min-h-[360px] overflow-hidden rounded-[1.8rem] border border-[#ffc400]/25 bg-black">
+                    <img src={point.image} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#04100a] via-[#04100a]/[0.72] to-black/5" />
+                    <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                      <span className="font-mono text-xs font-bold tracking-[0.24em] text-[#ffc400]">CHECKPOINT {point.step}</span>
+                      <h3 className="mt-3 font-display text-3xl font-black">{point.title}</h3>
+                      <p className="mt-3 max-w-lg text-sm leading-6 text-white/[0.74]">{point.description}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              {contentQuality.planningPoints.map((point) => (
-                <div key={point.title} className="rounded-lg border border-border bg-card p-6">
-                  <div className="mb-4 h-1 w-10 rounded-full" style={{ backgroundColor: service.accentColor }} />
-                  <h3 className="font-display text-xl font-bold text-foreground">{point.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{point.description}</p>
-                </div>
-              ))}
+          </section>
+        ) : (
+          <section className="bg-background px-4 py-16 md:py-20">
+            <div className="container mx-auto max-w-6xl">
+              <div className="mx-auto mb-10 max-w-3xl text-center">
+                <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">{contentQuality.planningSectionTitle}</h2>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">{contentQuality.planningSectionIntro}</p>
+              </div>
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                {contentQuality.planningPoints.map((point) => (
+                  <div key={point.title} className="rounded-lg border border-border bg-card p-6">
+                    <div className="mb-4 h-1 w-10 rounded-full" style={{ backgroundColor: service.accentColor }} />
+                    <h3 className="font-display text-xl font-bold text-foreground">{point.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{point.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )
       )}
 
       {/* 4.5 Destinations Grid (for retreat/travel services) */}
@@ -495,7 +551,11 @@ const ServicePage = () => {
       {displayFaqs && displayFaqs.length > 0 && (
         <ServiceFAQAccordion
           title={`${displayHeroTitle} FAQ`}
-          subtitle={`Frequently asked questions about planning ${displayHeroTitle} with Elluminate.`}
+          subtitle={
+            slug === "amazing-race"
+              ? "Everything organisers usually ask before race day."
+              : `Frequently asked questions about planning ${displayHeroTitle} with Elluminate.`
+          }
           accentColor={service.accentColor}
           faqs={displayFaqs}
         />
@@ -512,10 +572,12 @@ const ServicePage = () => {
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-                Related Experiences
+                {slug === "amazing-race" ? "Keep the Adventure Going" : "Related Experiences"}
               </h2>
               <p className="mt-3 text-muted-foreground">
-                Compare this with other live Elluminate formats that may fit the same brief.
+                {slug === "amazing-race"
+                  ? "Want the same energy with a different twist? Try one of these team adventures."
+                  : "Compare this with other live Elluminate formats that may fit the same brief."}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -523,15 +585,16 @@ const ServicePage = () => {
                 <Link
                   key={relatedSlug}
                   to={`/services/${relatedSlug}`}
-                  className="group rounded-lg border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg"
+                  className="group relative isolate min-h-[300px] overflow-hidden rounded-[1.5rem] border border-border bg-slate-900 p-5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl"
                 >
-                  <p className="text-sm font-semibold text-primary">{serviceCategoryLabels[relatedSlug]}</p>
-                  <h3 className="mt-2 font-display text-xl font-bold text-foreground group-hover:text-primary">
-                    {relatedService.hero.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {relatedService.hero.subtitle}
-                  </p>
+                  <img src={relatedService.hero.backgroundImage} alt="" loading="lazy" decoding="async" className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black via-black/60 to-black/5" />
+                  <div className="flex h-full flex-col justify-end">
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/[0.65]">{serviceCategoryLabels[relatedSlug]}</p>
+                    <h3 className="mt-2 font-display text-2xl font-black text-white">{relatedService.hero.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/[0.72]">{relatedService.hero.subtitle}</p>
+                    <span className="mt-5 text-sm font-bold text-[#ffc400]">See This Experience →</span>
+                  </div>
                 </Link>
               ))}
             </div>

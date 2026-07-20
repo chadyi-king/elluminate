@@ -81,8 +81,8 @@ export const PhotoWall = () => {
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/72 to-white/95" />
-      <div className="absolute inset-0 bg-gradient-to-r from-white/65 via-white/20 to-white/65" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/[0.72] to-white/95" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/[0.65] via-white/20 to-white/[0.65]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_24%,white_78%)]" />
     </div>
   );

@@ -20,11 +20,8 @@ export const RealEventPortfolio = () => (
       >
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Event evidence</p>
         <h2 className="mb-5 font-display text-3xl font-bold text-white md:text-5xl">See the formats in motion</h2>
-        <p className="text-base leading-relaxed text-white/65 md:text-lg">
-          These are event images and footage from activities, workshops and retreats delivered by our operating team.
-        </p>
-        <p className="mt-4 text-sm leading-relaxed text-white/50">
-          Elluminate and Team Elevate are operated by EXSTATIC PTE LTD. Selected event history shown was delivered under Team Elevate.
+          <p className="text-base leading-relaxed text-white/[0.65] md:text-lg">
+          Real moments from team activities, workshops and retreats brought to life by Elluminate.
         </p>
       </motion.div>
 
@@ -46,7 +43,7 @@ export const RealEventPortfolio = () => (
         </video>
         <div className="border-t border-white/10 px-5 py-4">
           <h3 className="font-display text-xl font-bold text-white">Elluminate event showreel</h3>
-          <p className="mt-1 text-sm text-white/55">Highlights from team activities and company experiences.</p>
+              <p className="mt-1 text-sm text-white/[0.55]">Highlights from team activities and company experiences.</p>
         </div>
       </motion.div>
 
@@ -69,7 +66,7 @@ export const RealEventPortfolio = () => (
               height={600}
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/[0.15] to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-5">
               <p className="mb-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary">{item.type}</p>
               <h3 className="font-display text-xl font-bold text-white">{item.title}</h3>
