@@ -8,6 +8,11 @@ import csiBonesLogo from "../../../public/images/service-page-logos/csi-bones.sv
 import monopolyDashLogo from "../../../public/images/service-page-logos/monopoly-dash.svg.asset.json";
 import mtwiLogo from "../../../public/images/service-page-logos/mtwi.svg.asset.json";
 import aliceInMotherlandLogo from "../../../public/images/service-page-logos/alice-in-motherland.svg.asset.json";
+import amongstUsLogo from "../../../public/images/service-page-logos/amongst-us.svg.asset.json";
+import battleOfTheOlympiansLogo from "../../../public/images/service-page-logos/battle-of-the-olympians.svg.asset.json";
+import sotongGameLogo from "../../../public/images/service-page-logos/sotong-game.svg.asset.json";
+import treasureHeistLogo from "../../../public/images/service-page-logos/treasure-heist.svg.asset.json";
+import runningManLogo from "../../../public/images/service-page-logos/running-man.svg.asset.json";
 
 const renderLogo = (src: string, alt: string, size: number) => (
   <img src={src} alt={alt} width={size} height={size} className="object-contain" />
@@ -114,41 +119,13 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
         </svg>
       );
 
-    /* ─── Running Man: name tag ─── */
+    /* ─── Running Man: uploaded logo ─── */
     case "running-man":
-      return (
-        <svg {...common}>
-          {/* Name tag */}
-          <rect x="35" y="40" width="130" height="120" rx="10" fill="white" />
-          <rect x="35" y="40" width="130" height="35" rx="10" fill={accentColor} />
-          <rect x="75" y="40" width="50" height="35" fill={accentColor} />
-          <text x="100" y="62" textAnchor="middle" fontSize="11" fontWeight="bold" fill="white">HELLO</text>
-          <text x="100" y="83" textAnchor="middle" fontSize="8" fill="#666">my name is</text>
-          {/* Running figure icon */}
-          <g transform="translate(75, 92) scale(0.55)" fill={accentColor}>
-            <circle cx="45" cy="10" r="10" />
-            <path d="M25 25 L45 40 L60 25 M45 40 L45 65 L30 85 M45 65 L65 80" stroke={accentColor} strokeWidth="5" strokeLinecap="round" fill="none" />
-          </g>
-          {/* Pin hole */}
-          <circle cx="100" cy="46" r="3" fill="white" opacity="0.5" />
-        </svg>
-      );
+      return renderLogo(runningManLogo.url, "Running Man Adventure", size);
 
-    /* ─── Sotong Game: squid game shapes ─── */
+    /* ─── Sotong Game: uploaded logo ─── */
     case "sotong-game":
-      return (
-        <svg {...common}>
-          {/* Circle */}
-          <circle cx="55" cy="65" r="28" stroke={accentColor} strokeWidth="3" fill={`${accentColor}15`} />
-          {/* Triangle */}
-          <polygon points="145,37 175,93 115,93" stroke={accentColor} strokeWidth="3" fill={`${accentColor}15`} />
-          {/* Square */}
-          <rect x="72" y="110" width="56" height="56" stroke={accentColor} strokeWidth="3" fill={`${accentColor}15`} />
-          {/* Guard mask (centered, small) */}
-          <circle cx="100" cy="100" r="12" fill="#1a1a1a" stroke={accentColor} strokeWidth="2" />
-          <circle cx="100" cy="100" r="5" fill={accentColor} />
-        </svg>
-      );
+      return renderLogo(sotongGameLogo.url, "Sotong Game", size);
 
     /* ─── Tag-tical Laser: laser phaser ─── */
     case "tag-tical-laser-teambuilding":
