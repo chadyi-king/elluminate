@@ -87,7 +87,6 @@ export async function submitLead(input: SubmitLeadInput): Promise<SubmitLeadResu
   const payload: ContactSubmissionInsert = {
     ...input.fields,
     id: submissionId,
-    lead_id: submissionId,
     brand: "elluminate",
     service: input.service,
     form_name: input.formName,
