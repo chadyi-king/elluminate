@@ -221,30 +221,7 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
 
     /* ─── Alice in Motherland: playing card ─── */
     case "alice-in-motherland":
-      return (
-        <svg {...common}>
-          {/* Card */}
-          <rect x="45" y="25" width="110" height="150" rx="10" fill="white" stroke={accentColor} strokeWidth="2" />
-          {/* Card inner border */}
-          <rect x="52" y="32" width="96" height="136" rx="6" fill="none" stroke={accentColor} strokeWidth="0.5" opacity="0.4" />
-          {/* Top corner */}
-          <text x="60" y="52" fontSize="16" fontWeight="bold" fill={accentColor}>A</text>
-          <text x="60" y="66" fontSize="12" fill={accentColor}>♠</text>
-          {/* Bottom corner (inverted) */}
-          <text x="140" y="158" fontSize="16" fontWeight="bold" fill={accentColor} textAnchor="end" transform="rotate(180 137 152)">A</text>
-          <text x="140" y="144" fontSize="12" fill={accentColor} textAnchor="end" transform="rotate(180 137 140)">♠</text>
-          {/* Center rabbit silhouette */}
-          <g transform="translate(100, 100)" fill={accentColor}>
-            {/* Rabbit ears */}
-            <ellipse cx="-8" cy="-38" rx="6" ry="18" />
-            <ellipse cx="8" cy="-38" rx="6" ry="18" />
-            {/* Head */}
-            <circle cx="0" cy="-15" r="12" />
-            {/* Body */}
-            <ellipse cx="0" cy="8" rx="14" ry="18" />
-          </g>
-        </svg>
-      );
+      return renderLogo(aliceInMotherlandLogo.url, "Alice in Motherland", size);
 
     /* ─── Battle of the Olympians: Olympic torch ─── */
     case "battle-of-the-olympians":
