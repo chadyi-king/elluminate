@@ -45,9 +45,16 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
         />
       );
 
-    /* ─── Cultural Race / Virtual Amazing Race: race card envelope ─── */
-    case "amazing-race-virtual":
+    /* ─── Amazing Race: uploaded logo ─── */
+    case "amazing-race":
+      return renderLogo(amazingRaceLogo.url, "Amazing Race", size);
+
+    /* ─── Cultural Race: uploaded logo ─── */
     case "cultural-race":
+      return renderLogo(culturalRaceLogo.url, "Cultural Race", size);
+
+    /* ─── Virtual Amazing Race: race card envelope ─── */
+    case "amazing-race-virtual":
       return (
         <svg {...common}>
           {/* Envelope body */}
