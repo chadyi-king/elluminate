@@ -8,6 +8,11 @@ import csiBonesLogo from "../../../public/images/service-page-logos/csi-bones.sv
 import monopolyDashLogo from "../../../public/images/service-page-logos/monopoly-dash.svg.asset.json";
 import mtwiLogo from "../../../public/images/service-page-logos/mtwi.svg.asset.json";
 import aliceInMotherlandLogo from "../../../public/images/service-page-logos/alice-in-motherland.svg.asset.json";
+import amongstUsLogo from "../../../public/images/service-page-logos/amongst-us.svg.asset.json";
+import battleOfTheOlympiansLogo from "../../../public/images/service-page-logos/battle-of-the-olympians.svg.asset.json";
+import sotongGameLogo from "../../../public/images/service-page-logos/sotong-game.svg.asset.json";
+import treasureHeistLogo from "../../../public/images/service-page-logos/treasure-heist.svg.asset.json";
+import runningManLogo from "../../../public/images/service-page-logos/running-man.svg.asset.json";
 
 const renderLogo = (src: string, alt: string, size: number) => (
   <img src={src} alt={alt} width={size} height={size} className="object-contain" />
@@ -114,41 +119,13 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
         </svg>
       );
 
-    /* ─── Running Man: name tag ─── */
+    /* ─── Running Man: uploaded logo ─── */
     case "running-man":
-      return (
-        <svg {...common}>
-          {/* Name tag */}
-          <rect x="35" y="40" width="130" height="120" rx="10" fill="white" />
-          <rect x="35" y="40" width="130" height="35" rx="10" fill={accentColor} />
-          <rect x="75" y="40" width="50" height="35" fill={accentColor} />
-          <text x="100" y="62" textAnchor="middle" fontSize="11" fontWeight="bold" fill="white">HELLO</text>
-          <text x="100" y="83" textAnchor="middle" fontSize="8" fill="#666">my name is</text>
-          {/* Running figure icon */}
-          <g transform="translate(75, 92) scale(0.55)" fill={accentColor}>
-            <circle cx="45" cy="10" r="10" />
-            <path d="M25 25 L45 40 L60 25 M45 40 L45 65 L30 85 M45 65 L65 80" stroke={accentColor} strokeWidth="5" strokeLinecap="round" fill="none" />
-          </g>
-          {/* Pin hole */}
-          <circle cx="100" cy="46" r="3" fill="white" opacity="0.5" />
-        </svg>
-      );
+      return renderLogo(runningManLogo.url, "Running Man Adventure", size);
 
-    /* ─── Sotong Game: squid game shapes ─── */
+    /* ─── Sotong Game: uploaded logo ─── */
     case "sotong-game":
-      return (
-        <svg {...common}>
-          {/* Circle */}
-          <circle cx="55" cy="65" r="28" stroke={accentColor} strokeWidth="3" fill={`${accentColor}15`} />
-          {/* Triangle */}
-          <polygon points="145,37 175,93 115,93" stroke={accentColor} strokeWidth="3" fill={`${accentColor}15`} />
-          {/* Square */}
-          <rect x="72" y="110" width="56" height="56" stroke={accentColor} strokeWidth="3" fill={`${accentColor}15`} />
-          {/* Guard mask (centered, small) */}
-          <circle cx="100" cy="100" r="12" fill="#1a1a1a" stroke={accentColor} strokeWidth="2" />
-          <circle cx="100" cy="100" r="5" fill={accentColor} />
-        </svg>
-      );
+      return renderLogo(sotongGameLogo.url, "Sotong Game", size);
 
     /* ─── Tag-tical Laser: laser phaser ─── */
     case "tag-tical-laser-teambuilding":
@@ -200,84 +177,21 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
         </svg>
       );
 
-    /* ─── Amongst Us: astronaut helmet ─── */
+    /* ─── Amongst Us: uploaded logo ─── */
     case "amongst-us":
-      return (
-        <svg {...common}>
-          {/* Helmet body */}
-          <path d="M55 170 L55 80 Q55 30 100 30 Q145 30 145 80 L145 170 Q145 180 135 180 L65 180 Q55 180 55 170Z" fill={accentColor} opacity="0.9" />
-          <path d="M55 170 L55 80 Q55 30 100 30 Q145 30 145 80 L145 170 Q145 180 135 180 L65 180 Q55 180 55 170Z" stroke="white" strokeWidth="2" fill="none" />
-          {/* Visor */}
-          <path d="M65 75 Q65 50 95 50 L120 50 Q135 50 140 65 L140 100 Q140 115 125 115 L80 115 Q65 115 65 100Z" fill="#87CEEB" opacity="0.6" />
-          <path d="M65 75 Q65 50 95 50 L120 50 Q135 50 140 65 L140 100 Q140 115 125 115 L80 115 Q65 115 65 100Z" stroke="white" strokeWidth="1.5" fill="none" />
-          {/* Visor glare */}
-          <path d="M75 60 Q85 55 90 60" stroke="white" strokeWidth="2" fill="none" opacity="0.5" />
-          {/* Backpack */}
-          <rect x="145" y="80" width="25" height="55" rx="8" fill={`${accentColor}cc`} stroke="white" strokeWidth="1.5" />
-          {/* Suspicious eye */}
-          <ellipse cx="103" cy="85" rx="20" ry="12" fill="white" opacity="0.15" />
-        </svg>
-      );
+      return renderLogo(amongstUsLogo.url, "Amongst Us", size);
 
     /* ─── Alice in Motherland: playing card ─── */
     case "alice-in-motherland":
       return renderLogo(aliceInMotherlandLogo.url, "Alice in Motherland", size);
 
-    /* ─── Battle of the Olympians: Olympic torch ─── */
+    /* ─── Battle of the Olympians: uploaded logo ─── */
     case "battle-of-the-olympians":
-      return (
-        <svg {...common}>
-          {/* Torch handle */}
-          <rect x="90" y="90" width="20" height="80" rx="4" fill="#8B7355" stroke="white" strokeWidth="1.5" />
-          {/* Torch crown */}
-          <path d="M75 90 L80 75 L90 85 L100 70 L110 85 L120 75 L125 90Z" fill={accentColor} stroke="white" strokeWidth="1.5" />
-          {/* Flame */}
-          <path d="M100 72 Q85 40 100 15 Q105 35 115 25 Q110 50 120 40 Q115 60 100 72Z" fill="#FF6B35" opacity="0.9" />
-          <path d="M100 72 Q90 50 100 30 Q106 45 112 38 Q108 58 100 72Z" fill="#FFD700" opacity="0.8" />
-          <path d="M100 72 Q95 58 100 45 Q105 55 100 72Z" fill="white" opacity="0.6" />
-          {/* Laurel wreath */}
-          <path d="M50 125 Q60 95 80 90" stroke="#4CAF50" strokeWidth="2" fill="none" />
-          <path d="M150 125 Q140 95 120 90" stroke="#4CAF50" strokeWidth="2" fill="none" />
-          {/* Leaves */}
-          <ellipse cx="58" cy="115" rx="6" ry="3" fill="#4CAF50" transform="rotate(-30 58 115)" />
-          <ellipse cx="65" cy="105" rx="6" ry="3" fill="#4CAF50" transform="rotate(-20 65 105)" />
-          <ellipse cx="142" cy="115" rx="6" ry="3" fill="#4CAF50" transform="rotate(30 142 115)" />
-          <ellipse cx="135" cy="105" rx="6" ry="3" fill="#4CAF50" transform="rotate(20 135 105)" />
-          {/* Gold ring */}
-          <circle cx="100" cy="168" r="6" fill="none" stroke="#FFD700" strokeWidth="2" />
-        </svg>
-      );
+      return renderLogo(battleOfTheOlympiansLogo.url, "Battle of the Olympians", size);
 
-    /* ─── Treasure Heist: vault door ─── */
+    /* ─── Treasure Heist: uploaded logo ─── */
     case "treasure-heist":
-      return (
-        <svg {...common}>
-          {/* Vault door */}
-          <circle cx="100" cy="100" r="70" fill="#333" stroke="#888" strokeWidth="4" />
-          <circle cx="100" cy="100" r="62" fill="#2a2a2a" stroke="#666" strokeWidth="2" />
-          {/* Handle wheel */}
-          <circle cx="100" cy="100" r="25" fill="none" stroke={accentColor} strokeWidth="3" />
-          <line x1="100" y1="75" x2="100" y2="125" stroke={accentColor} strokeWidth="2" />
-          <line x1="75" y1="100" x2="125" y2="100" stroke={accentColor} strokeWidth="2" />
-          {/* Center bolt */}
-          <circle cx="100" cy="100" r="6" fill={accentColor} />
-          {/* Bolts */}
-          {[0, 60, 120, 180, 240, 300].map((deg) => (
-            <circle
-              key={deg}
-              cx={100 + 55 * Math.cos(deg * Math.PI / 180)}
-              cy={100 + 55 * Math.sin(deg * Math.PI / 180)}
-              r="4"
-              fill="#888"
-              stroke="#555"
-              strokeWidth="1"
-            />
-          ))}
-          {/* Gold bars peek */}
-          <rect x="55" y="155" width="18" height="10" rx="2" fill="#FFD700" opacity="0.6" />
-          <rect x="78" y="158" width="15" height="8" rx="2" fill="#FFD700" opacity="0.4" />
-        </svg>
-      );
+      return renderLogo(treasureHeistLogo.url, "Treasure Heist", size);
 
     /* ─── Overseas Retreats: commercial airplane ─── */
     case "overseas-retreats":
