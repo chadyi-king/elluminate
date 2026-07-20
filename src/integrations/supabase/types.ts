@@ -70,6 +70,7 @@ export type Database = {
           add_on_services: string[] | null
           additional_customisation: string | null
           additional_details: string | null
+          brand: string | null
           created_at: string
           email: string
           event_category: string | null
@@ -80,12 +81,14 @@ export type Database = {
           gclid: string | null
           id: string
           landing_page: string | null
+          lead_id: string | null
           name: string
           organisation: string | null
           organisation_type: string | null
           phone: string | null
           recaptcha_score: number | null
           referrer: string | null
+          service: string | null
           submission_page: string | null
           utm_campaign: string | null
           utm_content: string | null
@@ -97,6 +100,7 @@ export type Database = {
           add_on_services?: string[] | null
           additional_customisation?: string | null
           additional_details?: string | null
+          brand?: string | null
           created_at?: string
           email: string
           event_category?: string | null
@@ -107,12 +111,14 @@ export type Database = {
           gclid?: string | null
           id?: string
           landing_page?: string | null
+          lead_id?: string | null
           name: string
           organisation?: string | null
           organisation_type?: string | null
           phone?: string | null
           recaptcha_score?: number | null
           referrer?: string | null
+          service?: string | null
           submission_page?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
@@ -124,6 +130,7 @@ export type Database = {
           add_on_services?: string[] | null
           additional_customisation?: string | null
           additional_details?: string | null
+          brand?: string | null
           created_at?: string
           email?: string
           event_category?: string | null
@@ -134,12 +141,14 @@ export type Database = {
           gclid?: string | null
           id?: string
           landing_page?: string | null
+          lead_id?: string | null
           name?: string
           organisation?: string | null
           organisation_type?: string | null
           phone?: string | null
           recaptcha_score?: number | null
           referrer?: string | null
+          service?: string | null
           submission_page?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
