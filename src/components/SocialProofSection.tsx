@@ -505,7 +505,7 @@ export const SocialProofSection = () => {
               </div>
 
               <p className="text-muted-foreground font-display">
-                Based on <span className="text-primary font-bold">776+</span> Google reviews published for Team Elevate
+                Based on <span className="text-primary font-bold">800+</span> Google reviews published for Team Elevate
               </p>
 
               <p className="text-muted-foreground/80 text-sm font-display">

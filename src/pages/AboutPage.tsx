@@ -259,7 +259,7 @@ const AboutPage = () => {
 
   const eventsCounter = useCountUp(1000, 2500);
   const participantsCounter = useCountUp(100000, 3000);
-  const reviewsCounter = useCountUp(776, 2000);
+  const reviewsCounter = useCountUp(800, 2000);
   const yearsCounter = useCountUp(8, 1500);
 
   return (
@@ -963,7 +963,7 @@ const AboutPage = () => {
               ))}
             </div>
             <p className="text-lg font-display font-medium text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-              776+ Team Elevate Reviews | 4.8 Google Rating
+              800+ Team Elevate Reviews | 4.8 Google Rating
             </p>
             <p className="text-xs md:text-sm text-white/80 italic mt-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
               Original review source:{" "}

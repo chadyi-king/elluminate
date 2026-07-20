@@ -77,7 +77,7 @@ export const TestimonialWall = () => {
             ))}
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-2">
-            4.8 / 776+ Verified Google Reviews
+            4.8 / 800+ Verified Google Reviews
           </h2>
           <p className="text-xs md:text-sm text-white/60 italic mt-2">
             Reviews collected via our partner brand,{" "}

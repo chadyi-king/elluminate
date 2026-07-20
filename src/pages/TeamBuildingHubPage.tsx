@@ -28,6 +28,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { cloudinaryImage } from "@/lib/media";
 import { getRouteSeo } from "@/data/seoRoutes";
 import { submitLead } from "@/lib/leadSubmission";
+import {
+  equipmentActivityServices,
+  physicalTeamBuildingServices,
+  virtualTeamBuildingServices,
+} from "@/data/siteScope";
 
 type ActivityFilter = "All" | "Outdoor" | "Indoor" | "High energy" | "Lower intensity" | "Virtual";
 type FormatPreference = "Physical" | "Virtual" | "Not sure" | "";
@@ -125,6 +130,29 @@ const activityCards: ActivityCard[] = [
     filters: ["All", "Virtual", "Lower intensity"],
   },
 ];
+
+const catalogueGroups = [
+  {
+    title: "Story-led physical experiences",
+    description: "Races, mysteries, missions, and facilitated challenge formats.",
+    items: physicalTeamBuildingServices,
+    accent: "border-blue-200 bg-blue-50/65",
+  },
+  {
+    title: "Equipment activities",
+    description: "Action-led formats for groups that want a more physical game layer.",
+    items: equipmentActivityServices,
+    accent: "border-amber-200 bg-amber-50/65",
+  },
+  {
+    title: "Virtual experiences",
+    description: "Hosted shared challenges for remote and multi-office teams.",
+    items: virtualTeamBuildingServices,
+    accent: "border-violet-200 bg-violet-50/65",
+  },
+];
+
+const totalTeamBuildingExperiences = catalogueGroups.reduce((total, group) => total + group.items.length, 0);
 
 const planningFactors = [
   {
@@ -734,6 +762,58 @@ const TeamBuildingHubPage = () => {
                   </div>
                 </article>
               ))}
+            </div>
+
+            <div className="mt-14 rounded-[1.75rem] border border-border bg-background p-6 shadow-sm sm:p-8">
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                <div className="max-w-3xl">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">The full collection</p>
+                  <h3 className="mt-3 font-display text-3xl font-black sm:text-4xl">
+                    Browse all {totalTeamBuildingExperiences} team-building experiences
+                  </h3>
+                  <p className="mt-4 leading-7 text-muted-foreground">
+                    The featured cards are starting points, not the whole catalogue. Every family below leads to a
+                    full activity page, and you can still send the brief without choosing one first.
+                  </p>
+                </div>
+                <a
+                  href="#quote"
+                  onClick={() => handleCtaClick("full_catalogue_help", "Help me choose from the full catalogue")}
+                  className="inline-flex shrink-0 items-center gap-2 font-bold text-primary hover:underline"
+                >
+                  Help me narrow it down <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              <div className="mt-8 grid gap-4 lg:grid-cols-3">
+                {catalogueGroups.map((group) => (
+                  <article key={group.title} className={`rounded-2xl border p-5 ${group.accent}`}>
+                    <div className="mb-5 flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-[0.16em] text-foreground/55">
+                          {group.items.length} experiences
+                        </p>
+                        <h4 className="mt-2 font-display text-xl font-black text-foreground">{group.title}</h4>
+                      </div>
+                      <span className="flex h-9 min-w-9 items-center justify-center rounded-full bg-background text-sm font-black text-primary shadow-sm">
+                        {group.items.length}
+                      </span>
+                    </div>
+                    <p className="mb-5 text-sm leading-6 text-foreground/65">{group.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {group.items.map((item) => (
+                        <Link
+                          key={item.slug}
+                          to={`/services/${item.slug}`}
+                          className="rounded-full border border-foreground/10 bg-background px-3 py-1.5 text-xs font-semibold text-foreground/75 transition hover:border-primary/35 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>

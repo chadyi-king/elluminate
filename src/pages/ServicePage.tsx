@@ -24,6 +24,10 @@ import { ServiceDestinationsGrid } from "@/components/service-page/ServiceDestin
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/StructuredData";
 import { ServiceFAQAccordion } from "@/components/service-page/ServiceFAQAccordion";
 import { getRouteSeo } from "@/data/seoRoutes";
+import {
+  ServiceWorldBriefing,
+  ServiceWorldFrame,
+} from "@/components/service-worlds/ServiceWorldFrame";
 
 const overseasRetreatsFaqs = [
   {
@@ -277,7 +281,8 @@ const ServicePage = () => {
   const category = getCategory();
 
   return (
-    <div className="min-h-screen bg-background">
+    <ServiceWorldFrame slug={slug}>
+    <div className="service-world-page min-h-screen bg-background">
       <SEO 
         title={seoData?.title ?? `${service.hero.title} | Elluminate`}
         description={seoData?.description ?? `${displayOverviewDescription.slice(0, 145)}... Singapore`}
@@ -316,6 +321,8 @@ const ServicePage = () => {
 
       {/* Accent gradient bar under hero */}
       <div className="h-1" style={{ background: `linear-gradient(90deg, transparent, ${service.accentColor}, ${service.accentColorSecondary || service.accentColor}, transparent)` }} />
+
+      <ServiceWorldBriefing slug={slug} accentColor={service.accentColor} />
 
       {/* 2. Video Section */}
       {service.videoSection && service.videoSection.videos && service.videoSection.videos.length > 0 ? (
@@ -549,6 +556,7 @@ const ServicePage = () => {
 
       <Footer />
     </div>
+    </ServiceWorldFrame>
   );
 };
 

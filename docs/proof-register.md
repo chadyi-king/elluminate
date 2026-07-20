@@ -1,6 +1,6 @@
 # Elluminate Proof Register
 
-Last reviewed: 15 July 2026
+Last reviewed: 21 July 2026
 
 This register covers proof displayed or newly relied on in the conversion rebuild. Elluminate and Team Elevate are operated by EXSTATIC PTE LTD. Historical proof must be attributed to Team Elevate when that was the original delivery brand.
 
@@ -11,7 +11,7 @@ This register covers proof displayed or newly relied on in the conversion rebuil
 | 1,000+ events | Homepage hero, showreel, social proof | Owner-confirmed operating history and existing Elluminate source | Team Elevate + Elluminate | July 2026 | Cumulative shared operating history |
 | 100,000+ participants | Homepage showreel and social proof | Owner-confirmed operating history and existing Elluminate source | Team Elevate + Elluminate | July 2026 | Cumulative shared operating history |
 | 8+ years | Homepage showreel and social proof | Owner-confirmed operating history and existing Elluminate source | Team Elevate + Elluminate | July 2026 | Shared operating history |
-| 4.8 / 5.0 and 776+ Google reviews | Homepage social proof | Team Elevate Google review source linked from the page; owner confirmed | Team Elevate | July 2026 | Original Team Elevate review source; do not use as Elluminate aggregateRating schema |
+| 4.8 / 5.0 and 800+ Google reviews | Homepage social proof | Live Team Elevate Google Business Profile displayed 4.8 and 801 reviews on 21 July 2026; source linked from the page | Team Elevate | 21 July 2026 | Original Team Elevate review source; do not use as Elluminate aggregateRating schema |
 
 ## Organisation Logos
 

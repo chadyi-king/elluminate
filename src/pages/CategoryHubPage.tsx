@@ -76,7 +76,6 @@ const CategoryHubPage = ({ kind }: CategoryHubPageProps) => {
   const config = configs[kind];
   const { openContactModal } = useContactModal();
   const heroImage = servicesData[config.heroSlug].hero.backgroundImage;
-  const visibleServices = kind === "training" ? config.services.slice(0, 6) : config.services;
 
   const openEnquiry = () => {
     openContactModal({
@@ -140,7 +139,7 @@ const CategoryHubPage = ({ kind }: CategoryHubPageProps) => {
             </div>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {visibleServices.map((service) => {
+              {config.services.map((service) => {
                 const data = servicesData[service.slug];
                 const cardImage = data.hero.backgroundImage.startsWith("/__l5e/")
                   ? "/images/services/workshops/gallery-4.jpg"

@@ -24,7 +24,7 @@ test("about counters fall back to final values and use the verified review count
   assert.match(aboutPage, /useState\(end\)/);
   assert.match(aboutPage, /useCountUp\(1000,\s*2500\)/);
   assert.match(aboutPage, /useCountUp\(100000,\s*3000\)/);
-  assert.match(aboutPage, /useCountUp\(776,\s*2000\)/);
+  assert.match(aboutPage, /useCountUp\(800,\s*2000\)/);
   assert.match(aboutPage, /useCountUp\(8,\s*1500\)/);
 });
 

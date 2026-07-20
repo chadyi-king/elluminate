@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useRef, useState, ReactNode } from "react";
 
 export interface ContactModalOpenContext {
   eventCategory?: string;
@@ -11,6 +11,7 @@ interface ContactModalContextType {
   modalContext: ContactModalOpenContext | null;
   openContactModal: (context?: ContactModalOpenContext | unknown) => void;
   closeContactModal: () => void;
+  restoreContactModalFocus: () => void;
 }
 
 const ContactModalContext = createContext<ContactModalContextType | undefined>(undefined);
@@ -21,8 +22,10 @@ const isContactContext = (v: unknown): v is ContactModalOpenContext =>
 export const ContactModalProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalContext, setModalContext] = useState<ContactModalOpenContext | null>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
 
   const openContactModal = (context?: ContactModalOpenContext | unknown) => {
+    returnFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     setModalContext(isContactContext(context) ? context : {});
     setIsOpen(true);
   };
@@ -30,9 +33,16 @@ export const ContactModalProvider = ({ children }: { children: ReactNode }) => {
     setIsOpen(false);
     setModalContext(null);
   };
+  const restoreContactModalFocus = () => {
+    const returnFocusTo = returnFocusRef.current;
+    returnFocusRef.current = null;
+    if (returnFocusTo?.isConnected) returnFocusTo.focus();
+  };
 
   return (
-    <ContactModalContext.Provider value={{ isOpen, modalContext, openContactModal, closeContactModal }}>
+    <ContactModalContext.Provider
+      value={{ isOpen, modalContext, openContactModal, closeContactModal, restoreContactModalFocus }}
+    >
       {children}
     </ContactModalContext.Provider>
   );

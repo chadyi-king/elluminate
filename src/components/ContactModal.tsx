@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X, Send, Mail, CalendarIcon, Zap, Monitor, GraduationCap, Clock } from "lucide-react";
 import elluminateWords from "@/assets/logos/elluminate-words.png";
 import { Button } from "@/components/ui/button";
@@ -115,7 +116,7 @@ const getInitialDate = () => {
 };
 
 export const ContactModal = () => {
-  const { isOpen, modalContext, closeContactModal } = useContactModal();
+  const { isOpen, modalContext, closeContactModal, restoreContactModalFocus } = useContactModal();
   const { toast } = useToast();
   const navigate = useNavigate();
   const honeypotRef = useRef<HTMLInputElement>(null);
@@ -252,21 +253,32 @@ export const ContactModal = () => {
   };
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 overflow-y-auto"
-          onClick={closeContactModal}
+    <DialogPrimitive.Root
+      open={isOpen}
+      onOpenChange={(open) => {
+        if (!open) closeContactModal();
+      }}
+    >
+      <DialogPrimitive.Portal>
+        <DialogPrimitive.Overlay asChild>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="fixed inset-0 z-50 bg-black/90"
+          />
+        </DialogPrimitive.Overlay>
+        <DialogPrimitive.Content
+          asChild
+          onCloseAutoFocus={(event) => {
+            event.preventDefault();
+            restoreContactModalFocus();
+          }}
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-background-card rounded-2xl max-w-4xl w-full border border-primary/20 overflow-hidden my-8 max-h-[90vh] flex flex-row"
-            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="fixed inset-0 z-50 flex h-[100dvh] w-full max-w-4xl flex-row overflow-hidden bg-background-card outline-none sm:inset-auto sm:left-1/2 sm:top-1/2 sm:h-auto sm:max-h-[90vh] sm:w-[calc(100%-2rem)] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl sm:border sm:border-primary/20"
+            aria-describedby="contact-modal-description"
           >
           {/* Left Branding Panel */}
           <div className="hidden md:flex flex-col w-[40%] flex-shrink-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800 relative overflow-hidden p-6">
@@ -327,24 +339,26 @@ export const ContactModal = () => {
           <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
             {/* Header */}
             <div className="relative p-4 sm:p-6 border-b border-primary/10 flex-shrink-0">
-              <button
-                onClick={closeContactModal}
-                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
-              <h2 className="text-xl sm:text-2xl font-display font-bold text-primary">
+              <DialogPrimitive.Close asChild>
+                <button
+                  className="absolute right-3 top-3 rounded-full p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:right-4 sm:top-4"
+                  aria-label="Close enquiry form"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </DialogPrimitive.Close>
+              <DialogPrimitive.Title id="contact-modal-title" className="pr-10 text-xl font-display font-bold text-primary sm:text-2xl">
                 {isTeamBuildingInquiry ? "Send Your Team Activity Brief" : "Let Us Elluminate Your Experience"}
-              </h2>
-              <p className="text-gray-600 mt-1 text-sm sm:text-base">
+              </DialogPrimitive.Title>
+              <DialogPrimitive.Description id="contact-modal-description" className="text-gray-600 mt-1 text-sm sm:text-base">
                 {isTeamBuildingInquiry
                   ? "Your team-building context is included below. Add your contact details so the quote conversation can continue."
                   : "Tell us your goals and we'll shape the right experience."}
-              </p>
+              </DialogPrimitive.Description>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5 overflow-y-auto flex-1 scrollbar-gold">
+            <form onSubmit={handleSubmit} className="flex-1 space-y-4 overflow-y-auto overscroll-contain p-4 scrollbar-gold sm:space-y-5 sm:p-6">
               {/* Honeypot — hidden from real users, bots fill it. Do not remove. */}
               <input
                 ref={honeypotRef}
@@ -588,8 +602,8 @@ export const ContactModal = () => {
 
           </div>
           </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        </DialogPrimitive.Content>
+      </DialogPrimitive.Portal>
+    </DialogPrimitive.Root>
   );
 };

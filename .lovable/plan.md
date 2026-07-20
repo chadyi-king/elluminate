@@ -1,29 +1,25 @@
-## Plan — Upload 5 service logo SVGs and swap them into the hero
+# Plan — Elluminate controlled redesign
 
-### Filename → service slug mapping
-| Upload | Service slug in `ServiceHeroSplit.tsx` |
-| --- | --- |
-| `amongst-us.svg` | `amongst-us` |
-| `battle-of-the-olympians.svg` | `battle-of-the-olympians` |
-| `sotong-game.svg` | `sotong-game` |
-| `treasure-heist.svg` | `treasure-heist` |
-| `running-man.svg` | `running-man` |
+The canonical blueprint is `docs/forger/ELLUMINATE_REDESIGN_BLUEPRINT.md`.
 
-### 1. Upload each SVG as a Lovable Asset
-For each file:
-```
-lovable-assets create --file /mnt/user-uploads/<name>.svg \
-  --filename <name>.svg \
-  > public/images/service-page-logos/<name>.svg.asset.json
-```
-Pointer files land next to the existing logos (amazing-race, cultural-race, etc.). No binaries copied into the repo.
+## Current milestone
 
-### 2. Swap the hero visual in `src/components/service-page/ServiceHeroSplit.tsx`
-For each of the 5 `case` blocks, replace the current inline SVG illustration with the same `<img>` pattern used for the previously migrated logos:
-- Import the new `.asset.json` pointer at the top of the file.
-- Render `<img src={<pointer>.url} alt="<Service Name>" className="... object-contain" />` inside the existing illustration footprint.
-- Preserve each service's existing background color, blob, and layout wrappers.
+Build and verify a representative vertical slice before propagating the system:
 
-### 3. Verify
-- Visit `/services/amongst-us`, `/services/battle-of-the-olympians`, `/services/sotong-game`, `/services/treasure-heist`, `/services/running-man` and confirm each hero shows the new logo with no layout regression.
-- `bun run build` should still pass.
+1. Centre the desktop navigation around the logo, expose Field Notes, and simplify mobile family menus.
+2. Preserve and refine the four-character rotating-word hero.
+3. Combine attributable Google proof, approved logos, and poster-first showreel playback immediately after the hero.
+4. Improve service discovery without exposing all 36 child activities at once.
+5. Refine the Team Building family conversion page.
+6. Establish distinct Amazing Race and CSI-Bones page worlds on the shared activity skeleton.
+7. Preserve the production lead pipeline and test the global enquiry form at desktop and mobile sizes.
+
+## Verification gate
+
+- `npm run build`
+- desktop QA at 1440×900
+- mobile QA at 390×844 and 360×800
+- keyboard and reduced-motion spot checks
+- no eager loading of the heavy showreel or activity videos
+- no new proof claims without a source
+- verify the tested `main` commit in the Lovable preview before calling the project synchronized

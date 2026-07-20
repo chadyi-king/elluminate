@@ -127,6 +127,8 @@ const item = (
   todos: string[] = proofTodos,
   options: Partial<ServiceContentQuality> = {},
 ): ServiceContentQuality => ({
+  hideRecentEvents: true,
+  hideTestimonials: true,
   heroSubline,
   overviewDescription,
   faqs,

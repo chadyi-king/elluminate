@@ -41,6 +41,15 @@ const staticEntries = [
   { path: "/blog", changefreq: "weekly", priority: "0.7" },
 ];
 
+// These articles are published, indexable routes in the application. Keep
+// them in the generated sitemap when a build cannot reach Supabase; live
+// database results below can refresh their dates and add newer articles.
+const knownPublishedBlogEntries = [
+  { path: "/blog/top-10-team-building-activities-singapore-2026", lastmod: "2026-03-05", changefreq: "monthly", priority: "0.6" },
+  { path: "/blog/how-to-plan-amazing-race-company", lastmod: "2026-03-05", changefreq: "monthly", priority: "0.6" },
+  { path: "/blog/indoor-vs-outdoor-team-building", lastmod: "2026-03-05", changefreq: "monthly", priority: "0.6" },
+];
+
 const servicePriority = (slug) =>
   slug === "team-building" || slug === "amazing-race" ? "0.9"
   : retreatServices.includes(slug) ? "0.8"
@@ -108,7 +117,10 @@ function renderXml(entries) {
   ].join("\n");
 }
 
-const blogEntries = await fetchBlogEntries();
-const all = [...staticEntries, ...serviceEntries, ...blogEntries];
+const fetchedBlogEntries = await fetchBlogEntries();
+const blogEntriesByPath = new Map(
+  [...knownPublishedBlogEntries, ...fetchedBlogEntries].map((entry) => [entry.path, entry]),
+);
+const all = [...staticEntries, ...serviceEntries, ...blogEntriesByPath.values()];
 writeFileSync(resolve("public/sitemap.xml"), renderXml(all));
 console.log(`[sitemap] wrote ${all.length} URLs to public/sitemap.xml`);

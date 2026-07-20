@@ -66,7 +66,7 @@ export const ServiceTestimonialNew = ({ testimonials, accentColor, backgroundIma
               ))}
             </div>
             <span className="text-sm text-gray-300">
-              4.8 / 776+ Verified Reviews
+              4.8 / 800+ Verified Reviews
             </span>
           </div>
           <p className="text-xs text-white/60 italic mt-3">
