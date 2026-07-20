@@ -177,84 +177,21 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
         </svg>
       );
 
-    /* ─── Amongst Us: astronaut helmet ─── */
+    /* ─── Amongst Us: uploaded logo ─── */
     case "amongst-us":
-      return (
-        <svg {...common}>
-          {/* Helmet body */}
-          <path d="M55 170 L55 80 Q55 30 100 30 Q145 30 145 80 L145 170 Q145 180 135 180 L65 180 Q55 180 55 170Z" fill={accentColor} opacity="0.9" />
-          <path d="M55 170 L55 80 Q55 30 100 30 Q145 30 145 80 L145 170 Q145 180 135 180 L65 180 Q55 180 55 170Z" stroke="white" strokeWidth="2" fill="none" />
-          {/* Visor */}
-          <path d="M65 75 Q65 50 95 50 L120 50 Q135 50 140 65 L140 100 Q140 115 125 115 L80 115 Q65 115 65 100Z" fill="#87CEEB" opacity="0.6" />
-          <path d="M65 75 Q65 50 95 50 L120 50 Q135 50 140 65 L140 100 Q140 115 125 115 L80 115 Q65 115 65 100Z" stroke="white" strokeWidth="1.5" fill="none" />
-          {/* Visor glare */}
-          <path d="M75 60 Q85 55 90 60" stroke="white" strokeWidth="2" fill="none" opacity="0.5" />
-          {/* Backpack */}
-          <rect x="145" y="80" width="25" height="55" rx="8" fill={`${accentColor}cc`} stroke="white" strokeWidth="1.5" />
-          {/* Suspicious eye */}
-          <ellipse cx="103" cy="85" rx="20" ry="12" fill="white" opacity="0.15" />
-        </svg>
-      );
+      return renderLogo(amongstUsLogo.url, "Amongst Us", size);
 
     /* ─── Alice in Motherland: playing card ─── */
     case "alice-in-motherland":
       return renderLogo(aliceInMotherlandLogo.url, "Alice in Motherland", size);
 
-    /* ─── Battle of the Olympians: Olympic torch ─── */
+    /* ─── Battle of the Olympians: uploaded logo ─── */
     case "battle-of-the-olympians":
-      return (
-        <svg {...common}>
-          {/* Torch handle */}
-          <rect x="90" y="90" width="20" height="80" rx="4" fill="#8B7355" stroke="white" strokeWidth="1.5" />
-          {/* Torch crown */}
-          <path d="M75 90 L80 75 L90 85 L100 70 L110 85 L120 75 L125 90Z" fill={accentColor} stroke="white" strokeWidth="1.5" />
-          {/* Flame */}
-          <path d="M100 72 Q85 40 100 15 Q105 35 115 25 Q110 50 120 40 Q115 60 100 72Z" fill="#FF6B35" opacity="0.9" />
-          <path d="M100 72 Q90 50 100 30 Q106 45 112 38 Q108 58 100 72Z" fill="#FFD700" opacity="0.8" />
-          <path d="M100 72 Q95 58 100 45 Q105 55 100 72Z" fill="white" opacity="0.6" />
-          {/* Laurel wreath */}
-          <path d="M50 125 Q60 95 80 90" stroke="#4CAF50" strokeWidth="2" fill="none" />
-          <path d="M150 125 Q140 95 120 90" stroke="#4CAF50" strokeWidth="2" fill="none" />
-          {/* Leaves */}
-          <ellipse cx="58" cy="115" rx="6" ry="3" fill="#4CAF50" transform="rotate(-30 58 115)" />
-          <ellipse cx="65" cy="105" rx="6" ry="3" fill="#4CAF50" transform="rotate(-20 65 105)" />
-          <ellipse cx="142" cy="115" rx="6" ry="3" fill="#4CAF50" transform="rotate(30 142 115)" />
-          <ellipse cx="135" cy="105" rx="6" ry="3" fill="#4CAF50" transform="rotate(20 135 105)" />
-          {/* Gold ring */}
-          <circle cx="100" cy="168" r="6" fill="none" stroke="#FFD700" strokeWidth="2" />
-        </svg>
-      );
+      return renderLogo(battleOfTheOlympiansLogo.url, "Battle of the Olympians", size);
 
-    /* ─── Treasure Heist: vault door ─── */
+    /* ─── Treasure Heist: uploaded logo ─── */
     case "treasure-heist":
-      return (
-        <svg {...common}>
-          {/* Vault door */}
-          <circle cx="100" cy="100" r="70" fill="#333" stroke="#888" strokeWidth="4" />
-          <circle cx="100" cy="100" r="62" fill="#2a2a2a" stroke="#666" strokeWidth="2" />
-          {/* Handle wheel */}
-          <circle cx="100" cy="100" r="25" fill="none" stroke={accentColor} strokeWidth="3" />
-          <line x1="100" y1="75" x2="100" y2="125" stroke={accentColor} strokeWidth="2" />
-          <line x1="75" y1="100" x2="125" y2="100" stroke={accentColor} strokeWidth="2" />
-          {/* Center bolt */}
-          <circle cx="100" cy="100" r="6" fill={accentColor} />
-          {/* Bolts */}
-          {[0, 60, 120, 180, 240, 300].map((deg) => (
-            <circle
-              key={deg}
-              cx={100 + 55 * Math.cos(deg * Math.PI / 180)}
-              cy={100 + 55 * Math.sin(deg * Math.PI / 180)}
-              r="4"
-              fill="#888"
-              stroke="#555"
-              strokeWidth="1"
-            />
-          ))}
-          {/* Gold bars peek */}
-          <rect x="55" y="155" width="18" height="10" rx="2" fill="#FFD700" opacity="0.6" />
-          <rect x="78" y="158" width="15" height="8" rx="2" fill="#FFD700" opacity="0.4" />
-        </svg>
-      );
+      return renderLogo(treasureHeistLogo.url, "Treasure Heist", size);
 
     /* ─── Overseas Retreats: commercial airplane ─── */
     case "overseas-retreats":
