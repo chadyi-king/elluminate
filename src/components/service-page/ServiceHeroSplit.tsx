@@ -22,8 +22,19 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
   const common = { width: size, height: size, viewBox: "0 0 200 200", fill: "none", xmlns: "http://www.w3.org/2000/svg" };
 
   switch (slug) {
-    /* ─── Amazing Race / Cultural Race: race card envelope ─── */
+    /* ─── Amazing Race: uploaded logo ─── */
     case "amazing-race":
+      return (
+        <img
+          src="/__l5e/assets-v1/3cae904e-2385-4ea6-a9e2-73bd57735fb2/amazing-race.png"
+          alt="Amazing Race"
+          width={size}
+          height={size}
+          className="object-contain"
+        />
+      );
+
+    /* ─── Cultural Race / Virtual Amazing Race: race card envelope ─── */
     case "amazing-race-virtual":
     case "cultural-race":
       return (
@@ -42,6 +53,7 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
           <text x="100" y="144" textAnchor="middle" fontSize="10" fontWeight="bold" fill="white">✦</text>
         </svg>
       );
+
 
     /* ─── CSI Bones: chalk body outline ─── */
     case "csi-bones":
