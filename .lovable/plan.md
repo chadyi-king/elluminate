@@ -1,14 +1,35 @@
-## Plan — Replace Amazing Race logo with SVG + fix lead_id build error
+## Plan — Upload 6 service logo SVGs and swap them into the hero
 
-### 1. Replace the Amazing Race hero logo asset
-- Delete the previously uploaded PNG pointer: `lovable-assets delete --file public/images/service-page-logos/amazing-race.png.asset.json` (removes the CDN object and the pointer file).
-- Upload the new SVG from `user-uploads://amazing-race-sl.svg` as `public/images/service-page-logos/amazing-race.svg.asset.json` via `lovable-assets create`.
-- Update `src/components/service-page/ServiceHeroSplit.tsx` `case "amazing-race"` to point `<img src>` at the new SVG's CDN URL (keep 280×280 footprint, `object-contain`, `alt="Amazing Race"`).
+### Filename → service slug mapping
+| Upload | Service slug (case in `ServiceHeroSplit.tsx`) |
+| --- | --- |
+| `cultural-race.svg` | `cultural-race` |
+| `builders-cross.svg` | `builder-cross` (note: code uses singular) |
+| `csi-bones.svg` | `csi-bones` |
+| `monopoly-dash.svg` | `monopoly-dash` |
+| `mtwi.svg` | `minute-to-win-it` |
+| `alice-in-motherland.svg` | `alice-in-motherland` |
 
-Note: the SVG is loaded via `<img>` (not inline `<use>`), which is the case the migrate-to-assets skill explicitly allows for SVGs on the Lovable CDN.
+### 1. Upload each SVG as a Lovable Asset
+For each file, run from the sandbox:
+```
+lovable-assets create --file /mnt/user-uploads/<name>.svg \
+  --filename <name>.svg \
+  > public/images/service-page-logos/<name>.svg.asset.json
+```
+Pointer files land next to the existing `amazing-race.svg.asset.json` in `public/images/service-page-logos/`. No binaries copied into the repo — matches how Amazing Race was done last turn.
 
-### 2. Fix the `lead_id` TS error in `src/lib/leadSubmission.ts`
-The generated Supabase type for `contact_submissions` has no `lead_id` column — the row is already identified by `id` (line 89 sets `id: submissionId`). Remove line 90 (`lead_id: submissionId,`) from the `payload` object. The tracking object at lines 98–106 keeps its own `lead_id` field (it's a dataLayer event, not a DB row), so no change there.
+### 2. Swap the hero visual in `src/components/service-page/ServiceHeroSplit.tsx`
+For each of the six `case` blocks listed above, replace the current SVG/illustration markup with the same `<img>` pattern used for `amazing-race`:
+- Import the new `.asset.json` pointer at the top of the file.
+- Render `<img src={<pointer>.url} alt="<Service Name>" className="... object-contain" />` inside the existing 280×280 (or equivalent) footprint, keeping surrounding wrapper / animation / positioning classes intact.
+- Preserve each service's existing background color, blob, and layout — only the inner illustration changes.
 
 ### 3. Verify
-Build should pass. `/services/amazing-race` renders the new SVG logo in the hero prop slot; other services and the lead submission flow are unchanged.
+- Visit `/services/cultural-race`, `/services/builder-cross`, `/services/csi-bones`, `/services/monopoly-dash`, `/services/minute-to-win-it`, `/services/alice-in-motherland` and confirm each hero shows the new logo at the correct size with no layout regression.
+- `bun run build` should still pass.
+
+### Notes / assumptions
+- Slug spelling for Builder's Cross in the codebase is `builder-cross` (singular). I'll upload the pointer as `builders-cross.svg.asset.json` (matches your upload's filename) but wire it into the `case "builder-cross"` branch.
+- `mtwi.svg` will be stored as `public/images/service-page-logos/mtwi.svg.asset.json` and used inside `case "minute-to-win-it"`.
+- No other service pages, data files, or thumbnails are touched.

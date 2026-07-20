@@ -1,6 +1,17 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
+import amazingRaceLogo from "../../../public/images/service-page-logos/amazing-race.svg.asset.json";
+import culturalRaceLogo from "../../../public/images/service-page-logos/cultural-race.svg.asset.json";
+import buildersCrossLogo from "../../../public/images/service-page-logos/builders-cross.svg.asset.json";
+import csiBonesLogo from "../../../public/images/service-page-logos/csi-bones.svg.asset.json";
+import monopolyDashLogo from "../../../public/images/service-page-logos/monopoly-dash.svg.asset.json";
+import mtwiLogo from "../../../public/images/service-page-logos/mtwi.svg.asset.json";
+import aliceInMotherlandLogo from "../../../public/images/service-page-logos/alice-in-motherland.svg.asset.json";
+
+const renderLogo = (src: string, alt: string, size: number) => (
+  <img src={src} alt={alt} width={size} height={size} className="object-contain" />
+);
 
 interface ServiceHeroSplitProps {
   title: string;
@@ -24,19 +35,14 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
   switch (slug) {
     /* ─── Amazing Race: uploaded logo ─── */
     case "amazing-race":
-      return (
-        <img
-          src="/__l5e/assets-v1/369ac9aa-8994-4402-a4f1-8f9b3140bcf4/amazing-race.svg"
-          alt="Amazing Race"
-          width={size}
-          height={size}
-          className="object-contain"
-        />
-      );
+      return renderLogo(amazingRaceLogo.url, "Amazing Race", size);
 
-    /* ─── Cultural Race / Virtual Amazing Race: race card envelope ─── */
-    case "amazing-race-virtual":
+    /* ─── Cultural Race: uploaded logo ─── */
     case "cultural-race":
+      return renderLogo(culturalRaceLogo.url, "Cultural Race", size);
+
+    /* ─── Virtual Amazing Race: race card envelope ─── */
+    case "amazing-race-virtual":
       return (
         <svg {...common}>
           {/* Envelope body */}
@@ -57,47 +63,11 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
 
     /* ─── CSI Bones: chalk body outline ─── */
     case "csi-bones":
-      return (
-        <svg {...common}>
-          {/* Tape strips */}
-          <rect x="20" y="15" width="60" height="12" rx="2" fill="#FFD700" opacity="0.7" transform="rotate(-15 50 21)" />
-          <rect x="130" y="170" width="55" height="12" rx="2" fill="#FFD700" opacity="0.7" transform="rotate(10 155 176)" />
-          {/* Chalk outline body */}
-          <g stroke="white" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.9">
-            {/* Head */}
-            <circle cx="100" cy="42" r="16" />
-            {/* Body */}
-            <line x1="100" y1="58" x2="100" y2="115" />
-            {/* Arms */}
-            <line x1="100" y1="72" x2="60" y2="52" />
-            <line x1="100" y1="72" x2="145" y2="90" />
-            {/* Legs */}
-            <line x1="100" y1="115" x2="65" y2="165" />
-            <line x1="100" y1="115" x2="140" y2="160" />
-          </g>
-          {/* Magnifying glass */}
-          <circle cx="152" cy="50" r="18" stroke={accentColor} strokeWidth="3" fill={`${accentColor}20`} />
-          <line x1="165" y1="63" x2="178" y2="76" stroke={accentColor} strokeWidth="3" strokeLinecap="round" />
-        </svg>
-      );
+      return renderLogo(csiBonesLogo.url, "CSI Bones", size);
 
     /* ─── Monopoly Dash: money bag ─── */
     case "monopoly-dash":
-      return (
-        <svg {...common}>
-          {/* Money bag shape */}
-          <path d="M65 55 Q60 40 80 35 Q90 32 100 35 Q110 32 120 35 Q140 40 135 55 Q155 80 155 120 Q155 170 100 175 Q45 170 45 120 Q45 80 65 55Z" fill={accentColor} opacity="0.9" />
-          <path d="M65 55 Q60 40 80 35 Q90 32 100 35 Q110 32 120 35 Q140 40 135 55 Q155 80 155 120 Q155 170 100 175 Q45 170 45 120 Q45 80 65 55Z" stroke="white" strokeWidth="2" fill="none" />
-          {/* Tie */}
-          <path d="M80 55 Q100 65 120 55" stroke="white" strokeWidth="2.5" fill="none" />
-          {/* Dollar sign */}
-          <text x="100" y="130" textAnchor="middle" fontSize="48" fontWeight="bold" fill="white" opacity="0.95">$</text>
-          {/* Floating coins */}
-          <circle cx="38" cy="80" r="10" fill="#FFD700" stroke="#DAA520" strokeWidth="1.5" />
-          <text x="38" y="84" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#8B6914">$</text>
-          <circle cx="165" cy="95" r="8" fill="#FFD700" stroke="#DAA520" strokeWidth="1.5" />
-        </svg>
-      );
+      return renderLogo(monopolyDashLogo.url, "Monopoly Dash", size);
 
     /* ─── Gel Blitz: gel blaster + splat ─── */
     case "gel-blitz":
@@ -202,63 +172,11 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
 
     /* ─── Builder Cross: blueprint / wrench ─── */
     case "builder-cross":
-      return (
-        <svg {...common}>
-          {/* Blueprint paper */}
-          <rect x="30" y="30" width="140" height="140" rx="4" fill="#1a3a5c" stroke="white" strokeWidth="1.5" />
-          {/* Grid lines */}
-          <g stroke="white" strokeWidth="0.5" opacity="0.2">
-            <line x1="30" y1="70" x2="170" y2="70" />
-            <line x1="30" y1="110" x2="170" y2="110" />
-            <line x1="30" y1="150" x2="170" y2="150" />
-            <line x1="70" y1="30" x2="70" y2="170" />
-            <line x1="110" y1="30" x2="110" y2="170" />
-            <line x1="150" y1="30" x2="150" y2="170" />
-          </g>
-          {/* Blueprint drawing */}
-          <rect x="55" y="55" width="60" height="40" stroke={accentColor} strokeWidth="2" fill="none" strokeDasharray="6 3" />
-          <line x1="55" y1="55" x2="85" y2="30" stroke={accentColor} strokeWidth="1.5" strokeDasharray="4 2" />
-          {/* Wrench */}
-          <g transform="translate(110,110) rotate(45)">
-            <rect x="-4" y="-30" width="8" height="50" rx="3" fill="#888" stroke="white" strokeWidth="1" />
-            <circle cx="0" cy="-30" r="10" stroke="white" strokeWidth="2" fill="none" />
-            <circle cx="0" cy="-30" r="4" fill="#888" />
-          </g>
-        </svg>
-      );
+      return renderLogo(buildersCrossLogo.url, "Builders Cross", size);
 
-    /* ─── Minute To Win It: stopwatch ─── */
+    /* ─── Minute To Win It: uploaded logo ─── */
     case "minute-to-win-it":
-      return (
-        <svg {...common}>
-          {/* Watch body */}
-          <circle cx="100" cy="110" r="60" fill="#222" stroke={accentColor} strokeWidth="3" />
-          <circle cx="100" cy="110" r="54" fill="#111" stroke="white" strokeWidth="1" />
-          {/* Crown button */}
-          <rect x="93" y="42" width="14" height="12" rx="3" fill="#444" stroke={accentColor} strokeWidth="1.5" />
-          {/* Side buttons */}
-          <rect x="135" y="78" width="10" height="8" rx="2" fill="#444" stroke="white" strokeWidth="1" transform="rotate(30 140 82)" />
-          {/* Tick marks */}
-          {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
-            <line
-              key={deg}
-              x1={100 + 44 * Math.cos((deg - 90) * Math.PI / 180)}
-              y1={110 + 44 * Math.sin((deg - 90) * Math.PI / 180)}
-              x2={100 + 50 * Math.cos((deg - 90) * Math.PI / 180)}
-              y2={110 + 50 * Math.sin((deg - 90) * Math.PI / 180)}
-              stroke="white"
-              strokeWidth={deg % 90 === 0 ? "2" : "1"}
-            />
-          ))}
-          {/* Hands */}
-          <line x1="100" y1="110" x2="100" y2="70" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
-          <line x1="100" y1="110" x2="130" y2="120" stroke="white" strokeWidth="2" strokeLinecap="round" />
-          {/* Center dot */}
-          <circle cx="100" cy="110" r="4" fill={accentColor} />
-          {/* 60 text */}
-          <text x="100" y="145" textAnchor="middle" fontSize="12" fontWeight="bold" fill={accentColor}>60s</text>
-        </svg>
-      );
+      return renderLogo(mtwiLogo.url, "Minute To Win It", size);
 
     /* ─── Archery Tag: bow and arrow ─── */
     case "archery-tag":
@@ -303,30 +221,7 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
 
     /* ─── Alice in Motherland: playing card ─── */
     case "alice-in-motherland":
-      return (
-        <svg {...common}>
-          {/* Card */}
-          <rect x="45" y="25" width="110" height="150" rx="10" fill="white" stroke={accentColor} strokeWidth="2" />
-          {/* Card inner border */}
-          <rect x="52" y="32" width="96" height="136" rx="6" fill="none" stroke={accentColor} strokeWidth="0.5" opacity="0.4" />
-          {/* Top corner */}
-          <text x="60" y="52" fontSize="16" fontWeight="bold" fill={accentColor}>A</text>
-          <text x="60" y="66" fontSize="12" fill={accentColor}>♠</text>
-          {/* Bottom corner (inverted) */}
-          <text x="140" y="158" fontSize="16" fontWeight="bold" fill={accentColor} textAnchor="end" transform="rotate(180 137 152)">A</text>
-          <text x="140" y="144" fontSize="12" fill={accentColor} textAnchor="end" transform="rotate(180 137 140)">♠</text>
-          {/* Center rabbit silhouette */}
-          <g transform="translate(100, 100)" fill={accentColor}>
-            {/* Rabbit ears */}
-            <ellipse cx="-8" cy="-38" rx="6" ry="18" />
-            <ellipse cx="8" cy="-38" rx="6" ry="18" />
-            {/* Head */}
-            <circle cx="0" cy="-15" r="12" />
-            {/* Body */}
-            <ellipse cx="0" cy="8" rx="14" ry="18" />
-          </g>
-        </svg>
-      );
+      return renderLogo(aliceInMotherlandLogo.url, "Alice in Motherland", size);
 
     /* ─── Battle of the Olympians: Olympic torch ─── */
     case "battle-of-the-olympians":
