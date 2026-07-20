@@ -172,63 +172,11 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
 
     /* ─── Builder Cross: blueprint / wrench ─── */
     case "builder-cross":
-      return (
-        <svg {...common}>
-          {/* Blueprint paper */}
-          <rect x="30" y="30" width="140" height="140" rx="4" fill="#1a3a5c" stroke="white" strokeWidth="1.5" />
-          {/* Grid lines */}
-          <g stroke="white" strokeWidth="0.5" opacity="0.2">
-            <line x1="30" y1="70" x2="170" y2="70" />
-            <line x1="30" y1="110" x2="170" y2="110" />
-            <line x1="30" y1="150" x2="170" y2="150" />
-            <line x1="70" y1="30" x2="70" y2="170" />
-            <line x1="110" y1="30" x2="110" y2="170" />
-            <line x1="150" y1="30" x2="150" y2="170" />
-          </g>
-          {/* Blueprint drawing */}
-          <rect x="55" y="55" width="60" height="40" stroke={accentColor} strokeWidth="2" fill="none" strokeDasharray="6 3" />
-          <line x1="55" y1="55" x2="85" y2="30" stroke={accentColor} strokeWidth="1.5" strokeDasharray="4 2" />
-          {/* Wrench */}
-          <g transform="translate(110,110) rotate(45)">
-            <rect x="-4" y="-30" width="8" height="50" rx="3" fill="#888" stroke="white" strokeWidth="1" />
-            <circle cx="0" cy="-30" r="10" stroke="white" strokeWidth="2" fill="none" />
-            <circle cx="0" cy="-30" r="4" fill="#888" />
-          </g>
-        </svg>
-      );
+      return renderLogo(buildersCrossLogo.url, "Builders Cross", size);
 
-    /* ─── Minute To Win It: stopwatch ─── */
+    /* ─── Minute To Win It: uploaded logo ─── */
     case "minute-to-win-it":
-      return (
-        <svg {...common}>
-          {/* Watch body */}
-          <circle cx="100" cy="110" r="60" fill="#222" stroke={accentColor} strokeWidth="3" />
-          <circle cx="100" cy="110" r="54" fill="#111" stroke="white" strokeWidth="1" />
-          {/* Crown button */}
-          <rect x="93" y="42" width="14" height="12" rx="3" fill="#444" stroke={accentColor} strokeWidth="1.5" />
-          {/* Side buttons */}
-          <rect x="135" y="78" width="10" height="8" rx="2" fill="#444" stroke="white" strokeWidth="1" transform="rotate(30 140 82)" />
-          {/* Tick marks */}
-          {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
-            <line
-              key={deg}
-              x1={100 + 44 * Math.cos((deg - 90) * Math.PI / 180)}
-              y1={110 + 44 * Math.sin((deg - 90) * Math.PI / 180)}
-              x2={100 + 50 * Math.cos((deg - 90) * Math.PI / 180)}
-              y2={110 + 50 * Math.sin((deg - 90) * Math.PI / 180)}
-              stroke="white"
-              strokeWidth={deg % 90 === 0 ? "2" : "1"}
-            />
-          ))}
-          {/* Hands */}
-          <line x1="100" y1="110" x2="100" y2="70" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
-          <line x1="100" y1="110" x2="130" y2="120" stroke="white" strokeWidth="2" strokeLinecap="round" />
-          {/* Center dot */}
-          <circle cx="100" cy="110" r="4" fill={accentColor} />
-          {/* 60 text */}
-          <text x="100" y="145" textAnchor="middle" fontSize="12" fontWeight="bold" fill={accentColor}>60s</text>
-        </svg>
-      );
+      return renderLogo(mtwiLogo.url, "Minute To Win It", size);
 
     /* ─── Archery Tag: bow and arrow ─── */
     case "archery-tag":
