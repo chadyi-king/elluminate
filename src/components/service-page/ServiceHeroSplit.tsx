@@ -67,21 +67,7 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
 
     /* ─── Monopoly Dash: money bag ─── */
     case "monopoly-dash":
-      return (
-        <svg {...common}>
-          {/* Money bag shape */}
-          <path d="M65 55 Q60 40 80 35 Q90 32 100 35 Q110 32 120 35 Q140 40 135 55 Q155 80 155 120 Q155 170 100 175 Q45 170 45 120 Q45 80 65 55Z" fill={accentColor} opacity="0.9" />
-          <path d="M65 55 Q60 40 80 35 Q90 32 100 35 Q110 32 120 35 Q140 40 135 55 Q155 80 155 120 Q155 170 100 175 Q45 170 45 120 Q45 80 65 55Z" stroke="white" strokeWidth="2" fill="none" />
-          {/* Tie */}
-          <path d="M80 55 Q100 65 120 55" stroke="white" strokeWidth="2.5" fill="none" />
-          {/* Dollar sign */}
-          <text x="100" y="130" textAnchor="middle" fontSize="48" fontWeight="bold" fill="white" opacity="0.95">$</text>
-          {/* Floating coins */}
-          <circle cx="38" cy="80" r="10" fill="#FFD700" stroke="#DAA520" strokeWidth="1.5" />
-          <text x="38" y="84" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#8B6914">$</text>
-          <circle cx="165" cy="95" r="8" fill="#FFD700" stroke="#DAA520" strokeWidth="1.5" />
-        </svg>
-      );
+      return renderLogo(monopolyDashLogo.url, "Monopoly Dash", size);
 
     /* ─── Gel Blitz: gel blaster + splat ─── */
     case "gel-blitz":
