@@ -14,6 +14,9 @@ import battleOfTheOlympiansLogo from "../../../public/images/service-page-logos/
 import sotongGameLogo from "../../../public/images/service-page-logos/sotong-game.svg.asset.json";
 import treasureHeistLogo from "../../../public/images/service-page-logos/treasure-heist.svg.asset.json";
 import runningManLogo from "../../../public/images/service-page-logos/running-man.svg.asset.json";
+import overseasRetreatsLogo from "../../../public/images/service-page-logos/overseas-retreats.svg.asset.json";
+import localRetreatsLogo from "../../../public/images/service-page-logos/local-retreats.svg.asset.json";
+import incentiveTravelLogo from "../../../public/images/service-page-logos/incentive-travel.svg.asset.json";
 
 const resolveUploadedAssetUrl = (src: string) =>
   import.meta.env.DEV && src.startsWith("/__l5e/") ? `https://elluminate.sg${src}` : src;
@@ -203,93 +206,17 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
     case "treasure-heist":
       return renderLogo(treasureHeistLogo.url, "Treasure Heist", size);
 
-    /* ─── Overseas Retreats: commercial airplane ─── */
+    /* ─── Overseas Retreats: uploaded logo ─── */
     case "overseas-retreats":
-      return (
-        <svg {...common}>
-          {/* Fuselage */}
-          <path d="M32 92 Q35 79 52 77 L152 74 Q167 74 175 83 Q181 88 181 90 Q181 92 175 97 L152 106 L52 109 Q35 107 32 92Z" fill="white" opacity="0.92" />
-          {/* Cockpit */}
-          <path d="M152 77 L163 81 Q174 85 177 90 Q174 95 163 99 L152 103Z" fill="#87CEEB" opacity="0.7" />
-          {/* Vertical tail fin */}
-          <path d="M46 77 L41 45 L64 56 L64 77Z" fill={accentColor} />
-          {/* Horizontal stabilizers */}
-          <path d="M38 79 L17 67 L40 75Z" fill={accentColor} opacity="0.85" />
-          <path d="M38 101 L17 113 L40 105Z" fill={accentColor} opacity="0.85" />
-          {/* Main swept wing below fuselage */}
-          <path d="M100 107 L94 109 L130 163 L145 158 L112 107Z" fill={accentColor} />
-          {/* Engine pod */}
-          <rect x="122" y="155" width="28" height="10" rx="5" fill="#555" stroke="white" strokeWidth="1" />
-          {/* Passenger windows */}
-          {[68, 82, 96, 110, 124, 138].map((x) => (
-            <ellipse key={x} cx={x} cy="90" rx="4.5" ry="3.5" fill="#87CEEB" opacity="0.75" />
-          ))}
-          {/* Contrails */}
-          <line x1="22" y1="90" x2="5" y2="90" stroke="white" strokeWidth="2" opacity="0.35" />
-          <line x1="18" y1="84" x2="5" y2="82" stroke="white" strokeWidth="1.5" opacity="0.22" />
-          <line x1="18" y1="96" x2="5" y2="98" stroke="white" strokeWidth="1.5" opacity="0.22" />
-        </svg>
-      );
+      return renderLogo(overseasRetreatsLogo.url, "Overseas Retreats", size);
 
-    /* ─── Local Retreats: hotel building ─── */
+    /* ─── Local Retreats: uploaded logo ─── */
     case "local-retreats":
-      return (
-        <svg {...common}>
-          {/* 5-star rating above */}
-          <text x="100" y="40" textAnchor="middle" fontSize="9" fill="#FFD700">★ ★ ★ ★ ★</text>
-          {/* Building body */}
-          <rect x="48" y="48" width="104" height="122" rx="3" fill="#1e2d45" stroke="white" strokeWidth="1.5" />
-          {/* Accent roof band */}
-          <rect x="44" y="42" width="112" height="13" rx="3" fill={accentColor} />
-          {/* HOTEL text on band */}
-          <text x="100" y="53" textAnchor="middle" fontSize="6" fontWeight="bold" fill="white" letterSpacing="1.5">HOTEL</text>
-          {/* Windows — 4 rows × 4 columns */}
-          {[
-            [60,66],[80,66],[100,66],[120,66],
-            [60,84],[80,84],[100,84],[120,84],
-            [60,102],[80,102],[100,102],[120,102],
-            [60,120],[80,120],[100,120],[120,120],
-          ].map(([x, y], i) => (
-            <rect
-              key={i} x={x} y={y} width="14" height="11" rx="1.5"
-              fill={[0,2,5,7,9,11,14].includes(i) ? "#FFEEA0" : [1,6,10,13].includes(i) ? "#87CEEB" : "#0f1c30"}
-              opacity="0.95"
-            />
-          ))}
-          {/* Entrance door */}
-          <rect x="84" y="143" width="32" height="27" rx="2" fill={accentColor} opacity="0.8" />
-          <line x1="100" y1="143" x2="100" y2="170" stroke="#0f1c30" strokeWidth="1.5" />
-          {/* Canopy above door */}
-          <path d="M78 143 L122 143 L117 134 L83 134Z" fill={accentColor} opacity="0.9" />
-        </svg>
-      );
+      return renderLogo(localRetreatsLogo.url, "Local Retreats", size);
 
-    /* ─── Incentive Travel: passport with stamps ─── */
+    /* ─── Incentive Travel: uploaded logo ─── */
     case "incentive-travel":
-      return (
-        <svg {...common}>
-          {/* Passport cover */}
-          <rect x="55" y="30" width="90" height="130" rx="8" fill={accentColor} opacity="0.92" stroke="white" strokeWidth="1.5" />
-          {/* Inner inlay */}
-          <rect x="63" y="38" width="74" height="114" rx="5" fill="white" opacity="0.1" />
-          {/* Emblem circle */}
-          <circle cx="100" cy="95" r="24" fill="none" stroke="white" strokeWidth="2" opacity="0.7" />
-          <circle cx="100" cy="95" r="15" fill="white" opacity="0.08" />
-          <text x="100" y="101" textAnchor="middle" fontSize="20" fill="white" opacity="0.8">★</text>
-          {/* Labels */}
-          <text x="100" y="50" textAnchor="middle" fontSize="5" fill="white" opacity="0.6" letterSpacing="1">REPUBLIC OF SINGAPORE</text>
-          <text x="100" y="152" textAnchor="middle" fontSize="7" fontWeight="bold" fill="white" letterSpacing="2">PASSPORT</text>
-          {/* Entry stamps around the outside */}
-          <rect x="18" y="50" width="24" height="15" rx="2" fill="none" stroke="#FFD700" strokeWidth="1.5" opacity="0.8" transform="rotate(-20 30 57)" />
-          <text x="20" y="61" fontSize="5" fill="#FFD700" opacity="0.8" transform="rotate(-20 30 57)">ENTRY</text>
-          <rect x="158" y="62" width="24" height="15" rx="2" fill="none" stroke="#FF6B35" strokeWidth="1.5" opacity="0.7" transform="rotate(15 170 69)" />
-          <text x="160" y="73" fontSize="5" fill="#FF6B35" opacity="0.7" transform="rotate(15 170 69)">ENTRY</text>
-          <rect x="15" y="140" width="24" height="15" rx="2" fill="none" stroke="#4CAF50" strokeWidth="1.5" opacity="0.6" transform="rotate(-10 27 147)" />
-          <rect x="160" y="135" width="24" height="15" rx="2" fill="none" stroke="#87CEEB" strokeWidth="1.5" opacity="0.55" transform="rotate(18 172 142)" />
-        </svg>
-      );
-
-    /* ─── The Game Show: TV screen / buzzer ─── */
+      return renderLogo(incentiveTravelLogo.url, "Incentive Travel", size);
     case "the-gameshow-experience-virtual":
       return (
         <svg {...common}>
