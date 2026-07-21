@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Presentation, School, TreePalm, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
-import charBlueMan from "@/assets/hero/char-blue-man.webp";
-import charRedWoman from "@/assets/hero/char-red-woman.webp";
-import charGreenWoman from "@/assets/hero/char-green-woman.webp";
-import charYellowBoy from "@/assets/hero/char-yellow-boy.webp";
 import { ConfettiBurst } from "./ConfettiBurst";
 import { PhotoWall } from "./hero/PhotoWall";
 import { RotatingWord } from "./hero/RotatingWord";
@@ -20,11 +16,11 @@ const sparkLetters = [
   { letter: "K", color: "hsl(160, 70%, 45%)" },
 ];
 
-const mobileCharacters = [
-  { image: charBlueMan, label: "Teams", color: "from-blue-100 to-blue-50" },
-  { image: charGreenWoman, label: "Retreats", color: "from-emerald-100 to-emerald-50" },
-  { image: charRedWoman, label: "Training", color: "from-rose-100 to-rose-50" },
-  { image: charYellowBoy, label: "Schools", color: "from-amber-100 to-amber-50" },
+const mobileExperienceAreas = [
+  { icon: UsersRound, label: "Teams", color: "#2A8DFF" },
+  { icon: TreePalm, label: "Retreats", color: "#26B982" },
+  { icon: Presentation, label: "Training", color: "#EC1D65" },
+  { icon: School, label: "Schools", color: "#F4B400" },
 ];
 
 export const HeroSection = () => {
@@ -141,22 +137,27 @@ export const HeroSection = () => {
             className="pointer-events-auto mt-5 grid w-full max-w-lg grid-cols-4 gap-1.5 rounded-[1.4rem] border border-primary/10 bg-white/80 p-2 shadow-sm backdrop-blur-md xl:hidden"
             aria-label="Experience areas"
           >
-            {mobileCharacters.map((character) => (
-              <div key={character.label} className="group flex min-w-0 flex-col items-center gap-1.5 rounded-xl py-1.5">
-                <span className={`relative h-10 w-10 overflow-hidden rounded-full bg-gradient-to-b ${character.color}`}>
-                  <img
-                    src={character.image}
-                    alt=""
-                    className="h-full w-full object-contain object-bottom transition-transform duration-300 group-hover:scale-105"
-                    loading="eager"
-                    decoding="async"
-                  />
-                </span>
-                <span className="max-w-full text-center text-[9px] font-bold uppercase tracking-[0.08em] text-foreground/[0.55] sm:text-[10px]">
-                  {character.label}
-                </span>
-              </div>
-            ))}
+            {mobileExperienceAreas.map((area) => {
+              const AreaIcon = area.icon;
+
+              return (
+                <div key={area.label} className="group flex min-w-0 flex-col items-center gap-1.5 rounded-xl py-1.5">
+                  <span
+                    className="relative flex h-10 w-10 items-center justify-center rounded-full border transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-105"
+                    style={{
+                      color: area.color,
+                      backgroundColor: `${area.color}14`,
+                      borderColor: `${area.color}30`,
+                    }}
+                  >
+                    <AreaIcon className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
+                  </span>
+                  <span className="max-w-full text-center text-[9px] font-bold uppercase tracking-[0.08em] text-foreground/[0.55] sm:text-[10px]">
+                    {area.label}
+                  </span>
+                </div>
+              );
+            })}
           </motion.div>
         </div>
       </div>

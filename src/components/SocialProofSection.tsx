@@ -502,9 +502,6 @@ export const SocialProofSection = () => {
           </div>
         )}
 
-        <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-5 text-muted-foreground">
-          Figures updated in 2026.
-        </p>
       </div>
     </section>
   );

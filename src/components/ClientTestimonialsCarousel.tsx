@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Quote, Star } from "lucide-react";
+import { Pause, Play, Quote, Star } from "lucide-react";
 
 import { clientTestimonials, type ClientTestimonial } from "@/data/clientTestimonials";
 
@@ -11,10 +11,16 @@ interface ClientTestimonialsCarouselProps {
   description?: string;
 }
 
+const buildRowOrder = (offset: number, direction: 1 | -1) => {
+  const count = clientTestimonials.length;
+
+  return Array.from({ length: count }, (_, index) => (offset + direction * index + count) % count);
+};
+
 const rowOrders = [
-  [0, 6, 1, 7, 2, 8, 3, 9, 4, 5],
-  [7, 4, 9, 0, 6, 2, 8, 1, 5, 3],
-  [3, 8, 5, 7, 1, 9, 4, 0, 6, 2],
+  buildRowOrder(0, 1),
+  buildRowOrder(Math.floor(clientTestimonials.length / 3), -1),
+  buildRowOrder(Math.floor((clientTestimonials.length * 2) / 3), 1),
 ];
 
 const cardWidth = (testimonial: ClientTestimonial) => {
@@ -30,13 +36,17 @@ export const ClientTestimonialsCarousel = ({
   description = "Real words from the people who joined the experience.",
 }: ClientTestimonialsCarouselProps) => {
   const reduceMotion = useReducedMotion();
-  const [isPaused, setIsPaused] = useState(false);
+  const [isInteractionPaused, setIsInteractionPaused] = useState(false);
+  const [isManuallyPaused, setIsManuallyPaused] = useState(false);
+  const isPaused = isInteractionPaused || isManuallyPaused;
   const isDark = theme === "dark";
 
   const testimonialCard = (testimonial: ClientTestimonial, key: string, hidden = false) => {
+    const displayName = testimonial.displayName ?? testimonial.name.split(" ")[0];
+    const organisation = testimonial.company ?? testimonial.industry;
     const byline = testimonial.role
-      ? `${testimonial.role}${testimonial.company ? `, ${testimonial.company}` : ""}`
-      : testimonial.company;
+      ? `${testimonial.role}${organisation ? `, ${organisation}` : ""}`
+      : organisation;
 
     return (
       <article
@@ -63,8 +73,8 @@ export const ClientTestimonialsCarousel = ({
                   ))}
                 </span>
               )}
-              <p className={`mt-2 truncate text-sm font-semibold ${isDark ? "text-white/65" : "text-slate-500"}`}>
-                {testimonial.name.split(" ")[0]}
+              <p className={`${testimonial.rating ? "mt-2" : ""} truncate text-sm font-semibold ${isDark ? "text-white/65" : "text-slate-500"}`}>
+                {displayName}
               </p>
             </div>
             <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${isDark ? "bg-white/10" : "bg-sky-50"}`}>
@@ -114,6 +124,21 @@ export const ClientTestimonialsCarousel = ({
           <p className={`mx-auto mt-5 max-w-2xl text-base leading-7 sm:text-lg ${isDark ? "text-slate-300" : "text-slate-600"}`}>
             {description}
           </p>
+          {!reduceMotion && (
+            <button
+              type="button"
+              onClick={() => setIsManuallyPaused((paused) => !paused)}
+              className={`mx-auto mt-5 inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-xs font-bold transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sky-400/30 ${
+                isDark
+                  ? "border-white/15 bg-white/[0.06] text-white/70 hover:bg-white/10 hover:text-white"
+                  : "border-slate-200 bg-white/80 text-slate-600 hover:border-sky-200 hover:text-primary"
+              }`}
+              aria-pressed={isManuallyPaused}
+            >
+              {isManuallyPaused ? <Play className="h-3.5 w-3.5" aria-hidden="true" /> : <Pause className="h-3.5 w-3.5" aria-hidden="true" />}
+              {isManuallyPaused ? "Play client stories" : "Pause client stories"}
+            </button>
+          )}
         </motion.header>
 
         {reduceMotion ? (
@@ -125,10 +150,10 @@ export const ClientTestimonialsCarousel = ({
             role="region"
             aria-label="Client testimonials"
             className="relative left-1/2 w-screen -translate-x-1/2 space-y-3 overflow-hidden py-2"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onFocusCapture={() => setIsPaused(true)}
-            onBlurCapture={() => setIsPaused(false)}
+            onMouseEnter={() => setIsInteractionPaused(true)}
+            onMouseLeave={() => setIsInteractionPaused(false)}
+            onFocusCapture={() => setIsInteractionPaused(true)}
+            onBlurCapture={() => setIsInteractionPaused(false)}
           >
             <div className={`pointer-events-none absolute inset-y-0 left-0 z-20 w-16 bg-gradient-to-r sm:w-28 ${isDark ? "from-[#071a2a]" : "from-[#f4f7ff]"} to-transparent`} />
             <div className={`pointer-events-none absolute inset-y-0 right-0 z-20 w-16 bg-gradient-to-l sm:w-28 ${isDark ? "from-[#071a2a]" : "from-[#f4f7ff]"} to-transparent`} />
@@ -164,9 +189,6 @@ export const ClientTestimonialsCarousel = ({
           </div>
         )}
 
-        <p className={`mx-auto mt-7 max-w-2xl text-center text-xs leading-5 ${isDark ? "text-white/40" : "text-slate-400"}`}>
-          Client stories include work delivered by the shared Elluminate and Team Elevate operating team.
-        </p>
       </div>
     </section>
   );

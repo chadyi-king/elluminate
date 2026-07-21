@@ -4,18 +4,14 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Brain,
-  Building2,
   Compass,
-  Flag,
-  Globe2,
-  Monitor,
   Plane,
   Search,
-  Skull,
   Sparkles,
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ExperienceCard } from "@/components/ExperienceCard";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import {
   equipmentActivityServices,
@@ -65,69 +61,27 @@ const experienceWorlds = [
 
 const featuredExperiences = [
   {
-    name: "Amazing Race",
     slug: "amazing-race",
-    category: "Outdoor expedition",
-    description: "Follow the clues, crack the missions and race your crew across the final line.",
-    fit: "Movement and exploration",
-    image: "/images/services/amazing-race/gallery-7.jpg",
-    accent: "#F6B800",
-    icon: Flag,
     filters: ["All", "Outdoor"],
   },
   {
-    name: "CSI-Bones",
     slug: "csi-bones",
-    category: "Indoor investigation",
-    description: "Read the evidence, challenge the theories and solve the case together.",
-    fit: "Observation and collaboration",
-    image: "/images/services/csi-bones/gallery-2.jpg",
-    accent: "#1C9B77",
-    icon: Skull,
     filters: ["All", "Indoor"],
   },
   {
-    name: "Cultural Race",
     slug: "cultural-race",
-    category: "Singapore discovery",
-    description: "Turn familiar streets into a trail of local clues, discoveries and team missions.",
-    fit: "Visitors and local teams",
-    image: "/images/services/cultural-race/how-it-works.jpg",
-    accent: "#ED4E52",
-    icon: Globe2,
     filters: ["All", "Outdoor"],
   },
   {
-    name: "Virtual Amazing Race",
     slug: "amazing-race-virtual",
-    category: "Hosted online race",
-    description: "Bring remote and multi-office teams into one fast-moving shared challenge.",
-    fit: "Distributed groups",
-    image: "/images/services/amazing-race-virtual/gallery-1.jpg",
-    accent: "#7656D8",
-    icon: Monitor,
     filters: ["All", "Virtual"],
   },
   {
-    name: "Overseas Retreats",
     slug: "overseas-retreats",
-    category: "Destination programme",
-    description: "Bring travel, accommodation, activities and downtime into one coherent offsite.",
-    fit: "Multi-day company offsites",
-    image: "/images/services/overseas-retreats/gallery-1.jpg",
-    accent: "#F1783C",
-    icon: Plane,
     filters: ["All", "Retreat"],
   },
   {
-    name: "Workshops",
     slug: "workshops",
-    category: "Facilitated training",
-    description: "Turn useful ideas into conversation, practice and takeaways your team can use.",
-    fit: "Teams that need guided learning",
-    image: "/images/services/workshops/gallery-1.jpg",
-    accent: "#7356D8",
-    icon: Building2,
     filters: ["All", "Training", "Indoor"],
   },
 ];
@@ -255,49 +209,18 @@ export const PopularExperiencesSection = () => {
         </div>
 
         <motion.div layout className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {visibleExperiences.map((experience) => {
-            const Icon = experience.icon;
-            return (
-              <motion.article
-                layout
-                key={experience.slug}
-                initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: reduceMotion ? 0 : 0.3 }}
-                className="group overflow-hidden rounded-[1.6rem] border shadow-[0_14px_45px_rgba(20,40,80,0.08)]"
-                style={{
-                  borderColor: `${experience.accent}38`,
-                  background: `linear-gradient(180deg, #ffffff 42%, ${experience.accent}18 100%)`,
-                }}
-              >
-                <Link to={`/services/${experience.slug}`} className="block focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary/25">
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <img src={experience.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                    <div className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-2xl text-white shadow-lg" style={{ backgroundColor: experience.accent }}>
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </div>
-                <span className="absolute bottom-4 left-4 rounded-full border border-white/25 bg-slate-950/[0.45] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md">
-                      {experience.category}
-                    </span>
-                  </div>
-                  <div className="p-6">
-                    <div className="mb-3 flex items-start justify-between gap-4">
-                      <h3 className="font-display text-2xl font-black text-foreground">{experience.name}</h3>
-                      <ArrowRight className="mt-1 h-5 w-5 text-primary transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                    </div>
-                    <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{experience.description}</p>
-                <span
-                  className="inline-flex rounded-full px-3 py-1.5 text-xs font-bold text-foreground/[0.68]"
-                  style={{ backgroundColor: `${experience.accent}16` }}
-                >
-                  Best fit: {experience.fit}
-                </span>
-                  </div>
-                </Link>
-              </motion.article>
-            );
-          })}
+          {visibleExperiences.map((experience) => (
+            <motion.div
+              layout
+              key={experience.slug}
+              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: reduceMotion ? 0 : 0.3 }}
+              className="h-full"
+            >
+              <ExperienceCard slug={experience.slug} variant="featured" />
+            </motion.div>
+          ))}
         </motion.div>
 
         <div className="mt-12 overflow-hidden rounded-[2rem] bg-foreground px-6 py-8 text-white shadow-2xl sm:px-9 lg:flex lg:items-center lg:justify-between lg:gap-10">
