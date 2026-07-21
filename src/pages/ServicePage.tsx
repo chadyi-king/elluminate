@@ -10,6 +10,7 @@ import { ServiceVideoSection } from "@/components/service-page/ServiceVideoSecti
 import { ServiceVideoCarousel } from "@/components/service-page/ServiceVideoCarousel";
 import { ServiceOverviewNew } from "@/components/service-page/ServiceOverviewNew";
 import { ServiceExperienceJourney } from "@/components/service-page/ServiceExperienceJourney";
+import { ServiceQuickFacts } from "@/components/service-page/ServiceQuickFacts";
 import { ServiceCTANew } from "@/components/service-page/ServiceCTANew";
 import { ServiceTestimonialNew } from "@/components/service-page/ServiceTestimonialNew";
 import { ServiceFinalCTA } from "@/components/service-page/ServiceFinalCTA";
@@ -20,6 +21,7 @@ import { ServiceOutcomes } from "@/components/service-page/ServiceOutcomes";
 import { ServicePillsSection } from "@/components/service-page/ServicePillsSection";
 import { servicesData } from "@/data/servicesData";
 import { serviceContentQuality } from "@/data/serviceContentQuality";
+import { getVerifiedLocalServiceGalleryPaths } from "@/data/serviceGalleryMedia";
 import {
   allInScopeServiceSlugs,
   equipmentActivityServices,
@@ -305,6 +307,7 @@ const ServicePage = () => {
   const journeyImages = Array.from(
     new Set(
       [
+        ...getVerifiedLocalServiceGalleryPaths(slug || "", 6),
         service.overview.backgroundImage,
         service.howItWorksImage,
         service.addOnsImage,
@@ -415,6 +418,8 @@ const ServicePage = () => {
         accentColorSecondary={service.accentColorSecondary}
         fallbackImages={journeyImages}
       />
+
+      <ServiceQuickFacts slug={slug} accentColor={service.accentColor} />
 
       {/* 4.5 Destinations Grid (for retreat/travel services) */}
       {service.destinationsGrid && (

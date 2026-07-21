@@ -1,9 +1,9 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Star, Calendar, Users, Award } from "lucide-react";
 
 // TODO(content): Keep a permission/evidence checklist for client logo usage before adding or restoring brand proof.
-// Real client logos - 72 companies across 3 carousel pages
+// Repository logo archive. Rendering below is restricted to the approved public set.
 const defaultClientLogos = [
   // Page 1 — Financial & Tech
   {
@@ -348,6 +348,23 @@ const defaultClientLogos = [
   },
 ];
 
+const approvedClientLogoNames = new Set([
+  "DBS",
+  "Singtel",
+  "GovTech",
+  "CapitaLand",
+  "Singapore Airlines",
+  "Changi Airport",
+  "Google",
+  "Microsoft",
+  "Deloitte",
+  "NUS",
+  "DHL",
+  "Mediacorp",
+]);
+
+const approvedClientLogos = defaultClientLogos.filter((logo) => approvedClientLogoNames.has(logo.name));
+
 const stats = [
   {
     icon: Calendar,
@@ -372,10 +389,19 @@ const stats = [
 export const SocialProofSection = () => {
   const reduceMotion = useReducedMotion();
   const logoWallRef = useRef<HTMLDivElement | null>(null);
+  const logoWallPointerInsideRef = useRef(false);
+  const logoWallFocusWithinRef = useRef(false);
+  const [logoWallPaused, setLogoWallPaused] = useState(false);
   const logoWallInView = useInView(logoWallRef, { margin: "-120px 0px" });
-  const logoRows = Array.from({ length: 5 }, (_, rowIndex) =>
-    defaultClientLogos.filter((_, logoIndex) => logoIndex % 5 === rowIndex),
+  const logoRows = Array.from({ length: 3 }, (_, rowIndex) =>
+    approvedClientLogos.map(
+      (_, logoIndex) => approvedClientLogos[(logoIndex + rowIndex * 4) % approvedClientLogos.length],
+    ),
   );
+
+  const syncLogoWallState = () => {
+    setLogoWallPaused(logoWallPointerInsideRef.current || logoWallFocusWithinRef.current);
+  };
 
   return (
     <section id="social-proof" className="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-blue-50 py-20 sm:py-24">
@@ -406,13 +432,21 @@ export const SocialProofSection = () => {
             className="rounded-[2rem] bg-[#071a2a] p-7 text-white shadow-xl sm:p-9"
           >
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-sky-200">Google Reviews</p>
-            <div className="mt-5 flex gap-1" aria-label="4.8 out of 5 stars">
+            <div className="mt-5 flex gap-1" role="img" aria-label="4.8 out of 5 stars">
               {Array.from({ length: 5 }).map((_, index) => (
-                <Star key={index} className="h-6 w-6 fill-amber-400 text-amber-400" aria-hidden="true" />
+                <span key={index} className="relative block h-6 w-6" aria-hidden="true">
+                  <Star className="absolute inset-0 h-6 w-6 fill-amber-400/20 text-amber-400/45" />
+                  <span className={`absolute inset-y-0 left-0 overflow-hidden ${index < 4 ? "w-full" : "w-4/5"}`}>
+                    <Star className="h-6 w-6 max-w-none fill-amber-400 text-amber-400" />
+                  </span>
+                </span>
               ))}
             </div>
             <p className="mt-4 font-display text-5xl font-black leading-none sm:text-6xl">4.8 / 5</p>
             <p className="mt-3 text-base font-semibold text-white/[0.78]">800+ Google reviews</p>
+            <p className="mt-2 max-w-xs text-sm leading-6 text-white/[0.58]">
+              Combined across Elluminate and Team Elevate, another brand of ours.
+            </p>
           </motion.div>
 
           <div className="grid gap-4 sm:grid-cols-3">
@@ -443,7 +477,7 @@ export const SocialProofSection = () => {
 
         {reduceMotion ? (
           <div id="client-logo-wall" className="relative left-1/2 grid w-screen -translate-x-1/2 grid-cols-2 gap-3 px-4 sm:grid-cols-4 sm:px-6 lg:grid-cols-8">
-            {defaultClientLogos.map((logo) => (
+            {approvedClientLogos.map((logo) => (
               <div
                 key={logo.id}
                 className="flex h-16 min-w-0 items-center justify-center rounded-xl border border-slate-200 bg-white px-3 shadow-sm sm:h-20"
@@ -461,20 +495,47 @@ export const SocialProofSection = () => {
             ))}
           </div>
         ) : (
-          <div id="client-logo-wall" ref={logoWallRef} className="relative left-1/2 w-screen -translate-x-1/2 space-y-3 overflow-hidden py-2">
+          <div
+            id="client-logo-wall"
+            ref={logoWallRef}
+            role="region"
+            aria-label="Client logo wall. Hover or focus to pause the moving logos."
+            tabIndex={0}
+            className="relative left-1/2 w-screen -translate-x-1/2 space-y-3 overflow-hidden py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            onPointerEnter={(event) => {
+              if (event.pointerType === "touch") return;
+              logoWallPointerInsideRef.current = true;
+              syncLogoWallState();
+            }}
+            onPointerLeave={(event) => {
+              if (event.pointerType === "touch") return;
+              logoWallPointerInsideRef.current = false;
+              syncLogoWallState();
+            }}
+            onFocusCapture={() => {
+              logoWallFocusWithinRef.current = true;
+              syncLogoWallState();
+            }}
+            onBlurCapture={(event) => {
+              if (event.currentTarget.contains(event.relatedTarget as Node | null)) return;
+              logoWallFocusWithinRef.current = false;
+              syncLogoWallState();
+            }}
+          >
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent sm:w-36" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent sm:w-36" />
             {logoRows.map((row, rowIndex) => {
               return (
-                <motion.div
+                <div
                   key={rowIndex}
                   className="flex w-max"
-                  animate={logoWallInView
-                    ? { x: rowIndex % 2 === 0 ? ["0%", "-50%"] : ["-50%", "0%"] }
-                    : { x: rowIndex % 2 === 0 ? "0%" : "-50%" }}
-                  transition={logoWallInView
-                    ? { duration: 28 + rowIndex * 3, ease: "linear", repeat: Infinity }
-                    : { duration: 0 }}
+                  style={{
+                    animationName: rowIndex % 2 === 0 ? "elluminate-marquee-left" : "elluminate-marquee-right",
+                    animationDuration: `${28 + rowIndex * 3}s`,
+                    animationTimingFunction: "linear",
+                    animationIterationCount: "infinite",
+                    animationPlayState: logoWallInView && !logoWallPaused ? "running" : "paused",
+                  }}
                 >
                   {[0, 1].map((copyIndex) => (
                     <div key={copyIndex} className="flex shrink-0 gap-3 pr-3" aria-hidden={copyIndex === 1 ? "true" : undefined}>
@@ -496,7 +557,7 @@ export const SocialProofSection = () => {
                       ))}
                     </div>
                   ))}
-                </motion.div>
+                </div>
               );
             })}
           </div>

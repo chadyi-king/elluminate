@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { routeSeo } from "../src/data/seoRoutes.js";
 
 const read = (path) => readFileSync(path, "utf8");
 
@@ -18,9 +19,11 @@ test("all published service slugs are covered by sitemap and static SEO generati
 
   for (const slug of serviceSlugs) {
     assert.match(sitemapGenerator, new RegExp(`"${slug}"`), `${slug} missing from sitemap generator`);
-    assert.match(prerenderSeo, new RegExp(`"${slug}"`), `${slug} missing from prerender SEO routes`);
-    assert.match(servicePage, new RegExp(`"${slug}":\\s*\\{\\s*title:`), `${slug} missing from ServicePage SEO data`);
+    assert.ok(routeSeo.some((route) => route.path === `/services/${slug}`), `${slug} missing from shared SEO routes`);
   }
+
+  assert.match(servicePage, /getRouteSeo\(`\/services\/\$\{slug \|\| ""\}`\)/);
+  assert.match(prerenderSeo, /import \{ routeSeo \} from "\.\.\/src\/data\/seoRoutes\.js"/);
 });
 
 test("checked-in sitemap publishes only canonical live service URLs", () => {
@@ -49,8 +52,8 @@ test("SEO component emits canonical, robots, Open Graph, and Twitter metadata", 
 
 test("post-build prerender script writes per-route HTML with indexable metadata", () => {
   for (const pattern of [
-    /const routes = \[/,
-    /<meta name="robots" content="index, follow" \/>/,
+    /for \(const route of routeSeo\)/,
+    /<meta name="robots" content="\$\{route\.robots \|\| "index, follow"\}" \/>/,
     /<meta property="og:site_name" content="\$\{SITE_NAME\}" \/>/,
     /<meta name="twitter:card" content="summary_large_image" \/>/,
     /join\(DIST, route\.path\.replace/,

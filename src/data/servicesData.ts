@@ -1642,16 +1642,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "LEADERSHIP OFFSITES",
       subtitle: "Training",
       tagline: "Where vision meets strategy in inspiring settings.",
-      backgroundImage: "/__l5e/assets-v1/78588c3d-a610-4e66-9550-43ba57fcbdb8/hero.jpg",
+      backgroundImage: leadershipOffsiteHero,
     },
     overview: {
       description:
         "Empower your leadership team with focused offsite experiences designed for strategic thinking and team alignment. Our executive retreats combine productive sessions with premium hospitality for maximum impact. Step away from the office to gain fresh perspectives and align on your organization's future.",
-      backgroundImage: "/__l5e/assets-v1/78588c3d-a610-4e66-9550-43ba57fcbdb8/hero.jpg",
+      backgroundImage: leadershipOffsiteHero,
     },
-    howItWorksImage: "/__l5e/assets-v1/97b8fd8d-5988-42a5-8e8e-0c057a03d6b4/how-it-works.jpg",
-    addOnsImage: "/__l5e/assets-v1/0e84ce35-709f-4e9f-8726-89e26e09f449/addons.png",
-    testimonialBackgroundImage: "/__l5e/assets-v1/f5144b2f-5c0c-48b8-b853-b01b1a679fdc/testimonial.jpg",
+    howItWorksImage: overseasRetreatHero,
+    addOnsImage: wellnessEventHero,
+    testimonialBackgroundImage: teamBuildingHero,
     features: [
       {
         icon: MapPin,
@@ -5748,7 +5748,7 @@ export const servicesData: Record<string, ServiceData> = {
         title: "Minimum Package",
         description:
           "Simply play Amazing Race at one of our set locations. We handle everything — you just show up and have fun.",
-        price: "From $60/pax",
+        price: "From $45/pax",
         features: ["Pre-set location", "Standard race format", "Basic facilitation"],
       },
       {
@@ -5947,7 +5947,7 @@ export const servicesData: Record<string, ServiceData> = {
       subtitle:
         "Watch teams dive into a thrilling mystery as they piece together clues to solve a crime. With sharp observation and teamwork, uncover the truth in this exciting detective challenge!",
       videoUrl: "/__l5e/assets-v1/0acf8c9d-f343-4b78-a415-59aed72619c2/csi-bones.mp4",
-      thumbnailImage: "/__l5e/assets-v1/e8e6ed72-c35c-48d4-96d7-cc86dff9dffe/csi-tn.png",
+      thumbnailImage: "/images/services/csi-bones/gallery-1.jpg",
     },
     cta: {
       headline: "Ready to Solve the Case?",
@@ -6040,13 +6040,13 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "Charles & Keith", event: "CSI Murder Mystery", pax: 32 },
     ],
     pricing: {
-      startingPrice: "From $45",
+      startingPrice: "From $55",
       unit: "per pax",
       minimumPax: 10,
       duration: "3 hours",
       activityType: "indoor",
     },
-    packages: trafficLightPackages("From $45/pax", "CSI-Bones", "#26D07C"),
+    packages: trafficLightPackages("From $55/pax", "CSI-Bones", "#26D07C"),
     addOns: [
       {
         icon: "Search",
@@ -8916,13 +8916,13 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "Salesforce Singapore", event: "Property Trading Adventure", pax: 238 },
     ],
     pricing: {
-      startingPrice: "From $45",
+      startingPrice: "From $55",
       unit: "per pax",
       minimumPax: 10,
       duration: "3 hours",
       activityType: "outdoor",
     },
-    packages: trafficLightPackages("From $45/pax", "Monopoly Dash", "#FF4F4F"),
+    packages: trafficLightPackages("From $55/pax", "Monopoly Dash", "#FF4F4F"),
     addOns: [
       {
         icon: "ClipboardList",
@@ -9019,16 +9019,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "NERFWAR",
       subtitle: "Foam Dart Battles",
       tagline: "A safe, fast, and hilarious battle format for teams and school groups who want action with structure.",
-      backgroundImage: "/images/services/monopoly-dash/hero.jpg",
+      backgroundImage: "/images/services/nerfwar/hero.jpg",
     },
-    howItWorksImage: "/images/services/monopoly-dash/how-it-works.jpg",
-    addOnsImage: "/images/services/monopoly-dash/addons.jpg",
-    ctaBackgroundImage: "/images/services/monopoly-dash/cta.jpg",
-    testimonialBackgroundImage: "/images/services/monopoly-dash/gallery-5.jpg",
+    howItWorksImage: "/images/services/nerfwar/how-it-works.jpg",
+    addOnsImage: "/images/services/nerfwar/addons.jpg",
+    ctaBackgroundImage: "/images/services/nerfwar/cta.jpg",
+    testimonialBackgroundImage: "/images/services/nerfwar/testimonial.jpg",
     overview: {
       description:
-        "Nerfwar is a high-energy foam dart battle experience that transforms your outing into an action-packed tactical adventure. Equipped with Nerf blasters and foam darts, teams compete in structured match formats designed to encourage communication, strategy, and good old-fashioned fun. It is especially useful for mixed groups, schools, and student cohorts because the format is safe, easy to pick up, and full of movement without feeling intimidating. Whether you are hosting a casual team day or an energetic kickoff event, Nerfwar delivers guaranteed laughs and memorable team moments.",
-      backgroundImage: "/images/services/monopoly-dash/hero.jpg",
+        "Nerfwar is a high-energy foam dart battle experience that transforms your outing into an action-packed tactical adventure. Equipped with Nerf blasters and foam darts, teams compete in structured match formats designed to encourage communication, strategy, and good old-fashioned fun. It is especially useful for mixed groups, schools, and student cohorts because the format is safe, easy to pick up, and full of movement without feeling intimidating. Whether you are hosting a casual team day or an energetic kickoff event, Nerfwar keeps the room laughing and gives teams plenty of moments to retell.",
+      backgroundImage: "/images/services/nerfwar/hero.jpg",
     },
     features: [
       {
@@ -9075,7 +9075,15 @@ export const servicesData: Record<string, ServiceData> = {
       },
     ],
     alternatingSections: [],
-    gallery: [],
+    gallery: [
+      "/images/services/nerfwar/gallery-1.jpg",
+      "/images/services/nerfwar/gallery-2.jpg",
+      "/images/services/nerfwar/gallery-3.jpg",
+      "/images/services/nerfwar/gallery-4.jpg",
+      "/images/services/nerfwar/gallery-5.jpg",
+      "/images/services/nerfwar/gallery-6.jpg",
+      "/images/services/nerfwar/gallery-7.jpg",
+    ],
     testimonials: [
       {
         quote:
@@ -9318,19 +9326,19 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Nerfwar Highlights",
       images: [
         {
-          src: "/images/services/monopoly-dash/gallery-6.jpg",
+          src: "/images/services/nerfwar/gallery-6.jpg",
           alt: "Nerfwar foam dart team battle in action",
         },
         {
-          src: "/images/services/monopoly-dash/gallery-7.jpg",
+          src: "/images/services/nerfwar/gallery-7.jpg",
           alt: "Team celebrating Nerfwar victory",
         },
         {
-          src: "/images/services/monopoly-dash/gallery-1.jpg",
+          src: "/images/services/nerfwar/gallery-1.jpg",
           alt: "Outdoor Nerfwar moment",
         },
         {
-          src: "/images/services/monopoly-dash/gallery-2.jpg",
+          src: "/images/services/nerfwar/gallery-2.jpg",
           alt: "Nerfwar squad formation",
         },
       ],
@@ -9920,13 +9928,13 @@ export const servicesData: Record<string, ServiceData> = {
       { client: "Lazada Singapore", event: "Dalgona Challenge Day", pax: 483 },
     ],
     pricing: {
-      startingPrice: "From $45",
+      startingPrice: "From $55",
       unit: "per pax",
       minimumPax: 20,
       duration: "3 hours",
       activityType: "outdoor",
     },
-    packages: trafficLightPackages("From $45/pax", "Sotong Game", "#D946EF"),
+    packages: trafficLightPackages("From $55/pax", "Sotong Game", "#D946EF"),
     addOns: [
       {
         icon: "Sparkles",
@@ -13028,16 +13036,16 @@ export const servicesData: Record<string, ServiceData> = {
       title: "MASS TALKS",
       subtitle: "Training",
       tagline: "Inspire Hundreds, Impact Thousands",
-      backgroundImage: "/__l5e/assets-v1/e4ff570b-3256-4028-a6e9-434f67381853/hero.jpg",
+      backgroundImage: townHallHero,
     },
-    howItWorksImage: "/__l5e/assets-v1/0ee7ad01-d932-4241-a00a-cf8ba4e94bda/how-it-works.jpg",
-    addOnsImage: "/__l5e/assets-v1/65b4da44-e8c0-4275-ab69-0a8531041f4e/addons.jpg",
-    ctaBackgroundImage: "/__l5e/assets-v1/d94606fd-b928-4420-b4fe-f662c79f439c/cta.jpg",
-    testimonialBackgroundImage: "/__l5e/assets-v1/900479e1-713f-421a-af84-5747b901068e/testimonial.jpg",
+    howItWorksImage: emceeMediaHero,
+    addOnsImage: stageProductionHero,
+    ctaBackgroundImage: summitsHero,
+    testimonialBackgroundImage: emceeMediaHero,
     overview: {
       description:
         "Transform your large-scale gatherings into unforgettable moments of inspiration and learning. Our Mass Talks bring together captivating speakers, engaging content, and professional production to deliver powerful messages that resonate with audiences of any size. Whether it's a company-wide town hall, industry conference keynote, or motivational assembly, we craft experiences that inform, inspire, and ignite action across your entire organization.",
-      backgroundImage: "/__l5e/assets-v1/e4ff570b-3256-4028-a6e9-434f67381853/hero.jpg",
+      backgroundImage: townHallHero,
     },
     features: [
       {

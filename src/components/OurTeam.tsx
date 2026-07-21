@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   CalendarCheck,
@@ -26,41 +26,44 @@ const teamRoles = [
   { label: "Post-event wrap", icon: ClipboardCheck },
 ];
 
-interface TeamPortrait {
-  sheet: string;
-  column: 0 | 1 | 2;
-  row: 0 | 1;
-}
-
-const teamPortraits: TeamPortrait[] = [
-  { sheet: "/images/our_team/team-candid-sheet-a.webp", column: 0, row: 0 },
-  { sheet: "/images/our_team/team-candid-sheet-a.webp", column: 1, row: 0 },
-  { sheet: "/images/our_team/team-candid-sheet-a.webp", column: 2, row: 0 },
-  { sheet: "/images/our_team/team-candid-sheet-a.webp", column: 0, row: 1 },
-  { sheet: "/images/our_team/team-candid-sheet-a.webp", column: 1, row: 1 },
-  { sheet: "/images/our_team/team-candid-sheet-b.webp", column: 0, row: 0 },
-  { sheet: "/images/our_team/team-candid-sheet-b.webp", column: 1, row: 0 },
-  { sheet: "/images/our_team/team-candid-sheet-b.webp", column: 2, row: 0 },
-  { sheet: "/images/our_team/team-candid-sheet-b.webp", column: 0, row: 1 },
-  { sheet: "/images/our_team/team-candid-sheet-b.webp", column: 1, row: 1 },
+const crewAtWorkImages = [
+  "/images/services/incentive-travel/gallery-1.jpg",
+  "/images/services/incentive-travel/hero.jpg",
+  "/images/services/mbti/gallery-5.jpg",
+  "/images/services/mbti/gallery-7.jpg",
+  "/images/services/mbti/testimonial.jpg",
+  "/images/services/ocean/addons.jpg",
+  "/images/services/ocean/gallery-2.jpg",
+  "/images/services/ocean/gallery-3.jpg",
+  "/images/services/ocean/gallery-5.jpg",
+  "/images/services/ocean/gallery-6.jpg",
+  "/images/services/ocean/how-it-works.jpg",
+  "/images/services/overseas-retreats/addons.jpg",
+  "/images/services/overseas-retreats/gallery-3.jpg",
+  "/images/services/overseas-retreats/how-it-works.jpg",
+  "/images/services/running-man/gallery-1.jpg",
+  "/images/services/running-man/gallery-2.jpg",
+  "/images/services/running-man/gallery-4.jpg",
+  "/images/services/running-man/hero.jpg",
+  "/images/services/tag-tical-laser-teambuilding/gallery-5.jpg",
+  "/images/services/tag-tical-laser-teambuilding/testimonial.jpg",
 ];
 
-const portraitRows = [
-  [teamPortraits[0], teamPortraits[6], teamPortraits[2], teamPortraits[8], teamPortraits[4], teamPortraits[7], teamPortraits[1]],
-  [teamPortraits[9], teamPortraits[3], teamPortraits[5], teamPortraits[1], teamPortraits[7], teamPortraits[0], teamPortraits[6]],
-  [teamPortraits[2], teamPortraits[8], teamPortraits[4], teamPortraits[5], teamPortraits[9], teamPortraits[3]],
+const crewAtWorkRows = [
+  crewAtWorkImages.slice(0, 7),
+  crewAtWorkImages.slice(7, 14),
+  crewAtWorkImages.slice(14),
 ];
-
-const portraitStyle = (portrait: TeamPortrait) => ({
-  backgroundImage: `url(${portrait.sheet})`,
-  backgroundPosition: `${portrait.column * 50}% ${portrait.row * 100}%`,
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "300% 200%",
-});
 
 export const OurTeam = () => {
   const reduceMotion = useReducedMotion();
-  const [isPaused, setIsPaused] = useState(false);
+  const [photoWallPaused, setPhotoWallPaused] = useState(false);
+  const pointerInsideRef = useRef(false);
+  const focusWithinRef = useRef(false);
+
+  const syncPhotoWallState = () => {
+    setPhotoWallPaused(pointerInsideRef.current || focusWithinRef.current);
+  };
 
   return (
     <section id="our-team" className="relative overflow-hidden bg-[#071a2a] py-20 text-white sm:py-24">
@@ -101,49 +104,78 @@ export const OurTeam = () => {
             className="min-w-0"
           >
             <div className="mb-4 flex items-center justify-between gap-4">
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/55">Meet the crew</p>
-              <p className="text-xs text-white/40">Planners &middot; producers &middot; facilitators</p>
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">Facilitation in Action</p>
+              <p className="text-xs text-white/70">Briefings &middot; live guidance &middot; event-day delivery</p>
             </div>
 
             {reduceMotion ? (
-              <div role="img" aria-label="Candid portraits of the Elluminate event crew" className="grid grid-cols-4 gap-2">
-                {teamPortraits.map((portrait, portraitIndex) => (
-                  <div
-                    key={`${portrait.sheet}-${portrait.column}-${portrait.row}-${portraitIndex}`}
-                    className="aspect-square overflow-hidden rounded-xl border border-white/10 bg-white/[0.06]"
-                    style={portraitStyle(portrait)}
-                  />
+              <div aria-hidden="true" className="grid grid-cols-4 gap-2">
+                {crewAtWorkImages.map((image) => (
+                  <div key={image} className="aspect-square overflow-hidden rounded-xl border border-white/10 bg-white/[0.06]">
+                    <img
+                      src={image}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 ))}
               </div>
             ) : (
               <div
-                role="img"
-                aria-label="Moving wall of candid Elluminate crew portraits"
-                className="relative space-y-3 overflow-hidden py-1"
+                role="region"
+                aria-label="Facilitation in action. Hover or focus to pause the moving event-day images."
+                tabIndex={0}
+                className="relative space-y-3 overflow-hidden py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
                 style={{
                   WebkitMaskImage: "linear-gradient(90deg, transparent, black 7%, black 93%, transparent)",
                   maskImage: "linear-gradient(90deg, transparent, black 7%, black 93%, transparent)",
                 }}
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
+                onPointerEnter={(event) => {
+                  if (event.pointerType === "touch") return;
+                  pointerInsideRef.current = true;
+                  syncPhotoWallState();
+                }}
+                onPointerLeave={(event) => {
+                  if (event.pointerType === "touch") return;
+                  pointerInsideRef.current = false;
+                  syncPhotoWallState();
+                }}
+                onFocusCapture={() => {
+                  focusWithinRef.current = true;
+                  syncPhotoWallState();
+                }}
+                onBlurCapture={(event) => {
+                  if (event.currentTarget.contains(event.relatedTarget as Node | null)) return;
+                  focusWithinRef.current = false;
+                  syncPhotoWallState();
+                }}
               >
-                {portraitRows.map((row, rowIndex) => (
+                {crewAtWorkRows.map((row, rowIndex) => (
                   <div key={rowIndex} className="overflow-hidden">
                     <div
                       className={`flex w-max ${rowIndex % 2 === 0 ? "event-photo-marquee-left" : "event-photo-marquee-right"}`}
                       style={{
                         animationDuration: `${36 + rowIndex * 6}s`,
-                        animationPlayState: isPaused ? "paused" : "running",
+                        animationPlayState: photoWallPaused ? "paused" : "running",
                       }}
                     >
                       {[0, 1].map((copyIndex) => (
-                        <div key={copyIndex} className="flex shrink-0 gap-3 pr-3" aria-hidden={copyIndex === 1 ? "true" : undefined}>
-                          {row.map((portrait, portraitIndex) => (
+                        <div key={copyIndex} className="flex shrink-0 gap-3 pr-3" aria-hidden="true">
+                          {row.map((image) => (
                             <div
-                              key={`${copyIndex}-${rowIndex}-${portraitIndex}-${portrait.sheet}-${portrait.column}-${portrait.row}`}
+                              key={`${copyIndex}-${rowIndex}-${image}`}
                               className="h-28 w-28 shrink-0 overflow-hidden rounded-[1.15rem] border border-white/10 bg-white/[0.06] shadow-lg transition duration-500 hover:scale-[1.03] sm:h-32 sm:w-32 xl:h-36 xl:w-36"
-                              style={portraitStyle(portrait)}
-                            />
+                            >
+                              <img
+                                src={image}
+                                alt=""
+                                loading="lazy"
+                                decoding="async"
+                                className="h-full w-full object-cover"
+                              />
+                            </div>
                           ))}
                         </div>
                       ))}

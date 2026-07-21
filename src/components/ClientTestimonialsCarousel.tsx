@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 
@@ -30,8 +30,57 @@ export const ClientTestimonialsCarousel = ({
   description = "Real words from the people who joined the experience.",
 }: ClientTestimonialsCarouselProps) => {
   const reduceMotion = useReducedMotion();
-  const [isInteractionPaused, setIsInteractionPaused] = useState(false);
+  const marqueeRowsRef = useRef<Array<HTMLDivElement | null>>([]);
+  const playbackRateRef = useRef(1);
+  const playbackAnimationFrameRef = useRef<number | null>(null);
+  const pointerInsideRef = useRef(false);
+  const focusWithinRef = useRef(false);
   const isDark = theme === "dark";
+
+  const animatePlaybackRate = useCallback((targetRate: number) => {
+    if (playbackAnimationFrameRef.current !== null) {
+      window.cancelAnimationFrame(playbackAnimationFrameRef.current);
+    }
+
+    const animations = marqueeRowsRef.current.flatMap((row) => (row ? row.getAnimations() : []));
+    const initialRate = playbackRateRef.current;
+    const startedAt = window.performance.now();
+    const duration = 320;
+
+    const updateRate = (timestamp: number) => {
+      const progress = Math.min((timestamp - startedAt) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+      const nextRate = initialRate + (targetRate - initialRate) * easedProgress;
+
+      animations.forEach((animation) => {
+        animation.playbackRate = nextRate;
+      });
+      playbackRateRef.current = nextRate;
+
+      if (progress < 1) {
+        playbackAnimationFrameRef.current = window.requestAnimationFrame(updateRate);
+      } else {
+        playbackAnimationFrameRef.current = null;
+      }
+    };
+
+    playbackAnimationFrameRef.current = window.requestAnimationFrame(updateRate);
+  }, []);
+
+  const syncPlaybackRate = useCallback(() => {
+    if (focusWithinRef.current) {
+      animatePlaybackRate(0);
+      return;
+    }
+
+    animatePlaybackRate(pointerInsideRef.current ? 0.25 : 1);
+  }, [animatePlaybackRate]);
+
+  useEffect(() => () => {
+    if (playbackAnimationFrameRef.current !== null) {
+      window.cancelAnimationFrame(playbackAnimationFrameRef.current);
+    }
+  }, []);
 
   const testimonialCard = (testimonial: ClientTestimonial, key: string, hidden = false) => {
     const displayName = testimonial.displayName ?? testimonial.name.split(" ")[0];
@@ -125,12 +174,28 @@ export const ClientTestimonialsCarousel = ({
         ) : (
           <div
             role="region"
-            aria-label="Client testimonials"
-            className="relative left-1/2 w-screen -translate-x-1/2 space-y-3 overflow-hidden py-2"
-            onMouseEnter={() => setIsInteractionPaused(true)}
-            onMouseLeave={() => setIsInteractionPaused(false)}
-            onFocusCapture={() => setIsInteractionPaused(true)}
-            onBlurCapture={() => setIsInteractionPaused(false)}
+            aria-label="Client testimonials. Focus this section to pause the moving stories."
+            tabIndex={0}
+            className="relative left-1/2 w-screen -translate-x-1/2 space-y-3 overflow-hidden py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
+            onPointerEnter={(event) => {
+              if (event.pointerType === "touch") return;
+              pointerInsideRef.current = true;
+              syncPlaybackRate();
+            }}
+            onPointerLeave={(event) => {
+              if (event.pointerType === "touch") return;
+              pointerInsideRef.current = false;
+              syncPlaybackRate();
+            }}
+            onFocusCapture={() => {
+              focusWithinRef.current = true;
+              syncPlaybackRate();
+            }}
+            onBlurCapture={(event) => {
+              if (event.currentTarget.contains(event.relatedTarget as Node | null)) return;
+              focusWithinRef.current = false;
+              syncPlaybackRate();
+            }}
           >
             <div className={`pointer-events-none absolute inset-y-0 left-0 z-20 w-16 bg-gradient-to-r sm:w-28 ${isDark ? "from-[#071a2a]" : "from-[#f4f7ff]"} to-transparent`} />
             <div className={`pointer-events-none absolute inset-y-0 right-0 z-20 w-16 bg-gradient-to-l sm:w-28 ${isDark ? "from-[#071a2a]" : "from-[#f4f7ff]"} to-transparent`} />
@@ -138,10 +203,12 @@ export const ClientTestimonialsCarousel = ({
             {rowOrders.map((order, rowIndex) => (
               <div key={rowIndex} className="overflow-hidden">
                 <div
+                  ref={(node) => {
+                    marqueeRowsRef.current[rowIndex] = node;
+                  }}
                   className={`flex w-max ${rowIndex % 2 === 0 ? "testimonial-marquee-left" : "testimonial-marquee-right"}`}
                   style={{
                     animationDuration: `${42 + rowIndex * 7}s`,
-                    animationPlayState: isInteractionPaused ? "paused" : "running",
                   }}
                 >
                   {[0, 1].map((copyIndex) => (

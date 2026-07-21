@@ -19,6 +19,7 @@ export interface ClientTestimonial {
  * reviews and attributable testimonials on the official Team Elevate site.
  * A small number of excerpts are lightly trimmed for card length without
  * changing the reviewer's meaning. Internal source details are not rendered.
+ * Do not infer employers for Google reviewers or add a star rating to client stories that were published without one.
  */
 export const clientTestimonials: ClientTestimonial[] = [
   {

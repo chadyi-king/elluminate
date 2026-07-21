@@ -72,14 +72,14 @@ test("landing narrative covers fit, planning difference, process, real media, pr
     "What Elluminate handles",
     "From rough brief to a team-building event you can confirm",
     "Real event moments",
-    "What teams have said",
+    "What clients love about us",
     "Before you send the brief",
   ];
 
   for (const copy of requiredCopy) assert.match(page, new RegExp(copy.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 
-  assert.match(page, /Elluminate and Team Elevate are operated by EXSTATIC PTE LTD/);
-  assert.match(page, /Originally published by Team Elevate/);
+  assert.doesNotMatch(page, /Originally published by Team Elevate/);
+  assert.doesNotMatch(page, /owner-confirmed shared event history/i);
   assert.match(page, /<FAQSchema faqs=\{faqs\}/);
   assert.match(page, /<OrganizationSchema type="LocalBusiness"/);
 });

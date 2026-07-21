@@ -31,12 +31,13 @@ test("every live service has a content-quality upgrade entry", () => {
   assert.deepEqual(Object.keys(serviceContentQuality).sort(), [...liveServiceSlugs].sort());
 });
 
-test("content-quality entries include concise buyer-facing copy and TODO markers", () => {
+test("content-quality entries include useful buyer-facing copy and TODO markers", () => {
   for (const slug of liveServiceSlugs) {
     const entry = serviceContentQuality[slug];
     assert.ok(entry.heroSubline.length > 40, `${slug} needs a meaningful hero subline`);
     assert.ok(entry.heroSubline.includes(" for "), `${slug} hero subline should state who it is for`);
-    assert.ok(wordCount(entry.overviewDescription) <= 80, `${slug} overview is longer than 80 words`);
+    assert.ok(wordCount(entry.overviewDescription) >= 35, `${slug} overview needs enough detail to explain the experience`);
+    assert.ok(wordCount(entry.overviewDescription) <= 250, `${slug} overview is too long for the shared page section`);
     assert.doesNotMatch(entry.overviewDescription, /Simply play|show up and have fun/i, `${slug} has casual template bleed`);
     assert.ok(entry.todos.some((todo) => todo.startsWith("TODO(content):")), `${slug} needs a TODO(content) marker`);
   }
@@ -65,7 +66,7 @@ test("shared service template renders upgraded copy, FAQs, and related experienc
     /ServiceFAQAccordion/,
     /relatedServices/,
     /Related Experiences/,
-    /to=\{`\/services\/\$\{relatedSlug\}`\}/,
+    /ExperienceCard slug=\{relatedSlug\}/,
   ]) {
     assert.match(servicePage, pattern);
   }

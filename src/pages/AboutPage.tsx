@@ -140,7 +140,11 @@ const AboutPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071a2a]/[0.45] via-transparent to-transparent" />
                 </div>
                 <div className="min-h-[188px] overflow-hidden rounded-[1.6rem] sm:min-h-[252px]">
-                  <img src="/images/services/amazing-race/gallery-1.jpg" alt="Participants racing through an outdoor team challenge" className="h-full w-full object-cover" />
+                  <img
+                    src="/images/services/battle-of-the-olympians/gallery-1.jpg"
+                    alt="Teammates laughing through a lively piggyback challenge"
+                    className="h-full w-full scale-[1.06] object-cover object-[48%_44%]"
+                  />
                 </div>
                 <div className="min-h-[188px] overflow-hidden rounded-[1.6rem] sm:min-h-[252px]">
                   <img src="/images/about/about-1.jpg" alt="A large company group celebrating together after an event" className="h-full w-full object-cover" />
