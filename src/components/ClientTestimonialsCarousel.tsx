@@ -15,12 +15,13 @@ export const ClientTestimonialsCarousel = ({
   theme = "light",
   eyebrow = "In their words",
   heading = "What Clients Love About Us",
-  description = "Real words from people and teams who joined us.",
+  description = "Honest words from people who joined the experience. No polished scripts, just what stayed with them.",
 }: ClientTestimonialsCarouselProps) => {
   const railRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const [canScrollBack, setCanScrollBack] = useState(false);
   const [canScrollForward, setCanScrollForward] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
   const isDark = theme === "dark";
 
   const updateControls = useCallback(() => {
@@ -60,6 +61,23 @@ export const ClientTestimonialsCarousel = ({
     [reduceMotion],
   );
 
+  useEffect(() => {
+    if (reduceMotion || isPaused) return;
+
+    const interval = window.setInterval(() => {
+      const rail = railRef.current;
+      if (!rail) return;
+
+      if (rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 8) {
+        rail.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        rail.scrollBy({ left: rail.clientWidth * 0.92, behavior: "smooth" });
+      }
+    }, 5000);
+
+    return () => window.clearInterval(interval);
+  }, [isPaused, reduceMotion]);
+
   return (
     <section
       className={`relative overflow-hidden py-20 sm:py-24 ${isDark ? "bg-[#071a2a] text-white" : "bg-[#f4f7ff] text-[#0b1424]"}`}
@@ -85,12 +103,12 @@ export const ClientTestimonialsCarousel = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: reduceMotion ? 0 : 0.55 }}
-          className="mx-auto mb-12 max-w-3xl text-center"
+          className="mx-auto mb-10 max-w-5xl text-center"
         >
           <span className={`mb-4 block text-xs font-bold uppercase tracking-[0.28em] ${isDark ? "text-sky-200" : "text-primary"}`}>
             {eyebrow}
           </span>
-          <h2 id="client-testimonials-heading" className="font-display text-4xl font-black leading-none sm:text-5xl lg:text-6xl">
+          <h2 id="client-testimonials-heading" className="font-display text-4xl font-black leading-none sm:text-5xl">
             {heading}
           </h2>
           <p className={`mx-auto mt-5 max-w-2xl text-base leading-7 sm:text-lg ${isDark ? "text-slate-300" : "text-slate-600"}`}>
@@ -119,6 +137,12 @@ export const ClientTestimonialsCarousel = ({
             aria-roledescription="carousel"
             aria-label="Client testimonials"
             tabIndex={0}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onFocusCapture={() => setIsPaused(true)}
+            onBlurCapture={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsPaused(false);
+            }}
             onKeyDown={(event) => {
               if (event.key === "ArrowLeft") {
                 event.preventDefault();
@@ -141,7 +165,7 @@ export const ClientTestimonialsCarousel = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : index * 0.06 }}
-                className={`relative min-h-[21rem] shrink-0 basis-[88%] snap-start overflow-hidden rounded-[2rem] border p-7 sm:basis-[calc(50%-0.625rem)] sm:p-8 lg:basis-[calc(33.333%-0.875rem)] 2xl:basis-[calc(25%-0.95rem)] ${
+                className={`relative min-h-[15rem] shrink-0 basis-[88%] snap-start overflow-hidden rounded-[1.6rem] border p-6 sm:basis-[calc(50%-0.625rem)] lg:basis-[calc(25%-0.95rem)] ${
                   isDark
                     ? "border-white/[0.12] bg-white/[0.07] backdrop-blur-sm"
                     : "border-white bg-white shadow-[0_22px_60px_rgba(41,70,120,0.10)]"
@@ -166,7 +190,7 @@ export const ClientTestimonialsCarousel = ({
                         </p>
                       )}
                       <p className={`mt-2 text-sm leading-5 ${isDark ? "text-white/55" : "text-slate-500"}`}>
-                        {testimonial.name}
+                        {testimonial.name.split(" ")[0]}
                       </p>
                     </div>
                     <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${isDark ? "bg-white/10" : "bg-sky-50"}`}>
@@ -174,17 +198,17 @@ export const ClientTestimonialsCarousel = ({
                     </span>
                   </div>
 
-                  <blockquote className={`mt-8 font-display text-xl font-bold leading-8 ${isDark ? "text-white/90" : "text-slate-800"}`}>
+                  <blockquote className={`mt-6 font-display text-lg font-bold leading-7 ${isDark ? "text-white/90" : "text-slate-800"}`}>
                     &ldquo;{testimonial.excerpt}&rdquo;
                   </blockquote>
 
-                  {testimonial.role && (
-                    <div className={`mt-auto border-t pt-5 ${isDark ? "border-white/10" : "border-slate-200"}`}>
-                      <p className={`text-sm leading-6 ${isDark ? "text-white/60" : "text-slate-500"}`}>
-                        {testimonial.role}{testimonial.company ? `, ${testimonial.company}` : ""}
-                      </p>
-                    </div>
-                  )}
+                  <div className={`mt-auto border-t pt-4 ${isDark ? "border-white/10" : "border-slate-200"}`}>
+                    <p className={`text-sm leading-6 ${isDark ? "text-white/60" : "text-slate-500"}`}>
+                      {testimonial.role
+                        ? `${testimonial.role}${testimonial.company ? `, ${testimonial.company}` : ""}`
+                        : "Google review"}
+                    </p>
+                  </div>
                 </div>
               </motion.article>
             ))}

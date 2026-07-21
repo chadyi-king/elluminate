@@ -18,7 +18,15 @@ import { ServiceOutcomes } from "@/components/service-page/ServiceOutcomes";
 import { ServicePillsSection } from "@/components/service-page/ServicePillsSection";
 import { servicesData } from "@/data/servicesData";
 import { serviceContentQuality } from "@/data/serviceContentQuality";
-import { allInScopeServiceSlugs, serviceCategoryLabels } from "@/data/siteScope";
+import {
+  allInScopeServiceSlugs,
+  equipmentActivityServices,
+  physicalTeamBuildingServices,
+  retreatServices,
+  serviceCategoryLabels,
+  trainingServices,
+  virtualTeamBuildingServices,
+} from "@/data/siteScope";
 import { SEO } from "@/components/SEO";
 import { ServiceMiniGallery } from "@/components/service-page/ServiceMiniGallery";
 import { ServiceDestinationsGrid } from "@/components/service-page/ServiceDestinationsGrid";
@@ -29,6 +37,33 @@ import {
   ServiceWorldBriefing,
   ServiceWorldFrame,
 } from "@/components/service-worlds/ServiceWorldFrame";
+
+const recommendationGroups = [
+  { items: physicalTeamBuildingServices, count: 2 },
+  { items: equipmentActivityServices, count: 1 },
+  { items: virtualTeamBuildingServices, count: 2 },
+  { items: retreatServices, count: 1 },
+  { items: trainingServices, count: 2 },
+];
+
+const hashText = (value: string) => {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+};
+
+const buildRelatedServices = (currentSlug: string) =>
+  recommendationGroups.flatMap(({ items, count }, groupIndex) =>
+    items
+      .filter((item) => item.slug !== currentSlug && servicesData[item.slug])
+      .map((item) => ({ ...item, score: hashText(`${currentSlug}:${groupIndex}:${item.slug}`) }))
+      .sort((a, b) => a.score - b.score)
+      .slice(0, count)
+      .map((item) => ({ slug: item.slug, service: servicesData[item.slug] })),
+  );
 
 const overseasRetreatsFaqs = [
   {
@@ -265,15 +300,15 @@ const ServicePage = () => {
   const displayFaqs = contentQuality?.faqs?.length
     ? contentQuality.faqs
     : legacyFaqsBySlug[slug || ""] ?? service.faqs;
-  const relatedServices = (contentQuality?.relatedSlugs ?? [])
-    .map((relatedSlug) => ({ slug: relatedSlug, service: servicesData[relatedSlug] }))
-    .filter((item) => item.service && allInScopeServiceSlugs.has(item.slug));
+  const relatedServices = buildRelatedServices(slug || "services");
   const journeyImages = Array.from(
     new Set(
       [
         service.overview.backgroundImage,
         service.howItWorksImage,
         service.addOnsImage,
+        service.ctaBackgroundImage,
+        service.testimonialBackgroundImage,
         ...(service.miniGallery?.images.map((image) => image.src) ?? []),
         ...service.gallery,
         service.hero.backgroundImage,
@@ -516,8 +551,8 @@ const ServicePage = () => {
 
       {/* Related experiences */}
       {relatedServices.length > 0 && (
-        <section className="py-16 px-4 bg-background">
-          <div className="container mx-auto max-w-6xl">
+        <section className="bg-background px-4 py-16 sm:py-20">
+          <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
                 {slug === "amazing-race" ? "Keep the Adventure Going" : "Related Experiences"}
@@ -528,20 +563,21 @@ const ServicePage = () => {
                   : "Compare this with other live Elluminate formats that may fit the same brief."}
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {relatedServices.map(({ slug: relatedSlug, service: relatedService }) => (
                 <Link
                   key={relatedSlug}
                   to={`/services/${relatedSlug}`}
-                  className="group relative isolate min-h-[300px] overflow-hidden rounded-[1.5rem] border border-border bg-slate-900 p-5 text-white transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl"
+                  className="group relative isolate min-h-[235px] overflow-hidden rounded-[1.4rem] border bg-slate-900 p-5 text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  style={{ borderColor: `${relatedService.accentColor}66` }}
                 >
                   <img src={relatedService.hero.backgroundImage} alt="" loading="lazy" decoding="async" className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black via-black/60 to-black/5" />
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black via-black/65 to-black/10" />
+                  <div className="absolute inset-x-0 bottom-0 -z-10 h-2/3 opacity-35" style={{ background: `linear-gradient(to top, ${relatedService.accentColor}, transparent)` }} />
                   <div className="flex h-full flex-col justify-end">
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/[0.65]">{serviceCategoryLabels[relatedSlug]}</p>
-                    <h3 className="mt-2 font-display text-2xl font-black text-white">{relatedService.hero.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-white/[0.72]">{relatedService.hero.subtitle}</p>
-                    <span className="mt-5 text-sm font-bold text-[#ffc400]">See This Experience →</span>
+                    <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white/70">{serviceCategoryLabels[relatedSlug]}</p>
+                    <h3 className="mt-2 font-display text-xl font-black leading-tight text-white">{relatedService.hero.title}</h3>
+                    <span className="mt-4 text-xs font-bold" style={{ color: relatedService.accentColor }}>See This Experience →</span>
                   </div>
                 </Link>
               ))}

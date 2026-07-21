@@ -1,176 +1,134 @@
-import { motion } from "framer-motion";
-import { Zap, Package, Crown, ArrowRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Crown, PackagePlus, Sparkles, Zap } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
 
-const trafficLights = [
+const planningLanes = [
   {
-    color: "#26D07C", // Green
+    color: "#26D07C",
+    tint: "#EAFBF3",
     icon: Zap,
-    title: "Share the brief",
-    subtitle: "Step 1",
-    description: "Tell us about the people attending, when the event may happen, and what you want the experience to achieve.",
-    features: [
-      "Estimated pax and participant profile",
-      "Date or timing window",
-      "Venue preference",
-      "Event objective",
+    label: "Green lane",
+    title: "Ready to roll",
+    description: "You know the activity you want. Keep the route simple and get the team playing.",
+    steps: [
+      { number: "01", title: "Pick the experience", copy: "Choose the activity, date and group size." },
+      { number: "02", title: "Lock in the essentials", copy: "Confirm the venue, timing and event-day brief." },
     ],
-    cta: "Plan My Event",
   },
   {
-    color: "#FFC400", // Amber
-    icon: Package,
-    title: "Find the right format",
-    subtitle: "Step 2",
-    description: "We shortlist the activities, retreat or workshop formats that suit your group, venue and goals.",
-    features: [
-      "Format and energy level",
-      "Indoor, outdoor, or virtual fit",
-      "Event flow and facilitation",
-      "Venue and logistics checks",
+    color: "#FFC400",
+    tint: "#FFF8DD",
+    icon: PackagePlus,
+    label: "Amber lane",
+    title: "Make it your own",
+    description: "Start with an activity, then layer in the details that turn it into your event.",
+    steps: [
+      { number: "03", title: "Add the good stuff", copy: "Bring in food, transport, venue support or prizes." },
+      { number: "04", title: "Shape the flow", copy: "Tune the pace, missions and facilitation around your people." },
     ],
-    cta: "Find My Format",
   },
   {
-    color: "#FF4F4F", // Red
+    color: "#FF4F4F",
+    tint: "#FFF0F0",
     icon: Crown,
-    title: "Confirm the event",
-    subtitle: "Step 3",
-    description: "Once the format, quote and logistics are agreed, we lock in the plan and get ready for event day.",
-    features: [
-      "Your confirmed event plan",
-      "What is included in your quote",
-      "Setup and event-day details",
-      "Final participant information",
+    label: "Red lane",
+    title: "Build something new",
+    description: "Come with the big idea. We will help turn it into a complete experience from scratch.",
+    steps: [
+      { number: "05", title: "Create the concept", copy: "Develop the theme, format and signature moments together." },
+      { number: "06", title: "Bring it to life", copy: "Produce the assets, logistics and show-ready event plan." },
     ],
-    cta: "Plan My Event",
   },
 ];
 
 export const TrafficLightSection = () => {
   const { openContactModal } = useContactModal();
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-background via-secondary/20 to-background">
-      {/* Background decorative elements */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-green-100/30 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 right-10 w-80 h-80 bg-yellow-100/30 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-1/3 w-64 h-64 bg-red-100/20 rounded-full blur-3xl" />
+    <section className="relative overflow-hidden bg-[#f7faff] py-20 sm:py-24">
+      <div className="absolute inset-0 opacity-50 [background-image:radial-gradient(circle_at_1px_1px,rgba(42,141,255,.16)_1px,transparent_0)] [background-size:34px_34px]" />
+      <div className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-sky-200/35 blur-[110px]" />
+      <div className="absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-violet-200/30 blur-[120px]" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
+      <div className="container relative z-10 mx-auto px-5 sm:px-6">
+        <motion.header
+          initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: reduceMotion ? 0 : 0.55 }}
+          className="mx-auto mb-12 max-w-3xl text-center"
+        >
+          <span className="mb-4 block text-xs font-bold uppercase tracking-[0.28em] text-primary">From idea to event day</span>
+          <h2 className="font-display text-4xl font-black leading-none text-foreground sm:text-5xl lg:text-6xl">
+            Choose Your <span className="text-primary">Planning Lane</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            Keep it simple, add a few extras or build the whole thing from scratch. Start wherever your event is today.
+          </p>
+        </motion.header>
+
+        <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3">
+          {planningLanes.map((lane, laneIndex) => {
+            const LaneIcon = lane.icon;
+
+            return (
+              <motion.article
+                key={lane.label}
+                initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: reduceMotion ? 0 : 0.5, delay: reduceMotion ? 0 : laneIndex * 0.08 }}
+                className="relative overflow-hidden rounded-[2rem] border border-white bg-white p-5 shadow-[0_22px_60px_rgba(41,70,120,.10)] sm:p-6"
+              >
+                <div className="absolute inset-x-0 top-0 h-1.5" style={{ backgroundColor: lane.color }} />
+                <div className="flex items-start gap-4 pt-2">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl" style={{ backgroundColor: lane.tint, color: lane.color }}>
+                    <LaneIcon className="h-6 w-6" aria-hidden="true" />
+                  </span>
+                  <div>
+                    <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em]" style={{ color: lane.color }}>{lane.label}</p>
+                    <h3 className="mt-1 font-display text-2xl font-black text-foreground">{lane.title}</h3>
+                  </div>
+                </div>
+
+                <p className="mt-4 min-h-[4.5rem] text-sm leading-6 text-muted-foreground">{lane.description}</p>
+
+                <div className="relative mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                  <span className="pointer-events-none absolute left-[calc(25%-1px)] right-[calc(25%-1px)] top-6 hidden h-px sm:block lg:hidden xl:block" style={{ backgroundColor: `${lane.color}55` }} />
+                  {lane.steps.map((step) => (
+                    <div key={step.number} className="relative rounded-[1.35rem] border p-4" style={{ borderColor: `${lane.color}35`, backgroundColor: lane.tint }}>
+                      <span className="relative z-10 inline-flex h-8 min-w-8 items-center justify-center rounded-full px-2 text-xs font-black text-white" style={{ backgroundColor: lane.color }}>
+                        {step.number}
+                      </span>
+                      <h4 className="mt-4 font-display text-base font-black text-foreground">{step.title}</h4>
+                      <p className="mt-2 text-xs leading-5 text-muted-foreground">{step.copy}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.article>
+            );
+          })}
+        </div>
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : 0.15 }}
+          className="mt-9 flex flex-col items-center justify-center gap-4 text-center sm:flex-row"
         >
-          <span className="text-primary text-sm tracking-[0.3em] uppercase font-display font-semibold mb-4 block">
-            From Brief to Event
+          <span className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground">
+            <Sparkles className="h-4 w-4 text-primary" aria-hidden="true" />
+            Not sure which lane fits? That is exactly what the first conversation is for.
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-foreground mb-4">
-            A <span className="bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 bg-clip-text text-transparent">Clear Planning Path</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            From your first enquiry to event day, every step stays clear.
-          </p>
+          <Button variant="hero" size="lg" onClick={openContactModal} className="group min-h-12 px-7">
+            Plan My Event
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          </Button>
         </motion.div>
-
-        {/* Traffic Light Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {trafficLights.map((light, index) => (
-            <motion.div
-              key={light.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.15 }}
-              className="relative group"
-            >
-              {/* Card */}
-              <div className="relative bg-white border border-border rounded-2xl p-8 h-full hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                {/* Traffic light glow effect */}
-                <motion.div
-                  className="absolute -top-20 left-1/2 -translate-x-1/2 w-40 h-40 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"
-                  style={{ backgroundColor: light.color }}
-                />
-
-                {/* Light indicator at top */}
-                <div className="flex justify-center mb-6">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="w-20 h-20 rounded-full flex items-center justify-center relative"
-                    style={{ backgroundColor: `${light.color}20` }}
-                  >
-                    {/* Pulsing ring */}
-                    <motion.div
-                      className="absolute inset-0 rounded-full"
-                      style={{ border: `3px solid ${light.color}` }}
-                      animate={{ scale: [1, 1.2, 1], opacity: [0.8, 0.3, 0.8] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                    <light.icon 
-                      className="w-9 h-9 relative z-10" 
-                      style={{ color: light.color }}
-                    />
-                  </motion.div>
-                </div>
-
-                {/* Subtitle badge */}
-                <div 
-                  className="text-xs font-display font-semibold px-3 py-1 rounded-full mx-auto mb-4 w-fit"
-                  style={{ backgroundColor: `${light.color}20`, color: light.color }}
-                >
-                  {light.subtitle}
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-display font-bold text-foreground mb-4 text-center">
-                  {light.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-muted-foreground text-center mb-6 leading-relaxed text-sm">
-                  {light.description}
-                </p>
-
-                {/* Features */}
-                <ul className="space-y-3 mb-8">
-                  {light.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <div 
-                        className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                        style={{ backgroundColor: `${light.color}20` }}
-                      >
-                        <div 
-                          className="w-2 h-2 rounded-full"
-                          style={{ backgroundColor: light.color }}
-                        />
-                      </div>
-                      <span className="text-muted-foreground text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <Button
-                  variant="outline"
-                  className="w-full group/btn"
-                  style={{ 
-                    borderColor: light.color,
-                    color: light.color,
-                  }}
-                  onClick={openContactModal}
-                >
-                  <span>{light.cta}</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

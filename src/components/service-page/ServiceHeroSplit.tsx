@@ -47,7 +47,7 @@ const getAccentGradient = (primary: string, secondary?: string) =>
 
 // Per-service themed prop SVG rendered instead of a generic card
 const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string }) => {
-  const size = 280;
+  const size = slug === "amazing-race" ? 520 : 320;
   const common = { width: size, height: size, viewBox: "0 0 200 200", fill: "none", xmlns: "http://www.w3.org/2000/svg" };
 
   switch (slug) {

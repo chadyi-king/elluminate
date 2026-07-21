@@ -35,10 +35,10 @@ export const VideoSection = () => {
             See Us in Action
           </span>
           <h2 className="font-display text-4xl font-black leading-none tracking-[-0.035em] sm:text-5xl lg:text-6xl">
-            Watch the Room Come Alive
+            Watch Your <span className="text-[#2A8DFF]">Team</span> Come Alive
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
-            A quick look at the energy, facilitation and moments that make an Elluminate event feel alive.
+            See the nerves disappear, the volume rise and a room full of colleagues start playing like a team.
           </p>
         </motion.header>
 

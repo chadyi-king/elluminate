@@ -176,8 +176,8 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     },
   ),
   "csi-bones": item(
-    "An indoor mystery format for teams that prefer deduction, evidence review, and quieter collaboration.",
-    "CSI-Bones is a forensic-style team activity built around clues, evidence, and group reasoning. It suits teams that want problem solving without heavy physical exertion. Share pax, venue, timing, and desired intensity so the investigation can be scoped for your group.",
+    "The room is full of evidence. The problem? Some of it is trying to fool you. Gather your sharpest eyes, question every theory and crack the case before time runs out.",
+    "The case begins before anyone has the full story. A file lands on the table, the first clues surface and suddenly every teammate has a theory. Some will chase the obvious lead. Others will notice the tiny detail that changes everything.\n\nAs the evidence builds, teams must compare notes, challenge assumptions and decide which version of events actually holds together. Quiet observers become crucial. Confident detectives have to defend their logic. The room shifts from polite discussion to a full investigation.\n\nWe tune the case difficulty, room setup and facilitation pace around your group, then bring every team back for the accusation, the reveal and the moment everyone discovers which clue had them completely fooled.",
     [
       { question: "What is CSI Bones?", answer: "CSI Bones is a mystery-solving team building activity where participants investigate clues, solve puzzles, and work together to uncover the truth." },
       { question: "Does the programme require detective experience?", answer: "No. The challenges are designed for everyone regardless of prior experience." },
@@ -255,8 +255,8 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     ["minute-to-win-it", "running-man", "corporate-days", "team-building"],
   ),
   "builder-cross": item(
-    "A construction-style challenge for teams that want hands-on collaboration and practical problem solving.",
-    "Builder Cross asks participants to plan, build, test, and improve together under a facilitated challenge structure. It works for teams that want creativity and communication in a controlled setting. Share pax, venue, timing, and space constraints so materials and flow can be planned.",
+    "The brief looks simple until the materials hit the table and the clock starts. Plan it, build it, test it, then find out whether your team created a masterpiece or a magnificent wobble.",
+    "Your team opens the build brief, surveys the materials and starts turning half-formed ideas into something real. Roles appear quickly: the big-picture dreamer, the practical engineer, the quality inspector and the teammate holding everything steady while insisting it was always part of the plan.\n\nThen comes the test. Structures bend, assumptions collapse and teams have to decide what to reinforce, what to abandon and how to keep moving without starting over. The fun is in the scramble, but the real story is how your people plan, communicate and adapt together.\n\nWe shape the challenge, materials and difficulty around your venue, timing and group. By the final reveal, every team has something to present, defend and cheer for, whether it stands perfectly or survives through pure collective determination.",
     [
       { question: "What is Builder Cross?", answer: "Builder Cross is a collaborative team building activity where teams construct structures while overcoming changing business scenarios and unexpected challenges." },
       { question: "What skills does Builder Cross develop?", answer: "The programme develops communication, collaboration, leadership, creativity, planning, and adaptability." },

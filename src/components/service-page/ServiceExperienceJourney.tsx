@@ -25,6 +25,9 @@ import {
   getServiceExperienceContent,
   type ServiceExperienceVariant,
 } from "@/data/serviceExperienceContent";
+import adventurePair from "@/assets/service-characters/adventure-pair.webp";
+import creativePair from "@/assets/service-characters/creative-pair.webp";
+import detectivePair from "@/assets/service-characters/detective-pair.webp";
 
 interface ServiceExperienceJourneyProps {
   slug: string;
@@ -175,6 +178,27 @@ const variantThemes: Record<ServiceExperienceVariant, VariantTheme> = {
   },
 };
 
+const characterPairByVariant: Record<ServiceExperienceVariant, string> = {
+  expedition: adventurePair,
+  investigation: detectivePair,
+  intrigue: detectivePair,
+  storybook: creativePair,
+  arena: adventurePair,
+  maker: creativePair,
+  arcade: creativePair,
+  strategy: adventurePair,
+  tactical: detectivePair,
+  "virtual-console": creativePair,
+  retreat: creativePair,
+  travel: adventurePair,
+  profiling: creativePair,
+  learning: creativePair,
+  wellness: creativePair,
+  leadership: creativePair,
+  festival: creativePair,
+  camp: adventurePair,
+};
+
 export function ServiceExperienceJourney({
   slug,
   serviceTitle,
@@ -188,6 +212,7 @@ export function ServiceExperienceJourney({
   if (!content) return null;
 
   const theme = variantThemes[content.variant];
+  const characterPair = characterPairByVariant[content.variant];
   const ThemeIcon = theme.icon;
   const images = Array.from(
     new Set([content.image?.src, ...fallbackImages].filter((image): image is string => Boolean(image))),
@@ -216,13 +241,24 @@ export function ServiceExperienceJourney({
         style={{ backgroundColor: `${secondaryAccent}24` }}
       />
 
+      <motion.img
+        src={characterPair}
+        alt=""
+        aria-hidden="true"
+        initial={reduceMotion ? false : { opacity: 0, y: 26 }}
+        whileInView={{ opacity: 0.96, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: reduceMotion ? 0 : 0.7 }}
+        className="pointer-events-none absolute inset-x-0 top-10 z-[1] mx-auto hidden h-[31rem] w-[min(100%,96rem)] object-contain xl:block"
+      />
+
       <div className="container relative z-10 mx-auto max-w-7xl">
         <motion.header
           initial={reduceMotion ? false : { opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: reduceMotion ? 0 : 0.55 }}
-          className="mx-auto mb-12 max-w-3xl text-center"
+          className="mx-auto mb-12 max-w-3xl text-center xl:min-h-[22rem] xl:pt-8"
         >
           <span
             className="mb-5 inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.28em]"
