@@ -378,7 +378,7 @@ export const SocialProofSection = () => {
   );
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-blue-50 py-20 sm:py-24">
+    <section id="social-proof" className="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-blue-50 py-20 sm:py-24">
       <div className="absolute left-1/2 top-1/2 h-[620px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
 
       <div className="container relative z-10 mx-auto px-5 sm:px-6">
@@ -442,7 +442,7 @@ export const SocialProofSection = () => {
         </div>
 
         {reduceMotion ? (
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+          <div id="client-logo-wall" className="relative left-1/2 grid w-screen -translate-x-1/2 grid-cols-2 gap-3 px-4 sm:grid-cols-4 sm:px-6 lg:grid-cols-8">
             {defaultClientLogos.map((logo) => (
               <div
                 key={logo.id}
@@ -461,9 +461,9 @@ export const SocialProofSection = () => {
             ))}
           </div>
         ) : (
-          <div ref={logoWallRef} className="relative -mx-5 space-y-3 overflow-hidden py-2 sm:-mx-6">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-28" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-28" />
+          <div id="client-logo-wall" ref={logoWallRef} className="relative left-1/2 w-screen -translate-x-1/2 space-y-3 overflow-hidden py-2">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent sm:w-36" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent sm:w-36" />
             {logoRows.map((row, rowIndex) => {
               return (
                 <motion.div

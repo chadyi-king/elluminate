@@ -161,7 +161,14 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-20 bg-gradient-to-t from-white via-white/75 to-transparent" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[-1px] z-[35] h-20 sm:h-28">
+        <svg viewBox="0 0 1920 120" preserveAspectRatio="none" className="h-full w-full" focusable="false">
+          <path
+            fill="#07151f"
+            d="M0 76 C270 18 520 106 820 62 C1125 16 1440 96 1920 28 V120 H0 Z"
+          />
+        </svg>
+      </div>
     </section>
   );
 };

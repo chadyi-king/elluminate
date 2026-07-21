@@ -266,8 +266,8 @@ export const PopularExperiencesSection = () => {
                 transition={{ duration: reduceMotion ? 0 : 0.3 }}
                 className="group overflow-hidden rounded-[1.6rem] border shadow-[0_14px_45px_rgba(20,40,80,0.08)]"
                 style={{
-                  borderColor: `${experience.accent}2b`,
-                  background: `linear-gradient(180deg, #ffffff 45%, ${experience.accent}12 100%)`,
+                  borderColor: `${experience.accent}38`,
+                  background: `linear-gradient(180deg, #ffffff 42%, ${experience.accent}18 100%)`,
                 }}
               >
                 <Link to={`/services/${experience.slug}`} className="block focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary/25">

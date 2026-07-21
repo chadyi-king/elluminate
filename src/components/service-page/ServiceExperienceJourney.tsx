@@ -222,6 +222,7 @@ export function ServiceExperienceJourney({
 
   return (
     <section
+      id="experience-journey"
       aria-labelledby={titleId}
       className={`relative isolate overflow-hidden px-4 py-20 md:py-24 ${theme.sectionClassName}`}
     >
@@ -241,41 +242,62 @@ export function ServiceExperienceJourney({
         style={{ backgroundColor: `${secondaryAccent}24` }}
       />
 
-      <motion.img
-        src={characterPair}
-        alt=""
-        aria-hidden="true"
-        initial={reduceMotion ? false : { opacity: 0, y: 26 }}
-        whileInView={{ opacity: 0.96, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: reduceMotion ? 0 : 0.7 }}
-        className="pointer-events-none absolute inset-x-0 top-10 z-[1] mx-auto hidden h-[31rem] w-[min(100%,96rem)] object-contain xl:block"
-      />
-
       <div className="container relative z-10 mx-auto max-w-7xl">
-        <motion.header
-          initial={reduceMotion ? false : { opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: reduceMotion ? 0 : 0.55 }}
-          className="mx-auto mb-12 max-w-3xl text-center xl:min-h-[22rem] xl:pt-8"
-        >
-          <span
-            className="mb-5 inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.28em]"
-            style={{ borderColor: `${accentColor}70`, backgroundColor: `${accentColor}14`, color: accentColor }}
+        <div className="relative mx-auto mb-12 max-w-[96rem] xl:mb-0 xl:min-h-[27rem] 2xl:min-h-[31rem]">
+          <motion.div
+            aria-hidden="true"
+            initial={reduceMotion ? false : { opacity: 0, x: -24, y: 18 }}
+            whileInView={{ opacity: 0.98, x: 0, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: reduceMotion ? 0 : 0.7 }}
+            className="pointer-events-none absolute -bottom-4 -left-16 z-[1] hidden h-[27rem] w-[21rem] overflow-hidden xl:block 2xl:left-0 2xl:h-[31rem] 2xl:w-[24rem]"
           >
-            <ThemeIcon className="h-4 w-4" aria-hidden="true" />
-            {theme.label}
-          </span>
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-white/55">{content.eyebrow}</p>
-          <h2 id={titleId} className="mt-4 font-display text-4xl font-black leading-[1.03] md:text-5xl lg:text-6xl">
-            {content.title}
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/70 md:text-lg">{content.intro}</p>
-          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-white/45">{content.motif}</p>
-        </motion.header>
+            <img
+              src={characterPair}
+              alt=""
+              className="absolute bottom-0 left-0 h-full w-auto max-w-none object-contain object-bottom"
+            />
+          </motion.div>
 
-        <ol className="relative grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <motion.div
+            aria-hidden="true"
+            initial={reduceMotion ? false : { opacity: 0, x: 24, y: 18 }}
+            whileInView={{ opacity: 0.98, x: 0, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: reduceMotion ? 0 : 0.7 }}
+            className="pointer-events-none absolute -bottom-4 -right-16 z-[1] hidden h-[27rem] w-[21rem] overflow-hidden xl:block 2xl:right-0 2xl:h-[31rem] 2xl:w-[24rem]"
+          >
+            <img
+              src={characterPair}
+              alt=""
+              className="absolute bottom-0 right-0 h-full w-auto max-w-none object-contain object-bottom"
+            />
+          </motion.div>
+
+          <motion.header
+            initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: reduceMotion ? 0 : 0.55 }}
+            className="relative z-10 mx-auto max-w-[42rem] text-center xl:pt-8"
+          >
+            <span
+              className="mb-5 inline-flex items-center gap-2 rounded-full border px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.28em]"
+              style={{ borderColor: `${accentColor}70`, backgroundColor: `${accentColor}14`, color: accentColor }}
+            >
+              <ThemeIcon className="h-4 w-4" aria-hidden="true" />
+              {theme.label}
+            </span>
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-white/55">{content.eyebrow}</p>
+            <h2 id={titleId} className="mt-4 font-display text-4xl font-black leading-[1.03] md:text-5xl lg:text-6xl">
+              {content.title}
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/70 md:text-lg">{content.intro}</p>
+            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-white/45">{content.motif}</p>
+          </motion.header>
+        </div>
+
+        <ol className="relative z-20 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {content.stages.map((stage, index) => {
             const image = images[index];
             return (

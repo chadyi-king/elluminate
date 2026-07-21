@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { ArrowRight, Brain, Flag, Gamepad2, Monitor, Plane, Sparkles } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GoldParticles } from "@/components/GoldParticles";
@@ -64,6 +65,15 @@ const buildRelatedServices = (currentSlug: string) =>
       .slice(0, count)
       .map((item) => ({ slug: item.slug, service: servicesData[item.slug] })),
   );
+
+const getRelatedServiceIcon = (relatedSlug: string) => {
+  if (physicalTeamBuildingServices.some((item) => item.slug === relatedSlug)) return Flag;
+  if (equipmentActivityServices.some((item) => item.slug === relatedSlug)) return Gamepad2;
+  if (virtualTeamBuildingServices.some((item) => item.slug === relatedSlug)) return Monitor;
+  if (retreatServices.some((item) => item.slug === relatedSlug)) return Plane;
+  if (trainingServices.some((item) => item.slug === relatedSlug)) return Brain;
+  return Sparkles;
+};
 
 const overseasRetreatsFaqs = [
   {
@@ -564,23 +574,53 @@ const ServicePage = () => {
               </p>
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {relatedServices.map(({ slug: relatedSlug, service: relatedService }) => (
-                <Link
-                  key={relatedSlug}
-                  to={`/services/${relatedSlug}`}
-                  className="group relative isolate min-h-[235px] overflow-hidden rounded-[1.4rem] border bg-slate-900 p-5 text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                  style={{ borderColor: `${relatedService.accentColor}66` }}
-                >
-                  <img src={relatedService.hero.backgroundImage} alt="" loading="lazy" decoding="async" className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black via-black/65 to-black/10" />
-                  <div className="absolute inset-x-0 bottom-0 -z-10 h-2/3 opacity-35" style={{ background: `linear-gradient(to top, ${relatedService.accentColor}, transparent)` }} />
-                  <div className="flex h-full flex-col justify-end">
-                    <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white/70">{serviceCategoryLabels[relatedSlug]}</p>
-                    <h3 className="mt-2 font-display text-xl font-black leading-tight text-white">{relatedService.hero.title}</h3>
-                    <span className="mt-4 text-xs font-bold" style={{ color: relatedService.accentColor }}>See This Experience →</span>
-                  </div>
-                </Link>
-              ))}
+              {relatedServices.map(({ slug: relatedSlug, service: relatedService }) => {
+                const RelatedIcon = getRelatedServiceIcon(relatedSlug);
+
+                return (
+                  <Link
+                    key={relatedSlug}
+                    to={`/services/${relatedSlug}`}
+                    className="group overflow-hidden rounded-[1.4rem] border shadow-[0_14px_45px_rgba(20,40,80,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                    style={{
+                      borderColor: `${relatedService.accentColor}38`,
+                      background: `linear-gradient(180deg, #ffffff 42%, ${relatedService.accentColor}18 100%)`,
+                    }}
+                  >
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img
+                        src={relatedService.hero.backgroundImage}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
+                      <span
+                        className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-2xl text-white shadow-lg"
+                        style={{ backgroundColor: relatedService.accentColor }}
+                      >
+                        <RelatedIcon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                      <span className="absolute bottom-4 left-4 rounded-full border border-white/25 bg-slate-950/50 px-3 py-1 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-white backdrop-blur-md">
+                        {serviceCategoryLabels[relatedSlug]}
+                      </span>
+                    </div>
+                    <div className="p-5">
+                      <div className="flex items-start justify-between gap-3">
+                        <h3 className="font-display text-xl font-black leading-tight text-foreground">{relatedService.hero.title}</h3>
+                        <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-primary transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                      </div>
+                      <span
+                        className="mt-4 inline-flex rounded-full px-3 py-1.5 text-xs font-bold"
+                        style={{ backgroundColor: `${relatedService.accentColor}18`, color: relatedService.accentColor }}
+                      >
+                        See this experience
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
