@@ -14,6 +14,9 @@ import battleOfTheOlympiansLogo from "../../../public/images/service-page-logos/
 import sotongGameLogo from "../../../public/images/service-page-logos/sotong-game.svg.asset.json";
 import treasureHeistLogo from "../../../public/images/service-page-logos/treasure-heist.svg.asset.json";
 import runningManLogo from "../../../public/images/service-page-logos/running-man.svg.asset.json";
+import overseasRetreatsLogo from "../../../public/images/service-page-logos/overseas-retreats.svg.asset.json";
+import localRetreatsLogo from "../../../public/images/service-page-logos/local-retreats.svg.asset.json";
+import incentiveTravelLogo from "../../../public/images/service-page-logos/incentive-travel.svg.asset.json";
 
 const resolveUploadedAssetUrl = (src: string) =>
   import.meta.env.DEV && src.startsWith("/__l5e/") ? `https://elluminate.sg${src}` : src;
