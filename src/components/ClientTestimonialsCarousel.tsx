@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Pause, Play, Quote, Star } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 
 import { clientTestimonials, type ClientTestimonial } from "@/data/clientTestimonials";
 
@@ -23,12 +23,6 @@ const rowOrders = [
   buildRowOrder(Math.floor((clientTestimonials.length * 2) / 3), 1),
 ];
 
-const cardWidth = (testimonial: ClientTestimonial) => {
-  if (testimonial.excerpt.length > 90) return "w-[24rem] sm:w-[28rem]";
-  if (testimonial.excerpt.length > 42) return "w-[20rem] sm:w-[23rem]";
-  return "w-[15.5rem] sm:w-[17.5rem]";
-};
-
 export const ClientTestimonialsCarousel = ({
   theme = "light",
   eyebrow = "In their words",
@@ -37,8 +31,6 @@ export const ClientTestimonialsCarousel = ({
 }: ClientTestimonialsCarouselProps) => {
   const reduceMotion = useReducedMotion();
   const [isInteractionPaused, setIsInteractionPaused] = useState(false);
-  const [isManuallyPaused, setIsManuallyPaused] = useState(false);
-  const isPaused = isInteractionPaused || isManuallyPaused;
   const isDark = theme === "dark";
 
   const testimonialCard = (testimonial: ClientTestimonial, key: string, hidden = false) => {
@@ -52,7 +44,7 @@ export const ClientTestimonialsCarousel = ({
       <article
         key={key}
         aria-hidden={hidden ? "true" : undefined}
-        className={`relative min-h-[10.5rem] shrink-0 overflow-hidden rounded-[1.45rem] border p-5 ${cardWidth(testimonial)} ${
+        className={`relative h-[13.5rem] w-[19rem] shrink-0 overflow-hidden rounded-[1.35rem] border p-4 sm:w-[21rem] ${
           isDark
             ? "border-white/[0.12] bg-white/[0.075] backdrop-blur-sm"
             : "border-white bg-white shadow-[0_18px_48px_rgba(41,70,120,0.10)]"
@@ -67,13 +59,13 @@ export const ClientTestimonialsCarousel = ({
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0">
               {testimonial.rating && (
-                <span className="flex gap-0.5" aria-label="5 out of 5 stars">
+                <span className="flex gap-0.5" role="img" aria-label="5 out of 5 stars">
                   {Array.from({ length: testimonial.rating }, (_, starIndex) => (
                     <Star key={starIndex} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" aria-hidden="true" />
                   ))}
                 </span>
               )}
-              <p className={`${testimonial.rating ? "mt-2" : ""} truncate text-sm font-semibold ${isDark ? "text-white/65" : "text-slate-500"}`}>
+              <p className={`${testimonial.rating ? "mt-1.5" : ""} truncate text-sm font-semibold ${isDark ? "text-white/75" : "text-slate-500"}`}>
                 {displayName}
               </p>
             </div>
@@ -82,12 +74,12 @@ export const ClientTestimonialsCarousel = ({
             </span>
           </div>
 
-          <blockquote className={`mt-4 font-display text-base font-bold leading-6 ${isDark ? "text-white/90" : "text-slate-800"}`}>
+          <blockquote className={`mt-3 font-display text-[0.9rem] font-bold leading-[1.28rem] ${isDark ? "text-white/90" : "text-slate-800"}`}>
             &ldquo;{testimonial.excerpt}&rdquo;
           </blockquote>
 
           {byline && (
-            <p className={`mt-auto border-t pt-3 text-xs leading-5 ${isDark ? "border-white/10 text-white/55" : "border-slate-200 text-slate-500"}`}>
+            <p className={`mt-auto border-t pt-2 text-[0.7rem] leading-4 ${isDark ? "border-white/10 text-white/55" : "border-slate-200 text-slate-500"}`}>
               {byline}
             </p>
           )}
@@ -124,21 +116,6 @@ export const ClientTestimonialsCarousel = ({
           <p className={`mx-auto mt-5 max-w-2xl text-base leading-7 sm:text-lg ${isDark ? "text-slate-300" : "text-slate-600"}`}>
             {description}
           </p>
-          {!reduceMotion && (
-            <button
-              type="button"
-              onClick={() => setIsManuallyPaused((paused) => !paused)}
-              className={`mx-auto mt-5 inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-xs font-bold transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sky-400/30 ${
-                isDark
-                  ? "border-white/15 bg-white/[0.06] text-white/70 hover:bg-white/10 hover:text-white"
-                  : "border-slate-200 bg-white/80 text-slate-600 hover:border-sky-200 hover:text-primary"
-              }`}
-              aria-pressed={isManuallyPaused}
-            >
-              {isManuallyPaused ? <Play className="h-3.5 w-3.5" aria-hidden="true" /> : <Pause className="h-3.5 w-3.5" aria-hidden="true" />}
-              {isManuallyPaused ? "Play client stories" : "Pause client stories"}
-            </button>
-          )}
         </motion.header>
 
         {reduceMotion ? (
@@ -164,7 +141,7 @@ export const ClientTestimonialsCarousel = ({
                   className={`flex w-max ${rowIndex % 2 === 0 ? "testimonial-marquee-left" : "testimonial-marquee-right"}`}
                   style={{
                     animationDuration: `${42 + rowIndex * 7}s`,
-                    animationPlayState: isPaused ? "paused" : "running",
+                    animationPlayState: isInteractionPaused ? "paused" : "running",
                   }}
                 >
                   {[0, 1].map((copyIndex) => (

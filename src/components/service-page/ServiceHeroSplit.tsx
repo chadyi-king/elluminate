@@ -691,7 +691,7 @@ export const ServiceHeroSplit = ({
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              Welcome To
+              {slug === "amazing-race" ? "Welcome To The" : "Welcome To"}
             </motion.p>
             
             {/* Main title - white */}

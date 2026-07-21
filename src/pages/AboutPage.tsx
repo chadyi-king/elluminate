@@ -136,14 +136,14 @@ const AboutPage = () => {
 
               <motion.div {...reveal(0.1)} className="grid grid-cols-[1.25fr_0.75fr] gap-3 sm:gap-4">
                 <div className="relative row-span-2 min-h-[390px] overflow-hidden rounded-[2rem] shadow-2xl sm:min-h-[520px]">
-                  <img src="/images/about/about-4.jpg" alt="Elluminate facilitator briefing a group" className="h-full w-full object-cover" />
+                  <img src="/images/services/battle-of-the-olympians/gallery-3.jpg" alt="A team laughing together during a high-energy outdoor challenge" className="h-full w-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071a2a]/[0.45] via-transparent to-transparent" />
                 </div>
                 <div className="min-h-[188px] overflow-hidden rounded-[1.6rem] sm:min-h-[252px]">
-                  <img src="/images/about/about-1.jpg" alt="Large group gathered for a company experience" className="h-full w-full object-cover" />
+                  <img src="/images/services/amazing-race/gallery-1.jpg" alt="Participants racing through an outdoor team challenge" className="h-full w-full object-cover" />
                 </div>
                 <div className="min-h-[188px] overflow-hidden rounded-[1.6rem] sm:min-h-[252px]">
-                  <img src="/images/about/about-3.jpg" alt="Company group gathered near Marina Bay" className="h-full w-full object-cover" />
+                  <img src="/images/about/about-1.jpg" alt="A large company group celebrating together after an event" className="h-full w-full object-cover" />
                 </div>
               </motion.div>
             </div>

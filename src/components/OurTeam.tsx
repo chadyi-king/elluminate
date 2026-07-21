@@ -26,30 +26,37 @@ const teamRoles = [
   { label: "Post-event wrap", icon: ClipboardCheck },
 ];
 
-const eventPhotos = [
-  "/images/about/about-4.jpg",
-  "/images/about/about-5.jpg",
-  "/images/about/about-6.jpg",
-  "/images/services/amazing-race/gallery-2.jpg",
-  "/images/services/amazing-race/gallery-3.jpg",
-  "/images/services/amazing-race/gallery-5.jpg",
-  "/images/services/amazing-race/gallery-6.jpg",
-  "/images/services/csi-bones/gallery-1.jpg",
-  "/images/services/csi-bones/gallery-2.jpg",
-  "/images/services/csi-bones/gallery-3.jpg",
-  "/images/services/csi-bones/gallery-5.jpg",
-  "/images/services/csi-bones/gallery-6.jpg",
-  "/images/services/workshops/gallery-1.jpg",
-  "/images/services/workshops/gallery-4.jpg",
-  "/images/services/workshops/gallery-5.jpg",
-  "/images/services/workshops/gallery-6.jpg",
-  "/images/services/local-retreats/gallery-3.jpg",
-  "/images/services/local-retreats/gallery-4.jpg",
-  "/images/services/local-retreats/gallery-6.jpg",
-  "/images/services/overseas-retreats/gallery-6.jpg",
+interface TeamPortrait {
+  sheet: string;
+  column: 0 | 1 | 2;
+  row: 0 | 1;
+}
+
+const teamPortraits: TeamPortrait[] = [
+  { sheet: "/images/our_team/team-candid-sheet-a.webp", column: 0, row: 0 },
+  { sheet: "/images/our_team/team-candid-sheet-a.webp", column: 1, row: 0 },
+  { sheet: "/images/our_team/team-candid-sheet-a.webp", column: 2, row: 0 },
+  { sheet: "/images/our_team/team-candid-sheet-a.webp", column: 0, row: 1 },
+  { sheet: "/images/our_team/team-candid-sheet-a.webp", column: 1, row: 1 },
+  { sheet: "/images/our_team/team-candid-sheet-b.webp", column: 0, row: 0 },
+  { sheet: "/images/our_team/team-candid-sheet-b.webp", column: 1, row: 0 },
+  { sheet: "/images/our_team/team-candid-sheet-b.webp", column: 2, row: 0 },
+  { sheet: "/images/our_team/team-candid-sheet-b.webp", column: 0, row: 1 },
+  { sheet: "/images/our_team/team-candid-sheet-b.webp", column: 1, row: 1 },
 ];
 
-const eventPhotoRows = [eventPhotos.slice(0, 7), eventPhotos.slice(7, 14), eventPhotos.slice(14)];
+const portraitRows = [
+  [teamPortraits[0], teamPortraits[6], teamPortraits[2], teamPortraits[8], teamPortraits[4], teamPortraits[7], teamPortraits[1]],
+  [teamPortraits[9], teamPortraits[3], teamPortraits[5], teamPortraits[1], teamPortraits[7], teamPortraits[0], teamPortraits[6]],
+  [teamPortraits[2], teamPortraits[8], teamPortraits[4], teamPortraits[5], teamPortraits[9], teamPortraits[3]],
+];
+
+const portraitStyle = (portrait: TeamPortrait) => ({
+  backgroundImage: `url(${portrait.sheet})`,
+  backgroundPosition: `${portrait.column * 50}% ${portrait.row * 100}%`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "300% 200%",
+});
 
 export const OurTeam = () => {
   const reduceMotion = useReducedMotion();
@@ -94,22 +101,24 @@ export const OurTeam = () => {
             className="min-w-0"
           >
             <div className="mb-4 flex items-center justify-between gap-4">
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/55">Behind the scenes</p>
-              <p className="text-xs text-white/40">Real moments from event days</p>
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/55">Meet the crew</p>
+              <p className="text-xs text-white/40">Planners &middot; producers &middot; facilitators</p>
             </div>
 
             {reduceMotion ? (
-              <div role="img" aria-label="Behind-the-scenes moments from Elluminate events" className="grid grid-cols-4 gap-2">
-                {eventPhotos.map((photo) => (
-                  <div key={photo} className="aspect-square overflow-hidden rounded-xl border border-white/10">
-                    <img src={photo} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
-                  </div>
+              <div role="img" aria-label="Candid portraits of the Elluminate event crew" className="grid grid-cols-4 gap-2">
+                {teamPortraits.map((portrait, portraitIndex) => (
+                  <div
+                    key={`${portrait.sheet}-${portrait.column}-${portrait.row}-${portraitIndex}`}
+                    className="aspect-square overflow-hidden rounded-xl border border-white/10 bg-white/[0.06]"
+                    style={portraitStyle(portrait)}
+                  />
                 ))}
               </div>
             ) : (
               <div
                 role="img"
-                aria-label="Moving wall of behind-the-scenes moments from Elluminate events"
+                aria-label="Moving wall of candid Elluminate crew portraits"
                 className="relative space-y-3 overflow-hidden py-1"
                 style={{
                   WebkitMaskImage: "linear-gradient(90deg, transparent, black 7%, black 93%, transparent)",
@@ -118,7 +127,7 @@ export const OurTeam = () => {
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
               >
-                {eventPhotoRows.map((row, rowIndex) => (
+                {portraitRows.map((row, rowIndex) => (
                   <div key={rowIndex} className="overflow-hidden">
                     <div
                       className={`flex w-max ${rowIndex % 2 === 0 ? "event-photo-marquee-left" : "event-photo-marquee-right"}`}
@@ -129,20 +138,12 @@ export const OurTeam = () => {
                     >
                       {[0, 1].map((copyIndex) => (
                         <div key={copyIndex} className="flex shrink-0 gap-3 pr-3" aria-hidden={copyIndex === 1 ? "true" : undefined}>
-                          {row.map((photo, photoIndex) => (
+                          {row.map((portrait, portraitIndex) => (
                             <div
-                              key={`${copyIndex}-${photo}`}
-                              className="h-28 w-28 shrink-0 overflow-hidden rounded-[1.15rem] border border-white/10 bg-white/[0.06] shadow-lg sm:h-32 sm:w-32 xl:h-36 xl:w-36"
-                            >
-                              <img
-                                src={photo}
-                                alt=""
-                                loading="lazy"
-                                decoding="async"
-                                className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                                style={{ objectPosition: photoIndex % 3 === 0 ? "center" : photoIndex % 3 === 1 ? "45% center" : "55% center" }}
-                              />
-                            </div>
+                              key={`${copyIndex}-${rowIndex}-${portraitIndex}-${portrait.sheet}-${portrait.column}-${portrait.row}`}
+                              className="h-28 w-28 shrink-0 overflow-hidden rounded-[1.15rem] border border-white/10 bg-white/[0.06] shadow-lg transition duration-500 hover:scale-[1.03] sm:h-32 sm:w-32 xl:h-36 xl:w-36"
+                              style={portraitStyle(portrait)}
+                            />
                           ))}
                         </div>
                       ))}

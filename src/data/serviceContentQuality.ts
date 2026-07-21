@@ -157,7 +157,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     ["cultural-race", "treasure-heist", "running-man", "team-building"],
     proofTodos,
     {
-      heroTitle: "Amazing Race Team Building",
+    heroTitle: "AMAZING RACE",
       heroSubtitle: "Outdoor Team Challenge",
       planningSectionTitle: "Build the Adventure Around Your Team",
       planningSectionIntro: "No two routes should play the same. We match the location, missions and pace to your group, then build towards a finish everyone can cheer for.",
