@@ -1,25 +1,17 @@
-# Plan — Elluminate controlled redesign
+## Plan
 
-The canonical blueprint is `docs/forger/ELLUMINATE_REDESIGN_BLUEPRINT.md`.
+Same pattern as previous service logo uploads.
 
-## Current milestone
+### 1. Upload assets
+Create CDN pointers in `public/images/service-page-logos/`:
+- `overseas-retreats.svg.asset.json` (from `user-uploads://overseas-retreats.svg`)
+- `local-retreats.svg.asset.json` (from `user-uploads://local-retreats.svg`)
+- `incentive-travel.svg.asset.json` (from `user-uploads://incentive-travel.svg`)
 
-Build and verify a representative vertical slice before propagating the system:
+Via `lovable-assets create --file /mnt/user-uploads/<name>.svg --filename <name>.svg`.
 
-1. Centre the desktop navigation around the logo, expose Field Notes, and simplify mobile family menus.
-2. Preserve and refine the four-character rotating-word hero.
-3. Combine attributable Google proof, approved logos, and poster-first showreel playback immediately after the hero.
-4. Improve service discovery without exposing all 36 child activities at once.
-5. Refine the Team Building family conversion page.
-6. Establish distinct Amazing Race and CSI-Bones page worlds on the shared activity skeleton.
-7. Preserve the production lead pipeline and test the global enquiry form at desktop and mobile sizes.
+### 2. Update `src/components/service-page/ServiceHeroSplit.tsx`
+- Import the 3 new `.asset.json` pointers.
+- Replace the inline SVG illustrations in the `switch` cases for `overseas-retreats` (line 207), `local-retreats` (line 235), and `incentive-travel` (line 268) with `renderLogo(<url>, <alt>)`.
 
-## Verification gate
-
-- `npm run build`
-- desktop QA at 1440×900
-- mobile QA at 390×844 and 360×800
-- keyboard and reduced-motion spot checks
-- no eager loading of the heavy showreel or activity videos
-- no new proof claims without a source
-- verify the tested `main` commit in the Lovable preview before calling the project synchronized
+No other files change.
