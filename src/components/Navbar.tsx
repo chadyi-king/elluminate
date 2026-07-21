@@ -76,7 +76,7 @@ const NavDropdown = ({
         }
       }}
     >
-      <div className="flex items-center gap-1 py-2">
+      <div className="flex h-10 items-center gap-1">
         <Link
           to={parentPath}
           onClick={onClose}
@@ -291,7 +291,7 @@ const ComingSoonNavButton = ({ topic, variant = "desktop", onSelect }: ComingSoo
     <button
       type="button"
       onClick={() => onSelect(topic)}
-      className="whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground/70 transition-colors duration-300 hover:text-primary"
+      className="inline-flex h-10 items-center whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground/70 transition-colors duration-300 hover:text-primary"
     >
       {label}
     </button>
@@ -344,7 +344,7 @@ export const Navbar = () => {
     services.some((service) => location.pathname === `/services/${service.slug}`);
 
   const navLinkClass = (path: string) =>
-    `whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors duration-300 ${
+    `inline-flex h-10 items-center whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors duration-300 ${
       isActive(path) ? "text-primary" : "text-foreground/70 hover:text-primary"
     }`;
 
@@ -366,10 +366,10 @@ export const Navbar = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className="sticky top-0 z-50 border-b border-border/60 bg-white/[0.88] py-2 backdrop-blur-md"
+      className="sticky top-0 z-50 border-b border-border/60 bg-white/[0.88] backdrop-blur-md"
     >
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="hidden h-20 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center xl:grid">
+        <div className="hidden h-24 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center xl:grid">
           <div className="flex items-center justify-self-end gap-4 pr-6 2xl:gap-6 2xl:pr-8">
             <Link to="/" className={navLinkClass("/")}>
               Home
@@ -421,7 +421,7 @@ export const Navbar = () => {
             aria-label="Elluminate home"
             className="relative z-10 flex items-center justify-self-center"
           >
-            <img src={elluminateLogo} alt="Elluminate" className="h-20 w-auto 2xl:h-24" />
+            <img src={elluminateLogo} alt="Elluminate" className="h-20 max-h-full w-auto object-contain 2xl:h-[5.5rem]" />
           </Link>
 
           <div className="flex items-center justify-self-start gap-4 pl-6 2xl:gap-6 2xl:pl-8">
@@ -436,22 +436,19 @@ export const Navbar = () => {
             />
             <ComingSoonNavButton topic="large-scale" onSelect={handleComingSoonSelect} />
             <ComingSoonNavButton topic="school" onSelect={handleComingSoonSelect} />
-            <Link to="/blog" className={navLinkClass("/blog")}>
-              Field Notes
-            </Link>
-            <Button variant="primary" size="sm" onClick={openContactModal} className="whitespace-nowrap">
+            <Button variant="primary" size="sm" onClick={openContactModal} className="h-10 whitespace-nowrap">
               PLAN MY EVENT
             </Button>
           </div>
         </div>
 
-        <div className="relative flex h-20 items-center xl:hidden">
+        <div className="relative flex h-24 items-center xl:hidden">
           <Link
             to="/"
             aria-label="Elluminate home"
             className="absolute left-1/2 flex -translate-x-1/2 items-center"
           >
-            <img src={elluminateLogo} alt="Elluminate" className="h-16 w-auto" />
+            <img src={elluminateLogo} alt="Elluminate" className="h-20 max-h-full w-auto object-contain" />
           </Link>
           <button
             type="button"
@@ -489,14 +486,6 @@ export const Navbar = () => {
                 >
                   About
                 </Link>
-                <Link
-                  to="/blog"
-                  onClick={closeMobileMenu}
-                  className="py-3 font-medium text-foreground transition-colors hover:text-primary"
-                >
-                  Field Notes
-                </Link>
-
                 <MobileFamilyAccordion
                   label="Team Building"
                   parentPath="/services/team-building"

@@ -120,19 +120,18 @@ export const GallerySection = () => {
           </p>
         </motion.header>
 
-        <div className="mb-5 flex justify-end gap-2">
-          <button type="button" onClick={() => shiftRail(-1)} className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white text-foreground shadow-sm transition hover:border-primary hover:text-primary" aria-label="Show previous event photos">
+        <div className="relative">
+          <button type="button" onClick={() => shiftRail(-1)} className="absolute -left-1 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white/[0.96] text-foreground shadow-lg transition hover:border-primary hover:text-primary sm:-left-4" aria-label="Show previous event photos">
             <ChevronLeft className="h-5 w-5" aria-hidden="true" />
           </button>
-          <button type="button" onClick={() => shiftRail(1)} className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition hover:scale-105" aria-label="Show more event photos">
+          <button type="button" onClick={() => shiftRail(1)} className="absolute -right-1 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition hover:scale-105 sm:-right-4" aria-label="Show more event photos">
             <ChevronRight className="h-5 w-5" aria-hidden="true" />
           </button>
-        </div>
 
-        <div
-          ref={railRef}
-          className="grid snap-x snap-mandatory grid-flow-col grid-rows-2 auto-cols-[82%] gap-3 overflow-x-auto pb-4 [scrollbar-width:none] sm:auto-cols-[46%] lg:auto-cols-[31%] [&::-webkit-scrollbar]:hidden"
-        >
+          <div
+            ref={railRef}
+            className="grid snap-x snap-mandatory grid-flow-col grid-rows-2 auto-cols-[82%] gap-3 overflow-x-auto px-1 pb-4 [scrollbar-width:none] sm:auto-cols-[46%] lg:auto-cols-[31%] [&::-webkit-scrollbar]:hidden"
+          >
           {galleryImages.map((image, index) => (
             <motion.button
               key={image.src}
@@ -157,6 +156,7 @@ export const GallerySection = () => {
               <span className="absolute inset-0 bg-primary/0 transition-colors duration-300 group-hover:bg-primary/5" />
             </motion.button>
           ))}
+          </div>
         </div>
       </div>
 

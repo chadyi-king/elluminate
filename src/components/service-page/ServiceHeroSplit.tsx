@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
+import amazingRaceLogo from "../../../public/images/service-page-logos/amazing-race.svg.asset.json";
 import culturalRaceLogo from "../../../public/images/service-page-logos/cultural-race.svg.asset.json";
 import buildersCrossLogo from "../../../public/images/service-page-logos/builders-cross.svg.asset.json";
 import csiBonesLogo from "../../../public/images/service-page-logos/csi-bones.svg.asset.json";
@@ -14,8 +15,17 @@ import sotongGameLogo from "../../../public/images/service-page-logos/sotong-gam
 import treasureHeistLogo from "../../../public/images/service-page-logos/treasure-heist.svg.asset.json";
 import runningManLogo from "../../../public/images/service-page-logos/running-man.svg.asset.json";
 
+const resolveUploadedAssetUrl = (src: string) =>
+  import.meta.env.DEV && src.startsWith("/__l5e/") ? `https://elluminate.sg${src}` : src;
+
 const renderLogo = (src: string, alt: string, size: number) => (
-  <img src={src} alt={alt} width={size} height={size} className="object-contain" />
+  <img
+    src={resolveUploadedAssetUrl(src)}
+    alt={alt}
+    width={size}
+    height={size}
+    className="object-contain"
+  />
 );
 
 interface ServiceHeroSplitProps {
@@ -38,27 +48,9 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
   const common = { width: size, height: size, viewBox: "0 0 200 200", fill: "none", xmlns: "http://www.w3.org/2000/svg" };
 
   switch (slug) {
-    /* ─── Amazing Race: uploaded logo ─── */
+    /* ─── Amazing Race: uploaded activity artwork ─── */
     case "amazing-race":
-      return (
-        <svg {...common} role="img" aria-label="Amazing Race route">
-          <circle cx="100" cy="100" r="72" fill={`${accentColor}18`} stroke={`${accentColor}88`} strokeWidth="2" />
-          <path
-            d="M48 138 C60 112 53 82 81 73 C108 64 113 100 140 87 C157 79 157 57 150 43"
-            stroke="white"
-            strokeWidth="4"
-            strokeLinecap="round"
-            strokeDasharray="8 9"
-          />
-          <circle cx="48" cy="138" r="11" fill={accentColor} stroke="white" strokeWidth="3" />
-          <circle cx="48" cy="138" r="3" fill="#07151f" />
-          <path d="M150 43 V89" stroke="white" strokeWidth="4" strokeLinecap="round" />
-          <path d="M153 45 H181 L169 59 L181 73 H153 Z" fill={accentColor} stroke="white" strokeWidth="2" />
-          <circle cx="100" cy="100" r="18" fill="#07151f" stroke="white" strokeWidth="2" />
-          <path d="M105 83 L110 103 L91 114 L96 94 Z" fill={accentColor} />
-          <circle cx="100" cy="100" r="4" fill="white" />
-        </svg>
-      );
+      return renderLogo(amazingRaceLogo.url, "Amazing Race", size);
 
     /* ─── Cultural Race: uploaded logo ─── */
     case "cultural-race":

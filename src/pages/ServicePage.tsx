@@ -7,6 +7,7 @@ import { ServiceHeroSplit } from "@/components/service-page/ServiceHeroSplit";
 import { ServiceVideoSection } from "@/components/service-page/ServiceVideoSection";
 import { ServiceVideoCarousel } from "@/components/service-page/ServiceVideoCarousel";
 import { ServiceOverviewNew } from "@/components/service-page/ServiceOverviewNew";
+import { ServiceExperienceJourney } from "@/components/service-page/ServiceExperienceJourney";
 import { ServiceCTANew } from "@/components/service-page/ServiceCTANew";
 import { ServiceTestimonialNew } from "@/components/service-page/ServiceTestimonialNew";
 import { ServiceFinalCTA } from "@/components/service-page/ServiceFinalCTA";
@@ -82,33 +83,6 @@ const amazingRaceFaqs = [
     question: "Where can Amazing Race team building activities be conducted?",
     answer:
       "Popular locations include Sentosa, Marina Bay, Gardens by the Bay, Chinatown, Civic District, Jewel Changi Airport, and custom locations across Singapore.",
-  },
-];
-
-const amazingRaceJourney = [
-  {
-    title: "Set the Scene",
-    description: "Marina Bay, Sentosa, a campus or your own venue: the location becomes the board your teams will play across.",
-    image: "/images/about/about-3.jpg",
-    step: "01",
-  },
-  {
-    title: "Form the Crews",
-    description: "We split the group into balanced crews so everyone has a part to play, not just the fastest runners.",
-    image: "/images/about/about-2.jpg",
-    step: "02",
-  },
-  {
-    title: "Open the First Clue",
-    description: "Each checkpoint brings a new twist: puzzles, photo missions, creative tasks and hands-on challenges that call for different strengths.",
-    image: "/images/services/amazing-race/gallery-6.jpg",
-    step: "03",
-  },
-  {
-    title: "Race to the Reveal",
-    description: "Scores come together at the finish as teams return, compare stories and discover who took the win.",
-    image: "/images/services/amazing-race/gallery-5.jpg",
-    step: "04",
   },
 ];
 
@@ -294,6 +268,18 @@ const ServicePage = () => {
   const relatedServices = (contentQuality?.relatedSlugs ?? [])
     .map((relatedSlug) => ({ slug: relatedSlug, service: servicesData[relatedSlug] }))
     .filter((item) => item.service && allInScopeServiceSlugs.has(item.slug));
+  const journeyImages = Array.from(
+    new Set(
+      [
+        service.overview.backgroundImage,
+        service.howItWorksImage,
+        service.addOnsImage,
+        ...(service.miniGallery?.images.map((image) => image.src) ?? []),
+        ...service.gallery,
+        service.hero.backgroundImage,
+      ].filter((image): image is string => Boolean(image)),
+    ),
+  );
 
   // Check if this service has the new enhanced structure
   const hasEnhancedStructure = service.clientLogos || service.recentEvents || service.pricing;
@@ -386,51 +372,13 @@ const ServicePage = () => {
         backgroundImage={slug === "amazing-race" ? service.overview.backgroundImage : undefined}
       />
 
-      {contentQuality?.planningPoints && contentQuality.planningPoints.length > 0 && (
-        slug === "amazing-race" ? (
-          <section className="relative overflow-hidden bg-[#07160f] px-4 py-20 text-white md:py-24">
-            <div className="absolute inset-0 opacity-[0.12] [background-image:radial-gradient(circle_at_1px_1px,#ffc400_1px,transparent_1.2px)] [background-size:30px_30px]" />
-            <div className="container relative z-10 mx-auto max-w-6xl">
-              <div className="mx-auto mb-12 max-w-3xl text-center">
-                <span className="mb-4 block font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[#ffc400]">Route Builder</span>
-                <h2 className="font-display text-4xl font-black md:text-5xl">{contentQuality.planningSectionTitle}</h2>
-                <p className="mt-5 text-base leading-7 text-white/[0.68] md:text-lg">{contentQuality.planningSectionIntro}</p>
-              </div>
-              <div className="grid gap-5 md:grid-cols-2">
-                {amazingRaceJourney.map((point) => (
-                  <article key={point.title} className="group relative min-h-[360px] overflow-hidden rounded-[1.8rem] border border-[#ffc400]/25 bg-black">
-                    <img src={point.image} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#04100a] via-[#04100a]/[0.72] to-black/5" />
-                    <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                      <span className="font-mono text-xs font-bold tracking-[0.24em] text-[#ffc400]">CHECKPOINT {point.step}</span>
-                      <h3 className="mt-3 font-display text-3xl font-black">{point.title}</h3>
-                      <p className="mt-3 max-w-lg text-sm leading-6 text-white/[0.74]">{point.description}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-        ) : (
-          <section className="bg-background px-4 py-16 md:py-20">
-            <div className="container mx-auto max-w-6xl">
-              <div className="mx-auto mb-10 max-w-3xl text-center">
-                <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">{contentQuality.planningSectionTitle}</h2>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">{contentQuality.planningSectionIntro}</p>
-              </div>
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                {contentQuality.planningPoints.map((point) => (
-                  <div key={point.title} className="rounded-lg border border-border bg-card p-6">
-                    <div className="mb-4 h-1 w-10 rounded-full" style={{ backgroundColor: service.accentColor }} />
-                    <h3 className="font-display text-xl font-bold text-foreground">{point.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{point.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )
-      )}
+      <ServiceExperienceJourney
+        slug={slug}
+        serviceTitle={displayHeroTitle}
+        accentColor={service.accentColor}
+        accentColorSecondary={service.accentColorSecondary}
+        fallbackImages={journeyImages}
+      />
 
       {/* 4.5 Destinations Grid (for retreat/travel services) */}
       {service.destinationsGrid && (

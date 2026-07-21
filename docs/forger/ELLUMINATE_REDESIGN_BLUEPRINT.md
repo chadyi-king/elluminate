@@ -24,7 +24,7 @@ The visitor should understand three things quickly:
 - Training: 9 current programmes, with room to grow
 - Large Scale: coming soon; do not link externally yet
 - School: coming soon; do not link to ENCOMPASSE yet
-- Field Notes (`/blog`)
+- Blog route retained but hidden from navigation until content is ready
 - Plan My Event: opens the global enquiry form
 
 Each family name links directly to its own conversion landing page. Its adjacent disclosure control opens the child menu. Mobile must keep those as two distinct actions.

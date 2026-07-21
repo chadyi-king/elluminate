@@ -42,4 +42,4 @@
 1. Tested commit exists in the clean redesign branch.
 2. Approved work is integrated into GitHub `main` without overwriting new Lovable commits.
 3. Lovable preview visibly reflects the new `main` commit.
-4. The custom domain remains unchanged until Caleb republishes it.
+4. The custom domain remains unchanged until the site owner republishes it.

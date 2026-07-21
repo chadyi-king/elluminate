@@ -6,9 +6,11 @@ const read = (path) => readFileSync(path, "utf8");
 
 const aboutPage = read("src/pages/AboutPage.tsx");
 const ourTeam = read("src/components/OurTeam.tsx");
+const navbar = read("src/components/Navbar.tsx");
 const portfolioPage = read("src/pages/PortfolioPage.tsx");
 const socialProofSection = read("src/components/SocialProofSection.tsx");
-const footer = read("src/components/Footer.tsx");
+const testimonialCarousel = read("src/components/ClientTestimonialsCarousel.tsx");
+const testimonialData = read("src/data/clientTestimonials.ts");
 const hardeningReport = read("docs/elluminate-hardening-change-report.md");
 const clientProofChecklist = read("docs/client-proof-review-checklist.md");
 const servicesData = read("src/data/servicesData.ts");
@@ -17,15 +19,14 @@ const serviceRecentEventsTicker = read("src/components/service-page/ServiceRecen
 
 test("team section does not show joke or placeholder titles", () => {
   assert.doesNotMatch(ourTeam, /Basement Worker|Spiritual Advisor/);
-  assert.match(ourTeam, /TODO\(content\): Confirm public roles for Caleb E and Christian Je Suis/);
 });
 
-test("about counters fall back to final values and use the verified review count", () => {
-  assert.match(aboutPage, /useState\(end\)/);
-  assert.match(aboutPage, /useCountUp\(1000,\s*2500\)/);
-  assert.match(aboutPage, /useCountUp\(100000,\s*3000\)/);
-  assert.match(aboutPage, /useCountUp\(800,\s*2000\)/);
-  assert.match(aboutPage, /useCountUp\(8,\s*1500\)/);
+test("public surfaces keep the founder acronym private", () => {
+  const publicSurfaces = `${aboutPage}\n${ourTeam}\n${navbar}`;
+  assert.doesNotMatch(publicSurfaces, /CALEBE|Caleb E|\bCaleb\b/i);
+  assert.match(aboutPage, />Our Values</);
+  assert.doesNotMatch(aboutPage, /letter:\s*["']/);
+  assert.doesNotMatch(navbar, /Field Notes/);
 });
 
 test("marketing copy does not ship unsourced percentage claims", () => {
@@ -50,18 +51,21 @@ test("service recent-events ticker does not show unverified pax counts publicly"
 });
 
 test("portfolio page does not publish unverified placeholder proof sections", () => {
-  assert.match(portfolioPage, /TODO\(content\): Restore portfolio case studies, gallery, videos, testimonials, and client proof/);
   assert.doesNotMatch(portfolioPage, /FeaturedCaseStudies|MiniCaseStudies|TestimonialWall|ClientLogosGrid|VideoHighlights|PhotoGallery|PortfolioFilters/);
 });
 
 test("client logo surfaces carry an evidence and permission reminder", () => {
   const permissionReminder = /TODO\(content\): Keep a permission\/evidence checklist for client logo usage/;
-  assert.match(aboutPage, permissionReminder);
   assert.match(socialProofSection, permissionReminder);
 });
 
-test("footer keeps review source transparency visible", () => {
-  assert.match(footer, /Reviews shown on this site are collected via our partner brand, Team Elevate/);
+test("testimonial cards preserve review source transparency", () => {
+  assert.doesNotMatch(testimonialCarousel, /shared event history|Originally published|Original review source/i);
+  assert.match(testimonialData, /sourceUrl:\s*"https:\/\//);
+  assert.match(testimonialData, /sourceType:\s*"google-review"/);
+  assert.match(testimonialData, /sourceType:\s*"client-testimonial"/);
+  assert.match(testimonialData, /Do not infer employers for Google reviewers/);
+  assert.match(testimonialData, /or add a star rating to client stories that were published without one/);
 });
 
 test("human-review reports are generated for proof and content follow-up", () => {

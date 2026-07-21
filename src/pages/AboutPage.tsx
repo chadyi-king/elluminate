@@ -5,7 +5,6 @@ import {
   Eye,
   Heart,
   Lightbulb,
-  Quote,
   Rocket,
   Sparkles,
   Target,
@@ -16,6 +15,7 @@ import {
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { OurTeam } from "@/components/OurTeam";
+import { ClientTestimonialsCarousel } from "@/components/ClientTestimonialsCarousel";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema } from "@/components/StructuredData";
 import { getRouteSeo } from "@/data/seoRoutes";
@@ -24,7 +24,6 @@ const aboutSeo = getRouteSeo("/about");
 
 const values = [
   {
-    letter: "C",
     title: "Creative",
     tagline: "Every brief deserves its own spark.",
     description: "We shape the concept, challenges and little surprises around your people, so the day feels made for your team rather than pulled from a template.",
@@ -32,7 +31,6 @@ const values = [
     color: "#2A8DFF",
   },
   {
-    letter: "A",
     title: "Authentic",
     tagline: "Real connection beats forced fun.",
     description: "We make room for different personalities to take part without putting anyone on the spot. The best moments feel natural, never staged.",
@@ -40,7 +38,6 @@ const values = [
     color: "#26B982",
   },
   {
-    letter: "L",
     title: "Lasting",
     tagline: "Create the moments people retell.",
     description: "The best events keep popping up in conversation: the comeback, the inside joke and the teammate nobody expected to win. We design with those moments in mind.",
@@ -48,7 +45,6 @@ const values = [
     color: "#F4B400",
   },
   {
-    letter: "E",
     title: "Exceptional",
     tagline: "Big moments depend on small details.",
     description: "From the first brief to the final cue, we think through pace, setup, facilitation and handovers. Smooth delivery lets everyone else stay present.",
@@ -56,7 +52,6 @@ const values = [
     color: "#F25F5C",
   },
   {
-    letter: "B",
     title: "Boundless",
     tagline: "Start with the ambition. We’ll find the way.",
     description: "We explore what is possible across the venue, timeline and group before settling for the obvious. Then we turn the boldest workable idea into a plan the team can actually deliver.",
@@ -64,7 +59,6 @@ const values = [
     color: "#8B5CF6",
   },
   {
-    letter: "E",
     title: "Eccentric",
     tagline: "Leave room for the unexpected.",
     description: "A playful twist, themed mission or theatrical reveal can become the part everyone talks about. We keep it fun without letting the theme take over.",
@@ -103,19 +97,6 @@ const differentiators = [
     title: "More Than a Good Time",
     description: "The laughter matters, but so do the moments when someone steps up, listens better or solves a problem with the team.",
     icon: Sparkles,
-  },
-];
-
-const testimonials = [
-  {
-    quote: "All of us had a real fun blast and we have nothing but good things to say about the facilitators and the games!",
-    person: "Darren Tey",
-    role: "Operations Manager, Lonza",
-  },
-  {
-    quote: "All our different departments have enjoyed the activities, from our newest members to our management teams.",
-    person: "Farzanah Begum",
-    role: "Senior Officer for Development and Engagement, SIMTech",
   },
 ];
 
@@ -221,8 +202,7 @@ const AboutPage = () => {
         <section className="bg-[#f7f9fc] py-20 sm:py-24">
           <div className="container mx-auto px-5 sm:px-6">
             <motion.header {...reveal()} className="mx-auto mb-12 max-w-3xl text-center">
-              <span className="mb-4 block text-xs font-bold uppercase tracking-[0.26em] text-primary">Our Values</span>
-              <h2 className="font-display text-4xl font-black text-foreground sm:text-5xl">CALEBE</h2>
+              <h2 className="font-display text-4xl font-black text-foreground sm:text-5xl">Our Values</h2>
               <p className="mt-4 text-lg text-muted-foreground">Six ways we keep the spark alive.</p>
             </motion.header>
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -230,11 +210,10 @@ const AboutPage = () => {
                 const Icon = value.icon;
                 return (
                   <motion.article
-                    key={`${value.letter}-${value.title}`}
+                    key={value.title}
                     {...reveal(index * 0.04)}
                     className="relative overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white p-7 shadow-[0_14px_45px_rgba(20,40,80,0.07)]"
                   >
-                    <span className="absolute -right-3 -top-8 font-display text-[9rem] font-black leading-none opacity-[0.06]" style={{ color: value.color }}>{value.letter}</span>
                     <span className="relative mb-8 flex h-12 w-12 items-center justify-center rounded-2xl text-white" style={{ backgroundColor: value.color }}>
                       <Icon className="h-6 w-6" aria-hidden="true" />
                     </span>
@@ -272,26 +251,7 @@ const AboutPage = () => {
           </div>
         </section>
 
-        <section className="bg-[linear-gradient(135deg,#eff7ff_0%,#f8f4ff_100%)] py-20 sm:py-24">
-          <div className="container mx-auto px-5 sm:px-6">
-            <motion.header {...reveal()} className="mx-auto mb-12 max-w-3xl text-center">
-              <span className="mb-4 block text-xs font-bold uppercase tracking-[0.26em] text-primary">In Their Words</span>
-              <h2 className="font-display text-4xl font-black text-foreground sm:text-5xl">What Clients Love About Us</h2>
-            </motion.header>
-            <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-2">
-              {testimonials.map((testimonial, index) => (
-                <motion.blockquote key={testimonial.person} {...reveal(index * 0.08)} className="rounded-[2rem] bg-white p-7 shadow-[0_18px_55px_rgba(20,40,80,0.09)] sm:p-9">
-                  <Quote className="h-8 w-8 text-primary/[0.35]" aria-hidden="true" />
-                  <p className="mt-6 text-xl font-semibold leading-9 text-foreground">&ldquo;{testimonial.quote}&rdquo;</p>
-                  <footer className="mt-8 border-t border-border pt-5">
-                    <p className="font-display font-black text-foreground">{testimonial.person}</p>
-                    <p className="mt-1 text-sm text-muted-foreground">{testimonial.role}</p>
-                  </footer>
-                </motion.blockquote>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ClientTestimonialsCarousel theme="light" />
       </main>
 
       <Footer />

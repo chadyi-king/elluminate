@@ -264,7 +264,11 @@ export const PopularExperiencesSection = () => {
                 initial={reduceMotion ? false : { opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: reduceMotion ? 0 : 0.3 }}
-                className="group overflow-hidden rounded-[1.6rem] border border-white bg-white shadow-[0_14px_45px_rgba(20,40,80,0.08)]"
+                className="group overflow-hidden rounded-[1.6rem] border shadow-[0_14px_45px_rgba(20,40,80,0.08)]"
+                style={{
+                  borderColor: `${experience.accent}2b`,
+                  background: `linear-gradient(180deg, #ffffff 45%, ${experience.accent}12 100%)`,
+                }}
               >
                 <Link to={`/services/${experience.slug}`} className="block focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary/25">
                   <div className="relative aspect-[16/10] overflow-hidden">
@@ -283,7 +287,12 @@ export const PopularExperiencesSection = () => {
                       <ArrowRight className="mt-1 h-5 w-5 text-primary transition-transform group-hover:translate-x-1" aria-hidden="true" />
                     </div>
                     <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{experience.description}</p>
-                <span className="inline-flex rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-foreground/[0.65]">Best fit: {experience.fit}</span>
+                <span
+                  className="inline-flex rounded-full px-3 py-1.5 text-xs font-bold text-foreground/[0.68]"
+                  style={{ backgroundColor: `${experience.accent}16` }}
+                >
+                  Best fit: {experience.fit}
+                </span>
                   </div>
                 </Link>
               </motion.article>

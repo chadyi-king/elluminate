@@ -28,6 +28,9 @@ The homepage-approved display set is limited to DBS, Singtel, GovTech, CapitaLan
 | --- | --- | --- | --- | --- | --- |
 | Darren Tey, Operations Manager | Lonza | https://teamelevate.sg/ | Team Elevate | July 2026 | Short excerpt on team-building landing page |
 | Farzanah Begum, Senior Officer for Development and Engagement | SIMTech | https://teamelevate.sg/ | Team Elevate | July 2026 | Short excerpt on team-building landing page |
+| Arianti Amalina, Human Resource Officer | Madame Tussauds Singapore | https://teamelevate.sg/ | Team Elevate | July 2026 | Short excerpt in shared client-story carousel |
+| Jurgen Carlson, Senior Partner and Management Head | AMS AG | https://teamelevate.sg/ | Team Elevate | July 2026 | Short excerpt in shared client-story carousel |
+| Jamie Teo; Amirah Sabanni; Abdussalam Muhamad Ekhsan; Mohamad Ridhwan Masud; Muhamad Hazeem; Lee | No company shown | Elluminate Singapore Google listing | Elluminate | 21 July 2026 | Named five-star excerpts in shared client-story carousel |
 
 Testimonials must remain attributed to Team Elevate. Do not transfer them into Elluminate review schema.
 
