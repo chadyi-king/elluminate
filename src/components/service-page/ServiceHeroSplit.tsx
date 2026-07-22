@@ -22,6 +22,9 @@ import virtualAmazingRaceLogo from "../../../public/images/service-page-logos/vi
 import greatZodiacHuntLogo from "../../../public/images/service-page-logos/great-zodiac-hunt.svg.asset.json";
 import fitInYourTeamLogo from "../../../public/images/service-page-logos/fit-in-your-team.svg.asset.json";
 import gameshowExperienceLogo from "../../../public/images/service-page-logos/gameshow-experience.svg.asset.json";
+import nuclearFalloutEscapeLogo from "../../../public/images/service-page-logos/nuclear-fallout-escape.svg.asset.json";
+import thePatriotActLogo from "../../../public/images/service-page-logos/the-patriot-act.svg.asset.json";
+import tombRaiderKingLogo from "../../../public/images/service-page-logos/tomb-raider-king.svg.asset.json";
 
 const resolveUploadedAssetUrl = (src: string) =>
   import.meta.env.DEV && src.startsWith("/__l5e/") ? `https://elluminate.sg${src}` : src;
