@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import charBlueMan from "@/assets/hero/char-blue-man.webp";
 import charRedWoman from "@/assets/hero/char-red-woman.webp";
@@ -9,51 +8,56 @@ import charYellowBoy from "@/assets/hero/char-yellow-boy.webp";
 interface CharacterProps {
   image: string;
   posClass: string;
-  glowColor: string;
-  duotone: string;
   delay: number;
-  size: { w: number; h: number };
+  width: number;
+  height: number;
+  sizeClass: string;
   zIndex: number;
+  softenLowerEdge?: boolean;
   isLCP?: boolean;
 }
 
 const CharacterFigure = ({
   image,
   posClass,
-  glowColor,
-  duotone,
   delay,
-  size,
+  width,
+  height,
+  sizeClass,
   zIndex,
+  softenLowerEdge = false,
   isLCP = false,
 }: CharacterProps) => {
-  const [hovered, setHovered] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   return (
     <motion.div
-      className={`absolute hidden xl:block pointer-events-auto ${posClass}`}
-      initial={{ opacity: 0, y: 60 }}
+      className={`pointer-events-auto absolute hidden xl:block ${sizeClass} ${posClass}`}
+      initial={reduceMotion ? false : { opacity: 0, y: 42 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9, delay, ease: "easeOut" }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{ width: size.w, height: size.h, zIndex }}
+      transition={{ duration: reduceMotion ? 0 : 0.8, delay: reduceMotion ? 0 : delay, ease: "easeOut" }}
+      style={{ zIndex }}
     >
-      {/* Character image with duotone → full color on hover + outline glow via drop-shadow */}
       <motion.div
-        className="w-full h-full"
-        animate={{
-          filter: hovered ? `drop-shadow(0 0 18px ${glowColor}) drop-shadow(0 0 40px ${glowColor})` : duotone,
-          scale: hovered ? 1.05 : 1,
+        className="h-full w-full"
+        whileHover={reduceMotion ? undefined : { y: -4, scale: 1.015 }}
+        transition={{ duration: 0.32, ease: "easeOut" }}
+        style={{
+          filter: "drop-shadow(0 20px 28px rgba(15, 23, 42, 0.14))",
+          ...(softenLowerEdge
+            ? {
+                WebkitMaskImage: "linear-gradient(to bottom, #000 0%, #000 82%, transparent 100%)",
+                maskImage: "linear-gradient(to bottom, #000 0%, #000 82%, transparent 100%)",
+              }
+            : {}),
         }}
-        transition={{ duration: 0.45 }}
       >
         <img
           src={image}
           alt=""
-          width={size.w}
-          height={size.h}
-          className="w-full h-full object-contain object-bottom"
+          width={width}
+          height={height}
+          className="h-full w-full object-contain object-bottom"
           {...(isLCP
             ? { loading: "eager" as const, decoding: "sync" as const }
             : { loading: "eager" as const, decoding: "async" as const })}
@@ -64,51 +68,49 @@ const CharacterFigure = ({
 };
 
 export const HeroCharacters = () => (
-  <div className="pointer-events-none absolute inset-0 overflow-hidden">
-    {/* TOP-LEFT — Blue man (LCP element) */}
+  <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    {/* Upper figures fade into the foreground figures so their source-image edges never read as hard cut-outs. */}
     <CharacterFigure
       image={charBlueMan}
-      posClass="left-[-4%] xl:left-[-1%] top-[calc(6%+10px)]"
-      glowColor="hsla(214, 85%, 50%, 0.45)"
-      duotone="grayscale(0.8) sepia(0.3) hue-rotate(175deg) saturate(1.2) brightness(0.88)"
+      posClass="left-[-5%] top-[4%] 2xl:left-[-2%]"
       delay={0.1}
-      size={{ w: 500, h: 500 }}
-      zIndex={20}
+      width={500}
+      height={500}
+      sizeClass="h-[clamp(22rem,28vw,31.25rem)] w-[clamp(22rem,28vw,31.25rem)]"
+      zIndex={16}
+      softenLowerEdge
       isLCP
     />
 
-    {/* BOTTOM-LEFT — Red woman */}
     <CharacterFigure
       image={charRedWoman}
-      posClass="left-[-4%] xl:left-[-1%] bottom-[-1rem]"
-      glowColor="hsla(4, 80%, 50%, 0.35)"
-      duotone="grayscale(0.8) sepia(0.3) hue-rotate(315deg) saturate(1.2) brightness(0.85)"
+      posClass="bottom-[2.1rem] left-[-5%] 2xl:left-[-2%]"
       delay={0.2}
-      size={{ w: 480, h: 500 }}
-      zIndex={25}
+      width={480}
+      height={500}
+      sizeClass="h-[clamp(22rem,27vw,30rem)] w-[clamp(21rem,26vw,29rem)]"
+      zIndex={22}
     />
 
-    {/* TOP-RIGHT — Green woman */}
     <CharacterFigure
       image={charGreenWoman}
-      posClass="right-[-4%] xl:right-[-1%] top-[8%]"
-      glowColor="hsla(145, 55%, 35%, 0.45)"
-      duotone="grayscale(0.8) sepia(0.3) hue-rotate(100deg) saturate(1.2) brightness(0.85)"
+      posClass="right-[-6%] top-[3%] 2xl:right-[-2%]"
       delay={0.15}
-      size={{ w: 480, h: 500 }}
-      zIndex={20}
+      width={480}
+      height={500}
+      sizeClass="h-[clamp(22rem,27vw,30rem)] w-[clamp(21rem,26vw,29rem)]"
+      zIndex={15}
+      softenLowerEdge
     />
 
-    {/* BOTTOM-RIGHT — Yellow boy */}
     <CharacterFigure
       image={charYellowBoy}
-      posClass="right-[-4%] bottom-[-1.25rem] xl:right-[-1%] xl:bottom-[30px]"
-      glowColor="hsla(44, 95%, 52%, 0.35)"
-      duotone="grayscale(0.8) sepia(0.3) hue-rotate(6deg) saturate(1.1) brightness(0.87)"
+      posClass="bottom-[2.4rem] right-[-5%] 2xl:right-[-2%]"
       delay={0.25}
-      size={{ w: 440, h: 480 }}
-      zIndex={25}
+      width={440}
+      height={480}
+      sizeClass="h-[clamp(20rem,25vw,28rem)] w-[clamp(19rem,24vw,27rem)]"
+      zIndex={23}
     />
-
   </div>
 );

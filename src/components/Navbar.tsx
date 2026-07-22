@@ -369,8 +369,8 @@ export const Navbar = () => {
       className="sticky top-0 z-50 border-b border-border/60 bg-white/[0.88] backdrop-blur-md"
     >
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="hidden h-24 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center xl:grid">
-          <div className="flex items-center justify-self-end gap-4 pr-6 2xl:gap-6 2xl:pr-8">
+        <div className="hidden h-28 w-full min-w-0 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center xl:grid">
+          <div className="flex min-w-0 items-center justify-end gap-4 pr-6 2xl:gap-6 2xl:pr-8">
             <Link to="/" className={navLinkClass("/")}>
               Home
             </Link>
@@ -419,12 +419,16 @@ export const Navbar = () => {
           <Link
             to="/"
             aria-label="Elluminate home"
-            className="relative z-10 flex items-center justify-self-center"
+            className="relative z-10 flex h-full shrink-0 items-center justify-self-center px-3"
           >
-            <img src={elluminateLogo} alt="Elluminate" className="h-20 max-h-full w-auto object-contain 2xl:h-[5.5rem]" />
+            <img
+              src={elluminateLogo}
+              alt="Elluminate"
+              className="h-[5.75rem] max-h-[calc(100%-1rem)] w-auto object-contain"
+            />
           </Link>
 
-          <div className="flex items-center justify-self-start gap-4 pl-6 2xl:gap-6 2xl:pl-8">
+          <div className="flex min-w-0 items-center justify-start gap-4 pl-6 2xl:gap-6 2xl:pl-8">
             <NavDropdown
               label="Training"
               items={trainingServices}
@@ -446,9 +450,13 @@ export const Navbar = () => {
           <Link
             to="/"
             aria-label="Elluminate home"
-            className="absolute left-1/2 flex -translate-x-1/2 items-center"
+            className="absolute inset-y-0 left-1/2 flex -translate-x-1/2 items-center px-2"
           >
-            <img src={elluminateLogo} alt="Elluminate" className="h-20 max-h-full w-auto object-contain" />
+            <img
+              src={elluminateLogo}
+              alt="Elluminate"
+              className="h-[5.25rem] max-h-[calc(100%-0.75rem)] w-auto object-contain"
+            />
           </Link>
           <button
             type="button"
@@ -556,33 +564,31 @@ export const Navbar = () => {
         )}
       </AnimatePresence>
 
-      <Dialog
-        open={comingSoonTopic !== null}
-        onOpenChange={(open) => {
-          if (!open) setComingSoonTopic(null);
-        }}
-      >
-        <DialogContent className="max-w-md border-primary/10">
-          {activeComingSoon && (
-            <>
-              <DialogHeader>
-                <DialogTitle className="text-2xl text-primary">{activeComingSoon.title}</DialogTitle>
-                <DialogDescription className="text-base leading-relaxed text-foreground/70">
-                  {activeComingSoon.body}
-                </DialogDescription>
-              </DialogHeader>
-              <DialogFooter className="gap-2 sm:justify-start sm:space-x-0">
-                <Button variant="primary" onClick={handleComingSoonCta}>
-                  PLAN MY EVENT
-                </Button>
-                <DialogClose asChild>
-                  <Button variant="outline">Close</Button>
-                </DialogClose>
-              </DialogFooter>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
+      {activeComingSoon && (
+        <Dialog
+          open
+          onOpenChange={(open) => {
+            if (!open) setComingSoonTopic(null);
+          }}
+        >
+          <DialogContent className="max-w-md border-primary/10">
+            <DialogHeader>
+              <DialogTitle className="text-2xl text-primary">{activeComingSoon.title}</DialogTitle>
+              <DialogDescription className="text-base leading-relaxed text-foreground/70">
+                {activeComingSoon.body}
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter className="gap-2 sm:justify-start sm:space-x-0">
+              <Button variant="primary" onClick={handleComingSoonCta}>
+                PLAN MY EVENT
+              </Button>
+              <DialogClose asChild>
+                <Button variant="outline">Close</Button>
+              </DialogClose>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      )}
     </motion.nav>
   );
 };

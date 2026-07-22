@@ -38,7 +38,7 @@ export const ExpandableActivityCard = ({
   onActivate,
   onDeactivate,
 }: ExpandableActivityCardProps) => {
-  const closeTimerRef = useRef<ReturnType<typeof window.setTimeout> | null>(null);
+  const closeTimerRef = useRef<number | null>(null);
   const cardRef = useRef<HTMLDivElement | null>(null);
   const pointerPositionRef = useRef({ x: 0, y: 0 });
   const targetHref = href ?? (slug ? `/services/${slug}` : undefined);

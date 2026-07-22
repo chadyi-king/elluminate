@@ -50,8 +50,8 @@ export const HeroSection = () => {
       <HeroCharacters />
       <ConfettiBurst trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
 
-      <div className="container relative z-30 mx-auto px-4 pb-20 pt-6 pointer-events-none sm:pt-7 lg:pt-5">
-        <div className="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
+      <div className="pointer-events-none container relative z-30 mx-auto px-4 pb-24 pt-6 sm:pt-7 lg:pt-5">
+        <div className="mx-auto flex w-full max-w-4xl flex-col items-center text-center xl:max-w-3xl">
           <div aria-hidden="true" className="mb-3 w-full font-display font-black leading-[0.88]">
             <motion.div {...reveal(0.14)} className="mb-1 text-primary">
               <span className="text-[clamp(1.1rem,3.8vw,2.15rem)] uppercase tracking-[0.12em]">Ignite the</span>
@@ -162,7 +162,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[-1px] z-[35] h-20 sm:h-28">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[-1px] z-[35] h-24 sm:h-28">
         <svg viewBox="0 0 1920 120" preserveAspectRatio="none" className="h-full w-full" focusable="false">
           <path
             fill="#07151f"
