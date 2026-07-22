@@ -4,6 +4,8 @@ export interface ContactModalOpenContext {
   eventCategory?: string;
   expectedAttendees?: string;
   additionalDetails?: string;
+  serviceSlug?: string;
+  packageId?: string;
 }
 
 interface ContactModalContextType {

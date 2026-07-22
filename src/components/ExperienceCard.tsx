@@ -18,6 +18,18 @@ export const ExperienceCard = ({ slug, variant = "featured", className }: Experi
 
   const Icon = card.icon;
   const compact = variant === "compact";
+  const titleLength = card.shortTitle.length;
+  const titleFontSize = compact
+    ? titleLength > 21
+      ? "clamp(0.82rem, 1.25vw, 0.96rem)"
+      : titleLength > 16
+        ? "clamp(0.9rem, 1.35vw, 1.04rem)"
+        : "clamp(1rem, 1.5vw, 1.12rem)"
+    : titleLength > 21
+      ? "clamp(0.96rem, 1.5vw, 1.1rem)"
+      : titleLength > 16
+        ? "clamp(1.04rem, 1.65vw, 1.2rem)"
+        : "clamp(1.15rem, 1.8vw, 1.32rem)";
   const style = {
     "--experience-accent": card.accent,
     borderColor: `${card.accent}3d`,
@@ -65,13 +77,16 @@ export const ExperienceCard = ({ slug, variant = "featured", className }: Experi
           </span>
         </div>
 
-        <div className={cn("flex flex-1 flex-col", compact ? "p-4" : "p-5 sm:p-6") }>
+        <div
+          className={cn(
+            "flex flex-1 flex-col",
+            compact ? "min-h-[11.5rem] p-4" : "min-h-[13.5rem] p-5 sm:p-6",
+          )}
+        >
           <h3
             title={card.title}
-            className={cn(
-              "truncate whitespace-nowrap font-display font-black leading-tight text-foreground",
-              compact ? "text-lg" : "text-xl sm:text-[1.28rem]",
-            )}
+            className="overflow-hidden whitespace-nowrap font-display font-black leading-tight text-foreground"
+            style={{ fontSize: titleFontSize }}
           >
             {card.shortTitle}
           </h3>

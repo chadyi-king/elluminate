@@ -53,6 +53,13 @@ interface ServiceHeroSplitProps {
 const getAccentGradient = (primary: string, secondary?: string) => 
   secondary ? `linear-gradient(135deg, ${primary}, ${secondary})` : primary;
 
+const heroParticles = Array.from({ length: 12 }, (_, index) => ({
+  left: (index * 37 + 11) % 97,
+  top: (index * 53 + 7) % 91,
+  duration: 3.4 + (index % 5) * 0.55,
+  delay: (index % 6) * 0.42,
+}));
+
 // Per-service themed prop SVG rendered instead of a generic card
 const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string }) => {
   const size = slug === "amazing-race" ? 520 : 320;
@@ -501,13 +508,13 @@ export const ServiceHeroSplit = ({
       {/* Right side - Content */}
       <div className="relative w-full lg:w-1/2 lg:ml-auto h-full flex items-center">
         {/* Floating particles with accent color */}
-        {[...Array(12)].map((_, i) => (
+        {heroParticles.map((particle, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
               backgroundColor: accentColor,
             }}
             animate={{
@@ -516,9 +523,9 @@ export const ServiceHeroSplit = ({
               scale: [0, 1, 0],
             }}
             transition={{
-              duration: 3 + Math.random() * 3,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 3,
+              delay: particle.delay,
             }}
           />
         ))}
@@ -588,7 +595,7 @@ export const ServiceHeroSplit = ({
                   color: '#000',
                   border: 'none'
                 }}
-                onClick={openContactModal}
+                onClick={() => openContactModal({ serviceSlug: slug })}
               >
                 <span className="relative z-10 inline-flex items-center justify-center gap-2">
                   <span className="sm:hidden">Plan My Event</span>

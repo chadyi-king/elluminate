@@ -42,7 +42,7 @@ const quickFactsExports = evaluateTypescript(
 );
 
 const servicesDataSource = read("src/data/servicesData.ts");
-const quickFactsComponentSource = read("src/components/service-page/ServiceQuickFacts.tsx");
+const planningBriefComponentSource = read("src/components/service-page/ServicePlanningBrief.tsx");
 
 const getServiceBlock = (slug) => {
   const key = `  "${slug}": {`;
@@ -95,7 +95,7 @@ test("owner-approved prices and source-backed operating facts stay consistent", 
   assert.equal(overseasRetreatFacts.find((fact) => fact.label === "Typical length")?.value, "3–5 days");
 });
 
-test("quick-facts markup uses supported utilities and valid definition-list grouping", () => {
+test("planning-brief markup uses supported utilities and valid definition-list grouping", () => {
   for (const unsupportedUtility of [
     "text-white/48",
     "text-white/58",
@@ -108,9 +108,9 @@ test("quick-facts markup uses supported utilities and valid definition-list grou
     "text-[#101725]/68",
     "opacity-65",
   ]) {
-    assert.doesNotMatch(quickFactsComponentSource, new RegExp(unsupportedUtility.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.doesNotMatch(planningBriefComponentSource, new RegExp(unsupportedUtility.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
 
-  assert.match(quickFactsComponentSource, /<dt[\s\S]*?<span[\s\S]*?aria-hidden="true"[\s\S]*?<\/dt>[\s\S]*?<dd/);
-  assert.doesNotMatch(quickFactsComponentSource, /<div[\s\S]*?<span\s+aria-hidden="true"[\s\S]*?<\/span>\s*<dt/);
+  assert.match(planningBriefComponentSource, /<dt[\s\S]*?<span[\s\S]*?aria-hidden="true"[\s\S]*?<\/dt>[\s\S]*?<dd/);
+  assert.doesNotMatch(planningBriefComponentSource, /<div[\s\S]*?<span\s+aria-hidden="true"[\s\S]*?<\/span>\s*<dt/);
 });

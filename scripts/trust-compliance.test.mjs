@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 const read = (path) => readFileSync(path, "utf8");
@@ -15,7 +15,7 @@ const hardeningReport = read("docs/elluminate-hardening-change-report.md");
 const clientProofChecklist = read("docs/client-proof-review-checklist.md");
 const servicesData = read("src/data/servicesData.ts");
 const featuredCaseStudies = read("src/components/portfolio/FeaturedCaseStudies.tsx");
-const serviceRecentEventsTicker = read("src/components/service-page/ServiceRecentEventsTicker.tsx");
+const servicePage = read("src/pages/ServicePage.tsx");
 
 test("team section does not show joke or placeholder titles", () => {
   assert.doesNotMatch(ourTeam, /Basement Worker|Spiritual Advisor/);
@@ -45,9 +45,9 @@ test("marketing copy does not ship unsourced percentage claims", () => {
   assert.doesNotMatch(featuredCaseStudies, /Team collaboration scores increased by 40%/);
 });
 
-test("service recent-events ticker does not show unverified pax counts publicly", () => {
-  assert.doesNotMatch(serviceRecentEventsTicker, /\{event\.pax\}\s*pax/);
-  assert.match(serviceRecentEventsTicker, /TODO\(content\): Verify recent-event pax counts before displaying them publicly/);
+test("legacy recent-events proof is removed from canonical service pages", () => {
+  assert.equal(existsSync("src/components/service-page/ServiceRecentEventsTicker.tsx"), false);
+  assert.doesNotMatch(servicePage, /ServiceRecentEventsTicker|recentEvents/);
 });
 
 test("portfolio page does not publish unverified placeholder proof sections", () => {

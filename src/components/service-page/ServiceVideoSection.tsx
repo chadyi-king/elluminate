@@ -10,6 +10,11 @@ interface ServiceVideoSectionProps {
   accentColor: string;
 }
 
+const resolvePreviewAsset = (src?: string) =>
+  src && import.meta.env.DEV && src.startsWith("/__l5e/")
+    ? `https://elluminate.sg${src}`
+    : src;
+
 export const ServiceVideoSection = ({
   title,
   subtitle,
@@ -20,12 +25,12 @@ export const ServiceVideoSection = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const resolvedVideoUrl = resolvePreviewAsset(videoUrl);
 
   const isNativeVideo = Boolean(
-    videoUrl &&
-      (/\.(mp4|webm|mov)(\?.*)?$/i.test(videoUrl) ||
-        videoUrl.startsWith("/__l5e/") ||
-        videoUrl.startsWith("/videos/"))
+    resolvedVideoUrl &&
+      (/\.(mp4|webm|mov)(\?.*)?$/i.test(resolvedVideoUrl) ||
+        resolvedVideoUrl.startsWith("/videos/"))
   );
 
   useEffect(() => {
@@ -40,7 +45,7 @@ export const ServiceVideoSection = ({
     video.pause();
     video.currentTime = 0;
     video.load();
-  }, [videoUrl, isNativeVideo]);
+  }, [resolvedVideoUrl, isNativeVideo]);
 
   const handlePlay = () => {
     if (!videoUrl || isLoading) {
@@ -135,13 +140,13 @@ export const ServiceVideoSection = ({
                 }}
                 onEnded={() => setIsPlaying(false)}
               >
-                <source src={videoUrl} type="video/mp4" />
+                <source src={resolvedVideoUrl} type="video/mp4" />
               </video>
             )}
 
             {isPlaying && videoUrl && !isNativeVideo ? (
               <iframe
-                src={videoUrl}
+                src={resolvedVideoUrl}
                 className="absolute inset-0 w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

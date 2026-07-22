@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
@@ -15,6 +15,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { submitLead } from "@/lib/leadSubmission";
+import { getServicePageBlueprint, type ServiceFamily } from "@/data/servicePageBlueprints";
 
 const eventCategories = [
   "Physical Team Building",
@@ -60,6 +61,14 @@ const addOnServices = [
 ];
 
 const STORAGE_KEY = "contact_form_draft";
+
+const categoryByFamily: Record<ServiceFamily, string> = {
+  physical: "Physical Team Building",
+  equipment: "Physical Team Building",
+  virtual: "Virtual Team Building",
+  retreat: "Corporate Retreat",
+  training: "Training Workshop",
+};
 
 const getInitialFormData = () => {
   try {
@@ -120,10 +129,20 @@ export const ContactModal = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const injectedSelectionRef = useRef("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(getInitialDate);
   const [formData, setFormData] = useState(getInitialFormData);
-  const activeEventCategory = modalContext?.eventCategory || formData.eventCategory;
+  const selectedBlueprint = useMemo(
+    () => (modalContext?.serviceSlug ? getServicePageBlueprint(modalContext.serviceSlug) : null),
+    [modalContext?.serviceSlug],
+  );
+  const selectedPackage = useMemo(
+    () => selectedBlueprint?.packages.find((option) => option.id === modalContext?.packageId),
+    [modalContext?.packageId, selectedBlueprint],
+  );
+  const routeEventCategory = selectedBlueprint ? categoryByFamily[selectedBlueprint.family] : undefined;
+  const activeEventCategory = modalContext?.eventCategory || routeEventCategory || formData.eventCategory;
   const isTeamBuildingInquiry =
     activeEventCategory === "Physical Team Building" || activeEventCategory === "Virtual Team Building";
 
@@ -142,22 +161,38 @@ export const ContactModal = () => {
     }
 
     setFormData((prev) => {
+      const selectionLines = selectedBlueprint
+        ? [
+            `Selected experience: ${selectedBlueprint.card.shortTitle}`,
+            selectedPackage ? `Selected package: ${selectedPackage.title}` : "",
+          ].filter(Boolean)
+        : [];
+      const selectionBlock = selectionLines.join("\n");
+      let existingDetails = prev.additionalDetails
+        .replace(/^Selected experience:.*(?:\r?\n)?/gim, "")
+        .replace(/^Selected package:.*(?:\r?\n)?/gim, "")
+        .replace(injectedSelectionRef.current, "")
+        .trim();
       const shouldReplaceBrief =
         modalContext.additionalDetails?.startsWith("Team Activity Brief") &&
-        prev.additionalDetails.includes("Team Activity Brief");
+        existingDetails.includes("Team Activity Brief");
+
+      if (shouldReplaceBrief) {
+        existingDetails = modalContext.additionalDetails ?? existingDetails;
+      } else if (modalContext.additionalDetails && !existingDetails.includes(modalContext.additionalDetails)) {
+        existingDetails = [existingDetails, modalContext.additionalDetails].filter(Boolean).join("\n\n");
+      }
+
+      injectedSelectionRef.current = selectionBlock;
 
       return {
         ...prev,
-        eventCategory: modalContext.eventCategory ?? prev.eventCategory,
+        eventCategory: modalContext.eventCategory ?? routeEventCategory ?? prev.eventCategory,
         expectedAttendees: modalContext.expectedAttendees ?? prev.expectedAttendees,
-        additionalDetails: shouldReplaceBrief
-          ? modalContext.additionalDetails
-          : modalContext.additionalDetails && !prev.additionalDetails.includes(modalContext.additionalDetails)
-            ? [prev.additionalDetails, modalContext.additionalDetails].filter(Boolean).join("\n\n")
-            : prev.additionalDetails,
+        additionalDetails: [existingDetails, selectionBlock].filter(Boolean).join("\n\n"),
       };
     });
-  }, [isOpen, modalContext]);
+  }, [isOpen, modalContext, routeEventCategory, selectedBlueprint, selectedPackage]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

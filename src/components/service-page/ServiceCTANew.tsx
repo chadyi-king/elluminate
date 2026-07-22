@@ -5,6 +5,8 @@ import { useContactModal } from "@/contexts/ContactModalContext";
 interface ServiceCTANewProps {
   headline: string;
   subtext: string;
+  buttonLabel?: string;
+  serviceSlug?: string;
   accentColor: string;
   accentColorSecondary?: string;
   backgroundImage?: string;
@@ -13,7 +15,14 @@ interface ServiceCTANewProps {
 const getAccentGradient = (primary: string, secondary?: string) => 
   secondary ? `linear-gradient(135deg, ${primary}, ${secondary})` : primary;
 
-export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecondary, backgroundImage }: ServiceCTANewProps) => {
+const ctaParticles = Array.from({ length: 16 }, (_, index) => ({
+  left: (index * 31 + 9) % 97,
+  top: (index * 47 + 13) % 91,
+  duration: 4 + (index % 5) * 0.6,
+  delay: (index % 7) * 0.5,
+}));
+
+export const ServiceCTANew = ({ headline, subtext, buttonLabel = "Plan My Event", serviceSlug, accentColor, accentColorSecondary, backgroundImage }: ServiceCTANewProps) => {
   const { openContactModal } = useContactModal();
   const gradient = getAccentGradient(accentColor, accentColorSecondary);
   
@@ -23,7 +32,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecon
       <div className="absolute inset-0">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: `url(${backgroundImage || 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1920'})` }}
+          style={{ backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined }}
         />
       </div>
       
@@ -36,13 +45,13 @@ export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecon
       />
 
       {/* Floating particles with accent color */}
-      {[...Array(20)].map((_, i) => (
+      {ctaParticles.map((particle, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${particle.left}%`,
+            top: `${particle.top}%`,
             backgroundColor: accentColor,
           }}
           animate={{
@@ -50,9 +59,9 @@ export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecon
             opacity: [0, 0.6, 0],
           }}
           transition={{
-            duration: 4 + Math.random() * 3,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 4,
+            delay: particle.delay,
           }}
         />
       ))}
@@ -86,9 +95,9 @@ export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecon
                   color: '#000',
                   border: 'none'
                 }}
-                onClick={openContactModal}
+                onClick={() => openContactModal({ serviceSlug })}
               >
-                <span className="relative z-10">Plan My Event</span>
+                <span className="relative z-10">{buttonLabel}</span>
               </Button>
             </motion.div>
             
@@ -104,7 +113,7 @@ export const ServiceCTANew = ({ headline, subtext, accentColor, accentColorSecon
                   borderColor: accentColor, 
                   color: accentColor 
                 }}
-                onClick={openContactModal}
+                onClick={() => openContactModal({ serviceSlug })}
               >
                 Ask for a Quote
               </Button>

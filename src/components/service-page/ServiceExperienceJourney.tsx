@@ -21,20 +21,22 @@ import {
   Trophy,
 } from "lucide-react";
 
-import {
-  getServiceExperienceContent,
-  type ServiceExperienceVariant,
+import type {
+  ServiceExperienceContent,
+  ServiceExperienceVariant,
 } from "@/data/serviceExperienceContent";
+import type { ServiceJourneyMedia } from "@/data/servicePageBlueprints";
 import adventurePair from "@/assets/service-characters/adventure-pair.webp";
 import creativePair from "@/assets/service-characters/creative-pair.webp";
 import detectivePair from "@/assets/service-characters/detective-pair.webp";
 
 interface ServiceExperienceJourneyProps {
   slug: string;
+  content: ServiceExperienceContent;
   serviceTitle: string;
   accentColor: string;
   accentColorSecondary?: string;
-  fallbackImages?: string[];
+  journeyMedia?: readonly ServiceJourneyMedia[];
 }
 
 interface VariantTheme {
@@ -201,22 +203,17 @@ const characterPairByVariant: Record<ServiceExperienceVariant, string> = {
 
 export function ServiceExperienceJourney({
   slug,
+  content,
   serviceTitle,
   accentColor,
   accentColorSecondary,
-  fallbackImages = [],
+  journeyMedia = [],
 }: ServiceExperienceJourneyProps) {
-  const content = getServiceExperienceContent(slug);
   const reduceMotion = useReducedMotion();
-
-  if (!content) return null;
 
   const theme = variantThemes[content.variant];
   const characterPair = characterPairByVariant[content.variant];
   const ThemeIcon = theme.icon;
-  const images = Array.from(
-    new Set([content.image?.src, ...fallbackImages].filter((image): image is string => Boolean(image))),
-  ).slice(0, content.stages.length);
   const titleId = `${slug}-experience-journey-title`;
   const secondaryAccent = accentColorSecondary ?? accentColor;
 
@@ -299,7 +296,8 @@ export function ServiceExperienceJourney({
 
         <ol className="relative z-20 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {content.stages.map((stage, index) => {
-            const image = images[index];
+            const media = journeyMedia[index];
+            const image = media?.src;
             return (
               <motion.li
                 key={stage.title}
@@ -314,10 +312,12 @@ export function ServiceExperienceJourney({
                   <>
                     <img
                       src={image}
-                      alt=""
+                      alt={media?.alt ?? ""}
                       loading="lazy"
                       decoding="async"
-                      className="absolute inset-0 h-full w-full object-cover opacity-70 transition duration-700 group-hover:scale-105 group-hover:opacity-80 motion-reduce:transition-none"
+                      className={`absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105 motion-reduce:transition-none ${
+                        media?.kind === "real-event" ? "opacity-70 group-hover:opacity-80" : "opacity-55 saturate-[0.8] group-hover:opacity-70"
+                      }`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050a0f] via-[#050a0f]/80 to-[#050a0f]/10" />
                   </>

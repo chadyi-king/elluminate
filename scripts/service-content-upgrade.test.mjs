@@ -1,38 +1,47 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import vm from "node:vm";
-import ts from "typescript";
+import { createServer } from "vite";
 
 const read = (path) => readFileSync(path, "utf8");
+const wordCount = (text) => text.trim().split(/\s+/).filter(Boolean).length;
 
-const siteScope = read("src/data/siteScope.ts");
-const serviceContentQualitySource = read("src/data/serviceContentQuality.ts");
+const vite = await createServer({
+  root: process.cwd(),
+  appType: "custom",
+  optimizeDeps: { noDiscovery: true, include: [] },
+  server: { middlewareMode: true },
+  logLevel: "error",
+});
+
+let servicePageBlueprints;
+let serviceExperienceSlugs;
+let serviceContentQuality;
+
+try {
+  ({ servicePageBlueprints } = await vite.ssrLoadModule("/src/data/servicePageBlueprints.ts"));
+  ({ serviceExperienceSlugs } = await vite.ssrLoadModule("/src/data/serviceExperienceContent.ts"));
+  ({ serviceContentQuality } = await vite.ssrLoadModule("/src/data/serviceContentQuality.ts"));
+} finally {
+  await vite.close();
+}
+
 const servicePage = read("src/pages/ServicePage.tsx");
 const serviceHeroSplit = read("src/components/service-page/ServiceHeroSplit.tsx");
 const policeTapeStrip = read("src/components/service-page/dividers/PoliceTapeStrip.tsx");
 const arrowStrip = read("src/components/service-page/dividers/ArrowStrip.tsx");
 
-const liveServiceSlugs = [...siteScope.matchAll(/slug:\s*"([^"]+)"/g)].map((match) => match[1]);
+test("all 36 child routes retain buyer-facing copy coverage", () => {
+  assert.equal(serviceExperienceSlugs.length, 36);
+  const missingChildCopy = serviceExperienceSlugs.filter((slug) => !serviceContentQuality[slug]);
+  assert.deepEqual(missingChildCopy, []);
+  assert.deepEqual(
+    Object.keys(serviceContentQuality).filter((slug) => !serviceExperienceSlugs.includes(slug)).sort(),
+    ["team-building"],
+    "only the held parent Team Building landing page may sit outside the 36 child routes",
+  );
 
-const compiled = ts.transpileModule(serviceContentQualitySource, {
-  compilerOptions: {
-    module: ts.ModuleKind.CommonJS,
-    target: ts.ScriptTarget.ES2022,
-  },
-});
-const sandbox = { exports: {} };
-vm.runInNewContext(compiled.outputText, sandbox, { filename: "serviceContentQuality.js" });
-const { serviceContentQuality } = sandbox.exports;
-
-const wordCount = (text) => text.trim().split(/\s+/).filter(Boolean).length;
-
-test("every live service has a content-quality upgrade entry", () => {
-  assert.deepEqual(Object.keys(serviceContentQuality).sort(), [...liveServiceSlugs].sort());
-});
-
-test("content-quality entries include useful buyer-facing copy and TODO markers", () => {
-  for (const slug of liveServiceSlugs) {
+  for (const slug of serviceExperienceSlugs) {
     const entry = serviceContentQuality[slug];
     assert.ok(entry.heroSubline.length > 40, `${slug} needs a meaningful hero subline`);
     assert.ok(entry.heroSubline.includes(" for "), `${slug} hero subline should state who it is for`);
@@ -43,32 +52,87 @@ test("content-quality entries include useful buyer-facing copy and TODO markers"
   }
 });
 
-test("every live service has visible FAQ and related-service choices", () => {
-  for (const slug of liveServiceSlugs) {
-    const entry = serviceContentQuality[slug];
-    assert.ok(entry.faqs.length >= 4 && entry.faqs.length <= 6, `${slug} should have 4-6 FAQs`);
-    assert.ok(entry.relatedSlugs.length >= 3 && entry.relatedSlugs.length <= 4, `${slug} should have 3-4 related links`);
+test("canonical blueprints replace the superseded 4-6 FAQ and 3-4 related-link contract", () => {
+  assert.equal(Object.keys(servicePageBlueprints).length, 36);
 
-    for (const relatedSlug of entry.relatedSlugs) {
-      assert.notEqual(relatedSlug, slug, `${slug} links to itself`);
-      assert.ok(liveServiceSlugs.includes(relatedSlug), `${slug} links to non-live related service ${relatedSlug}`);
+  for (const slug of serviceExperienceSlugs) {
+    const blueprint = servicePageBlueprints[slug];
+    assert.ok(blueprint, `${slug} is missing its canonical blueprint`);
+    assert.equal(blueprint.slug, slug, `${slug} blueprint has the wrong slug`);
+    assert.equal(blueprint.overviewParagraphs.length, 2, `${slug} should have a two-paragraph introduction`);
+    assert.ok(blueprint.overviewParagraphs.every((paragraph) => wordCount(paragraph) >= 4), `${slug} has an empty or unusably short introduction paragraph`);
+    assert.equal(blueprint.journey.stages.length, 6, `${slug} should have exactly 6 journey stages`);
+    assert.equal(blueprint.facts.length, 9, `${slug} should have exactly 9 planning facts`);
+    assert.equal(blueprint.faqs.length, 8, `${slug} should have exactly 8 FAQs`);
+    assert.equal(blueprint.relatedSlugs.length, 8, `${slug} should have exactly 8 related experiences`);
+    assert.equal(new Set(blueprint.relatedSlugs).size, 8, `${slug} related experiences should be unique`);
+    assert.ok(!blueprint.relatedSlugs.includes(slug), `${slug} links to itself`);
+
+    for (const relatedSlug of blueprint.relatedSlugs) {
+      assert.ok(serviceExperienceSlugs.includes(relatedSlug), `${slug} links to non-live related service ${relatedSlug}`);
     }
   }
 });
 
-test("shared service template renders upgraded copy, FAQs, and related experiences", () => {
+test("shared child template renders the canonical journey once and keeps FAQ data aligned with schema", () => {
   for (const pattern of [
-    /serviceContentQuality/,
-    /displayHeroTagline/,
-    /displayOverviewDescription/,
-    /displayFaqs/,
+    /getServicePageBlueprint/,
+    /const displayFaqs = blueprint\.faqs/,
+    /const relatedServices = blueprint\.relatedSlugs/,
     /FAQSchema faqs=\{displayFaqs\}/,
-    /ServiceFAQAccordion/,
-    /relatedServices/,
-    /Related Experiences/,
-    /ExperienceCard slug=\{relatedSlug\}/,
+    /<ServiceTransitionStrip\b/,
+    /<ServiceOverviewNew\b/,
+    /<ServiceExperienceJourney\b/,
+    /<ServicePlanningBrief\b/,
+    /<ServicePackageSelector\b/,
+    /<ServiceFAQAccordion\b/,
+    /<ServiceMiniGallery\b/,
+    /blueprint\.midCta\.headline/,
+    /blueprint\.closingCta\.headline/,
   ]) {
     assert.match(servicePage, pattern);
+  }
+
+  for (const component of [
+    "ServiceTransitionStrip",
+    "ServiceOverviewNew",
+    "ServiceExperienceJourney",
+    "ServicePlanningBrief",
+    "ServicePackageSelector",
+    "ServiceCTANew",
+    "ServiceFAQAccordion",
+    "ServiceMiniGallery",
+    "ServiceFinalCTA",
+  ]) {
+    const openings = servicePage.match(new RegExp(`<${component}\\b`, "g")) ?? [];
+    assert.equal(openings.length, 1, `${component} should render once in the child template`);
+  }
+
+  const orderedComponents = [
+    "<ServiceHeroSplit",
+    "<ServiceTransitionStrip",
+    "<ServiceOverviewNew",
+    "<ServiceExperienceJourney",
+    "<ServicePlanningBrief",
+    "<ServicePackageSelector",
+    "<ServiceCTANew",
+    "<ServiceFlowSection",
+    "<ServiceFAQAccordion",
+    "<ServiceMiniGallery",
+    "<ServiceFinalCTA",
+  ];
+  const positions = orderedComponents.map((component) => servicePage.indexOf(component));
+  assert.ok(positions.every((position) => position >= 0), "canonical child-page sequence is incomplete");
+  assert.deepEqual(positions, [...positions].sort((a, b) => a - b), "canonical child-page sections are out of order");
+
+  for (const legacyModule of [
+    "ServiceHowItWorksWithPricing",
+    "ServiceOutcomes",
+    "ServiceRecentEventsTicker",
+    "ServiceTestimonialNew",
+    "ServiceQuickFacts",
+  ]) {
+    assert.doesNotMatch(servicePage, new RegExp(legacyModule), `legacy child module remains: ${legacyModule}`);
   }
 
   assert.doesNotMatch(serviceHeroSplit, /"\{tagline\}"/);

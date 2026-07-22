@@ -151,7 +151,7 @@ interface FAQItem {
 }
 
 interface FAQSchemaProps {
-  faqs: FAQItem[];
+  faqs: readonly FAQItem[];
 }
 
 export const FAQSchema = ({ faqs }: FAQSchemaProps) => {

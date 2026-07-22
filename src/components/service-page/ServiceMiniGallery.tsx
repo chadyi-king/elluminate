@@ -31,8 +31,8 @@ export const ServiceMiniGallery = ({
           className="w-full"
         >
           <CarouselContent className="-ml-4">
-            {images.slice(0, 7).map((img, i) => (
-              <CarouselItem key={img.alt} className="pl-4 basis-full md:basis-1/3">
+            {images.slice(0, 12).map((img, i) => (
+              <CarouselItem key={`${img.src}-${i}`} className="basis-full pl-4 sm:basis-1/2 lg:basis-1/4">
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -44,6 +44,8 @@ export const ServiceMiniGallery = ({
                     src={img.src}
                     alt={img.alt}
                     loading="lazy"
+                    decoding="async"
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                     className="h-56 w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />

@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
@@ -10,182 +9,32 @@ import { ServiceVideoSection } from "@/components/service-page/ServiceVideoSecti
 import { ServiceVideoCarousel } from "@/components/service-page/ServiceVideoCarousel";
 import { ServiceOverviewNew } from "@/components/service-page/ServiceOverviewNew";
 import { ServiceExperienceJourney } from "@/components/service-page/ServiceExperienceJourney";
-import { ServiceQuickFacts } from "@/components/service-page/ServiceQuickFacts";
 import { ServiceCTANew } from "@/components/service-page/ServiceCTANew";
-import { ServiceTestimonialNew } from "@/components/service-page/ServiceTestimonialNew";
 import { ServiceFinalCTA } from "@/components/service-page/ServiceFinalCTA";
 import { ServiceFlowSection } from "@/components/service-page/ServiceFlowSection";
-import { ServiceRecentEventsTicker } from "@/components/service-page/ServiceRecentEventsTicker";
-import { ServiceHowItWorksWithPricing } from "@/components/service-page/ServiceHowItWorksWithPricing";
-import { ServiceOutcomes } from "@/components/service-page/ServiceOutcomes";
-import { ServicePillsSection } from "@/components/service-page/ServicePillsSection";
+import { ServiceTransitionStrip } from "@/components/service-page/ServiceTransitionStrip";
+import { ServicePlanningBrief } from "@/components/service-page/ServicePlanningBrief";
+import { ServicePackageSelector } from "@/components/service-page/ServicePackageSelector";
 import { servicesData } from "@/data/servicesData";
 import { serviceContentQuality } from "@/data/serviceContentQuality";
-import { getVerifiedLocalServiceGalleryPaths } from "@/data/serviceGalleryMedia";
 import {
   allInScopeServiceSlugs,
-  equipmentActivityServices,
-  physicalTeamBuildingServices,
-  retreatServices,
-  serviceCategoryLabels,
-  trainingServices,
-  virtualTeamBuildingServices,
 } from "@/data/siteScope";
+import { getServicePageBlueprint } from "@/data/servicePageBlueprints";
 import { SEO } from "@/components/SEO";
 import { ServiceMiniGallery } from "@/components/service-page/ServiceMiniGallery";
 import { ServiceDestinationsGrid } from "@/components/service-page/ServiceDestinationsGrid";
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/StructuredData";
 import { ServiceFAQAccordion } from "@/components/service-page/ServiceFAQAccordion";
 import { getRouteSeo } from "@/data/seoRoutes";
-import {
-  ServiceWorldBriefing,
-  ServiceWorldFrame,
-} from "@/components/service-worlds/ServiceWorldFrame";
-
-const recommendationGroups = [
-  { items: physicalTeamBuildingServices, count: 2 },
-  { items: equipmentActivityServices, count: 1 },
-  { items: virtualTeamBuildingServices, count: 2 },
-  { items: retreatServices, count: 1 },
-  { items: trainingServices, count: 2 },
-];
-
-const shuffle = <T,>(items: T[]) => {
-  const shuffled = [...items];
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
-  }
-  return shuffled;
-};
-
-const buildRelatedServices = (currentSlug: string) =>
-  shuffle(
-    recommendationGroups.flatMap(({ items, count }) =>
-      shuffle(items.filter((item) => item.slug !== currentSlug && servicesData[item.slug]))
-        .slice(0, count)
-        .map((item) => item.slug),
-    ),
-  );
-
-const overseasRetreatsFaqs = [
-  {
-    question: "What is a corporate retreat?",
-    answer:
-      "A corporate retreat is an off-site event that combines team bonding, strategic planning, leadership development, and employee engagement activities. Retreats help teams strengthen relationships while focusing on business objectives.",
-  },
-  {
-    question: "Do you organise overseas corporate retreats?",
-    answer:
-      "Yes. We organise corporate retreats in destinations such as Bali, Batam, Bintan, Phuket, Bangkok, Johor Bahru, and other regional locations.",
-  },
-  {
-    question: "What activities can be included in a corporate retreat?",
-    answer:
-      "Activities may include team building games, Amazing Race challenges, workshops, leadership development sessions, personality profiling, CSR activities, cultural experiences, and gala dinners.",
-  },
-  {
-    question: "How long should a corporate retreat be?",
-    answer:
-      "Most corporate retreats range from one to four days depending on objectives, travel requirements, and budget.",
-  },
-  {
-    question: "Can you handle retreat logistics and planning?",
-    answer:
-      "Yes. We can assist with programme design, activities, venue sourcing, accommodation, transport, meals, facilitators, and event management.",
-  },
-];
-
-const amazingRaceFaqs = [
-  {
-    question: "What is an Amazing Race team building activity?",
-    answer:
-      "Amazing Race is a team building experience where participants solve clues, complete challenges, and navigate checkpoints while working together toward a common goal.",
-  },
-  {
-    question: "Is Amazing Race suitable for all fitness levels?",
-    answer:
-      "Yes. We design routes and challenges to suit different age groups, fitness levels, and participant profiles.",
-  },
-  {
-    question: "What happens if it rains during the Amazing Race?",
-    answer:
-      "We provide wet-weather contingency plans and can incorporate sheltered checkpoints, indoor venues, or alternative game formats.",
-  },
-  {
-    question: "Can the Amazing Race be customised?",
-    answer:
-      "Yes. We can customise challenges, routes, branding, company messages, and learning outcomes.",
-  },
-  {
-    question: "Where can Amazing Race team building activities be conducted?",
-    answer:
-      "Popular locations include Sentosa, Marina Bay, Gardens by the Bay, Chinatown, Civic District, Jewel Changi Airport, and custom locations across Singapore.",
-  },
-];
-
-const runningManFaqs = [
-  {
-    question: "What is a Running Man team building event?",
-    answer:
-      "Running Man is a fast-paced team building programme inspired by the popular Korean variety show. Teams compete in a series of interactive missions, games, and challenges to earn points.",
-  },
-  {
-    question: "Is Name Tag Elimination included?",
-    answer:
-      "Name Tag Elimination can be included as an optional finale activity depending on venue suitability and participant preferences.",
-  },
-  {
-    question: "Is Running Man suitable for corporate teams?",
-    answer:
-      "Yes. Running Man activities are designed for corporate team bonding and focus on teamwork, communication, strategy, and engagement.",
-  },
-  {
-    question: "Can Running Man be conducted indoors?",
-    answer:
-      "Yes. Indoor and outdoor versions are available depending on venue availability and weather conditions.",
-  },
-  {
-    question: "How many participants can join a Running Man event?",
-    answer:
-      "We can facilitate Running Man programmes for small teams of 20 participants to large-scale corporate events with several hundred participants.",
-  },
-];
-
-const workshopsFaqs = [
-  {
-    question: "What corporate workshops do you offer?",
-    answer:
-      "We offer workshops covering communication, teamwork, leadership, personality profiling, employee engagement, workplace collaboration, and personal effectiveness.",
-  },
-  {
-    question: "Can workshops be combined with team building activities?",
-    answer:
-      "Yes. Many organisations combine workshops with experiential team building activities to reinforce learning outcomes.",
-  },
-  {
-    question: "Do you provide personality profiling workshops?",
-    answer:
-      "Yes. We offer DISC, MBTI, and other personality assessment-based programmes to improve self-awareness and team dynamics.",
-  },
-  {
-    question: "How long are your workshops?",
-    answer:
-      "Workshops can range from one-hour sessions to full-day programmes depending on objectives and learning outcomes.",
-  },
-  {
-    question: "Are your workshops suitable for hybrid teams?",
-    answer:
-      "Yes. Selected workshops can be conducted in-person, virtually, or in a hybrid format.",
-  },
-];
+import { ServiceWorldFrame } from "@/components/service-worlds/ServiceWorldFrame";
 
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? servicesData[slug] : null;
-  const relatedServices = useMemo(() => buildRelatedServices(slug || "services"), [slug]);
+  const blueprint = slug ? getServicePageBlueprint(slug) : null;
 
-  if (!service || !slug || !allInScopeServiceSlugs.has(slug)) {
+  if (!service || !slug || !blueprint || !allInScopeServiceSlugs.has(slug)) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
@@ -295,42 +144,17 @@ const ServicePage = () => {
   const displayHeroSubtitle = contentQuality?.heroSubtitle ?? service.hero.subtitle;
   const displayHeroTagline = contentQuality?.heroSubline ?? service.hero.tagline;
   const displayOverviewDescription = contentQuality?.overviewDescription ?? service.overview.description;
-  const legacyFaqsBySlug: Record<string, typeof service.faqs> = {
-    "running-man": runningManFaqs,
-    "workshops": workshopsFaqs,
-    "overseas-retreats": overseasRetreatsFaqs,
-    "amazing-race": amazingRaceFaqs,
-  };
-  const displayFaqs = contentQuality?.faqs?.length
-    ? contentQuality.faqs
-    : legacyFaqsBySlug[slug || ""] ?? service.faqs;
-  const journeyImages = Array.from(
-    new Set(
-      [
-        ...getVerifiedLocalServiceGalleryPaths(slug || "", 6),
-        service.overview.backgroundImage,
-        service.howItWorksImage,
-        service.addOnsImage,
-        service.ctaBackgroundImage,
-        service.testimonialBackgroundImage,
-        ...(service.miniGallery?.images.map((image) => image.src) ?? []),
-        ...service.gallery,
-        service.hero.backgroundImage,
-      ].filter((image): image is string => Boolean(image)),
-    ),
-  );
-
-  // Check if this service has the new enhanced structure
-  const hasEnhancedStructure = service.clientLogos || service.recentEvents || service.pricing;
-  const showLegacyEnhancedStructure = hasEnhancedStructure && !contentQuality?.hideLegacyPricing;
+  const displayFaqs = blueprint.faqs;
+  const relatedServices = blueprint.relatedSlugs;
+  const planningPrice = blueprint.facts.find((fact) => fact.label === "Starting price")?.value;
+  const schemaPrice = planningPrice && /\d/.test(planningPrice) ? planningPrice : undefined;
 
   // Determine service category for breadcrumbs
-  const getCategory = () => ({
-    label: serviceCategoryLabels[slug] ?? "Services",
-    href: "/",
-  });
-
-  const category = getCategory();
+  const category = blueprint.family === "retreat"
+    ? { label: "Retreats", href: "/services/retreats" }
+    : blueprint.family === "training"
+      ? { label: "Training", href: "/services/training" }
+      : { label: "Team Building", href: "/services/team-building" };
 
   return (
     <ServiceWorldFrame slug={slug}>
@@ -345,7 +169,7 @@ const ServicePage = () => {
         name={displayHeroTitle}
         description={displayOverviewDescription.slice(0, 200)}
         slug={slug || ""}
-        price={contentQuality?.hideLegacyPricing ? undefined : service.pricing?.startingPrice}
+        price={schemaPrice}
       />
       {displayFaqs && displayFaqs.length > 0 && (
         <FAQSchema faqs={displayFaqs} />
@@ -356,7 +180,7 @@ const ServicePage = () => {
       {/* Breadcrumb schema for SEO — no visible bar on page */}
       <BreadcrumbSchema items={[
         { name: "Home", url: "https://elluminate.sg/" },
-        { name: category.label, url: "https://elluminate.sg/" },
+        { name: category.label, url: `https://elluminate.sg${category.href}` },
         { name: displayHeroTitle, url: `https://elluminate.sg/services/${slug}` },
       ]} />
 
@@ -365,7 +189,7 @@ const ServicePage = () => {
         title={displayHeroTitle}
         subtitle={displayHeroSubtitle}
         tagline={displayHeroTagline}
-        backgroundImage={service.hero.backgroundImage}
+        backgroundImage={blueprint.assets.hero}
         accentColor={service.accentColor}
         accentColorSecondary={service.accentColorSecondary}
         slug={slug}
@@ -374,167 +198,96 @@ const ServicePage = () => {
       {/* Accent gradient bar under hero */}
       <div className="h-1" style={{ background: `linear-gradient(90deg, transparent, ${service.accentColor}, ${service.accentColorSecondary || service.accentColor}, transparent)` }} />
 
-      <ServiceWorldBriefing slug={slug} accentColor={service.accentColor} />
+      <ServiceTransitionStrip
+        slug={slug}
+        family={blueprint.family}
+        accentColor={service.accentColor}
+        stages={blueprint.journey.stages}
+      />
 
       {/* 2. Video Section */}
-      {service.videoSection && service.videoSection.videos && service.videoSection.videos.length > 0 ? (
+      {blueprint.video?.videos && blueprint.video.videos.length > 0 ? (
         <ServiceVideoCarousel
-          title={service.videoSection.title}
-          subtitle={service.videoSection.subtitle}
-          videos={service.videoSection.videos}
+          title={blueprint.video.title}
+          subtitle={blueprint.video.subtitle}
+          videos={blueprint.video.videos}
           accentColor={service.accentColor}
         />
-      ) : service.videoSection ? (
+      ) : blueprint.video ? (
         <ServiceVideoSection
-          title={service.videoSection.title}
-          subtitle={service.videoSection.subtitle}
-          videoUrl={service.videoSection.videoUrl}
-          thumbnailImage={service.videoSection.thumbnailImage}
+          title={blueprint.video.title}
+          subtitle={blueprint.video.subtitle}
+          videoUrl={blueprint.video.videoUrl}
+          thumbnailImage={blueprint.video.thumbnailImage}
           accentColor={service.accentColor}
         />
       ) : null}
 
-      {/* 3. Recent Events Ticker */}
-      {service.recentEvents && !contentQuality?.hideRecentEvents && (
-        <section className="py-8 px-4 bg-background">
-          <ServiceRecentEventsTicker events={service.recentEvents} accentColor={service.accentColor} />
-        </section>
-      )}
-
       {/* 4. What Is This Service? (Overview) */}
       <ServiceOverviewNew
-        description={displayOverviewDescription}
+        description={blueprint.overviewParagraphs.join("\n\n")}
         accentColor={service.accentColor}
         accentColorSecondary={service.accentColorSecondary}
         eyebrow={slug === "amazing-race" ? "The Adventure" : undefined}
         title={slug === "amazing-race" ? "Your Race Day, From First Clue to Final Flag" : undefined}
-        backgroundImage={slug === "amazing-race" ? service.overview.backgroundImage : undefined}
+        backgroundImage={slug === "amazing-race" ? blueprint.assets.overviewBackground : undefined}
       />
+
+      {/* Optional specialist extension: destinations and retreat programme worlds. */}
+      {blueprint.specialistExtension?.kind === "destinations" && (
+        <ServiceDestinationsGrid
+          sectionTitle={blueprint.specialistExtension.data.sectionTitle}
+          sectionSubtitle={blueprint.specialistExtension.data.sectionSubtitle}
+          destinations={blueprint.specialistExtension.data.destinations}
+          accentColor={service.accentColor}
+        />
+      )}
 
       <ServiceExperienceJourney
         slug={slug}
+        content={blueprint.journey}
         serviceTitle={displayHeroTitle}
         accentColor={service.accentColor}
         accentColorSecondary={service.accentColorSecondary}
-        fallbackImages={journeyImages}
+        journeyMedia={blueprint.journeyMedia}
       />
 
-      <ServiceQuickFacts slug={slug} accentColor={service.accentColor} />
+      <ServicePlanningBrief
+        slug={slug}
+        family={blueprint.family}
+        title={blueprint.card.shortTitle}
+        accentColor={service.accentColor}
+        facts={blueprint.facts}
+      />
 
-      {/* 4.5 Destinations Grid (for retreat/travel services) */}
-      {service.destinationsGrid && (
-        <ServiceDestinationsGrid
-          sectionTitle={service.destinationsGrid.sectionTitle}
-          sectionSubtitle={service.destinationsGrid.sectionSubtitle}
-          destinations={service.destinationsGrid.destinations}
-          accentColor={service.accentColor}
-        />
-      )}
-
-      {/* 6. How It Works with Pricing & Add-ons (NEW - for enhanced structure) */}
-      {showLegacyEnhancedStructure && service.howItWorksFlow && service.pricing && service.addOns && (
-        <ServiceHowItWorksWithPricing
-          sectionTitle={service.howItWorksFlow.sectionTitle}
-          sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
-          steps={service.howItWorksFlow.items}
-          pricing={service.pricing}
-          packages={service.packages}
-          addOns={service.addOns}
-          accentColor={service.accentColor}
-          accentColorSecondary={service.accentColorSecondary}
-          dividerVariant={service.dividerVariant}
-          howItWorksImage={service.howItWorksImage}
-          addOnsImage={service.addOnsImage}
-        />
-      )}
-
-      {/* Fallback: Original How It Works Flow (for services without enhanced structure) */}
-      {!hasEnhancedStructure && !contentQuality?.planningPoints && service.howItWorksFlow && (
-        <ServiceFlowSection
-          sectionTitle={service.howItWorksFlow.sectionTitle}
-          sectionSubtitle={service.howItWorksFlow.sectionSubtitle}
-          items={service.howItWorksFlow.items}
-          accentColor={service.accentColor}
-          itemsPerRow={service.howItWorksFlow.itemsPerRow}
-          showNumbers={service.howItWorksFlow.showNumbers}
-        />
-      )}
-
-      {/* 7. Benefits/Outcomes (NEW - for enhanced structure) */}
-      {service.outcomes && !service.hideOutcomes && !contentQuality?.hideOutcomes && (
-        <ServiceOutcomes
-          outcomes={service.outcomes}
-          accentColor={service.accentColor}
-        />
-      )}
-
-      {/* Other Flow Sections (for services without enhanced structure) */}
-      {!hasEnhancedStructure && !contentQuality?.planningPoints && service.whatToExpectFlow && (
-        <ServiceFlowSection
-          sectionTitle={service.whatToExpectFlow.sectionTitle}
-          sectionSubtitle={service.whatToExpectFlow.sectionSubtitle}
-          items={service.whatToExpectFlow.items}
-          accentColor={service.accentColor}
-          itemsPerRow={service.whatToExpectFlow.itemsPerRow}
-          showNumbers={service.whatToExpectFlow.showNumbers}
-        />
-      )}
-
-      {!hasEnhancedStructure && !contentQuality?.planningPoints && service.raceFormatsFlow && (
-        <ServiceFlowSection
-          sectionTitle={service.raceFormatsFlow.sectionTitle}
-          sectionSubtitle={service.raceFormatsFlow.sectionSubtitle}
-          items={service.raceFormatsFlow.items}
-          accentColor={service.accentColor}
-          itemsPerRow={service.raceFormatsFlow.itemsPerRow}
-          showNumbers={service.raceFormatsFlow.showNumbers}
-        />
-      )}
-
-      {!hasEnhancedStructure && !contentQuality?.planningPoints && service.challengeTypesFlow && (
-        <ServiceFlowSection
-          sectionTitle={service.challengeTypesFlow.sectionTitle}
-          sectionSubtitle={service.challengeTypesFlow.sectionSubtitle}
-          items={service.challengeTypesFlow.items}
-          accentColor={service.accentColor}
-          itemsPerRow={service.challengeTypesFlow.itemsPerRow}
-          showNumbers={service.challengeTypesFlow.showNumbers}
-        />
-      )}
+      <ServicePackageSelector
+        serviceSlug={slug}
+        serviceTitle={blueprint.card.shortTitle}
+        accentColor={service.accentColor}
+        packages={blueprint.packages}
+        addOns={blueprint.addOns}
+      />
 
       {/* 8. Mid-Page CTA */}
-      {!service.hideMidCta && (
-        <ServiceCTANew
-          headline={contentQuality?.ctaHeadline ?? service.cta.headline}
-          subtext={contentQuality?.ctaSubtext ?? service.cta.subtext}
-          accentColor={service.accentColor}
-          accentColorSecondary={service.accentColorSecondary}
-          backgroundImage={service.ctaBackgroundImage}
-        />
-      )}
+      <ServiceCTANew
+        headline={blueprint.midCta.headline}
+        subtext={blueprint.midCta.subtext}
+        buttonLabel={blueprint.midCta.buttonLabel}
+        serviceSlug={slug}
+        accentColor={service.accentColor}
+        accentColorSecondary={service.accentColorSecondary}
+        backgroundImage={blueprint.assets.ctaBackground}
+      />
 
       {/* 9. Perfect For Section */}
-      {service.perfectForFlow && (
-        <>
-          {service.perfectForVariant === "pills" ? (
-            <ServicePillsSection
-              sectionTitle={service.perfectForFlow.sectionTitle}
-              sectionSubtitle={service.perfectForFlow.sectionSubtitle}
-              items={service.perfectForFlow.items}
-              accentColor={service.accentColor}
-            />
-          ) : (
-            <ServiceFlowSection
-              sectionTitle={service.perfectForFlow.sectionTitle}
-              sectionSubtitle={service.perfectForFlow.sectionSubtitle}
-              items={service.perfectForFlow.items}
-              accentColor={service.accentColor}
-              itemsPerRow={service.perfectForFlow.itemsPerRow}
-              showNumbers={service.perfectForFlow.showNumbers}
-            />
-          )}
-        </>
-      )}
+      <ServiceFlowSection
+        sectionTitle="Perfect For"
+        sectionSubtitle={`Groups that get the most from ${blueprint.card.shortTitle}`}
+        items={[...blueprint.perfectFor]}
+        accentColor={service.accentColor}
+        itemsPerRow={3}
+        showNumbers={false}
+      />
 
       {/* FAQ */}
       {displayFaqs && displayFaqs.length > 0 && (
@@ -551,9 +304,10 @@ const ServicePage = () => {
       )}
 
       {/* Mini gallery (data-driven) */}
-      {service.miniGallery && (
-        <ServiceMiniGallery title={service.miniGallery.title} images={service.miniGallery.images} />
-      )}
+      <ServiceMiniGallery
+        title={blueprint.galleryTitle}
+        images={blueprint.gallery.map(({ src, alt }) => ({ src, alt }))}
+      />
 
       {/* Related experiences */}
       {relatedServices.length > 0 && (
@@ -583,20 +337,14 @@ const ServicePage = () => {
         </section>
       )}
 
-      {/* Accent gradient bar above testimonials */}
-      <div className="h-px" style={{ background: `linear-gradient(90deg, transparent, ${service.accentColor}80, transparent)` }} />
-
-      {/* 10. Testimonials */}
-      {!contentQuality?.hideTestimonials && (
-        <ServiceTestimonialNew
-          testimonials={service.testimonials}
-          accentColor={service.accentColor}
-          backgroundImage={service.testimonialBackgroundImage}
-        />
-      )}
-
       {/* 11. Final CTA */}
-      <ServiceFinalCTA accentColor={service.accentColor} />
+      <ServiceFinalCTA
+        headline={blueprint.closingCta.headline}
+        subtext={blueprint.closingCta.subtext}
+        buttonLabel={blueprint.closingCta.buttonLabel}
+        serviceSlug={slug}
+        accentColor={service.accentColor}
+      />
 
       <Footer />
     </div>

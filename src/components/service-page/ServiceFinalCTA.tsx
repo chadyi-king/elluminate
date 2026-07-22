@@ -4,20 +4,24 @@ import { useContactModal } from "@/contexts/ContactModalContext";
 
 interface ServiceFinalCTAProps {
   accentColor: string;
+  headline?: string;
+  subtext?: string;
+  buttonLabel?: string;
+  serviceSlug?: string;
 }
 
-export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
+export const ServiceFinalCTA = ({
+  accentColor,
+  headline = "Ready to Build Your Event?",
+  subtext,
+  buttonLabel = "Build My Event",
+  serviceSlug,
+}: ServiceFinalCTAProps) => {
   const { openContactModal } = useContactModal();
   
   return (
     <section className="py-20 relative overflow-hidden bg-gray-900">
-      {/* Dark background with dim image */}
-      <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920)` }}
-        />
-      </div>
+      <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,.18)_1px,transparent_1.2px)] [background-size:34px_34px]" />
       
       {/* Accent gradient spotlight */}
       <motion.div
@@ -36,8 +40,9 @@ export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
           className="text-center"
         >
           <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-8">
-            Ready to Build Your Event?
+            {headline}
           </h2>
+          {subtext ? <p className="mx-auto -mt-3 mb-9 max-w-2xl text-base leading-7 text-white/70 md:text-lg">{subtext}</p> : null}
           
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -51,9 +56,9 @@ export const ServiceFinalCTA = ({ accentColor }: ServiceFinalCTAProps) => {
                 color: '#000',
                 borderColor: accentColor 
               }}
-              onClick={openContactModal}
+              onClick={() => openContactModal({ serviceSlug })}
             >
-              Build My Event
+              {buttonLabel}
             </Button>
           </motion.div>
         </motion.div>

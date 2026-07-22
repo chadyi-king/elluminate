@@ -15,6 +15,11 @@ interface ServiceVideoCarouselProps {
   accentColor: string;
 }
 
+const resolvePreviewAsset = (src?: string) =>
+  src && import.meta.env.DEV && src.startsWith("/__l5e/")
+    ? `https://elluminate.sg${src}`
+    : src;
+
 export const ServiceVideoCarousel = ({
   title,
   subtitle,
@@ -27,6 +32,7 @@ export const ServiceVideoCarousel = ({
   const maxScroll = Math.max(0, videos.length - 3);
   const canScrollLeft = scrollIndex > 0;
   const canScrollRight = scrollIndex < maxScroll;
+  const activeVideoUrl = resolvePreviewAsset(activeVideo?.videoUrl);
 
   return (
     <section className="py-16 relative overflow-hidden bg-muted/30">
@@ -192,17 +198,17 @@ export const ServiceVideoCarousel = ({
               >
                 <X className="w-6 h-6" />
               </button>
-              {activeVideo.videoUrl ? (
-                activeVideo.videoUrl.match(/\.(mp4|webm|ogg)/) ? (
+              {activeVideoUrl ? (
+                activeVideoUrl.match(/\.(mp4|webm|ogg)/) ? (
                   <video
-                    src={activeVideo.videoUrl}
+                    src={activeVideoUrl}
                     className="w-full h-full"
                     controls
                     autoPlay
                   />
                 ) : (
                   <iframe
-                    src={activeVideo.videoUrl}
+                    src={activeVideoUrl}
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

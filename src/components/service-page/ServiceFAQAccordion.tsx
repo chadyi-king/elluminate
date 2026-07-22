@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import type { CSSProperties } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -14,7 +15,7 @@ interface FAQ {
 interface ServiceFAQAccordionProps {
   title: string;
   subtitle?: string;
-  faqs: FAQ[];
+  faqs: readonly FAQ[];
   accentColor?: string;
 }
 
@@ -81,7 +82,7 @@ export const ServiceFAQAccordion = ({
                 key={index}
                 value={`faq-${index}`}
                 className="bg-card border border-border rounded-2xl px-6 shadow-card hover:shadow-blue transition-all duration-300"
-                style={accentColor ? { ["--tw-shadow-color" as any]: accentColor } : undefined}
+                style={accentColor ? ({ "--tw-shadow-color": accentColor } as CSSProperties) : undefined}
               >
                 <AccordionTrigger className="text-left font-display font-semibold text-base md:text-lg text-foreground hover:no-underline py-5">
                   <span className="flex items-center gap-3 pr-4">
