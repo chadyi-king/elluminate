@@ -20,6 +20,28 @@ export const physicalTeamBuildingServices: ServiceLink[] = [
   { name: "Treasure Heist", slug: "treasure-heist" },
 ];
 
+/**
+ * The first owner-approved activity-page rollout. Keep this list explicit so
+ * the new layout can be reviewed as a controlled batch without changing the
+ * remaining child routes.
+ */
+export const activityPageBatchOneSlugs = [
+  "amazing-race",
+  "csi-bones",
+  "cultural-race",
+  "amongst-us",
+  "alice-in-motherland",
+  "battle-of-the-olympians",
+  "builder-cross",
+  "minute-to-win-it",
+  "monopoly-dash",
+  "running-man",
+] as const;
+
+export type ActivityPageBatchOneSlug = (typeof activityPageBatchOneSlugs)[number];
+
+export const activityPageBatchOneSlugSet = new Set<string>(activityPageBatchOneSlugs);
+
 export const equipmentActivityServices: ServiceLink[] = [
   { name: "Archery Tag", slug: "archery-tag" },
   { name: "GelBlitz", slug: "gel-blitz" },

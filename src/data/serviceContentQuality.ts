@@ -176,7 +176,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     },
   ),
   "csi-bones": item(
-    "The room is full of evidence, and some of it is trying to fool you. Built for teams that love a clever mystery, CSI-Bones turns sharp eyes, competing theories and one ticking clock into a case you have to crack together.",
+    "The case is open. Hunt the evidence. Build your theory before the final reveal.",
     "The case begins before anyone has the full story. A file lands on the table, the first clues surface and suddenly every teammate has a theory. Some will chase the obvious lead. Others will notice the tiny detail that changes everything.\n\nAs the evidence builds, teams must compare notes, challenge assumptions and decide which version of events actually holds together. Quiet observers become crucial. Confident detectives have to defend their logic. The room shifts from polite discussion to a full investigation.\n\nWe tune the case difficulty, room setup and facilitation pace around your group, then bring every team back for the accusation, the reveal and the moment everyone discovers which clue had them completely fooled.",
     [
       { question: "What is CSI Bones?", answer: "CSI Bones is a mystery-solving team building activity where participants investigate clues, solve puzzles, and work together to uncover the truth." },
@@ -207,7 +207,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     },
   ),
   "cultural-race": item(
-    "A Singapore route-based activity for teams that want local discovery, movement, and shared stories.",
+    "Singapore is your game board. Follow the clues. Unlock local stories before the other teams reach the finish.",
     "Cultural Race uses Singapore locations, clues, and team missions to create a facilitated outdoor discovery experience. It works well for local, regional, and mixed teams who want the place itself to matter. Share route comfort, pax, timing, and weather constraints during planning.",
     [
       { question: "What is a Cultural Race?", answer: "A Cultural Race combines exploration, heritage, and team challenges while participants discover local landmarks and cultures." },
@@ -219,7 +219,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     ["amazing-race", "running-man", "local-retreats", "team-building"],
   ),
   "amongst-us": item(
-    "A social-deduction format for teams that want conversation, suspicion, laughter, and light strategy.",
+    "Complete the missions. Read the room. Unmask the imposter before suspicion turns on you.",
     "Amongst Us turns trust, observation, and group discussion into a facilitated team game. Participants work through missions while trying to read the room and identify hidden roles. Share pax, venue, and comfort level so the session can stay fun without becoming confusing.",
     [
       { question: "What is Amongst Us team building?", answer: "Amongst Us is a social deduction team building game where participants complete missions while identifying hidden imposters within their teams." },
@@ -231,7 +231,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     ["csi-bones", "alice-in-motherland", "minute-to-win-it", "team-building"],
   ),
   "alice-in-motherland": item(
-    "A story-led puzzle activity for teams that want themed missions, imagination, and collaborative problem solving.",
+    "Step into Motherland. Solve its curious trials. Find the way out before the final door closes.",
     "Alice in Motherland uses a themed storyline, puzzle stations, and facilitated team tasks to create an immersive indoor or hybrid activity. It suits groups that want character and narrative without needing intense physical movement. Share pax, venue, and theme preferences before quoting.",
     [
       { question: "What is Alice in Motherland?", answer: "Alice in Motherland is an immersive strategy-based team building experience inspired by survival games, featuring teamwork, puzzles, and decision-making challenges." },
@@ -243,7 +243,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     ["amongst-us", "treasure-heist", "the-great-zodiac-hunt-virtual", "team-building"],
   ),
   "battle-of-the-olympians": item(
-    "A tournament-style activity for teams that want friendly competition, team pride, and visible energy.",
+    "Raise your banner. Conquer the trials. Lead your team towards Olympian glory.",
     "Battle of the Olympians brings teams through a sequence of facilitated challenge rounds with a clear scoring arc. It can suit school, cohort, and company groups that want active participation and a strong finish. Share pax, venue, weather needs, and intensity level early.",
     [
       { question: "What is Battle of the Olympians?", answer: "Battle of the Olympians is an action-packed team building programme inspired by Olympic-style competitions, combining teamwork, strategy, and friendly rivalry." },
@@ -255,7 +255,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     ["minute-to-win-it", "running-man", "corporate-days", "team-building"],
   ),
   "builder-cross": item(
-    "A hands-on build challenge for teams that would rather make, test and laugh together than sit through another workshop. The brief looks simple until the materials hit the table, the clock starts and every grand design meets gravity.",
+    "The materials are ready. The clock is ticking. Build, test and defend a creation that can survive the final challenge.",
     "Your team opens the build brief, surveys the materials and starts turning half-formed ideas into something real. Roles appear quickly: the big-picture dreamer, the practical engineer, the quality inspector and the teammate holding everything steady while insisting it was always part of the plan.\n\nThen comes the test. Structures bend, assumptions collapse and teams have to decide what to reinforce, what to abandon and how to keep moving without starting over. The fun is in the scramble, but the real story is how your people plan, communicate and adapt together.\n\nWe shape the challenge, materials and difficulty around your venue, timing and group. By the final reveal, every team has something to present, defend and cheer for, whether it stands perfectly or survives through pure collective determination.",
     [
       { question: "What is Builder Cross?", answer: "Builder Cross is a collaborative team building activity where teams construct structures while overcoming changing business scenarios and unexpected challenges." },
@@ -267,7 +267,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     ["minute-to-win-it", "monopoly-dash", "workshops", "team-building"],
   ),
   "minute-to-win-it": item(
-    "A quick-rotation game format for teams that want easy participation, fast laughs, and room-wide energy.",
+    "One minute. One challenge. Bring the energy, beat the clock and climb the scoreboard together.",
     "Minute To Win It uses short station challenges that are easy to understand and quick to rotate. It suits ballrooms, offices, and indoor venues where organisers need energy without complex briefing. Share pax, timing, and venue size so the station flow can be planned.",
     [
       { question: "What is Minute To Win It team building?", answer: "Minute To Win It features a series of fast-paced one-minute challenges that encourage teamwork, communication, and friendly competition." },
@@ -298,7 +298,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     },
   ),
   "monopoly-dash": item(
-    "An indoor strategy game for teams that want points, movement, negotiation, and friendly competition.",
+    "The board is live. Make your moves. Negotiate, compete and build the biggest fortune before time runs out.",
     "Monopoly Dash translates board-game energy into a live facilitated team activity. Participants move through missions, make decisions, and compete for points without needing a long setup. Share pax, room layout, and timing so the game economy and rotations fit the event.",
     [
       { question: "What is Monopoly Dash?", answer: "Monopoly Dash is a fast-paced team building game inspired by Monopoly, combining strategic decision-making, mini challenges, and resource management." },
@@ -329,7 +329,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
     },
   ),
   "running-man": item(
-    "A high-energy mission format for teams that want active challenges, chases, and variety-show energy.",
+    "The next mission is waiting. Enter the chase. Outsmart the other teams and race for the final win.",
     "Running Man Adventure uses team missions, quick competitions, and facilitated challenge rounds to create a lively event. It suits groups that are comfortable with movement and visible participation. Share pax, venue, safety constraints, and weather needs before planning the final format.",
     [
       { question: "What is a Running Man team building event?", answer: "Running Man is a fast-paced team building programme inspired by the popular Korean variety show. Teams compete in a series of interactive missions, games, and challenges to earn points." },

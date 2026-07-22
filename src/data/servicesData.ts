@@ -318,7 +318,7 @@ const trafficLightPackages = (minimumPriceLabel: string, shortName: string, acce
   {
     color: "#26D07C",
     title: "Minimum Package",
-    description: `Simply play ${shortName} at one of our set locations. We handle everything — you just show up and have fun.`,
+    description: `Simply play ${shortName} at one of our set locations. We handle everything, so you can show up and have fun.`,
     price: minimumPriceLabel,
     features: ["Pre-set location", "Standard format", "Basic facilitation"],
   },
@@ -5747,7 +5747,7 @@ export const servicesData: Record<string, ServiceData> = {
         color: "#26D07C",
         title: "Minimum Package",
         description:
-          "Simply play Amazing Race at one of our set locations. We handle everything — you just show up and have fun.",
+          "Simply play Amazing Race at one of our set locations. We handle everything, so you can show up and have fun.",
         price: "From $45/pax",
         features: ["Pre-set location", "Standard race format", "Basic facilitation"],
       },

@@ -15,6 +15,8 @@ interface ServiceFlowSectionProps {
   accentColor: string;
   itemsPerRow?: number;
   showNumbers?: boolean;
+  /** Opt-in independent-card treatment used by activity-page "Perfect For" sections. */
+  variant?: "legacy" | "activity-v2";
 }
 
 export const ServiceFlowSection = ({
@@ -24,7 +26,71 @@ export const ServiceFlowSection = ({
   accentColor,
   itemsPerRow = 4,
   showNumbers = false,
+  variant = "legacy",
 }: ServiceFlowSectionProps) => {
+  if (variant === "activity-v2") {
+    return (
+      <section className="relative overflow-hidden bg-[#061827] px-4 py-14 text-white sm:py-16">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.09]"
+          style={{
+            backgroundImage: `linear-gradient(${accentColor}2d 1px, transparent 1px), linear-gradient(90deg, ${accentColor}2d 1px, transparent 1px)`,
+            backgroundSize: "52px 52px",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-[44rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-15 blur-[130px]"
+          style={{ backgroundColor: accentColor }}
+        />
+
+        <div className="relative z-10 mx-auto max-w-7xl">
+          <header className="mx-auto mb-8 max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-[0.28em]" style={{ color: accentColor }}>
+              {sectionTitle}
+            </p>
+            {sectionSubtitle ? (
+              <h2 className="mt-3 font-display text-3xl font-black leading-tight text-white sm:text-4xl">
+                {sectionSubtitle}
+              </h2>
+            ) : null}
+          </header>
+
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
+            {items.slice(0, 8).map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.article
+                  key={`${item.title}-${index}`}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ delay: index * 0.045, duration: 0.35 }}
+                  className="group flex min-h-[11rem] flex-col items-center justify-center rounded-[1.1rem] border bg-black/35 px-3 py-4 text-center transition-transform duration-300 hover:-translate-y-1 sm:min-h-[13rem] sm:rounded-[1.35rem] sm:px-5 sm:py-6"
+                  style={{ borderColor: `${accentColor}55` }}
+                >
+                  <span
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl border"
+                    style={{
+                      borderColor: `${accentColor}68`,
+                      backgroundColor: `${accentColor}18`,
+                      color: accentColor,
+                    }}
+                  >
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-3 font-display text-base font-black leading-tight text-white sm:mt-4 sm:text-lg">{item.title}</h3>
+                  <p className="mt-2 text-xs leading-5 text-white/65 sm:text-sm sm:leading-6">{item.description}</p>
+                </motion.article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   // Split items into rows
   const rows: FlowItem[][] = [];
   for (let i = 0; i < items.length; i += itemsPerRow) {

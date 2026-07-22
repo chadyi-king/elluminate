@@ -5,7 +5,7 @@ import creativePair from "@/assets/service-characters/creative-pair.webp";
 import detectivePair from "@/assets/service-characters/detective-pair.webp";
 
 export type ServiceAssetOrigin = "real-event" | "provided-editorial" | "generated-campaign";
-export type ServiceAssetType = "hero" | "journey" | "gallery" | "actor-pair" | "planner-actor" | "themed-prop";
+export type ServiceAssetType = "hero" | "journey" | "gallery" | "journey-actor" | "planner-actor" | "themed-prop";
 
 export interface ServiceAssetCatalogEntry {
   id: string;
@@ -87,27 +87,36 @@ export const serviceAssetCatalog: readonly ServiceAssetCatalogEntry[] = serviceE
     evidenceScope: asset.kind === "real-event" ? asset.scope : "campaign",
   }));
 
-  const actorPair: ServiceAssetCatalogEntry = {
-    id: toId(route, "actor-pair", 0),
+  const journeyActorSources = blueprint.assets.journeyActorLeft && blueprint.assets.journeyActorRight
+    ? [blueprint.assets.journeyActorLeft, blueprint.assets.journeyActorRight]
+    : [actorPairByFamily[blueprint.family]];
+
+  const journeyActors = journeyActorSources.map<ServiceAssetCatalogEntry>((src, index) => ({
+    id: toId(route, "journey-actor", index),
     route,
     family: blueprint.family,
-    assetType: "actor-pair",
+    assetType: "journey-actor",
     origin: "generated-campaign",
-    src: actorPairByFamily[blueprint.family],
-    crop: "landscape",
+    src,
+    crop: blueprint.assets.journeyActorLeft ? "portrait" : "landscape",
     focalPoint: "center",
     altText: "",
-    source: "Elluminate campaign actor pair; decorative and never presented as event evidence",
+    source: "Route-specific Elluminate campaign actor; decorative and never presented as event evidence",
     evidenceScope: "campaign",
-  };
+  }));
 
   const plannerActor: ServiceAssetCatalogEntry = {
-    ...actorPair,
     id: toId(route, "planner-actor", 0),
+    route,
+    family: blueprint.family,
     assetType: "planner-actor",
+    origin: "generated-campaign",
+    src: blueprint.assets.plannerActor ?? actorPairByFamily[blueprint.family],
     crop: "portrait",
     focalPoint: "left",
+    altText: "",
     source: "Campaign actor crop used only in the planning brief",
+    evidenceScope: "campaign",
   };
 
   const themedProp: ServiceAssetCatalogEntry = {
@@ -124,5 +133,5 @@ export const serviceAssetCatalog: readonly ServiceAssetCatalogEntry[] = serviceE
     evidenceScope: "campaign",
   };
 
-  return [hero, actorPair, plannerActor, themedProp, ...journey, ...gallery];
+  return [hero, ...journeyActors, plannerActor, themedProp, ...journey, ...gallery];
 });

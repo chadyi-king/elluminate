@@ -8,6 +8,7 @@ interface ServiceOverviewNewProps {
   title?: string;
   eyebrow?: string;
   backgroundImage?: string;
+  variant?: "light" | "immersive";
 }
 
 const getAccentGradient = (primary: string, secondary?: string) => 
@@ -20,20 +21,24 @@ export const ServiceOverviewNew = ({
   title = "What’s Inside",
   eyebrow,
   backgroundImage,
+  variant = "light",
 }: ServiceOverviewNewProps) => {
   const gradient = getAccentGradient(accentColor, accentColorSecondary);
   const paragraphs = description.split(/\n\s*\n/).filter(Boolean);
+  const immersive = variant === "immersive";
   
   return (
-    <section className="py-24 relative overflow-hidden bg-muted/40">
-      <div className="absolute inset-0 bg-muted/60">
+    <section className={`relative overflow-hidden py-20 md:py-24 ${immersive ? "bg-[#07131d] text-white" : "bg-muted/40"}`}>
+      <div className={`absolute inset-0 ${immersive ? "bg-[#07131d]" : "bg-muted/60"}`}>
         {backgroundImage && (
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-[0.14]"
+            className={`absolute inset-0 bg-cover bg-center ${immersive ? "opacity-[0.22]" : "opacity-[0.14]"}`}
             style={{ backgroundImage: `url(${backgroundImage})` }}
           />
         )}
       </div>
+
+      {immersive ? <div className="absolute inset-0 bg-gradient-to-b from-[#07131d]/75 via-[#07131d]/85 to-[#07131d]" /> : null}
 
       {/* Accent-tinted gradient overlay */}
       <div 
@@ -71,12 +76,12 @@ export const ServiceOverviewNew = ({
             </span>
           )}
           <h2
-            className="text-3xl md:text-4xl font-display font-bold mb-6"
+            className="mb-6 font-display text-3xl font-bold md:text-4xl"
             style={{ 
               background: accentColorSecondary ? gradient : undefined,
               WebkitBackgroundClip: accentColorSecondary ? 'text' : undefined,
               WebkitTextFillColor: accentColorSecondary ? 'transparent' : undefined,
-              color: accentColorSecondary ? undefined : getReadableTextColor(accentColor)
+              color: accentColorSecondary ? undefined : immersive ? accentColor : getReadableTextColor(accentColor)
             }}
           >
             {title}
@@ -94,7 +99,7 @@ export const ServiceOverviewNew = ({
             transition={{ duration: 1, delay: 0.3 }}
           />
           
-          <div className="space-y-5 text-lg leading-relaxed text-foreground/80 md:text-xl">
+          <div className={`space-y-5 text-lg leading-relaxed md:text-xl ${immersive ? "text-white/[0.82]" : "text-foreground/80"}`}>
             {paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}

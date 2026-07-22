@@ -146,7 +146,9 @@ const ServicePage = () => {
   const displayOverviewDescription = contentQuality?.overviewDescription ?? service.overview.description;
   const displayFaqs = blueprint.faqs;
   const relatedServices = blueprint.relatedSlugs;
-  const planningPrice = blueprint.facts.find((fact) => fact.label === "Starting price")?.value;
+  const isActivityV2 = blueprint.layoutVersion === "activity-v2";
+  const planningPrice = blueprint.facts.find((fact) => fact.label === "Starting price")?.value
+    ?? blueprint.packages.find((option) => option.price)?.price;
   const schemaPrice = planningPrice && /\d/.test(planningPrice) ? planningPrice : undefined;
 
   // Determine service category for breadcrumbs
@@ -202,7 +204,9 @@ const ServicePage = () => {
         slug={slug}
         family={blueprint.family}
         accentColor={service.accentColor}
-        stages={blueprint.journey.stages}
+        stages={isActivityV2 ? blueprint.transitionMoments : blueprint.journey.stages}
+        stageIcons={isActivityV2 ? blueprint.transitionMoments.map((moment) => moment.icon) : undefined}
+        variant={isActivityV2 ? "activity-v2" : "legacy"}
       />
 
       {/* 2. Video Section */}
@@ -228,9 +232,10 @@ const ServicePage = () => {
         description={blueprint.overviewParagraphs.join("\n\n")}
         accentColor={service.accentColor}
         accentColorSecondary={service.accentColorSecondary}
-        eyebrow={slug === "amazing-race" ? "The Adventure" : undefined}
-        title={slug === "amazing-race" ? "Your Race Day, From First Clue to Final Flag" : undefined}
-        backgroundImage={slug === "amazing-race" ? blueprint.assets.overviewBackground : undefined}
+        eyebrow={isActivityV2 ? blueprint.overviewPresentation.eyebrow : undefined}
+        title={isActivityV2 ? blueprint.overviewPresentation.title : undefined}
+        backgroundImage={isActivityV2 ? blueprint.assets.overviewBackground : undefined}
+        variant={isActivityV2 ? "immersive" : "light"}
       />
 
       {/* Optional specialist extension: destinations and retreat programme worlds. */}
@@ -250,6 +255,9 @@ const ServicePage = () => {
         accentColor={service.accentColor}
         accentColorSecondary={service.accentColorSecondary}
         journeyMedia={blueprint.journeyMedia}
+        variant={isActivityV2 ? "activity-v2" : "legacy"}
+        actorLeftSrc={blueprint.assets.journeyActorLeft}
+        actorRightSrc={blueprint.assets.journeyActorRight}
       />
 
       <ServicePlanningBrief
@@ -258,15 +266,22 @@ const ServicePage = () => {
         title={blueprint.card.shortTitle}
         accentColor={service.accentColor}
         facts={blueprint.facts}
+        variant={isActivityV2 ? "activity-v2" : "legacy"}
+        packages={isActivityV2 ? blueprint.packages : undefined}
+        addOns={isActivityV2 ? blueprint.addOns : undefined}
+        actorSrc={blueprint.assets.plannerActor}
+        plannerGuidance={blueprint.plannerGuidance}
       />
 
-      <ServicePackageSelector
-        serviceSlug={slug}
-        serviceTitle={blueprint.card.shortTitle}
-        accentColor={service.accentColor}
-        packages={blueprint.packages}
-        addOns={blueprint.addOns}
-      />
+      {!isActivityV2 ? (
+        <ServicePackageSelector
+          serviceSlug={slug}
+          serviceTitle={blueprint.card.shortTitle}
+          accentColor={service.accentColor}
+          packages={blueprint.packages}
+          addOns={blueprint.addOns}
+        />
+      ) : null}
 
       {/* 8. Mid-Page CTA */}
       <ServiceCTANew
@@ -285,8 +300,9 @@ const ServicePage = () => {
         sectionSubtitle={`Groups that get the most from ${blueprint.card.shortTitle}`}
         items={[...blueprint.perfectFor]}
         accentColor={service.accentColor}
-        itemsPerRow={3}
+        itemsPerRow={isActivityV2 ? 4 : 3}
         showNumbers={false}
+        variant={isActivityV2 ? "activity-v2" : "legacy"}
       />
 
       {/* FAQ */}
@@ -315,11 +331,11 @@ const ServicePage = () => {
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-                {slug === "amazing-race" ? "Keep the Adventure Going" : "Related Experiences"}
+                {isActivityV2 ? "Keep the Adventure Going" : "Related Experiences"}
               </h2>
               <p className="mt-3 text-muted-foreground">
-                {slug === "amazing-race"
-                  ? "Want the same energy with a different twist? Try one of these team adventures."
+                {isActivityV2
+                  ? "Want a different twist? Explore another Elluminate experience built for your group."
                   : "Compare this with other live Elluminate formats that may fit the same brief."}
               </p>
             </div>

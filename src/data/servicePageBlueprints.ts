@@ -13,8 +13,46 @@ import {
 } from "@/data/serviceExperienceContent";
 import { getVerifiedLocalServiceGalleryPaths } from "@/data/serviceGalleryMedia";
 import { getServiceQuickFacts } from "@/data/serviceQuickFacts";
-import { Building2, CalendarDays, Globe2, GraduationCap, Monitor, Users } from "lucide-react";
+import { serviceActorAssets } from "@/data/serviceActorAssets";
 import {
+  Banknote,
+  Building2,
+  Calculator,
+  CalendarDays,
+  Camera,
+  Clapperboard,
+  ClipboardCheck,
+  Clock3,
+  DoorOpen,
+  Dumbbell,
+  Eye,
+  Flag,
+  Footprints,
+  Gauge,
+  Globe2,
+  GraduationCap,
+  Hammer,
+  Handshake,
+  KeyRound,
+  Landmark,
+  Map as MapIcon,
+  MapPin,
+  Medal,
+  MessageCircle,
+  Monitor,
+  PencilRuler,
+  Puzzle,
+  RotateCw,
+  Search,
+  Shield,
+  Timer,
+  Trophy,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
+import {
+  activityPageBatchOneSlugs,
+  activityPageBatchOneSlugSet,
   equipmentActivityServices,
   physicalTeamBuildingServices,
   retreatServices,
@@ -50,6 +88,7 @@ export interface ServiceJourneyMedia {
 
 export interface ServicePageBlueprint {
   slug: ServiceExperienceSlug;
+  layoutVersion: "legacy" | "activity-v2";
   family: ServiceFamily;
   card: ServiceCardPresentation;
   journey: ServiceExperienceContent;
@@ -62,7 +101,20 @@ export interface ServicePageBlueprint {
     hero: string;
     overviewBackground?: string;
     ctaBackground?: string;
+    journeyActorLeft?: string;
+    journeyActorRight?: string;
+    plannerActor?: string;
   };
+  transitionMoments: readonly [
+    { title: string; description: string; icon: LucideIcon },
+    { title: string; description: string; icon: LucideIcon },
+    { title: string; description: string; icon: LucideIcon },
+  ];
+  overviewPresentation: {
+    eyebrow: string;
+    title: string;
+  };
+  plannerGuidance: string;
   overviewParagraphs: readonly [string, string];
   facts: readonly ServicePlanningFact[];
   packages: readonly ServicePackageOption[];
@@ -106,6 +158,170 @@ const explicitStartingPrices: Partial<Record<ServiceExperienceSlug, string>> = {
   "sotong-game": "From $55/pax",
 };
 
+type ActivityBatchSlug = (typeof activityPageBatchOneSlugs)[number];
+
+const activityTransitionMoments: Record<ActivityBatchSlug, ServicePageBlueprint["transitionMoments"]> = {
+  "amazing-race": [
+    { title: "Crack the First Clue", description: "Open the route and find the first checkpoint.", icon: MapIcon },
+    { title: "Race the Checkpoints", description: "Move, solve and keep the whole crew together.", icon: Footprints },
+    { title: "Chase the Final Flag", description: "Bring every answer home before the clock wins.", icon: Flag },
+  ],
+  "csi-bones": [
+    { title: "Lead the Investigation", description: "Step into the case and decide what matters.", icon: Search },
+    { title: "Question the Evidence", description: "Challenge the obvious story and compare theories.", icon: MessageCircle },
+    { title: "Build the Final Theory", description: "Connect the timeline before making the accusation.", icon: Clock3 },
+  ],
+  "cultural-race": [
+    { title: "Read the Streets", description: "Notice the details hiding in familiar places.", icon: MapPin },
+    { title: "Unlock Local Stories", description: "Turn landmarks and culture into the next clue.", icon: Landmark },
+    { title: "Capture the Discovery", description: "Return with answers, photos and a trail worth sharing.", icon: Camera },
+  ],
+  "amongst-us": [
+    { title: "Complete the Missions", description: "Work together while hidden roles shift the room.", icon: ClipboardCheck },
+    { title: "Read the Crew", description: "Watch the stories, the silences and the suspicious moves.", icon: Eye },
+    { title: "Expose the Imposter", description: "Put the final theory to a vote before it is too late.", icon: Users },
+  ],
+  "alice-in-motherland": [
+    { title: "Enter Motherland", description: "Leave ordinary rules at the first strange door.", icon: DoorOpen },
+    { title: "Survive Curious Trials", description: "Solve the puzzles that keep changing the story.", icon: Puzzle },
+    { title: "Unlock the Final Gate", description: "Use everything the team discovered to escape.", icon: KeyRound },
+  ],
+  "battle-of-the-olympians": [
+    { title: "Raise the Banner", description: "Claim a team identity and enter the arena together.", icon: Shield },
+    { title: "Conquer the Trials", description: "Take on rounds that reward different strengths.", icon: Dumbbell },
+    { title: "Claim the Podium", description: "Rally for the final event and the victory moment.", icon: Trophy },
+  ],
+  "builder-cross": [
+    { title: "Sketch the Plan", description: "Turn competing ideas into one shared blueprint.", icon: PencilRuler },
+    { title: "Build Under Pressure", description: "Divide the work and bring the structure to life.", icon: Hammer },
+    { title: "Face the Stress Test", description: "See whether the final build survives the challenge.", icon: Gauge },
+  ],
+  "minute-to-win-it": [
+    { title: "Learn the Challenge", description: "Read the setup and spot the trick before time starts.", icon: ClipboardCheck },
+    { title: "Beat the Clock", description: "Give the team everything for sixty loud seconds.", icon: Timer },
+    { title: "Climb the Scoreboard", description: "Rotate, recover and chase the comeback round.", icon: RotateCw },
+  ],
+  "monopoly-dash": [
+    { title: "Build the Fortune", description: "Earn your first advantage and read the live board.", icon: Banknote },
+    { title: "Negotiate the Deals", description: "Trade, persuade and protect the bigger strategy.", icon: Handshake },
+    { title: "Close the Ledger", description: "Count every move and discover who played it best.", icon: Calculator },
+  ],
+  "running-man": [
+    { title: "Accept the Mission", description: "Meet the cast and open the first challenge card.", icon: Clapperboard },
+    { title: "Enter the Chase", description: "Move fast as every round changes the rules.", icon: Footprints },
+    { title: "Win the Final Episode", description: "Bring the crew together for one last mission.", icon: Medal },
+  ],
+};
+
+const activityOverviewPresentation: Record<ActivityBatchSlug, ServicePageBlueprint["overviewPresentation"]> = {
+  "amazing-race": { eyebrow: "The Adventure", title: "Your Race Day, From First Clue to Final Flag" },
+  "csi-bones": { eyebrow: "The Investigation", title: "The Case Begins Before the First Clue" },
+  "cultural-race": { eyebrow: "The Discovery", title: "Singapore Becomes the Trail" },
+  "amongst-us": { eyebrow: "The Suspicion", title: "Every Mission Changes Who You Trust" },
+  "alice-in-motherland": { eyebrow: "The Story", title: "The Rules Change After Every Door" },
+  "battle-of-the-olympians": { eyebrow: "The Arena", title: "Every Round Tests a Different Strength" },
+  "builder-cross": { eyebrow: "The Build", title: "The Plan Meets the Pressure Test" },
+  "minute-to-win-it": { eyebrow: "The Countdown", title: "Sixty Seconds Changes the Whole Room" },
+  "monopoly-dash": { eyebrow: "The Strategy", title: "Every Move Changes the Board" },
+  "running-man": { eyebrow: "The Episode", title: "The Next Mission Is Never What You Expect" },
+};
+
+const activityPlannerGuidance: Record<ActivityBatchSlug, string> = {
+  "amazing-race": "Share the people, place and pace. We will shape the route, checkpoints and wet-weather plan around them.",
+  "csi-bones": "Share the group, room and preferred difficulty. We will tune the case, evidence and reveal around your investigators.",
+  "cultural-race": "Share the group, district and walking comfort. We will shape a trail that makes Singapore part of the game.",
+  "amongst-us": "Share the group, room and comfort level. We will balance missions, hidden roles and discussion so the suspicion stays fun.",
+  "alice-in-motherland": "Share the audience, setting and story appetite. We will tune the trials and strange turns around your group.",
+  "battle-of-the-olympians": "Share the group, arena and preferred intensity. We will build a tournament where different strengths get their moment.",
+  "builder-cross": "Share the people, room and objective. We will tune the materials, build brief and final stress test around them.",
+  "minute-to-win-it": "Share the group, room and time available. We will build the station mix and rotations for maximum participation.",
+  "monopoly-dash": "Share the people, setting and pace. We will shape the live board, missions and deal-making around your group.",
+  "running-man": "Share the group, location and energy level. We will build a variety-show mission sequence that everyone can enter.",
+};
+
+const activityPlanningFacts: Record<ActivityBatchSlug, readonly ServicePlanningFact[]> = {
+  "amazing-race": [
+    { label: "Group size", value: "10 to 200+ players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Outdoor, with indoor options" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "3 out of 5" },
+    { label: "Weather contingency", value: "Sheltered route or indoor backup" },
+  ],
+  "csi-bones": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Indoor-first" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "1 out of 5" },
+    { label: "Weather contingency", value: "Not weather-dependent" },
+  ],
+  "cultural-race": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Outdoor heritage districts" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "3 out of 5" },
+    { label: "Weather contingency", value: "Sheltered stops or indoor alternative" },
+  ],
+  "amongst-us": [
+    { label: "Group size", value: "From 12 players" },
+    { label: "Duration", value: "2.5 to 3 hours" },
+    { label: "Setting", value: "Indoor" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "1 out of 5" },
+    { label: "Weather contingency", value: "Not weather-dependent" },
+  ],
+  "alice-in-motherland": [
+    { label: "Group size", value: "From 12 players" },
+    { label: "Duration", value: "2.5 to 3 hours" },
+    { label: "Setting", value: "Indoor or hybrid" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "2 out of 5" },
+    { label: "Weather contingency", value: "Indoor format available" },
+  ],
+  "battle-of-the-olympians": [
+    { label: "Group size", value: "From 20 players" },
+    { label: "Duration", value: "3 to 4 hours" },
+    { label: "Setting", value: "Outdoor, with indoor options" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "4 out of 5" },
+    { label: "Weather contingency", value: "Sheltered arena or adjusted game mix" },
+  ],
+  "builder-cross": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Indoor" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "2 out of 5" },
+    { label: "Weather contingency", value: "Not weather-dependent" },
+  ],
+  "minute-to-win-it": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Indoor" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "2 out of 5" },
+    { label: "Weather contingency", value: "Not weather-dependent" },
+  ],
+  "monopoly-dash": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Outdoor route or indoor board" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "2 out of 5" },
+    { label: "Weather contingency", value: "Indoor game-board option" },
+  ],
+  "running-man": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Outdoor, with indoor options" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "4 out of 5" },
+    { label: "Weather contingency", value: "Sheltered or indoor mission mix" },
+  ],
+};
+
 const familyFactCopy: Record<ServiceFamily, readonly [ServicePlanningFact, ServicePlanningFact, ServicePlanningFact]> = {
   physical: [
     { label: "Intensity", value: "Adjusted to your group" },
@@ -142,6 +358,8 @@ const familyPerfectFor: Record<ServiceFamily, readonly FlowSectionItem[]> = {
     { icon: GraduationCap, title: "Learning Cohorts", description: "Turn teamwork into something participants can feel and discuss." },
     { icon: Globe2, title: "Regional Groups", description: "Create one shared Singapore experience across offices and cultures." },
     { icon: Monitor, title: "Hybrid Teams Meeting Live", description: "Reconnect people who usually work across screens and locations." },
+    { icon: Flag, title: "Project Kickoffs", description: "Start a new chapter with momentum, shared language and a story to retell." },
+    { icon: Puzzle, title: "Cross-Functional Crews", description: "Give different roles a challenge where every contribution changes the result." },
   ],
   equipment: [
     { icon: Users, title: "Competitive Crews", description: "Give spirited teams a clear arena for friendly rivalry." },
@@ -178,7 +396,7 @@ const familyPerfectFor: Record<ServiceFamily, readonly FlowSectionItem[]> = {
 };
 
 const approvedPackageSlugs = new Set<ServiceExperienceSlug>([
-  "amazing-race",
+  ...activityPageBatchOneSlugs,
   "overseas-retreats",
   "local-retreats",
   "incentive-travel",
@@ -566,6 +784,9 @@ export const getServicePageBlueprint = (slug: string): ServicePageBlueprint | nu
   const experience = getServiceExperienceContent(typedSlug);
   if (!service || !family || !card || !experience) return null;
 
+  const isActivityV2 = activityPageBatchOneSlugSet.has(typedSlug);
+  const activitySlug = isActivityV2 ? (typedSlug as ActivityBatchSlug) : null;
+
   const gallery = buildGallery(typedSlug, family, card.shortTitle);
   const galleryUsesFamilyPhotography = gallery.some((asset) => asset.scope === "family");
   const packages = approvedPackageSlugs.has(typedSlug) && service.pricing && service.packages?.length
@@ -577,12 +798,30 @@ export const getServicePageBlueprint = (slug: string): ServicePageBlueprint | nu
           source: "existing-service-data" as const,
         }))
     : [];
-  const perfectFor = (service.perfectForFlow?.items.length
+  const perfectForSource = (service.perfectForFlow?.items.length
     ? service.perfectForFlow.items
-    : familyPerfectFor[family]).slice(0, 6);
+    : familyPerfectFor[family]);
+  const perfectFor = (() => {
+    const seen = new Set<string>();
+    return [...perfectForSource, ...familyPerfectFor[family]]
+      .filter((item) => {
+        const key = item.title.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
+      .slice(0, isActivityV2 ? 8 : 6);
+  })();
+
+  const fallbackTransitionMoments: ServicePageBlueprint["transitionMoments"] = [
+    { ...experience.stages[0], icon: MapIcon },
+    { ...experience.stages[1], icon: Search },
+    { ...experience.stages[2], icon: Flag },
+  ];
 
   return {
     slug: typedSlug,
+    layoutVersion: isActivityV2 ? "activity-v2" : "legacy",
     family,
     card,
     journey: experience,
@@ -594,12 +833,22 @@ export const getServicePageBlueprint = (slug: string): ServicePageBlueprint | nu
       hero: service.hero.backgroundImage,
       overviewBackground: service.overview.backgroundImage,
       ctaBackground: service.ctaBackgroundImage,
+      ...(activitySlug ? serviceActorAssets[activitySlug] : {}),
     },
+    transitionMoments: activitySlug
+      ? activityTransitionMoments[activitySlug]
+      : fallbackTransitionMoments,
+    overviewPresentation: activitySlug
+      ? activityOverviewPresentation[activitySlug]
+      : { eyebrow: experience.eyebrow, title: experience.title },
+    plannerGuidance: activitySlug
+      ? activityPlannerGuidance[activitySlug]
+      : "Share the audience, setting and objective. We will shape the practical format around them.",
     overviewParagraphs: splitOverview(
       serviceContentQuality[typedSlug]?.overviewDescription ?? service.overview.description,
       card.hook,
     ),
-    facts: buildFacts(typedSlug, family, card),
+    facts: activitySlug ? activityPlanningFacts[activitySlug] : buildFacts(typedSlug, family, card),
     packages,
     addOns: packages.length > 0 ? service.addOns ?? [] : [],
     perfectFor,

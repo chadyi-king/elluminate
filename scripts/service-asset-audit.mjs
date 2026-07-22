@@ -131,7 +131,11 @@ try {
 
     expect(Boolean(blueprint), `${slug}: missing blueprint.`);
     expect(count("hero") === 1, `${slug}: expected one hero asset; received ${count("hero")}.`);
-    expect(count("actor-pair") === 1, `${slug}: expected one actor pair; received ${count("actor-pair")}.`);
+    const expectedJourneyActors = blueprint?.layoutVersion === "activity-v2" ? 2 : 1;
+    expect(
+      count("journey-actor") === expectedJourneyActors,
+      `${slug}: expected ${expectedJourneyActors} journey actor asset${expectedJourneyActors === 1 ? "" : "s"}; received ${count("journey-actor")}.`,
+    );
     expect(count("planner-actor") === 1, `${slug}: expected one planner actor; received ${count("planner-actor")}.`);
     expect(count("themed-prop") === 1, `${slug}: expected one themed prop; received ${count("themed-prop")}.`);
     expect(count("journey") === 6, `${slug}: expected six journey assets; received ${count("journey")}.`);
@@ -161,7 +165,7 @@ try {
     expect(Boolean(asset.route && asset.family && asset.assetType && asset.origin), `${asset.id}: asset identity fields are incomplete.`);
     expect(Boolean(asset.src && asset.crop && asset.focalPoint && asset.source && asset.evidenceScope), `${asset.id}: asset presentation metadata is incomplete.`);
     expect(
-      Boolean(asset.altText) || asset.assetType === "actor-pair" || asset.assetType === "planner-actor",
+      Boolean(asset.altText) || asset.assetType === "journey-actor" || asset.assetType === "planner-actor",
       `${asset.id}: non-decorative asset is missing alt text.`,
     );
   }
@@ -276,7 +280,7 @@ try {
   const largest = [...fileRecords].sort((a, b) => b.bytes - a.bytes).slice(0, 10);
   const actorSources = new Set(
     catalog
-      .filter((asset) => asset.assetType === "actor-pair" || asset.assetType === "planner-actor")
+      .filter((asset) => asset.assetType === "journey-actor" || asset.assetType === "planner-actor")
       .map((asset) => asset.src),
   );
   const actorRecords = fileRecords.filter((record) => actorSources.has(record.src));

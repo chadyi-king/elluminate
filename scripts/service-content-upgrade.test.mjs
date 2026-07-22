@@ -43,8 +43,13 @@ test("all 36 child routes retain buyer-facing copy coverage", () => {
 
   for (const slug of serviceExperienceSlugs) {
     const entry = serviceContentQuality[slug];
+    const blueprint = servicePageBlueprints[slug];
     assert.ok(entry.heroSubline.length > 40, `${slug} needs a meaningful hero subline`);
-    assert.ok(entry.heroSubline.includes(" for "), `${slug} hero subline should state who it is for`);
+    if (blueprint.layoutVersion === "activity-v2") {
+      assert.ok(wordCount(entry.heroSubline) >= 10, `${slug} activity-v2 hero subline needs a short experiential promise`);
+    } else {
+      assert.ok(entry.heroSubline.includes(" for "), `${slug} hero subline should state who it is for`);
+    }
     assert.ok(wordCount(entry.overviewDescription) >= 35, `${slug} overview needs enough detail to explain the experience`);
     assert.ok(wordCount(entry.overviewDescription) <= 250, `${slug} overview is too long for the shared page section`);
     assert.doesNotMatch(entry.overviewDescription, /Simply play|show up and have fun/i, `${slug} has casual template bleed`);
@@ -62,7 +67,11 @@ test("canonical blueprints replace the superseded 4-6 FAQ and 3-4 related-link c
     assert.equal(blueprint.overviewParagraphs.length, 2, `${slug} should have a two-paragraph introduction`);
     assert.ok(blueprint.overviewParagraphs.every((paragraph) => wordCount(paragraph) >= 4), `${slug} has an empty or unusably short introduction paragraph`);
     assert.equal(blueprint.journey.stages.length, 6, `${slug} should have exactly 6 journey stages`);
-    assert.equal(blueprint.facts.length, 9, `${slug} should have exactly 9 planning facts`);
+    assert.equal(
+      blueprint.facts.length,
+      blueprint.layoutVersion === "activity-v2" ? 6 : 9,
+      `${slug} has the wrong planning-fact count for ${blueprint.layoutVersion}`,
+    );
     assert.equal(blueprint.faqs.length, 8, `${slug} should have exactly 8 FAQs`);
     assert.equal(blueprint.relatedSlugs.length, 8, `${slug} should have exactly 8 related experiences`);
     assert.equal(new Set(blueprint.relatedSlugs).size, 8, `${slug} related experiences should be unique`);

@@ -2,6 +2,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import {
   BookOpen,
+  Camera,
+  CircleDollarSign,
   ClipboardList,
   Coffee,
   Compass,
@@ -11,14 +13,23 @@ import {
   Flag,
   Gamepad2,
   Hammer,
+  Handshake,
   HeartPulse,
   Landmark,
   Lightbulb,
+  MapPin,
   Monitor,
   PartyPopper,
   Plane,
+  Puzzle,
+  Route,
+  Search,
+  Shield,
   TentTree,
+  Timer,
   Trophy,
+  Users,
+  Wrench,
 } from "lucide-react";
 
 import type {
@@ -37,6 +48,9 @@ interface ServiceExperienceJourneyProps {
   accentColor: string;
   accentColorSecondary?: string;
   journeyMedia?: readonly ServiceJourneyMedia[];
+  variant?: "legacy" | "activity-v2";
+  actorLeftSrc?: string;
+  actorRightSrc?: string;
 }
 
 interface VariantTheme {
@@ -201,6 +215,27 @@ const characterPairByVariant: Record<ServiceExperienceVariant, string> = {
   camp: adventurePair,
 };
 
+const stageIconMatchers: readonly [RegExp, LucideIcon][] = [
+  [/territory|route|street|district|path|course/i, MapPin],
+  [/crew|team|role|investigator|house|cast|alliance/i, Users],
+  [/clue|case|evidence|scene|observe|sweep|file/i, Search],
+  [/build|blueprint|workbench|structure|version/i, Hammer],
+  [/repair|adjust|stress|test/i, Wrench],
+  [/market|ledger|score|currency|earn/i, CircleDollarSign],
+  [/trade|deal|exchange|negotiate/i, Handshake],
+  [/story|chapter|motherland|door/i, BookOpen],
+  [/puzzle|trial|gate|unlock/i, Puzzle],
+  [/clock|minute|countdown/i, Timer],
+  [/mission|checkpoint|round/i, Route],
+  [/photo|capture|highlight/i, Camera],
+  [/defend|protect|battle|arena/i, Shield],
+  [/final|reveal|champion|winner|podium|crown/i, Trophy],
+];
+
+function getStageIcon(title: string, fallback: LucideIcon) {
+  return stageIconMatchers.find(([pattern]) => pattern.test(title))?.[1] ?? fallback;
+}
+
 export function ServiceExperienceJourney({
   slug,
   content,
@@ -208,11 +243,16 @@ export function ServiceExperienceJourney({
   accentColor,
   accentColorSecondary,
   journeyMedia = [],
+  variant = "legacy",
+  actorLeftSrc,
+  actorRightSrc,
 }: ServiceExperienceJourneyProps) {
   const reduceMotion = useReducedMotion();
 
   const theme = variantThemes[content.variant];
   const characterPair = characterPairByVariant[content.variant];
+  const leftActor = actorLeftSrc ?? characterPair;
+  const rightActor = actorRightSrc ?? characterPair;
   const ThemeIcon = theme.icon;
   const titleId = `${slug}-experience-journey-title`;
   const secondaryAccent = accentColorSecondary ?? accentColor;
@@ -221,7 +261,7 @@ export function ServiceExperienceJourney({
     <section
       id="experience-journey"
       aria-labelledby={titleId}
-      className={`relative isolate overflow-hidden px-4 py-20 md:py-24 ${theme.sectionClassName}`}
+      className={`relative isolate scroll-mt-28 overflow-hidden px-4 py-20 md:py-24 ${theme.sectionClassName}`}
     >
       <div
         aria-hidden="true"
@@ -250,7 +290,7 @@ export function ServiceExperienceJourney({
             className="pointer-events-none absolute -bottom-4 -left-16 z-[1] hidden h-[27rem] w-[21rem] overflow-hidden xl:block 2xl:left-0 2xl:h-[31rem] 2xl:w-[24rem]"
           >
             <img
-              src={characterPair}
+              src={leftActor}
               alt=""
               className="absolute bottom-0 left-0 h-full w-auto max-w-none object-contain object-bottom"
             />
@@ -265,7 +305,7 @@ export function ServiceExperienceJourney({
             className="pointer-events-none absolute -bottom-4 -right-16 z-[1] hidden h-[27rem] w-[21rem] overflow-hidden xl:block 2xl:right-0 2xl:h-[31rem] 2xl:w-[24rem]"
           >
             <img
-              src={characterPair}
+              src={rightActor}
               alt=""
               className="absolute bottom-0 right-0 h-full w-auto max-w-none object-contain object-bottom"
             />
@@ -298,6 +338,8 @@ export function ServiceExperienceJourney({
           {content.stages.map((stage, index) => {
             const media = journeyMedia[index];
             const image = media?.src;
+            const StageIcon = getStageIcon(stage.title, ThemeIcon);
+            const isConceptualCard = variant === "activity-v2" && (index + 1) % 2 === 0;
             return (
               <motion.li
                 key={stage.title}
@@ -320,18 +362,32 @@ export function ServiceExperienceJourney({
                       }`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050a0f] via-[#050a0f]/80 to-[#050a0f]/10" />
+                    {isConceptualCard ? (
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0 opacity-30 mix-blend-screen"
+                        style={{
+                          backgroundImage: `linear-gradient(${accentColor}22 1px, transparent 1px), linear-gradient(90deg, ${accentColor}22 1px, transparent 1px), radial-gradient(circle at 78% 18%, ${accentColor}6b, transparent 28%)`,
+                          backgroundSize: "34px 34px, 34px 34px, auto",
+                        }}
+                      />
+                    ) : null}
                   </>
                 ) : (
                   <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-                    <div
-                      className="absolute -right-10 -top-10 h-48 w-48 rounded-full border opacity-30"
-                      style={{ borderColor: accentColor }}
-                    />
+                    <div className="absolute inset-0 opacity-55" style={{
+                      backgroundImage: isConceptualCard
+                        ? `linear-gradient(${accentColor}24 1px, transparent 1px), linear-gradient(90deg, ${accentColor}24 1px, transparent 1px), radial-gradient(circle at 72% 22%, ${secondaryAccent}82, transparent 24%)`
+                        : `radial-gradient(circle at 80% 20%, ${accentColor}72, transparent 26%)`,
+                      backgroundSize: isConceptualCard ? "32px 32px, 32px 32px, auto" : "auto",
+                    }} />
+                    <div className="absolute -right-10 -top-10 h-48 w-48 rotate-12 rounded-[2.25rem] border opacity-35" style={{ borderColor: accentColor }} />
+                    <div className="absolute right-16 top-24 h-24 w-24 -rotate-12 rounded-full border border-dashed opacity-25" style={{ borderColor: secondaryAccent }} />
                     <div
                       className="absolute bottom-10 left-10 h-px w-2/3 opacity-50"
                       style={{ background: `linear-gradient(90deg, ${accentColor}, transparent)` }}
                     />
-                    <ThemeIcon className="absolute right-8 top-8 h-24 w-24 opacity-[0.08]" style={{ color: accentColor }} />
+                    <StageIcon className="absolute right-8 top-8 h-24 w-24 opacity-[0.14]" style={{ color: accentColor }} />
                   </div>
                 )}
 
@@ -343,13 +399,13 @@ export function ServiceExperienceJourney({
                     >
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <ThemeIcon className="h-5 w-5" style={{ color: accentColor }} aria-hidden="true" />
+                    <StageIcon className="h-5 w-5" style={{ color: accentColor }} aria-hidden="true" />
                   </div>
                   <p className="font-mono text-[9px] font-bold uppercase tracking-[0.24em] text-white/55">
                     {theme.label} {String(index + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-3 font-display text-2xl font-black leading-tight text-white sm:text-3xl">{stage.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-white/72">{stage.description}</p>
+                  <h3 className="mt-3 font-display text-2xl font-black leading-tight text-white sm:text-3xl md:min-h-[4.5rem]">{stage.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-white/72 md:min-h-[4.5rem]">{stage.description}</p>
                 </div>
               </motion.li>
             );
