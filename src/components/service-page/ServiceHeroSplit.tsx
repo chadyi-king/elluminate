@@ -17,6 +17,11 @@ import runningManLogo from "../../../public/images/service-page-logos/running-ma
 import overseasRetreatsLogo from "../../../public/images/service-page-logos/overseas-retreats.svg.asset.json";
 import localRetreatsLogo from "../../../public/images/service-page-logos/local-retreats.svg.asset.json";
 import incentiveTravelLogo from "../../../public/images/service-page-logos/incentive-travel.svg.asset.json";
+import grandChristmasDeliveryLogo from "../../../public/images/service-page-logos/grand-christmas-delivery.svg.asset.json";
+import virtualAmazingRaceLogo from "../../../public/images/service-page-logos/virtual-amazing-race.svg.asset.json";
+import greatZodiacHuntLogo from "../../../public/images/service-page-logos/great-zodiac-hunt.svg.asset.json";
+import fitInYourTeamLogo from "../../../public/images/service-page-logos/fit-in-your-team.svg.asset.json";
+import gameshowExperienceLogo from "../../../public/images/service-page-logos/gameshow-experience.svg.asset.json";
 
 const resolveUploadedAssetUrl = (src: string) =>
   import.meta.env.DEV && src.startsWith("/__l5e/") ? `https://elluminate.sg${src}` : src;
