@@ -17,6 +17,11 @@ import runningManLogo from "../../../public/images/service-page-logos/running-ma
 import overseasRetreatsLogo from "../../../public/images/service-page-logos/overseas-retreats.svg.asset.json";
 import localRetreatsLogo from "../../../public/images/service-page-logos/local-retreats.svg.asset.json";
 import incentiveTravelLogo from "../../../public/images/service-page-logos/incentive-travel.svg.asset.json";
+import grandChristmasDeliveryLogo from "../../../public/images/service-page-logos/grand-christmas-delivery.svg.asset.json";
+import virtualAmazingRaceLogo from "../../../public/images/service-page-logos/virtual-amazing-race.svg.asset.json";
+import greatZodiacHuntLogo from "../../../public/images/service-page-logos/great-zodiac-hunt.svg.asset.json";
+import fitInYourTeamLogo from "../../../public/images/service-page-logos/fit-in-your-team.svg.asset.json";
+import gameshowExperienceLogo from "../../../public/images/service-page-logos/gameshow-experience.svg.asset.json";
 
 const resolveUploadedAssetUrl = (src: string) =>
   import.meta.env.DEV && src.startsWith("/__l5e/") ? `https://elluminate.sg${src}` : src;
@@ -61,22 +66,7 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
 
     /* ─── Virtual Amazing Race: race card envelope ─── */
     case "amazing-race-virtual":
-      return (
-        <svg {...common}>
-          {/* Envelope body */}
-          <rect x="30" y="60" width="140" height="100" rx="8" fill={accentColor} opacity="0.9" />
-          <rect x="30" y="60" width="140" height="100" rx="8" stroke="white" strokeWidth="2" fill="none" />
-          {/* Envelope flap */}
-          <path d="M30 68 L100 115 L170 68" stroke="white" strokeWidth="2" fill={`${accentColor}cc`} />
-          {/* Card poking out */}
-          <rect x="55" y="30" width="90" height="70" rx="6" fill="white" />
-          <text x="100" y="55" textAnchor="middle" fontSize="10" fontWeight="bold" fill={accentColor}>ROUTE</text>
-          <text x="100" y="72" textAnchor="middle" fontSize="10" fontWeight="bold" fill={accentColor}>CARD</text>
-          {/* Wax seal */}
-          <circle cx="100" cy="140" r="14" fill="#B22222" />
-          <text x="100" y="144" textAnchor="middle" fontSize="10" fontWeight="bold" fill="white">✦</text>
-        </svg>
-      );
+      return renderLogo(virtualAmazingRaceLogo.url, "Virtual Amazing Race", size);
 
 
     /* ─── CSI Bones: chalk body outline ─── */
@@ -218,78 +208,15 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
     case "incentive-travel":
       return renderLogo(incentiveTravelLogo.url, "Incentive Travel", size);
     case "the-gameshow-experience-virtual":
-      return (
-        <svg {...common}>
-          {/* TV body */}
-          <rect x="25" y="30" width="150" height="105" rx="8" fill="#222" stroke="white" strokeWidth="2" />
-          {/* Screen */}
-          <rect x="35" y="40" width="130" height="80" rx="4" fill="#0a2a4a" />
-          {/* Screen content */}
-          <text x="100" y="72" textAnchor="middle" fontSize="14" fontWeight="bold" fill={accentColor}>GAME</text>
-          <text x="100" y="92" textAnchor="middle" fontSize="14" fontWeight="bold" fill="white">SHOW</text>
-          <text x="100" y="112" textAnchor="middle" fontSize="8" fill={accentColor}>★ ★ ★</text>
-          {/* Stand */}
-          <rect x="85" y="135" width="30" height="8" rx="2" fill="#444" />
-          <rect x="75" y="143" width="50" height="6" rx="3" fill="#555" />
-          {/* Buzzer */}
-          <circle cx="100" cy="178" r="16" fill="#B22222" stroke="#8B0000" strokeWidth="2" />
-          <circle cx="100" cy="175" r="12" fill="#FF3333" />
-          <ellipse cx="100" cy="173" rx="8" ry="4" fill="white" opacity="0.3" />
-        </svg>
-      );
+      return renderLogo(gameshowExperienceLogo.url, "The Gameshow Experience", size);
 
-    /* ─── Fit In Your Team: dumbbell ─── */
+    /* ─── Fit In Your Team: uploaded logo ─── */
     case "fit-in-your-team-virtual":
-      return (
-        <svg {...common}>
-          {/* Left weight */}
-          <rect x="25" y="70" width="25" height="60" rx="4" fill={accentColor} stroke="white" strokeWidth="1.5" />
-          <rect x="15" y="80" width="15" height="40" rx="3" fill={`${accentColor}cc`} stroke="white" strokeWidth="1" />
-          {/* Right weight */}
-          <rect x="150" y="70" width="25" height="60" rx="4" fill={accentColor} stroke="white" strokeWidth="1.5" />
-          <rect x="170" y="80" width="15" height="40" rx="3" fill={`${accentColor}cc`} stroke="white" strokeWidth="1" />
-          {/* Bar */}
-          <rect x="50" y="93" width="100" height="14" rx="7" fill="#888" stroke="white" strokeWidth="1.5" />
-          {/* Grip texture */}
-          <line x1="75" y1="95" x2="75" y2="105" stroke="#666" strokeWidth="1" />
-          <line x1="85" y1="95" x2="85" y2="105" stroke="#666" strokeWidth="1" />
-          <line x1="115" y1="95" x2="115" y2="105" stroke="#666" strokeWidth="1" />
-          <line x1="125" y1="95" x2="125" y2="105" stroke="#666" strokeWidth="1" />
-          {/* Sweat drops */}
-          <circle cx="50" cy="55" r="3" fill="#87CEEB" opacity="0.5" />
-          <circle cx="155" cy="50" r="2.5" fill="#87CEEB" opacity="0.4" />
-        </svg>
-      );
+      return renderLogo(fitInYourTeamLogo.url, "Fit In Your Team", size);
 
-    /* ─── Zodiac Hunt: zodiac wheel ─── */
+    /* ─── Zodiac Hunt: uploaded logo ─── */
     case "the-great-zodiac-hunt-virtual":
-      return (
-        <svg {...common}>
-          {/* Outer ring */}
-          <circle cx="100" cy="100" r="70" fill="none" stroke={accentColor} strokeWidth="2" />
-          <circle cx="100" cy="100" r="60" fill={`${accentColor}10`} stroke={accentColor} strokeWidth="1" />
-          {/* Inner circle */}
-          <circle cx="100" cy="100" r="20" fill={accentColor} opacity="0.3" />
-          {/* Zodiac symbols around the wheel */}
-          {["🐀", "🐂", "🐅", "🐇", "🐉", "🐍", "🐎", "🐑", "🐒", "🐓", "🐕", "🐖"].map((emoji, i) => {
-            const angle = (i * 30 - 90) * Math.PI / 180;
-            return (
-              <text
-                key={i}
-                x={100 + 48 * Math.cos(angle)}
-                y={100 + 48 * Math.sin(angle) + 5}
-                textAnchor="middle"
-                fontSize="14"
-              >
-                {emoji}
-              </text>
-            );
-          })}
-          {/* Compass needle */}
-          <polygon points="100,82 95,100 100,96 105,100" fill={accentColor} />
-          <polygon points="100,118 95,100 100,104 105,100" fill="white" opacity="0.5" />
-        </svg>
-      );
+      return renderLogo(greatZodiacHuntLogo.url, "The Great Zodiac Hunt", size);
 
     /* ─── Nuclear Fallout: radiation symbol ─── */
     case "the-nuclear-fallout-escape-room-virtual":
@@ -360,26 +287,10 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
         </svg>
       );
 
-    /* ─── Grand Christmas Delivery: gift box ─── */
+    /* ─── Grand Christmas Delivery: uploaded logo ─── */
     case "grand-christmas-delivery":
-      return (
-        <svg {...common}>
-          {/* Gift box */}
-          <rect x="40" y="85" width="120" height="90" rx="4" fill="#DC2626" stroke="white" strokeWidth="2" />
-          {/* Lid */}
-          <rect x="35" y="70" width="130" height="20" rx="4" fill="#B91C1C" stroke="white" strokeWidth="2" />
-          {/* Ribbon vertical */}
-          <rect x="92" y="70" width="16" height="105" fill="#26D07C" />
-          {/* Ribbon horizontal */}
-          <rect x="35" y="74" width="130" height="12" fill="#26D07C" />
-          {/* Bow */}
-          <ellipse cx="88" cy="62" rx="18" ry="12" fill="#26D07C" stroke="white" strokeWidth="1" />
-          <ellipse cx="112" cy="62" rx="18" ry="12" fill="#26D07C" stroke="white" strokeWidth="1" />
-          <circle cx="100" cy="64" r="6" fill="#FFD700" />
-          {/* Star on top */}
-          <text x="100" y="40" textAnchor="middle" fontSize="20" fill="#FFD700">★</text>
-        </svg>
-      );
+      return renderLogo(grandChristmasDeliveryLogo.url, "Grand Christmas Delivery", size);
+
 
     /* ─── MBTI / DISC / OCEAN: brain ─── */
     case "mbti":
