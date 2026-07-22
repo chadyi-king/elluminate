@@ -1,9 +1,9 @@
 import { motion, useReducedMotion } from "framer-motion";
 
-import charBlueMan from "@/assets/hero/char-blue-man.webp";
-import charRedWoman from "@/assets/hero/char-red-woman.webp";
-import charGreenWoman from "@/assets/hero/char-green-woman.webp";
-import charYellowBoy from "@/assets/hero/char-yellow-boy.webp";
+import charBlueMan from "@/assets/hero/char-blue-man-real-v2.webp";
+import charRedWoman from "@/assets/hero/char-red-woman-real-v2.webp";
+import charGreenWoman from "@/assets/hero/char-green-woman-real-v2.webp";
+import charYellowBoy from "@/assets/hero/char-yellow-boy-real-v2.webp";
 
 interface CharacterProps {
   image: string;
