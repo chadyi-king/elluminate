@@ -221,74 +221,17 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
     case "the-great-zodiac-hunt-virtual":
       return renderLogo(greatZodiacHuntLogo.url, "The Great Zodiac Hunt", size);
 
-    /* ─── Nuclear Fallout: radiation symbol ─── */
+    /* ─── Nuclear Fallout: uploaded logo ─── */
     case "the-nuclear-fallout-escape-room-virtual":
-      return (
-        <svg {...common}>
-          {/* Warning triangle */}
-          <polygon points="100,20 180,170 20,170" fill="none" stroke="#FFD700" strokeWidth="3" />
-          {/* Radiation trefoil */}
-          <circle cx="100" cy="110" r="10" fill={accentColor} />
-          {[0, 120, 240].map((deg) => (
-            <path
-              key={deg}
-              d={`M100,110 L${100 + 40 * Math.cos((deg - 30) * Math.PI / 180)},${110 + 40 * Math.sin((deg - 30) * Math.PI / 180)} A40,40 0 0,1 ${100 + 40 * Math.cos((deg + 30) * Math.PI / 180)},${110 + 40 * Math.sin((deg + 30) * Math.PI / 180)} Z`}
-              fill={accentColor}
-              opacity="0.7"
-            />
-          ))}
-          {/* Center ring */}
-          <circle cx="100" cy="110" r="15" fill="none" stroke="#111" strokeWidth="5" />
-          <circle cx="100" cy="110" r="7" fill="#111" />
-        </svg>
-      );
+      return renderLogo(nuclearFalloutEscapeLogo.url, "The Nuclear Fallout Escape Room", size);
 
-    /* ─── Patriot Act: Singapore Merlion ─── */
+    /* ─── Patriot Act: uploaded logo ─── */
     case "the-patriot-act-virtual":
-      return (
-        <svg {...common}>
-          {/* SG flag stripes */}
-          <rect x="30" y="30" width="140" height="70" rx="4" fill="#EE2536" />
-          <rect x="30" y="100" width="140" height="70" rx="4" fill="white" />
-          {/* Crescent */}
-          <circle cx="65" cy="65" r="18" fill="white" />
-          <circle cx="72" cy="62" r="16" fill="#EE2536" />
-          {/* Stars */}
-          {[[80, 45], [92, 50], [98, 60], [92, 70], [80, 75]].map(([x, y], i) => (
-            <text key={i} x={x} y={y} fontSize="8" fill="white">★</text>
-          ))}
-          {/* Merlion silhouette */}
-          <g transform="translate(100, 140) scale(0.6)" fill={accentColor}>
-            <path d="M0 0 Q-10 -20 -5 -40 Q0 -55 10 -60 L15 -55 Q20 -50 20 -40 L20 -25 Q25 -30 30 -25 L25 -15 Q20 -10 20 0Z" />
-            {/* Water spout */}
-            <path d="M25 -25 Q40 -30 50 -20 Q45 -25 55 -18" stroke={accentColor} strokeWidth="2" fill="none" />
-          </g>
-        </svg>
-      );
+      return renderLogo(thePatriotActLogo.url, "The Patriot Act", size);
 
-    /* ─── Tomb Raider: treasure chest ─── */
+    /* ─── Tomb Raider King: uploaded logo ─── */
     case "tomb-raider-king-treasure-hunt-virtual":
-      return (
-        <svg {...common}>
-          {/* Chest body */}
-          <rect x="35" y="100" width="130" height="70" rx="4" fill="#8B6914" stroke="#6B4F12" strokeWidth="2" />
-          {/* Chest lid */}
-          <path d="M35 100 Q35 60 100 55 Q165 60 165 100Z" fill="#A67C2E" stroke="#6B4F12" strokeWidth="2" />
-          {/* Metal bands */}
-          <rect x="35" y="96" width="130" height="8" fill="#888" stroke="#666" strokeWidth="1" />
-          <line x1="70" y1="60" x2="70" y2="170" stroke="#888" strokeWidth="2" opacity="0.4" />
-          <line x1="130" y1="60" x2="130" y2="170" stroke="#888" strokeWidth="2" opacity="0.4" />
-          {/* Lock */}
-          <rect x="90" y="92" width="20" height="16" rx="3" fill="#FFD700" stroke="#DAA520" strokeWidth="1" />
-          <circle cx="100" cy="100" r="3" fill="#8B6914" />
-          {/* Gold glow from inside */}
-          <ellipse cx="100" cy="88" rx="40" ry="10" fill="#FFD700" opacity="0.3" />
-          {/* Coins spilling */}
-          <circle cx="50" cy="85" r="6" fill="#FFD700" stroke="#DAA520" strokeWidth="1" />
-          <circle cx="145" cy="80" r="5" fill="#FFD700" stroke="#DAA520" strokeWidth="1" />
-          <circle cx="60" cy="78" r="4" fill="#FFD700" stroke="#DAA520" strokeWidth="1" opacity="0.7" />
-        </svg>
-      );
+      return renderLogo(tombRaiderKingLogo.url, "Tomb Raider King Treasure Hunt", size);
 
     /* ─── Grand Christmas Delivery: uploaded logo ─── */
     case "grand-christmas-delivery":
