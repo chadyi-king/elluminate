@@ -12,6 +12,26 @@ import {
   Users,
   Workflow,
 } from "lucide-react";
+import teamSelfieA01 from "@/assets/team-selfies/set-a/team-selfie-01.webp";
+import teamSelfieA02 from "@/assets/team-selfies/set-a/team-selfie-02.webp";
+import teamSelfieA03 from "@/assets/team-selfies/set-a/team-selfie-03.webp";
+import teamSelfieA04 from "@/assets/team-selfies/set-a/team-selfie-04.webp";
+import teamSelfieA05 from "@/assets/team-selfies/set-a/team-selfie-05.webp";
+import teamSelfieA06 from "@/assets/team-selfies/set-a/team-selfie-06.webp";
+import teamSelfieA07 from "@/assets/team-selfies/set-a/team-selfie-07.webp";
+import teamSelfieA08 from "@/assets/team-selfies/set-a/team-selfie-08.webp";
+import teamSelfieA09 from "@/assets/team-selfies/set-a/team-selfie-09.webp";
+import teamSelfieA10 from "@/assets/team-selfies/set-a/team-selfie-10.webp";
+import teamSelfieB01 from "@/assets/team-selfies/set-b/set-b-01-venue-producer.jpg";
+import teamSelfieB02 from "@/assets/team-selfies/set-b/set-b-02-outdoor-facilitator.jpg";
+import teamSelfieB03 from "@/assets/team-selfies/set-b/set-b-03-programme-planner.jpg";
+import teamSelfieB04 from "@/assets/team-selfies/set-b/set-b-04-operations-lead.jpg";
+import teamSelfieB05 from "@/assets/team-selfies/set-b/set-b-05-event-coordinator.jpg";
+import teamSelfieB06 from "@/assets/team-selfies/set-b/set-b-06-programme-facilitator.jpg";
+import teamSelfieB07 from "@/assets/team-selfies/set-b/set-b-07-backstage-producer.jpg";
+import teamSelfieB08 from "@/assets/team-selfies/set-b/set-b-08-senior-facilitator.jpg";
+import teamSelfieB09 from "@/assets/team-selfies/set-b/set-b-09-registration-coordinator.jpg";
+import teamSelfieB10 from "@/assets/team-selfies/set-b/set-b-10-outdoor-crew-lead.jpg";
 
 const teamRoles = [
   { label: "Creative planning", icon: Lightbulb },
@@ -26,51 +46,47 @@ const teamRoles = [
   { label: "Post-event wrap", icon: ClipboardCheck },
 ];
 
-interface CrewImage {
+interface TeamSelfie {
   id: string;
   src: string;
-  objectPosition?: string;
 }
 
-// These are genuine event-day photographs. They show the work without
-// assigning invented names or identities to generated portraits.
-const crewAtWorkImages: CrewImage[] = [
-  { id: "incentive-gallery", src: "/images/services/incentive-travel/gallery-1.jpg", objectPosition: "center 42%" },
-  { id: "incentive-hero", src: "/images/services/incentive-travel/hero.jpg", objectPosition: "center 40%" },
-  { id: "mbti-gallery-5", src: "/images/services/mbti/gallery-5.jpg", objectPosition: "center 40%" },
-  { id: "mbti-gallery-7", src: "/images/services/mbti/gallery-7.jpg", objectPosition: "center 42%" },
-  { id: "mbti-testimonial", src: "/images/services/mbti/testimonial.jpg", objectPosition: "center 42%" },
-  { id: "ocean-addons", src: "/images/services/ocean/addons.jpg", objectPosition: "center 44%" },
-  { id: "ocean-gallery-2", src: "/images/services/ocean/gallery-2.jpg", objectPosition: "center 42%" },
-  { id: "ocean-gallery-3", src: "/images/services/ocean/gallery-3.jpg", objectPosition: "center 44%" },
-  { id: "ocean-gallery-5", src: "/images/services/ocean/gallery-5.jpg", objectPosition: "center 40%" },
-  { id: "ocean-gallery-6", src: "/images/services/ocean/gallery-6.jpg", objectPosition: "center 42%" },
-  { id: "ocean-flow", src: "/images/services/ocean/how-it-works.jpg", objectPosition: "center 44%" },
-  { id: "overseas-addons", src: "/images/services/overseas-retreats/addons.jpg", objectPosition: "center 42%" },
-  { id: "overseas-gallery-3", src: "/images/services/overseas-retreats/gallery-3.jpg", objectPosition: "center 42%" },
-  { id: "overseas-flow", src: "/images/services/overseas-retreats/how-it-works.jpg", objectPosition: "center 42%" },
-  { id: "running-gallery-1", src: "/images/services/running-man/gallery-1.jpg", objectPosition: "center 42%" },
-  { id: "running-gallery-2", src: "/images/services/running-man/gallery-2.jpg", objectPosition: "center 44%" },
-  { id: "running-gallery-4", src: "/images/services/running-man/gallery-4.jpg", objectPosition: "center 42%" },
-  { id: "running-hero", src: "/images/services/running-man/hero.jpg", objectPosition: "center 40%" },
-  { id: "laser-gallery-5", src: "/images/services/tag-tical-laser-teambuilding/gallery-5.jpg", objectPosition: "center 42%" },
-  { id: "laser-testimonial", src: "/images/services/tag-tical-laser-teambuilding/testimonial.jpg", objectPosition: "center 42%" },
+const teamSelfies: TeamSelfie[] = [
+  { id: "team-selfie-a01", src: teamSelfieA01 },
+  { id: "team-selfie-b05", src: teamSelfieB05 },
+  { id: "team-selfie-a03", src: teamSelfieA03 },
+  { id: "team-selfie-b06", src: teamSelfieB06 },
+  { id: "team-selfie-a05", src: teamSelfieA05 },
+  { id: "team-selfie-b01", src: teamSelfieB01 },
+  { id: "team-selfie-a07", src: teamSelfieA07 },
+  { id: "team-selfie-b02", src: teamSelfieB02 },
+  { id: "team-selfie-a09", src: teamSelfieA09 },
+  { id: "team-selfie-b03", src: teamSelfieB03 },
+  { id: "team-selfie-a02", src: teamSelfieA02 },
+  { id: "team-selfie-b08", src: teamSelfieB08 },
+  { id: "team-selfie-a04", src: teamSelfieA04 },
+  { id: "team-selfie-b09", src: teamSelfieB09 },
+  { id: "team-selfie-a06", src: teamSelfieA06 },
+  { id: "team-selfie-b10", src: teamSelfieB10 },
+  { id: "team-selfie-a08", src: teamSelfieA08 },
+  { id: "team-selfie-b04", src: teamSelfieB04 },
+  { id: "team-selfie-a10", src: teamSelfieA10 },
+  { id: "team-selfie-b07", src: teamSelfieB07 },
 ];
 
-const crewAtWorkRows = [
-  crewAtWorkImages.slice(0, 7),
-  crewAtWorkImages.slice(7, 14),
-  crewAtWorkImages.slice(14),
+const teamSelfieRows = [
+  teamSelfies.slice(0, 7),
+  teamSelfies.slice(7, 14),
+  teamSelfies.slice(14),
 ];
 
-const CrewImageContent = ({ image }: { image: CrewImage }) => (
+const TeamSelfieContent = ({ image }: { image: TeamSelfie }) => (
   <img
     src={image.src}
     alt=""
     loading="lazy"
     decoding="async"
-    className="h-full w-full object-cover saturate-[0.94] contrast-[0.98]"
-    style={{ objectPosition: image.objectPosition }}
+    className="h-full w-full object-cover saturate-[0.92] contrast-[0.97]"
   />
 );
 
@@ -122,23 +138,23 @@ export const OurTeam = () => {
             transition={{ duration: reduceMotion ? 0 : 0.65, delay: reduceMotion ? 0 : 0.08 }}
             className="min-w-0"
           >
-            <div className="mb-4 flex items-center justify-between gap-4">
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">Facilitation in Action</p>
-              <p className="text-xs text-white/70">Briefings &middot; live guidance &middot; event-day delivery</p>
+            <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">Illustrative Crew Portraits</p>
+              <p className="text-xs text-white/70">Planning &middot; producing &middot; facilitating</p>
             </div>
 
             {reduceMotion ? (
               <div aria-hidden="true" className="grid grid-cols-4 gap-2">
-                {crewAtWorkImages.map((image) => (
+                {teamSelfies.map((image) => (
                   <div key={image.id} className="relative aspect-square overflow-hidden rounded-xl border border-white/10 bg-white/[0.06]">
-                    <CrewImageContent image={image} />
+                    <TeamSelfieContent image={image} />
                   </div>
                 ))}
               </div>
             ) : (
               <div
                 role="region"
-                aria-label="The people behind Elluminate events. Hover or focus to pause the moving portraits and event-day images."
+                aria-label="Illustrative portraits representing event planners, producers and facilitators. Hover or focus to pause the moving portraits."
                 tabIndex={0}
                 className="relative space-y-3 overflow-hidden py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
                 style={{
@@ -165,7 +181,7 @@ export const OurTeam = () => {
                   syncPhotoWallState();
                 }}
               >
-                {crewAtWorkRows.map((row, rowIndex) => (
+                {teamSelfieRows.map((row, rowIndex) => (
                   <div key={rowIndex} className="overflow-hidden">
                     <div
                       className={`flex w-max ${rowIndex % 2 === 0 ? "event-photo-marquee-left" : "event-photo-marquee-right"}`}
@@ -181,8 +197,7 @@ export const OurTeam = () => {
                               key={`${copyIndex}-${rowIndex}-${image.id}`}
                               className="relative h-28 w-28 shrink-0 overflow-hidden rounded-[1.15rem] border border-white/10 bg-white/[0.06] shadow-lg transition duration-500 hover:scale-[1.03] sm:h-32 sm:w-32 xl:h-36 xl:w-36"
                             >
-                              <CrewImageContent image={image} />
-                              <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,.025),transparent_48%)]" />
+                              <TeamSelfieContent image={image} />
                             </div>
                           ))}
                         </div>

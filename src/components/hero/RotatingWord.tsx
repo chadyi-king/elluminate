@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const wordData = [
   { text: "TEAM", color: "hsl(214, 100%, 56%)" },
@@ -22,6 +22,8 @@ export const RotatingWord = () => {
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (reduceMotion) return undefined;
+
     const interval = window.setInterval(() => {
       setCurrentIndex((previous) => {
         return (previous + 1) % wordData.length;
@@ -29,23 +31,47 @@ export const RotatingWord = () => {
     }, 2500);
 
     return () => window.clearInterval(interval);
-  }, []);
+  }, [reduceMotion]);
+
+  const currentWord = wordData[currentIndex];
 
   return (
-    <span className="relative inline-flex min-h-[3rem] min-w-[min(86vw,19rem)] items-center justify-center sm:min-h-[3.5rem] sm:min-w-[20rem] lg:min-w-[22rem]">
+    <span className="relative inline-grid min-h-[3rem] min-w-[min(86vw,19rem)] place-items-center sm:min-h-[3.5rem] sm:min-w-[20rem] lg:min-w-[22rem]">
       <motion.span
-        key={currentIndex}
-        initial={reduceMotion ? false : { opacity: 1, y: 8, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: reduceMotion ? 0 : 0.28, ease: "easeOut" }}
-        className="inline-block max-w-[88vw] whitespace-nowrap rounded-[1rem] px-4 py-1.5 font-black leading-none text-white shadow-lg sm:px-5"
+        initial={false}
+        animate={{ backgroundColor: currentWord.color }}
+        transition={{ duration: reduceMotion ? 0 : 0.46, ease: [0.22, 1, 0.36, 1] }}
+        className="relative inline-grid max-w-[88vw] min-w-[min(86vw,19rem)] place-items-center overflow-hidden whitespace-nowrap rounded-[1rem] px-4 py-1.5 font-black leading-none text-white shadow-[0_12px_30px_rgba(15,23,42,0.18)] sm:min-w-[20rem] sm:px-5 lg:min-w-[22rem]"
         style={{
-          backgroundColor: wordData[currentIndex].color,
+          backgroundColor: currentWord.color,
           fontSize: "clamp(1.8rem, 6vw, 3.4rem)",
           textShadow: "0 3px 14px rgba(0,0,0,0.2)",
+          perspective: 700,
         }}
       >
-        {wordData[currentIndex].text}
+        <AnimatePresence initial={false} mode="popLayout">
+          <motion.span
+            key={currentWord.text}
+            initial={reduceMotion ? false : { opacity: 0, y: 22, rotateX: -38, filter: "blur(7px)" }}
+            animate={{ opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" }}
+            exit={reduceMotion ? undefined : { opacity: 0, y: -20, rotateX: 32, filter: "blur(6px)" }}
+            transition={{ duration: reduceMotion ? 0 : 0.42, ease: [0.22, 1, 0.36, 1] }}
+            className="block origin-center"
+          >
+            {currentWord.text}
+          </motion.span>
+        </AnimatePresence>
+
+        {!reduceMotion && (
+          <motion.span
+            key={`shine-${currentWord.text}`}
+            aria-hidden="true"
+            initial={{ x: "-180%", opacity: 0 }}
+            animate={{ x: "250%", opacity: [0, 0.32, 0] }}
+            transition={{ duration: 0.72, delay: 0.08, ease: "easeOut" }}
+            className="pointer-events-none absolute inset-y-0 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white to-transparent"
+          />
+        )}
       </motion.span>
     </span>
   );

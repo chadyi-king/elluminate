@@ -69,14 +69,18 @@ const CharacterFigure = ({
 
 export const HeroCharacters = () => (
   <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-    {/* Upper figures fade into the foreground figures so their source-image edges never read as hard cut-outs. */}
+    {/*
+      Keep the cast close enough to frame the promise, while the foreground pair masks the
+      lower edge of the upper pair. The yellow figure deliberately overlaps the green figure
+      so her source image never reads as a waist-level cut-out.
+    */}
     <CharacterFigure
       image={charBlueMan}
-      posClass="left-[-5%] top-[4%] 2xl:left-[-2%]"
+      posClass="left-[-1.5%] top-[1%] 2xl:left-[1%]"
       delay={0.1}
       width={500}
       height={500}
-      sizeClass="h-[clamp(22rem,28vw,31.25rem)] w-[clamp(22rem,28vw,31.25rem)]"
+      sizeClass="h-[clamp(28rem,35vw,40rem)] w-[clamp(28rem,35vw,40rem)]"
       zIndex={16}
       softenLowerEdge
       isLCP
@@ -84,32 +88,32 @@ export const HeroCharacters = () => (
 
     <CharacterFigure
       image={charRedWoman}
-      posClass="bottom-[2.1rem] left-[-5%] 2xl:left-[-2%]"
+      posClass="bottom-[1.75rem] left-[-2%] 2xl:left-[0.5%]"
       delay={0.2}
       width={480}
       height={500}
-      sizeClass="h-[clamp(22rem,27vw,30rem)] w-[clamp(21rem,26vw,29rem)]"
+      sizeClass="h-[clamp(27rem,34vw,39rem)] w-[clamp(26rem,33vw,38rem)]"
       zIndex={22}
     />
 
     <CharacterFigure
       image={charGreenWoman}
-      posClass="right-[-6%] top-[3%] 2xl:right-[-2%]"
+      posClass="right-[-1.5%] top-[1%] 2xl:right-[0.75%]"
       delay={0.15}
       width={480}
       height={500}
-      sizeClass="h-[clamp(22rem,27vw,30rem)] w-[clamp(21rem,26vw,29rem)]"
+      sizeClass="h-[clamp(27rem,34vw,39rem)] w-[clamp(26rem,33vw,38rem)]"
       zIndex={15}
       softenLowerEdge
     />
 
     <CharacterFigure
       image={charYellowBoy}
-      posClass="bottom-[2.4rem] right-[-5%] 2xl:right-[-2%]"
+      posClass="bottom-[1.75rem] right-[-1%] 2xl:right-[2%]"
       delay={0.25}
       width={440}
       height={480}
-      sizeClass="h-[clamp(20rem,25vw,28rem)] w-[clamp(19rem,24vw,27rem)]"
+      sizeClass="h-[clamp(24rem,31vw,35rem)] w-[clamp(23rem,30vw,34rem)]"
       zIndex={23}
     />
   </div>

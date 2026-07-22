@@ -368,7 +368,7 @@ const approvedClientLogos = defaultClientLogos.filter((logo) => approvedClientLo
 const stats = [
   {
     icon: Calendar,
-    number: "1,000+",
+    number: "5,000+",
     label: "Events",
     description: "Planned, produced and brought to life.",
   },
@@ -420,7 +420,7 @@ export const SocialProofSection = () => {
             See the Energy. Check the Track Record.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-            More than 1,000 events, 800+ reviews and a client list built one experience at a time.
+            More than 5,000 events, 800+ reviews and a client list built one experience at a time.
           </p>
         </motion.header>
 
