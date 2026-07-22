@@ -70,6 +70,7 @@ export type Database = {
           add_on_services: string[] | null
           additional_customisation: string | null
           additional_details: string | null
+          attribution_captured_at: string | null
           brand: string | null
           created_at: string
           email: string
@@ -77,7 +78,9 @@ export type Database = {
           expected_attendees: string | null
           expected_date: string | null
           form_name: string | null
+          gad_source: string | null
           game_customisation: string | null
+          gbraid: string | null
           gclid: string | null
           id: string
           landing_page: string | null
@@ -95,11 +98,13 @@ export type Database = {
           utm_medium: string | null
           utm_source: string | null
           utm_term: string | null
+          wbraid: string | null
         }
         Insert: {
           add_on_services?: string[] | null
           additional_customisation?: string | null
           additional_details?: string | null
+          attribution_captured_at?: string | null
           brand?: string | null
           created_at?: string
           email: string
@@ -107,7 +112,9 @@ export type Database = {
           expected_attendees?: string | null
           expected_date?: string | null
           form_name?: string | null
+          gad_source?: string | null
           game_customisation?: string | null
+          gbraid?: string | null
           gclid?: string | null
           id?: string
           landing_page?: string | null
@@ -125,11 +132,13 @@ export type Database = {
           utm_medium?: string | null
           utm_source?: string | null
           utm_term?: string | null
+          wbraid?: string | null
         }
         Update: {
           add_on_services?: string[] | null
           additional_customisation?: string | null
           additional_details?: string | null
+          attribution_captured_at?: string | null
           brand?: string | null
           created_at?: string
           email?: string
@@ -137,7 +146,9 @@ export type Database = {
           expected_attendees?: string | null
           expected_date?: string | null
           form_name?: string | null
+          gad_source?: string | null
           game_customisation?: string | null
+          gbraid?: string | null
           gclid?: string | null
           id?: string
           landing_page?: string | null
@@ -155,6 +166,7 @@ export type Database = {
           utm_medium?: string | null
           utm_source?: string | null
           utm_term?: string | null
+          wbraid?: string | null
         }
         Relationships: []
       }
