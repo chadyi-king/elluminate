@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 
@@ -9,25 +9,51 @@ interface ClientTestimonialsCarouselProps {
   eyebrow?: string;
   heading?: string;
   description?: string;
+  orderingSeed?: string;
 }
 
-const buildRowOrder = (offset: number, direction: 1 | -1) => {
-  const count = clientTestimonials.length;
+const seedToUint32 = (seed: string) => {
+  let hash = 2166136261;
 
-  return Array.from({ length: count }, (_, index) => (offset + direction * index + count) % count);
+  for (let index = 0; index < seed.length; index += 1) {
+    hash ^= seed.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+
+  return hash >>> 0;
 };
 
-const rowOrders = [
-  buildRowOrder(0, 1),
-  buildRowOrder(Math.floor(clientTestimonials.length / 3), -1),
-  buildRowOrder(Math.floor((clientTestimonials.length * 2) / 3), 1),
-];
+const seededShuffle = <T,>(items: T[], seed: string) => {
+  const shuffled = [...items];
+  let state = seedToUint32(seed) || 1;
+
+  const next = () => {
+    state ^= state << 13;
+    state ^= state >>> 17;
+    state ^= state << 5;
+    return (state >>> 0) / 4294967296;
+  };
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(next() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+
+  return shuffled;
+};
+
+const partitionIntoRows = (items: ClientTestimonial[]) => {
+  const rows: ClientTestimonial[][] = [[], [], []];
+  items.forEach((item, index) => rows[index % rows.length].push(item));
+  return rows;
+};
 
 export const ClientTestimonialsCarousel = ({
   theme = "light",
   eyebrow = "In their words",
   heading = "What Clients Love About Us",
   description = "Real words from the people who joined the experience.",
+  orderingSeed,
 }: ClientTestimonialsCarouselProps) => {
   const reduceMotion = useReducedMotion();
   const marqueeRowsRef = useRef<Array<HTMLDivElement | null>>([]);
@@ -36,6 +62,15 @@ export const ClientTestimonialsCarousel = ({
   const pointerInsideRef = useRef(false);
   const focusWithinRef = useRef(false);
   const isDark = theme === "dark";
+  const uniqueTestimonials = useMemo(
+    () => Array.from(new Map(clientTestimonials.map((testimonial) => [testimonial.id, testimonial])).values()),
+    [],
+  );
+  const orderedTestimonials = useMemo(
+    () => seededShuffle(uniqueTestimonials, orderingSeed ?? `${theme}:${heading}`),
+    [heading, orderingSeed, theme, uniqueTestimonials],
+  );
+  const testimonialRows = useMemo(() => partitionIntoRows(orderedTestimonials), [orderedTestimonials]);
 
   const animatePlaybackRate = useCallback((targetRate: number) => {
     if (playbackAnimationFrameRef.current !== null) {
@@ -169,12 +204,12 @@ export const ClientTestimonialsCarousel = ({
 
         {reduceMotion ? (
           <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {clientTestimonials.map((testimonial) => testimonialCard(testimonial, `${testimonial.name}-static`))}
+            {orderedTestimonials.map((testimonial) => testimonialCard(testimonial, `${testimonial.id}-static`))}
           </div>
         ) : (
           <div
             role="region"
-            aria-label="Client testimonials. Focus this section to pause the moving stories."
+            aria-label="Client testimonials. Hover to slow the moving stories or focus this section to pause them."
             tabIndex={0}
             className="relative left-1/2 w-screen -translate-x-1/2 space-y-3 overflow-hidden py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
             onPointerEnter={(event) => {
@@ -200,7 +235,7 @@ export const ClientTestimonialsCarousel = ({
             <div className={`pointer-events-none absolute inset-y-0 left-0 z-20 w-16 bg-gradient-to-r sm:w-28 ${isDark ? "from-[#071a2a]" : "from-[#f4f7ff]"} to-transparent`} />
             <div className={`pointer-events-none absolute inset-y-0 right-0 z-20 w-16 bg-gradient-to-l sm:w-28 ${isDark ? "from-[#071a2a]" : "from-[#f4f7ff]"} to-transparent`} />
 
-            {rowOrders.map((order, rowIndex) => (
+            {testimonialRows.map((row, rowIndex) => (
               <div key={rowIndex} className="overflow-hidden">
                 <div
                   ref={(node) => {
@@ -215,16 +250,15 @@ export const ClientTestimonialsCarousel = ({
                     <div
                       key={copyIndex}
                       className="flex shrink-0 gap-3 pr-3"
-                      aria-hidden={copyIndex === 1 || rowIndex > 0 ? "true" : undefined}
+                      aria-hidden={copyIndex === 1 ? "true" : undefined}
                     >
-                      {order.map((testimonialIndex) => {
-                        const testimonial = clientTestimonials[testimonialIndex];
-                        return testimonialCard(
+                      {row.map((testimonial) =>
+                        testimonialCard(
                           testimonial,
-                          `${rowIndex}-${copyIndex}-${testimonial.name}`,
-                          copyIndex === 1 || rowIndex > 0,
-                        );
-                      })}
+                          `${rowIndex}-${copyIndex}-${testimonial.id}`,
+                          copyIndex === 1,
+                        ),
+                      )}
                     </div>
                   ))}
                 </div>

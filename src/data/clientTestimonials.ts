@@ -1,4 +1,5 @@
 export interface ClientTestimonial {
+  id: string;
   name: string;
   displayName?: string;
   role?: string;
@@ -15,14 +16,16 @@ export interface ClientTestimonial {
 }
 
 /**
- * Public-facing cards use short excerpts from verified Team Elevate Google
- * reviews and attributable testimonials on the official Team Elevate site.
+ * Public-facing cards use locally documented excerpts from the Elluminate and
+ * Team Elevate Google listings, plus attributable testimonials on the official
+ * Team Elevate site.
  * A small number of excerpts are lightly trimmed for card length without
  * changing the reviewer's meaning. Internal source details are not rendered.
  * Do not infer employers for Google reviewers or add a star rating to client stories that were published without one.
  */
 export const clientTestimonials: ClientTestimonial[] = [
   {
+    id: "team-elevate-google-shahrul",
     name: "Shahrul",
     role: "Outdoor team building at Gardens by the Bay",
     excerpt: "The activities were well-organised, engaging, and fun. The facilitators kept the momentum going and made sure everyone was involved.",
@@ -35,6 +38,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     accent: "#2A8DFF",
   },
   {
+    id: "team-elevate-google-jenniiloh",
     name: "Jenniiloh",
     role: "Corporate team building",
     excerpt: "The activities were thoughtfully curated and struck a great balance between fun and collaboration. The team truly enjoyed it.",
@@ -47,6 +51,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     accent: "#26B982",
   },
   {
+    id: "team-elevate-google-joshua",
     name: "Joshua",
     role: "Facilitated team session",
     excerpt: "Steven and team brought so much energy and adapted really well to us! They were professional, yet brought so much fun and excitement.",
@@ -59,6 +64,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     accent: "#F4B400",
   },
   {
+    id: "team-elevate-google-jk",
     name: "Jk",
     role: "Staff team building",
     excerpt: "The sessions were engaging, well-planned, and there was never a dull moment. Everything was fun, meaningful, and suited the whole staff.",
@@ -71,6 +77,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     accent: "#F25F5C",
   },
   {
+    id: "team-elevate-google-pwincezz",
     name: "Pwincezz",
     role: "Company team bonding",
     excerpt: "They had lots of new, fun games that made bonding with others easy and comfortable. Good job, guys!",
@@ -83,6 +90,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     accent: "#8B5CF6",
   },
   {
+    id: "team-elevate-google-lkw",
     name: "LKW",
     role: "Facilitated games",
     excerpt: "The game was exciting and well organised. Kudos to all the facilitators - we had an enjoyable day!",
@@ -95,6 +103,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     accent: "#0EA5E9",
   },
   {
+    id: "team-elevate-google-jnlynn",
     name: "JNlynn",
     role: "2025 team bonding",
     excerpt: "The games were very well planned and super fun. We enjoyed ourselves very much - thank you Steven and team!",
@@ -107,6 +116,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     accent: "#EC4899",
   },
   {
+    id: "team-elevate-google-wp",
     name: "WP",
     role: "Team-building event",
     excerpt: "The team from Elevate was professional in managing our team-building event. Overall, we had fun with them today.",
@@ -119,6 +129,79 @@ export const clientTestimonials: ClientTestimonial[] = [
     accent: "#14B8A6",
   },
   {
+    id: "elluminate-google-jamie-teo",
+    name: "Jamie Teo",
+    excerpt: "Great experience!",
+    rating: 5,
+    sourceBrand: "Elluminate",
+    sourceType: "google-review",
+    sourceUrl: "https://www.google.com/maps/place/Elluminate+Singapore/data=!4m7!3m6!1s0x31da1b985fa7e40b:0x4aa6c01c0f8a8399!8m2!3d1.2831187!4d103.8167431!16s%2Fg%2F11njqq0x_c",
+    sourceContext: "Named five-star excerpt recorded in the Elluminate proof register",
+    verifiedAt: "2026-07-21",
+    accent: "#2A8DFF",
+  },
+  {
+    id: "elluminate-google-amirah-sabanni",
+    name: "Amirah Sabanni",
+    excerpt: "Energetic and sporting!",
+    rating: 5,
+    sourceBrand: "Elluminate",
+    sourceType: "google-review",
+    sourceUrl: "https://www.google.com/maps/place/Elluminate+Singapore/data=!4m7!3m6!1s0x31da1b985fa7e40b:0x4aa6c01c0f8a8399!8m2!3d1.2831187!4d103.8167431!16s%2Fg%2F11njqq0x_c",
+    sourceContext: "Named five-star excerpt recorded in the Elluminate proof register",
+    verifiedAt: "2026-07-21",
+    accent: "#26B982",
+  },
+  {
+    id: "elluminate-google-abdussalam-muhamad-ekhsan",
+    name: "Abdussalam Muhamad Ekhsan",
+    excerpt: "Simple yet meaningful.",
+    rating: 5,
+    sourceBrand: "Elluminate",
+    sourceType: "google-review",
+    sourceUrl: "https://www.google.com/maps/place/Elluminate+Singapore/data=!4m7!3m6!1s0x31da1b985fa7e40b:0x4aa6c01c0f8a8399!8m2!3d1.2831187!4d103.8167431!16s%2Fg%2F11njqq0x_c",
+    sourceContext: "Named five-star excerpt recorded in the Elluminate proof register",
+    verifiedAt: "2026-07-21",
+    accent: "#F4B400",
+  },
+  {
+    id: "elluminate-google-mohamad-ridhwan-masud",
+    name: "Mohamad Ridhwan Masud",
+    excerpt: "Well done.",
+    rating: 5,
+    sourceBrand: "Elluminate",
+    sourceType: "google-review",
+    sourceUrl: "https://www.google.com/maps/place/Elluminate+Singapore/data=!4m7!3m6!1s0x31da1b985fa7e40b:0x4aa6c01c0f8a8399!8m2!3d1.2831187!4d103.8167431!16s%2Fg%2F11njqq0x_c",
+    sourceContext: "Named five-star excerpt recorded in the Elluminate proof register",
+    verifiedAt: "2026-07-21",
+    accent: "#F25F5C",
+  },
+  {
+    id: "elluminate-google-muhamad-hazeem",
+    name: "Muhamad Hazeem",
+    excerpt: "Great team building activities!",
+    rating: 5,
+    sourceBrand: "Elluminate",
+    sourceType: "google-review",
+    sourceUrl: "https://www.google.com/maps/place/Elluminate+Singapore/data=!4m7!3m6!1s0x31da1b985fa7e40b:0x4aa6c01c0f8a8399!8m2!3d1.2831187!4d103.8167431!16s%2Fg%2F11njqq0x_c",
+    sourceContext: "Named five-star excerpt recorded in the Elluminate proof register",
+    verifiedAt: "2026-07-21",
+    accent: "#8B5CF6",
+  },
+  {
+    id: "elluminate-google-lee",
+    name: "Lee",
+    excerpt: "Very well organized.",
+    rating: 5,
+    sourceBrand: "Elluminate",
+    sourceType: "google-review",
+    sourceUrl: "https://www.google.com/maps/place/Elluminate+Singapore/data=!4m7!3m6!1s0x31da1b985fa7e40b:0x4aa6c01c0f8a8399!8m2!3d1.2831187!4d103.8167431!16s%2Fg%2F11njqq0x_c",
+    sourceContext: "Named five-star excerpt recorded in the Elluminate proof register",
+    verifiedAt: "2026-07-21",
+    accent: "#0EA5E9",
+  },
+  {
+    id: "team-elevate-client-darren-tey-lonza",
     name: "Darren Tey",
     role: "Operations Manager",
     company: "Lonza",
@@ -131,6 +214,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     accent: "#2A8DFF",
   },
   {
+    id: "team-elevate-client-farzanah-begum-simtech",
     name: "Farzanah Begum",
     role: "Senior Officer for Development and Engagement",
     company: "A*STAR SIMTech",
@@ -143,6 +227,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     accent: "#8B5CF6",
   },
   {
+    id: "team-elevate-client-arianti-amalina-madame-tussauds",
     name: "Arianti Amalina",
     role: "Human Resource Officer",
     company: "Madame Tussauds Singapore",
@@ -155,6 +240,7 @@ export const clientTestimonials: ClientTestimonial[] = [
     accent: "#F05462",
   },
   {
+    id: "team-elevate-client-jurgen-carlson-ams-ag",
     name: "Jurgen Carlson",
     role: "Senior Partner and Management Head",
     company: "AMS AG",

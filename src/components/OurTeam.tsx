@@ -26,27 +26,35 @@ const teamRoles = [
   { label: "Post-event wrap", icon: ClipboardCheck },
 ];
 
-const crewAtWorkImages = [
-  "/images/services/incentive-travel/gallery-1.jpg",
-  "/images/services/incentive-travel/hero.jpg",
-  "/images/services/mbti/gallery-5.jpg",
-  "/images/services/mbti/gallery-7.jpg",
-  "/images/services/mbti/testimonial.jpg",
-  "/images/services/ocean/addons.jpg",
-  "/images/services/ocean/gallery-2.jpg",
-  "/images/services/ocean/gallery-3.jpg",
-  "/images/services/ocean/gallery-5.jpg",
-  "/images/services/ocean/gallery-6.jpg",
-  "/images/services/ocean/how-it-works.jpg",
-  "/images/services/overseas-retreats/addons.jpg",
-  "/images/services/overseas-retreats/gallery-3.jpg",
-  "/images/services/overseas-retreats/how-it-works.jpg",
-  "/images/services/running-man/gallery-1.jpg",
-  "/images/services/running-man/gallery-2.jpg",
-  "/images/services/running-man/gallery-4.jpg",
-  "/images/services/running-man/hero.jpg",
-  "/images/services/tag-tical-laser-teambuilding/gallery-5.jpg",
-  "/images/services/tag-tical-laser-teambuilding/testimonial.jpg",
+interface CrewImage {
+  id: string;
+  src: string;
+  objectPosition?: string;
+}
+
+// These are genuine event-day photographs. They show the work without
+// assigning invented names or identities to generated portraits.
+const crewAtWorkImages: CrewImage[] = [
+  { id: "incentive-gallery", src: "/images/services/incentive-travel/gallery-1.jpg", objectPosition: "center 42%" },
+  { id: "incentive-hero", src: "/images/services/incentive-travel/hero.jpg", objectPosition: "center 40%" },
+  { id: "mbti-gallery-5", src: "/images/services/mbti/gallery-5.jpg", objectPosition: "center 40%" },
+  { id: "mbti-gallery-7", src: "/images/services/mbti/gallery-7.jpg", objectPosition: "center 42%" },
+  { id: "mbti-testimonial", src: "/images/services/mbti/testimonial.jpg", objectPosition: "center 42%" },
+  { id: "ocean-addons", src: "/images/services/ocean/addons.jpg", objectPosition: "center 44%" },
+  { id: "ocean-gallery-2", src: "/images/services/ocean/gallery-2.jpg", objectPosition: "center 42%" },
+  { id: "ocean-gallery-3", src: "/images/services/ocean/gallery-3.jpg", objectPosition: "center 44%" },
+  { id: "ocean-gallery-5", src: "/images/services/ocean/gallery-5.jpg", objectPosition: "center 40%" },
+  { id: "ocean-gallery-6", src: "/images/services/ocean/gallery-6.jpg", objectPosition: "center 42%" },
+  { id: "ocean-flow", src: "/images/services/ocean/how-it-works.jpg", objectPosition: "center 44%" },
+  { id: "overseas-addons", src: "/images/services/overseas-retreats/addons.jpg", objectPosition: "center 42%" },
+  { id: "overseas-gallery-3", src: "/images/services/overseas-retreats/gallery-3.jpg", objectPosition: "center 42%" },
+  { id: "overseas-flow", src: "/images/services/overseas-retreats/how-it-works.jpg", objectPosition: "center 42%" },
+  { id: "running-gallery-1", src: "/images/services/running-man/gallery-1.jpg", objectPosition: "center 42%" },
+  { id: "running-gallery-2", src: "/images/services/running-man/gallery-2.jpg", objectPosition: "center 44%" },
+  { id: "running-gallery-4", src: "/images/services/running-man/gallery-4.jpg", objectPosition: "center 42%" },
+  { id: "running-hero", src: "/images/services/running-man/hero.jpg", objectPosition: "center 40%" },
+  { id: "laser-gallery-5", src: "/images/services/tag-tical-laser-teambuilding/gallery-5.jpg", objectPosition: "center 42%" },
+  { id: "laser-testimonial", src: "/images/services/tag-tical-laser-teambuilding/testimonial.jpg", objectPosition: "center 42%" },
 ];
 
 const crewAtWorkRows = [
@@ -54,6 +62,17 @@ const crewAtWorkRows = [
   crewAtWorkImages.slice(7, 14),
   crewAtWorkImages.slice(14),
 ];
+
+const CrewImageContent = ({ image }: { image: CrewImage }) => (
+  <img
+    src={image.src}
+    alt=""
+    loading="lazy"
+    decoding="async"
+    className="h-full w-full object-cover saturate-[0.94] contrast-[0.98]"
+    style={{ objectPosition: image.objectPosition }}
+  />
+);
 
 export const OurTeam = () => {
   const reduceMotion = useReducedMotion();
@@ -111,21 +130,15 @@ export const OurTeam = () => {
             {reduceMotion ? (
               <div aria-hidden="true" className="grid grid-cols-4 gap-2">
                 {crewAtWorkImages.map((image) => (
-                  <div key={image} className="aspect-square overflow-hidden rounded-xl border border-white/10 bg-white/[0.06]">
-                    <img
-                      src={image}
-                      alt=""
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
+                  <div key={image.id} className="relative aspect-square overflow-hidden rounded-xl border border-white/10 bg-white/[0.06]">
+                    <CrewImageContent image={image} />
                   </div>
                 ))}
               </div>
             ) : (
               <div
                 role="region"
-                aria-label="Facilitation in action. Hover or focus to pause the moving event-day images."
+                aria-label="The people behind Elluminate events. Hover or focus to pause the moving portraits and event-day images."
                 tabIndex={0}
                 className="relative space-y-3 overflow-hidden py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
                 style={{
@@ -165,16 +178,11 @@ export const OurTeam = () => {
                         <div key={copyIndex} className="flex shrink-0 gap-3 pr-3" aria-hidden="true">
                           {row.map((image) => (
                             <div
-                              key={`${copyIndex}-${rowIndex}-${image}`}
-                              className="h-28 w-28 shrink-0 overflow-hidden rounded-[1.15rem] border border-white/10 bg-white/[0.06] shadow-lg transition duration-500 hover:scale-[1.03] sm:h-32 sm:w-32 xl:h-36 xl:w-36"
+                              key={`${copyIndex}-${rowIndex}-${image.id}`}
+                              className="relative h-28 w-28 shrink-0 overflow-hidden rounded-[1.15rem] border border-white/10 bg-white/[0.06] shadow-lg transition duration-500 hover:scale-[1.03] sm:h-32 sm:w-32 xl:h-36 xl:w-36"
                             >
-                              <img
-                                src={image}
-                                alt=""
-                                loading="lazy"
-                                decoding="async"
-                                className="h-full w-full object-cover"
-                              />
+                              <CrewImageContent image={image} />
+                              <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,.025),transparent_48%)]" />
                             </div>
                           ))}
                         </div>
