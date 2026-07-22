@@ -66,22 +66,7 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
 
     /* ─── Virtual Amazing Race: race card envelope ─── */
     case "amazing-race-virtual":
-      return (
-        <svg {...common}>
-          {/* Envelope body */}
-          <rect x="30" y="60" width="140" height="100" rx="8" fill={accentColor} opacity="0.9" />
-          <rect x="30" y="60" width="140" height="100" rx="8" stroke="white" strokeWidth="2" fill="none" />
-          {/* Envelope flap */}
-          <path d="M30 68 L100 115 L170 68" stroke="white" strokeWidth="2" fill={`${accentColor}cc`} />
-          {/* Card poking out */}
-          <rect x="55" y="30" width="90" height="70" rx="6" fill="white" />
-          <text x="100" y="55" textAnchor="middle" fontSize="10" fontWeight="bold" fill={accentColor}>ROUTE</text>
-          <text x="100" y="72" textAnchor="middle" fontSize="10" fontWeight="bold" fill={accentColor}>CARD</text>
-          {/* Wax seal */}
-          <circle cx="100" cy="140" r="14" fill="#B22222" />
-          <text x="100" y="144" textAnchor="middle" fontSize="10" fontWeight="bold" fill="white">✦</text>
-        </svg>
-      );
+      return renderLogo(virtualAmazingRaceLogo.url, "Virtual Amazing Race", size);
 
 
     /* ─── CSI Bones: chalk body outline ─── */
