@@ -40,8 +40,6 @@ export const activityPageBatchOneSlugs = [
 
 export type ActivityPageBatchOneSlug = (typeof activityPageBatchOneSlugs)[number];
 
-export const activityPageBatchOneSlugSet = new Set<string>(activityPageBatchOneSlugs);
-
 export const equipmentActivityServices: ServiceLink[] = [
   { name: "Archery Tag", slug: "archery-tag" },
   { name: "GelBlitz", slug: "gel-blitz" },
@@ -77,6 +75,56 @@ export const trainingServices: ServiceLink[] = [
   { name: "Wellness Events", slug: "wellness-events" },
   { name: "Leadership Offsites", slug: "leadership-offsites" },
 ];
+
+/**
+ * The remaining owner-approved activity-page rollout, kept in reviewable
+ * 10 / 10 / 6 batches. Only batches included in `activityPageV2Slugs` are
+ * rendered with the approved activity-page system.
+ */
+export const activityPageBatchTwoSlugs = [
+  "sotong-game",
+  "treasure-heist",
+  "archery-tag",
+  "gel-blitz",
+  "nerfwar",
+  "tag-tical-laser-teambuilding",
+  "amazing-race-virtual",
+  "fit-in-your-team-virtual",
+  "the-gameshow-experience-virtual",
+  "the-great-zodiac-hunt-virtual",
+] as const;
+
+export const activityPageBatchThreeSlugs = [
+  "the-nuclear-fallout-escape-room-virtual",
+  "the-patriot-act-virtual",
+  "tomb-raider-king-treasure-hunt-virtual",
+  "grand-christmas-delivery",
+  "overseas-retreats",
+  "local-retreats",
+  "incentive-travel",
+  "mbti",
+  "disc",
+  "ocean",
+] as const;
+
+export const activityPageBatchFourSlugs = [
+  "mass-talks",
+  "workshops",
+  "youth-camps",
+  "corporate-days",
+  "wellness-events",
+  "leadership-offsites",
+] as const;
+
+/** Active reviewed scope: batch one plus the current ten-route batch. */
+export const activityPageV2Slugs = [
+  ...activityPageBatchOneSlugs,
+  ...activityPageBatchTwoSlugs,
+] as const;
+
+export type ActivityPageV2Slug = (typeof activityPageV2Slugs)[number];
+
+export const activityPageV2SlugSet = new Set<string>(activityPageV2Slugs);
 
 export const allInScopeServiceSlugs = new Set([
   teamBuildingOverview.slug,

@@ -10541,8 +10541,8 @@ export const servicesData: Record<string, ServiceData> = {
       },
       {
         icon: "UtensilsCrossed",
-        title: "Pirate Feast Catering",
-        description: "Themed catering spread for a squad meal after the heist is over and the gold is counted.",
+        title: "Crew Catering",
+        description: "Coordinate snacks or meals for the crew before or after the mission.",
       },
       {
         icon: "MapPin",

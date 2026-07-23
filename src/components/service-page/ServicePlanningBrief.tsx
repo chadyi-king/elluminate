@@ -102,14 +102,14 @@ const factIconMatchers: readonly [RegExp, LucideIcon][] = [
 ];
 
 const addOnIconMatchers: readonly [RegExp, LucideIcon][] = [
-  [/photo|photograph|recap|highlight|coverage/i, Camera],
-  [/evidence|case file|question set|mission card|game curation|customisation/i, ClipboardCheck],
-  [/set dressing|theming|styled/i, Palette],
+  [/photo|photograph|recap|highlight|coverage|recording/i, Camera],
+  [/evidence|case file|question set|mission card|game curation|customi[sz]|game mode|mission mode|scenario/i, ClipboardCheck],
+  [/set dressing|theming|theme enhancement|styled/i, Palette],
   [/leaderboard|ceremony/i, Trophy],
-  [/field layout|room layout/i, MapPinned],
+  [/field layout|room layout|arena|battlefield|barrier|venue setup|indoor or outdoor setup/i, MapPinned],
   [/materials/i, PackageCheck],
   [/name tag/i, UsersRound],
-  [/snack/i, UtensilsCrossed],
+  [/snack|meal|break|recharge/i, UtensilsCrossed],
   [/transport|bus|transfer/i, Bus],
   [/medal|prize|troph/i, Medal],
   [/food|cater|refreshment/i, UtensilsCrossed],

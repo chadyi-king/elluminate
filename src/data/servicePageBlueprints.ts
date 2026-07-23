@@ -15,14 +15,18 @@ import { getVerifiedLocalServiceGalleryPaths } from "@/data/serviceGalleryMedia"
 import { getServiceQuickFacts } from "@/data/serviceQuickFacts";
 import { serviceActorAssets } from "@/data/serviceActorAssets";
 import {
+  Activity,
   Banknote,
   Building2,
   Calculator,
   CalendarDays,
   Camera,
+  CircleDot,
   Clapperboard,
   ClipboardCheck,
   Clock3,
+  Crosshair,
+  Dices,
   DoorOpen,
   Dumbbell,
   Eye,
@@ -34,6 +38,7 @@ import {
   Hammer,
   Handshake,
   KeyRound,
+  LockKeyhole,
   Landmark,
   Map as MapIcon,
   MapPin,
@@ -43,16 +48,24 @@ import {
   PencilRuler,
   Puzzle,
   RotateCw,
+  Radio,
+  ScanLine,
   Search,
   Shield,
+  Sparkles,
   Timer,
+  Target,
   Trophy,
   Users,
+  HeartPulse,
+  Star,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 import {
-  activityPageBatchOneSlugs,
-  activityPageBatchOneSlugSet,
+  activityPageV2SlugSet,
+  activityPageV2Slugs,
+  type ActivityPageV2Slug,
   equipmentActivityServices,
   physicalTeamBuildingServices,
   retreatServices,
@@ -158,7 +171,7 @@ const explicitStartingPrices: Partial<Record<ServiceExperienceSlug, string>> = {
   "sotong-game": "From $55/pax",
 };
 
-type ActivityBatchSlug = (typeof activityPageBatchOneSlugs)[number];
+type ActivityBatchSlug = ActivityPageV2Slug;
 
 const activityTransitionMoments: Record<ActivityBatchSlug, ServicePageBlueprint["transitionMoments"]> = {
   "amazing-race": [
@@ -211,6 +224,56 @@ const activityTransitionMoments: Record<ActivityBatchSlug, ServicePageBlueprint[
     { title: "Enter the Chase", description: "Move fast as every round changes the rules.", icon: Footprints },
     { title: "Win the Final Episode", description: "Bring the crew together for one last mission.", icon: Medal },
   ],
+  "sotong-game": [
+    { title: "Enter the Game", description: "Read the invitation and learn why every rule matters.", icon: DoorOpen },
+    { title: "Survive the Rounds", description: "Stay sharp as each playful trial changes the pressure.", icon: Target },
+    { title: "Unmask the Winner", description: "Reach the final shape and see who kept their nerve.", icon: Trophy },
+  ],
+  "treasure-heist": [
+    { title: "Study the Dossier", description: "Meet the target and trace the first coded lead.", icon: ClipboardCheck },
+    { title: "Crack the Security", description: "Connect the clues before the plan starts to tighten.", icon: LockKeyhole },
+    { title: "Open the Vault", description: "Commit to the final code and reveal the winning crew.", icon: KeyRound },
+  ],
+  "archery-tag": [
+    { title: "Take Your Aim", description: "Learn the equipment and find the range that feels right.", icon: Target },
+    { title: "Hold the Line", description: "Read the field, protect the team and play the objective.", icon: Shield },
+    { title: "Release the Final Volley", description: "Regroup for one last coordinated push.", icon: Crosshair },
+  ],
+  "gel-blitz": [
+    { title: "Enter the Arena", description: "Read the field and lock onto the first objective.", icon: MapPin },
+    { title: "Run the Mission", description: "Move, communicate and adjust as the target changes.", icon: Radio },
+    { title: "Play the Final Blitz", description: "Reset the formation for one deciding round.", icon: Zap },
+  ],
+  nerfwar: [
+    { title: "Read the Mission", description: "Meet the arena, the objective and the squad plan.", icon: ClipboardCheck },
+    { title: "Rally the Squad", description: "Use cover, clear calls and playful tactics together.", icon: Users },
+    { title: "Capture the Finish", description: "Bring the whole team into the last objective.", icon: Flag },
+  ],
+  "tag-tical-laser-teambuilding": [
+    { title: "Sync the Sensors", description: "Learn the signals and open the command brief.", icon: ScanLine },
+    { title: "Track the Objective", description: "Share what you see while the arena keeps shifting.", icon: Crosshair },
+    { title: "Run the Final Assault", description: "Recode the plan and chase the deciding score.", icon: Target },
+  ],
+  "amazing-race-virtual": [
+    { title: "Enter Race Control", description: "Meet the mission and open the shared digital route.", icon: Monitor },
+    { title: "Cross the Checkpoints", description: "Solve online clues and keep every screen connected.", icon: MapIcon },
+    { title: "Return to the Scoreboard", description: "Beat the final twist and bring the crews home.", icon: Trophy },
+  ],
+  "fit-in-your-team-virtual": [
+    { title: "Check the Team Pulse", description: "Give everyone an easy way into the session.", icon: HeartPulse },
+    { title: "Move as a Crew", description: "Take on light challenges at a comfortable pace.", icon: Activity },
+    { title: "Leave with a Reset", description: "Close together and return to the day re-energised.", icon: Sparkles },
+  ],
+  "the-gameshow-experience-virtual": [
+    { title: "Enter the Green Room", description: "Meet the host and light up the team panels.", icon: Monitor },
+    { title: "Face the Wild Card", description: "Switch formats and give different strengths the spotlight.", icon: Dices },
+    { title: "Reach the Final Question", description: "Make the last call beneath the virtual studio lights.", icon: Trophy },
+  ],
+  "the-great-zodiac-hunt-virtual": [
+    { title: "Open the Zodiac Archive", description: "Meet the missing signs and read the first symbol.", icon: Star },
+    { title: "Follow the Signs", description: "Cross connected clues through the digital story world.", icon: Search },
+    { title: "Restore the Zodiac Wheel", description: "Place the final pieces and reveal the lucky crew.", icon: CircleDot },
+  ],
 };
 
 const activityOverviewPresentation: Record<ActivityBatchSlug, ServicePageBlueprint["overviewPresentation"]> = {
@@ -224,6 +287,16 @@ const activityOverviewPresentation: Record<ActivityBatchSlug, ServicePageBluepri
   "minute-to-win-it": { eyebrow: "The Countdown", title: "Sixty Seconds Changes the Whole Room" },
   "monopoly-dash": { eyebrow: "The Strategy", title: "Every Move Changes the Board" },
   "running-man": { eyebrow: "The Episode", title: "The Next Mission Is Never What You Expect" },
+  "sotong-game": { eyebrow: "The Game", title: "Every Round Tightens the Challenge" },
+  "treasure-heist": { eyebrow: "The Heist", title: "The Vault Opens One Clue at a Time" },
+  "archery-tag": { eyebrow: "The Arena", title: "Aim Matters. Team Movement Wins." },
+  "gel-blitz": { eyebrow: "The Blitz", title: "Every Objective Changes the Arena" },
+  nerfwar: { eyebrow: "The Mission", title: "Bright Blasters. Clear Team Objectives." },
+  "tag-tical-laser-teambuilding": { eyebrow: "The Command Grid", title: "Track the Mission. Trust the Squad." },
+  "amazing-race-virtual": { eyebrow: "Race Control", title: "The Route Moves from Street to Screen" },
+  "fit-in-your-team-virtual": { eyebrow: "The Team Pulse", title: "Turn the Video Call into a Shared Reset" },
+  "the-gameshow-experience-virtual": { eyebrow: "The Live Studio", title: "Every Round Gives Someone a Moment" },
+  "the-great-zodiac-hunt-virtual": { eyebrow: "The Zodiac Trail", title: "Twelve Signs Lead to One Final Reveal" },
 };
 
 const activityPlannerGuidance: Record<ActivityBatchSlug, string> = {
@@ -237,6 +310,16 @@ const activityPlannerGuidance: Record<ActivityBatchSlug, string> = {
   "minute-to-win-it": "Share the group, room and time available. We will build the station mix and rotations for maximum participation.",
   "monopoly-dash": "Share the people, setting and pace. We will shape the live board, missions and deal-making around your group.",
   "running-man": "Share the group, location and energy level. We will build a variety-show mission sequence that everyone can enter.",
+  "sotong-game": "Share the group, venue and comfort level. We will tune the trials, pace and playful suspense around your players.",
+  "treasure-heist": "Share the group, venue and puzzle appetite. We will calibrate the dossier, codes and final vault reveal around your crew.",
+  "archery-tag": "Share the group, venue and activity comfort. We will plan the arena, match flow, equipment and safety brief around them.",
+  "gel-blitz": "Share the group, venue and preferred intensity. We will shape the squad missions, safety flow and arena setup from there.",
+  nerfwar: "Share the group, venue and age profile. We will tune the equipment, arena objectives and pace for an accessible battle.",
+  "tag-tical-laser-teambuilding": "Share the group, venue and energy level. We will build the sensor setup, arena missions and match sequence around them.",
+  "amazing-race-virtual": "Share the group, platform and time zones. We will prepare the digital route, team channels and hosted checkpoint flow.",
+  "fit-in-your-team-virtual": "Share the group, platform and movement comfort. We will tune the prompts, pace and reset around the people joining.",
+  "the-gameshow-experience-virtual": "Share the group, platform and occasion. We will shape the rounds, questions and live studio rhythm around them.",
+  "the-great-zodiac-hunt-virtual": "Share the group, platform and timing. We will prepare the zodiac trail, clue difficulty and hosted reveal around them.",
 };
 
 const activityPlanningFacts: Record<ActivityBatchSlug, readonly ServicePlanningFact[]> = {
@@ -320,6 +403,86 @@ const activityPlanningFacts: Record<ActivityBatchSlug, readonly ServicePlanningF
     { label: "Intensity", value: "4 out of 5" },
     { label: "Weather contingency", value: "Sheltered or indoor mission mix" },
   ],
+  "sotong-game": [
+    { label: "Group size", value: "From 20 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Indoor, outdoor or hybrid" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "3 out of 5" },
+    { label: "Weather contingency", value: "Indoor or hybrid game sequence" },
+  ],
+  "treasure-heist": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Indoor, outdoor or hybrid" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Intensity", value: "2 out of 5" },
+    { label: "Weather contingency", value: "Indoor heist route available" },
+  ],
+  "archery-tag": [
+    { label: "Group size", value: "From 12 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Indoor or outdoor arena" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Match format", value: "Facilitated team objectives" },
+    { label: "Provided gear", value: "Bows, foam-tipped arrows and safety brief" },
+  ],
+  "gel-blitz": [
+    { label: "Group size", value: "From 12 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Indoor or outdoor arena" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Match format", value: "Facilitated squad missions" },
+    { label: "Provided gear", value: "Game equipment and safety briefing" },
+  ],
+  nerfwar: [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Indoor or outdoor arena" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Match format", value: "Facilitated foam-blaster missions" },
+    { label: "Provided gear", value: "Foam blasters, darts and safety brief" },
+  ],
+  "tag-tical-laser-teambuilding": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "Around 3 hours" },
+    { label: "Setting", value: "Indoor or outdoor arena" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Match format", value: "Sensor-based team missions" },
+    { label: "Provided gear", value: "Laser equipment and safety briefing" },
+  ],
+  "amazing-race-virtual": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "1.5 to 3 hours" },
+    { label: "Setting", value: "Live online" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Platform", value: "Zoom, Microsoft Teams or Google Meet" },
+    { label: "Technical hosting", value: "Live facilitator and joining brief included" },
+  ],
+  "fit-in-your-team-virtual": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "1.5 to 3 hours" },
+    { label: "Setting", value: "Live online" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Platform", value: "Zoom, Microsoft Teams or Google Meet" },
+    { label: "Technical hosting", value: "Live facilitator and joining brief included" },
+  ],
+  "the-gameshow-experience-virtual": [
+    { label: "Group size", value: "From 20 players" },
+    { label: "Duration", value: "1.5 to 3 hours" },
+    { label: "Setting", value: "Live online" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Platform", value: "Zoom, Microsoft Teams or Google Meet" },
+    { label: "Technical hosting", value: "Live host, rounds and scoreboard included" },
+  ],
+  "the-great-zodiac-hunt-virtual": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "1.5 to 3 hours" },
+    { label: "Setting", value: "Live online" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Platform", value: "Zoom, Microsoft Teams or Google Meet" },
+    { label: "Technical hosting", value: "Live facilitator and joining brief included" },
+  ],
 };
 
 const familyFactCopy: Record<ServiceFamily, readonly [ServicePlanningFact, ServicePlanningFact, ServicePlanningFact]> = {
@@ -368,6 +531,8 @@ const familyPerfectFor: Record<ServiceFamily, readonly FlowSectionItem[]> = {
     { icon: GraduationCap, title: "Youth Groups", description: "Build coordination and confidence through supervised play." },
     { icon: Globe2, title: "Mixed-Experience Groups", description: "Brief beginners clearly while keeping the action satisfying." },
     { icon: Monitor, title: "Teams Ready to Unplug", description: "Swap the meeting room for an active shared objective." },
+    { icon: Shield, title: "Confidence Builders", description: "Let beginners learn the equipment together before the competition begins." },
+    { icon: Flag, title: "Project Kickoffs", description: "Give a new team a playful arena for quick calls and visible support." },
   ],
   virtual: [
     { icon: Monitor, title: "Remote Teams", description: "Create one live room for colleagues working from different places." },
@@ -376,6 +541,8 @@ const familyPerfectFor: Record<ServiceFamily, readonly FlowSectionItem[]> = {
     { icon: Building2, title: "Department Socials", description: "Bring energy to an online gathering without extra logistics." },
     { icon: CalendarDays, title: "Festive Sessions", description: "Give celebrations and milestones an interactive centrepiece." },
     { icon: GraduationCap, title: "Learning Cohorts", description: "Use collaboration and reflection in a convenient online format." },
+    { icon: Flag, title: "Project Kickoffs", description: "Start distributed work with a shared challenge and an easy story to retell." },
+    { icon: Puzzle, title: "Cross-Functional Groups", description: "Give different roles a digital task where every perspective helps." },
   ],
   retreat: [
     { icon: Users, title: "Whole-Team Resets", description: "Create time and space for people to reconnect beyond daily work." },
@@ -384,6 +551,8 @@ const familyPerfectFor: Record<ServiceFamily, readonly FlowSectionItem[]> = {
     { icon: Globe2, title: "Regional Teams", description: "Bring distributed colleagues together in a destination that fits." },
     { icon: GraduationCap, title: "Strategy and Learning", description: "Pair workshops with shared experiences and time to reset." },
     { icon: Monitor, title: "Teams Leaving Hybrid Behind", description: "Give screen-heavy groups meaningful face-to-face time." },
+    { icon: Flag, title: "Milestone Moments", description: "Mark a launch, anniversary or next chapter away from the usual routine." },
+    { icon: Puzzle, title: "Cross-Functional Leaders", description: "Create room for different functions to align, reset and reconnect." },
   ],
   training: [
     { icon: Users, title: "New Teams", description: "Build useful shared language from the beginning." },
@@ -392,17 +561,60 @@ const familyPerfectFor: Record<ServiceFamily, readonly FlowSectionItem[]> = {
     { icon: CalendarDays, title: "Development Days", description: "Give a wider programme a focused learning anchor." },
     { icon: Globe2, title: "Cross-Cultural Groups", description: "Create clearer ways to understand different perspectives." },
     { icon: Monitor, title: "Hybrid Workforces", description: "Apply the framework to communication across rooms and screens." },
+    { icon: Flag, title: "Emerging Leaders", description: "Turn a new responsibility into useful practice, reflection and confidence." },
+    { icon: Puzzle, title: "Cross-Functional Groups", description: "Build shared language across different roles and working styles." },
   ],
 };
 
 const approvedPackageSlugs = new Set<ServiceExperienceSlug>([
-  ...activityPageBatchOneSlugs,
+  ...activityPageV2Slugs,
   "overseas-retreats",
   "local-retreats",
   "incentive-travel",
   "leadership-offsites",
   "wellness-events",
 ]);
+
+const virtualPackageCopy: readonly Omit<ServicePackageOption, "id">[] = [
+  {
+    color: "#26D07C",
+    title: "Minimum Package",
+    description: "Join a live-hosted session on your chosen meeting platform. We handle the briefing, facilitation and standard game flow.",
+    features: ["Standard virtual format", "Live host", "Joining brief"],
+    source: "existing-service-data",
+  },
+  {
+    color: "#FFC400",
+    title: "Enhanced Package",
+    description: "Add company branding, customised challenges, prizes and a tailored run-of-show.",
+    features: ["Customised challenges", "Branding options", "Flexible timing"],
+    source: "existing-service-data",
+  },
+  {
+    color: "#FF4F4F",
+    title: "Premium Package",
+    description: "Build a fully bespoke virtual experience around your team, event theme and objectives.",
+    features: ["Custom experience design", "Custom host script", "Full virtual event management"],
+    source: "existing-service-data",
+  },
+];
+
+const buildPackages = (
+  slug: ServiceExperienceSlug,
+  family: ServiceFamily,
+  service: ServiceData,
+): readonly ServicePackageOption[] => {
+  if (!approvedPackageSlugs.has(slug) || !service.pricing || !service.packages?.length) return [];
+
+  const sourcePackages = family === "virtual" ? virtualPackageCopy : service.packages;
+  return sourcePackages
+    .filter((option) => option.title.trim() && option.description.trim() && option.features.length > 0)
+    .map((option) => ({
+      ...option,
+      id: packageId(slug, option.title),
+      source: "existing-service-data" as const,
+    }));
+};
 
 const familyFaqSupplements: Record<ServiceFamily, readonly FAQ[]> = {
   physical: [
@@ -784,20 +996,12 @@ export const getServicePageBlueprint = (slug: string): ServicePageBlueprint | nu
   const experience = getServiceExperienceContent(typedSlug);
   if (!service || !family || !card || !experience) return null;
 
-  const isActivityV2 = activityPageBatchOneSlugSet.has(typedSlug);
+  const isActivityV2 = activityPageV2SlugSet.has(typedSlug);
   const activitySlug = isActivityV2 ? (typedSlug as ActivityBatchSlug) : null;
 
   const gallery = buildGallery(typedSlug, family, card.shortTitle);
   const galleryUsesFamilyPhotography = gallery.some((asset) => asset.scope === "family");
-  const packages = approvedPackageSlugs.has(typedSlug) && service.pricing && service.packages?.length
-    ? service.packages
-        .filter((option) => option.title.trim() && option.description.trim() && option.features.length > 0)
-        .map((option) => ({
-          ...option,
-          id: packageId(typedSlug, option.title),
-          source: "existing-service-data" as const,
-        }))
-    : [];
+  const packages = buildPackages(typedSlug, family, service);
   const perfectForSource = (service.perfectForFlow?.items.length
     ? service.perfectForFlow.items
     : familyPerfectFor[family]);

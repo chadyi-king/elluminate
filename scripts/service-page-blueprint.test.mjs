@@ -25,12 +25,12 @@ try {
   const blueprints = blueprintModule.servicePageBlueprints;
   const slugs = experienceModule.serviceExperienceSlugs;
   const catalog = assetModule.serviceAssetCatalog;
-  const expectedActivityV2Slugs = [...scopeModule.activityPageBatchOneSlugs];
+  const expectedActivityV2Slugs = [...scopeModule.activityPageV2Slugs];
   const actualActivityV2Slugs = slugs.filter((slug) => blueprints[slug]?.layoutVersion === "activity-v2");
 
   expect(slugs.length === 36, `Expected 36 child routes; received ${slugs.length}.`);
   expect(Object.keys(blueprints).length === 36, `Expected 36 blueprint keys; received ${Object.keys(blueprints).length}.`);
-  expect(expectedActivityV2Slugs.length === 10, `Expected a controlled 10-route activity-v2 batch; received ${expectedActivityV2Slugs.length}.`);
+  expect(expectedActivityV2Slugs.length === 20, `Expected the first two reviewed activity-v2 batches (20 routes); received ${expectedActivityV2Slugs.length}.`);
   expect(
     actualActivityV2Slugs.length === expectedActivityV2Slugs.length &&
       actualActivityV2Slugs.every((slug) => expectedActivityV2Slugs.includes(slug)),
@@ -58,6 +58,15 @@ try {
       expect(Boolean(blueprint.assets.plannerActor), `${slug}: activity-v2 is missing its planner actor.`);
       expect(blueprint.transitionMoments.length === 3, `${slug}: activity-v2 requires 3 experiential transition moments.`);
     }
+    if (blueprint.family === "virtual" && isActivityV2) {
+      const virtualPackageCopy = blueprint.packages
+        .flatMap((option) => [option.description, ...option.features])
+        .join(" ");
+      expect(
+        !/\b(?:pre-set location|custom venue|venue selection|catering|logistics)\b/i.test(virtualPackageCopy),
+        `${slug}: virtual packages contain physical-event venue or logistics language.`,
+      );
+    }
     const startingPrice = blueprint.facts.find((fact) => fact.label === "Starting price")?.value ?? "";
     expect(!/quote\s+per/i.test(startingPrice), `${slug}: quote-only pricing must not append a per-person or per-night unit.`);
     expect(blueprint.faqs.length === 8, `${slug}: expected 8 FAQs.`);
@@ -77,6 +86,13 @@ try {
     expect(Boolean(blueprint.midCta.headline && blueprint.midCta.buttonLabel), `${slug}: mid-page CTA is incomplete.`);
     expect(Boolean(blueprint.closingCta.headline && blueprint.closingCta.buttonLabel), `${slug}: closing CTA is incomplete.`);
     expect(blueprint.packages.every((option) => option.source === "existing-service-data"), `${slug}: package data is missing verified source provenance.`);
+
+    if (["fit-in-your-team-virtual", "the-gameshow-experience-virtual"].includes(slug)) {
+      const durationFact = blueprint.facts.find((fact) => fact.label === "Duration")?.value ?? "";
+      const durationFaq = blueprint.faqs.find((faq) => /how long|duration/i.test(faq.question))?.answer ?? "";
+      expect(/1\.5/.test(durationFact) && /3/.test(durationFact), `${slug}: planning duration must remain 1.5 to 3 hours.`);
+      expect(/1\.5/.test(durationFaq) && /3/.test(durationFaq), `${slug}: FAQ duration contradicts the planning brief.`);
+    }
 
     const familyScopedGallery = blueprint.gallery.filter((asset) => asset.scope === "family");
     if (familyScopedGallery.length > 0) {
