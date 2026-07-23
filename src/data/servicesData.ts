@@ -12768,13 +12768,13 @@ export const servicesData: Record<string, ServiceData> = {
     pricing: { startingPrice: "$250", unit: "per pax", minimumPax: 10, duration: "2-4 hours", activityType: "indoor" },
     packages: professionalServicePackages(
       "$250/pax",
-      "A guided DiSC behavioural workshop at one of our venues. Includes the assessment, expert facilitation, and a team debrief — a complete, ready-to-run session with no setup required on your side.",
+      "A guided DiSC behavioural workshop with expert facilitation and a team debrief. Assessment, profile, and report inclusions are confirmed in the selected proposal.",
     ),
     addOns: [
       {
         icon: "FileText",
         title: "Digital DiSC Profiles",
-        description: "Full individual DiSC reports emailed to every participant after the workshop.",
+        description: "Individual profile and report requirements can be added where they are not already included in the selected proposal.",
       },
       {
         icon: "BarChart3",
@@ -12817,7 +12817,7 @@ export const servicesData: Record<string, ServiceData> = {
     hero: {
       title: "O.C.E.A.N PROFILING",
       subtitle: "Training",
-      tagline: "The world's most research-backed personality framework, applied to how your team actually works.",
+      tagline: "Explore the Big Five framework and what different trait patterns can mean for everyday teamwork.",
       backgroundImage: "/images/services/ocean/hero.jpg",
     },
     howItWorksImage: "/images/services/ocean/how-it-works.jpg",
@@ -12826,7 +12826,7 @@ export const servicesData: Record<string, ServiceData> = {
     testimonialBackgroundImage: "/images/services/ocean/gallery-4.jpg",
     overview: {
       description:
-        "Rated as one of the top most accurate personality tests in the world! OCEAN Big Five are the domains that represent the basic structure behind all individual personality traits. By diving in deeper, this will allow your team to identify predictive behaviors for real-life scenarios! Gain insights into different office environment situations and how various personalities deal with them.",
+        "OCEAN uses the Big Five framework to explore personality traits across five spectrums. In a facilitated team setting, participants can reflect on their tendencies, compare different working styles, and discuss how those patterns may show up in everyday collaboration.",
       backgroundImage: "/images/services/ocean/hero.jpg",
     },
     features: [
@@ -12984,13 +12984,13 @@ export const servicesData: Record<string, ServiceData> = {
     pricing: { startingPrice: "$250", unit: "per pax", minimumPax: 10, duration: "2-4 hours", activityType: "indoor" },
     packages: professionalServicePackages(
       "$250/pax",
-      "A guided OCEAN (Big Five) profiling workshop at one of our venues. Includes the validated assessment, expert facilitation, and individual profile debriefs — delivered end to end by our team.",
+      "A guided OCEAN (Big Five) workshop with expert facilitation and a team debrief. Assessment, profile, and report inclusions are confirmed in the selected proposal.",
     ),
     addOns: [
       {
         icon: "FileText",
         title: "Digital OCEAN Profiles",
-        description: "Full Big Five personality reports delivered digitally to all participants post-workshop.",
+        description: "Individual profile and report requirements can be added where they are not already included in the selected proposal.",
       },
       {
         icon: "BarChart3",

@@ -58,6 +58,36 @@ import virtualRaceActor3 from "@/assets/service-characters/batch-02/amazing-race
 import zodiacActor1 from "@/assets/service-characters/batch-02/the-great-zodiac-hunt-virtual-actor-1.webp";
 import zodiacActor2 from "@/assets/service-characters/batch-02/the-great-zodiac-hunt-virtual-actor-2.webp";
 import zodiacActor3 from "@/assets/service-characters/batch-02/the-great-zodiac-hunt-virtual-actor-3.webp";
+import christmasActor1 from "@/assets/service-characters/batch-03/grand-christmas-delivery-actor-1.webp";
+import christmasActor2 from "@/assets/service-characters/batch-03/grand-christmas-delivery-actor-2.webp";
+import christmasActor3 from "@/assets/service-characters/batch-03/grand-christmas-delivery-actor-3.webp";
+import incentiveActor1 from "@/assets/service-characters/batch-03/incentive-travel-actor-1.webp";
+import incentiveActor2 from "@/assets/service-characters/batch-03/incentive-travel-actor-2.webp";
+import incentiveActor3 from "@/assets/service-characters/batch-03/incentive-travel-actor-3.webp";
+import localRetreatActor1 from "@/assets/service-characters/batch-03/local-retreats-actor-1.webp";
+import localRetreatActor2 from "@/assets/service-characters/batch-03/local-retreats-actor-2.webp";
+import localRetreatActor3 from "@/assets/service-characters/batch-03/local-retreats-actor-3.webp";
+import nuclearActor1 from "@/assets/service-characters/batch-03/the-nuclear-fallout-escape-room-virtual-actor-1.webp";
+import nuclearActor2 from "@/assets/service-characters/batch-03/the-nuclear-fallout-escape-room-virtual-actor-2.webp";
+import nuclearActor3 from "@/assets/service-characters/batch-03/the-nuclear-fallout-escape-room-virtual-actor-3.webp";
+import oceanActor1 from "@/assets/service-characters/batch-03/ocean-actor-1.webp";
+import oceanActor2 from "@/assets/service-characters/batch-03/ocean-actor-2.webp";
+import oceanActor3 from "@/assets/service-characters/batch-03/ocean-actor-3.webp";
+import overseasRetreatActor1 from "@/assets/service-characters/batch-03/overseas-retreats-actor-1.webp";
+import overseasRetreatActor2 from "@/assets/service-characters/batch-03/overseas-retreats-actor-2.webp";
+import overseasRetreatActor3 from "@/assets/service-characters/batch-03/overseas-retreats-actor-3.webp";
+import patriotActor1 from "@/assets/service-characters/batch-03/the-patriot-act-virtual-actor-1.webp";
+import patriotActor2 from "@/assets/service-characters/batch-03/the-patriot-act-virtual-actor-2.webp";
+import patriotActor3 from "@/assets/service-characters/batch-03/the-patriot-act-virtual-actor-3.webp";
+import tombRaiderActor1 from "@/assets/service-characters/batch-03/tomb-raider-king-treasure-hunt-virtual-actor-1.webp";
+import tombRaiderActor2 from "@/assets/service-characters/batch-03/tomb-raider-king-treasure-hunt-virtual-actor-2.webp";
+import tombRaiderActor3 from "@/assets/service-characters/batch-03/tomb-raider-king-treasure-hunt-virtual-actor-3.webp";
+import discActor1 from "@/assets/service-characters/batch-03/disc-actor-1.webp";
+import discActor2 from "@/assets/service-characters/batch-03/disc-actor-2.webp";
+import discActor3 from "@/assets/service-characters/batch-03/disc-actor-3.webp";
+import mbtiActor1 from "@/assets/service-characters/batch-03/mbti-actor-1.webp";
+import mbtiActor2 from "@/assets/service-characters/batch-03/mbti-actor-2.webp";
+import mbtiActor3 from "@/assets/service-characters/batch-03/mbti-actor-3.webp";
 import type { ActivityPageV2Slug } from "@/data/siteScope";
 
 export interface ServiceActorSet {
@@ -87,4 +117,14 @@ export const serviceActorAssets: Partial<Record<ActivityPageV2Slug, ServiceActor
   "fit-in-your-team-virtual": { journeyActorLeft: fitVirtualActor1, journeyActorRight: fitVirtualActor2, plannerActor: fitVirtualActor3 },
   "the-gameshow-experience-virtual": { journeyActorLeft: gameshowActor1, journeyActorRight: gameshowActor2, plannerActor: gameshowActor3 },
   "the-great-zodiac-hunt-virtual": { journeyActorLeft: zodiacActor1, journeyActorRight: zodiacActor2, plannerActor: zodiacActor3 },
+  "the-nuclear-fallout-escape-room-virtual": { journeyActorLeft: nuclearActor1, journeyActorRight: nuclearActor2, plannerActor: nuclearActor3 },
+  "the-patriot-act-virtual": { journeyActorLeft: patriotActor1, journeyActorRight: patriotActor2, plannerActor: patriotActor3 },
+  "tomb-raider-king-treasure-hunt-virtual": { journeyActorLeft: tombRaiderActor1, journeyActorRight: tombRaiderActor2, plannerActor: tombRaiderActor3 },
+  "grand-christmas-delivery": { journeyActorLeft: christmasActor1, journeyActorRight: christmasActor2, plannerActor: christmasActor3 },
+  "overseas-retreats": { journeyActorLeft: overseasRetreatActor1, journeyActorRight: overseasRetreatActor2, plannerActor: overseasRetreatActor3 },
+  "local-retreats": { journeyActorLeft: localRetreatActor1, journeyActorRight: localRetreatActor2, plannerActor: localRetreatActor3 },
+  "incentive-travel": { journeyActorLeft: incentiveActor1, journeyActorRight: incentiveActor2, plannerActor: incentiveActor3 },
+  mbti: { journeyActorLeft: mbtiActor1, journeyActorRight: mbtiActor2, plannerActor: mbtiActor3 },
+  disc: { journeyActorLeft: discActor1, journeyActorRight: discActor2, plannerActor: discActor3 },
+  ocean: { journeyActorLeft: oceanActor1, journeyActorRight: oceanActor2, plannerActor: oceanActor3 },
 };

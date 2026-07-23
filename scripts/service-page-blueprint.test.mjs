@@ -22,6 +22,7 @@ try {
   const experienceModule = await vite.ssrLoadModule("/src/data/serviceExperienceContent.ts");
   const assetModule = await vite.ssrLoadModule("/src/data/serviceAssetCatalog.ts");
   const scopeModule = await vite.ssrLoadModule("/src/data/siteScope.ts");
+  const serviceDataModule = await vite.ssrLoadModule("/src/data/servicesData.ts");
   const blueprints = blueprintModule.servicePageBlueprints;
   const slugs = experienceModule.serviceExperienceSlugs;
   const catalog = assetModule.serviceAssetCatalog;
@@ -30,7 +31,7 @@ try {
 
   expect(slugs.length === 36, `Expected 36 child routes; received ${slugs.length}.`);
   expect(Object.keys(blueprints).length === 36, `Expected 36 blueprint keys; received ${Object.keys(blueprints).length}.`);
-  expect(expectedActivityV2Slugs.length === 20, `Expected the first two reviewed activity-v2 batches (20 routes); received ${expectedActivityV2Slugs.length}.`);
+  expect(expectedActivityV2Slugs.length === 30, `Expected the first three reviewed activity-v2 batches (30 routes); received ${expectedActivityV2Slugs.length}.`);
   expect(
     actualActivityV2Slugs.length === expectedActivityV2Slugs.length &&
       actualActivityV2Slugs.every((slug) => expectedActivityV2Slugs.includes(slug)),
@@ -66,6 +67,11 @@ try {
         !/\b(?:pre-set location|custom venue|venue selection|catering|logistics)\b/i.test(virtualPackageCopy),
         `${slug}: virtual packages contain physical-event venue or logistics language.`,
       );
+      const sourcePackages = serviceDataModule.servicesData[slug]?.packages ?? [];
+      expect(
+        blueprint.packages.every((option, index) => option.price === sourcePackages[index]?.price),
+        `${slug}: virtual package prices drifted from the verified source data.`,
+      );
     }
     const startingPrice = blueprint.facts.find((fact) => fact.label === "Starting price")?.value ?? "";
     expect(!/quote\s+per/i.test(startingPrice), `${slug}: quote-only pricing must not append a per-person or per-night unit.`);
@@ -92,6 +98,26 @@ try {
       const durationFaq = blueprint.faqs.find((faq) => /how long|duration/i.test(faq.question))?.answer ?? "";
       expect(/1\.5/.test(durationFact) && /3/.test(durationFact), `${slug}: planning duration must remain 1.5 to 3 hours.`);
       expect(/1\.5/.test(durationFaq) && /3/.test(durationFaq), `${slug}: FAQ duration contradicts the planning brief.`);
+    }
+
+    const alignedDurationRoutes = {
+      "the-patriot-act-virtual": [/1\.5/, /3/],
+      "overseas-retreats": [/3/, /5/],
+      mbti: [/2/, /4/],
+    };
+    if (slug in alignedDurationRoutes) {
+      const durationFact = blueprint.facts.find((fact) => fact.label === "Duration")?.value ?? "";
+      const durationFaq = blueprint.faqs.find((faq) => /how long|duration/i.test(faq.question))?.answer ?? "";
+      const [lowerBound, upperBound] = alignedDurationRoutes[slug];
+      expect(lowerBound.test(durationFact) && upperBound.test(durationFact), `${slug}: planning duration lost its verified range.`);
+      expect(lowerBound.test(durationFaq) && upperBound.test(durationFaq), `${slug}: FAQ duration contradicts the planning brief.`);
+    }
+
+    if (slug === "local-retreats") {
+      const durationFact = blueprint.facts.find((fact) => fact.label === "Duration")?.value ?? "";
+      const durationFaq = blueprint.faqs.find((faq) => /how long|duration/i.test(faq.question))?.answer ?? "";
+      expect(/1/.test(durationFact) && /3/.test(durationFact), `${slug}: planning duration lost its verified 1 to 3 night range.`);
+      expect(/1/.test(durationFaq) && /3/.test(durationFaq), `${slug}: FAQ duration contradicts the current retreat packages.`);
     }
 
     const familyScopedGallery = blueprint.gallery.filter((asset) => asset.scope === "family");

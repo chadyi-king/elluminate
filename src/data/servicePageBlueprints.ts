@@ -17,6 +17,7 @@ import { serviceActorAssets } from "@/data/serviceActorAssets";
 import {
   Activity,
   Banknote,
+  Brain,
   Building2,
   Calculator,
   CalendarDays,
@@ -33,10 +34,13 @@ import {
   Flag,
   Footprints,
   Gauge,
+  Gift,
   Globe2,
   GraduationCap,
   Hammer,
   Handshake,
+  HeartPulse,
+  Hotel,
   KeyRound,
   LockKeyhole,
   Landmark,
@@ -46,18 +50,20 @@ import {
   MessageCircle,
   Monitor,
   PencilRuler,
+  Plane,
   Puzzle,
   RotateCw,
   Radio,
   ScanLine,
   Search,
   Shield,
+  SlidersHorizontal,
   Sparkles,
   Timer,
   Target,
   Trophy,
   Users,
-  HeartPulse,
+  Workflow,
   Star,
   Zap,
   type LucideIcon,
@@ -274,6 +280,56 @@ const activityTransitionMoments: Record<ActivityBatchSlug, ServicePageBlueprint[
     { title: "Follow the Signs", description: "Cross connected clues through the digital story world.", icon: Search },
     { title: "Restore the Zodiac Wheel", description: "Place the final pieces and reveal the lucky crew.", icon: CircleDot },
   ],
+  "the-nuclear-fallout-escape-room-virtual": [
+    { title: "Enter the Bunker", description: "Receive the emergency broadcast and step into the crisis room.", icon: DoorOpen },
+    { title: "Read the Warning Signs", description: "Connect fragmented evidence before the systems fail.", icon: ScanLine },
+    { title: "Override the Reactor", description: "Commit to the shutdown code before the final countdown.", icon: Shield },
+  ],
+  "the-patriot-act-virtual": [
+    { title: "Receive the National Brief", description: "Open the mission and meet the first Singapore clue.", icon: ClipboardCheck },
+    { title: "Decode Singapore", description: "Connect landmarks, language and everyday local icons.", icon: Landmark },
+    { title: "Complete the Mission", description: "Rally the final answers and raise the winning flag.", icon: Flag },
+  ],
+  "tomb-raider-king-treasure-hunt-virtual": [
+    { title: "Open the Field Journal", description: "Identify the lost relic and the trail it left behind.", icon: ClipboardCheck },
+    { title: "Trace the Relic Map", description: "Translate symbols and choose which path to trust.", icon: MapIcon },
+    { title: "Break the Final Seal", description: "Assemble the royal key and open the hidden vault.", icon: KeyRound },
+  ],
+  "grand-christmas-delivery": [
+    { title: "Report to Elf Command", description: "Receive the missing-parcel list from the North Pole.", icon: Radio },
+    { title: "Repair the Delivery Route", description: "Sort the clues and put every present back on course.", icon: MapIcon },
+    { title: "Make the Final Drop", description: "Deliver the last gift and get Christmas moving again.", icon: Gift },
+  ],
+  "overseas-retreats": [
+    { title: "Choose the Horizon", description: "Match the team, travel window and purpose to the right place.", icon: Globe2 },
+    { title: "Build the Itinerary", description: "Bring stays, meals and shared experiences into one rhythm.", icon: CalendarDays },
+    { title: "Arrive as One Team", description: "Leave the routine behind and begin the retreat together.", icon: Plane },
+  ],
+  "local-retreats": [
+    { title: "Leave the Office Rhythm", description: "Step out of the usual setting without flying out.", icon: DoorOpen },
+    { title: "Check into a New Pace", description: "Settle into a stay and programme shaped around the team.", icon: Hotel },
+    { title: "Reconnect Close to Home", description: "Return with more energy and a shared story.", icon: HeartPulse },
+  ],
+  "incentive-travel": [
+    { title: "Set the Reward Standard", description: "Define what the journey should say to the people who earned it.", icon: Medal },
+    { title: "Reveal the Destination", description: "Turn the first announcement into part of the experience.", icon: Plane },
+    { title: "Celebrate the Earners", description: "Build toward recognition moments worthy of the achievement.", icon: Trophy },
+  ],
+  mbti: [
+    { title: "Complete the Profiles", description: "Give each participant a structured starting point.", icon: ClipboardCheck },
+    { title: "Discover the Preferences", description: "Explore different ways people take in information and decide.", icon: Brain },
+    { title: "Translate Insight into Teamwork", description: "Practise adjustments the group can use together.", icon: Users },
+  ],
+  disc: [
+    { title: "Read Your Profile", description: "See the behavioural patterns behind pace and priorities.", icon: Gauge },
+    { title: "Spot the Team Pattern", description: "Notice where work styles naturally align or collide.", icon: Eye },
+    { title: "Flex Your Approach", description: "Practise messages that different colleagues can respond to.", icon: MessageCircle },
+  ],
+  ocean: [
+    { title: "Measure Five Traits", description: "Build a nuanced view across the Big Five dimensions.", icon: SlidersHorizontal },
+    { title: "See the Spectrum", description: "Explore tendencies without reducing anyone to a box.", icon: Gauge },
+    { title: "Apply the Insight", description: "Turn the profile into practical collaboration experiments.", icon: Workflow },
+  ],
 };
 
 const activityOverviewPresentation: Record<ActivityBatchSlug, ServicePageBlueprint["overviewPresentation"]> = {
@@ -297,6 +353,16 @@ const activityOverviewPresentation: Record<ActivityBatchSlug, ServicePageBluepri
   "fit-in-your-team-virtual": { eyebrow: "The Team Pulse", title: "Turn the Video Call into a Shared Reset" },
   "the-gameshow-experience-virtual": { eyebrow: "The Live Studio", title: "Every Round Gives Someone a Moment" },
   "the-great-zodiac-hunt-virtual": { eyebrow: "The Zodiac Trail", title: "Twelve Signs Lead to One Final Reveal" },
+  "the-nuclear-fallout-escape-room-virtual": { eyebrow: "The Crisis Room", title: "One Screen. One Countdown. No Room for Passengers." },
+  "the-patriot-act-virtual": { eyebrow: "The National Mission", title: "How Well Does Your Team Know the Little Red Dot?" },
+  "tomb-raider-king-treasure-hunt-virtual": { eyebrow: "The Expedition", title: "The Vault Is Real. The Route Is Not Obvious." },
+  "grand-christmas-delivery": { eyebrow: "The Festive Mission", title: "Christmas Is Late. Your Team Is Now Logistics." },
+  "overseas-retreats": { eyebrow: "The Escape", title: "A Different Setting Changes How a Team Connects" },
+  "local-retreats": { eyebrow: "The Reset", title: "The Change of Pace Matters More Than the Flight Time" },
+  "incentive-travel": { eyebrow: "The Reward", title: "A Journey That Feels Earned from the First Reveal" },
+  mbti: { eyebrow: "The Preferences", title: "Four Preference Pairs. One Clearer Way to Work Together." },
+  disc: { eyebrow: "The Work Styles", title: "Less Guessing. Better Conversations Across Different Styles." },
+  ocean: { eyebrow: "The Five Traits", title: "Personality Is a Spectrum, Not a Box" },
 };
 
 const activityPlannerGuidance: Record<ActivityBatchSlug, string> = {
@@ -320,6 +386,16 @@ const activityPlannerGuidance: Record<ActivityBatchSlug, string> = {
   "fit-in-your-team-virtual": "Share the group, platform and movement comfort. We will tune the prompts, pace and reset around the people joining.",
   "the-gameshow-experience-virtual": "Share the group, platform and occasion. We will shape the rounds, questions and live studio rhythm around them.",
   "the-great-zodiac-hunt-virtual": "Share the group, platform and timing. We will prepare the zodiac trail, clue difficulty and hosted reveal around them.",
+  "the-nuclear-fallout-escape-room-virtual": "Share the group, platform and puzzle appetite. We will tune the evidence, team channels and countdown around your remote crew.",
+  "the-patriot-act-virtual": "Share the group, platform and occasion. We will shape the Singapore clues, cultural rounds and hosted mission around them.",
+  "tomb-raider-king-treasure-hunt-virtual": "Share the group, platform and preferred difficulty. We will calibrate the journal, relic trail and virtual vault around your expedition.",
+  "grand-christmas-delivery": "Share the group, platform and festive occasion. We will prepare the delivery clues, crew flow and hosted celebration around them.",
+  "overseas-retreats": "Share the purpose, group and travel window. We will match the destination, stay and programme rhythm to the retreat you need.",
+  "local-retreats": "Share the purpose, group and preferred dates. We will shape the Singapore stay, meals and shared moments into a genuine reset.",
+  "incentive-travel": "Share who is being recognised, the travel window and reward level. We will shape the destination and signature moments from there.",
+  mbti: "Share the team context and collaboration question. We will shape the profiling, reflection and application around the people in the room.",
+  disc: "Share the communication challenge and audience. We will tune the profile discussion and workplace scenarios around their day-to-day reality.",
+  ocean: "Share the development question and team context. We will shape the trait exploration and practical experiments around the group.",
 };
 
 const activityPlanningFacts: Record<ActivityBatchSlug, readonly ServicePlanningFact[]> = {
@@ -483,6 +559,86 @@ const activityPlanningFacts: Record<ActivityBatchSlug, readonly ServicePlanningF
     { label: "Platform", value: "Zoom, Microsoft Teams or Google Meet" },
     { label: "Technical hosting", value: "Live facilitator and joining brief included" },
   ],
+  "the-nuclear-fallout-escape-room-virtual": [
+    { label: "Group size", value: "From 10 players" },
+    { label: "Duration", value: "1.5 to 3 hours" },
+    { label: "Setting", value: "Live online" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Platform", value: "Hosted live online" },
+    { label: "Technical hosting", value: "Platform and joining instructions confirmed before the event" },
+  ],
+  "the-patriot-act-virtual": [
+    { label: "Group size", value: "From 15 players" },
+    { label: "Duration", value: "1.5 to 3 hours" },
+    { label: "Setting", value: "Live online" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Platform", value: "Hosted live online" },
+    { label: "Technical hosting", value: "Platform and joining instructions confirmed before the event" },
+  ],
+  "tomb-raider-king-treasure-hunt-virtual": [
+    { label: "Group size", value: "From 15 players" },
+    { label: "Duration", value: "1.5 to 3 hours" },
+    { label: "Setting", value: "Live online" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Platform", value: "Hosted live online" },
+    { label: "Technical hosting", value: "Platform and joining instructions confirmed before the event" },
+  ],
+  "grand-christmas-delivery": [
+    { label: "Group size", value: "From 15 players" },
+    { label: "Duration", value: "1.5 to 3 hours" },
+    { label: "Setting", value: "Live online" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Platform", value: "Hosted live online" },
+    { label: "Technical hosting", value: "Platform and joining instructions confirmed before the event" },
+  ],
+  "overseas-retreats": [
+    { label: "Group size", value: "From 10 travellers" },
+    { label: "Duration", value: "3 to 5 days" },
+    { label: "Setting", value: "Overseas" },
+    { label: "Travel", value: "Flights and transfers planned to package" },
+    { label: "Accommodation", value: "4-star to luxury options in current packages" },
+    { label: "Programme inclusions", value: "Meals, activities and itinerary management vary by package" },
+  ],
+  "local-retreats": [
+    { label: "Group size", value: "From 10 guests" },
+    { label: "Duration", value: "1 to 3 nights" },
+    { label: "Setting", value: "Singapore" },
+    { label: "Travel", value: "Local transfers or optional day trip available" },
+    { label: "Accommodation", value: "Staycation, heritage and 5-star options" },
+    { label: "Programme inclusions", value: "Stay, meals and activities vary by package" },
+  ],
+  "incentive-travel": [
+    { label: "Group size", value: "From 5 travellers" },
+    { label: "Duration", value: "3 to 7 days" },
+    { label: "Setting", value: "Overseas" },
+    { label: "Travel", value: "Economy to business-class options in current packages" },
+    { label: "Accommodation", value: "4-star to luxury options" },
+    { label: "Programme inclusions", value: "Recognition, activities and coordination vary by package" },
+  ],
+  mbti: [
+    { label: "Group size", value: "From 10 participants" },
+    { label: "Duration", value: "2 to 4 hours" },
+    { label: "Setting", value: "Indoor" },
+    { label: "Framework", value: "MBTI preference pairs" },
+    { label: "Exercises", value: "Guided reflection and team mapping" },
+    { label: "Practical takeaways", value: "Communication adjustments for the team to explore" },
+  ],
+  disc: [
+    { label: "Group size", value: "From 10 participants" },
+    { label: "Duration", value: "2 to 4 hours" },
+    { label: "Setting", value: "Indoor" },
+    { label: "Framework", value: "DiSC behavioural styles" },
+    { label: "Exercises", value: "Profile interpretation and workplace scenarios" },
+    { label: "Practical takeaways", value: "Communication and conflict adjustments" },
+  ],
+  ocean: [
+    { label: "Group size", value: "From 10 participants" },
+    { label: "Duration", value: "2 to 4 hours" },
+    { label: "Setting", value: "Indoor" },
+    { label: "Framework", value: "Big Five personality traits" },
+    { label: "Exercises", value: "Trait reflection and team mapping" },
+    { label: "Practical takeaways", value: "Collaboration experiments for the team to test" },
+  ],
 };
 
 const familyFactCopy: Record<ServiceFamily, readonly [ServicePlanningFact, ServicePlanningFact, ServicePlanningFact]> = {
@@ -609,8 +765,9 @@ const buildPackages = (
   const sourcePackages = family === "virtual" ? virtualPackageCopy : service.packages;
   return sourcePackages
     .filter((option) => option.title.trim() && option.description.trim() && option.features.length > 0)
-    .map((option) => ({
+    .map((option, index) => ({
       ...option,
+      price: service.packages?.[index]?.price ?? option.price,
       id: packageId(slug, option.title),
       source: "existing-service-data" as const,
     }));
