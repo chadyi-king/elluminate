@@ -31,6 +31,9 @@ import oceanLogo from "../../../public/images/service-page-logos/ocean.svg.asset
 import youthCampLogo from "../../../public/images/service-page-logos/youth-camp.svg.asset.json";
 import massTalksLogo from "../../../public/images/service-page-logos/mass-talks.svg.asset.json";
 import workshopsLogo from "../../../public/images/service-page-logos/workshops.svg.asset.json";
+import corporateDaysLogo from "../../../public/images/service-page-logos/corporate-days.svg.asset.json";
+import leadershipOffsitesLogo from "../../../public/images/service-page-logos/leadership-offsites.svg.asset.json";
+import wellnessEventsLogo from "../../../public/images/service-page-logos/wellness-events.svg.asset.json";
 
 const resolveUploadedAssetUrl = (src: string) =>
   import.meta.env.DEV && src.startsWith("/__l5e/") ? `https://elluminate.sg${src}` : src;
