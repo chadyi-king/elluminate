@@ -88,7 +88,7 @@ export const HeroCharacters = () => (
 
     <CharacterFigure
       image={charRedWoman}
-      posClass="bottom-[1.75rem] left-[-2%] 2xl:left-[0.5%]"
+      posClass="bottom-[5.75rem] left-[-2%] 2xl:left-[0.5%]"
       delay={0.2}
       width={480}
       height={500}
@@ -102,14 +102,14 @@ export const HeroCharacters = () => (
       delay={0.15}
       width={480}
       height={500}
-      sizeClass="h-[clamp(27rem,34vw,39rem)] w-[clamp(26rem,33vw,38rem)]"
+      sizeClass="h-[clamp(25rem,31vw,35rem)] w-[clamp(24rem,30vw,34rem)]"
       zIndex={15}
       softenLowerEdge
     />
 
     <CharacterFigure
       image={charYellowBoy}
-      posClass="bottom-[1.75rem] right-[-1%] 2xl:right-[2%]"
+      posClass="bottom-[5.75rem] right-[-1%] 2xl:right-[2%]"
       delay={0.25}
       width={440}
       height={480}

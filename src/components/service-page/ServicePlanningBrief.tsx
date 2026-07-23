@@ -78,6 +78,23 @@ const plannerCopy: Record<ServiceFamily, string> = {
   training: "Begin with the audience and the change you want. We will shape the framework and exercises around it.",
 };
 
+const plannerActorFlipSlugs = new Set([
+  "amongst-us",
+  "builder-cross",
+  "csi-bones",
+  "minute-to-win-it",
+  "running-man",
+  "amazing-race-virtual",
+  "sotong-game",
+  "the-gameshow-experience-virtual",
+  "disc",
+  "grand-christmas-delivery",
+  "local-retreats",
+  "mbti",
+  "overseas-retreats",
+  "the-patriot-act-virtual",
+]);
+
 const factIconMatchers: readonly [RegExp, LucideIcon][] = [
   [/group|player|participant|pax/i, Users],
   [/duration|hour|timing/i, Clock3],
@@ -186,7 +203,9 @@ export function ServicePlanningBrief({
                 alt=""
                 loading="lazy"
                 decoding="async"
-                className="pointer-events-none absolute -bottom-5 left-1/2 h-[17rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom opacity-95 drop-shadow-[0_14px_22px_rgba(15,23,42,0.12)]"
+                className={`pointer-events-none absolute -bottom-5 left-1/2 h-[34rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom opacity-95 drop-shadow-[0_14px_22px_rgba(15,23,42,0.12)] xl:h-[40rem] 2xl:h-[42rem] ${
+                  plannerActorFlipSlugs.has(slug) ? "-scale-x-100" : ""
+                }`}
               />
             </div>
 
