@@ -25,6 +25,12 @@ import gameshowExperienceLogo from "../../../public/images/service-page-logos/ga
 import nuclearFalloutEscapeLogo from "../../../public/images/service-page-logos/nuclear-fallout-escape.svg.asset.json";
 import thePatriotActLogo from "../../../public/images/service-page-logos/the-patriot-act.svg.asset.json";
 import tombRaiderKingLogo from "../../../public/images/service-page-logos/tomb-raider-king.svg.asset.json";
+import mbtiLogo from "../../../public/images/service-page-logos/mbti.svg.asset.json";
+import discLogo from "../../../public/images/service-page-logos/disc.svg.asset.json";
+import oceanLogo from "../../../public/images/service-page-logos/ocean.svg.asset.json";
+import youthCampLogo from "../../../public/images/service-page-logos/youth-camp.svg.asset.json";
+import massTalksLogo from "../../../public/images/service-page-logos/mass-talks.svg.asset.json";
+import workshopsLogo from "../../../public/images/service-page-logos/workshops.svg.asset.json";
 
 const resolveUploadedAssetUrl = (src: string) =>
   import.meta.env.DEV && src.startsWith("/__l5e/") ? `https://elluminate.sg${src}` : src;
