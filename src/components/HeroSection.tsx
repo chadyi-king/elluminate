@@ -164,7 +164,7 @@ export const HeroSection = () => {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-[-1px] z-[35] h-24 sm:h-28 xl:h-[17.5rem]"
+        className="pointer-events-none absolute inset-x-0 bottom-[-1px] z-[35] h-24 sm:h-28 xl:h-[18.75rem]"
       >
         <svg viewBox="0 0 1920 120" preserveAspectRatio="none" className="h-full w-full" focusable="false">
           <path

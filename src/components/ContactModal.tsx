@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { format } from "date-fns";
+import { format, startOfDay } from "date-fns";
 import { cn } from "@/lib/utils";
 import { submitLead } from "@/lib/leadSubmission";
 import { getServicePageBlueprint, type ServiceFamily } from "@/data/servicePageBlueprints";
@@ -203,7 +203,7 @@ export const ContactModal = () => {
     if (!formData.privacyConsent) {
       toast({
         title: "Consent Required",
-        description: "Please agree to the privacy policy to proceed.",
+        description: "Please confirm that we may use these details to respond to your enquiry.",
         variant: "destructive",
       });
       return;
@@ -279,12 +279,22 @@ export const ContactModal = () => {
   };
 
   const toggleAddOnService = (service: string) => {
-    setFormData(prev => ({
-      ...prev,
-      addOnServices: prev.addOnServices.includes(service)
-        ? prev.addOnServices.filter(s => s !== service)
-        : [...prev.addOnServices, service],
-    }));
+    setFormData((prev) => {
+      if (service === "None") {
+        return {
+          ...prev,
+          addOnServices: prev.addOnServices.includes("None") ? [] : ["None"],
+        };
+      }
+
+      const withoutNone = prev.addOnServices.filter((item) => item !== "None");
+      return {
+        ...prev,
+        addOnServices: withoutNone.includes(service)
+          ? withoutNone.filter((item) => item !== service)
+          : [...withoutNone, service],
+      };
+    });
   };
 
   return (
@@ -316,20 +326,20 @@ export const ContactModal = () => {
             aria-describedby="contact-modal-description"
           >
           {/* Left Branding Panel */}
-          <div className="hidden md:flex flex-col w-[40%] flex-shrink-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800 relative overflow-hidden p-6">
+          <div className="hidden md:flex min-h-0 w-[40%] flex-shrink-0 flex-col overflow-hidden bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800 p-5 relative lg:p-6">
             <div className="absolute top-0 right-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl pointer-events-none" style={{ transform: "translate(50%,-50%)" }} />
             <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/10 rounded-full blur-3xl pointer-events-none" style={{ transform: "translate(-30%,30%)" }} />
-            <div className="relative z-10 flex flex-col h-full">
+            <div className="relative z-10 flex min-h-0 h-full flex-col">
               <div className="mb-2 mt-1">
-                <img src={elluminateWords} alt="Elluminate - Take Flight & Shine" className="h-24 w-auto object-contain" />
+                <img src={elluminateWords} alt="Elluminate - Take Flight & Shine" className="h-20 w-auto object-contain lg:h-24" />
               </div>
               <h3 className="text-lg font-bold text-white mb-2 leading-snug">
                 Send the details that shape the right activity.
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-5">
+              <p className="mb-4 text-sm leading-relaxed text-gray-400">
                 Share pax, date, venue, and goals so the enquiry starts with the planning facts that matter.
               </p>
-              <div className="flex flex-col gap-2.5 mb-5">
+              <div className="mb-4 flex flex-col gap-2 [@media(max-height:560px)]:hidden">
                 {[
                   { icon: Zap, label: "Physical Team Building" },
                   { icon: Monitor, label: "Virtual Team Building" },
@@ -343,7 +353,7 @@ export const ContactModal = () => {
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-3 gap-2 mb-auto">
+              <div className="mb-4 grid grid-cols-3 gap-2">
                 {[
                   { value: "Pax", label: "Headcount" },
                   { value: "Date", label: "Timing" },
@@ -355,7 +365,7 @@ export const ContactModal = () => {
                   </div>
                 ))}
               </div>
-              <div className="mt-8 pt-4 border-t border-white/10">
+              <div className="mt-auto border-t border-white/10 pt-3">
                 <div className="flex items-center gap-1.5 text-gray-500 text-xs mb-2">
                   <Clock className="w-3 h-3 text-primary" />
                   <span>Include venue notes or constraints early if you have them</span>
@@ -383,11 +393,11 @@ export const ContactModal = () => {
                 </button>
               </DialogPrimitive.Close>
               <DialogPrimitive.Title id="contact-modal-title" className="pr-10 text-xl font-display font-bold text-primary sm:text-2xl">
-                {isTeamBuildingInquiry ? "Send Your Team Activity Brief" : "Let Us Elluminate Your Experience"}
+                {isTeamBuildingInquiry ? "Send Your Team Activity Brief" : "Tell Us About Your Event"}
               </DialogPrimitive.Title>
               <DialogPrimitive.Description id="contact-modal-description" className="text-gray-600 mt-1 text-sm sm:text-base">
                 {isTeamBuildingInquiry
-                  ? "Your team-building context is included below. Add your contact details so the quote conversation can continue."
+                  ? "We’ve added your selected activity. Share the essentials and we’ll come back with the right next step."
                   : "Tell us your goals and we'll shape the right experience."}
               </DialogPrimitive.Description>
             </div>
@@ -407,10 +417,12 @@ export const ContactModal = () => {
               {/* Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label className="block text-gray-700 text-sm mb-1">
+                  <label htmlFor="contact-name" className="block text-gray-700 text-sm mb-1">
                     Name <span className="text-primary">*</span>
                   </label>
                   <Input
+                    id="contact-name"
+                    name="name"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -419,10 +431,12 @@ export const ContactModal = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 text-sm mb-1">
-                    Email <span className="text-primary">*</span>
+                  <label htmlFor="contact-email" className="block text-gray-700 text-sm mb-1">
+                    Work email <span className="text-primary">*</span>
                   </label>
                   <Input
+                    id="contact-email"
+                    name="email"
                     required
                     type="email"
                     value={formData.email}
@@ -435,10 +449,12 @@ export const ContactModal = () => {
 
               {/* Phone */}
               <div>
-                <label className="block text-gray-700 text-sm mb-1">
-                  Phone <span className="text-primary">*</span>
+                <label htmlFor="contact-phone" className="block text-gray-700 text-sm mb-1">
+                  Phone / WhatsApp <span className="text-primary">*</span>
                 </label>
                 <Input
+                  id="contact-phone"
+                  name="phone"
                   required
                   type="tel"
                   value={formData.phone}
@@ -450,10 +466,12 @@ export const ContactModal = () => {
 
               {/* Event Category */}
               <div>
-                <label className="block text-gray-700 text-sm mb-1">
+                <label htmlFor="contact-event-category" className="block text-gray-700 text-sm mb-1">
                   Event Category <span className="text-primary">*</span>
                 </label>
                 <select
+                  id="contact-event-category"
+                  name="eventCategory"
                   required
                   value={formData.eventCategory}
                   onChange={(e) => setFormData({ ...formData, eventCategory: e.target.value })}
@@ -468,10 +486,11 @@ export const ContactModal = () => {
 
               {/* Expected Date with Calendar Picker */}
               <div>
-                <label className="block text-gray-700 text-sm mb-1">Expected Date of Event</label>
+                <label htmlFor="contact-event-date" className="block text-gray-700 text-sm mb-1">Event date</label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
+                      id="contact-event-date"
                       variant="outline"
                       className={cn(
                         "w-full justify-start text-left font-normal bg-white border-gray-300 hover:bg-gray-50 hover:border-primary text-gray-900",
@@ -489,7 +508,7 @@ export const ContactModal = () => {
                       onSelect={setSelectedDate}
                       initialFocus
                       className="p-3 pointer-events-auto"
-                      disabled={(date) => date < new Date()}
+                      disabled={(date) => date < startOfDay(new Date())}
                     />
                   </PopoverContent>
                 </Popover>
@@ -497,10 +516,12 @@ export const ContactModal = () => {
 
               {/* Organisation */}
               <div>
-                <label className="block text-gray-700 text-sm mb-1">
+                <label htmlFor="contact-organisation" className="block text-gray-700 text-sm mb-1">
                   Organisation <span className="text-primary">*</span>
                 </label>
                 <Input
+                  id="contact-organisation"
+                  name="organisation"
                   required
                   value={formData.organisation}
                   onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
@@ -511,10 +532,12 @@ export const ContactModal = () => {
 
               {/* Type of Organisation */}
               <div>
-                <label className="block text-gray-700 text-sm mb-1">
+                <label htmlFor="contact-organisation-type" className="block text-gray-700 text-sm mb-1">
                   Type of Organisation <span className="text-primary">*</span>
                 </label>
                 <select
+                  id="contact-organisation-type"
+                  name="organisationType"
                   required
                   value={formData.organisationType}
                   onChange={(e) => setFormData({ ...formData, organisationType: e.target.value })}
@@ -529,10 +552,12 @@ export const ContactModal = () => {
 
               {/* Expected Number of Attendees */}
               <div>
-                <label className="block text-gray-700 text-sm mb-1">
-                  Expected Number of Attendees <span className="text-primary">*</span>
+                <label htmlFor="contact-attendees" className="block text-gray-700 text-sm mb-1">
+                  Estimated pax <span className="text-primary">*</span>
                 </label>
                 <Input
+                  id="contact-attendees"
+                  name="expectedAttendees"
                   required
                   type="number"
                   min="1"
@@ -545,10 +570,12 @@ export const ContactModal = () => {
 
               {/* Additional Customisation */}
               <div>
-                <label className="block text-gray-700 text-sm mb-1">
-                  Additional Customisation <span className="text-primary">*</span>
+                <label htmlFor="contact-customisation" className="block text-gray-700 text-sm mb-1">
+                  How much customisation do you need? <span className="text-primary">*</span>
                 </label>
                 <select
+                  id="contact-customisation"
+                  name="additionalCustomisation"
                   required
                   value={formData.additionalCustomisation}
                   onChange={(e) => setFormData({ ...formData, additionalCustomisation: e.target.value })}
@@ -562,23 +589,27 @@ export const ContactModal = () => {
               </div>
 
               {/* Game Customisation */}
-              <div>
-                <label className="block text-gray-700 text-sm mb-1">Game Customisation</label>
-                <select
-                  value={formData.gameCustomisation}
-                  onChange={(e) => setFormData({ ...formData, gameCustomisation: e.target.value })}
-                  className="w-full px-3 py-2 rounded-md bg-white border border-gray-300 text-gray-900 focus:border-primary focus:outline-none"
-                >
-                  <option value="">Select option</option>
-                  {gameCustomisationOptions.map((option) => (
-                    <option key={option} value={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
+              {isTeamBuildingInquiry && (
+                <div>
+                  <label htmlFor="contact-game-customisation" className="block text-gray-700 text-sm mb-1">Game customisation</label>
+                  <select
+                    id="contact-game-customisation"
+                    name="gameCustomisation"
+                    value={formData.gameCustomisation}
+                    onChange={(e) => setFormData({ ...formData, gameCustomisation: e.target.value })}
+                    className="w-full px-3 py-2 rounded-md bg-white border border-gray-300 text-gray-900 focus:border-primary focus:outline-none"
+                  >
+                    <option value="">Select option</option>
+                    {gameCustomisationOptions.map((option) => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
 
               {/* Add-on Services */}
               <div>
-                <label className="block text-gray-700 text-sm mb-2">Add-on Services</label>
+                <span className="block text-gray-700 text-sm mb-2">Optional add-ons</span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {addOnServices.map((service) => (
                     <label
@@ -602,8 +633,10 @@ export const ContactModal = () => {
 
               {/* Additional Details */}
               <div>
-                <label className="block text-gray-700 text-sm mb-1">Additional Details</label>
+                <label htmlFor="contact-additional-details" className="block text-gray-700 text-sm mb-1">Anything else we should plan around?</label>
                 <Textarea
+                  id="contact-additional-details"
+                  name="additionalDetails"
                   value={formData.additionalDetails}
                   onChange={(e) => setFormData({ ...formData, additionalDetails: e.target.value })}
                   className="bg-white border-gray-300 focus:border-primary min-h-[80px] sm:min-h-[100px] text-gray-900"
@@ -612,8 +645,10 @@ export const ContactModal = () => {
               </div>
 
               {/* Privacy Consent */}
-              <label className="flex items-start gap-3 cursor-pointer">
+              <label htmlFor="contact-privacy-consent" className="flex items-start gap-3 cursor-pointer">
                 <Checkbox
+                  id="contact-privacy-consent"
+                  name="privacyConsent"
                   checked={formData.privacyConsent}
                   onCheckedChange={(checked) => 
                     setFormData({ ...formData, privacyConsent: checked === true })
@@ -621,7 +656,7 @@ export const ContactModal = () => {
                   className="border-gray-400 data-[state=checked]:bg-primary data-[state=checked]:border-primary mt-0.5"
                 />
                 <span className="text-gray-600 text-sm">
-                  I confirm and agree to the storing and processing of my personal data as described in the privacy statement.
+                  I agree to Elluminate storing and processing these details so the team can respond to my enquiry.
                 </span>
               </label>
 
@@ -631,8 +666,15 @@ export const ContactModal = () => {
                 className="w-full bg-primary text-white hover:bg-primary/90 transition-all"
               >
                 <Send className="w-4 h-4 mr-2" />
-                {isSubmitting ? "Sending..." : "Send Inquiry"}
+                {isSubmitting ? "Sending..." : "Send My Event Brief"}
               </Button>
+              <a
+                href="mailto:info@elluminate.sg"
+                className="flex items-center justify-center gap-2 text-sm text-gray-500 transition-colors hover:text-primary md:hidden"
+              >
+                <Mail className="h-4 w-4" />
+                Prefer email? info@elluminate.sg
+              </a>
             </form>
 
           </div>

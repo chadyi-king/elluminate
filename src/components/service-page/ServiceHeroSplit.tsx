@@ -34,6 +34,30 @@ import workshopsLogo from "../../../public/images/service-page-logos/workshops.s
 import corporateDaysLogo from "../../../public/images/service-page-logos/corporate-days.svg.asset.json";
 import leadershipOffsitesLogo from "../../../public/images/service-page-logos/leadership-offsites.svg.asset.json";
 import wellnessEventsLogo from "../../../public/images/service-page-logos/wellness-events.svg.asset.json";
+import aliceInMotherlandHeroProp from "@/assets/service-props/alice-in-motherland-hero-prop.webp";
+import amazingRaceHeroProp from "@/assets/service-props/amazing-race-hero-prop.webp";
+import amazingRaceVirtualHeroProp from "@/assets/service-props/amazing-race-virtual-hero-prop.webp";
+import amongstUsHeroProp from "@/assets/service-props/amongst-us-hero-prop.webp";
+import archeryTagHeroProp from "@/assets/service-props/archery-tag-hero-prop.webp";
+import battleOfTheOlympiansHeroProp from "@/assets/service-props/battle-of-the-olympians-hero-prop.webp";
+import builderCrossHeroProp from "@/assets/service-props/builder-cross-hero-prop.webp";
+import csiBonesHeroProp from "@/assets/service-props/csi-bones-hero-prop.webp";
+import culturalRaceHeroProp from "@/assets/service-props/cultural-race-hero-prop.webp";
+import fitInYourTeamVirtualHeroProp from "@/assets/service-props/fit-in-your-team-virtual-hero-prop.webp";
+import gelBlitzHeroProp from "@/assets/service-props/gel-blitz-hero-prop.webp";
+import grandChristmasDeliveryHeroProp from "@/assets/service-props/grand-christmas-delivery-hero-prop.webp";
+import minuteToWinItHeroProp from "@/assets/service-props/minute-to-win-it-hero-prop.webp";
+import monopolyDashHeroProp from "@/assets/service-props/monopoly-dash-hero-prop.webp";
+import nerfwarHeroProp from "@/assets/service-props/nerfwar-hero-prop.webp";
+import runningManHeroProp from "@/assets/service-props/running-man-hero-prop.webp";
+import sotongGameHeroProp from "@/assets/service-props/sotong-game-hero-prop.webp";
+import tagTicalLaserHeroProp from "@/assets/service-props/tag-tical-laser-teambuilding-hero-prop.webp";
+import gameshowExperienceVirtualHeroProp from "@/assets/service-props/the-gameshow-experience-virtual-hero-prop.webp";
+import greatZodiacHuntVirtualHeroProp from "@/assets/service-props/the-great-zodiac-hunt-virtual-hero-prop.webp";
+import nuclearFalloutVirtualHeroProp from "@/assets/service-props/the-nuclear-fallout-escape-room-virtual-hero-prop.webp";
+import patriotActVirtualHeroProp from "@/assets/service-props/the-patriot-act-virtual-hero-prop.webp";
+import tombRaiderKingVirtualHeroProp from "@/assets/service-props/tomb-raider-king-treasure-hunt-virtual-hero-prop.webp";
+import treasureHeistHeroProp from "@/assets/service-props/treasure-heist-hero-prop.webp";
 
 const resolveUploadedAssetUrl = (src: string) =>
   import.meta.env.DEV && src.startsWith("/__l5e/") ? `https://elluminate.sg${src}` : src;
@@ -47,6 +71,33 @@ const renderLogo = (src: string, alt: string, size: number) => (
     className="object-contain"
   />
 );
+
+const teamBuildingHeroProps: Record<string, string> = {
+  "alice-in-motherland": aliceInMotherlandHeroProp,
+  "amazing-race": amazingRaceHeroProp,
+  "amazing-race-virtual": amazingRaceVirtualHeroProp,
+  "amongst-us": amongstUsHeroProp,
+  "archery-tag": archeryTagHeroProp,
+  "battle-of-the-olympians": battleOfTheOlympiansHeroProp,
+  "builder-cross": builderCrossHeroProp,
+  "csi-bones": csiBonesHeroProp,
+  "cultural-race": culturalRaceHeroProp,
+  "fit-in-your-team-virtual": fitInYourTeamVirtualHeroProp,
+  "gel-blitz": gelBlitzHeroProp,
+  "grand-christmas-delivery": grandChristmasDeliveryHeroProp,
+  "minute-to-win-it": minuteToWinItHeroProp,
+  "monopoly-dash": monopolyDashHeroProp,
+  nerfwar: nerfwarHeroProp,
+  "running-man": runningManHeroProp,
+  "sotong-game": sotongGameHeroProp,
+  "tag-tical-laser-teambuilding": tagTicalLaserHeroProp,
+  "the-gameshow-experience-virtual": gameshowExperienceVirtualHeroProp,
+  "the-great-zodiac-hunt-virtual": greatZodiacHuntVirtualHeroProp,
+  "the-nuclear-fallout-escape-room-virtual": nuclearFalloutVirtualHeroProp,
+  "the-patriot-act-virtual": patriotActVirtualHeroProp,
+  "tomb-raider-king-treasure-hunt-virtual": tombRaiderKingVirtualHeroProp,
+  "treasure-heist": treasureHeistHeroProp,
+};
 
 interface ServiceHeroSplitProps {
   title: string;
@@ -71,6 +122,21 @@ const heroParticles = Array.from({ length: 12 }, (_, index) => ({
 
 // Per-service themed prop SVG rendered instead of a generic card
 const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string }) => {
+  const generatedProp = slug ? teamBuildingHeroProps[slug] : undefined;
+  if (generatedProp) {
+    const generatedSize = slug === "amazing-race" ? 520 : 480;
+    return (
+      <img
+        src={generatedProp}
+        alt=""
+        aria-hidden="true"
+        width={generatedSize}
+        height={generatedSize}
+        className="h-auto max-h-[70vh] max-w-[45vw] object-contain"
+      />
+    );
+  }
+
   const size = slug === "amazing-race" ? 520 : 320;
   const common = { width: size, height: size, viewBox: "0 0 200 200", fill: "none", xmlns: "http://www.w3.org/2000/svg" };
 
