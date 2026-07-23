@@ -25,6 +25,12 @@ import gameshowExperienceLogo from "../../../public/images/service-page-logos/ga
 import nuclearFalloutEscapeLogo from "../../../public/images/service-page-logos/nuclear-fallout-escape.svg.asset.json";
 import thePatriotActLogo from "../../../public/images/service-page-logos/the-patriot-act.svg.asset.json";
 import tombRaiderKingLogo from "../../../public/images/service-page-logos/tomb-raider-king.svg.asset.json";
+import mbtiLogo from "../../../public/images/service-page-logos/mbti.svg.asset.json";
+import discLogo from "../../../public/images/service-page-logos/disc.svg.asset.json";
+import oceanLogo from "../../../public/images/service-page-logos/ocean.svg.asset.json";
+import youthCampLogo from "../../../public/images/service-page-logos/youth-camp.svg.asset.json";
+import massTalksLogo from "../../../public/images/service-page-logos/mass-talks.svg.asset.json";
+import workshopsLogo from "../../../public/images/service-page-logos/workshops.svg.asset.json";
 
 const resolveUploadedAssetUrl = (src: string) =>
   import.meta.env.DEV && src.startsWith("/__l5e/") ? `https://elluminate.sg${src}` : src;
@@ -245,99 +251,25 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
       return renderLogo(grandChristmasDeliveryLogo.url, "Grand Christmas Delivery", size);
 
 
-    /* ─── MBTI / DISC / OCEAN: brain ─── */
+    /* ─── MBTI / DISC / OCEAN: uploaded logos ─── */
     case "mbti":
+      return renderLogo(mbtiLogo.url, "MBTI Profiling", size);
     case "disc":
+      return renderLogo(discLogo.url, "DISC Assessment", size);
     case "ocean":
-      return (
-        <svg {...common}>
-          {/* Brain outline */}
-          <path d="M100 165 L100 140 Q60 140 50 115 Q40 95 55 75 Q45 60 60 45 Q75 30 95 35 Q100 28 110 35 Q130 30 145 45 Q160 60 150 75 Q165 95 155 115 Q145 140 100 140Z" fill={`${accentColor}20`} stroke={accentColor} strokeWidth="2.5" />
-          {/* Brain wrinkles */}
-          <path d="M85 55 Q100 65 115 55" stroke={accentColor} strokeWidth="1.5" fill="none" opacity="0.6" />
-          <path d="M75 80 Q95 90 120 78" stroke={accentColor} strokeWidth="1.5" fill="none" opacity="0.6" />
-          <path d="M80 105 Q100 115 125 103" stroke={accentColor} strokeWidth="1.5" fill="none" opacity="0.6" />
-          {/* Center line */}
-          <line x1="100" y1="35" x2="100" y2="140" stroke={accentColor} strokeWidth="1" opacity="0.4" />
-          {/* Left colored sections */}
-          <circle cx="75" cy="65" r="8" fill={accentColor} opacity="0.3" />
-          <circle cx="70" cy="95" r="10" fill="#FF6B35" opacity="0.3" />
-          {/* Right colored sections */}
-          <circle cx="125" cy="65" r="8" fill="#4CAF50" opacity="0.3" />
-          <circle cx="130" cy="95" r="10" fill="#2196F3" opacity="0.3" />
-          {/* Stem */}
-          <rect x="96" y="140" width="8" height="25" rx="4" fill={accentColor} opacity="0.5" />
-        </svg>
-      );
+      return renderLogo(oceanLogo.url, "OCEAN Profiling", size);
 
-    /* ─── Mass Talks: microphone ─── */
+    /* ─── Mass Talks: uploaded logo ─── */
     case "mass-talks":
-      return (
-        <svg {...common}>
-          {/* Mic head */}
-          <rect x="78" y="30" width="44" height="65" rx="22" fill="#333" stroke={accentColor} strokeWidth="2" />
-          {/* Grille */}
-          {[42, 50, 58, 66, 74].map((y) => (
-            <line key={y} x1="84" y1={y} x2="116" y2={y} stroke={accentColor} strokeWidth="0.8" opacity="0.5" />
-          ))}
-          {/* Stem */}
-          <rect x="95" y="95" width="10" height="70" rx="5" fill="#555" stroke="white" strokeWidth="1" />
-          {/* Base */}
-          <ellipse cx="100" cy="170" rx="30" ry="8" fill="#444" stroke="white" strokeWidth="1" />
-          {/* Sound waves */}
-          <path d="M125 50 Q140 60 125 75" stroke={accentColor} strokeWidth="1.5" fill="none" opacity="0.5" />
-          <path d="M135 40 Q155 60 135 85" stroke={accentColor} strokeWidth="1.5" fill="none" opacity="0.3" />
-        </svg>
-      );
+      return renderLogo(massTalksLogo.url, "Mass Talks", size);
 
-    /* ─── Workshops: open book / whiteboard ─── */
+    /* ─── Workshops: uploaded logo ─── */
     case "workshops":
-      return (
-        <svg {...common}>
-          {/* Left page */}
-          <path d="M100 40 L30 50 L30 160 L100 150Z" fill="white" stroke="#ddd" strokeWidth="1.5" />
-          {/* Right page */}
-          <path d="M100 40 L170 50 L170 160 L100 150Z" fill="white" stroke="#ddd" strokeWidth="1.5" />
-          {/* Spine */}
-          <line x1="100" y1="40" x2="100" y2="150" stroke="#aaa" strokeWidth="2" />
-          {/* Left text lines */}
-          <line x1="45" y1="70" x2="90" y2="65" stroke="#ccc" strokeWidth="2" />
-          <line x1="45" y1="85" x2="85" y2="80" stroke="#ccc" strokeWidth="2" />
-          <line x1="45" y1="100" x2="90" y2="95" stroke={accentColor} strokeWidth="2" />
-          <line x1="45" y1="115" x2="80" y2="112" stroke="#ccc" strokeWidth="2" />
-          {/* Right diagram */}
-          <circle cx="135" cy="85" r="18" fill="none" stroke={accentColor} strokeWidth="1.5" />
-          <line x1="135" y1="85" x2="150" y2="75" stroke={accentColor} strokeWidth="1.5" />
-          <circle cx="135" cy="85" r="3" fill={accentColor} />
-          {/* Pen */}
-          <line x1="155" y1="130" x2="175" y2="170" stroke={accentColor} strokeWidth="2.5" strokeLinecap="round" />
-          <polygon points="175,170 178,175 172,175" fill={accentColor} />
-        </svg>
-      );
+      return renderLogo(workshopsLogo.url, "Workshops", size);
 
-    /* ─── Youth Camps: campfire ─── */
+    /* ─── Youth Camps: uploaded logo ─── */
     case "youth-camps":
-      return (
-        <svg {...common}>
-          {/* Logs */}
-          <rect x="50" y="140" width="100" height="14" rx="7" fill="#8B6914" stroke="#6B4F12" strokeWidth="1" transform="rotate(-10 100 147)" />
-          <rect x="50" y="148" width="100" height="14" rx="7" fill="#A67C2E" stroke="#6B4F12" strokeWidth="1" transform="rotate(10 100 155)" />
-          {/* Fire */}
-          <path d="M100 145 Q80 110 90 80 Q95 95 100 70 Q105 90 110 80 Q120 110 100 145Z" fill="#FF6B35" opacity="0.9" />
-          <path d="M100 145 Q85 115 95 90 Q100 100 105 88 Q115 115 100 145Z" fill="#FFD700" opacity="0.8" />
-          <path d="M100 145 Q92 125 100 105 Q108 125 100 145Z" fill="white" opacity="0.5" />
-          {/* Sparks */}
-          <circle cx="85" cy="65" r="2" fill="#FF6B35" opacity="0.6" />
-          <circle cx="115" cy="58" r="1.5" fill="#FFD700" opacity="0.5" />
-          <circle cx="95" cy="50" r="1.5" fill="#FF6B35" opacity="0.4" />
-          {/* Tent in background */}
-          <polygon points="155,100 185,155 125,155" fill="none" stroke={accentColor} strokeWidth="1.5" opacity="0.4" />
-          {/* Stars */}
-          <text x="40" y="40" fontSize="10" fill="white" opacity="0.3">★</text>
-          <text x="160" y="35" fontSize="8" fill="white" opacity="0.3">★</text>
-          <text x="75" y="25" fontSize="6" fill="white" opacity="0.2">★</text>
-        </svg>
-      );
+      return renderLogo(youthCampLogo.url, "Youth Camps", size);
 
     /* ─── Corporate Days: podium / trophy ─── */
     case "corporate-days":
