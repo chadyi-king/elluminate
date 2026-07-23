@@ -31,6 +31,9 @@ import oceanLogo from "../../../public/images/service-page-logos/ocean.svg.asset
 import youthCampLogo from "../../../public/images/service-page-logos/youth-camp.svg.asset.json";
 import massTalksLogo from "../../../public/images/service-page-logos/mass-talks.svg.asset.json";
 import workshopsLogo from "../../../public/images/service-page-logos/workshops.svg.asset.json";
+import corporateDaysLogo from "../../../public/images/service-page-logos/corporate-days.svg.asset.json";
+import leadershipOffsitesLogo from "../../../public/images/service-page-logos/leadership-offsites.svg.asset.json";
+import wellnessEventsLogo from "../../../public/images/service-page-logos/wellness-events.svg.asset.json";
 
 const resolveUploadedAssetUrl = (src: string) =>
   import.meta.env.DEV && src.startsWith("/__l5e/") ? `https://elluminate.sg${src}` : src;
@@ -271,73 +274,17 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
     case "youth-camps":
       return renderLogo(youthCampLogo.url, "Youth Camps", size);
 
-    /* ─── Corporate Days: podium / trophy ─── */
+    /* ─── Corporate Days: uploaded logo ─── */
     case "corporate-days":
-      return (
-        <svg {...common}>
-          {/* Trophy cup */}
-          <path d="M75 55 L75 100 Q75 130 100 135 Q125 130 125 100 L125 55Z" fill="#FFD700" stroke="#DAA520" strokeWidth="2" />
-          {/* Handles */}
-          <path d="M75 65 Q55 65 55 82 Q55 98 75 98" stroke="#FFD700" strokeWidth="3" fill="none" />
-          <path d="M125 65 Q145 65 145 82 Q145 98 125 98" stroke="#FFD700" strokeWidth="3" fill="none" />
-          {/* Base */}
-          <rect x="90" y="135" width="20" height="15" fill="#DAA520" />
-          <rect x="75" y="150" width="50" height="10" rx="3" fill="#333" stroke="#555" strokeWidth="1" />
-          {/* Star on trophy */}
-          <text x="100" y="95" textAnchor="middle" fontSize="22" fill="white" opacity="0.9">★</text>
-          {/* Confetti */}
-          <rect x="45" y="30" width="8" height="4" rx="1" fill={accentColor} opacity="0.6" transform="rotate(20 49 32)" />
-          <rect x="150" y="25" width="8" height="4" rx="1" fill="#FF6B35" opacity="0.6" transform="rotate(-15 154 27)" />
-          <rect x="60" y="18" width="6" height="3" rx="1" fill="#4CAF50" opacity="0.5" transform="rotate(35 63 19)" />
-          <rect x="140" y="40" width="6" height="3" rx="1" fill="#2196F3" opacity="0.5" transform="rotate(-25 143 41)" />
-        </svg>
-      );
+      return renderLogo(corporateDaysLogo.url, "Corporate Days", size);
 
-    /* ─── Leadership Offsites: podium with mic ─── */
+    /* ─── Leadership Offsites: uploaded logo ─── */
     case "leadership-offsites":
-      return (
-        <svg {...common}>
-          {/* Podium */}
-          <rect x="70" y="75" width="60" height="80" rx="4" fill="#2a3a55" stroke="white" strokeWidth="1.5" />
-          <rect x="65" y="68" width="70" height="12" rx="3" fill={accentColor} />
-          {/* Microphone */}
-          <line x1="100" y1="52" x2="100" y2="68" stroke="#888" strokeWidth="2" />
-          <rect x="93" y="42" width="14" height="14" rx="7" fill="#333" stroke={accentColor} strokeWidth="1.5" />
-          {/* Notes on podium */}
-          <rect x="80" y="90" width="18" height="24" rx="2" fill="white" opacity="0.85" />
-          <line x1="84" y1="97" x2="94" y2="97" stroke="#ccc" strokeWidth="1" />
-          <line x1="84" y1="101" x2="92" y2="101" stroke="#ccc" strokeWidth="1" />
-          <line x1="84" y1="105" x2="94" y2="105" stroke="#ccc" strokeWidth="1" />
-          {/* Star / vision emblem */}
-          <text x="100" y="38" textAnchor="middle" fontSize="16" fill={accentColor} opacity="0.7">★</text>
-          {/* Audience silhouettes */}
-          <circle cx="55" cy="170" r="7" fill="white" opacity="0.25" />
-          <circle cx="80" cy="175" r="6" fill="white" opacity="0.2" />
-          <circle cx="120" cy="175" r="6" fill="white" opacity="0.2" />
-          <circle cx="145" cy="170" r="7" fill="white" opacity="0.25" />
-        </svg>
-      );
+      return renderLogo(leadershipOffsitesLogo.url, "Leadership Offsites", size);
 
-    /* ─── Wellness Events: lotus flower ─── */
+    /* ─── Wellness Events: uploaded logo ─── */
     case "wellness-events":
-      return (
-        <svg {...common}>
-          {/* Lotus petals */}
-          <ellipse cx="100" cy="88" rx="18" ry="38" fill={accentColor} opacity="0.35" />
-          <ellipse cx="100" cy="88" rx="18" ry="38" fill={accentColor} opacity="0.3" transform="rotate(36 100 88)" />
-          <ellipse cx="100" cy="88" rx="18" ry="38" fill={accentColor} opacity="0.3" transform="rotate(-36 100 88)" />
-          <ellipse cx="100" cy="88" rx="18" ry="38" fill={accentColor} opacity="0.25" transform="rotate(72 100 88)" />
-          <ellipse cx="100" cy="88" rx="18" ry="38" fill={accentColor} opacity="0.25" transform="rotate(-72 100 88)" />
-          {/* Center circle */}
-          <circle cx="100" cy="88" r="12" fill={accentColor} opacity="0.6" />
-          <circle cx="100" cy="88" r="6" fill="white" opacity="0.4" />
-          {/* Subtle glow */}
-          <circle cx="100" cy="88" r="50" fill={accentColor} opacity="0.06" />
-          {/* Ripples below */}
-          <path d="M60 140 Q80 132 100 140 Q120 148 140 140" stroke="white" strokeWidth="1.5" fill="none" opacity="0.3" />
-          <path d="M55 152 Q77 144 100 152 Q123 160 145 152" stroke="white" strokeWidth="1" fill="none" opacity="0.2" />
-        </svg>
-      );
+      return renderLogo(wellnessEventsLogo.url, "Wellness Events", size);
 
     /* ─── Default fallback: lightbulb ─── */
     default:
