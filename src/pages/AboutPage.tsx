@@ -111,7 +111,7 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <SEO {...aboutSeo} keywords="about Elluminate Singapore, team building company Singapore, event facilitators" />
+      <SEO {...aboutSeo} />
       <OrganizationSchema type="LocalBusiness" />
       <Navbar />
 

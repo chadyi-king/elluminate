@@ -20,7 +20,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SEO 
         {...homeSeo}
-        keywords="team building Singapore, corporate team building, virtual team building, amazing race, company retreats, corporate training"
       />
       <OrganizationSchema type="LocalBusiness" />
       <WebSiteSchema />

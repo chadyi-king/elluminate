@@ -60,7 +60,6 @@ const BlogPage = () => {
     <div className="min-h-screen bg-background">
       <SEO
         {...getRouteSeo("/blog")}
-        keywords="team building blog Singapore, corporate events tips, employee engagement, team building ideas, event planning guide"
       />
       <Navbar />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />

@@ -25,25 +25,10 @@ export const ServiceFAQAccordion = ({
   faqs,
   accentColor,
 }: ServiceFAQAccordionProps) => {
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer },
-    })),
-  };
-
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-b from-background via-secondary/20 to-background">
       <div className="absolute top-20 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-10 left-0 w-72 h-72 bg-yellow-100/30 rounded-full blur-3xl" />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div

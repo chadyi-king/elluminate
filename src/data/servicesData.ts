@@ -10451,7 +10451,7 @@ export const servicesData: Record<string, ServiceData> = {
     faqs: [],
     cta: {
       headline: "Ready for the Heist?",
-      subtext: "Tell us your pax and venue — we’ll propose a Treasure Heist experience.",
+      subtext: "Tell us your pax and venue. We’ll propose a Treasure Heist experience.",
     },
     howItWorksFlow: {
       sectionTitle: "WHAT TO EXPECT",

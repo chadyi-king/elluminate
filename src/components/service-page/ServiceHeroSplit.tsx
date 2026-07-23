@@ -401,9 +401,13 @@ export const ServiceHeroSplit = ({
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-background">
       {/* Full background image with dark overlay */}
       <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
+        <img
+          src={backgroundImage}
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/60 to-black/60" />
@@ -416,9 +420,13 @@ export const ServiceHeroSplit = ({
 
       {/* Left side - Hero Photo Panel with floating service card */}
       <div className="hidden lg:block absolute left-0 top-0 w-1/2 h-full">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
+        <img
+          src={backgroundImage}
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
           <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/30 to-black/[0.55]" />
         <div 

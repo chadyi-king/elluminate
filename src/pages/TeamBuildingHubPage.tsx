@@ -26,6 +26,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cloudinaryImage } from "@/lib/media";
+import { getCampaignPageConfig } from "@/data/campaignPageConfigs";
 import { getRouteSeo } from "@/data/seoRoutes";
 import { submitLead } from "@/lib/leadSubmission";
 import {
@@ -60,9 +61,10 @@ type ActivityCard = {
   filters: ActivityFilter[];
 };
 
-const pageUrl = "https://elluminate.sg/services/team-building";
+const campaignConfig = getCampaignPageConfig("team-building");
+const pageUrl = `https://elluminate.sg${campaignConfig.path}`;
 const teamBuildingSeo = getRouteSeo("/services/team-building");
-const seoDescription = teamBuildingSeo?.description ?? "Plan corporate team building in Singapore with Elluminate.";
+const seoDescription = teamBuildingSeo?.description ?? campaignConfig.description;
 const whatsappUrl =
   "https://wa.me/6588352482?text=Hi%20Elluminate%2C%20I%27d%20like%20to%20plan%20a%20team-building%20event.";
 
@@ -444,7 +446,7 @@ const TeamBuildingHubPage = () => {
     <div className="min-h-screen bg-background text-foreground">
       <SEO {...teamBuildingSeo} ogImage="https://elluminate.sg/images/services/amazing-race/gallery-1.jpg" />
       <OrganizationSchema type="LocalBusiness" />
-      <ServiceSchema name="Corporate Team Building in Singapore" description={seoDescription} slug="team-building" />
+      <ServiceSchema name={campaignConfig.h1} description={seoDescription} slug="team-building" />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://elluminate.sg/" },
@@ -462,6 +464,7 @@ const TeamBuildingHubPage = () => {
             alt="Corporate team working together during an outdoor team-building challenge"
             width={1920}
             height={1080}
+            fetchPriority="high"
             className="absolute inset-0 -z-20 h-full w-full object-cover"
           />
               <div className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground via-foreground/[0.88] to-foreground/[0.45]" />
@@ -469,10 +472,10 @@ const TeamBuildingHubPage = () => {
           <div className="container mx-auto grid min-h-[720px] items-center gap-10 px-6 py-14 lg:grid-cols-[1.08fr_0.92fr] lg:px-12 lg:py-20">
             <div className="min-w-0 max-w-3xl">
               <p className="mb-5 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                Corporate team building in Singapore
+                {campaignConfig.label}
               </p>
               <h1 className="font-display text-4xl font-black leading-[1.08] text-background sm:text-5xl lg:text-7xl">
-                Corporate Team Building in Singapore, Planned Around Your Team
+                {campaignConfig.h1}
               </h1>
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-background/[0.82] sm:text-xl">
                 Share your group size, preferred date, venue and what you want the day to achieve. Elluminate helps

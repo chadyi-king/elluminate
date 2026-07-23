@@ -6,74 +6,19 @@ import { SEO } from "@/components/SEO";
 import { BreadcrumbSchema, OrganizationSchema, ServiceSchema } from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
+import { getCampaignPageConfig, type CampaignPageKind } from "@/data/campaignPageConfigs";
 import { servicesData } from "@/data/servicesData";
-import { retreatServices, trainingServices, type ServiceLink } from "@/data/siteScope";
 import { cloudinaryImage } from "@/lib/media";
 import { getRouteSeo } from "@/data/seoRoutes";
 
-type CategoryHubKind = "retreats" | "training";
+type CategoryHubKind = Extract<CampaignPageKind, "retreats" | "training">;
 
 interface CategoryHubPageProps {
   kind: CategoryHubKind;
 }
 
-type HubConfig = {
-  label: string;
-  h1: string;
-  description: string;
-  title: string;
-  canonical: string;
-  heroSlug: string;
-  eventCategory: string;
-  services: ServiceLink[];
-  sectionTitle: string;
-  sectionCopy: string;
-  planningPoints: { title: string; copy: string }[];
-};
-
-const configs: Record<CategoryHubKind, HubConfig> = {
-  retreats: {
-    label: "Corporate retreats and offsites",
-    h1: "Company Retreats Planned Around Your Team",
-    description:
-      "Plan local or overseas company retreats around your group, schedule, objectives, and travel needs. Explore retreat directions and discuss the practical details with Elluminate.",
-    title: "Company Retreats and Offsites Singapore | Elluminate",
-    canonical: "https://elluminate.sg/services/retreats",
-    heroSlug: "overseas-retreats",
-    eventCategory: "Corporate Retreat",
-    services: retreatServices,
-    sectionTitle: "Choose the retreat direction before building the itinerary",
-    sectionCopy:
-      "Start with where the team can travel, how long they have, and what the retreat needs to balance. The itinerary can then be shaped around work sessions, bonding, meals, movement, and downtime.",
-    planningPoints: [
-      { title: "Destination and duration", copy: "Local, nearby, or overseas options need different travel time, accommodation, and itinerary pacing." },
-      { title: "Team objective", copy: "Strategy, reward, connection, and leadership alignment create different retreat priorities." },
-      { title: "Operating details", copy: "Transport, rooms, meals, activity flow, and participant requirements should be considered together." },
-    ],
-  },
-  training: {
-    label: "Corporate training and workshops",
-    h1: "Corporate Workshops Planned Around Your Team",
-    description:
-      "Explore facilitated workshops and team sessions shaped around your audience, timing, workplace context, and learning objective with Elluminate.",
-    title: "Corporate Training and Workshops Singapore | Elluminate",
-    canonical: "https://elluminate.sg/services/training",
-    heroSlug: "workshops",
-    eventCategory: "Training Workshop",
-    services: trainingServices,
-    sectionTitle: "Start with the workplace conversation you need to create",
-    sectionCopy:
-      "A useful session should suit the audience, time available, and the practical outcome you want after the room clears. Share that context before choosing a workshop format.",
-    planningPoints: [
-      { title: "Audience", copy: "Team composition, seniority, existing knowledge, and group size affect how a session should be facilitated." },
-      { title: "Desired outcome", copy: "Awareness, discussion, practice, and team alignment call for different workshop structures." },
-      { title: "Format and timing", copy: "An interactive workshop, talk, offsite session, or multi-part programme each needs a different flow." },
-    ],
-  },
-};
-
 const CategoryHubPage = ({ kind }: CategoryHubPageProps) => {
-  const config = configs[kind];
+  const config = getCampaignPageConfig(kind);
   const { openContactModal } = useContactModal();
   const heroImage = servicesData[config.heroSlug].hero.backgroundImage;
 
@@ -92,7 +37,7 @@ const CategoryHubPage = ({ kind }: CategoryHubPageProps) => {
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://elluminate.sg/" },
-          { name: kind === "retreats" ? "Retreats" : "Training", url: config.canonical },
+          { name: kind === "retreats" ? "Retreats" : "Training", url: `https://elluminate.sg${config.path}` },
         ]}
       />
 
@@ -105,6 +50,7 @@ const CategoryHubPage = ({ kind }: CategoryHubPageProps) => {
             alt={kind === "retreats" ? "Company retreat experience" : "Facilitated corporate workshop"}
             width={1920}
             height={1080}
+            fetchPriority="high"
             className="absolute inset-0 -z-20 h-full w-full object-cover"
           />
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground via-foreground/86 to-foreground/35" />

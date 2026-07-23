@@ -116,7 +116,6 @@ const BlogPostPage = () => {
       <SEO
         title={routeMeta?.title ?? `${post.title} | Elluminate Blog`}
         description={displayDescription}
-        keywords={post.tags?.join(", ") || "team building Singapore, corporate events"}
         canonical={routeMeta?.canonical ?? `https://elluminate.sg/blog/${post.slug}`}
         type="article"
       />

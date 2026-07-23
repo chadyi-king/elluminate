@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet-async";
 interface SEOProps {
   title?: string;
   description?: string;
-  keywords?: string;
   ogImage?: string;
   canonical?: string;
   type?: string;
@@ -13,7 +12,6 @@ interface SEOProps {
 export const SEO = ({
   title = "Elluminate | Singapore's Premier Team Building Specialists",
   description = "Elluminate plans team building, retreats, training, and company experiences around the people, objective, venue, and timing.",
-  keywords = "team building Singapore, corporate team building, virtual team building, team bonding activities, corporate retreat Singapore, training workshops Singapore, school programmes Singapore",
   ogImage = "https://elluminate.sg/og-image.jpg",
   canonical = "https://elluminate.sg",
   type = "website",
@@ -25,7 +23,6 @@ export const SEO = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
       
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />

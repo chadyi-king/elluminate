@@ -14,6 +14,10 @@ import {
 import { getVerifiedLocalServiceGalleryPaths } from "@/data/serviceGalleryMedia";
 import { getServiceQuickFacts } from "@/data/serviceQuickFacts";
 import { serviceActorAssets } from "@/data/serviceActorAssets";
+import {
+  getCommercialPlanningFacts,
+  getServiceCommercialProfile,
+} from "@/data/serviceCommercialProfiles";
 import adventureChallengeEditorial from "@/assets/hero/adventure-challenge.jpg";
 import creativeWorkshopEditorial from "@/assets/hero/creative-workshop.jpg";
 import wellnessActivityEditorial from "@/assets/hero/wellness-activity.jpg";
@@ -196,13 +200,6 @@ const familyBySlug = new Map<string, ServiceFamily>(
     entries.map((entry) => [entry.slug, family as ServiceFamily] as const),
   ),
 );
-
-const explicitStartingPrices: Partial<Record<ServiceExperienceSlug, string>> = {
-  "amazing-race": "From $45/pax",
-  "csi-bones": "From $55/pax",
-  "monopoly-dash": "From $55/pax",
-  "sotong-game": "From $55/pax",
-};
 
 type ActivityBatchSlug = ActivityPageV2Slug;
 
@@ -925,46 +922,47 @@ const activityCtaCopy: Partial<Record<ActivityBatchSlug, Pick<ServicePageBluepri
   },
 };
 
-const virtualPackageCopy: readonly Omit<ServicePackageOption, "id">[] = [
-  {
-    color: "#26D07C",
-    title: "Minimum Package",
-    description: "Join a live-hosted session on your chosen meeting platform. We handle the briefing, facilitation and standard game flow.",
-    features: ["Standard virtual format", "Live host", "Joining brief"],
-    source: "existing-service-data",
-  },
-  {
-    color: "#FFC400",
-    title: "Enhanced Package",
-    description: "Add company branding, customised challenges, prizes and a tailored run-of-show.",
-    features: ["Customised challenges", "Branding options", "Flexible timing"],
-    source: "existing-service-data",
-  },
-  {
-    color: "#FF4F4F",
-    title: "Premium Package",
-    description: "Build a fully bespoke virtual experience around your team, event theme and objectives.",
-    features: ["Custom experience design", "Custom host script", "Full virtual event management"],
-    source: "existing-service-data",
-  },
-];
-
 const buildPackages = (
   slug: ServiceExperienceSlug,
-  family: ServiceFamily,
+  _family: ServiceFamily,
   service: ServiceData,
 ): readonly ServicePackageOption[] => {
   if (!approvedPackageSlugs.has(slug) || !service.pricing || !service.packages?.length) return [];
 
-  const sourcePackages = family === "virtual" ? virtualPackageCopy : service.packages;
-  return sourcePackages
-    .filter((option) => option.title.trim() && option.description.trim() && option.features.length > 0)
-    .map((option, index) => ({
-      ...option,
-      price: service.packages?.[index]?.price ?? option.price,
-      id: packageId(slug, option.title),
-      source: "existing-service-data" as const,
-    }));
+  const commercialProfile = getServiceCommercialProfile(slug);
+  if (!commercialProfile) return [];
+
+  const packages: readonly Omit<ServicePackageOption, "id">[] = [
+    {
+      color: "#26D07C",
+      title: "Minimum Package",
+      description: "Choose the proven format and the practical essentials needed to run it well.",
+      price: commercialProfile.packageRules.minimum,
+      features: commercialProfile.inclusions,
+      source: "existing-service-data",
+    },
+    {
+      color: "#FFC400",
+      title: "Enhanced Package",
+      description: "Start with the core experience, then add the venue, food, transport or production details your event needs.",
+      price: commercialProfile.packageRules.enhanced,
+      features: ["Everything in Minimum", "Selected optional extras", "Event flow shaped around your brief"],
+      source: "existing-service-data",
+    },
+    {
+      color: "#FF4F4F",
+      title: "Premium Package",
+      description: "Build a more distinctive experience around your team, objectives and event concept.",
+      price: commercialProfile.packageRules.premium,
+      features: ["Everything in Enhanced", "Substantial customisation", "Custom programme and production planning"],
+      source: "existing-service-data",
+    },
+  ];
+
+  return packages.map((option) => ({
+    ...option,
+    id: packageId(slug, option.title),
+  }));
 };
 
 const familyFaqSupplements: Record<ServiceFamily, readonly FAQ[]> = {
@@ -1149,16 +1147,38 @@ const splitOverview = (description: string, hook: string): readonly [string, str
 
 const buildFaqs = (slug: ServiceExperienceSlug, family: ServiceFamily): readonly FAQ[] => {
   const service = servicesData[slug];
+  const commercialProfile = getServiceCommercialProfile(slug);
   const preferred = serviceContentQuality[slug]?.faqs?.length
     ? serviceContentQuality[slug].faqs
     : service.faqs;
   const seen = new Set<string>();
+  const seenTopics = new Set<string>();
+  const canonicalCommercialFaqs: FAQ[] = commercialProfile
+    ? [
+        {
+          question: "How long should we set aside?",
+          answer: `The usual duration is ${commercialProfile.duration.toLowerCase()}. Final timing can be adjusted around your group, venue and programme needs.`,
+        },
+        {
+          question: "What does the starting price include?",
+          answer: `${commercialProfile.publicPrice?.label ?? "This service is quoted to your brief"}. The core scope includes ${commercialProfile.inclusions.join(", ").toLowerCase()}. Optional extras are quoted only when you need them.`,
+        },
+      ]
+    : [];
 
-  return [...preferred, ...familyFaqSupplements[family], ...universalFaqs]
+  const topicKey = (question: string) => {
+    if (/how long|duration|set aside/i.test(question)) return "duration";
+    if (/price|cost|included|package/i.test(question)) return "commercial";
+    return "";
+  };
+
+  return [...canonicalCommercialFaqs, ...preferred, ...familyFaqSupplements[family], ...universalFaqs]
     .filter((faq) => {
       const key = faq.question.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-      if (!faq.question.trim() || !faq.answer.trim() || seen.has(key)) return false;
+      const topic = topicKey(faq.question);
+      if (!faq.question.trim() || !faq.answer.trim() || seen.has(key) || (topic && seenTopics.has(topic))) return false;
       seen.add(key);
+      if (topic) seenTopics.add(topic);
       return true;
     })
     .slice(0, 8);
@@ -1382,12 +1402,14 @@ const buildFacts = (
   family: ServiceFamily,
   card: ServiceCardPresentation,
 ): readonly ServicePlanningFact[] => {
+  const commercialFacts = getCommercialPlanningFacts(slug);
+  if (commercialFacts.length) return commercialFacts;
+
   const service = servicesData[slug];
   const pricing = service.pricing;
   const curatedFacts = getServiceQuickFacts(slug)?.facts ?? [];
   const quickValue = (...labels: string[]) => curatedFacts.find((fact) => labels.includes(fact.label))?.value;
-  const startingPrice = explicitStartingPrices[slug]
-    ?? quickValue("Starting price")
+  const startingPrice = quickValue("Starting price")
     ?? (pricing?.startingPrice
       ? `${pricing.startingPrice}${pricing.unit && /[$\d]/.test(pricing.startingPrice) ? ` ${pricing.unit}` : ""}`.replace(/\s+/g, " ").trim()
       : "Quoted to your brief");
@@ -1470,7 +1492,7 @@ export const getServicePageBlueprint = (slug: string): ServicePageBlueprint | nu
       serviceContentQuality[typedSlug]?.overviewDescription ?? service.overview.description,
       card.hook,
     ),
-    facts: activitySlug ? activityPlanningFacts[activitySlug] : buildFacts(typedSlug, family, card),
+    facts: buildFacts(typedSlug, family, card),
     packages,
     addOns: isActivityV2 ? service.addOns ?? [] : packages.length > 0 ? service.addOns ?? [] : [],
     perfectFor,

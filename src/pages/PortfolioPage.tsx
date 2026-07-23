@@ -17,7 +17,6 @@ const PortfolioPage = () => {
     <div className="min-h-screen bg-background">
       <SEO 
         {...getRouteSeo("/portfolio")}
-        keywords="event portfolio Singapore, corporate event gallery, team building photos, event case studies, Elluminate portfolio"
       />
       <OrganizationSchema />
       <Navbar />

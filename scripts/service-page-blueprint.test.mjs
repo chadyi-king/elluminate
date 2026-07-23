@@ -22,7 +22,7 @@ try {
   const experienceModule = await vite.ssrLoadModule("/src/data/serviceExperienceContent.ts");
   const assetModule = await vite.ssrLoadModule("/src/data/serviceAssetCatalog.ts");
   const scopeModule = await vite.ssrLoadModule("/src/data/siteScope.ts");
-  const serviceDataModule = await vite.ssrLoadModule("/src/data/servicesData.ts");
+  const commercialModule = await vite.ssrLoadModule("/src/data/serviceCommercialProfiles.js");
   const blueprints = blueprintModule.servicePageBlueprints;
   const slugs = experienceModule.serviceExperienceSlugs;
   const catalog = assetModule.serviceAssetCatalog;
@@ -48,10 +48,7 @@ try {
     expect("specialistExtension" in blueprint, `${slug}: canonical contract is missing specialist extension data.`);
     expect(Boolean(blueprint.assets?.hero), `${slug}: canonical contract is missing the hero asset.`);
     const isActivityV2 = blueprint.layoutVersion === "activity-v2";
-    expect(
-      blueprint.facts.length === (isActivityV2 ? 6 : 9),
-      `${slug}: expected ${isActivityV2 ? 6 : 9} planning facts.`,
-    );
+    expect(blueprint.facts.length === 9, `${slug}: expected 9 canonical planning facts.`);
     if (isActivityV2) {
       const packageLessV2Slugs = new Set(["mass-talks", "workshops", "youth-camps", "corporate-days"]);
       const expectedPackageCount = packageLessV2Slugs.has(slug) ? 0 : 3;
@@ -73,14 +70,19 @@ try {
         !/\b(?:pre-set location|custom venue|venue selection|catering|logistics)\b/i.test(virtualPackageCopy),
         `${slug}: virtual packages contain physical-event venue or logistics language.`,
       );
-      const sourcePackages = serviceDataModule.servicesData[slug]?.packages ?? [];
       expect(
-        blueprint.packages.every((option, index) => option.price === sourcePackages[index]?.price),
-        `${slug}: virtual package prices drifted from the verified source data.`,
+        blueprint.packages[0]?.price === commercialModule.serviceCommercialProfiles[slug]?.packageRules.minimum &&
+          blueprint.packages.slice(1).every((option) => option.price === "Custom quote"),
+        `${slug}: virtual package prices drifted from the canonical commercial profile.`,
       );
     }
+    const commercialProfile = commercialModule.serviceCommercialProfiles[slug];
     const startingPrice = blueprint.facts.find((fact) => fact.label === "Starting price")?.value ?? "";
     expect(!/quote\s+per/i.test(startingPrice), `${slug}: quote-only pricing must not append a per-person or per-night unit.`);
+    expect(
+      startingPrice === (commercialProfile.publicPrice?.label ?? "Custom quote"),
+      `${slug}: starting price drifted from the canonical commercial profile.`,
+    );
     expect(blueprint.faqs.length === 8, `${slug}: expected 8 FAQs.`);
     expect(
       blueprint.perfectFor.length === (isActivityV2 ? 8 : 6),
@@ -100,38 +102,13 @@ try {
     expect(Boolean(blueprint.closingCta.headline && blueprint.closingCta.buttonLabel), `${slug}: closing CTA is incomplete.`);
     expect(blueprint.packages.every((option) => option.source === "existing-service-data"), `${slug}: package data is missing verified source provenance.`);
 
-    if (["fit-in-your-team-virtual", "the-gameshow-experience-virtual"].includes(slug)) {
-      const durationFact = blueprint.facts.find((fact) => fact.label === "Duration")?.value ?? "";
-      const durationFaq = blueprint.faqs.find((faq) => /how long|duration/i.test(faq.question))?.answer ?? "";
-      expect(/1\.5/.test(durationFact) && /3/.test(durationFact), `${slug}: planning duration must remain 1.5 to 3 hours.`);
-      expect(/1\.5/.test(durationFaq) && /3/.test(durationFaq), `${slug}: FAQ duration contradicts the planning brief.`);
-    }
-
-    const alignedDurationRoutes = {
-      "the-patriot-act-virtual": [/1\.5/, /3/],
-      "overseas-retreats": [/3/, /5/],
-      mbti: [/2/, /4/],
-      "mass-talks": [/1/, /3/],
-      workshops: [/3/, /4/],
-      "youth-camps": [/1/, /5/],
-      "corporate-days": [/4/, /8/],
-      "wellness-events": [/3/, /6/],
-      "leadership-offsites": [/1\.5/, /3/],
-    };
-    if (slug in alignedDurationRoutes) {
-      const durationFact = blueprint.facts.find((fact) => fact.label === "Duration")?.value ?? "";
-      const durationFaq = blueprint.faqs.find((faq) => /how long|duration/i.test(faq.question))?.answer ?? "";
-      const [lowerBound, upperBound] = alignedDurationRoutes[slug];
-      expect(lowerBound.test(durationFact) && upperBound.test(durationFact), `${slug}: planning duration lost its verified range.`);
-      expect(lowerBound.test(durationFaq) && upperBound.test(durationFaq), `${slug}: FAQ duration contradicts the planning brief.`);
-    }
-
-    if (slug === "local-retreats") {
-      const durationFact = blueprint.facts.find((fact) => fact.label === "Duration")?.value ?? "";
-      const durationFaq = blueprint.faqs.find((faq) => /how long|duration/i.test(faq.question))?.answer ?? "";
-      expect(/1/.test(durationFact) && /3/.test(durationFact), `${slug}: planning duration lost its verified 1 to 3 night range.`);
-      expect(/1/.test(durationFaq) && /3/.test(durationFaq), `${slug}: FAQ duration contradicts the current retreat packages.`);
-    }
+    const durationFact = blueprint.facts.find((fact) => fact.label === "Duration")?.value ?? "";
+    const durationFaq = blueprint.faqs.find((faq) => /how long|duration|set aside/i.test(faq.question))?.answer ?? "";
+    expect(durationFact === commercialProfile.duration, `${slug}: planning duration drifted from the canonical commercial profile.`);
+    expect(
+      durationFaq.toLowerCase().includes(commercialProfile.duration.toLowerCase()),
+      `${slug}: FAQ duration contradicts the canonical commercial profile.`,
+    );
 
     const familyScopedGallery = blueprint.gallery.filter((asset) => asset.scope === "family");
     if (familyScopedGallery.length > 0) {

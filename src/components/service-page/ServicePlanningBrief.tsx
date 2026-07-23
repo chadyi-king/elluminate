@@ -159,7 +159,7 @@ export function ServicePlanningBrief({
   const { openContactModal } = useContactModal();
 
   if (variant === "activity-v2") {
-    const visibleFacts = facts.slice(0, 6);
+    const visibleFacts = facts;
 
     return (
       <section

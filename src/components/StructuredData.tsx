@@ -107,10 +107,11 @@ interface ServiceSchemaProps {
   name: string;
   description: string;
   slug: string;
-  price?: string;
+  price?: number;
+  priceUnit?: string;
 }
 
-export const ServiceSchema = ({ name, description, slug, price }: ServiceSchemaProps) => {
+export const ServiceSchema = ({ name, description, slug, price, priceUnit }: ServiceSchemaProps) => {
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -129,12 +130,13 @@ export const ServiceSchema = ({ name, description, slug, price }: ServiceSchemaP
     serviceType: "Event Planning",
   };
 
-  if (price) {
+  if (typeof price === "number" && Number.isFinite(price) && price > 0) {
     schema.offers = {
       "@type": "Offer",
-      price: price.replace(/[^0-9.]/g, ""),
+      price,
       priceCurrency: "SGD",
       availability: "https://schema.org/InStock",
+      ...(priceUnit ? { unitText: priceUnit } : {}),
     };
   }
 

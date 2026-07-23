@@ -67,11 +67,7 @@ test("canonical blueprints replace the superseded 4-6 FAQ and 3-4 related-link c
     assert.equal(blueprint.overviewParagraphs.length, 2, `${slug} should have a two-paragraph introduction`);
     assert.ok(blueprint.overviewParagraphs.every((paragraph) => wordCount(paragraph) >= 4), `${slug} has an empty or unusably short introduction paragraph`);
     assert.equal(blueprint.journey.stages.length, 6, `${slug} should have exactly 6 journey stages`);
-    assert.equal(
-      blueprint.facts.length,
-      blueprint.layoutVersion === "activity-v2" ? 6 : 9,
-      `${slug} has the wrong planning-fact count for ${blueprint.layoutVersion}`,
-    );
+    assert.equal(blueprint.facts.length, 9, `${slug} has the wrong canonical planning-fact count`);
     assert.equal(blueprint.faqs.length, 8, `${slug} should have exactly 8 FAQs`);
     assert.equal(blueprint.relatedSlugs.length, 8, `${slug} should have exactly 8 related experiences`);
     assert.equal(new Set(blueprint.relatedSlugs).size, 8, `${slug} related experiences should be unique`);

@@ -27,6 +27,7 @@ import { ServiceDestinationsGrid } from "@/components/service-page/ServiceDestin
 import { ServiceSchema, FAQSchema, BreadcrumbSchema } from "@/components/StructuredData";
 import { ServiceFAQAccordion } from "@/components/service-page/ServiceFAQAccordion";
 import { getRouteSeo } from "@/data/seoRoutes";
+import { getServiceCommercialProfile } from "@/data/serviceCommercialProfiles";
 import { ServiceWorldFrame } from "@/components/service-worlds/ServiceWorldFrame";
 
 const ServicePage = () => {
@@ -46,50 +47,6 @@ const ServicePage = () => {
       </div>
     );
   }
-
-  const serviceKeywords: Record<string, string> = {
-    // Physical Team Building
-    "team-building": "corporate team building Singapore, physical team building Singapore, team bonding activities Singapore, company team bonding Singapore, indoor team building Singapore, outdoor team building Singapore, HR team building Singapore",
-    "amazing-race": "amazing race team building Singapore, corporate amazing race Singapore, outdoor team building Singapore, amazing race corporate event, team building race activity, amazing race school camp Singapore, corporate treasure hunt Singapore, team building adventure Singapore",
-    "csi-bones": "CSI team building Singapore, murder mystery event, detective team building, investigation game",
-    "cultural-race": "cultural race Singapore, heritage team building, cultural exploration activity",
-    "amongst-us": "amongst us team building Singapore, social deduction game corporate, imposter team game Singapore",
-    "alice-in-motherland": "alice in motherland team building Singapore, immersive story adventure, themed team experience Singapore",
-    "battle-of-the-olympians": "battle of the olympians team building Singapore, tournament team competition, school sports day corporate",
-    "archery-tag": "archery tag Singapore, combat archery, archery team building, foam arrow tag",
-    "builder-cross": "builder cross Singapore, construction team building, building challenge corporate",
-    "gel-blitz": "gel blitz Singapore, gel ball team building, outdoor combat game corporate",
-    "minute-to-win-it": "minute to win it Singapore, quick challenge games, corporate game show team building",
-    "monopoly-dash": "monopoly dash Singapore, board game team building, strategy race corporate",
-    "nerfwar": "nerf war Singapore, nerf gun team building, foam dart battle corporate",
-    "running-man": "running man Singapore, Korean variety game, outdoor chase team building",
-    "sotong-game": "squid game Singapore, sotong game team building, survival challenge corporate",
-    "tag-tical-laser-teambuilding": "laser tag Singapore, tactical laser team building, combat laser game corporate",
-    "treasure-heist": "treasure heist Singapore, heist team building, escape room outdoor corporate",
-    // Virtual Team Building
-    "amazing-race-virtual": "virtual amazing race Singapore, online team building, remote amazing race",
-    "fit-in-your-team-virtual": "virtual fitness team building, online wellness activity, remote team fitness",
-    "the-gameshow-experience-virtual": "virtual game show Singapore, online corporate game show, remote trivia team building",
-    "the-great-zodiac-hunt-virtual": "virtual zodiac hunt, online treasure hunt team building, remote team challenge",
-    "the-nuclear-fallout-escape-room-virtual": "virtual escape room Singapore, online escape room team building, remote puzzle challenge",
-    "the-patriot-act-virtual": "virtual Singapore games, patriot act team building, national day virtual event",
-    "tomb-raider-king-treasure-hunt-virtual": "virtual treasure hunt Singapore, online adventure team building, tomb raider team event",
-    "grand-christmas-delivery": "virtual Christmas party Singapore, online Christmas team building, remote holiday event",
-    // Retreats
-    "overseas-retreats": "overseas retreat Singapore, corporate retreat, company trip planning, team retreat overseas",
-    "local-retreats": "local retreat Singapore, staycation team building, Singapore hotel retreat corporate",
-    "incentive-travel": "incentive travel Singapore, corporate incentive trip, top performer reward trip, MICE Singapore, company trip planning",
-    // Training
-    "mbti": "MBTI Singapore, Myers-Briggs team building, personality profiling corporate, MBTI workshop",
-    "disc": "DISC assessment Singapore, DISC profiling corporate, communication training team building",
-    "ocean": "OCEAN profiling Singapore, Big Five personality test, personality assessment corporate",
-    "mass-talks": "corporate talk Singapore, keynote speaker, mass briefing, team presentation",
-    "workshops": "corporate workshop Singapore, skill building workshop, training workshop team",
-    "youth-camps": "youth camp Singapore, school camp, student leadership camp, CCA bonding camp",
-    "corporate-days": "corporate day Singapore, company fun day, team day out, corporate event day",
-    "wellness-events": "corporate wellness Singapore, wellness day team building, mindfulness corporate event, employee wellbeing programme",
-    "leadership-offsites": "leadership offsite Singapore, executive retreat, strategy offsite corporate, management team retreat Singapore",
-  };
 
   const serviceSEO: Record<string, { title: string; description: string; canonical: string }> = {
     "team-building": {
@@ -138,8 +95,12 @@ const ServicePage = () => {
     "leadership-offsites": { title: "Leadership Offsite Singapore | Elluminate", description: "Strategy-focused leadership offsites for senior teams in Singapore. Premium venues, expert facilitation, structured alignment. Book with Elluminate.", canonical: "https://elluminate.sg/services/leadership-offsites" },
   };
 
-  const seoData = getRouteSeo(`/services/${slug || ""}`) ?? serviceSEO[slug || ""];
+  // Kept temporarily for migration traceability; live metadata now comes only
+  // from SeoRouteManifest so crawler and React output cannot drift.
+  void serviceSEO;
+  const seoData = getRouteSeo(`/services/${slug || ""}`);
   const contentQuality = slug ? serviceContentQuality[slug] : undefined;
+  const commercialProfile = getServiceCommercialProfile(slug);
   const displayHeroTitle = contentQuality?.heroTitle ?? service.hero.title;
   const displayHeroSubtitle = contentQuality?.heroSubtitle ?? service.hero.subtitle;
   const displayHeroTagline = contentQuality?.heroSubline ?? service.hero.tagline;
@@ -147,10 +108,6 @@ const ServicePage = () => {
   const displayFaqs = blueprint.faqs;
   const relatedServices = blueprint.relatedSlugs;
   const isActivityV2 = blueprint.layoutVersion === "activity-v2";
-  const planningPrice = blueprint.facts.find((fact) => fact.label === "Starting price")?.value
-    ?? blueprint.packages.find((option) => option.price)?.price;
-  const schemaPrice = planningPrice && /\d/.test(planningPrice) ? planningPrice : undefined;
-
   // Determine service category for breadcrumbs
   const category = blueprint.family === "retreat"
     ? { label: "Retreats", href: "/services/retreats" }
@@ -164,14 +121,14 @@ const ServicePage = () => {
       <SEO 
         title={seoData?.title ?? `${service.hero.title} | Elluminate`}
         description={seoData?.description ?? `${displayOverviewDescription.slice(0, 145)}... Singapore`}
-        keywords={serviceKeywords[slug || ""] || "corporate events Singapore, event planning"}
         canonical={seoData?.canonical ?? `https://elluminate.sg/services/${slug}`}
       />
       <ServiceSchema 
         name={displayHeroTitle}
         description={displayOverviewDescription.slice(0, 200)}
         slug={slug || ""}
-        price={schemaPrice}
+        price={commercialProfile?.publicPrice?.amount}
+        priceUnit={commercialProfile?.publicPrice?.unit}
       />
       {displayFaqs && displayFaqs.length > 0 && (
         <FAQSchema faqs={displayFaqs} />
@@ -338,6 +295,12 @@ const ServicePage = () => {
                   ? "Want a different twist? Explore another Elluminate experience built for your group."
                   : "Compare this with other live Elluminate formats that may fit the same brief."}
               </p>
+              <Link
+                to={category.href}
+                className="mt-4 inline-flex text-sm font-bold text-primary underline-offset-4 hover:underline"
+              >
+                Explore all {category.label.toLowerCase()} options
+              </Link>
             </div>
             <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
               {relatedServices.map((relatedSlug) => (

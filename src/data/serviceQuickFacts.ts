@@ -4,6 +4,7 @@ import {
   serviceExperienceSlugs,
   type ServiceExperienceVariant,
 } from "@/data/serviceExperienceContent";
+import { getCommercialPlanningFacts } from "@/data/serviceCommercialProfiles";
 
 export type ServiceQuickFactsTheme =
   | "expedition"
@@ -328,9 +329,12 @@ export function getServiceQuickFacts(slug: string): ServiceQuickFactsData | null
   const entry = curatedServiceQuickFacts[slug] ?? buildCategoricalQuickFacts(slug);
   if (!entry) return null;
 
-  const facts = entry.facts.filter(
-    (fact): fact is ServiceQuickFact => typeof fact.value === "string" && fact.value.trim().length > 0,
-  );
+  const commercialFacts = getCommercialPlanningFacts(slug);
+  const facts = commercialFacts.length > 0
+    ? commercialFacts
+    : entry.facts.filter(
+        (fact): fact is ServiceQuickFact => typeof fact.value === "string" && fact.value.trim().length > 0,
+      );
 
   return facts.length > 0 ? { ...entry, facts } : null;
 }
