@@ -88,6 +88,24 @@ import discActor3 from "@/assets/service-characters/batch-03/disc-actor-3.webp";
 import mbtiActor1 from "@/assets/service-characters/batch-03/mbti-actor-1.webp";
 import mbtiActor2 from "@/assets/service-characters/batch-03/mbti-actor-2.webp";
 import mbtiActor3 from "@/assets/service-characters/batch-03/mbti-actor-3.webp";
+import corporateDaysActor1 from "@/assets/service-characters/batch-04/corporate-days-actor-1.webp";
+import corporateDaysActor2 from "@/assets/service-characters/batch-04/corporate-days-actor-2.webp";
+import corporateDaysActor3 from "@/assets/service-characters/batch-04/corporate-days-actor-3.webp";
+import leadershipOffsitesActor1 from "@/assets/service-characters/batch-04/leadership-offsites-actor-1.webp";
+import leadershipOffsitesActor2 from "@/assets/service-characters/batch-04/leadership-offsites-actor-2.webp";
+import leadershipOffsitesActor3 from "@/assets/service-characters/batch-04/leadership-offsites-actor-3.webp";
+import massTalksActor1 from "@/assets/service-characters/batch-04/mass-talks-actor-1.webp";
+import massTalksActor2 from "@/assets/service-characters/batch-04/mass-talks-actor-2.webp";
+import massTalksActor3 from "@/assets/service-characters/batch-04/mass-talks-actor-3.webp";
+import wellnessEventsActor1 from "@/assets/service-characters/batch-04/wellness-events-actor-1.webp";
+import wellnessEventsActor2 from "@/assets/service-characters/batch-04/wellness-events-actor-2.webp";
+import wellnessEventsActor3 from "@/assets/service-characters/batch-04/wellness-events-actor-3.webp";
+import workshopsActor1 from "@/assets/service-characters/batch-04/workshops-actor-1.webp";
+import workshopsActor2 from "@/assets/service-characters/batch-04/workshops-actor-2.webp";
+import workshopsActor3 from "@/assets/service-characters/batch-04/workshops-actor-3.webp";
+import youthCampsActor1 from "@/assets/service-characters/batch-04/youth-camps-actor-1.webp";
+import youthCampsActor2 from "@/assets/service-characters/batch-04/youth-camps-actor-2.webp";
+import youthCampsActor3 from "@/assets/service-characters/batch-04/youth-camps-actor-3.webp";
 import type { ActivityPageV2Slug } from "@/data/siteScope";
 
 export interface ServiceActorSet {
@@ -127,4 +145,10 @@ export const serviceActorAssets: Partial<Record<ActivityPageV2Slug, ServiceActor
   mbti: { journeyActorLeft: mbtiActor1, journeyActorRight: mbtiActor2, plannerActor: mbtiActor3 },
   disc: { journeyActorLeft: discActor1, journeyActorRight: discActor2, plannerActor: discActor3 },
   ocean: { journeyActorLeft: oceanActor1, journeyActorRight: oceanActor2, plannerActor: oceanActor3 },
+  "mass-talks": { journeyActorLeft: massTalksActor1, journeyActorRight: massTalksActor2, plannerActor: massTalksActor3 },
+  workshops: { journeyActorLeft: workshopsActor1, journeyActorRight: workshopsActor2, plannerActor: workshopsActor3 },
+  "youth-camps": { journeyActorLeft: youthCampsActor1, journeyActorRight: youthCampsActor2, plannerActor: youthCampsActor3 },
+  "corporate-days": { journeyActorLeft: corporateDaysActor1, journeyActorRight: corporateDaysActor2, plannerActor: corporateDaysActor3 },
+  "wellness-events": { journeyActorLeft: wellnessEventsActor1, journeyActorRight: wellnessEventsActor2, plannerActor: wellnessEventsActor3 },
+  "leadership-offsites": { journeyActorLeft: leadershipOffsitesActor1, journeyActorRight: leadershipOffsitesActor2, plannerActor: leadershipOffsitesActor3 },
 };

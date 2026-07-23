@@ -1936,20 +1936,20 @@ export const servicesData: Record<string, ServiceData> = {
         color: "#FF4F4F",
         title: "Executive Retreat",
         description:
-          "The full leadership reset. Multi-day programme at a luxury property with executive coaching, wellness, and strategic facilitation woven together.",
-        features: ["3D2N luxury accommodation", "Executive coaching", "Wellness sessions", "Full programme design"],
+          "A multi-day leadership reset with accommodation, strategic facilitation and selected coaching or wellness sessions shaped to the agreed scope.",
+        features: ["3D2N accommodation", "Coaching session", "Wellness sessions", "Full programme design"],
       },
     ],
     addOns: [
       {
         icon: "Brain",
         title: "Executive Coaching",
-        description: "One-on-one or small-group coaching sessions with a certified leadership coach.",
+        description: "Optional one-to-one or small-group coaching, with the facilitator and scope confirmed in the proposal.",
       },
       {
         icon: "Dumbbell",
         title: "Wellness Programme",
-        description: "Morning yoga, guided meditation, or spa sessions built into the offsite schedule.",
+        description: "Selected movement, guided reflection or recovery sessions built into the offsite schedule.",
       },
       {
         icon: "Camera",
@@ -1969,7 +1969,7 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "Target",
         title: "Post-Offsite Follow-Up",
-        description: "A 90-day accountability check-in session to track progress on commitments made.",
+        description: "A follow-up check-in scheduled after the offsite to review progress on agreed commitments.",
       },
     ],
     hideOutcomes: true,
@@ -3142,7 +3142,7 @@ export const servicesData: Record<string, ServiceData> = {
         title: "Wellness Lite",
         description:
           "A 3-hour guided session at your office or a nearby venue. One lead activity (yoga, meditation, or breathwork) plus a group reflection to close.",
-        features: ["3-hour programme", "1 lead wellness activity", "Certified instructor", "Group closing reflection"],
+        features: ["3-hour programme", "1 lead wellness activity", "Guided session", "Group closing reflection"],
       },
       {
         color: "#FFC400",
@@ -3168,12 +3168,12 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "Dumbbell",
         title: "Spa Credits",
-        description: "Individual spa treatment vouchers for every participant at partner wellness centres.",
+        description: "Optional spa treatment credits when they are available through the selected wellness venue.",
       },
       {
         icon: "UtensilsCrossed",
         title: "Healthy Catering",
-        description: "Nutritionist-curated menus with plant-based, gluten-free, and balanced meal options.",
+        description: "Balanced catering options, including selected plant-based and dietary alternatives.",
       },
       {
         icon: "Gift",
@@ -3188,7 +3188,7 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "Brain",
         title: "1-on-1 Coaching",
-        description: "Private 15-minute wellness coaching sessions with a certified practitioner.",
+        description: "Optional private wellness coaching, with the practitioner and session format confirmed in the proposal.",
       },
       {
         icon: "CalendarDays",
@@ -13255,7 +13255,7 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "ClipboardList",
         title: "Post-Event Content Package",
-        description: "Speaker slides, key takeaways summary, and a highlight reel delivered within 5 business days.",
+        description: "Speaker slides, a key takeaways summary, and optional highlight content scoped to the agreed delivery timeline.",
       },
       {
         icon: "GraduationCap",
@@ -13467,7 +13467,7 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "Award",
         title: "Certification",
-        description: "Official certificates of completion signed by the facilitator and issued same day.",
+        description: "Participation certificates can be added where appropriate, with wording and delivery details confirmed during planning.",
       },
       {
         icon: "Palette",
@@ -13680,7 +13680,7 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "Moon",
         title: "Overnight Stay",
-        description: "Extended multi-day programmes with supervised campsite accommodation included.",
+        description: "Multi-day programmes can include supervised accommodation when the selected site and school requirements allow.",
       },
       {
         icon: "Utensils",
@@ -13690,7 +13690,7 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "Bus",
         title: "Transport",
-        description: "Chartered bus pickup and drop-off from your school directly to the campsite and back.",
+        description: "Chartered transport can be arranged between agreed school pickup points and the camp site.",
       },
       {
         icon: "Camera",

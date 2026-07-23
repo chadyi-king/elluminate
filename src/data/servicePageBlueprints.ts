@@ -14,6 +14,27 @@ import {
 import { getVerifiedLocalServiceGalleryPaths } from "@/data/serviceGalleryMedia";
 import { getServiceQuickFacts } from "@/data/serviceQuickFacts";
 import { serviceActorAssets } from "@/data/serviceActorAssets";
+import adventureChallengeEditorial from "@/assets/hero/adventure-challenge.jpg";
+import creativeWorkshopEditorial from "@/assets/hero/creative-workshop.jpg";
+import wellnessActivityEditorial from "@/assets/hero/wellness-activity.jpg";
+import teamBuildingOutdoorEditorial from "@/assets/events/team-building-outdoor-1.jpg";
+import amazingRaceEditorial from "@/assets/services/amazing-race-hero.jpg";
+import awardsCeremonyEditorial from "@/assets/services/awards-ceremony-hero.jpg";
+import brandActivationEditorial from "@/assets/services/brand-activation-hero.jpg";
+import clientAppreciationEditorial from "@/assets/services/client-appreciation-hero.jpg";
+import corporateCarnivalEditorial from "@/assets/services/corporate-carnival-hero.jpg";
+import customThemesEditorial from "@/assets/services/custom-themes-hero.jpg";
+import eventConceptEditorial from "@/assets/services/event-concept-hero.jpg";
+import familyFunDayEditorial from "@/assets/services/family-fun-day-hero.jpg";
+import immersiveExperienceEditorial from "@/assets/services/immersive-experience-hero.jpg";
+import leadershipOffsiteEditorial from "@/assets/services/leadership-offsite-hero.jpg";
+import overseasRetreatEditorial from "@/assets/services/overseas-retreat-hero.jpg";
+import privateEventEditorial from "@/assets/services/private-event-hero.jpg";
+import productLaunchEditorial from "@/assets/services/product-launch-hero.jpg";
+import summitsEditorial from "@/assets/services/summits-hero.jpg";
+import teamBuildingEditorial from "@/assets/services/team-building-hero.jpg";
+import townHallEditorial from "@/assets/services/town-hall-hero.jpg";
+import wellnessEventEditorial from "@/assets/services/wellness-event-hero.jpg";
 import {
   Activity,
   Banknote,
@@ -44,11 +65,14 @@ import {
   KeyRound,
   LockKeyhole,
   Landmark,
+  Lightbulb,
   Map as MapIcon,
   MapPin,
   Medal,
   MessageCircle,
+  Mic2,
   Monitor,
+  PartyPopper,
   PencilRuler,
   Plane,
   Puzzle,
@@ -64,13 +88,16 @@ import {
   Trophy,
   Users,
   Workflow,
+  Wrench,
   Star,
   Zap,
   type LucideIcon,
 } from "lucide-react";
 import {
+  activityPageBatchOneSlugs,
+  activityPageBatchTwoSlugs,
+  activityPageBatchThreeSlugs,
   activityPageV2SlugSet,
-  activityPageV2Slugs,
   type ActivityPageV2Slug,
   equipmentActivityServices,
   physicalTeamBuildingServices,
@@ -330,6 +357,36 @@ const activityTransitionMoments: Record<ActivityBatchSlug, ServicePageBlueprint[
     { title: "See the Spectrum", description: "Explore tendencies without reducing anyone to a box.", icon: Gauge },
     { title: "Apply the Insight", description: "Turn the profile into practical collaboration experiments.", icon: Workflow },
   ],
+  "mass-talks": [
+    { title: "Set the Big Idea", description: "Give the audience one clear thought to lean into.", icon: Lightbulb },
+    { title: "Hold the Room", description: "Build energy through story, interaction and a confident live rhythm.", icon: Mic2 },
+    { title: "Send It Forward", description: "Land the message with a final line people can carry out of the room.", icon: Radio },
+  ],
+  workshops: [
+    { title: "Get Hands On", description: "Move quickly from explanation into an activity the room can enter.", icon: Hammer },
+    { title: "Try the Tool", description: "Practise the framework against situations the team actually faces.", icon: Wrench },
+    { title: "Put It to Work", description: "Leave with useful language and a next move for the workplace.", icon: Workflow },
+  ],
+  "youth-camps": [
+    { title: "Find Your Crew", description: "Step into a camp identity and begin as one group.", icon: Users },
+    { title: "Take the Challenge", description: "Face activities that stretch confidence, teamwork and initiative.", icon: Flag },
+    { title: "Lead the Way", description: "Reflect on the experience and carry the learning into what comes next.", icon: GraduationCap },
+  ],
+  "corporate-days": [
+    { title: "Gather the Company", description: "Bring different teams into one shared programme and atmosphere.", icon: Building2 },
+    { title: "Mix the Energy", description: "Move between activities, connection and celebration without losing the room.", icon: Dices },
+    { title: "End on a High", description: "Build toward a company-wide finish people want to stay for.", icon: PartyPopper },
+  ],
+  "wellness-events": [
+    { title: "Drop the Pace", description: "Give the room permission to step out of the usual rush.", icon: HeartPulse },
+    { title: "Reconnect the Body", description: "Use accessible movement, recovery and guided practice to reset together.", icon: Activity },
+    { title: "Carry It Forward", description: "Close with one realistic habit or idea people can take back to the week.", icon: Sparkles },
+  ],
+  "leadership-offsites": [
+    { title: "Surface What Matters", description: "Create room for the real priorities, tensions and decisions to appear.", icon: Eye },
+    { title: "Decide Together", description: "Work through perspectives and trade-offs while the full team is present.", icon: Handshake },
+    { title: "Commit to the Next Move", description: "Leave with clearer ownership, actions and a shared direction.", icon: Flag },
+  ],
 };
 
 const activityOverviewPresentation: Record<ActivityBatchSlug, ServicePageBlueprint["overviewPresentation"]> = {
@@ -363,6 +420,12 @@ const activityOverviewPresentation: Record<ActivityBatchSlug, ServicePageBluepri
   mbti: { eyebrow: "The Preferences", title: "Four Preference Pairs. One Clearer Way to Work Together." },
   disc: { eyebrow: "The Work Styles", title: "Less Guessing. Better Conversations Across Different Styles." },
   ocean: { eyebrow: "The Five Traits", title: "Personality Is a Spectrum, Not a Box" },
+  "mass-talks": { eyebrow: "The Shared Message", title: "Turn a Large Audience into One Shared Moment" },
+  workshops: { eyebrow: "The Practice Room", title: "Make the Learning Useful Before the Session Ends" },
+  "youth-camps": { eyebrow: "The Camp Story", title: "Give Students an Experience They Grow Through Together" },
+  "corporate-days": { eyebrow: "The Company Day", title: "Turn a Day Together into Something the Company Can Feel" },
+  "wellness-events": { eyebrow: "The Reset", title: "Make Space for the Team to Reset, Properly" },
+  "leadership-offsites": { eyebrow: "The Leadership Room", title: "Create Space to Say What Matters and Decide What Comes Next" },
 };
 
 const activityPlannerGuidance: Record<ActivityBatchSlug, string> = {
@@ -396,6 +459,12 @@ const activityPlannerGuidance: Record<ActivityBatchSlug, string> = {
   mbti: "Share the team context and collaboration question. We will shape the profiling, reflection and application around the people in the room.",
   disc: "Share the communication challenge and audience. We will tune the profile discussion and workplace scenarios around their day-to-day reality.",
   ocean: "Share the development question and team context. We will shape the trait exploration and practical experiments around the group.",
+  "mass-talks": "Share the audience, core message and event context. We will shape the session flow and production brief around the room you need to move.",
+  workshops: "Share the audience, workplace challenge and practical outcome. We will shape the exercises and workshop depth around what the team needs to use.",
+  "youth-camps": "Share the age range, group size, site and learning goals. We will shape the camp rhythm, activities and supervision plan around the cohort.",
+  "corporate-days": "Share the audience mix, venue and purpose of the day. We will bring the programme, facilitation and event flow into one workable plan.",
+  "wellness-events": "Share the group, setting and kind of reset you want. We will shape the movement, recovery and participation level around their comfort needs.",
+  "leadership-offsites": "Share the leadership context, decisions and preferred setting. We will shape the agenda, facilitation and action capture around the work that matters.",
 };
 
 const activityPlanningFacts: Record<ActivityBatchSlug, readonly ServicePlanningFact[]> = {
@@ -639,6 +708,54 @@ const activityPlanningFacts: Record<ActivityBatchSlug, readonly ServicePlanningF
     { label: "Exercises", value: "Trait reflection and team mapping" },
     { label: "Practical takeaways", value: "Collaboration experiments for the team to test" },
   ],
+  "mass-talks": [
+    { label: "Starting price", value: "From $5,000 per session" },
+    { label: "Group size", value: "From 100 participants" },
+    { label: "Duration", value: "1 to 3 hours" },
+    { label: "Setting", value: "Indoor" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier for custom production" },
+    { label: "Talk format", value: "Keynote, seminar or moderated session" },
+  ],
+  workshops: [
+    { label: "Starting price", value: "From $150/pax" },
+    { label: "Group size", value: "From 15 participants" },
+    { label: "Duration", value: "3 to 4 hours standard" },
+    { label: "Setting", value: "Indoor, with selected virtual or hybrid formats" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier if customised" },
+    { label: "Practical takeaways", value: "Exercises, reflection and actions for the workplace" },
+  ],
+  "youth-camps": [
+    { label: "Starting price", value: "From $80/student" },
+    { label: "Group size", value: "From 30 participants" },
+    { label: "Duration", value: "1 to 5 days" },
+    { label: "Setting", value: "Outdoor or site-based" },
+    { label: "Recommended booking lead time", value: "Enquire once your dates and cohort are known" },
+    { label: "Programme inclusions", value: "Facilitation, activities, supervision planning and reflection" },
+  ],
+  "corporate-days": [
+    { label: "Starting price", value: "From $100/pax" },
+    { label: "Group size", value: "From 20 participants" },
+    { label: "Duration", value: "4 to 8 hours" },
+    { label: "Setting", value: "Indoor, outdoor or mixed" },
+    { label: "Recommended booking lead time", value: "3 to 4 weeks for a customised programme" },
+    { label: "Programme inclusions", value: "Planning, facilitation and event-day coordination" },
+  ],
+  "wellness-events": [
+    { label: "Group size", value: "From 15 participants" },
+    { label: "Duration", value: "3 to 6 hours standard" },
+    { label: "Setting", value: "Indoor, outdoor or retreat format" },
+    { label: "Recommended booking lead time", value: "At least 2 weeks; earlier for multi-part programmes" },
+    { label: "Programme focus", value: "Movement, recovery and mental wellbeing" },
+    { label: "Comfort needs", value: "Participation needs confirmed during planning" },
+  ],
+  "leadership-offsites": [
+    { label: "Group size", value: "From 8 leaders" },
+    { label: "Duration", value: "1.5 to 3 days" },
+    { label: "Setting", value: "Local or overseas" },
+    { label: "Recommended booking lead time", value: "Enquire as soon as your preferred dates are known" },
+    { label: "Programme focus", value: "Alignment, decisions, trust and strategy" },
+    { label: "Programme inclusions", value: "Agenda design, facilitation and action capture" },
+  ],
 };
 
 const familyFactCopy: Record<ServiceFamily, readonly [ServicePlanningFact, ServicePlanningFact, ServicePlanningFact]> = {
@@ -723,13 +840,90 @@ const familyPerfectFor: Record<ServiceFamily, readonly FlowSectionItem[]> = {
 };
 
 const approvedPackageSlugs = new Set<ServiceExperienceSlug>([
-  ...activityPageV2Slugs,
+  ...activityPageBatchOneSlugs,
+  ...activityPageBatchTwoSlugs,
+  ...activityPageBatchThreeSlugs,
   "overseas-retreats",
   "local-retreats",
   "incentive-travel",
   "leadership-offsites",
   "wellness-events",
 ]);
+
+const activityCtaCopy: Partial<Record<ActivityBatchSlug, Pick<ServicePageBlueprint, "midCta" | "closingCta">>> = {
+  "mass-talks": {
+    midCta: {
+      headline: "Give the room one idea worth carrying",
+      subtext: "Share the audience, message and event context. We will shape the session around the room you need to move.",
+      buttonLabel: "Shape My Talk",
+    },
+    closingCta: {
+      headline: "Ready to move the whole room?",
+      subtext: "Bring us the audience and the idea. We will help turn it into a live session with clarity, energy and a strong finish.",
+      buttonLabel: "Plan My Mass Talk",
+    },
+  },
+  workshops: {
+    midCta: {
+      headline: "Turn the topic into something your team can use",
+      subtext: "Share the workplace challenge and intended outcome. We will shape a practical session around them.",
+      buttonLabel: "Shape My Workshop",
+    },
+    closingCta: {
+      headline: "Ready to get the room doing, not just listening?",
+      subtext: "Tell us who is joining and what should change after the session. We will recommend a useful workshop structure.",
+      buttonLabel: "Plan My Workshop",
+    },
+  },
+  "youth-camps": {
+    midCta: {
+      headline: "Build a camp the cohort can grow through",
+      subtext: "Share the age range, group size, site and learning goals. We will shape the camp journey from there.",
+      buttonLabel: "Shape Our Camp",
+    },
+    closingCta: {
+      headline: "Ready to give the cohort a story of their own?",
+      subtext: "Bring us the dates, students and outcomes. We will turn them into a structured camp programme.",
+      buttonLabel: "Plan Our Youth Camp",
+    },
+  },
+  "corporate-days": {
+    midCta: {
+      headline: "Bring the whole company into one well-run day",
+      subtext: "Share the audience mix, venue and purpose. We will connect the programme, energy and logistics.",
+      buttonLabel: "Shape Our Corporate Day",
+    },
+    closingCta: {
+      headline: "Ready to give the company a day worth showing up for?",
+      subtext: "Tell us who is coming and what the day needs to achieve. We will shape the programme around your people.",
+      buttonLabel: "Plan Our Corporate Day",
+    },
+  },
+  "wellness-events": {
+    midCta: {
+      headline: "Give the team a reset they can actually feel",
+      subtext: "Share the setting, group and preferred tone. We will shape a wellness programme around their comfort and energy.",
+      buttonLabel: "Shape Our Wellness Day",
+    },
+    closingCta: {
+      headline: "Ready to make room for a proper reset?",
+      subtext: "Bring us the people, timing and wellness focus. We will help build a programme that feels welcoming and useful.",
+      buttonLabel: "Plan Our Wellness Event",
+    },
+  },
+  "leadership-offsites": {
+    midCta: {
+      headline: "Create the space for the decisions that matter",
+      subtext: "Share the leadership context, agenda questions and preferred setting. We will shape the offsite around the work ahead.",
+      buttonLabel: "Shape Our Offsite",
+    },
+    closingCta: {
+      headline: "Ready to leave with clearer decisions and owners?",
+      subtext: "Bring us the leadership team, dates and decisions. We will help build the right offsite structure.",
+      buttonLabel: "Plan Our Leadership Offsite",
+    },
+  },
+};
 
 const virtualPackageCopy: readonly Omit<ServicePackageOption, "id">[] = [
   {
@@ -970,13 +1164,28 @@ const buildFaqs = (slug: ServiceExperienceSlug, family: ServiceFamily): readonly
     .slice(0, 8);
 };
 
+// These legacy Leadership Offsites filenames are byte-for-byte aliases of
+// Corporate Days photography. They can remain in the repository for older
+// pages, but must not be presented as route-specific leadership evidence.
+const routeRealPhotoExclusions: Partial<Record<ServiceExperienceSlug, ReadonlySet<string>>> = {
+  "leadership-offsites": new Set([
+    "/images/services/leadership-offsites/gallery-3.jpg",
+    "/images/services/leadership-offsites/gallery-4.jpg",
+    "/images/services/leadership-offsites/gallery-5.jpg",
+    "/images/services/leadership-offsites/gallery-6.jpg",
+    "/images/services/leadership-offsites/gallery-7.jpg",
+  ]),
+};
+
 const buildGallery = (
   slug: ServiceExperienceSlug,
   family: ServiceFamily,
   title: string,
 ): readonly ServiceGalleryAsset[] => {
   const service = servicesData[slug];
-  const verified = getVerifiedLocalServiceGalleryPaths(slug, 12);
+  const excludedRoutePhotos = routeRealPhotoExclusions[slug];
+  const verified = getVerifiedLocalServiceGalleryPaths(slug, 12)
+    .filter((src) => !excludedRoutePhotos?.has(src));
   const candidates: ServiceGalleryAsset[] = [
     ...verified.map((src, index) => ({
       src,
@@ -1032,12 +1241,63 @@ const buildGallery = (
   }).slice(0, 12);
 };
 
+const familyEditorialFallbacks: Record<ServiceFamily, readonly string[]> = {
+  physical: [
+    amazingRaceEditorial,
+    teamBuildingEditorial,
+    adventureChallengeEditorial,
+    immersiveExperienceEditorial,
+    eventConceptEditorial,
+    productLaunchEditorial,
+  ],
+  equipment: [
+    adventureChallengeEditorial,
+    teamBuildingOutdoorEditorial,
+    teamBuildingEditorial,
+    immersiveExperienceEditorial,
+    customThemesEditorial,
+    eventConceptEditorial,
+  ],
+  virtual: [
+    customThemesEditorial,
+    immersiveExperienceEditorial,
+    eventConceptEditorial,
+    brandActivationEditorial,
+    productLaunchEditorial,
+    privateEventEditorial,
+  ],
+  retreat: [
+    overseasRetreatEditorial,
+    wellnessEventEditorial,
+    leadershipOffsiteEditorial,
+    summitsEditorial,
+    privateEventEditorial,
+    clientAppreciationEditorial,
+  ],
+  training: [
+    creativeWorkshopEditorial,
+    eventConceptEditorial,
+    summitsEditorial,
+    leadershipOffsiteEditorial,
+    wellnessEventEditorial,
+    townHallEditorial,
+  ],
+};
+
+const activityEditorialFallbacks: Partial<Record<ActivityPageV2Slug, readonly string[]>> = {
+  "youth-camps": [adventureChallengeEditorial, teamBuildingOutdoorEditorial, familyFunDayEditorial],
+  "corporate-days": [corporateCarnivalEditorial, awardsCeremonyEditorial, clientAppreciationEditorial],
+  "wellness-events": [wellnessActivityEditorial, wellnessEventEditorial, privateEventEditorial],
+  "leadership-offsites": [leadershipOffsiteEditorial, summitsEditorial, overseasRetreatEditorial],
+};
+
 const buildJourneyMedia = (
   gallery: readonly ServiceGalleryAsset[],
   slug: ServiceExperienceSlug,
   title: string,
 ): readonly ServiceJourneyMedia[] => {
   const service = servicesData[slug];
+  const family = familyBySlug.get(slug) as ServiceFamily;
   const experienceImage = getServiceExperienceContent(slug)?.image?.src;
   const heroIdentity = getAssetIdentity(service.hero.backgroundImage);
   const galleryPathByIdentity = new Map(
@@ -1061,6 +1321,7 @@ const buildJourneyMedia = (
     service.ctaBackgroundImage,
     service.hero.backgroundImage,
     ...gallery.filter((asset) => asset.classification === "campaign-editorial").map((asset) => asset.src),
+    ...(activityEditorialFallbacks[slug as ActivityPageV2Slug] ?? familyEditorialFallbacks[family]),
   ]
     .filter((src): src is string => Boolean(src) && !src.startsWith("/__l5e/"))
     .map((src) => galleryPathByIdentity.get(getAssetIdentity(src)) ?? src)
@@ -1211,7 +1472,7 @@ export const getServicePageBlueprint = (slug: string): ServicePageBlueprint | nu
     ),
     facts: activitySlug ? activityPlanningFacts[activitySlug] : buildFacts(typedSlug, family, card),
     packages,
-    addOns: packages.length > 0 ? service.addOns ?? [] : [],
+    addOns: isActivityV2 ? service.addOns ?? [] : packages.length > 0 ? service.addOns ?? [] : [],
     perfectFor,
     faqs: buildFaqs(typedSlug, family),
     gallery,
@@ -1220,16 +1481,20 @@ export const getServicePageBlueprint = (slug: string): ServicePageBlueprint | nu
       : `${card.shortTitle} in Action`,
     journeyMedia: buildJourneyMedia(gallery, typedSlug, card.shortTitle),
     relatedSlugs: buildRelated(typedSlug, family),
-    midCta: {
-      headline: serviceContentQuality[typedSlug]?.ctaHeadline ?? service.cta.headline,
-      subtext: serviceContentQuality[typedSlug]?.ctaSubtext ?? service.cta.subtext,
-      buttonLabel: `Plan ${card.shortTitle}`,
-    },
-    closingCta: {
-      headline: `Bring ${card.shortTitle} to Your Group`,
-      subtext: `Share the people, date and outcome you have in mind. We will help shape the right ${card.shortTitle} format from there.`,
-      buttonLabel: "Build My Event",
-    },
+    midCta: activitySlug && activityCtaCopy[activitySlug]
+      ? activityCtaCopy[activitySlug]!.midCta
+      : {
+        headline: serviceContentQuality[typedSlug]?.ctaHeadline ?? service.cta.headline,
+        subtext: serviceContentQuality[typedSlug]?.ctaSubtext ?? service.cta.subtext,
+        buttonLabel: `Plan ${card.shortTitle}`,
+      },
+    closingCta: activitySlug && activityCtaCopy[activitySlug]
+      ? activityCtaCopy[activitySlug]!.closingCta
+      : {
+        headline: `Bring ${card.shortTitle} to Your Group`,
+        subtext: `Share the people, date and outcome you have in mind. We will help shape the right ${card.shortTitle} format from there.`,
+        buttonLabel: "Build My Event",
+      },
   };
 };
 

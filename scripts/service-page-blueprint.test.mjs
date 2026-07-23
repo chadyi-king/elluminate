@@ -31,7 +31,7 @@ try {
 
   expect(slugs.length === 36, `Expected 36 child routes; received ${slugs.length}.`);
   expect(Object.keys(blueprints).length === 36, `Expected 36 blueprint keys; received ${Object.keys(blueprints).length}.`);
-  expect(expectedActivityV2Slugs.length === 30, `Expected the first three reviewed activity-v2 batches (30 routes); received ${expectedActivityV2Slugs.length}.`);
+  expect(expectedActivityV2Slugs.length === 36, `Expected all four reviewed activity-v2 batches (36 routes); received ${expectedActivityV2Slugs.length}.`);
   expect(
     actualActivityV2Slugs.length === expectedActivityV2Slugs.length &&
       actualActivityV2Slugs.every((slug) => expectedActivityV2Slugs.includes(slug)),
@@ -53,7 +53,13 @@ try {
       `${slug}: expected ${isActivityV2 ? 6 : 9} planning facts.`,
     );
     if (isActivityV2) {
-      expect(blueprint.packages.length === 3, `${slug}: activity-v2 requires 3 integrated package tiers.`);
+      const packageLessV2Slugs = new Set(["mass-talks", "workshops", "youth-camps", "corporate-days"]);
+      const expectedPackageCount = packageLessV2Slugs.has(slug) ? 0 : 3;
+      expect(
+        blueprint.packages.length === expectedPackageCount,
+        `${slug}: expected ${expectedPackageCount} verified integrated package tiers.`,
+      );
+      expect(blueprint.addOns.length > 0, `${slug}: activity-v2 requires organiser add-on options.`);
       expect(Boolean(blueprint.assets.journeyActorLeft), `${slug}: activity-v2 is missing its left journey actor.`);
       expect(Boolean(blueprint.assets.journeyActorRight), `${slug}: activity-v2 is missing its right journey actor.`);
       expect(Boolean(blueprint.assets.plannerActor), `${slug}: activity-v2 is missing its planner actor.`);
@@ -86,6 +92,7 @@ try {
     expect(blueprint.gallery.filter((asset) => asset.classification === "real-event").length >= 3, `${slug}: expected at least 3 real-event assets.`);
     expect(blueprint.journeyMedia.filter((asset) => asset.kind === "real-event" && asset.src).length === 3, `${slug}: journey should use 3 real event photographs.`);
     expect(blueprint.journeyMedia.filter((asset) => asset.kind === "conceptual-editorial").length === 3, `${slug}: journey should use 3 campaign/editorial scenes.`);
+    expect(blueprint.journeyMedia.filter((asset) => asset.kind === "conceptual-editorial" && asset.src).length === 3, `${slug}: every campaign/editorial journey stage needs an actual visual source.`);
     expect(blueprint.relatedSlugs.length === 8, `${slug}: expected 8 related experiences.`);
     expect(new Set(blueprint.relatedSlugs).size === 8, `${slug}: related experiences contain duplicates.`);
     expect(!blueprint.relatedSlugs.includes(slug), `${slug}: recommendations include the current route.`);
@@ -104,6 +111,12 @@ try {
       "the-patriot-act-virtual": [/1\.5/, /3/],
       "overseas-retreats": [/3/, /5/],
       mbti: [/2/, /4/],
+      "mass-talks": [/1/, /3/],
+      workshops: [/3/, /4/],
+      "youth-camps": [/1/, /5/],
+      "corporate-days": [/4/, /8/],
+      "wellness-events": [/3/, /6/],
+      "leadership-offsites": [/1\.5/, /3/],
     };
     if (slug in alignedDurationRoutes) {
       const durationFact = blueprint.facts.find((fact) => fact.label === "Duration")?.value ?? "";

@@ -116,11 +116,12 @@ export const activityPageBatchFourSlugs = [
   "leadership-offsites",
 ] as const;
 
-/** Active reviewed scope: the first three approved ten-route batches. */
+/** Active reviewed scope: all four approved activity-page batches. */
 export const activityPageV2Slugs = [
   ...activityPageBatchOneSlugs,
   ...activityPageBatchTwoSlugs,
   ...activityPageBatchThreeSlugs,
+  ...activityPageBatchFourSlugs,
 ] as const;
 
 export type ActivityPageV2Slug = (typeof activityPageV2Slugs)[number];
