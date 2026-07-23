@@ -1,44 +1,29 @@
-## Root cause (verified)
 
-The live form submission is being rejected by PostgREST before it ever reaches the database, because the insert payload includes 4 columns that don't exist on `public.contact_submissions`:
+## Plan
 
-- `gbraid`
-- `wbraid`
-- `gad_source`
-- `attribution_captured_at`
+Upload the 6 uploaded SVGs to `public/images/service-page-logos/` as CDN asset pointers, then wire them into `src/components/service-page/ServiceHeroSplit.tsx` via the existing `renderLogo` helper.
 
-Verified against the live DB:
-- `pg_policies` shows the INSERT policy for `anon, authenticated` with `WITH CHECK (true)` — RLS is fine.
-- `information_schema.columns` for `public.contact_submissions` lists `gclid` and the `utm_*` columns, but not `gbraid`, `wbraid`, `gad_source`, or `attribution_captured_at`.
-- `src/lib/leadSubmission.ts` (lines 48–61) always sends those 4 fields in the insert payload from `attributionColumns()`.
+### Uploads (via `lovable-assets create`)
+- `disc.svg` → `disc.svg.asset.json`
+- `mbti.svg` → `mbti.svg.asset.json`
+- `ocean.svg` → `ocean.svg.asset.json`
+- `youth-camp.svg` → `youth-camp.svg.asset.json`
+- `mass-talks.svg` → `mass-talks.svg.asset.json`
+- `workshops.svg` → `workshops.svg.asset.json`
 
-PostgREST returns `PGRST204 – Could not find the 'gbraid' column of 'contact_submissions' in the schema cache` and fails the whole insert. Because the insert throws, `runLeadSubmissionFlow` never calls `trackLeadConversion` or `supabase.functions.invoke('send-transactional-email', …)`, so no edge function runs, no email log row is created, and the UI shows the generic "Something went wrong" error. No new rows since 2026-06-11 confirms this.
+### Service slug mapping
+| Upload | Service slug |
+|---|---|
+| mbti.svg | `mbti` |
+| disc.svg | `disc` |
+| ocean.svg | `ocean` |
+| youth-camp.svg | `youth-camps` |
+| mass-talks.svg | `mass-talks` |
+| workshops.svg | `workshops` |
 
-The earlier GRANT migration was necessary but not sufficient — the schema is also missing these columns.
+### Code change
+In `src/components/service-page/ServiceHeroSplit.tsx`:
+- Import the 6 new `.asset.json` pointers.
+- Replace the existing inline SVG illustrations in the switch cases for `mbti`, `disc`, `ocean`, `youth-camps`, `mass-talks`, and `workshops` with `renderLogo(<asset>.url, <alt>)`.
 
-## Fix
-
-Add the 4 missing columns to `public.contact_submissions` so the payload matches the schema. No RLS/grants change needed (already correct from the previous migration). No frontend changes needed.
-
-### Migration
-
-```sql
-ALTER TABLE public.contact_submissions
-  ADD COLUMN IF NOT EXISTS gbraid text,
-  ADD COLUMN IF NOT EXISTS wbraid text,
-  ADD COLUMN IF NOT EXISTS gad_source text,
-  ADD COLUMN IF NOT EXISTS attribution_captured_at timestamptz;
-```
-
-After the migration approves and the Supabase types regenerate, no code edit is required — `TablesInsert<"contact_submissions">` will pick up the new columns automatically.
-
-## Verification
-
-1. Confirm the 4 columns exist via `information_schema.columns`.
-2. Ask you to submit a live test enquiry.
-3. Verify:
-   - a new row appears in `public.contact_submissions` (with `lead_id` = row id, `brand='elluminate'`, `form_name` set),
-   - two rows in `public.email_send_log` for that `submissionId` (`contact-inquiry` to info@elluminate.sg, `contact-confirmation` to the submitter), status `pending` → `sent`,
-   - the browser redirects to `/thank-you-contact`.
-
-If anything still fails after the columns are added, I'll pull the exact PostgREST/edge-function error from logs and iterate.
+No other pages, data files, or styles are changed.
