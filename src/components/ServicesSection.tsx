@@ -5,13 +5,17 @@ import {
   ArrowRight,
   Brain,
   Compass,
+  Globe,
+  Lightbulb,
+  Map,
   Plane,
+  Route,
   Search,
   Sparkles,
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ExperienceCard } from "@/components/ExperienceCard";
+import { ExperienceCardView } from "@/components/ExperienceCardView";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import {
   equipmentActivityServices,
@@ -61,27 +65,93 @@ const experienceWorlds = [
 
 const featuredExperiences = [
   {
-    slug: "amazing-race",
+    card: {
+      slug: "amazing-race",
+      title: "THE AMAZING RACE",
+      shortTitle: "Amazing Race",
+      hook: "Follow the clues, conquer the checkpoints and race your crew to the final flag.",
+      setting: "Outdoor",
+      energy: "High energy",
+      icon: Route,
+      image: "/images/services/amazing-race/gallery-7.jpg",
+      accent: "#FFC400",
+      category: "Physical Team Building",
+    },
     filters: ["All", "Outdoor"],
   },
   {
-    slug: "csi-bones",
+    card: {
+      slug: "csi-bones",
+      title: "CSI - BONES",
+      shortTitle: "CSI-Bones",
+      hook: "Read the evidence, challenge every theory and crack the case as one investigation team.",
+      setting: "Indoor",
+      energy: "Focused",
+      icon: Search,
+      image: "/images/services/csi-bones/hero.jpg",
+      accent: "#26D07C",
+      category: "Physical Team Building",
+    },
     filters: ["All", "Indoor"],
   },
   {
-    slug: "cultural-race",
+    card: {
+      slug: "cultural-race",
+      title: "CULTURAL RACE",
+      shortTitle: "Cultural Race",
+      hook: "Turn Singapore's streets into a trail of local discoveries, clues and team missions.",
+      setting: "Outdoor",
+      energy: "Curious",
+      icon: Map,
+      image: "/images/services/cultural-race/gallery-1.jpg",
+      accent: "#FF4F4F",
+      category: "Physical Team Building",
+    },
     filters: ["All", "Outdoor"],
   },
   {
-    slug: "amazing-race-virtual",
+    card: {
+      slug: "amazing-race-virtual",
+      title: "AMAZING RACE VIRTUAL",
+      shortTitle: "Virtual Amazing Race",
+      hook: "Send remote teams racing through live clues, challenges and destinations from one screen.",
+      setting: "Virtual",
+      energy: "High energy",
+      icon: Globe,
+      image: "/images/services/amazing-race-virtual/hero.jpg",
+      accent: "#FFC400",
+      category: "Virtual Team Building",
+    },
     filters: ["All", "Virtual"],
   },
   {
-    slug: "overseas-retreats",
+    card: {
+      slug: "overseas-retreats",
+      title: "OVERSEAS RETREATS",
+      shortTitle: "Overseas Retreats",
+      hook: "Take the team somewhere new with travel, shared adventures and breathing room planned together.",
+      setting: "Overseas",
+      energy: "Shared adventure",
+      icon: Plane,
+      image: "/images/services/overseas-retreats/hero.jpg",
+      accent: "#5AB7AE",
+      category: "Retreats",
+    },
     filters: ["All", "Retreat"],
   },
   {
-    slug: "workshops",
+    card: {
+      slug: "workshops",
+      title: "WORKSHOPS",
+      shortTitle: "Workshops",
+      hook: "Turn useful ideas into discussion, practice and takeaways the team can use immediately.",
+      setting: "Indoor",
+      energy: "Hands-on",
+      icon: Lightbulb,
+      image: "/images/services/workshops/hero.jpg",
+      accent: "#EC4899",
+      category: "Training",
+    },
     filters: ["All", "Training", "Indoor"],
   },
 ];
@@ -212,13 +282,13 @@ export const PopularExperiencesSection = () => {
           {visibleExperiences.map((experience) => (
             <motion.div
               layout
-              key={experience.slug}
+              key={experience.card.slug}
               initial={reduceMotion ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: reduceMotion ? 0 : 0.3 }}
               className="h-full"
             >
-              <ExperienceCard slug={experience.slug} variant="featured" />
+              <ExperienceCardView card={experience.card} variant="featured" />
             </motion.div>
           ))}
         </motion.div>

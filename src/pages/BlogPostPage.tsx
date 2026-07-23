@@ -25,6 +25,7 @@ interface BlogPost {
   tags: string[] | null;
   meta_description: string | null;
   created_at: string;
+  updated_at?: string | null;
 }
 
 const BlogPostPage = () => {
@@ -100,6 +101,7 @@ const BlogPostPage = () => {
       url: "https://elluminate.sg",
     },
     datePublished: post.published_at || post.created_at,
+    dateModified: post.updated_at || post.published_at || post.created_at,
     mainEntityOfPage: `https://elluminate.sg/blog/${post.slug}`,
   };
 

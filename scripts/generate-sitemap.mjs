@@ -7,7 +7,6 @@ import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const BASE_URL = "https://elluminate.sg";
-const TODAY = new Date().toISOString().slice(0, 10);
 
 // Mirror src/data/siteScope.ts — keep these lists aligned. Adding a slug here
 // automatically gets it into the sitemap (and Search Console once submitted).
@@ -86,7 +85,7 @@ async function fetchBlogEntries() {
     const rows = await res.json();
     return rows.map((r) => ({
       path: `/blog/${r.slug}`,
-      lastmod: (r.updated_at || r.published_at || "").slice(0, 10) || TODAY,
+      lastmod: (r.updated_at || r.published_at || "").slice(0, 10) || undefined,
       changefreq: "monthly",
       priority: "0.6",
     }));
@@ -98,11 +97,10 @@ async function fetchBlogEntries() {
 
 function renderXml(entries) {
   const urls = entries.map((e) => {
-    const lastmod = e.lastmod || TODAY;
     return [
       "  <url>",
       `    <loc>${BASE_URL}${e.path}</loc>`,
-      `    <lastmod>${lastmod}</lastmod>`,
+      e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
       e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
       e.priority ? `    <priority>${e.priority}</priority>` : null,
       "  </url>",

@@ -19,26 +19,28 @@ const escapeHtml = (value) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;")
 function renderHead(route) {
   const canonicalPath = route.redirectTo || route.path;
   const canonicalUrl = `${BASE}${canonicalPath === "/" ? "" : canonicalPath}`;
+  const includeCanonical = route.omitCanonical !== true;
   const title = escapeHtml(route.title);
   const description = escapeHtml(route.description);
   const type = route.type || "website";
   const tags = [
-    `<title>${title}</title>`,
-    `<meta name="description" content="${description}" />`,
-    `<link rel="canonical" href="${canonicalUrl}" />`,
-    `<meta name="robots" content="${route.robots || "index, follow"}" />`,
-    `<meta property="og:title" content="${title}" />`,
-    `<meta property="og:description" content="${description}" />`,
-    `<meta property="og:type" content="${type}" />`,
-    `<meta property="og:url" content="${canonicalUrl}" />`,
-    `<meta property="og:site_name" content="${SITE_NAME}" />`,
-    `<meta property="og:image" content="${DEFAULT_OG}" />`,
-    `<meta property="og:locale" content="en_SG" />`,
-    `<meta name="twitter:card" content="summary_large_image" />`,
-    `<meta name="twitter:title" content="${title}" />`,
-    `<meta name="twitter:description" content="${description}" />`,
-    `<meta name="twitter:image" content="${DEFAULT_OG}" />`,
-  ];
+    `<title data-rh="true">${title}</title>`,
+    `<meta data-rh="true" name="description" content="${description}" />`,
+    includeCanonical ? `<link data-rh="true" rel="canonical" href="${canonicalUrl}" />` : null,
+    `<meta data-rh="true" name="robots" content="${route.robots || "index, follow"}" />`,
+    `<meta data-rh="true" property="og:title" content="${title}" />`,
+    `<meta data-rh="true" property="og:description" content="${description}" />`,
+    `<meta data-rh="true" property="og:type" content="${type}" />`,
+    includeCanonical ? `<meta data-rh="true" property="og:url" content="${canonicalUrl}" />` : null,
+    `<meta data-rh="true" property="og:site_name" content="${SITE_NAME}" />`,
+    `<meta data-rh="true" property="og:image" content="${DEFAULT_OG}" />`,
+    `<meta data-rh="true" property="og:locale" content="en_SG" />`,
+    `<meta data-rh="true" name="twitter:card" content="summary_large_image" />`,
+    `<meta data-rh="true" name="twitter:title" content="${title}" />`,
+    `<meta data-rh="true" name="twitter:description" content="${description}" />`,
+    `<meta data-rh="true" name="twitter:image" content="${DEFAULT_OG}" />`,
+    route.preloadImage ? `<link data-rh="true" rel="preload" as="image" href="${escapeHtml(route.preloadImage)}" />` : null,
+  ].filter(Boolean);
   if (route.redirectTo) tags.unshift(`<meta http-equiv="refresh" content="0; url=${canonicalUrl}" />`);
   return tags.join("\n    ");
 }
@@ -63,4 +65,13 @@ for (const route of routeSeo) {
   writeFileSync(outPath, html, "utf8");
 }
 
-console.log(`[prerender-seo] wrote ${routeSeo.length} static HTML files with shared route SEO`);
+const notFoundHtml = buildHtml({
+  path: "/404",
+  title: "Page Not Found | Elluminate",
+  description: "The page you're looking for doesn't exist.",
+  robots: "noindex, nofollow",
+  omitCanonical: true,
+});
+writeFileSync(join(DIST, "404.html"), notFoundHtml, "utf8");
+
+console.log(`[prerender-seo] wrote ${routeSeo.length} route files and a noindex 404 fallback`);

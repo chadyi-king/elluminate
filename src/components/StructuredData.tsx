@@ -8,6 +8,7 @@ export const OrganizationSchema = ({ type = "Organization" }: OrganizationSchema
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": type,
+    "@id": "https://elluminate.sg/#organization",
     name: "Elluminate",
     url: "https://elluminate.sg",
     logo: "https://elluminate.sg/logo.png",
@@ -63,9 +64,10 @@ export const WebSiteSchema = ({ url = "https://elluminate.sg" }: WebSiteSchemaPr
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://elluminate.sg/#website",
     name: "Elluminate",
     url,
-    publisher: { "@type": "Organization", name: "Elluminate" },
+    publisher: { "@id": "https://elluminate.sg/#organization" },
   };
 
   return (
@@ -77,7 +79,7 @@ export const WebSiteSchema = ({ url = "https://elluminate.sg" }: WebSiteSchemaPr
 
 interface BreadcrumbItem {
   name: string;
-  url: string;
+  url?: string;
 }
 
 interface BreadcrumbSchemaProps {
@@ -88,12 +90,17 @@ export const BreadcrumbSchema = ({ items }: BreadcrumbSchemaProps) => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.name,
-      item: item.url,
-    })),
+    itemListElement: items.map((item, index) => {
+      const listItem: Record<string, unknown> = {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+      };
+      if (item.url) {
+        listItem.item = item.url;
+      }
+      return listItem;
+    }),
   };
 
   return (
@@ -118,9 +125,7 @@ export const ServiceSchema = ({ name, description, slug, price }: ServiceSchemaP
     description,
     url: `https://elluminate.sg/services/${slug}`,
     provider: {
-      "@type": "Organization",
-      name: "Elluminate",
-      url: "https://elluminate.sg",
+      "@id": "https://elluminate.sg/#organization",
     },
     areaServed: {
       "@type": "Country",

@@ -6,20 +6,38 @@ interface SEOProps {
   keywords?: string;
   ogImage?: string;
   canonical?: string;
+  preloadImage?: string;
   type?: string;
   robots?: string;
 }
+
+const normalizeCanonical = (value: string) => {
+  const url = new URL(value, "https://elluminate.sg");
+  url.hash = "";
+  url.search = "";
+  if (url.pathname !== "/") {
+    url.pathname = url.pathname.replace(/\/+$/, "");
+  }
+  return url.toString().replace(/\/$/, "");
+};
 
 export const SEO = ({
   title = "Elluminate | Singapore's Premier Team Building Specialists",
   description = "Elluminate plans team building, retreats, training, and company experiences around the people, objective, venue, and timing.",
   keywords = "team building Singapore, corporate team building, virtual team building, team bonding activities, corporate retreat Singapore, training workshops Singapore, school programmes Singapore",
   ogImage = "https://elluminate.sg/og-image.jpg",
-  canonical = "https://elluminate.sg",
+  canonical,
+  preloadImage,
   type = "website",
   robots = "index, follow"
 }: SEOProps) => {
   const fullTitle = title.includes("Elluminate") ? title : `${title} | Elluminate`;
+  const isNoIndex = robots.toLowerCase().includes("noindex");
+  const canonicalUrl = canonical
+    ? normalizeCanonical(canonical)
+    : isNoIndex
+      ? undefined
+      : "https://elluminate.sg";
   
   return (
     <Helmet>
@@ -32,7 +50,7 @@ export const SEO = ({
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:url" content={canonical} />
+      {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
       <meta property="og:site_name" content="Elluminate" />
       
       {/* Twitter */}
@@ -42,7 +60,8 @@ export const SEO = ({
       <meta name="twitter:image" content={ogImage} />
       
       {/* Canonical */}
-      <link rel="canonical" href={canonical} />
+      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+      {preloadImage && <link rel="preload" as="image" href={preloadImage} />}
       
       {/* Additional SEO */}
       <meta name="robots" content={robots} />

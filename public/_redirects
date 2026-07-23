@@ -1,4 +1,6 @@
 # TODO(seo): Review /portfolio as the quarantine target when a live corporate events hub exists.
+/teambuilding /services/team-building 301!
+/services/corporate-retreats /services/overseas-retreats 301!
 /services/dinner-and-dance /portfolio 301!
 /services/awards-ceremonies /portfolio 301!
 /services/corporate-anniversaries /portfolio 301!

@@ -1,5 +1,7 @@
 {
   "redirects": [
+    { "source": "/teambuilding", "destination": "/services/team-building", "permanent": true },
+    { "source": "/services/corporate-retreats", "destination": "/services/overseas-retreats", "permanent": true },
     { "source": "/services/dinner-and-dance", "destination": "/portfolio", "permanent": true },
     { "source": "/services/awards-ceremonies", "destination": "/portfolio", "permanent": true },
     { "source": "/services/corporate-anniversaries", "destination": "/portfolio", "permanent": true },

@@ -462,6 +462,8 @@ const TeamBuildingHubPage = () => {
             alt="Corporate team working together during an outdoor team-building challenge"
             width={1920}
             height={1080}
+            fetchPriority="high"
+            decoding="async"
             className="absolute inset-0 -z-20 h-full w-full object-cover"
           />
               <div className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground via-foreground/[0.88] to-foreground/[0.45]" />

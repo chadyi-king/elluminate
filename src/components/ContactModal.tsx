@@ -323,7 +323,6 @@ export const ContactModal = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="fixed inset-0 z-50 flex h-[100dvh] w-full max-w-4xl flex-row overflow-hidden bg-background-card outline-none sm:inset-auto sm:left-1/2 sm:top-1/2 sm:h-auto sm:max-h-[90vh] sm:w-[calc(100%-2rem)] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl sm:border sm:border-primary/20"
-            aria-describedby="contact-modal-description"
           >
           {/* Left Branding Panel */}
           <div className="hidden md:flex min-h-0 w-[40%] flex-shrink-0 flex-col overflow-hidden bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800 p-5 relative lg:p-6">
@@ -392,10 +391,10 @@ export const ContactModal = () => {
                   <X className="w-6 h-6" />
                 </button>
               </DialogPrimitive.Close>
-              <DialogPrimitive.Title id="contact-modal-title" className="pr-10 text-xl font-display font-bold text-primary sm:text-2xl">
+              <DialogPrimitive.Title className="pr-10 text-xl font-display font-bold text-primary sm:text-2xl">
                 {isTeamBuildingInquiry ? "Send Your Team Activity Brief" : "Tell Us About Your Event"}
               </DialogPrimitive.Title>
-              <DialogPrimitive.Description id="contact-modal-description" className="text-gray-600 mt-1 text-sm sm:text-base">
+              <DialogPrimitive.Description className="text-gray-600 mt-1 text-sm sm:text-base">
                 {isTeamBuildingInquiry
                   ? "We’ve added your selected activity. Share the essentials and we’ll come back with the right next step."
                   : "Tell us your goals and we'll shape the right experience."}

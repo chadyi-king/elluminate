@@ -21,7 +21,7 @@ interface BreadcrumbsProps {
 export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
   const schemaItems = items.map((item) => ({
     name: item.label,
-    url: item.href ? `https://elluminate.sg${item.href}` : "https://elluminate.sg",
+    url: item.href ? `https://elluminate.sg${item.href}` : undefined,
   }));
 
   return (

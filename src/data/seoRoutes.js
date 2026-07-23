@@ -1,4 +1,9 @@
-const service = (slug, title, description) => ({ path: `/services/${slug}`, title, description });
+const service = (slug, title, description, extra = {}) => ({
+  path: `/services/${slug}`,
+  title,
+  description,
+  ...extra,
+});
 
 export const routeSeo = [
   { path: "/", title: "Team Building and Company Experiences Singapore | Elluminate", description: "Plan physical and virtual team building, company retreats and corporate workshops around your people, objective, venue and timing." },
@@ -12,7 +17,12 @@ export const routeSeo = [
   { path: "/blog/how-to-plan-amazing-race-company", type: "article", title: "How to Plan an Amazing Race for Your Company | Elluminate", description: "A practical guide to planning a corporate Amazing Race in Singapore, including routes, group flow and wet-weather considerations." },
   { path: "/blog/indoor-vs-outdoor-team-building", type: "article", title: "Indoor vs Outdoor Team Building in Singapore | Elluminate", description: "Compare indoor and outdoor corporate team-building formats by venue, weather, energy level and event objective." },
 
-  service("team-building", "Corporate Team Building Singapore | Elluminate", "Plan corporate team building in Singapore around your team, objective, venue and timing. Explore physical and virtual formats and send Elluminate your event brief."),
+  service(
+    "team-building",
+    "Corporate Team Building Singapore | Elluminate",
+    "Plan corporate team building in Singapore around your team, objective, venue and timing. Explore physical and virtual formats and send Elluminate your event brief.",
+    { preloadImage: "/images/services/amazing-race/gallery-1.jpg" },
+  ),
   service("amazing-race", "Amazing Race Team Building Singapore | Elluminate", "Plan a facilitated Amazing Race in Singapore around your group, route, timing, movement level and wet-weather needs."),
   service("csi-bones", "CSI-Bones Team Building Singapore | Elluminate", "Plan an indoor CSI-Bones mystery challenge with evidence, team reasoning and facilitation shaped around your group and venue."),
   service("cultural-race", "Cultural Race Team Building Singapore | Elluminate", "Explore Singapore through a facilitated Cultural Race with clues, local locations and team missions planned around your group."),
@@ -67,5 +77,6 @@ export const getRouteSeo = (path) => {
     canonical: `https://elluminate.sg${canonicalPath === "/" ? "" : canonicalPath}`,
     type: route.type || "website",
     robots: route.robots || "index, follow",
+    preloadImage: route.preloadImage,
   };
 };
