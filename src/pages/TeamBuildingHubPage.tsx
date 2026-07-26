@@ -623,22 +623,32 @@ const TeamBuildingHubPage = () => {
                   returns to work wondering whether all that time, budget and coordination changed anything.
                 </p>
               </div>
-              <figure className="relative min-h-[380px] overflow-hidden rounded-[2.25rem] border border-white/80 bg-[#efd9ca] shadow-[0_26px_70px_rgba(11,31,58,0.14)] sm:min-h-[470px]">
+              <div className="relative min-h-[410px] overflow-hidden sm:min-h-[500px]">
+                <div
+                  aria-hidden="true"
+                  className="absolute left-1/2 top-14 h-[20rem] w-[20rem] -translate-x-1/2 rounded-full bg-[#f7cba9]/70 blur-[1px] sm:h-[25rem] sm:w-[25rem]"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute right-[8%] top-[16%] h-20 w-20 rounded-full border-2 border-[#e45f55]/20"
+                />
                 <img
-                  src="/images/campaigns/team-building/thoughtful-event-planner-v1.webp"
-                  alt="Illustrative campaign portrait of a fictional professional considering an event plan"
+                  src="/images/campaigns/team-building/thoughtful-organiser-cutout-v2.webp"
+                  alt=""
                   width={1024}
                   height={1536}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover object-[60%_28%]"
+                  decoding="async"
+                  aria-hidden="true"
+                  className="pointer-events-none absolute left-1/2 top-0 h-[39rem] w-auto max-w-none -translate-x-1/2 object-contain object-top drop-shadow-[0_24px_28px_rgba(11,31,58,0.2)] sm:h-[47rem]"
                 />
-                <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/70 bg-white/85 px-5 py-4 backdrop-blur-md">
+                <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-white/80 bg-white/90 px-5 py-4 shadow-[0_18px_45px_rgba(11,31,58,0.14)] backdrop-blur-md sm:inset-x-8 sm:bottom-6">
                   <p className="text-xs font-black uppercase tracking-[0.18em] text-[#e45f55]">The organiser&apos;s question</p>
                   <p className="mt-2 font-display text-xl font-black leading-7 text-[#0b1f3a]">
                     Will people actually want to join in?
                   </p>
                 </div>
-              </figure>
+              </div>
             </div>
 
             <div className="mt-14 grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-stretch">
@@ -960,28 +970,74 @@ const TeamBuildingHubPage = () => {
           </div>
         </section>
 
-        <section className="overflow-hidden bg-[#0b1f3a] py-20 text-white sm:py-28">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-4xl">
+        <section className="relative overflow-hidden bg-[#0b1f3a] py-20 text-white sm:py-28">
+          <div className="absolute -left-32 top-10 h-80 w-80 rounded-full bg-primary/20 blur-3xl" />
+          <div className="absolute -right-32 top-24 h-80 w-80 rounded-full bg-[#ffd85d]/10 blur-3xl" />
+          <div className="container relative mx-auto px-6 lg:px-12">
+            <div className="relative mx-auto max-w-[96rem] xl:min-h-[24rem]">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-5 -left-16 hidden h-[24rem] w-[19rem] overflow-hidden xl:block 2xl:left-0"
+              >
+                <img
+                  src="/images/campaigns/team-building/energetic-adventure-man-cutout-v1.webp"
+                  alt=""
+                  width={583}
+                  height={827}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute bottom-0 left-0 h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_22px_28px_rgba(0,0,0,0.28)]"
+                />
+              </div>
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-5 -right-16 hidden h-[24rem] w-[19rem] overflow-hidden xl:block 2xl:right-0"
+              >
+                <img
+                  src="/images/campaigns/team-building/energetic-adventure-woman-cutout-v1.webp"
+                  alt=""
+                  width={502}
+                  height={792}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute bottom-0 right-0 h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_22px_28px_rgba(0,0,0,0.28)]"
+                />
+              </div>
+
+              <div className="relative z-10 mx-auto max-w-4xl text-center xl:pt-5">
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-[#ffd85d]">Real event moments</p>
                 <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] sm:text-6xl">
                   What good participation looks like is different for every team.
                 </h2>
-                <p className="mt-6 max-w-3xl text-lg leading-8 text-white/[0.68]">
+                <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/[0.68]">
                   An outdoor race, an indoor investigation, a station challenge and a virtual session should not
                   create the same kind of energy. The proof is in whether people have a clear way to join in.
                 </p>
+                <Link
+                  to="/portfolio"
+                  className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full border border-white/25 px-6 font-bold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#ffd85d]"
+                >
+                  Explore the portfolio <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
-              <Link
-                to="/portfolio"
-                className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full border border-white/25 px-6 font-bold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#ffd85d]"
+
+              <div
+                aria-hidden="true"
+                className="pointer-events-none relative mx-auto mt-7 h-72 w-56 overflow-hidden xl:hidden"
               >
-                Explore the portfolio <ArrowRight className="h-4 w-4" />
-              </Link>
+                <img
+                  src="/images/campaigns/team-building/energetic-adventure-woman-cutout-v1.webp"
+                  alt=""
+                  width={502}
+                  height={792}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute bottom-0 left-1/2 h-[18rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_18px_24px_rgba(0,0,0,0.24)]"
+                />
+              </div>
             </div>
 
-            <div className="mt-12 grid auto-rows-[230px] gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2">
+            <div className="mt-8 grid auto-rows-[230px] gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 xl:mt-10">
               {gallery.map((item, index) => (
                 <figure
                   key={item.src}
@@ -1075,13 +1131,32 @@ const TeamBuildingHubPage = () => {
           </div>
         </section>
 
-        <section id="how-it-works" className="scroll-mt-24 bg-[#f7faff] py-20 sm:py-28">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-3xl">
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">How it works</p>
-              <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] text-[#0b1f3a] sm:text-6xl">
-                From rough brief to a team-building event you can confirm
-              </h2>
+        <section id="how-it-works" className="relative scroll-mt-24 overflow-hidden bg-[#f7faff] py-20 sm:py-28">
+          <div className="absolute -right-40 top-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+          <div className="container relative mx-auto px-6 lg:px-12">
+            <div className="grid gap-6 lg:grid-cols-[1fr_0.48fr] lg:items-end">
+              <div className="max-w-3xl">
+                <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">How it works</p>
+                <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] text-[#0b1f3a] sm:text-6xl">
+                  From rough brief to a team-building event you can confirm
+                </h2>
+              </div>
+              <div className="relative mx-auto h-[17rem] w-full max-w-md overflow-hidden lg:-ml-28 lg:h-[22rem] lg:w-[calc(100%+7rem)] lg:max-w-none">
+                <div
+                  aria-hidden="true"
+                  className="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-[#dcecff] lg:h-72 lg:w-72"
+                />
+                <img
+                  src="/images/campaigns/team-building/planning-facilitator-cutout-v1.webp"
+                  alt=""
+                  width={1536}
+                  height={1024}
+                  loading="lazy"
+                  decoding="async"
+                  aria-hidden="true"
+                  className="pointer-events-none absolute bottom-[-2.5rem] left-1/2 h-[21rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:bottom-[-3.5rem] lg:left-auto lg:right-[-3.5rem] lg:h-[28rem] lg:translate-x-0"
+                />
+              </div>
             </div>
             <div className="relative mt-12 grid gap-5 lg:grid-cols-3">
               <div className="absolute left-[16%] right-[16%] top-8 hidden h-px bg-gradient-to-r from-primary via-[#ffd85d] to-[#f37468] lg:block" />
