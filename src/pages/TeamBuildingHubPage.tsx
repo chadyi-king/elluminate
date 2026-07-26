@@ -1141,7 +1141,7 @@ const TeamBuildingHubPage = () => {
                   From rough brief to a team-building event you can confirm
                 </h2>
               </div>
-              <div className="relative mx-auto h-[17rem] w-full max-w-md overflow-hidden lg:-ml-28 lg:h-[22rem] lg:w-[calc(100%+7rem)] lg:max-w-none">
+              <div className="relative mx-auto h-[20rem] w-full max-w-md overflow-hidden lg:-ml-28 lg:h-[25rem] lg:w-[calc(100%+7rem)] lg:max-w-none">
                 <div
                   aria-hidden="true"
                   className="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-[#dcecff] lg:h-72 lg:w-72"
@@ -1154,7 +1154,7 @@ const TeamBuildingHubPage = () => {
                   loading="lazy"
                   decoding="async"
                   aria-hidden="true"
-                  className="pointer-events-none absolute bottom-[-2.5rem] left-1/2 h-[21rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:bottom-[-3.5rem] lg:left-auto lg:right-[-3.5rem] lg:h-[28rem] lg:translate-x-0"
+                  className="pointer-events-none absolute bottom-[-2rem] left-1/2 h-[21rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:bottom-[-3.5rem] lg:left-auto lg:right-[-3.5rem] lg:h-[28rem] lg:translate-x-0"
                 />
               </div>
             </div>
@@ -1170,11 +1170,6 @@ const TeamBuildingHubPage = () => {
                 </article>
               ))}
             </div>
-            <p className="mt-8 flex items-start gap-3 rounded-2xl border border-primary/20 bg-primary/[0.06] px-5 py-4 text-sm font-semibold leading-6 text-[#40536d]">
-              <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              The earlier the brief is clear, the more room there is to solve the details before they become rushed
-              compromises.
-            </p>
           </div>
         </section>
 
@@ -1211,12 +1206,11 @@ const TeamBuildingHubPage = () => {
               </div>
             </div>
 
-            <p className="mx-auto mt-7 max-w-3xl text-sm font-semibold leading-7 text-white/65">
-              No payment at enquiry. No need to choose an activity first. Review the direction and quote before
-              confirming.
+            <p className="mx-auto mt-7 max-w-3xl text-base font-semibold leading-7 text-white/70">
+              One brief connects the activity, participation plan, venue fit, facilitation and quote.
             </p>
             <p className="mx-auto mt-4 max-w-3xl font-display text-xl font-black leading-8 text-white">
-              You are not committing by asking. You are protecting your options.
+              Bring us the brief. We will shape the whole experience around your team.
             </p>
             <Button
               type="button"
