@@ -341,22 +341,22 @@ const gallery = [
   {
     src: "/images/services/amazing-race/gallery-5.jpg",
     alt: "Corporate team working together during an outdoor challenge",
-    caption: "Pulling together — outdoor team challenge",
+    caption: "Pulling together: outdoor team challenge",
   },
   {
     src: "/images/services/csi-bones/gallery-4.jpg",
     alt: "Corporate participants examining clues during an indoor mystery activity",
-    caption: "Comparing clues — indoor investigation",
+    caption: "Comparing clues: indoor investigation",
   },
   {
     src: "/images/services/minute-to-win-it/gallery-6.jpg",
     alt: "Company group taking part in an indoor station challenge",
-    caption: "Rotating through stations — indoor format",
+    caption: "Rotating through stations: indoor format",
   },
   {
     src: "/images/services/monopoly-dash/gallery-5.jpg",
     alt: "Team members completing a facilitated outdoor challenge",
-    caption: "Sharing the same finish — facilitated outdoor format",
+    caption: "Sharing the same finish: facilitated outdoor format",
   },
 ];
 
@@ -460,6 +460,7 @@ const pushLandingEvent = (eventName: "form_start" | "cta_click", payload: Record
 };
 
 const TeamBuildingHubPage = () => {
+  const heroHeadline = "Team Building Your People Won't Quietly Dread";
   const [activityFilter, setActivityFilter] = useState<ActivityFilter>("All");
   const [quoteForm, setQuoteForm] = useState<QuoteFormState>(initialQuoteForm);
   const [honeypot, setHoneypot] = useState("");
@@ -575,30 +576,22 @@ const TeamBuildingHubPage = () => {
             </p>
 
             <h1
-              aria-label={campaignConfig.h1}
-              className="relative z-20 mt-5 font-display font-black uppercase leading-[0.82] tracking-[-0.065em] text-[#0b1f3a] lg:absolute lg:inset-0 lg:mt-0"
+              aria-label={heroHeadline}
+              className="relative z-20 mt-5 text-center font-display font-black uppercase leading-[0.86] tracking-[-0.05em] text-[#0b1f3a] lg:absolute lg:inset-0 lg:mt-0 lg:text-left lg:leading-[0.82] lg:tracking-[-0.065em]"
             >
-              <span className="block font-sans text-[clamp(1.35rem,5.6vw,2rem)] font-black normal-case tracking-[-0.035em] lg:absolute lg:left-[4%] lg:top-[54px] lg:text-[clamp(1.7rem,2.2vw,2.7rem)]">
-                Corporate{" "}
+              <span className="block w-full text-[clamp(2.8rem,12vw,4rem)] lg:absolute lg:left-[4%] lg:top-[62px] lg:w-[40%] lg:text-[clamp(4.4rem,6vw,6.8rem)]">
+                Team Building{" "}
               </span>
-              <span className="block text-[clamp(4.3rem,19vw,7.4rem)] lg:absolute lg:left-[4%] lg:top-[88px] lg:text-[clamp(5.2rem,7.5vw,8.4rem)]">
-                Team{" "}
+              <span className="mt-2 block w-full text-[clamp(2.7rem,11.5vw,3.8rem)] lg:absolute lg:right-[4%] lg:top-[70px] lg:mt-0 lg:w-[37%] lg:text-right lg:text-[clamp(4rem,5.5vw,6.3rem)]">
+                Your People{" "}
               </span>
-              <span className="mt-2 block text-right font-sans text-[clamp(1.35rem,5.6vw,2rem)] font-black normal-case tracking-[-0.035em] lg:absolute lg:right-[4%] lg:top-[54px] lg:mt-0 lg:text-[clamp(1.7rem,2.2vw,2.7rem)]">
-                Building in{" "}
-              </span>
-              <span className="block text-right text-[clamp(3.35rem,14vw,5.8rem)] lg:absolute lg:right-[4%] lg:top-[92px] lg:text-[clamp(4rem,5.8vw,6.5rem)]">
-                Singapore,{" "}
-              </span>
-              <span className="mt-4 block text-[clamp(2.65rem,11.5vw,4.8rem)] text-[#348fbe] lg:absolute lg:left-[4%] lg:top-[284px] lg:mt-0 lg:w-[30%] lg:text-[clamp(4.1rem,6.2vw,7.1rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.16)]">
-                Planned
+              <span className="mt-4 block w-full text-[clamp(2.8rem,12vw,4rem)] text-[#348fbe] lg:absolute lg:left-[4%] lg:top-[294px] lg:mt-0 lg:w-[31%] lg:text-[clamp(3.8rem,5.3vw,6rem)] lg:text-left lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.16)]">
+                Won't
                 <br />
-                Around{" "}
+                Quietly{" "}
               </span>
-              <span className="block text-right text-[clamp(3.4rem,15vw,6.2rem)] text-[#0b1f3a] lg:absolute lg:right-[4%] lg:top-[284px] lg:w-[28%] lg:text-[clamp(5rem,7.5vw,8.2rem)]">
-                Your
-                <br />
-                Team
+              <span className="block w-full text-[clamp(3.4rem,15vw,5rem)] text-[#0b1f3a] lg:absolute lg:right-[4%] lg:top-[306px] lg:w-[28%] lg:text-right lg:text-[clamp(5.2rem,7.5vw,8.4rem)]">
+                Dread
               </span>
             </h1>
 
@@ -670,8 +663,8 @@ const TeamBuildingHubPage = () => {
 
               <div className="relative z-50 order-1 rounded-[2rem] border border-white/85 bg-[#fffdf8]/[0.96] px-5 py-6 shadow-[0_24px_70px_rgba(11,31,58,0.2)] backdrop-blur-md sm:px-7 sm:py-7 lg:absolute lg:bottom-[54px] lg:left-[4.5%] lg:w-[29%] lg:px-7 lg:py-6">
                 <p className="text-base leading-7 text-[#334765] sm:text-lg sm:leading-8 lg:text-[0.95rem] lg:leading-6 xl:text-base xl:leading-7">
-                  The unexpected leader. The quiet teammate who spots the answer. The shared finish everyone joins. We
-                  match the experience to your people, then shape the flow, venue fit and facilitation around them.
+                  Tell us who is coming, what you want the day to achieve and where it needs to happen. We'll help you
+                  choose an experience your team can genuinely get into.
                 </p>
                 <Button asChild variant="hero" size="xl" className="mt-6 w-full px-6 lg:h-auto lg:px-5 lg:py-4 xl:px-7">
                   <a href="#quote" onClick={() => handleCtaClick("hero_primary")}>
@@ -693,7 +686,7 @@ const TeamBuildingHubPage = () => {
               <div className="max-w-3xl">
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">Shared operating history</p>
                 <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] text-[#0b1f3a] sm:text-6xl">
-                  Experience is what lets us plan around your team—not just sell you an activity.
+                  Experience is what lets us plan around your team, not just sell you an activity.
                 </h2>
               </div>
               <blockquote className="relative rounded-[2rem] bg-[#0b1f3a] p-7 text-white shadow-xl sm:p-9">
@@ -990,7 +983,7 @@ const TeamBuildingHubPage = () => {
                   </h3>
                   <p className="mt-4 leading-7 text-[#4c5e76]">
                     Explore 12 story-led physical experiences, 4 equipment activities and 8 virtual experiences. You
-                    can browse every format — or send the brief without choosing one first.
+                    can browse every format, or send the brief without choosing one first.
                   </p>
                 </div>
                 <a
@@ -1145,7 +1138,7 @@ const TeamBuildingHubPage = () => {
             </div>
             <p className="mx-auto mt-10 max-w-4xl border-t border-[#d9e1eb] pt-8 text-center text-lg font-semibold leading-8 text-[#0b1f3a]">
               The difference is not simply which game appears on the day. It is how much certainty you have before
-              confirming—and how much your internal team still has to carry.
+              confirming, and how much your internal team still has to carry.
             </p>
           </div>
         </section>

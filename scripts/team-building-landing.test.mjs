@@ -35,9 +35,10 @@ test("page preserves the shared site navigation and footer", () => {
 test("page has one H1, message-matched SEO, and the locked primary action", () => {
   assert.equal((page.match(/<h1\b/g) ?? []).length, 1);
   assert.match(campaignPageConfigs, /h1:\s*"Corporate Team Building in Singapore, Planned Around Your Team"/);
+  assert.match(page, /const heroHeadline = "Team Building Your People Won't Quietly Dread"/);
   assert.match(
     normalize(page),
-    /the unexpected leader\. the quiet teammate who spots the answer\. the shared finish everyone joins\./,
+    /tell us who is coming, what you want the day to achieve and where it needs to happen\. we'll help you choose an experience your team can genuinely get into\./,
   );
   assert.match(page, /Build My Team Experience/);
   assert.match(page, /Send My Team Building Enquiry/);
