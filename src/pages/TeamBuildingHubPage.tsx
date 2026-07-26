@@ -1,17 +1,29 @@
 import { useMemo, useState } from "react";
 import {
   ArrowRight,
+  Award,
+  CalendarCheck2,
+  CalendarClock,
   CheckCircle2,
   ChevronRight,
   ClipboardCheck,
   Compass,
+  HeartHandshake,
+  LayoutGrid,
   MessageCircle,
+  MonitorPlay,
+  Quote,
   Route,
   ShieldCheck,
   Sparkles,
+  Target,
+  TriangleAlert,
+  UserRoundCheck,
   UsersRound,
+  XCircle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ExperienceCard } from "@/components/ExperienceCard";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { SEO } from "@/components/SEO";
@@ -21,6 +33,7 @@ import { Button } from "@/components/ui/button";
 import { useContactModal } from "@/contexts/ContactModalContext";
 import { cloudinaryImage } from "@/lib/media";
 import { getCampaignPageConfig } from "@/data/campaignPageConfigs";
+import { clientTestimonials, type ClientTestimonial } from "@/data/clientTestimonials";
 import { getRouteSeo } from "@/data/seoRoutes";
 import {
   equipmentActivityServices,
@@ -33,11 +46,6 @@ type ActivityFilter = "All" | "Outdoor" | "Indoor" | "High energy" | "Lower inte
 type ActivityCard = {
   slug: string;
   title: string;
-  format: string;
-  description: string;
-  fit: string;
-  image: string;
-  alt: string;
   filters: ActivityFilter[];
 };
 
@@ -54,61 +62,31 @@ const activityCards: ActivityCard[] = [
   {
     slug: "amazing-race",
     title: "Amazing Race",
-    format: "Outdoor race format",
-    description: "Teams navigate checkpoints, solve clues, and complete facilitated challenges together.",
-    fit: "A strong direction when you want movement, exploration, and a shared finish line.",
-    image: "/images/services/amazing-race/gallery-1.jpg",
-    alt: "Company team completing an outdoor team-building challenge in Singapore",
     filters: ["All", "Outdoor", "High energy"],
   },
   {
     slug: "cultural-race",
     title: "Cultural Race",
-    format: "Singapore discovery format",
-    description: "A route-based team challenge shaped around local districts, clues, and group missions.",
-    fit: "Useful when the location should become part of the experience for local or visiting teams.",
-    image: "/images/services/cultural-race/gallery-5.jpg",
-    alt: "Team members taking part in a Cultural Race checkpoint",
     filters: ["All", "Outdoor", "High energy"],
   },
   {
     slug: "csi-bones",
     title: "CSI-Bones",
-    format: "Indoor mystery format",
-    description: "Teams examine evidence, compare theories, and work through a facilitated investigation.",
-    fit: "A lower-movement option for groups that enjoy observation, deduction, and collaboration.",
-    image: "/images/services/csi-bones/gallery-1.jpg",
-    alt: "Corporate group examining evidence during a CSI-Bones team-building activity",
     filters: ["All", "Indoor", "Lower intensity"],
   },
   {
     slug: "minute-to-win-it",
     title: "Minute To Win It",
-    format: "Indoor station format",
-    description: "Short, accessible challenges keep teams rotating, scoring, and cheering one another on.",
-    fit: "Works well when you need compact energy in an office, function room, or ballroom.",
-    image: "/images/services/minute-to-win-it/gallery-3.jpg",
-    alt: "Participants completing an indoor Minute To Win It team challenge",
     filters: ["All", "Indoor", "High energy"],
   },
   {
     slug: "monopoly-dash",
     title: "Monopoly Dash",
-    format: "Strategy and challenge format",
-    description: "Teams combine light strategy, movement, points, and friendly competition across the session.",
-    fit: "A balanced direction when the group wants an easy-to-follow game layer and visible momentum.",
-    image: "/images/services/monopoly-dash/gallery-2.jpg",
-    alt: "Company team taking part in a Monopoly Dash outdoor challenge",
     filters: ["All", "Outdoor", "High energy"],
   },
   {
     slug: "amazing-race-virtual",
     title: "Virtual Amazing Race",
-    format: "Virtual team format",
-    description: "A hosted online race that gives remote or multi-office teams a shared challenge and finish.",
-    fit: "For teams that cannot meet in one venue but still want a facilitated group experience.",
-    image: "/images/services/amazing-race-virtual/gallery-1.jpg",
-    alt: "Virtual Amazing Race team-building session shown on participant screens",
     filters: ["All", "Virtual", "Lower intensity"],
   },
 ];
@@ -116,27 +94,47 @@ const activityCards: ActivityCard[] = [
 const catalogueGroups = [
   {
     title: "Story-led physical experiences",
+    description: "Story, movement and shared missions for teams meeting in person.",
     items: physicalTeamBuildingServices,
-    accent: "border-blue-200 bg-blue-50/[0.65]",
+    icon: Compass,
+    accent: "#2A8DFF",
+    tone: "border-blue-200 bg-blue-50/[0.7]",
   },
   {
     title: "Equipment activities",
+    description: "Focused action formats built around specialist equipment and clear rules.",
     items: equipmentActivityServices,
-    accent: "border-amber-200 bg-amber-50/[0.65]",
+    icon: Target,
+    accent: "#D99B00",
+    tone: "border-amber-200 bg-amber-50/[0.72]",
   },
   {
     title: "Virtual experiences",
+    description: "Hosted online formats for remote, hybrid and multi-office teams.",
     items: virtualTeamBuildingServices,
-    accent: "border-violet-200 bg-violet-50/[0.65]",
+    icon: MonitorPlay,
+    accent: "#8B5CF6",
+    tone: "border-violet-200 bg-violet-50/[0.7]",
   },
 ];
 
 const proofMetrics = [
-  { value: "5,000+", label: "events delivered" },
-  { value: "100,000+", label: "participants" },
-  { value: "8+ years", label: "planning and delivering events together" },
-  { value: "24", label: "physical, equipment-led and virtual experiences" },
+  { value: "5,000+", label: "events delivered", icon: CalendarCheck2, accent: "#2A8DFF" },
+  { value: "100,000+", label: "participants", icon: UsersRound, accent: "#26B982" },
+  { value: "8+ years", label: "planning and delivering events together", icon: Award, accent: "#F4B400" },
+  { value: "24", label: "physical, equipment-led and virtual experiences", icon: LayoutGrid, accent: "#8B5CF6" },
 ];
+
+const proofTestimonialIds = [
+  "team-elevate-client-farzanah-begum-simtech",
+  "team-elevate-google-jenniiloh",
+  "team-elevate-google-joshua",
+  "team-elevate-client-arianti-amalina-madame-tussauds",
+];
+
+const proofTestimonials = proofTestimonialIds
+  .map((id) => clientTestimonials.find((testimonial) => testimonial.id === id))
+  .filter((testimonial): testimonial is ClientTestimonial => Boolean(testimonial));
 
 const stakes = [
   "Working time the whole group will not get back.",
@@ -148,21 +146,35 @@ const stakes = [
 const stakeMoments = [
   {
     marker: "01",
-    title: "Quiet arrival",
-    image: "/images/services/csi-bones/gallery-5.jpg",
-    alt: "Colleagues arriving and listening at an indoor team activity",
+    title: "Protect the team's time",
+    copy: "Give the session clear roles, momentum and a finish worth reaching.",
+    image: "/images/services/amazing-race/gallery-1.jpg",
+    alt: "Team members pulling together during an outdoor activity",
+    icon: CalendarClock,
   },
   {
     marker: "02",
-    title: "Unexpected contributor",
-    image: "/images/services/amazing-race/gallery-2.jpg",
-    alt: "Team members collaborating closely during an outdoor challenge",
+    title: "Protect the organiser's confidence",
+    copy: "Use active facilitation to keep the experience moving.",
+    image: "/images/services/amazing-race/gallery-7.jpg",
+    alt: "Facilitator guiding a company team through an active checkpoint",
+    icon: ShieldCheck,
   },
   {
     marker: "03",
-    title: "Shared finish",
-    image: "/images/services/amazing-race/gallery-7.jpg",
-    alt: "Corporate team celebrating a shared finish together",
+    title: "Give quieter voices a role",
+    copy: "Create more than one way for people to contribute.",
+    image: "/images/services/csi-bones/gallery-3.jpg",
+    alt: "Small team comparing clues together during an indoor mystery",
+    icon: UserRoundCheck,
+  },
+  {
+    marker: "04",
+    title: "Keep people open to the next event",
+    copy: "End with a shared result people are glad they joined.",
+    image: "/images/services/builder-cross/gallery-5.jpg",
+    alt: "Smiling company team beside the structure they built together",
+    icon: HeartHandshake,
   },
 ];
 
@@ -253,9 +265,11 @@ const strongFit = [
 ];
 
 const differentFit = [
-  "You only need a venue booking.",
-  "You only want bare equipment rental and plan to self-run the event.",
-  "You already have a complete internal concept, facilitation team and operating plan.",
+  "You only want the cheapest bare-equipment rental.",
+  "You intend to run the entire event yourself.",
+  "You only need someone to book a venue.",
+  "You want a fixed package without discussing the people attending.",
+  "The lowest quote is the only factor in your decision.",
 ];
 
 const processSteps = [
@@ -273,7 +287,11 @@ const processSteps = [
   },
 ];
 
-const proofOrganisations = ["Lonza", "SIMTech", "Madame Tussauds Singapore", "AMS AG"];
+const enquiryValue = [
+  "A clearer activity direction based on your team and objective",
+  "The practical questions worth solving before confirmation",
+  "A connected recommendation and quote you can review internally",
+];
 
 const teamBuildingFooterLinks = [
   { name: "Team Building", path: "/services/team-building" },
@@ -438,7 +456,6 @@ const TeamBuildingHubPage = () => {
                   alt="Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler"
                   width={680}
                   height={1120}
-                  fetchPriority="high"
                   decoding="async"
                   className="h-full w-full object-contain object-bottom drop-shadow-[0_30px_34px_rgba(11,31,58,0.18)]"
                 />
@@ -515,54 +532,78 @@ const TeamBuildingHubPage = () => {
 
         <section className="relative overflow-hidden bg-white py-20 sm:py-28">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-center">
               <div className="max-w-3xl">
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">Why organisers trust us</p>
                 <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] text-[#0b1f3a] sm:text-6xl">
-                  Because your team&apos;s time should not be the test run.
+                  Your team&apos;s time should not be the test run.
                 </h2>
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-[#4c5e76]">
                   Thousands of event days have taught us where participation drops, what different groups need and
                   which practical details decide whether the room joins in.
                 </p>
               </div>
-              <blockquote className="relative rounded-[2rem] bg-[#0b1f3a] p-7 text-white shadow-xl sm:p-9">
-                <span className="absolute -top-7 right-8 font-display text-8xl font-black leading-none text-[#ffd85d]">“</span>
-                <p className="relative text-xl font-semibold leading-8">
-                  All our different departments have enjoyed the activities, from our newest members to our management
-                  teams.
-                </p>
-                <footer className="mt-5 border-t border-white/[0.15] pt-5 text-sm leading-6 text-white/70">
-                  Farzanah Begum, Senior Officer for Development and Engagement, SIMTech
-                </footer>
-              </blockquote>
+              <div className="min-w-0">
+                <div className="grid snap-x snap-mandatory auto-cols-[82%] grid-flow-col gap-3 overflow-x-auto pb-3 sm:auto-cols-[48%] lg:grid-flow-row lg:grid-cols-3 lg:overflow-visible">
+                  {proofTestimonials.slice(1).map((testimonial) => (
+                    <blockquote
+                      key={testimonial.id}
+                      className="snap-start rounded-[1.4rem] border border-[#dce6f3] bg-[#f7faff] p-5 shadow-sm"
+                    >
+                      <Quote className="h-5 w-5 text-primary" aria-hidden="true" />
+                      <p className="mt-3 line-clamp-3 text-sm font-semibold leading-6 text-[#263b58]">
+                        {testimonial.excerpt}
+                      </p>
+                      <footer className="mt-4 text-xs leading-5 text-[#66758b]">
+                        <span className="font-black text-[#0b1f3a]">{testimonial.displayName ?? testimonial.name}</span>
+                        {testimonial.company ? `, ${testimonial.company}` : ""}
+                      </footer>
+                    </blockquote>
+                  ))}
+                </div>
+                {proofTestimonials[0] ? (
+                  <blockquote className="relative mt-1 overflow-hidden rounded-[2rem] bg-[#0b1f3a] p-7 text-white shadow-xl sm:p-9">
+                    <span className="absolute right-7 top-3 font-display text-8xl font-black leading-none text-[#ffd85d]/80">
+                      “
+                    </span>
+                    <p className="relative max-w-[90%] text-xl font-semibold leading-8">
+                      {proofTestimonials[0].excerpt}
+                    </p>
+                    <footer className="relative mt-5 border-t border-white/[0.15] pt-5 text-sm leading-6 text-white/70">
+                      <span className="font-bold text-white">
+                        {proofTestimonials[0].displayName ?? proofTestimonials[0].name}
+                      </span>
+                      {proofTestimonials[0].role ? `, ${proofTestimonials[0].role}` : ""}
+                      {proofTestimonials[0].company ? `, ${proofTestimonials[0].company}` : ""}
+                    </footer>
+                  </blockquote>
+                ) : null}
+              </div>
             </div>
 
             <div className="mt-12 grid gap-px overflow-hidden rounded-[2rem] border border-[#dce6f3] bg-[#dce6f3] sm:grid-cols-2 lg:grid-cols-4">
-              {proofMetrics.map((metric, index) => (
-                <article key={metric.value} className="relative bg-[#f7faff] p-6 sm:p-8">
-                  <span className="absolute right-5 top-4 font-display text-4xl font-black text-primary/10">0{index + 1}</span>
-                  <p className="font-display text-4xl font-black tracking-[-0.04em] text-primary sm:text-5xl">{metric.value}</p>
-                  <p className="mt-3 max-w-[15rem] text-sm font-semibold leading-6 text-[#4c5e76]">{metric.label}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="mt-10 grid gap-5 border-t border-[#dce6f3] pt-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
-              <div>
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#66758b]">From Team Elevate&apos;s event history</p>
-                <div className="mt-4 flex flex-wrap gap-x-7 gap-y-3">
-                  {proofOrganisations.map((organisation) => (
-                    <span key={organisation} className="font-display text-lg font-black text-[#0b1f3a]/75">
-                      {organisation}
+              {proofMetrics.map((metric) => {
+                const Icon = metric.icon;
+                return (
+                  <article key={metric.value} className="flex flex-col items-center bg-[#f7faff] p-6 text-center sm:p-8">
+                    <span
+                      className="flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-sm"
+                      style={{ backgroundColor: metric.accent }}
+                    >
+                      <Icon className="h-6 w-6" aria-hidden="true" />
                     </span>
-                  ))}
-                </div>
-              </div>
-              <p className="rounded-2xl bg-[#fbf7ed] px-5 py-4 text-xs leading-5 text-[#5e6878] lg:justify-self-end">
-                Elluminate and Team Elevate are operated by EXSTATIC PTE. LTD. Historical event figures, client proof
-                and reviews remain attributed to their original source.
-              </p>
+                    <p
+                      className="mt-5 font-display text-4xl font-black tracking-[-0.04em] sm:text-5xl"
+                      style={{ color: metric.accent }}
+                    >
+                      {metric.value}
+                    </p>
+                    <p className="mx-auto mt-3 max-w-[15rem] text-sm font-semibold leading-6 text-[#4c5e76]">
+                      {metric.label}
+                    </p>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -570,23 +611,42 @@ const TeamBuildingHubPage = () => {
         <section className="relative overflow-hidden bg-[#fbf7ed] py-20 sm:py-28">
           <div className="absolute -right-40 top-20 h-96 w-96 rounded-full bg-[#f37468]/10 blur-3xl" />
           <div className="container relative mx-auto px-6 lg:px-12">
-            <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
+            <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
               <div className="max-w-3xl">
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-[#e45f55]">The quiet cost of getting it wrong</p>
                 <h2 className="mt-4 font-display text-4xl font-black leading-[0.95] tracking-[-0.04em] text-[#0b1f3a] sm:text-7xl">
                   The wrong activity costs more than the quote.
                 </h2>
+                <p className="mt-7 max-w-2xl text-lg leading-8 text-[#4c5e76]">
+                  Most team events do not fail loudly. They fail quietly. Familiar groups stay together. A few
+                  confident people carry the activity. Everyone else politely waits for it to end. Then the organiser
+                  returns to work wondering whether all that time, budget and coordination changed anything.
+                </p>
               </div>
-              <p className="max-w-2xl text-lg leading-8 text-[#4c5e76] lg:justify-self-end">
-                Most team events do not fail loudly. They fail quietly. Familiar groups stay together. A few confident
-                people carry the activity. Everyone else politely waits for it to end. Then the organiser returns to
-                work wondering whether all that time, budget and coordination changed anything.
-              </p>
+              <figure className="relative min-h-[380px] overflow-hidden rounded-[2.25rem] border border-white/80 bg-[#efd9ca] shadow-[0_26px_70px_rgba(11,31,58,0.14)] sm:min-h-[470px]">
+                <img
+                  src="/images/campaigns/team-building/thoughtful-event-planner-v1.webp"
+                  alt="Illustrative campaign portrait of a fictional professional considering an event plan"
+                  width={1024}
+                  height={1536}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover object-[60%_28%]"
+                />
+                <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/70 bg-white/85 px-5 py-4 backdrop-blur-md">
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-[#e45f55]">The organiser&apos;s question</p>
+                  <p className="mt-2 font-display text-xl font-black leading-7 text-[#0b1f3a]">
+                    Will people actually want to join in?
+                  </p>
+                </div>
+              </figure>
             </div>
 
-            <div className="mt-14 grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-              <div className="rounded-[2rem] bg-[#0b1f3a] p-7 text-white shadow-2xl sm:p-9">
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#ffd85d]">What is at risk</p>
+            <div className="mt-14 grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-stretch">
+              <div className="flex flex-col rounded-[2rem] bg-[#0b1f3a] p-7 text-white shadow-2xl sm:p-9">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f37468] text-white shadow-lg">
+                  <TriangleAlert className="h-7 w-7" aria-hidden="true" />
+                </span>
+                <p className="mt-6 text-xs font-black uppercase tracking-[0.22em] text-[#ffd85d]">What is at risk</p>
                 <ul className="mt-7 space-y-5">
                   {stakes.map((stake, index) => (
                     <li key={stake} className="flex gap-4">
@@ -595,35 +655,39 @@ const TeamBuildingHubPage = () => {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-8 border-t border-white/[0.15] pt-7 text-lg font-semibold leading-8">
+                <p className="mt-auto border-t border-white/[0.15] pt-7 text-lg font-semibold leading-8">
                   No activity can force chemistry. A better-fit experience can give more people a reason, a role and a
                   shared finish.
                 </p>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-3">
-                {stakeMoments.map((moment, index) => (
-                  <figure
-                    key={moment.marker}
-                    className={`group relative overflow-hidden rounded-[1.6rem] bg-[#0b1f3a] shadow-xl ${
-                      index === 1 ? "sm:translate-y-10" : ""
-                    }`}
-                  >
-                    <img
-                      src={cloudinaryImage(moment.image, { width: 700 })}
-                      alt={moment.alt}
-                      width={700}
-                      height={920}
-                      loading="lazy"
-                      className="aspect-[4/5] h-full w-full object-cover transition duration-700 motion-safe:group-hover:scale-[1.04]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f3a] via-[#0b1f3a]/10 to-transparent" />
-                    <figcaption className="absolute inset-x-0 bottom-0 p-5 text-white">
-                      <span className="text-xs font-black tracking-[0.2em] text-[#ffd85d]">{moment.marker}</span>
-                      <p className="mt-2 font-display text-xl font-black">{moment.title}</p>
-                    </figcaption>
-                  </figure>
-                ))}
+              <div className="grid gap-4 sm:grid-cols-2">
+                {stakeMoments.map((moment) => {
+                  const Icon = moment.icon;
+                  return (
+                    <figure
+                      key={moment.marker}
+                      className="group relative min-h-[290px] overflow-hidden rounded-[1.6rem] bg-[#0b1f3a] shadow-xl"
+                    >
+                      <img
+                        src={cloudinaryImage(moment.image, { width: 700 })}
+                        alt={moment.alt}
+                        width={700}
+                        height={520}
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover transition duration-700 motion-safe:group-hover:scale-[1.04]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f3a] via-[#0b1f3a]/35 to-transparent" />
+                      <figcaption className="absolute inset-x-0 bottom-0 p-5 text-white">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ffd85d] text-[#0b1f3a]">
+                          <Icon className="h-5 w-5" aria-hidden="true" />
+                        </span>
+                        <p className="mt-3 font-display text-xl font-black">{moment.title}</p>
+                        <p className="mt-2 text-sm leading-6 text-white/75">{moment.copy}</p>
+                      </figcaption>
+                    </figure>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -644,14 +708,16 @@ const TeamBuildingHubPage = () => {
               </p>
             </div>
 
-            <div className="mt-14 grid gap-5 lg:grid-cols-[0.8fr_1.35fr_0.92fr] lg:items-stretch">
-              <article className="rounded-[2rem] border border-white/[0.12] bg-white/[0.065] p-7 sm:p-8">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-white/50">A common activity-first approach</p>
-                <h3 className="mt-4 font-display text-3xl font-black">Make the people fit the package</h3>
+            <div className="mt-14 grid gap-5 lg:grid-cols-[0.8fr_1.35fr_0.92fr] lg:items-center">
+              <article className="rounded-[2rem] border border-white/[0.08] bg-[#121a28] p-7 text-white/75 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.02)] sm:p-8">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#f37468]">The common package-first approach</p>
+                <h3 className="mt-4 font-display text-3xl font-black leading-tight text-white">
+                  Choose a package. Hope the people fit.
+                </h3>
                 <ul className="mt-7 space-y-4">
                   {activityFirstApproach.map((item) => (
-                    <li key={item} className="flex gap-3 text-sm leading-6 text-white/[0.68]">
-                      <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-white/35" />
+                    <li key={item} className="flex gap-3 text-sm leading-6 text-white/50">
+                      <XCircle className="mt-1 h-4 w-4 shrink-0 text-[#f37468]/80" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
@@ -678,20 +744,20 @@ const TeamBuildingHubPage = () => {
                 </p>
               </article>
 
-              <article className="rounded-[2rem] bg-[#ffd85d] p-7 text-[#0b1f3a] sm:p-8">
+              <article className="rounded-[2rem] bg-[#ffd85d] p-6 text-[#0b1f3a] shadow-xl sm:p-7">
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-[#0b1f3a]/55">Our expertise sequence</p>
-                <div className="mt-6 space-y-5">
-                  {planningFlow.map((item, index) => {
+                <div className="mt-5 space-y-3">
+                  {planningFlow.map((item) => {
                     const Icon = item.icon;
                     return (
-                      <div key={item.title} className="flex gap-4 border-b border-[#0b1f3a]/10 pb-5 last:border-0 last:pb-0">
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#0b1f3a] text-[#ffd85d]">
+                      <div
+                        key={item.title}
+                        className="flex items-center gap-3 rounded-2xl border border-[#0b1f3a]/10 bg-white/40 px-3 py-3"
+                      >
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0b1f3a] text-[#ffd85d]">
                           <Icon className="h-4 w-4" />
                         </span>
-                        <div>
-                          <p className="text-[0.65rem] font-black tracking-[0.18em] text-[#0b1f3a]/45">0{index + 1}</p>
-                          <h4 className="mt-1 font-display text-lg font-black">{item.title}</h4>
-                        </div>
+                        <h4 className="font-display text-base font-black">{item.title}</h4>
                       </div>
                     );
                   })}
@@ -704,13 +770,14 @@ const TeamBuildingHubPage = () => {
         <section className="relative overflow-hidden bg-[#fffaf0] py-20 sm:py-28">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="mx-auto max-w-4xl text-center">
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">The value behind the activity</p>
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">The value behind our planning</p>
               <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] text-[#0b1f3a] sm:text-6xl">
-                The activity fills the timetable. The value is everything that makes it worth your team&apos;s time.
+                You are not paying for one activity. You are paying for a day that works.
               </h2>
               <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#4c5e76]">
-                A team-building event is not one game. It is the fit, flow, facilitation, setup, scoring and practical
-                decisions around it. Elluminate connects those pieces in one event scope.
+                The right activity still needs the right roles, pacing, facilitation, setup, scoring and fallback. We
+                connect those decisions before event day, so you are not left stitching the experience together
+                yourself.
               </p>
             </div>
 
@@ -806,51 +873,18 @@ const TeamBuildingHubPage = () => {
 
             <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {filteredActivities.map((activity) => (
-                <article key={activity.slug} className="group overflow-hidden rounded-[1.75rem] border border-[#dce6f3] bg-background shadow-sm transition motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-blue">
-                  <div className="aspect-[16/10] overflow-hidden bg-secondary">
-                    <img
-                      src={cloudinaryImage(activity.image, { width: 760 })}
-                      alt={activity.alt}
-                      width={760}
-                      height={475}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <div className="p-6 sm:p-7">
-                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">{activity.format}</p>
-                    <h3 className="mt-3 font-display text-2xl font-black">{activity.title}</h3>
-                    <p className="mt-4 leading-7 text-foreground/80">{activity.description}</p>
-                    <p className="mt-4 border-l-2 border-primary/50 pl-4 text-sm leading-6 text-muted-foreground">{activity.fit}</p>
-                    <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[#dce6f3] pt-5">
-                      <Link to={`/services/${activity.slug}`} className="text-sm font-semibold text-primary hover:underline">View format</Link>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          openPlanMyEvent(
-                            `activity_${activity.slug}`,
-                            "Ask if this fits my team",
-                            `I would like to know whether ${activity.title} fits my team.`,
-                          )
-                        }
-                        className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
-                      >
-                        Ask if this fits <ArrowRight className="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </article>
+                <ExperienceCard key={activity.slug} slug={activity.slug} variant="featured" />
               ))}
             </div>
 
             <div className="mt-16 rounded-[2.25rem] border border-[#dce6f3] bg-[#fbf7ed] p-6 shadow-sm sm:p-9">
-              <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-                <div className="max-w-3xl">
+              <div className="mx-auto max-w-4xl text-center">
+                <div>
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">The full collection</p>
                   <h3 className="mt-3 font-display text-3xl font-black text-[#0b1f3a] sm:text-5xl">
                     24 team-building experiences. One brief to narrow them down.
                   </h3>
-                  <p className="mt-4 leading-7 text-[#4c5e76]">
+                  <p className="mx-auto mt-4 max-w-3xl leading-7 text-[#4c5e76]">
                     Explore 12 story-led physical experiences, 4 equipment activities and 8 virtual experiences. You
                     can browse every format, or send the brief without choosing one first.
                   </p>
@@ -858,31 +892,69 @@ const TeamBuildingHubPage = () => {
                 <button
                   type="button"
                   onClick={() => openPlanMyEvent("full_catalogue_help", "Help me narrow it down")}
-                  className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-primary px-6 font-bold text-white transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  className="mt-6 inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-primary px-6 font-bold text-white transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 >
                   Help me narrow it down <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
 
-              <div className="mt-8 grid gap-4 lg:grid-cols-3">
-                {catalogueGroups.map((group) => (
-                  <article key={group.title} className={`rounded-2xl border p-5 ${group.accent}`}>
-                    <div className="mb-5">
-                      <h4 className="font-display text-xl font-black text-foreground">{group.title}</h4>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {group.items.map((item) => (
+              <div className="mt-10 grid gap-5 lg:grid-cols-3">
+                {catalogueGroups.map((group) => {
+                  const Icon = group.icon;
+                  const visibleItems = group.items.slice(0, 4);
+                  const hiddenItems = group.items.slice(4);
+                  return (
+                  <article
+                    key={group.title}
+                    className={`flex h-full flex-col items-center rounded-[1.75rem] border p-6 text-center ${group.tone}`}
+                  >
+                    <span
+                      className="flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-sm"
+                      style={{ backgroundColor: group.accent }}
+                    >
+                      <Icon className="h-7 w-7" aria-hidden="true" />
+                    </span>
+                    <h4 className="mt-5 font-display text-xl font-black text-foreground">{group.title}</h4>
+                    <p className="mt-3 min-h-12 text-sm leading-6 text-[#5d6e84]">{group.description}</p>
+                    <div className="mt-5 flex flex-wrap justify-center gap-2">
+                      {visibleItems.map((item) => (
                         <Link
                           key={item.slug}
                           to={`/services/${item.slug}`}
-                            className="rounded-full border border-foreground/10 bg-background px-3 py-1.5 text-xs font-semibold text-foreground/75 transition hover:border-primary/[0.35] hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                          className="rounded-full border border-foreground/10 bg-background px-3 py-1.5 text-xs font-semibold text-foreground/75 transition hover:border-primary/[0.35] hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
                         >
                           {item.name}
                         </Link>
                       ))}
                     </div>
+                    {hiddenItems.length > 0 ? (
+                      <details className="group/details mt-5 w-full border-t border-foreground/10 pt-4">
+                        <summary
+                          className="cursor-pointer list-none text-sm font-black"
+                          style={{ color: group.accent }}
+                        >
+                          View all {group.items.length}
+                        </summary>
+                        <div className="mt-4 flex flex-wrap justify-center gap-2">
+                          {hiddenItems.map((item) => (
+                            <Link
+                              key={item.slug}
+                              to={`/services/${item.slug}`}
+                              className="rounded-full border border-foreground/10 bg-background px-3 py-1.5 text-xs font-semibold text-foreground/75 transition hover:border-primary/[0.35] hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </details>
+                    ) : (
+                      <p className="mt-5 border-t border-foreground/10 pt-4 text-sm font-black" style={{ color: group.accent }}>
+                        All {group.items.length} shown
+                      </p>
+                    )}
                   </article>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -951,34 +1023,38 @@ const TeamBuildingHubPage = () => {
             <div className="mx-auto max-w-4xl text-center">
               <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">Is Elluminate right for your event?</p>
               <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] text-[#0b1f3a] sm:text-6xl">
-                A strong fit when you need more than an activity menu.
+                Elluminate is for organisers who want the whole experience handled properly.
               </h2>
             </div>
 
             <div className="mt-14 grid gap-5 lg:grid-cols-2">
-              <article className="rounded-[2rem] bg-[#0b1f3a] p-7 text-white sm:p-9">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#ffd85d]">Elluminate is a strong fit if</p>
+              <article className="rounded-[2rem] bg-[#0b1f3a] p-7 text-white shadow-xl sm:p-9">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#5ee5ad]">You are a strong fit if</p>
                 <ul className="mt-7 space-y-4">
                   {strongFit.map((item) => (
                     <li key={item} className="flex gap-3 leading-7 text-white/[0.78]">
-                      <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#ffd85d]" />
+                      <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#5ee5ad]" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </article>
-              <article className="rounded-[2rem] border border-[#dce6f3] bg-[#fbf7ed] p-7 sm:p-9">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#e45f55]">A different solution may fit better if</p>
+              <article className="rounded-[2rem] border border-[#efd9d5] bg-[#faf6f4] p-7 shadow-sm sm:p-9">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#e45f55]">We may not be the right fit if</p>
                 <ul className="mt-7 space-y-5">
                   {differentFit.map((item) => (
                     <li key={item} className="flex gap-3 leading-7 text-[#40536d]">
-                      <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#f37468]" />
+                      <XCircle className="mt-1 h-5 w-5 shrink-0 text-[#f37468]" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </article>
             </div>
+            <p className="mx-auto mt-7 max-w-4xl rounded-2xl bg-[#eef7f4] px-6 py-5 text-center text-base font-bold leading-7 text-[#244b43]">
+              If you only need equipment, there are simpler options. If you need the day to work for the people in it,
+              we should talk.
+            </p>
 
             <div className="mx-auto mt-16 max-w-5xl">
               <div className="space-y-3">
@@ -1036,17 +1112,36 @@ const TeamBuildingHubPage = () => {
               <ClipboardCheck className="h-7 w-7" />
             </span>
             <p className="mt-7 text-sm font-black uppercase tracking-[0.2em] text-[#ffd85d]">
-              Before the easy choices become last-minute compromises
+              Before the calendar makes the decisions for you
             </p>
             <h2 className="mx-auto mt-5 max-w-5xl font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] sm:text-6xl">
-              The best time to fix the wrong team-building plan is before you book it.
+              Waiting does not make the plan easier. It leaves you with fewer good options.
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/[0.68]">
-              The earlier the brief is clear, the more room there is to solve participation, venue fit, pacing and
-              fallback before they become rushed decisions.
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/[0.7]">
+              Share the brief while there is still room to match the activity to your people, compare suitable formats,
+              solve venue fit and protect the flow before event day.
             </p>
-            <p className="mx-auto mt-5 max-w-2xl font-display text-xl font-black leading-8 text-white">
-              Share the brief. See a clearer direction and quote. Decide when the fit makes sense.
+
+            <div className="mx-auto mt-10 max-w-5xl rounded-[2rem] border border-white/[0.14] bg-white/[0.08] p-6 text-left backdrop-blur-sm sm:p-8">
+              <p className="text-center text-xs font-black uppercase tracking-[0.2em] text-[#ffd85d]">
+                What you get from the first enquiry
+              </p>
+              <div className="mt-6 grid gap-4 md:grid-cols-3">
+                {enquiryValue.map((item) => (
+                  <div key={item} className="flex gap-3 rounded-2xl bg-white/[0.07] p-4 text-sm font-semibold leading-6 text-white/85">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#5ee5ad]" aria-hidden="true" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <p className="mx-auto mt-7 max-w-3xl text-sm font-semibold leading-7 text-white/65">
+              No payment at enquiry. No need to choose an activity first. Review the direction and quote before
+              confirming.
+            </p>
+            <p className="mx-auto mt-4 max-w-3xl font-display text-xl font-black leading-8 text-white">
+              You are not committing by asking. You are protecting your options.
             </p>
             <Button
               type="button"
@@ -1057,6 +1152,39 @@ const TeamBuildingHubPage = () => {
             >
               Build My Team Experience <ArrowRight />
             </Button>
+
+            <div className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-[0.78fr_1.44fr_0.78fr] sm:gap-4">
+              <figure className="overflow-hidden rounded-[1.5rem] border-4 border-white/10 bg-white/5 sm:rotate-[-2deg]">
+                <img
+                  src={cloudinaryImage("/images/services/battle-of-the-olympians/gallery-3.jpg", { width: 560 })}
+                  alt="Colleagues laughing during an energetic team challenge"
+                  width={560}
+                  height={560}
+                  loading="lazy"
+                  className="aspect-square h-full w-full object-cover"
+                />
+              </figure>
+              <figure className="col-span-2 overflow-hidden rounded-[1.5rem] border-4 border-white/10 bg-white/5 sm:col-span-1">
+                <img
+                  src={cloudinaryImage("/images/services/amazing-race/testimonial.jpg", { width: 900 })}
+                  alt="Large company team gathered together after an Amazing Race experience"
+                  width={900}
+                  height={600}
+                  loading="lazy"
+                  className="aspect-[3/2] h-full w-full object-cover"
+                />
+              </figure>
+              <figure className="overflow-hidden rounded-[1.5rem] border-4 border-white/10 bg-white/5 sm:rotate-[2deg]">
+                <img
+                  src={cloudinaryImage("/images/services/builder-cross/gallery-5.jpg", { width: 560 })}
+                  alt="Team smiling proudly beside the structure they completed"
+                  width={560}
+                  height={700}
+                  loading="lazy"
+                  className="aspect-square h-full w-full object-cover object-[50%_35%]"
+                />
+              </figure>
+            </div>
           </div>
         </section>
       </main>
