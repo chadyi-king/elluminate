@@ -56,6 +56,9 @@ test("hero keeps one CTA and defers the single quote form", () => {
   assert.equal((heroSource.match(/href="#quote"/g) ?? []).length, 1, "expected one hero CTA");
   assert.doesNotMatch(heroSource, /href="#activities"/);
   assert.doesNotMatch(heroSource, /<form\b/);
+  assert.match(heroSource, /\/images\/campaigns\/team-building\/hero-campaign-woman-v1\.webp/);
+  assert.match(heroSource, /fictional adult Asian professional holding a lit sparkler/);
+  assert.match(heroSource, /aria-label="Real Elluminate team-building moments"/);
   assert.equal((page.match(/id="quote"/g) ?? []).length, 1, "expected one quote form");
   assert.ok(quoteFormIndex > proofStart, "expected the quote form after the landing-page argument");
 });

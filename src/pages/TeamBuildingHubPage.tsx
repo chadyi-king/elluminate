@@ -558,76 +558,117 @@ const TeamBuildingHubPage = () => {
       <Navbar />
 
       <main>
-        <section className="relative isolate overflow-hidden bg-[#fbf7ed] text-[#0b1f3a]">
-          <div className="absolute -left-32 top-12 -z-10 h-[28rem] w-[28rem] rounded-full bg-[#ffd85d]/[0.35] blur-3xl" />
-          <div className="absolute -right-40 -top-32 -z-10 h-[36rem] w-[36rem] rounded-full bg-[#3a8cff]/20 blur-3xl" />
-          <div className="absolute right-[42%] top-20 -z-10 h-44 w-44 rotate-12 rounded-[3rem] bg-[#f37468]/10" />
+        <section className="relative isolate overflow-hidden bg-[#69c9ec] text-[#0b1f3a]">
+          <div
+            aria-hidden="true"
+            className="absolute -left-32 top-12 -z-10 h-[28rem] w-[28rem] rounded-full bg-[#ffd85d]/30 blur-3xl"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute -right-40 -top-32 -z-10 h-[36rem] w-[36rem] rounded-full bg-white/35 blur-3xl"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute left-[8%] top-[22%] -z-10 h-28 w-28 rotate-12 rounded-[2rem] border border-white/40 bg-white/10"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute right-[9%] top-[14%] -z-10 h-20 w-20 -rotate-12 rounded-full border border-[#0b1f3a]/10 bg-[#ffd85d]/20"
+          />
 
-          <div className="container mx-auto grid min-h-[760px] items-center gap-12 px-6 pb-28 pt-14 lg:min-h-[620px] lg:grid-cols-[1.06fr_0.94fr] lg:gap-8 lg:px-12 lg:pb-20 lg:pt-10">
-            <div className="relative z-10 max-w-3xl">
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-primary sm:text-sm">
-                Corporate Team Building Singapore
-              </p>
-              <h1 className="mt-5 max-w-4xl font-display text-[clamp(3rem,5.6vw,5.65rem)] font-black leading-[0.9] tracking-[-0.055em] lg:text-[clamp(3.35rem,4.2vw,4.25rem)] lg:leading-[0.92]">
-                Corporate Team Building in Singapore,{" "}
-                <span className="text-primary">Planned Around Your Team</span>
-              </h1>
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-[#334765] sm:text-xl sm:leading-9 lg:mt-5 lg:text-lg lg:leading-7 xl:text-xl xl:leading-8">
+          <div className="container relative mx-auto px-5 pb-24 pt-10 sm:px-8 lg:min-h-[720px] lg:px-10 lg:pb-8 lg:pt-8">
+            <p className="relative z-50 inline-flex rounded-full border border-white/70 bg-white/85 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-primary shadow-sm backdrop-blur-sm sm:text-sm lg:absolute lg:left-1/2 lg:top-7 lg:-translate-x-1/2">
+              Corporate Team Building Singapore
+            </p>
+
+            <h1 className="relative z-40 mt-6 font-display text-[clamp(3rem,12vw,5rem)] font-black leading-[0.88] tracking-[-0.06em] lg:absolute lg:inset-x-10 lg:top-[118px] lg:mt-0 lg:h-[340px] lg:text-[clamp(2.5rem,3.75vw,4.35rem)]">
+              <span className="block lg:absolute lg:left-0 lg:top-0 lg:w-[29%]">Corporate Team</span>
+              <span className="block lg:absolute lg:right-0 lg:top-0 lg:w-[29%] lg:text-right">
+                Building in Singapore,
+              </span>
+              <span className="block lg:absolute lg:left-[1%] lg:top-[190px] lg:w-[28%]">Planned Around</span>
+              <span className="block text-primary lg:absolute lg:right-[1%] lg:top-[200px] lg:w-[27%] lg:text-right">
+                Your Team
+              </span>
+            </h1>
+
+            <div className="relative z-50 mt-7 max-w-2xl lg:absolute lg:bottom-7 lg:left-1/2 lg:mt-0 lg:w-[min(680px,52vw)] lg:max-w-none lg:-translate-x-1/2 lg:rounded-[2rem] lg:border lg:border-white/80 lg:bg-[#fbf7ed]/[0.94] lg:px-8 lg:py-5 lg:shadow-[0_28px_75px_rgba(11,31,58,0.22)] lg:backdrop-blur-md">
+              <p className="text-lg leading-8 text-[#334765] sm:text-xl sm:leading-9 lg:text-base lg:leading-7 xl:text-lg xl:leading-8">
                 The unexpected leader. The quiet teammate who spots the answer. The shared finish everyone joins. We
                 match the experience to your people, then shape the flow, venue fit and facilitation around them.
               </p>
-              <Button asChild variant="hero" size="xl" className="mt-8 w-full px-7 sm:w-auto sm:px-9 lg:mt-6">
+              <Button asChild variant="hero" size="xl" className="mt-7 w-full px-7 sm:w-auto sm:px-9 lg:mt-5">
                 <a href="#quote" onClick={() => handleCtaClick("hero_primary")}>
                   Build My Team Experience <ArrowRight />
                 </a>
               </Button>
-              <div className="mt-7 max-w-2xl border-l-2 border-[#f37468] pl-5 text-sm leading-6 text-[#4c5e76] lg:mt-5">
+              <div className="mt-6 max-w-2xl border-l-2 border-[#f37468] pl-5 text-sm leading-6 text-[#4c5e76] lg:mt-4">
                 No payment at enquiry. You do not need to choose an activity first. Review the direction and quote
                 before confirming.
               </div>
             </div>
 
-            <div
-              className="relative min-h-[460px] sm:min-h-[610px] lg:min-h-[560px]"
-              aria-label="Real Elluminate team-building moments"
-            >
-              <div className="absolute right-0 top-0 w-[88%] overflow-hidden rounded-[2.5rem] border-[7px] border-white bg-white shadow-[0_32px_90px_rgba(11,31,58,0.24)]">
+            <div className="relative z-20 mt-10 min-h-[330px] sm:min-h-[430px] lg:absolute lg:inset-0 lg:mt-0 lg:min-h-0">
+              <figure className="absolute inset-x-0 top-0 overflow-hidden rounded-[2rem] border-[6px] border-white/90 bg-[#69c9ec] shadow-[0_28px_80px_rgba(11,31,58,0.22)] lg:inset-0 lg:rounded-none lg:border-0 lg:bg-transparent lg:shadow-none">
                 <img
-                  src={cloudinaryImage("/images/services/amazing-race/gallery-4.jpg", { width: 1280 })}
-                  alt="Company team working together during an outdoor challenge"
-                  width={1280}
-                  height={960}
+                  src="/images/campaigns/team-building/hero-campaign-woman-v1.webp"
+                  alt="Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler"
+                  width={1672}
+                  height={941}
                   fetchPriority="high"
-                  className="aspect-[4/3] w-full object-cover"
+                  decoding="async"
+                  className="aspect-[16/9] w-full object-cover object-center lg:h-full lg:aspect-auto"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f3a]/[0.35] via-transparent to-transparent" />
-              </div>
-              <figure className="absolute bottom-3 left-0 w-[45%] -rotate-3 overflow-hidden rounded-[1.75rem] border-[6px] border-white bg-white shadow-2xl sm:bottom-0">
-                <img
-                  src={cloudinaryImage("/images/services/amazing-race/gallery-6.jpg", { width: 680 })}
-                  alt="Colleagues smiling during a facilitated team activity"
-                  width={680}
-                  height={680}
-                  className="aspect-square w-full object-cover"
-                />
+                <figcaption className="sr-only">
+                  A fictional campaign model appears with a sparkler. The surrounding photographs show real Elluminate
+                  team-building events.
+                </figcaption>
               </figure>
-              <figure className="absolute -right-1 bottom-7 w-[34%] rotate-3 overflow-hidden rounded-[1.5rem] border-[5px] border-white bg-white shadow-2xl sm:bottom-4">
-                <img
-                  src={cloudinaryImage("/images/services/cultural-race/gallery-2.jpg", { width: 560 })}
-                  alt="Team members celebrating together at an event checkpoint"
-                  width={560}
-                  height={700}
-                  className="aspect-[4/5] w-full object-cover"
-                />
-              </figure>
-              <div className="absolute left-[8%] top-[6%] flex h-20 w-20 rotate-[-8deg] items-center justify-center rounded-full bg-[#ffd85d] text-[#0b1f3a] shadow-xl sm:h-24 sm:w-24">
-                <Sparkles className="h-8 w-8 sm:h-10 sm:w-10" />
-              </div>
+
               <div
-                aria-hidden="true"
-                className="absolute right-[2%] top-[48%] flex h-20 w-[170px] items-center justify-center rounded-2xl bg-[#0b1f3a] text-[#ffd85d] shadow-xl"
+                className="absolute inset-x-2 bottom-0 z-30 grid grid-cols-3 items-end gap-2 lg:inset-0 lg:block"
+                aria-label="Real Elluminate team-building moments"
               >
-                <UsersRound className="h-9 w-9" />
+                <figure className="-rotate-3 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:left-[1.5%] lg:top-[58%] lg:w-[10%]">
+                  <img
+                    src={cloudinaryImage("/images/services/amazing-race/cta.jpg", { width: 420 })}
+                    alt="Team members coordinating a hands-on string challenge"
+                    width={420}
+                    height={525}
+                    loading="lazy"
+                    className="aspect-[4/5] w-full object-cover object-[50%_48%]"
+                  />
+                </figure>
+                <figure className="rotate-2 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:right-[1.5%] lg:top-[53%] lg:w-[10%]">
+                  <img
+                    src={cloudinaryImage("/images/services/builder-cross/gallery-5.jpg", { width: 420 })}
+                    alt="Corporate team smiling beside the structure they built together"
+                    width={420}
+                    height={525}
+                    loading="lazy"
+                    className="aspect-[4/5] w-full object-cover object-[50%_38%]"
+                  />
+                </figure>
+                <figure className="-rotate-2 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:right-[11.5%] lg:top-[67%] lg:w-[8.5%]">
+                  <img
+                    src={cloudinaryImage("/images/services/battle-of-the-olympians/gallery-6.jpg", { width: 420 })}
+                    alt="Colleagues reaching for a flying disc during a beach team challenge"
+                    width={420}
+                    height={420}
+                    loading="lazy"
+                    className="aspect-square w-full object-cover object-[52%_48%]"
+                  />
+                </figure>
+                <figure className="hidden rotate-3 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:left-[11.5%] lg:top-[68%] lg:block lg:w-[8.5%]">
+                  <img
+                    src={cloudinaryImage("/images/services/cultural-race/gallery-7.jpg", { width: 420 })}
+                    alt="Company group celebrating together after a team challenge"
+                    width={420}
+                    height={420}
+                    loading="lazy"
+                    className="aspect-square w-full object-cover object-[52%_50%]"
+                  />
+                </figure>
               </div>
             </div>
           </div>
