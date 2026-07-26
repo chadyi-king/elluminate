@@ -576,23 +576,36 @@ const TeamBuildingHubPage = () => {
             className="absolute right-[9%] top-[14%] -z-10 h-20 w-20 -rotate-12 rounded-full border border-[#0b1f3a]/10 bg-[#ffd85d]/20"
           />
 
-          <div className="container relative mx-auto px-5 pb-24 pt-10 sm:px-8 lg:min-h-[720px] lg:px-10 lg:pb-8 lg:pt-8">
+          <div className="container relative mx-auto px-5 pb-24 pt-10 sm:px-8 lg:min-h-[760px] lg:px-10 lg:pb-8 lg:pt-8">
             <p className="relative z-50 inline-flex rounded-full border border-white/70 bg-white/85 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-primary shadow-sm backdrop-blur-sm sm:text-sm lg:absolute lg:left-1/2 lg:top-7 lg:-translate-x-1/2">
               Corporate Team Building Singapore
             </p>
 
-            <h1 className="relative z-40 mt-6 font-display text-[clamp(3rem,12vw,5rem)] font-black leading-[0.88] tracking-[-0.06em] lg:absolute lg:inset-x-10 lg:top-[118px] lg:mt-0 lg:h-[340px] lg:text-[clamp(2.5rem,3.75vw,4.35rem)]">
-              <span className="block lg:absolute lg:left-0 lg:top-0 lg:w-[29%]">Corporate Team</span>
-              <span className="block lg:absolute lg:right-0 lg:top-0 lg:w-[29%] lg:text-right">
-                Building in Singapore,
+            <h1
+              aria-label={campaignConfig.h1}
+              className="relative z-40 mt-6 font-display text-[clamp(3rem,12vw,5rem)] font-black leading-[0.88] tracking-[-0.06em] [word-spacing:0.12em] text-[#0b1f3a] drop-shadow-[0_2px_0_rgba(255,255,255,0.38)] lg:absolute lg:inset-x-10 lg:top-[104px] lg:mt-0 lg:grid lg:h-[360px] lg:grid-cols-[30%_40%_30%] lg:grid-rows-3 lg:items-start lg:text-[clamp(2.2rem,3.2vw,3.75rem)] lg:leading-[0.9] xl:top-[112px] xl:text-[clamp(2.8rem,3.5vw,4.2rem)]"
+            >
+              <span className="inline lg:col-start-1 lg:row-start-1 lg:block lg:pr-6">
+                Corporate{" "}
               </span>
-              <span className="block lg:absolute lg:left-[1%] lg:top-[190px] lg:w-[28%]">Planned Around</span>
-              <span className="block text-primary lg:absolute lg:right-[1%] lg:top-[200px] lg:w-[27%] lg:text-right">
-                Your Team
+              <span className="inline lg:col-start-3 lg:row-start-1 lg:block lg:whitespace-nowrap lg:pl-6 lg:text-right">
+                Team Building{" "}
+              </span>
+              <span className="inline lg:col-start-1 lg:row-start-2 lg:block lg:self-center lg:pr-6 lg:text-[0.78em] lg:tracking-[-0.045em]">
+                in Singapore,{" "}
+              </span>
+              <span className="inline lg:col-start-3 lg:row-start-2 lg:block lg:self-center lg:whitespace-nowrap lg:pl-6 lg:text-right lg:text-[0.88em]">
+                Planned Around{" "}
+              </span>
+              <span className="inline lg:col-start-1 lg:row-start-3 lg:block lg:self-end lg:pr-6 lg:text-[1.14em]">
+                Your{" "}
+              </span>
+              <span className="inline lg:col-start-3 lg:row-start-3 lg:block lg:self-end lg:pl-6 lg:text-right lg:text-[1.14em]">
+                Team
               </span>
             </h1>
 
-            <div className="relative z-50 mt-7 max-w-2xl lg:absolute lg:bottom-7 lg:left-1/2 lg:mt-0 lg:w-[min(680px,52vw)] lg:max-w-none lg:-translate-x-1/2 lg:rounded-[2rem] lg:border lg:border-white/80 lg:bg-[#fbf7ed]/[0.94] lg:px-8 lg:py-5 lg:shadow-[0_28px_75px_rgba(11,31,58,0.22)] lg:backdrop-blur-md">
+            <div className="relative z-50 mt-7 max-w-2xl lg:absolute lg:bottom-6 lg:left-1/2 lg:mt-0 lg:w-[min(640px,50vw)] lg:max-w-none lg:-translate-x-1/2 lg:rounded-[2rem] lg:border lg:border-white/80 lg:bg-[#fbf7ed]/[0.94] lg:px-8 lg:py-5 lg:shadow-[0_28px_75px_rgba(11,31,58,0.22)] lg:backdrop-blur-md">
               <p className="text-lg leading-8 text-[#334765] sm:text-xl sm:leading-9 lg:text-base lg:leading-7 xl:text-lg xl:leading-8">
                 The unexpected leader. The quiet teammate who spots the answer. The shared finish everyone joins. We
                 match the experience to your people, then shape the flow, venue fit and facilitation around them.
@@ -611,7 +624,7 @@ const TeamBuildingHubPage = () => {
             <div className="relative z-20 mt-10 min-h-[330px] sm:min-h-[430px] lg:absolute lg:inset-0 lg:mt-0 lg:min-h-0">
               <figure className="absolute inset-x-0 top-0 overflow-hidden rounded-[2rem] border-[6px] border-white/90 bg-[#69c9ec] shadow-[0_28px_80px_rgba(11,31,58,0.22)] lg:inset-0 lg:rounded-none lg:border-0 lg:bg-transparent lg:shadow-none">
                 <img
-                  src="/images/campaigns/team-building/hero-campaign-woman-v1.webp"
+                  src="/images/campaigns/team-building/hero-campaign-woman-v2.webp"
                   alt="Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler"
                   width={1672}
                   height={941}
@@ -629,7 +642,7 @@ const TeamBuildingHubPage = () => {
                 className="absolute inset-x-2 bottom-0 z-30 grid grid-cols-3 items-end gap-2 lg:inset-0 lg:block"
                 aria-label="Real Elluminate team-building moments"
               >
-                <figure className="-rotate-3 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:left-[1.5%] lg:top-[58%] lg:w-[10%]">
+                <figure className="-rotate-3 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:left-[1.5%] lg:top-[60%] lg:w-[9.5%]">
                   <img
                     src={cloudinaryImage("/images/services/amazing-race/cta.jpg", { width: 420 })}
                     alt="Team members coordinating a hands-on string challenge"
@@ -639,7 +652,7 @@ const TeamBuildingHubPage = () => {
                     className="aspect-[4/5] w-full object-cover object-[50%_48%]"
                   />
                 </figure>
-                <figure className="rotate-2 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:right-[1.5%] lg:top-[53%] lg:w-[10%]">
+                <figure className="rotate-2 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:right-[1.5%] lg:top-[58%] lg:w-[9.5%]">
                   <img
                     src={cloudinaryImage("/images/services/builder-cross/gallery-5.jpg", { width: 420 })}
                     alt="Corporate team smiling beside the structure they built together"
@@ -649,7 +662,7 @@ const TeamBuildingHubPage = () => {
                     className="aspect-[4/5] w-full object-cover object-[50%_38%]"
                   />
                 </figure>
-                <figure className="-rotate-2 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:right-[11.5%] lg:top-[67%] lg:w-[8.5%]">
+                <figure className="-rotate-2 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:right-[11.5%] lg:top-[70%] lg:w-[8%]">
                   <img
                     src={cloudinaryImage("/images/services/battle-of-the-olympians/gallery-6.jpg", { width: 420 })}
                     alt="Colleagues reaching for a flying disc during a beach team challenge"
@@ -659,7 +672,7 @@ const TeamBuildingHubPage = () => {
                     className="aspect-square w-full object-cover object-[52%_48%]"
                   />
                 </figure>
-                <figure className="hidden rotate-3 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:left-[11.5%] lg:top-[68%] lg:block lg:w-[8.5%]">
+                <figure className="hidden rotate-3 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:left-[11.5%] lg:top-[71%] lg:block lg:w-[8%]">
                   <img
                     src={cloudinaryImage("/images/services/cultural-race/gallery-7.jpg", { width: 420 })}
                     alt="Company group celebrating together after a team challenge"
