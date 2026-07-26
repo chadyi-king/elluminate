@@ -414,21 +414,21 @@ const TeamBuildingHubPage = () => {
           <div className="container relative mx-auto px-4 pb-6 pt-7 sm:px-7 lg:min-h-[930px] lg:px-10 lg:pb-6 lg:pt-0">
             <div
               aria-hidden="true"
-              className="absolute inset-x-6 bottom-6 top-[270px] hidden overflow-hidden rounded-[3rem] bg-[#69c9ec] lg:block"
+              className="absolute inset-x-6 bottom-6 top-[195px] hidden overflow-hidden rounded-[3rem] bg-[#69c9ec] lg:block"
             >
-              <div className="absolute -left-40 top-[43%] h-16 w-64 rounded-full bg-white">
-                <span className="absolute -top-8 left-12 h-20 w-20 rounded-full bg-white" />
-                <span className="absolute -top-12 left-28 h-24 w-24 rounded-full bg-white" />
-                <span className="absolute -top-7 right-8 h-16 w-16 rounded-full bg-white" />
+              <div className="absolute left-[29%] top-[23%] h-12 w-44 rounded-full bg-white">
+                <span className="absolute -top-6 left-7 h-14 w-14 rounded-full bg-white" />
+                <span className="absolute -top-9 left-[4.25rem] h-20 w-20 rounded-full bg-white" />
+                <span className="absolute -top-5 right-6 h-12 w-12 rounded-full bg-white" />
               </div>
-              <div className="absolute -right-40 top-[49%] h-16 w-64 rounded-full bg-white">
-                <span className="absolute -top-8 left-10 h-20 w-20 rounded-full bg-white" />
-                <span className="absolute -top-12 left-28 h-24 w-24 rounded-full bg-white" />
-                <span className="absolute -top-7 right-10 h-16 w-16 rounded-full bg-white" />
+              <div className="absolute right-[27%] top-[32%] h-12 w-44 rounded-full bg-white">
+                <span className="absolute -top-6 left-8 h-14 w-14 rounded-full bg-white" />
+                <span className="absolute -top-9 left-[4.5rem] h-20 w-20 rounded-full bg-white" />
+                <span className="absolute -top-5 right-7 h-12 w-12 rounded-full bg-white" />
               </div>
-              <div className="absolute bottom-10 left-[42%] h-12 w-48 rounded-full bg-white">
-                <span className="absolute -top-7 left-8 h-16 w-16 rounded-full bg-white" />
-                <span className="absolute -top-9 right-9 h-20 w-20 rounded-full bg-white" />
+              <div className="absolute left-[35%] top-[58%] h-10 w-36 rounded-full bg-white">
+                <span className="absolute -top-5 left-6 h-12 w-12 rounded-full bg-white" />
+                <span className="absolute -top-7 right-7 h-16 w-16 rounded-full bg-white" />
               </div>
             </div>
 
@@ -438,44 +438,44 @@ const TeamBuildingHubPage = () => {
 
             <h1
               aria-label={heroHeadline}
-               className="relative z-20 mx-auto mt-5 max-w-3xl text-center font-display font-black uppercase leading-[0.78] tracking-[-0.055em] text-[#0b1f3a] lg:absolute lg:inset-0 lg:mt-0 lg:max-w-none lg:text-left lg:tracking-[-0.075em]"
-             >
-               <span className="block text-[clamp(3rem,13vw,4.4rem)] lg:absolute lg:left-[3.5%] lg:top-[76px] lg:w-[35%] lg:text-[clamp(4.35rem,5.75vw,6.45rem)]">
-                 Team
-                 <br />
-                 Building
-               </span>
-               <span className="mt-3 block text-[clamp(2.5rem,11vw,3.8rem)] text-[#348fbe] lg:absolute lg:left-[3.5%] lg:top-[292px] lg:mt-0 lg:w-[31%] lg:text-[clamp(3.8rem,5.1vw,5.7rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)]">
-                 Your
-                 <br />
-                 People
-               </span>
-               <span className="mt-3 block text-[clamp(2.5rem,11vw,3.8rem)] lg:absolute lg:right-[3.5%] lg:top-[76px] lg:mt-0 lg:w-[34%] lg:text-right lg:text-[clamp(4rem,5.3vw,5.95rem)]">
-                 Won&apos;t
-                 <br />
-                 Quietly
-               </span>
-               <span className="mt-1 block text-[clamp(3.5rem,15vw,5rem)] text-[#348fbe] lg:absolute lg:right-[3.5%] lg:top-[292px] lg:mt-0 lg:w-[34%] lg:text-right lg:text-[clamp(5.5rem,7.2vw,8rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)]">
-                 Dread
-               </span>
+              className="relative z-20 mx-auto mt-5 max-w-3xl text-center font-display font-black uppercase leading-[0.74] tracking-[-0.055em] text-[#0b1f3a] lg:absolute lg:inset-0 lg:mt-0 lg:max-w-none lg:tracking-[-0.075em]"
+            >
+              <span className="block text-[clamp(3rem,13vw,4.4rem)] lg:absolute lg:left-[3%] lg:top-[58px] lg:w-[37%] lg:text-right lg:text-[clamp(4.2rem,5.5vw,6.15rem)]">
+                Team
+                <br />
+                Building
+              </span>
+              <span className="mt-3 block text-[clamp(2.5rem,11vw,3.8rem)] text-[#348fbe] lg:absolute lg:left-[3%] lg:top-[207px] lg:mt-0 lg:w-[37%] lg:text-right lg:text-[clamp(3.8rem,5vw,5.6rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)]">
+                Your
+                <br />
+                People
+              </span>
+              <span className="mt-3 block text-[clamp(2.5rem,11vw,3.8rem)] lg:absolute lg:right-[3%] lg:top-[58px] lg:mt-0 lg:w-[37%] lg:text-left lg:text-[clamp(3.9rem,5.15vw,5.75rem)]">
+                Won&apos;t
+                <br />
+                Quietly
+              </span>
+              <span className="mt-1 block text-[clamp(3.5rem,15vw,5rem)] text-[#348fbe] lg:absolute lg:right-[3%] lg:top-[207px] lg:mt-0 lg:w-[37%] lg:text-left lg:text-[clamp(5.1rem,6.8vw,7.6rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)]">
+                Dread
+              </span>
             </h1>
 
             <div className="relative mt-6 flex flex-col overflow-hidden rounded-[2.5rem] bg-[#69c9ec] px-4 pb-5 pt-5 shadow-[0_30px_90px_rgba(11,31,58,0.18)] sm:px-6 sm:pb-6 lg:static lg:mt-0 lg:block lg:overflow-visible lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none">
-              <div aria-hidden="true" className="absolute -left-24 top-64 h-14 w-48 rounded-full bg-white lg:hidden">
+              <div aria-hidden="true" className="absolute -left-16 top-44 h-12 w-40 rounded-full bg-white lg:hidden">
                 <span className="absolute -top-7 left-10 h-16 w-16 rounded-full bg-white" />
-                <span className="absolute -top-9 right-9 h-20 w-20 rounded-full bg-white" />
+                <span className="absolute -top-8 right-7 h-20 w-20 rounded-full bg-white" />
               </div>
-              <div aria-hidden="true" className="absolute -right-24 top-[29rem] h-14 w-48 rounded-full bg-white lg:hidden">
-                <span className="absolute -top-7 left-9 h-16 w-16 rounded-full bg-white" />
-                <span className="absolute -top-9 right-10 h-20 w-20 rounded-full bg-white" />
+              <div aria-hidden="true" className="absolute -right-16 top-[17rem] h-12 w-40 rounded-full bg-white lg:hidden">
+                <span className="absolute -top-7 left-8 h-16 w-16 rounded-full bg-white" />
+                <span className="absolute -top-8 right-8 h-20 w-20 rounded-full bg-white" />
               </div>
 
-               <figure className="relative z-40 order-1 mx-auto mt-2 h-[520px] w-full max-w-[390px] sm:h-[620px] sm:max-w-[470px] lg:absolute lg:-bottom-2 lg:left-1/2 lg:mt-0 lg:h-[1000px] lg:w-[585px] lg:max-w-none lg:-translate-x-1/2">
-                 <img
-                   src="/images/campaigns/team-building/hero-campaign-woman-v5.webp"
-                   alt="Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler"
-                   width={968}
-                   height={1625}
+              <figure className="relative z-40 order-1 mx-auto mt-2 h-[520px] w-full max-w-[390px] sm:h-[620px] sm:max-w-[470px] lg:absolute lg:-bottom-2 lg:left-1/2 lg:mt-0 lg:h-[1000px] lg:w-[585px] lg:max-w-none lg:-translate-x-1/2">
+                <img
+                  src="/images/campaigns/team-building/hero-campaign-woman-v6.webp"
+                  alt="Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler"
+                  width={968}
+                  height={1624}
                   decoding="async"
                   className="h-full w-full object-cover object-top drop-shadow-[0_30px_34px_rgba(11,31,58,0.2)] lg:object-contain lg:object-bottom"
                 />
@@ -486,47 +486,47 @@ const TeamBuildingHubPage = () => {
               </figure>
 
               <div
-                 className="relative z-30 order-2 mt-2 grid grid-cols-2 gap-3 lg:pointer-events-none lg:absolute lg:inset-0 lg:mt-0 lg:block"
+                className="relative z-30 order-2 -mt-20 grid grid-cols-2 gap-3 sm:-mt-24 lg:pointer-events-none lg:absolute lg:inset-0 lg:mt-0 lg:block"
                 aria-label="Real Elluminate team-building moments"
               >
-                 <figure className="-rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[3.5%] lg:top-[52%] lg:w-[18%]">
+                <figure className="-rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[3.5%] lg:top-[55%] lg:w-[15%]">
                   <img
                     src={cloudinaryImage("/images/services/amazing-race/cta.jpg", { width: 700 })}
                     alt="Team members coordinating a hands-on string challenge"
-                    width={700}
+                    width={525}
                     height={700}
                     loading="lazy"
-                    className="aspect-square w-full object-cover object-[50%_48%]"
+                    className="aspect-[3/4] w-full object-cover object-[50%_48%]"
                   />
                 </figure>
-                 <figure className="rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[18.5%] lg:top-[61%] lg:w-[17%]">
+                <figure className="rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[20%] lg:top-[60%] lg:w-[14%]">
                   <img
                     src={cloudinaryImage("/images/services/battle-of-the-olympians/gallery-6.jpg", { width: 700 })}
                     alt="Colleagues reaching for a flying disc during a beach team challenge"
-                    width={700}
+                    width={525}
                     height={700}
                     loading="lazy"
-                    className="aspect-square w-full object-cover object-[52%_48%]"
+                    className="aspect-[3/4] w-full object-cover object-[52%_48%]"
                   />
                 </figure>
-                 <figure className="-rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[18.5%] lg:top-[61%] lg:w-[17%]">
+                <figure className="-rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[20%] lg:top-[60%] lg:w-[14%]">
                   <img
                     src={cloudinaryImage("/images/services/cultural-race/gallery-7.jpg", { width: 700 })}
                     alt="Company group celebrating together after a team challenge"
-                    width={700}
+                    width={525}
                     height={700}
                     loading="lazy"
-                    className="aspect-square w-full object-cover object-[52%_50%]"
+                    className="aspect-[3/4] w-full object-cover object-[52%_50%]"
                   />
                 </figure>
-                 <figure className="rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[3.5%] lg:top-[52%] lg:w-[18%]">
+                <figure className="rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[3.5%] lg:top-[55%] lg:w-[15%]">
                   <img
                     src={cloudinaryImage("/images/services/builder-cross/gallery-5.jpg", { width: 700 })}
                     alt="Corporate team smiling beside the structure they built together"
-                    width={700}
+                    width={525}
                     height={700}
                     loading="lazy"
-                    className="aspect-square w-full object-cover object-[50%_38%]"
+                    className="aspect-[3/4] w-full object-cover object-[50%_38%]"
                   />
                 </figure>
               </div>
