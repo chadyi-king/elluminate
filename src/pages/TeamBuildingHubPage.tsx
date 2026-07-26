@@ -558,79 +558,63 @@ const TeamBuildingHubPage = () => {
       <Navbar />
 
       <main>
-        <section className="relative isolate overflow-hidden bg-[#69c9ec] text-[#0b1f3a]">
-          <div
-            aria-hidden="true"
-            className="absolute -left-32 top-12 -z-10 h-[28rem] w-[28rem] rounded-full bg-[#ffd85d]/30 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute -right-40 -top-32 -z-10 h-[36rem] w-[36rem] rounded-full bg-white/35 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute left-[8%] top-[22%] -z-10 h-28 w-28 rotate-12 rounded-[2rem] border border-white/40 bg-white/10"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute right-[9%] top-[14%] -z-10 h-20 w-20 -rotate-12 rounded-full border border-[#0b1f3a]/10 bg-[#ffd85d]/20"
-          />
+        <section className="relative isolate overflow-hidden bg-[#fffdf8] text-[#0b1f3a]">
+          <div className="container relative mx-auto px-4 pb-6 pt-7 sm:px-7 lg:min-h-[860px] lg:px-10 lg:pb-6 lg:pt-0">
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-6 bottom-6 top-[238px] hidden overflow-hidden rounded-[3rem] bg-[#69c9ec] lg:block"
+            >
+              <div className="absolute -left-28 -top-24 h-80 w-80 rounded-full bg-white/20 blur-3xl" />
+              <div className="absolute -right-24 top-16 h-72 w-72 rounded-full bg-[#ffd85d]/25 blur-3xl" />
+              <div className="absolute left-[41%] top-[18%] h-28 w-28 rotate-12 rounded-[2rem] border border-white/35 bg-white/10" />
+              <div className="absolute right-[8%] top-[22%] h-16 w-16 -rotate-12 rounded-full border border-[#0b1f3a]/10 bg-[#ffd85d]/25" />
+            </div>
 
-          <div className="container relative mx-auto px-5 pb-24 pt-10 sm:px-8 lg:min-h-[760px] lg:px-10 lg:pb-8 lg:pt-8">
-            <p className="relative z-50 inline-flex rounded-full border border-white/70 bg-white/85 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-primary shadow-sm backdrop-blur-sm sm:text-sm lg:absolute lg:left-1/2 lg:top-7 lg:-translate-x-1/2">
+            <p className="relative z-50 inline-flex rounded-full border border-[#dce6f3] bg-white/90 px-4 py-2 text-[0.68rem] font-black uppercase tracking-[0.2em] text-primary shadow-sm backdrop-blur-sm sm:text-xs lg:absolute lg:left-1/2 lg:top-5 lg:-translate-x-1/2">
               Corporate Team Building Singapore
             </p>
 
             <h1
               aria-label={campaignConfig.h1}
-              className="relative z-40 mt-6 font-display text-[clamp(3rem,12vw,5rem)] font-black leading-[0.88] tracking-[-0.06em] [word-spacing:0.12em] text-[#0b1f3a] drop-shadow-[0_2px_0_rgba(255,255,255,0.38)] lg:absolute lg:inset-x-10 lg:top-[104px] lg:mt-0 lg:grid lg:h-[360px] lg:grid-cols-[30%_40%_30%] lg:grid-rows-3 lg:items-start lg:text-[clamp(2.2rem,3.2vw,3.75rem)] lg:leading-[0.9] xl:top-[112px] xl:text-[clamp(2.8rem,3.5vw,4.2rem)]"
+              className="relative z-20 mt-5 font-display font-black uppercase leading-[0.82] tracking-[-0.065em] text-[#0b1f3a] lg:absolute lg:inset-0 lg:mt-0"
             >
-              <span className="inline lg:col-start-1 lg:row-start-1 lg:block lg:pr-6">
+              <span className="block font-sans text-[clamp(1.35rem,5.6vw,2rem)] font-black normal-case tracking-[-0.035em] lg:absolute lg:left-[4%] lg:top-[54px] lg:text-[clamp(1.7rem,2.2vw,2.7rem)]">
                 Corporate{" "}
               </span>
-              <span className="inline lg:col-start-3 lg:row-start-1 lg:block lg:whitespace-nowrap lg:pl-6 lg:text-right">
-                Team Building{" "}
+              <span className="block text-[clamp(4.3rem,19vw,7.4rem)] lg:absolute lg:left-[4%] lg:top-[88px] lg:text-[clamp(5.2rem,7.5vw,8.4rem)]">
+                Team{" "}
               </span>
-              <span className="inline lg:col-start-1 lg:row-start-2 lg:block lg:self-center lg:pr-6 lg:text-[0.78em] lg:tracking-[-0.045em]">
-                in Singapore,{" "}
+              <span className="mt-2 block text-right font-sans text-[clamp(1.35rem,5.6vw,2rem)] font-black normal-case tracking-[-0.035em] lg:absolute lg:right-[4%] lg:top-[54px] lg:mt-0 lg:text-[clamp(1.7rem,2.2vw,2.7rem)]">
+                Building in{" "}
               </span>
-              <span className="inline lg:col-start-3 lg:row-start-2 lg:block lg:self-center lg:whitespace-nowrap lg:pl-6 lg:text-right lg:text-[0.88em]">
-                Planned Around{" "}
+              <span className="block text-right text-[clamp(3.35rem,14vw,5.8rem)] lg:absolute lg:right-[4%] lg:top-[92px] lg:text-[clamp(4rem,5.8vw,6.5rem)]">
+                Singapore,{" "}
               </span>
-              <span className="inline lg:col-start-1 lg:row-start-3 lg:block lg:self-end lg:pr-6 lg:text-[1.14em]">
-                Your{" "}
+              <span className="mt-4 block text-[clamp(2.65rem,11.5vw,4.8rem)] text-[#348fbe] lg:absolute lg:left-[4%] lg:top-[284px] lg:mt-0 lg:w-[30%] lg:text-[clamp(4.1rem,6.2vw,7.1rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.16)]">
+                Planned
+                <br />
+                Around{" "}
               </span>
-              <span className="inline lg:col-start-3 lg:row-start-3 lg:block lg:self-end lg:pl-6 lg:text-right lg:text-[1.14em]">
+              <span className="block text-right text-[clamp(3.4rem,15vw,6.2rem)] text-[#0b1f3a] lg:absolute lg:right-[4%] lg:top-[284px] lg:w-[28%] lg:text-[clamp(5rem,7.5vw,8.2rem)]">
+                Your
+                <br />
                 Team
               </span>
             </h1>
 
-            <div className="relative z-50 mt-7 max-w-2xl lg:absolute lg:bottom-6 lg:left-1/2 lg:mt-0 lg:w-[min(640px,50vw)] lg:max-w-none lg:-translate-x-1/2 lg:rounded-[2rem] lg:border lg:border-white/80 lg:bg-[#fbf7ed]/[0.94] lg:px-8 lg:py-5 lg:shadow-[0_28px_75px_rgba(11,31,58,0.22)] lg:backdrop-blur-md">
-              <p className="text-lg leading-8 text-[#334765] sm:text-xl sm:leading-9 lg:text-base lg:leading-7 xl:text-lg xl:leading-8">
-                The unexpected leader. The quiet teammate who spots the answer. The shared finish everyone joins. We
-                match the experience to your people, then shape the flow, venue fit and facilitation around them.
-              </p>
-              <Button asChild variant="hero" size="xl" className="mt-7 w-full px-7 sm:w-auto sm:px-9 lg:mt-5">
-                <a href="#quote" onClick={() => handleCtaClick("hero_primary")}>
-                  Build My Team Experience <ArrowRight />
-                </a>
-              </Button>
-              <div className="mt-6 max-w-2xl border-l-2 border-[#f37468] pl-5 text-sm leading-6 text-[#4c5e76] lg:mt-4">
-                No payment at enquiry. You do not need to choose an activity first. Review the direction and quote
-                before confirming.
-              </div>
-            </div>
+            <div className="relative mt-6 flex flex-col overflow-hidden rounded-[2.5rem] bg-[#69c9ec] px-3 pb-3 pt-3 shadow-[0_30px_90px_rgba(11,31,58,0.18)] sm:px-5 sm:pb-5 sm:pt-5 lg:static lg:mt-0 lg:block lg:overflow-visible lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none">
+              <div aria-hidden="true" className="absolute -right-16 top-8 h-56 w-56 rounded-full bg-white/20 blur-3xl lg:hidden" />
+              <div aria-hidden="true" className="absolute -left-12 top-48 h-52 w-52 rounded-full bg-[#ffd85d]/20 blur-3xl lg:hidden" />
 
-            <div className="relative z-20 mt-10 min-h-[330px] sm:min-h-[430px] lg:absolute lg:inset-0 lg:mt-0 lg:min-h-0">
-              <figure className="absolute inset-x-0 top-0 overflow-hidden rounded-[2rem] border-[6px] border-white/90 bg-[#69c9ec] shadow-[0_28px_80px_rgba(11,31,58,0.22)] lg:inset-0 lg:rounded-none lg:border-0 lg:bg-transparent lg:shadow-none">
+              <figure className="relative z-30 order-2 mx-auto mt-4 h-[470px] w-full max-w-[350px] sm:h-[560px] sm:max-w-[410px] lg:absolute lg:bottom-6 lg:left-1/2 lg:mt-0 lg:h-[790px] lg:w-[480px] lg:max-w-none lg:-translate-x-1/2">
                 <img
-                  src="/images/campaigns/team-building/hero-campaign-woman-v2.webp"
+                  src="/images/campaigns/team-building/hero-campaign-woman-v3.webp"
                   alt="Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler"
-                  width={1672}
-                  height={941}
+                  width={680}
+                  height={1120}
                   fetchPriority="high"
                   decoding="async"
-                  className="aspect-[16/9] w-full object-cover object-center lg:h-full lg:aspect-auto"
+                  className="h-full w-full object-contain object-bottom drop-shadow-[0_30px_34px_rgba(11,31,58,0.18)]"
                 />
                 <figcaption className="sr-only">
                   A fictional campaign model appears with a sparkler. The surrounding photographs show real Elluminate
@@ -639,10 +623,10 @@ const TeamBuildingHubPage = () => {
               </figure>
 
               <div
-                className="absolute inset-x-2 bottom-0 z-30 grid grid-cols-3 items-end gap-2 lg:inset-0 lg:block"
+                className="pointer-events-none absolute inset-0 z-40 lg:inset-0"
                 aria-label="Real Elluminate team-building moments"
               >
-                <figure className="-rotate-3 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:left-[1.5%] lg:top-[60%] lg:w-[9.5%]">
+                <figure className="absolute left-1 top-[62%] w-[5.8rem] -rotate-6 overflow-hidden rounded-[1.25rem] border-4 border-white bg-white shadow-xl sm:left-5 sm:w-[7rem] lg:left-[30%] lg:top-[53%] lg:w-[7.5%]">
                   <img
                     src={cloudinaryImage("/images/services/amazing-race/cta.jpg", { width: 420 })}
                     alt="Team members coordinating a hands-on string challenge"
@@ -652,7 +636,7 @@ const TeamBuildingHubPage = () => {
                     className="aspect-[4/5] w-full object-cover object-[50%_48%]"
                   />
                 </figure>
-                <figure className="rotate-2 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:right-[1.5%] lg:top-[58%] lg:w-[9.5%]">
+                <figure className="absolute right-1 top-[68%] w-[5.8rem] rotate-6 overflow-hidden rounded-[1.25rem] border-4 border-white bg-white shadow-xl sm:right-5 sm:w-[7rem] lg:right-[4.5%] lg:top-[52%] lg:w-[11%]">
                   <img
                     src={cloudinaryImage("/images/services/builder-cross/gallery-5.jpg", { width: 420 })}
                     alt="Corporate team smiling beside the structure they built together"
@@ -662,7 +646,7 @@ const TeamBuildingHubPage = () => {
                     className="aspect-[4/5] w-full object-cover object-[50%_38%]"
                   />
                 </figure>
-                <figure className="-rotate-2 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:right-[11.5%] lg:top-[70%] lg:w-[8%]">
+                <figure className="hidden -rotate-3 overflow-hidden rounded-[1.25rem] border-4 border-white bg-white shadow-xl lg:absolute lg:right-[15.5%] lg:top-[70%] lg:block lg:w-[8.5%]">
                   <img
                     src={cloudinaryImage("/images/services/battle-of-the-olympians/gallery-6.jpg", { width: 420 })}
                     alt="Colleagues reaching for a flying disc during a beach team challenge"
@@ -672,7 +656,7 @@ const TeamBuildingHubPage = () => {
                     className="aspect-square w-full object-cover object-[52%_48%]"
                   />
                 </figure>
-                <figure className="hidden rotate-3 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-xl lg:absolute lg:left-[11.5%] lg:top-[71%] lg:block lg:w-[8%]">
+                <figure className="hidden rotate-3 overflow-hidden rounded-[1.25rem] border-4 border-white bg-white shadow-xl lg:absolute lg:right-[4%] lg:top-[73%] lg:block lg:w-[7.5%]">
                   <img
                     src={cloudinaryImage("/images/services/cultural-race/gallery-7.jpg", { width: 420 })}
                     alt="Company group celebrating together after a team challenge"
@@ -683,9 +667,24 @@ const TeamBuildingHubPage = () => {
                   />
                 </figure>
               </div>
+
+              <div className="relative z-50 order-1 rounded-[2rem] border border-white/85 bg-[#fffdf8]/[0.96] px-5 py-6 shadow-[0_24px_70px_rgba(11,31,58,0.2)] backdrop-blur-md sm:px-7 sm:py-7 lg:absolute lg:bottom-[54px] lg:left-[4.5%] lg:w-[29%] lg:px-7 lg:py-6">
+                <p className="text-base leading-7 text-[#334765] sm:text-lg sm:leading-8 lg:text-[0.95rem] lg:leading-6 xl:text-base xl:leading-7">
+                  The unexpected leader. The quiet teammate who spots the answer. The shared finish everyone joins. We
+                  match the experience to your people, then shape the flow, venue fit and facilitation around them.
+                </p>
+                <Button asChild variant="hero" size="xl" className="mt-6 w-full px-6 lg:h-auto lg:px-5 lg:py-4 xl:px-7">
+                  <a href="#quote" onClick={() => handleCtaClick("hero_primary")}>
+                    Build My Team Experience <ArrowRight />
+                  </a>
+                </Button>
+                <div className="mt-5 border-l-2 border-[#f37468] pl-4 text-xs leading-5 text-[#4c5e76] xl:text-sm xl:leading-6">
+                  No payment at enquiry. You do not need to choose an activity first. Review the direction and quote
+                  before confirming.
+                </div>
+              </div>
             </div>
           </div>
-          <div className="absolute -bottom-20 left-1/2 h-32 w-[125%] -translate-x-1/2 rounded-[50%] bg-white" />
         </section>
 
         <section className="relative overflow-hidden bg-white py-20 sm:py-28">
