@@ -38,62 +38,51 @@ test("page has one H1, message-matched SEO, and the locked primary action", () =
   assert.match(page, /const heroHeadline = "Team Building Your People Won't Quietly Dread"/);
   assert.match(
     normalize(page),
-    /tell us who is coming, what you want the day to achieve and where it needs to happen\. we'll help you choose an experience your team can genuinely get into\./,
+    /you book the day hoping people will loosen up\. then comes the worry: will they join in, or politely wait for it to end\? we help you choose the experience that gets the room involved\./,
   );
   assert.match(page, /Build My Team Experience/);
-  assert.match(page, /Send My Team Building Enquiry/);
   assert.match(page, /getRouteSeo\("\/services\/team-building"\)/);
   assert.match(routeSeo, /Corporate Team Building Singapore \| Elluminate/);
-
-  assert.ok((page.match(/href="#quote"/g) ?? []).length >= 4, "expected repeated CTAs to target #quote");
+  assert.ok((page.match(/openPlanMyEvent\(/g) ?? []).length >= 5, "expected repeated CTAs to open Plan My Event");
 });
 
-test("hero keeps one CTA and defers the single quote form", () => {
+test("hero stays simple and opens the shared Plan My Event form", () => {
   const heroStart = page.indexOf("Corporate Team Building Singapore");
-  const proofStart = page.indexOf("Shared operating history");
+  const proofStart = page.indexOf("Why organisers trust us");
   const heroSource = page.slice(heroStart, proofStart);
-  const quoteFormIndex = page.indexOf('id="quote"');
 
-  assert.equal((heroSource.match(/href="#quote"/g) ?? []).length, 1, "expected one hero CTA");
+  assert.equal((heroSource.match(/openPlanMyEvent\("hero_primary"\)/g) ?? []).length, 1, "expected one hero CTA");
   assert.doesNotMatch(heroSource, /href="#activities"/);
   assert.doesNotMatch(heroSource, /<form\b/);
+  assert.doesNotMatch(heroSource, /No payment at enquiry/);
   assert.match(heroSource, /\/images\/campaigns\/team-building\/hero-campaign-woman-v3\.webp/);
   assert.match(heroSource, /fictional adult Asian professional holding a lit sparkler/);
   assert.match(heroSource, /aria-label="Real Elluminate team-building moments"/);
-  assert.equal((page.match(/id="quote"/g) ?? []).length, 1, "expected one quote form");
-  assert.ok(quoteFormIndex > proofStart, "expected the quote form after the landing-page argument");
 });
 
-test("enquiry form requires only name, email, pax, timing, and privacy consent", () => {
-  for (const field of ["name", "email", "pax", "timing"]) {
-    assert.match(page, new RegExp(`name="${field}"[\\s\\S]{0,300}required`));
-  }
-
-  for (const field of ["phone", "venue", "formatPreference", "objective"]) {
-    assert.match(page, new RegExp(`name="${field}"`));
-  }
-
-  assert.match(page, /privacyConsent/);
-  assert.match(page, /honeypot/);
-  assert.match(page, /submitLead\(\{/);
-  assert.match(page, /formName: "team_building_quote_brief"/);
-  assert.match(page, /Team Building Event Planning Enquiry/);
-  assert.match(page, /parseExpectedDate/);
-  assert.doesNotMatch(page, /supabase\.from\("contact_submissions"\)\.insert/);
+test("page reuses the shared Plan My Event modal instead of owning a second form", () => {
+  assert.match(page, /import \{ useContactModal \} from "@\/contexts\/ContactModalContext"/);
+  assert.match(page, /const \{ openContactModal \} = useContactModal\(\)/);
+  assert.match(page, /openContactModal\(\{[\s\S]*eventCategory: "Physical Team Building"[\s\S]*serviceSlug: "team-building"/);
+  assert.doesNotMatch(page, /<form\b/);
+  assert.doesNotMatch(page, /id="quote"/);
+  assert.doesNotMatch(page, /submitLead/);
+  assert.doesNotMatch(page, /href="#quote"/);
 });
 
-test("landing narrative follows the locked ten-section sequence", () => {
+test("landing narrative follows the revised nine-section sequence", () => {
   const requiredCopy = [
     "Corporate Team Building Singapore",
-    "Shared operating history",
+    "Why organisers trust us",
     "The quiet cost of getting it wrong",
-    "What we specialise in",
+    "Why Elluminate is different",
     "The value behind the activity",
     "Find the right direction",
     "Real event moments",
-    "Compare the approaches",
+    "What organisers said afterwards",
     "Is Elluminate right for your event?",
     "From rough brief to a team-building event you can confirm",
+    "Before the easy choices become last-minute compromises",
   ];
 
   let previousIndex = -1;
@@ -105,6 +94,7 @@ test("landing narrative follows the locked ten-section sequence", () => {
 
   assert.doesNotMatch(page, /Originally published by Team Elevate/);
   assert.doesNotMatch(page, /owner-confirmed shared event history/i);
+  assert.doesNotMatch(page, /Compare the approaches/);
   assert.match(page, /<FAQSchema faqs=\{faqs\}/);
   assert.match(page, /<OrganizationSchema type="LocalBusiness"/);
 });
@@ -135,9 +125,12 @@ test("proof, comparison, objections, and value scope use only the locked truth-s
     "8+ years",
     "24",
     "The wrong activity costs more than the quote.",
-    "Choose a fixed activity first",
-    "Build it internally",
-    "Plan with Elluminate",
+    "Activity-first planning starts with the package. We start with the people who have to enjoy it.",
+    "A common activity-first approach",
+    "The Elluminate way",
+    "Our expertise sequence",
+    "Make the people fit the package",
+    "Make the experience fit the people",
     "A different solution may fit better if",
     "Is submitting the brief a commitment?",
     "Standard activity delivery includes",
@@ -156,31 +149,25 @@ test("real service photography is used without repeating a source image", () => 
   assert.equal(new Set(images).size, images.length, "expected each placed service image to be unique");
 });
 
-test("success state is truthful even if the email queue fails", () => {
-  assert.match(page, /We have saved your enquiry\. The Elluminate team can now review the event details you shared\./);
-  assert.doesNotMatch(page, /sent a confirmation to your email|confirmation email has been sent/i);
+test("closing creates truthful urgency without fake scarcity", () => {
+  assert.match(page, /The best time to fix the wrong team-building plan is before you book it\./);
+  assert.match(page, /The earlier the brief is clear, the more room there is to solve participation, venue fit, pacing and/);
+  assert.match(page, /Share the brief\. See a clearer direction and quote\. Decide when the fit makes sense\./);
+  assert.doesNotMatch(page, /today only|limited slots|countdown|act now|last chance/i);
 });
 
-test("visible form and section copy stays aligned to the locked comparison brief", () => {
+test("visible comparison, value, fit, and testimonial sections stay aligned to the revised brief", () => {
   for (const copy of [
-    'Name <span className="text-primary">*</span>',
-    'Work email <span className="text-primary">*</span>',
-    'Estimated pax <span className="text-primary">*</span>',
-    'Date or timing <span className="text-primary">*</span>',
-    'Phone <span className="font-normal text-muted-foreground">(optional)</span>',
-    'Venue preference <span className="font-normal text-muted-foreground">(optional)</span>',
-    'Physical or virtual <span className="font-normal text-muted-foreground">(optional)</span>',
-    'What should the event achieve? <span className="font-normal text-muted-foreground">(optional)</span>',
-    '<option value="">Select a preference</option>',
-    '<option value="Not sure">Not sure yet</option>',
-    'I agree to Elluminate using these details to respond to my enquiry.',
-    'Agree to the privacy policy',
+    "Because your team&apos;s time should not be the test run.",
+    "The activity fills the timetable. The value is everything that makes it worth your team&apos;s time.",
+    "You do not just receive a game. You receive a direction you can explain, compare and confidently",
     'Elluminate is a strong fit if',
     'A different solution may fit better if',
     'Story-led physical experiences',
     'Equipment activities',
     'Virtual experiences',
-    '{review.author}, {review.role}, {review.company}',
+    '<ClientTestimonialsCarousel',
+    'orderingSeed="team-building-client-stories"',
   ]) {
     assert.ok(page.includes(copy), `expected locked copy: ${copy}`);
   }
@@ -208,9 +195,9 @@ test("visible form and section copy stays aligned to the locked comparison brief
 test("WhatsApp and CTA diagnostics are not lead conversions", () => {
   assert.match(page, /wa\.me\/6588352482/);
   assert.match(page, /WhatsApp Elluminate/);
-  assert.match(page, /pushLandingEvent\("form_start"/);
-  assert.match(page, /pushLandingEvent\("cta_click"/);
-  assert.doesNotMatch(page, /pushLandingEvent\("form_submit"/);
+  assert.match(page, /event: "cta_click"/);
+  assert.match(page, /trackCtaClick\("floating_whatsapp", "WhatsApp Elluminate"\)/);
+  assert.doesNotMatch(page, /form_submit/);
   assert.doesNotMatch(page, /trackLeadConversion/);
 });
 

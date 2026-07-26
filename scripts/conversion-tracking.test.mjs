@@ -39,11 +39,13 @@ test("lead conversion helper sends GA4 and Ads once with one transaction ID", ()
   assert.doesNotMatch(tracking, /DEFAULT_VALUE|value:\s*150/);
 });
 
-test("both enquiry surfaces use the same shared post-insert flow", () => {
+test("all enquiry entry points use the shared Plan My Event post-insert flow", () => {
   assert.match(contactModal, /submitLead\(\{/);
   assert.match(contactModal, /formName: "plan_my_event"/);
-  assert.match(teamBuilding, /submitLead\(\{/);
-  assert.match(teamBuilding, /formName: "team_building_quote_brief"/);
+  assert.match(teamBuilding, /useContactModal/);
+  assert.match(teamBuilding, /openContactModal\(\{/);
+  assert.doesNotMatch(teamBuilding, /submitLead\(\{/);
+  assert.doesNotMatch(teamBuilding, /formName: "team_building_quote_brief"/);
   assert.match(leadSubmission, /runLeadSubmissionFlow/);
   assert.match(leadSubmission, /supabase\.from\("contact_submissions"\)\.insert/);
   assert.match(leadSubmission, /contact-inquiry/);

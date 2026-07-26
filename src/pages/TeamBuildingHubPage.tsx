@@ -1,4 +1,4 @@
-import { FormEvent, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   ArrowRight,
   CheckCircle2,
@@ -15,15 +15,13 @@ import { Link } from "react-router-dom";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { SEO } from "@/components/SEO";
+import { ClientTestimonialsCarousel } from "@/components/ClientTestimonialsCarousel";
 import { BreadcrumbSchema, FAQSchema, OrganizationSchema, ServiceSchema } from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { useContactModal } from "@/contexts/ContactModalContext";
 import { cloudinaryImage } from "@/lib/media";
 import { getCampaignPageConfig } from "@/data/campaignPageConfigs";
 import { getRouteSeo } from "@/data/seoRoutes";
-import { submitLead } from "@/lib/leadSubmission";
 import {
   equipmentActivityServices,
   physicalTeamBuildingServices,
@@ -31,19 +29,6 @@ import {
 } from "@/data/siteScope";
 
 type ActivityFilter = "All" | "Outdoor" | "Indoor" | "High energy" | "Lower intensity" | "Virtual";
-type FormatPreference = "Physical" | "Virtual" | "Not sure" | "";
-
-type QuoteFormState = {
-  name: string;
-  email: string;
-  pax: string;
-  timing: string;
-  phone: string;
-  venue: string;
-  objective: string;
-  formatPreference: FormatPreference;
-  privacyConsent: boolean;
-};
 
 type ActivityCard = {
   slug: string;
@@ -149,7 +134,7 @@ const catalogueGroups = [
 const proofMetrics = [
   { value: "5,000+", label: "events delivered" },
   { value: "100,000+", label: "participants" },
-  { value: "8+ years", label: "shared operating history" },
+  { value: "8+ years", label: "planning and delivering events together" },
   { value: "24", label: "physical, equipment-led and virtual experiences" },
 ];
 
@@ -244,38 +229,19 @@ const riskReducers = [
   "Review the direction and quote before confirming",
 ];
 
-const comparisonApproaches = [
-  {
-    number: "01",
-    title: "Choose a fixed activity first",
-    items: [
-      "Start from a familiar activity name or package.",
-      "Select the format before every group requirement is clear.",
-      "Validate venue, participation, pacing and contingencies afterwards.",
-      "Best when your team already knows exactly what it wants.",
-    ],
-  },
-  {
-    number: "02",
-    title: "Build it internally",
-    items: [
-      "Keep complete control of the concept.",
-      "Source or prepare equipment and materials.",
-      "Handle briefing, facilitation, scoring and event flow.",
-      "Best when your organisation has the time, resources and experienced facilitators.",
-    ],
-  },
-  {
-    number: "03",
-    title: "Plan with Elluminate",
-    items: [
-      "Start with the people, purpose, place and timing.",
-      "Narrow the activity direction around the brief.",
-      "Connect setup, facilitation, pacing, scoring and fallback considerations.",
-      "Deliver the activity with facilitators, materials, equipment and basic setup.",
-      "Best when the organiser wants a coordinated, facilitated experience.",
-    ],
-  },
+const activityFirstApproach = [
+  "Pick a package from a list.",
+  "Fit the group around the chosen format.",
+  "Leave participation and pacing to event day.",
+  "Solve venue and contingency questions after the choice.",
+];
+
+const elluminateApproach = [
+  "Start with the people, purpose, place and timing.",
+  "Narrow the format around the team.",
+  "Design the roles and energy so more people can take part.",
+  "Connect briefing, team allocation, pacing, scoring and the shared finish.",
+  "Surface venue and fallback questions before confirmation.",
 ];
 
 const strongFit = [
@@ -322,21 +288,6 @@ const teamBuildingFooterLinks = [
   { name: "MBTI", path: "/services/mbti" },
 ];
 
-const reviews = [
-  {
-    quote: "All of us had a real fun blast and we have nothing but good things to say about the facilitators and the games!",
-    author: "Darren Tey",
-    role: "Operations Manager",
-    company: "Lonza",
-  },
-  {
-    quote: "All our different departments have enjoyed the activities, from our newest members to our management teams.",
-    author: "Farzanah Begum",
-    role: "Senior Officer for Development and Engagement",
-    company: "SIMTech",
-  },
-];
-
 const gallery = [
   {
     src: "/images/services/amazing-race/gallery-5.jpg",
@@ -377,39 +328,9 @@ const faqs = [
       "No format can guarantee how every individual will respond. The planning goal is to choose roles, pacing and challenges that give more than one kind of participant a way to contribute.",
   },
   {
-    question: "What happens if it rains?",
-    answer:
-      "Outdoor formats should include a weather discussion. Depending on the selected activity, considerations may include a sheltered route, indoor option or adjusted game mix. The exact contingency belongs in the confirmed event scope.",
-  },
-  {
-    question: "What if we do not have a venue?",
-    answer:
-      "Some formats include a free public venue or route. Paid venues are available as an optional addition. Suitability depends on the activity, group, date, access and weather requirements.",
-  },
-  {
-    question: "Can this run in our office or function room?",
-    answer:
-      "Yes, subject to the selected format and available space. Movement, noise, access, setup and participant flow should be checked before confirmation.",
-  },
-  {
-    question: "How early should we enquire?",
-    answer:
-      "The published planning guidance is at least two weeks. Enquire earlier when the event requires substantial customisation.",
-  },
-  {
-    question: "How is the quote calculated?",
-    answer:
-      "The quote depends on the selected format, pax, duration, venue, facilitation needs, setup and event-specific logistics.",
-  },
-  {
-    question: "Can we customise the experience?",
-    answer:
-      "Standard, enhanced and bespoke directions are available. The feasible level and price depend on the activity, lead time and requested scope.",
-  },
-  {
     question: "Is submitting the brief a commitment?",
     answer:
-      "No. No payment is taken through the enquiry form. Elluminate reviews the details, clarifies open questions and discusses the direction and quote before confirmation.",
+      "No. Elluminate reviews the details, clarifies open questions and discusses the direction and quote before confirmation.",
   },
   {
     question: "Can you support remote or multi-office teams?",
@@ -418,129 +339,41 @@ const faqs = [
   },
 ];
 
-const initialQuoteForm: QuoteFormState = {
-  name: "",
-  email: "",
-  pax: "",
-  timing: "",
-  phone: "",
-  venue: "",
-  objective: "",
-  formatPreference: "",
-  privacyConsent: false,
-};
-
-const buildBriefDetails = (form: QuoteFormState) =>
-  [
-    "Team Building Event Planning Enquiry",
-    `Pax/headcount: ${form.pax.trim()}`,
-    `Date or timing window: ${form.timing.trim()}`,
-    `Venue preference: ${form.venue.trim() || "Not provided"}`,
-    `Event objective: ${form.objective.trim() || "Not provided"}`,
-    `Format preference: ${form.formatPreference || "Not sure"}`,
-    "Source page: /services/team-building#quote",
-  ].join("\n");
-
-const parseExpectedDate = (timing: string) => {
-  const parsed = new Date(timing);
-  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
-};
-
-const pushLandingEvent = (eventName: "form_start" | "cta_click", payload: Record<string, unknown> = {}) => {
+const pushLandingEvent = (payload: Record<string, unknown> = {}) => {
   if (typeof window === "undefined") return;
 
   const trackingWindow = window as Window & { dataLayer?: Array<Record<string, unknown>> };
   trackingWindow.dataLayer = trackingWindow.dataLayer || [];
   trackingWindow.dataLayer.push({
-    event: eventName,
+    event: "cta_click",
     page_path: "/services/team-building",
-    form_name: "team_building_quote_brief",
+    form_name: "plan_my_event",
     ...payload,
   });
 };
 
 const TeamBuildingHubPage = () => {
   const heroHeadline = "Team Building Your People Won't Quietly Dread";
+  const { openContactModal } = useContactModal();
   const [activityFilter, setActivityFilter] = useState<ActivityFilter>("All");
-  const [quoteForm, setQuoteForm] = useState<QuoteFormState>(initialQuoteForm);
-  const [honeypot, setHoneypot] = useState("");
-  const [formStarted, setFormStarted] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [formError, setFormError] = useState("");
 
   const filteredActivities = useMemo(() => {
     if (activityFilter === "All") return activityCards;
     return activityCards.filter((activity) => activity.filters.includes(activityFilter));
   }, [activityFilter]);
 
-  const updateField = <Key extends keyof QuoteFormState>(field: Key, value: QuoteFormState[Key]) => {
-    setQuoteForm((current) => ({ ...current, [field]: value }));
+  const trackCtaClick = (location: string, ctaText: string) => {
+    pushLandingEvent({ cta_location: location, cta_text: ctaText });
   };
 
-  const handleFormStart = () => {
-    if (formStarted) return;
-    pushLandingEvent("form_start", { field_group: "team_building_brief" });
-    setFormStarted(true);
-  };
-
-  const handleCtaClick = (location: string, ctaText = "Build My Team Experience") => {
-    pushLandingEvent("cta_click", { cta_location: location, cta_text: ctaText });
-  };
-
-  const handleQuoteSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setFormError("");
-
-    if (honeypot) {
-      setSubmitStatus("success");
-      return;
-    }
-
-    if (
-      !quoteForm.name.trim() ||
-      !quoteForm.email.trim() ||
-      !quoteForm.pax.trim() ||
-      !quoteForm.timing.trim() ||
-      !quoteForm.privacyConsent
-    ) {
-      setFormError("Please complete your name, work email, pax, timing, and privacy consent.");
-      setSubmitStatus("error");
-      return;
-    }
-
-    setSubmitStatus("submitting");
-
-    const isVirtual = quoteForm.formatPreference === "Virtual";
-    const eventCategory = isVirtual ? "Virtual Team Building" : "Physical Team Building";
-
-    try {
-      await submitLead({
-        formName: "team_building_quote_brief",
-        service: isVirtual ? "corporate_virtual_team_building" : "corporate_physical_team_building",
-        emailKeyPrefix: "team-building-brief",
-        fields: {
-          name: quoteForm.name.trim(),
-          email: quoteForm.email.trim(),
-          phone: quoteForm.phone.trim() || null,
-          event_category: eventCategory,
-          organisation: null,
-          organisation_type: null,
-          expected_attendees: quoteForm.pax.trim(),
-          expected_date: parseExpectedDate(quoteForm.timing.trim()),
-          additional_customisation: null,
-          game_customisation: "Not Applicable",
-          add_on_services: null,
-          additional_details: buildBriefDetails(quoteForm),
-        },
-      });
-
-      setSubmitStatus("success");
-      setQuoteForm(initialQuoteForm);
-    } catch (error) {
-      console.error("Team-building enquiry failed", error);
-      setSubmitStatus("error");
-      setFormError("We could not send your enquiry. Please try again or WhatsApp Elluminate.");
-    }
+  const openPlanMyEvent = (location: string, ctaText = "Build My Team Experience", additionalDetails?: string) => {
+    trackCtaClick(location, ctaText);
+    openContactModal({
+      eventCategory: "Physical Team Building",
+      serviceSlug: "team-building",
+      additionalDetails:
+        additionalDetails ?? "I would like help choosing the right team-building experience for my group.",
+    });
   };
 
   return (
@@ -663,18 +496,18 @@ const TeamBuildingHubPage = () => {
 
               <div className="relative z-50 order-1 rounded-[2rem] border border-white/85 bg-[#fffdf8]/[0.96] px-5 py-6 shadow-[0_24px_70px_rgba(11,31,58,0.2)] backdrop-blur-md sm:px-7 sm:py-7 lg:absolute lg:bottom-[54px] lg:left-[4.5%] lg:w-[29%] lg:px-7 lg:py-6">
                 <p className="text-base leading-7 text-[#334765] sm:text-lg sm:leading-8 lg:text-[0.95rem] lg:leading-6 xl:text-base xl:leading-7">
-                  Tell us who is coming, what you want the day to achieve and where it needs to happen. We'll help you
-                  choose an experience your team can genuinely get into.
+                  You book the day hoping people will loosen up. Then comes the worry: will they join in, or politely
+                  wait for it to end? We help you choose the experience that gets the room involved.
                 </p>
-                <Button asChild variant="hero" size="xl" className="mt-6 w-full px-6 lg:h-auto lg:px-5 lg:py-4 xl:px-7">
-                  <a href="#quote" onClick={() => handleCtaClick("hero_primary")}>
-                    Build My Team Experience <ArrowRight />
-                  </a>
+                <Button
+                  type="button"
+                  variant="hero"
+                  size="xl"
+                  className="mt-6 w-full px-6 lg:h-auto lg:px-5 lg:py-4 xl:px-7"
+                  onClick={() => openPlanMyEvent("hero_primary")}
+                >
+                  Build My Team Experience <ArrowRight />
                 </Button>
-                <div className="mt-5 border-l-2 border-[#f37468] pl-4 text-xs leading-5 text-[#4c5e76] xl:text-sm xl:leading-6">
-                  No payment at enquiry. You do not need to choose an activity first. Review the direction and quote
-                  before confirming.
-                </div>
               </div>
             </div>
           </div>
@@ -684,10 +517,14 @@ const TeamBuildingHubPage = () => {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
               <div className="max-w-3xl">
-                <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">Shared operating history</p>
+                <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">Why organisers trust us</p>
                 <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] text-[#0b1f3a] sm:text-6xl">
-                  Experience is what lets us plan around your team, not just sell you an activity.
+                  Because your team&apos;s time should not be the test run.
                 </h2>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-[#4c5e76]">
+                  Thousands of event days have taught us where participation drops, what different groups need and
+                  which practical details decide whether the room joins in.
+                </p>
               </div>
               <blockquote className="relative rounded-[2rem] bg-[#0b1f3a] p-7 text-white shadow-xl sm:p-9">
                 <span className="absolute -top-7 right-8 font-display text-8xl font-black leading-none text-[#ffd85d]">“</span>
@@ -796,52 +633,70 @@ const TeamBuildingHubPage = () => {
           <div className="absolute -left-36 -top-36 -z-10 h-[30rem] w-[30rem] rounded-full bg-primary/30 blur-3xl" />
           <div className="absolute -bottom-48 right-0 -z-10 h-[32rem] w-[32rem] rounded-full bg-[#f37468]/[0.15] blur-3xl" />
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
-              <div className="max-w-4xl">
-                <p className="text-sm font-black uppercase tracking-[0.2em] text-[#ffd85d]">What we specialise in</p>
-                <h2 className="mt-4 font-display text-4xl font-black leading-[0.96] tracking-[-0.035em] sm:text-6xl">
-                  Getting the fit right before your team steps into the room.
-                </h2>
-              </div>
-              <p className="text-lg leading-8 text-white/[0.68] lg:justify-self-end">
-                You do not need to arrive with the activity name. Bring the people, purpose, place and timing. We
-                connect the rest.
+            <div className="mx-auto max-w-5xl text-center">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-[#ffd85d]">Why Elluminate is different</p>
+              <h2 className="mt-4 font-display text-4xl font-black leading-[0.96] tracking-[-0.035em] sm:text-6xl">
+                Activity-first planning starts with the package. We start with the people who have to enjoy it.
+              </h2>
+              <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/[0.68]">
+                That changes what gets decided before you sign: the format, roles, pacing, venue fit, facilitation and
+                fallback all follow the brief.
               </p>
             </div>
 
-            <div className="relative mt-16">
-              <div className="absolute left-6 top-6 hidden h-[calc(100%-3rem)] w-px bg-gradient-to-b from-[#ffd85d] via-primary to-[#f37468] sm:block lg:left-0 lg:top-7 lg:h-px lg:w-full" />
-              <div className="grid gap-5 lg:grid-cols-5">
-                {planningFlow.map((item, index) => {
-                  const Icon = item.icon;
-                  return (
-                    <article key={item.title} className="relative rounded-[1.6rem] border border-white/[0.12] bg-white/[0.075] p-6 backdrop-blur-sm">
-                      <div className="flex items-center gap-4 lg:block">
-                        <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#ffd85d] text-[#0b1f3a] shadow-lg ring-8 ring-[#0b1f3a]">
-                          <Icon className="h-5 w-5" />
-                        </span>
-                        <p className="text-xs font-black tracking-[0.2em] text-white/[0.45] lg:mt-9">0{index + 1}</p>
-                      </div>
-                      <h3 className="mt-5 font-display text-2xl font-black">{item.title}</h3>
-                      <p className="mt-4 text-sm leading-7 text-white/[0.66]">{item.copy}</p>
-                    </article>
-                  );
-                })}
-              </div>
-            </div>
+            <div className="mt-14 grid gap-5 lg:grid-cols-[0.8fr_1.35fr_0.92fr] lg:items-stretch">
+              <article className="rounded-[2rem] border border-white/[0.12] bg-white/[0.065] p-7 sm:p-8">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-white/50">A common activity-first approach</p>
+                <h3 className="mt-4 font-display text-3xl font-black">Make the people fit the package</h3>
+                <ul className="mt-7 space-y-4">
+                  {activityFirstApproach.map((item) => (
+                    <li key={item} className="flex gap-3 text-sm leading-6 text-white/[0.68]">
+                      <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-white/35" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
 
-            <div className="mt-12 grid overflow-hidden rounded-[2rem] border border-white/[0.12] bg-white/[0.06] lg:grid-cols-[0.78fr_1.22fr]">
-              <img
-                src={cloudinaryImage("/images/services/monopoly-dash/gallery-6.jpg", { width: 980 })}
-                alt="Facilitator guiding a team-building group through an activity"
-                width={980}
-                height={720}
-                loading="lazy"
-                className="h-full min-h-[300px] w-full object-cover"
-              />
-              <div aria-hidden="true" className="flex items-center justify-center p-7 text-[#ffd85d] sm:p-10">
-                <Sparkles className="h-16 w-16" />
-              </div>
+              <article className="relative overflow-hidden rounded-[2.25rem] bg-white p-7 text-[#0b1f3a] shadow-2xl ring-4 ring-[#ffd85d] sm:p-10">
+                <span className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary/10 blur-2xl" />
+                <p className="relative text-xs font-black uppercase tracking-[0.2em] text-primary">The Elluminate way</p>
+                <h3 className="relative mt-4 font-display text-4xl font-black leading-[1.02]">
+                  Make the experience fit the people
+                </h3>
+                <ul className="relative mt-8 space-y-4">
+                  {elluminateApproach.map((item) => (
+                    <li key={item} className="flex gap-3 font-semibold leading-7 text-[#40536d]">
+                      <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="relative mt-8 border-t border-[#dce6f3] pt-7 text-lg font-black leading-8">
+                  You do not just receive a game. You receive a direction you can explain, compare and confidently
+                  confirm.
+                </p>
+              </article>
+
+              <article className="rounded-[2rem] bg-[#ffd85d] p-7 text-[#0b1f3a] sm:p-8">
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#0b1f3a]/55">Our expertise sequence</p>
+                <div className="mt-6 space-y-5">
+                  {planningFlow.map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={item.title} className="flex gap-4 border-b border-[#0b1f3a]/10 pb-5 last:border-0 last:pb-0">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#0b1f3a] text-[#ffd85d]">
+                          <Icon className="h-4 w-4" />
+                        </span>
+                        <div>
+                          <p className="text-[0.65rem] font-black tracking-[0.18em] text-[#0b1f3a]/45">0{index + 1}</p>
+                          <h4 className="mt-1 font-display text-lg font-black">{item.title}</h4>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </article>
             </div>
           </div>
         </section>
@@ -851,7 +706,7 @@ const TeamBuildingHubPage = () => {
             <div className="mx-auto max-w-4xl text-center">
               <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">The value behind the activity</p>
               <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] text-[#0b1f3a] sm:text-6xl">
-                Your team sees the experience. You get the planning and delivery behind it.
+                The activity fills the timetable. The value is everything that makes it worth your team&apos;s time.
               </h2>
               <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#4c5e76]">
                 A team-building event is not one game. It is the fit, flow, facilitation, setup, scoring and practical
@@ -890,10 +745,14 @@ const TeamBuildingHubPage = () => {
                     Instead of piecing together the game, equipment, facilitation, scoring and event flow separately,
                     you have one connected activity scope.
                   </p>
-                  <Button asChild variant="hero" size="xl" className="mt-8 w-full sm:w-auto">
-                    <a href="#quote" onClick={() => handleCtaClick("value_stack_primary")}>
-                      Build My Team Experience <ArrowRight />
-                    </a>
+                  <Button
+                    type="button"
+                    variant="hero"
+                    size="xl"
+                    className="mt-8 w-full sm:w-auto"
+                    onClick={() => openPlanMyEvent("value_stack_primary")}
+                  >
+                    Build My Team Experience <ArrowRight />
                   </Button>
                 </div>
                 <div className="grid gap-px bg-white/[0.12] sm:grid-cols-3 lg:grid-cols-1">
@@ -965,9 +824,19 @@ const TeamBuildingHubPage = () => {
                     <p className="mt-4 border-l-2 border-primary/50 pl-4 text-sm leading-6 text-muted-foreground">{activity.fit}</p>
                     <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[#dce6f3] pt-5">
                       <Link to={`/services/${activity.slug}`} className="text-sm font-semibold text-primary hover:underline">View format</Link>
-                      <a href="#quote" onClick={() => handleCtaClick(`activity_${activity.slug}`, "Ask if this fits my team")} className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          openPlanMyEvent(
+                            `activity_${activity.slug}`,
+                            "Ask if this fits my team",
+                            `I would like to know whether ${activity.title} fits my team.`,
+                          )
+                        }
+                        className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
+                      >
                         Ask if this fits <ArrowRight className="h-4 w-4" />
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </article>
@@ -986,13 +855,13 @@ const TeamBuildingHubPage = () => {
                     can browse every format, or send the brief without choosing one first.
                   </p>
                 </div>
-                <a
-                  href="#quote"
-                  onClick={() => handleCtaClick("full_catalogue_help", "Help me narrow it down")}
+                <button
+                  type="button"
+                  onClick={() => openPlanMyEvent("full_catalogue_help", "Help me narrow it down")}
                   className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full bg-primary px-6 font-bold text-white transition hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 >
                   Help me narrow it down <ArrowRight className="h-4 w-4" />
-                </a>
+                </button>
               </div>
 
               <div className="mt-8 grid gap-4 lg:grid-cols-3">
@@ -1066,82 +935,16 @@ const TeamBuildingHubPage = () => {
               ))}
             </div>
 
-            <div className="mt-16 border-t border-white/[0.12] pt-12">
-              <div className="mx-auto max-w-3xl text-center">
-                <p className="text-sm font-black uppercase tracking-[0.2em] text-[#ffd85d]">Client voices from Team Elevate</p>
-                <h2 className="mt-4 font-display text-3xl font-black leading-tight sm:text-5xl">
-                  What clients said about the facilitators and games
-                </h2>
-                <p className="mt-5 leading-7 text-white/[0.64]">
-                  These testimonials come from Team Elevate&apos;s event history. Elluminate and Team Elevate are both
-                  operated by EXSTATIC PTE. LTD.
-                </p>
-              </div>
-              <div className="mx-auto mt-10 grid max-w-6xl gap-5 lg:grid-cols-2">
-                {reviews.map((review, index) => (
-                  <figure
-                    key={review.author}
-                    className={`rounded-[2rem] p-7 sm:p-9 ${
-                      index === 0 ? "bg-[#ffd85d] text-[#0b1f3a]" : "bg-white text-[#0b1f3a]"
-                    }`}
-                  >
-                    <blockquote className="font-display text-2xl font-black leading-9">“{review.quote}”</blockquote>
-                    <figcaption className="mt-7 border-t border-[#0b1f3a]/[0.15] pt-5">
-                      <p className="font-display text-lg font-black">
-                        {review.author}, {review.role}, {review.company}
-                      </p>
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
-        <section className="bg-[#fbf7ed] py-20 sm:py-28">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid gap-8 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
-              <div className="max-w-3xl">
-                <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">Compare the approaches</p>
-                <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] text-[#0b1f3a] sm:text-6xl">
-                  The activity may look similar. The organiser&apos;s workload is not.
-                </h2>
-              </div>
-              <p className="max-w-2xl text-lg leading-8 text-[#4c5e76] lg:justify-self-end">
-                You can choose a game and make the event fit around it. You can build everything internally. Or you
-                can start with the brief and connect the activity, flow and practical details before confirmation.
-              </p>
-            </div>
-
-            <div className="mt-14 grid gap-5 lg:grid-cols-3">
-              {comparisonApproaches.map((approach, index) => (
-                <article
-                  key={approach.number}
-                  className={`relative overflow-hidden rounded-[2rem] border p-7 sm:p-8 ${
-                    index === 2
-                      ? "border-primary bg-[#eaf3ff] shadow-xl"
-                      : "border-[#d9e1eb] bg-white"
-                  }`}
-                >
-                  <span className="absolute right-5 top-3 font-display text-7xl font-black text-primary/[0.08]">{approach.number}</span>
-                  <h3 className="relative mt-5 font-display text-2xl font-black leading-tight text-[#0b1f3a]">{approach.title}</h3>
-                  <ul className="relative mt-7 space-y-4">
-                    {approach.items.map((item) => (
-                      <li key={item} className="flex gap-3 text-sm leading-6 text-[#40536d]">
-                        <CheckCircle2 className={`mt-0.5 h-5 w-5 shrink-0 ${index === 2 ? "text-primary" : "text-[#8090a3]"}`} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-            <p className="mx-auto mt-10 max-w-4xl border-t border-[#d9e1eb] pt-8 text-center text-lg font-semibold leading-8 text-[#0b1f3a]">
-              The difference is not simply which game appears on the day. It is how much certainty you have before
-              confirming, and how much your internal team still has to carry.
-            </p>
-          </div>
-        </section>
+        <ClientTestimonialsCarousel
+          theme="dark"
+          eyebrow="What organisers said afterwards"
+          heading="Proof from people who watched the room join in"
+          description="Real feedback from clients who trusted the team with their event."
+          orderingSeed="team-building-client-stories"
+        />
 
         <section id="faq" className="scroll-mt-24 bg-white py-20 sm:py-28">
           <div className="container mx-auto px-6 lg:px-12">
@@ -1218,201 +1021,12 @@ const TeamBuildingHubPage = () => {
             </div>
             <p className="mt-8 flex items-start gap-3 rounded-2xl border border-primary/20 bg-primary/[0.06] px-5 py-4 text-sm font-semibold leading-6 text-[#40536d]">
               <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              No payment is taken when you enquire. Review the direction and quote before confirming.
+              The earlier the brief is clear, the more room there is to solve the details before they become rushed
+              compromises.
             </p>
           </div>
         </section>
 
-        <section className="relative isolate overflow-hidden bg-[#fffaf0] py-20 sm:py-28">
-          <div className="absolute -left-24 top-12 -z-10 h-72 w-72 rounded-full bg-primary/[0.12] blur-3xl" />
-          <div className="absolute -right-32 bottom-0 -z-10 h-96 w-96 rounded-full bg-[#ffd85d]/25 blur-3xl" />
-          <div className="container mx-auto grid gap-6 px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-12">
-            <aside className="relative flex min-h-[560px] overflow-hidden rounded-[2.25rem] bg-[#0b1f3a] p-7 text-white shadow-2xl sm:p-10">
-              <img
-                src={cloudinaryImage("/images/services/cultural-race/gallery-6.jpg", { width: 900 })}
-                alt="Team members collaborating around an outdoor challenge"
-                width={900}
-                height={900}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover opacity-45"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-[#0b1f3a]/20 via-[#0b1f3a]/[0.74] to-[#0b1f3a]" />
-              <div className="relative mt-auto max-w-xl">
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">Your event brief</p>
-                <h2 className="mt-4 font-display text-3xl font-black leading-[1.05] sm:text-5xl">
-                  You do not need the perfect activity name to begin.
-                </h2>
-                <p className="mt-5 text-base leading-7 text-white/75">
-                  Start with the people, timing, place and purpose. Elluminate can use those details to narrow the
-                  direction and discuss a relevant quote with you.
-                </p>
-                <div className="mt-7 space-y-3 text-sm font-semibold text-white/[0.85]">
-                  {["Share only the details you know", "Keep the venue or format open", "No payment is taken here"].map((item) => (
-                    <p key={item} className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
-                      {item}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </aside>
-
-            <div
-              id="quote"
-              className="min-w-0 scroll-mt-28 rounded-[2.25rem] border border-[#dce6f3] bg-white p-6 text-foreground shadow-xl sm:p-9 lg:p-10"
-            >
-              {submitStatus === "success" ? (
-                <div className="flex min-h-[520px] flex-col items-center justify-center text-center" role="status">
-                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <CheckCircle2 className="h-8 w-8" />
-                  </span>
-                  <h2 className="mt-6 font-display text-3xl font-black">Your event brief is in.</h2>
-                  <p className="mt-4 max-w-sm leading-7 text-muted-foreground">
-                    We have saved your enquiry. The Elluminate team can now review the event details you shared.
-                  </p>
-                  <Button type="button" variant="primary-outline" className="mt-7" onClick={() => setSubmitStatus("idle")}>
-                    Send another enquiry
-                  </Button>
-                </div>
-              ) : (
-                <form onSubmit={handleQuoteSubmit} onFocus={handleFormStart} noValidate>
-                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Event enquiry</p>
-                  <h2 className="mt-2 font-display text-3xl font-black">Tell us about your team event</h2>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                    Start with the details you know. Venue, objective, and format preference can stay open for now.
-                  </p>
-
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                    <label className="text-sm font-semibold">
-                      Name <span className="text-primary">*</span>
-                      <Input
-                        name="name"
-                        value={quoteForm.name}
-                        onChange={(event) => updateField("name", event.target.value)}
-                        autoComplete="name"
-                        required
-                        className="mt-2"
-                      />
-                    </label>
-                    <label className="text-sm font-semibold">
-                      Work email <span className="text-primary">*</span>
-                      <Input
-                        name="email"
-                        type="email"
-                        value={quoteForm.email}
-                        onChange={(event) => updateField("email", event.target.value)}
-                        autoComplete="email"
-                        required
-                        className="mt-2"
-                      />
-                    </label>
-                    <label className="text-sm font-semibold">
-                      Estimated pax <span className="text-primary">*</span>
-                      <Input
-                        name="pax"
-                        value={quoteForm.pax}
-                        onChange={(event) => updateField("pax", event.target.value)}
-                        inputMode="numeric"
-                        placeholder="e.g. 60"
-                        required
-                        className="mt-2"
-                      />
-                    </label>
-                    <label className="text-sm font-semibold">
-                      Date or timing <span className="text-primary">*</span>
-                      <Input
-                        name="timing"
-                        value={quoteForm.timing}
-                        onChange={(event) => updateField("timing", event.target.value)}
-                        placeholder="e.g. September, weekday"
-                        required
-                        className="mt-2"
-                      />
-                    </label>
-                    <label className="text-sm font-semibold">
-                      Phone <span className="font-normal text-muted-foreground">(optional)</span>
-                      <Input
-                        name="phone"
-                        type="tel"
-                        value={quoteForm.phone}
-                        onChange={(event) => updateField("phone", event.target.value)}
-                        autoComplete="tel"
-                        className="mt-2"
-                      />
-                    </label>
-                    <label className="text-sm font-semibold">
-                      Venue preference <span className="font-normal text-muted-foreground">(optional)</span>
-                      <Input
-                        name="venue"
-                        value={quoteForm.venue}
-                        onChange={(event) => updateField("venue", event.target.value)}
-                        placeholder="Office, outdoor, not sure"
-                        className="mt-2"
-                      />
-                    </label>
-                  </div>
-
-                  <label className="mt-4 block text-sm font-semibold">
-                    Physical or virtual <span className="font-normal text-muted-foreground">(optional)</span>
-                    <select
-                      name="formatPreference"
-                      value={quoteForm.formatPreference}
-                      onChange={(event) => updateField("formatPreference", event.target.value as FormatPreference)}
-                      className="mt-2 flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                    >
-                      <option value="">Select a preference</option>
-                      <option value="Physical">Physical</option>
-                      <option value="Virtual">Virtual</option>
-                      <option value="Not sure">Not sure yet</option>
-                    </select>
-                  </label>
-
-                  <label className="mt-4 block text-sm font-semibold">
-                    What should the event achieve? <span className="font-normal text-muted-foreground">(optional)</span>
-                    <Textarea
-                      name="objective"
-                      value={quoteForm.objective}
-                      onChange={(event) => updateField("objective", event.target.value)}
-                      placeholder="Bonding, onboarding, morale, celebration, cross-team interaction..."
-                      className="mt-2 min-h-24"
-                    />
-                  </label>
-
-                  <div className="sr-only" aria-hidden="true">
-                    <label htmlFor="team-building-company-website">Company website</label>
-                    <input
-                      id="team-building-company-website"
-                      name="companyWebsite"
-                      value={honeypot}
-                      onChange={(event) => setHoneypot(event.target.value)}
-                      tabIndex={-1}
-                      autoComplete="off"
-                    />
-                  </div>
-
-                  <label className="mt-5 flex cursor-pointer items-start gap-3 text-sm leading-6 text-muted-foreground">
-                    <Checkbox
-                      checked={quoteForm.privacyConsent}
-                      onCheckedChange={(checked) => updateField("privacyConsent", checked === true)}
-                      aria-label="Agree to the privacy policy"
-                    />
-                    <span>I agree to Elluminate using these details to respond to my enquiry.</span>
-                  </label>
-
-                  {formError ? <p className="mt-4 text-sm font-semibold text-destructive" role="alert">{formError}</p> : null}
-
-                  <Button type="submit" variant="primary" size="xl" className="mt-6 w-full" disabled={submitStatus === "submitting"}>
-                    {submitStatus === "submitting" ? "Sending enquiry..." : "Send My Team Building Enquiry"}
-                    {submitStatus !== "submitting" ? <ArrowRight /> : null}
-                  </Button>
-                  <p className="mt-3 text-center text-xs leading-5 text-muted-foreground">
-                    No payment is taken here. This form starts an event-planning conversation.
-                  </p>
-                </form>
-              )}
-            </div>
-          </div>
-        </section>
 
         <section className="relative isolate overflow-hidden bg-[#0b1f3a] px-6 py-20 text-white sm:py-28 lg:px-12">
           <div className="absolute -left-32 top-0 -z-10 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
@@ -1421,17 +1035,27 @@ const TeamBuildingHubPage = () => {
             <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#ffd85d] text-[#0b1f3a] shadow-xl">
               <ClipboardCheck className="h-7 w-7" />
             </span>
-            <p className="mt-7 text-sm font-black uppercase tracking-[0.2em] text-[#ffd85d]">Ready when you are</p>
+            <p className="mt-7 text-sm font-black uppercase tracking-[0.2em] text-[#ffd85d]">
+              Before the easy choices become last-minute compromises
+            </p>
             <h2 className="mx-auto mt-5 max-w-5xl font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] sm:text-6xl">
-              Give us the brief. We&apos;ll help you turn it into a team experience that fits.
+              The best time to fix the wrong team-building plan is before you book it.
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/[0.68]">
-              Send your group size, timing, venue preference and event goal. You can leave the activity open.
+              The earlier the brief is clear, the more room there is to solve participation, venue fit, pacing and
+              fallback before they become rushed decisions.
             </p>
-            <Button asChild variant="hero" size="xl" className="mt-8 w-full sm:w-auto">
-              <a href="#quote" onClick={() => handleCtaClick("final_primary")}>
-                Build My Team Experience <ArrowRight />
-              </a>
+            <p className="mx-auto mt-5 max-w-2xl font-display text-xl font-black leading-8 text-white">
+              Share the brief. See a clearer direction and quote. Decide when the fit makes sense.
+            </p>
+            <Button
+              type="button"
+              variant="hero"
+              size="xl"
+              className="mt-8 w-full sm:w-auto"
+              onClick={() => openPlanMyEvent("final_primary")}
+            >
+              Build My Team Experience <ArrowRight />
             </Button>
           </div>
         </section>
@@ -1442,7 +1066,7 @@ const TeamBuildingHubPage = () => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp Elluminate about team building"
-        onClick={() => handleCtaClick("floating_whatsapp", "WhatsApp Elluminate")}
+        onClick={() => trackCtaClick("floating_whatsapp", "WhatsApp Elluminate")}
         className="fixed bottom-5 right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25d366] text-white shadow-xl transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
       >
         <MessageCircle className="h-7 w-7" />
