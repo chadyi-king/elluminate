@@ -414,7 +414,7 @@ const TeamBuildingHubPage = () => {
           <div className="container relative mx-auto px-4 pb-6 pt-7 sm:px-7 lg:min-h-[930px] lg:px-10 lg:pb-6 lg:pt-0">
             <div
               aria-hidden="true"
-              className="absolute inset-x-6 bottom-6 top-[195px] hidden overflow-hidden rounded-[3rem] bg-[#69c9ec] lg:block"
+              className="absolute inset-x-6 bottom-6 top-[205px] hidden overflow-hidden rounded-[3rem] bg-[#69c9ec] lg:block xl:top-[225px]"
             >
               <div className="absolute left-[29%] top-[23%] h-12 w-44 rounded-full bg-white">
                 <span className="absolute -top-6 left-7 h-14 w-14 rounded-full bg-white" />
@@ -438,24 +438,24 @@ const TeamBuildingHubPage = () => {
 
             <h1
               aria-label={heroHeadline}
-              className="relative z-20 mx-auto mt-5 max-w-3xl text-center font-display font-black uppercase leading-[0.74] tracking-[-0.055em] text-[#0b1f3a] lg:absolute lg:inset-0 lg:mt-0 lg:max-w-none lg:tracking-[-0.075em]"
+              className="relative z-20 mx-auto mt-5 max-w-3xl text-center font-display font-black uppercase leading-[0.68] tracking-[-0.055em] text-[#0b1f3a] lg:absolute lg:inset-0 lg:mt-0 lg:max-w-none lg:tracking-[-0.08em]"
             >
-              <span className="block text-[clamp(3rem,13vw,4.4rem)] lg:absolute lg:left-[3%] lg:top-[58px] lg:w-[37%] lg:text-right lg:text-[clamp(4.2rem,5.5vw,6.15rem)]">
+              <span className="block text-[clamp(3rem,13vw,4.4rem)] lg:absolute lg:bottom-[725px] lg:left-[2.5%] lg:top-auto lg:w-[40%] lg:text-right lg:text-[clamp(5.6rem,7vw,7.2rem)] xl:bottom-[705px] xl:text-[clamp(7rem,8.25vw,8.8rem)]">
                 Team
                 <br />
                 Building
               </span>
-              <span className="mt-3 block text-[clamp(2.5rem,11vw,3.8rem)] text-[#348fbe] lg:absolute lg:left-[3%] lg:top-[207px] lg:mt-0 lg:w-[37%] lg:text-right lg:text-[clamp(3.8rem,5vw,5.6rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)]">
+              <span className="mt-3 block text-[clamp(2.5rem,11vw,3.8rem)] text-[#348fbe] lg:absolute lg:left-[2.5%] lg:top-[215px] lg:mt-0 lg:w-[40%] lg:text-right lg:text-[clamp(4.8rem,6.2vw,6.5rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)] xl:top-[235px] xl:text-[clamp(6.2rem,7.5vw,8rem)]">
                 Your
                 <br />
                 People
               </span>
-              <span className="mt-3 block text-[clamp(2.5rem,11vw,3.8rem)] lg:absolute lg:right-[3%] lg:top-[58px] lg:mt-0 lg:w-[37%] lg:text-left lg:text-[clamp(3.9rem,5.15vw,5.75rem)]">
+              <span className="mt-3 block text-[clamp(2.5rem,11vw,3.8rem)] lg:absolute lg:bottom-[725px] lg:right-[2.5%] lg:top-auto lg:mt-0 lg:w-[40%] lg:text-left lg:text-[clamp(5rem,6.5vw,6.7rem)] xl:bottom-[705px] xl:text-[clamp(6.5rem,7.7vw,8.3rem)]">
                 Won&apos;t
                 <br />
                 Quietly
               </span>
-              <span className="mt-1 block text-[clamp(3.5rem,15vw,5rem)] text-[#348fbe] lg:absolute lg:right-[3%] lg:top-[207px] lg:mt-0 lg:w-[37%] lg:text-left lg:text-[clamp(5.1rem,6.8vw,7.6rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)]">
+              <span className="mt-1 block text-[clamp(3.5rem,15vw,5rem)] text-[#348fbe] lg:absolute lg:right-[2.5%] lg:top-[215px] lg:mt-0 lg:w-[40%] lg:text-left lg:text-[clamp(6.6rem,8.7vw,8.8rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)] xl:top-[235px] xl:text-[clamp(8.2rem,10.2vw,10.4rem)]">
                 Dread
               </span>
             </h1>
@@ -472,10 +472,10 @@ const TeamBuildingHubPage = () => {
 
               <figure className="relative z-40 order-1 mx-auto mt-2 h-[520px] w-full max-w-[390px] sm:h-[620px] sm:max-w-[470px] lg:absolute lg:-bottom-2 lg:left-1/2 lg:mt-0 lg:h-[1000px] lg:w-[585px] lg:max-w-none lg:-translate-x-1/2">
                 <img
-                  src="/images/campaigns/team-building/hero-campaign-woman-v6.webp"
+                  src="/images/campaigns/team-building/hero-campaign-woman-v7.webp"
                   alt="Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler"
-                  width={968}
-                  height={1624}
+                  width={971}
+                  height={1619}
                   decoding="async"
                   className="h-full w-full object-cover object-top drop-shadow-[0_30px_34px_rgba(11,31,58,0.2)] lg:object-contain lg:object-bottom"
                 />
@@ -489,7 +489,7 @@ const TeamBuildingHubPage = () => {
                 className="relative z-30 order-2 -mt-20 grid grid-cols-2 gap-3 sm:-mt-24 lg:pointer-events-none lg:absolute lg:inset-0 lg:mt-0 lg:block"
                 aria-label="Real Elluminate team-building moments"
               >
-                <figure className="-rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[3.5%] lg:top-[55%] lg:w-[15%]">
+                <figure className="-rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[3.5%] lg:top-[48%] lg:w-[18%]">
                   <img
                     src={cloudinaryImage("/images/services/amazing-race/cta.jpg", { width: 700 })}
                     alt="Team members coordinating a hands-on string challenge"
@@ -499,7 +499,7 @@ const TeamBuildingHubPage = () => {
                     className="aspect-[3/4] w-full object-cover object-[50%_48%]"
                   />
                 </figure>
-                <figure className="rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[20%] lg:top-[60%] lg:w-[14%]">
+                <figure className="rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[22.5%] lg:top-[53%] lg:w-[16.8%]">
                   <img
                     src={cloudinaryImage("/images/services/battle-of-the-olympians/gallery-6.jpg", { width: 700 })}
                     alt="Colleagues reaching for a flying disc during a beach team challenge"
@@ -509,7 +509,7 @@ const TeamBuildingHubPage = () => {
                     className="aspect-[3/4] w-full object-cover object-[52%_48%]"
                   />
                 </figure>
-                <figure className="-rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[20%] lg:top-[60%] lg:w-[14%]">
+                <figure className="-rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[26%] lg:top-[51%] lg:w-[21%]">
                   <img
                     src={cloudinaryImage("/images/services/cultural-race/gallery-7.jpg", { width: 700 })}
                     alt="Company group celebrating together after a team challenge"
@@ -519,7 +519,7 @@ const TeamBuildingHubPage = () => {
                     className="aspect-[3/4] w-full object-cover object-[52%_50%]"
                   />
                 </figure>
-                <figure className="rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[3.5%] lg:top-[55%] lg:w-[15%]">
+                <figure className="rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[3.5%] lg:top-[45%] lg:w-[22.5%]">
                   <img
                     src={cloudinaryImage("/images/services/builder-cross/gallery-5.jpg", { width: 700 })}
                     alt="Corporate team smiling beside the structure they built together"
