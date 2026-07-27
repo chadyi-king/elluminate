@@ -76,7 +76,7 @@ export const HeroCharacters = () => (
     */}
     <CharacterFigure
       image={charBlueMan}
-      posClass="bottom-[8.5rem] left-[-4rem] xl:left-[-2rem] 2xl:left-[0.5rem]"
+      posClass="top-5 left-[-4rem] xl:left-[-2rem] 2xl:left-[0.5rem]"
       delay={0.1}
       width={500}
       height={500}
@@ -98,7 +98,7 @@ export const HeroCharacters = () => (
 
     <CharacterFigure
       image={charGreenWoman}
-      posClass="bottom-[8.5rem] right-[-4rem] xl:right-[-2rem] 2xl:right-[0.75rem]"
+      posClass="top-5 right-[-4rem] xl:right-[-2rem] 2xl:right-[0.75rem]"
       delay={0.15}
       width={480}
       height={500}

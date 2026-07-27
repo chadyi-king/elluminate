@@ -138,9 +138,13 @@ export const OurTeam = () => {
             transition={{ duration: reduceMotion ? 0 : 0.65, delay: reduceMotion ? 0 : 0.08 }}
             className="min-w-0"
           >
-            <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">Illustrative Crew Portraits</p>
-              <p className="text-xs text-white/70">Planning &middot; producing &middot; facilitating</p>
+            <div className="mb-6 flex items-center gap-4 sm:gap-6">
+              <span className="h-px flex-1 bg-gradient-to-r from-transparent to-sky-300/60" aria-hidden="true" />
+              <p className="whitespace-nowrap text-center font-display text-[0.65rem] font-black uppercase tracking-[0.24em] text-white/90 sm:text-xs lg:text-sm">
+                Planning <span className="text-sky-300">&bull;</span> Producing{" "}
+                <span className="text-sky-300">&bull;</span> Facilitating
+              </p>
+              <span className="h-px flex-1 bg-gradient-to-l from-transparent to-sky-300/60" aria-hidden="true" />
             </div>
 
             {reduceMotion ? (
@@ -154,7 +158,7 @@ export const OurTeam = () => {
             ) : (
               <div
                 role="region"
-                aria-label="Illustrative portraits representing event planners, producers and facilitators. Hover or focus to pause the moving portraits."
+                aria-label="Event planners, producers and facilitators. Hover or focus to pause the moving portraits."
                 tabIndex={0}
                 className="relative space-y-3 overflow-hidden py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
                 style={{
