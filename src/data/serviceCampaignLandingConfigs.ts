@@ -210,7 +210,7 @@ const retreatConfig: ServiceCampaignLandingConfig = {
     semanticHeadline: "Company Retreats Your People Will Still Talk About",
     topLeft: ["Company", "Retreats"],
     lowerLeft: ["Your", "People"],
-    topRight: ["Will Still"],
+    topRight: ["Will", "Still"],
     lowerRight: ["Talk", "About"],
     storyLead: "Beautiful",
     storyBody:
@@ -582,8 +582,8 @@ const trainingConfig: ServiceCampaignLandingConfig = {
     semanticHeadline: "Training Your People Can Actually Use",
     topLeft: ["Training"],
     lowerLeft: ["Your", "People"],
-    topRight: ["Can Actually"],
-    lowerRight: ["Use"],
+    topRight: ["Can"],
+    lowerRight: ["Actually", "Use"],
     storyLead: "Monday",
     storyBody:
       "is the real test. You can fill a room, finish a deck and still watch everyone return to the same habits. We shape the format, facilitation and application around the work waiting outside the room.",

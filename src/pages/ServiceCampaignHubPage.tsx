@@ -60,7 +60,7 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
           lowerLeft:
             "text-[clamp(2.55rem,11vw,3.8rem)] lg:text-[clamp(4.55rem,5.4vw,5.8rem)] xl:text-[clamp(5.4rem,6.2vw,6.7rem)]",
           topRight:
-            "text-[clamp(2.3rem,9.8vw,3.35rem)] lg:text-[clamp(3.5rem,4.4vw,4.9rem)] xl:text-[clamp(4.2rem,5vw,5.6rem)]",
+            "text-[clamp(2.55rem,10.8vw,3.75rem)] lg:text-[clamp(4rem,4.9vw,5.3rem)] xl:text-[clamp(4.75rem,5.5vw,6rem)]",
           lowerRight:
             "text-[clamp(3rem,13vw,4.4rem)] lg:text-[clamp(4.7rem,5.6vw,6rem)] xl:text-[clamp(5.5rem,6.4vw,6.9rem)]",
         }
@@ -70,9 +70,9 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
           lowerLeft:
             "text-[clamp(2.55rem,11vw,3.8rem)] lg:text-[clamp(4.7rem,5.7vw,6rem)] xl:text-[clamp(5.7rem,6.6vw,7.1rem)]",
           topRight:
-            "text-[clamp(2.1rem,9.5vw,3.1rem)] lg:text-[clamp(2.9rem,4.2vw,4.6rem)] xl:text-[clamp(3.6rem,4.7vw,5.2rem)]",
+            "text-[clamp(3rem,13vw,4.4rem)] lg:text-[clamp(4.9rem,6.4vw,6.7rem)] xl:text-[clamp(6rem,7.2vw,7.9rem)]",
           lowerRight:
-            "text-[clamp(3.4rem,14vw,4.8rem)] lg:text-[clamp(6rem,7.4vw,7.7rem)] xl:text-[clamp(7rem,8.3vw,8.9rem)]",
+            "text-[clamp(2.75rem,11.5vw,4rem)] lg:text-[clamp(4rem,5.3vw,5.7rem)] xl:text-[clamp(4.8rem,5.9vw,6.4rem)]",
         };
 
   useEffect(() => {
@@ -1104,7 +1104,7 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
                   className={
                     kind === "training"
                       ? "pointer-events-none absolute left-1/2 top-0 h-[38rem] w-auto max-w-none -translate-x-1/2 object-contain object-top drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:left-auto lg:right-[-2.5rem] lg:h-[44rem] lg:translate-x-0"
-                      : "pointer-events-none absolute bottom-[-2rem] left-1/2 h-[21rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:bottom-[-3.5rem] lg:left-auto lg:right-[-3.5rem] lg:h-[28rem] lg:translate-x-0"
+                      : "pointer-events-none absolute bottom-0 left-1/2 h-[19rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:bottom-0 lg:left-auto lg:right-[1.5rem] lg:h-[22rem] lg:translate-x-0"
                   }
                 />
               </div>
