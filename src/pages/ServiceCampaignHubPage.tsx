@@ -60,17 +60,17 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
           lowerLeft:
             "text-[clamp(2.55rem,11vw,3.8rem)] lg:text-[clamp(4.55rem,5.4vw,5.8rem)] xl:text-[clamp(5.4rem,6.2vw,6.7rem)]",
           topRight:
-            "text-[clamp(2.55rem,11vw,3.8rem)] lg:text-[clamp(4.45rem,5.2vw,5.65rem)] xl:text-[clamp(5.2rem,6vw,6.45rem)]",
+            "text-[clamp(2.3rem,9.8vw,3.35rem)] lg:text-[clamp(3.5rem,4.4vw,4.9rem)] xl:text-[clamp(4.2rem,5vw,5.6rem)]",
           lowerRight:
             "text-[clamp(3rem,13vw,4.4rem)] lg:text-[clamp(4.7rem,5.6vw,6rem)] xl:text-[clamp(5.5rem,6.4vw,6.9rem)]",
         }
       : {
           topLeft:
-            "text-[clamp(2.2rem,9.2vw,3.1rem)] lg:text-[clamp(4.4rem,5.1vw,5.55rem)] xl:text-[clamp(5rem,5.8vw,6.15rem)]",
+            "text-[clamp(3rem,13vw,4.4rem)] lg:text-[clamp(4.9rem,6.4vw,6.7rem)] xl:text-[clamp(6rem,7.2vw,7.9rem)]",
           lowerLeft:
             "text-[clamp(2.55rem,11vw,3.8rem)] lg:text-[clamp(4.7rem,5.7vw,6rem)] xl:text-[clamp(5.7rem,6.6vw,7.1rem)]",
           topRight:
-            "text-[clamp(2.1rem,9.5vw,3.1rem)] lg:text-[clamp(4.25rem,5vw,5.4rem)] xl:text-[clamp(4.9rem,5.7vw,6.05rem)]",
+            "text-[clamp(2.1rem,9.5vw,3.1rem)] lg:text-[clamp(2.9rem,4.2vw,4.6rem)] xl:text-[clamp(3.6rem,4.7vw,5.2rem)]",
           lowerRight:
             "text-[clamp(3.4rem,14vw,4.8rem)] lg:text-[clamp(6rem,7.4vw,7.7rem)] xl:text-[clamp(7rem,8.3vw,8.9rem)]",
         };
@@ -126,7 +126,7 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
       <OrganizationSchema type="LocalBusiness" />
       <ServiceSchema
         name={config.schemaName}
-        description={seo?.description ?? config.hero.story}
+        description={seo?.description ?? `${config.hero.storyLead} ${config.hero.storyBody}`}
         slug={config.kind}
       />
       <BreadcrumbSchema
@@ -176,12 +176,13 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
             >
               <span
                 className={`flex flex-col items-center gap-[2px] lg:absolute lg:bottom-[725px] lg:left-[2.5%] lg:top-auto lg:w-[40%] lg:items-start lg:text-left xl:bottom-[705px] ${heroTextClasses.topLeft}`}
+                style={{ color: config.theme.accent }}
               >
                 {config.hero.topLeft.map((word, index) => (
                   <motion.span
                     key={word}
                     {...revealWord(0.06 + index * 0.07, -1)}
-                    className="block"
+                    className="block lg:whitespace-nowrap"
                   >
                     {word}
                   </motion.span>
@@ -203,12 +204,13 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
               </span>
               <span
                 className={`mt-3 flex flex-col items-center gap-[2px] lg:absolute lg:bottom-[725px] lg:right-[2.5%] lg:top-auto lg:mt-0 lg:w-[40%] lg:items-end lg:text-right xl:bottom-[705px] ${heroTextClasses.topRight}`}
+                style={{ color: config.theme.accent }}
               >
                 {config.hero.topRight.map((word, index) => (
                   <motion.span
                     key={word}
                     {...revealWord(0.34 + index * 0.07, 1)}
-                    className="block"
+                    className="block lg:whitespace-nowrap"
                   >
                     {word}
                   </motion.span>
@@ -243,7 +245,7 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
                 <span className="absolute -top-8 right-8 h-20 w-20 rounded-full bg-white" />
               </div>
 
-              <div className="relative z-40 order-1 mx-auto mt-2 h-[520px] w-full max-w-[390px] sm:h-[620px] sm:max-w-[470px] lg:absolute lg:bottom-0 lg:left-1/2 lg:mt-0 lg:h-[1000px] lg:w-[585px] lg:max-w-none lg:-translate-x-1/2">
+              <div className="relative z-40 order-1 mx-auto mt-2 h-[520px] w-full max-w-[390px] sm:h-[620px] sm:max-w-[470px] lg:absolute lg:bottom-0 lg:left-1/2 lg:z-[55] lg:mt-0 lg:h-[1000px] lg:w-[585px] lg:max-w-none lg:-translate-x-1/2 lg:translate-y-[60px]">
                 <motion.figure
                   initial={reduceMotion ? false : { opacity: 0, y: 72 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -322,7 +324,13 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
                   style={{ color: config.theme.deep }}
                 />
                 <p className="-mt-3 font-display text-lg font-semibold leading-7 text-[#263d5e] sm:text-xl sm:leading-8 lg:text-[1.05rem] lg:leading-7 xl:text-lg">
-                  {config.hero.story}
+                  <span
+                    className="mr-1.5 inline-block align-baseline text-[2em] font-black uppercase leading-none"
+                    style={{ color: config.theme.deep }}
+                  >
+                    {config.hero.storyLead}
+                  </span>
+                  {config.hero.storyBody}
                 </p>
                 <Button
                   type="button"
@@ -1130,25 +1138,32 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
           <div className="container mx-auto text-center">
             <span
               className="mx-auto flex h-16 w-16 items-center justify-center rounded-full text-[#0b1f3a] shadow-xl"
-              style={{ backgroundColor: config.theme.warm }}
+              style={{ backgroundColor: config.theme.stage }}
             >
               <ClipboardCheck className="h-7 w-7" aria-hidden="true" />
             </span>
             <p
               className="mt-7 text-sm font-black uppercase tracking-[0.2em]"
-              style={{ color: config.theme.warm }}
+              style={{ color: config.theme.stage }}
             >
               {config.closing.eyebrow}
             </p>
             <h2 className="mx-auto mt-5 max-w-5xl font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] sm:text-6xl">
-              {config.closing.headline}
+              {config.closing.headlineParts.map((part, index) => (
+                <span
+                  key={`${part.text}-${index}`}
+                  style={part.accent ? { color: config.theme.stage } : undefined}
+                >
+                  {part.text}
+                </span>
+              ))}
             </h2>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/[0.7]">{config.closing.body}</p>
 
             <div className="mx-auto mt-10 max-w-5xl rounded-[2rem] border border-white/[0.14] bg-white/[0.08] p-6 text-left backdrop-blur-sm sm:p-8">
               <p
                 className="text-center text-xs font-black uppercase tracking-[0.2em]"
-                style={{ color: config.theme.warm }}
+                style={{ color: config.theme.stage }}
               >
                 What you get from the first enquiry
               </p>

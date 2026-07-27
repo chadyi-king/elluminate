@@ -593,12 +593,13 @@ const TeamBuildingHubPage = () => {
                 }}
                 className="relative z-[60] order-3 mt-5 rounded-[2rem] border border-white bg-[#fffdf8] px-6 py-6 shadow-[0_24px_70px_rgba(11,31,58,0.2)] sm:px-8 sm:py-7 lg:absolute lg:bottom-[50px] lg:left-[4.5%] lg:mt-0 lg:w-[31%] lg:px-7 lg:py-6"
               >
-                <span aria-hidden="true" className="font-display text-5xl font-black leading-none text-primary">
-                  “
-                </span>
+                <Quote aria-hidden="true" className="h-9 w-9 text-primary" />
                 <p className="-mt-3 font-display text-lg font-semibold leading-7 text-[#263d5e] sm:text-xl sm:leading-8 lg:text-[1.05rem] lg:leading-7 xl:text-lg">
-                  You book the day hoping people will loosen up. Then comes the worry: will they join in, or politely
-                  wait for it to end? We help you choose the experience that gets the room involved.
+                  <span className="mr-1.5 inline-block align-baseline text-[2em] font-black uppercase leading-none text-primary">
+                    Booking
+                  </span>
+                  the day is easy. The harder part is getting the room involved. We match the activity, pacing and
+                  facilitation to your people so more of them genuinely join in.
                 </p>
                 <Button
                   type="button"

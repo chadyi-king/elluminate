@@ -90,7 +90,8 @@ export type ServiceCampaignLandingConfig = {
     lowerLeft: string[];
     topRight: string[];
     lowerRight: string[];
-    story: string;
+    storyLead: string;
+    storyBody: string;
     cta: string;
     actor: string;
     actorAlt: string;
@@ -180,7 +181,7 @@ export type ServiceCampaignLandingConfig = {
   };
   closing: {
     eyebrow: string;
-    headline: string;
+    headlineParts: Array<{ text: string; accent?: boolean }>;
     body: string;
     enquiryValue: string[];
     bridge: string;
@@ -209,15 +210,16 @@ const retreatConfig: ServiceCampaignLandingConfig = {
     semanticHeadline: "Company Retreats Your People Will Still Talk About",
     topLeft: ["Company", "Retreats"],
     lowerLeft: ["Your", "People"],
-    topRight: ["Will", "Still"],
+    topRight: ["Will Still"],
     lowerRight: ["Talk", "About"],
-    story:
-      "You choose a beautiful place, arrange the rooms and put an activity on the timetable. Then comes the harder question: will the retreat actually bring the team closer, or just move work somewhere nicer? We connect the stay, schedule and shared moments so the whole trip feels worth taking.",
+    storyLead: "Beautiful",
+    storyBody:
+      "places are only the beginning. A retreat can still move work somewhere nicer without bringing the team closer. We connect the stay, schedule and shared moments so the whole trip feels worth taking.",
     cta: "Plan My Company Retreat",
-    actor: "/images/campaigns/retreats/hero-retreat-man-v2.png",
+    actor: "/images/campaigns/retreats/hero-retreat-man-v3.png",
     actorAlt: "Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler",
-    actorWidth: 764,
-    actorHeight: 1596,
+    actorWidth: 871,
+    actorHeight: 1805,
     photos: [
       {
         src: "/images/services/local-retreats/gallery-5.jpg",
@@ -530,7 +532,10 @@ const retreatConfig: ServiceCampaignLandingConfig = {
   },
   closing: {
     eyebrow: "Before the best options become whatever is left",
-    headline: "The longer you wait, the more the retreat gets built around what is still available.",
+    headlineParts: [
+      { text: "The longer you wait, the more the retreat gets built around " },
+      { text: "what is still available.", accent: true },
+    ],
     body:
       "Share the brief while there is still room to compare local and overseas directions, align suitable stays, balance the programme and solve travel or participant needs before the itinerary becomes rushed.",
     enquiryValue: [
@@ -577,15 +582,16 @@ const trainingConfig: ServiceCampaignLandingConfig = {
     semanticHeadline: "Training Your People Can Actually Use",
     topLeft: ["Training"],
     lowerLeft: ["Your", "People"],
-    topRight: ["Can", "Actually"],
+    topRight: ["Can Actually"],
     lowerRight: ["Use"],
-    story:
-      "You can fill a room, finish a deck and still watch everyone return to the same habits on Monday. Tell us the audience, the workplace challenge and what people need to practise. We will shape the format, facilitation and application around the work waiting outside the room.",
+    storyLead: "Monday",
+    storyBody:
+      "is the real test. You can fill a room, finish a deck and still watch everyone return to the same habits. We shape the format, facilitation and application around the work waiting outside the room.",
     cta: "Build My Training Programme",
-    actor: "/images/campaigns/training/hero-training-woman-v2.png",
+    actor: "/images/campaigns/training/hero-training-woman-v3.png",
     actorAlt: "Illustrative campaign visual of a fictional adult Southeast Asian professional holding a lit sparkler and folder",
-    actorWidth: 814,
-    actorHeight: 1726,
+    actorWidth: 870,
+    actorHeight: 1808,
     photos: [
       {
         src: "/images/services/workshops/addons.jpg",
@@ -922,7 +928,12 @@ const trainingConfig: ServiceCampaignLandingConfig = {
   },
   closing: {
     eyebrow: "Before the calendar turns the session into a slot to fill",
-    headline: "The later the brief arrives, the easier it is to buy training hours and miss the real problem.",
+    headlineParts: [
+      { text: "The later the brief arrives, the easier it is to buy " },
+      { text: "training hours", accent: true },
+      { text: " and miss the " },
+      { text: "real problem.", accent: true },
+    ],
     body:
       "Share the challenge while there is still room to understand the audience, compare formats, shape examples and build practice around the work people are returning to.",
     enquiryValue: [
