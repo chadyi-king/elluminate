@@ -191,13 +191,6 @@ export type ServiceCampaignLandingConfig = {
   footerLinks: Array<{ name: string; path: string }>;
 };
 
-const sharedProofIds = [
-  "team-elevate-client-farzanah-begum-simtech",
-  "team-elevate-google-jenniiloh",
-  "team-elevate-google-joshua",
-  "team-elevate-client-arianti-amalina-madame-tussauds",
-];
-
 const retreatConfig: ServiceCampaignLandingConfig = {
   kind: "retreats",
   path: "/services/retreats",
@@ -253,10 +246,10 @@ const retreatConfig: ServiceCampaignLandingConfig = {
     success: "#0F9D76",
   },
   proof: {
-    headline: "Your team should not be the test run for the itinerary.",
+    headline: "Your retreat should not be the test run.",
     body:
-      "A retreat joins travel, rooms, meals, work sessions, team experiences and downtime. If those pieces are planned in isolation, the organiser becomes the connection point. Experience helps us surface the practical decisions before your team has to feel them.",
-    testimonialSource: "Client feedback from the shared Team Elevate and Elluminate operating history",
+      "Years of planning multi-part event days have taught us where itineraries drag, where energy drops and which practical details decide whether the team actually reconnects.",
+    testimonialSource: "Verified organiser feedback on whole-group fit, facilitation and professional delivery",
     metricsSource: "Figures reflect the shared Team Elevate and Elluminate operating history under EXSTATIC PTE. LTD.",
     metrics: [
       { value: "1,000+", label: "events across our operating history", icon: CalendarCheck2, accent: "#15967C" },
@@ -264,7 +257,12 @@ const retreatConfig: ServiceCampaignLandingConfig = {
       { value: "8+ years", label: "planning and delivering events together", icon: Award, accent: "#D99B00" },
       { value: "Local + overseas", label: "retreat directions to compare", icon: MapPinned, accent: "#8B5CF6" },
     ],
-    testimonialIds: sharedProofIds,
+    testimonialIds: [
+      "team-elevate-client-jurgen-carlson-ams-ag",
+      "team-elevate-google-joshua",
+      "team-elevate-client-farzanah-begum-simtech",
+      "team-elevate-google-jk",
+    ],
   },
   stakes: {
     eyebrow: "The quiet cost of getting it wrong",
@@ -625,10 +623,10 @@ const trainingConfig: ServiceCampaignLandingConfig = {
     success: "#1AA382",
   },
   proof: {
-    headline: "Your team's time should not be spent testing a generic deck.",
+    headline: "Your people should not be the test run for a generic deck.",
     body:
-      "A useful session needs more than a polished deck. The audience, workplace context, participation and Monday-morning application should shape the session before delivery.",
-    testimonialSource: "Client feedback from the shared Team Elevate and Elluminate operating history",
+      "Years of facilitated sessions have taught us where attention drops, what different audiences need and which practical choices decide whether learning survives Monday.",
+    testimonialSource: "Verified organiser feedback on adaptation, curation and useful facilitation",
     metricsSource: "Figures reflect the shared Team Elevate and Elluminate operating history under EXSTATIC PTE. LTD.",
     metrics: [
       { value: "1,000+", label: "events across our operating history", icon: CalendarCheck2, accent: "#E2585B" },
@@ -639,8 +637,8 @@ const trainingConfig: ServiceCampaignLandingConfig = {
     testimonialIds: [
       "team-elevate-google-joshua",
       "team-elevate-google-jenniiloh",
-      "team-elevate-google-jk",
       "team-elevate-client-farzanah-begum-simtech",
+      "team-elevate-google-jk",
     ],
   },
   stakes: {

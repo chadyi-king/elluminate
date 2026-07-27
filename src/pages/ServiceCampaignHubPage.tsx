@@ -82,6 +82,8 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
   const proofTestimonials = config.proof.testimonialIds
     .map((id) => clientTestimonials.find((testimonial) => testimonial.id === id))
     .filter((testimonial): testimonial is ClientTestimonial => Boolean(testimonial));
+  const storyLeadInitial = config.hero.storyLead.charAt(0);
+  const storyLeadRemainder = config.hero.storyLead.slice(1);
 
   const filteredCards = useMemo(() => {
     if (activeFilter === "All") return config.discovery.cards;
@@ -325,11 +327,12 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
                 />
                 <p className="-mt-3 font-display text-lg font-semibold leading-7 text-[#263d5e] sm:text-xl sm:leading-8 lg:text-[1.05rem] lg:leading-7 xl:text-lg">
                   <span
-                    className="mr-1.5 inline-block align-baseline text-[2em] font-black uppercase leading-none"
+                    className="mr-0.5 inline-block align-baseline text-[2em] font-black uppercase leading-none"
                     style={{ color: config.theme.deep }}
                   >
-                    {config.hero.storyLead}
+                    {storyLeadInitial}
                   </span>
+                  {storyLeadRemainder}{" "}
                   {config.hero.storyBody}
                 </p>
                 <Button

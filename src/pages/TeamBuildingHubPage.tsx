@@ -595,10 +595,10 @@ const TeamBuildingHubPage = () => {
               >
                 <Quote aria-hidden="true" className="h-9 w-9 text-primary" />
                 <p className="-mt-3 font-display text-lg font-semibold leading-7 text-[#263d5e] sm:text-xl sm:leading-8 lg:text-[1.05rem] lg:leading-7 xl:text-lg">
-                  <span className="mr-1.5 inline-block align-baseline text-[2em] font-black uppercase leading-none text-primary">
-                    Booking
+                  <span className="mr-0.5 inline-block align-baseline text-[2em] font-black uppercase leading-none text-primary">
+                    B
                   </span>
-                  the day is easy. The harder part is getting the room involved. We match the activity, pacing and
+                  ooking the day is easy. The harder part is getting the room involved. We match the activity, pacing and
                   facilitation to your people so more of them genuinely join in.
                 </p>
                 <Button
