@@ -4,7 +4,7 @@ import { Star, Calendar, Users, Award } from "lucide-react";
 
 // Client logo archive carried forward from Team Elevate's public "Elevated Clients" wall.
 const defaultClientLogos = [
-  // Page 1 — Financial & Tech
+  // Page 1: Financial & Tech
   {
     id: 1,
     name: "DBS",
@@ -377,8 +377,8 @@ export const SocialProofSection = () => {
   const logoWallFocusWithinRef = useRef(false);
   const [logoWallPaused, setLogoWallPaused] = useState(false);
   const logoWallInView = useInView(logoWallRef, { margin: "-120px 0px" });
-  const logoRows = Array.from({ length: 3 }, (_, rowIndex) =>
-    clientLogos.filter((_, logoIndex) => logoIndex % 3 === rowIndex),
+  const logoRows = Array.from({ length: 5 }, (_, rowIndex) =>
+    clientLogos.filter((_, logoIndex) => logoIndex % 5 === rowIndex),
   );
 
   const syncLogoWallState = () => {
@@ -513,7 +513,7 @@ export const SocialProofSection = () => {
                   className="flex w-max"
                   style={{
                     animationName: rowIndex % 2 === 0 ? "elluminate-marquee-left" : "elluminate-marquee-right",
-                    animationDuration: `${28 + rowIndex * 3}s`,
+                    animationDuration: `${32 + rowIndex * 2.5}s`,
                     animationTimingFunction: "linear",
                     animationIterationCount: "infinite",
                     animationPlayState: logoWallInView && !logoWallPaused ? "running" : "paused",

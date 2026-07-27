@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const showreelPoster = "/images/about/about-1.jpg";
+const showreelPoster = "/images/about/about-1.webp";
 const showreelFallback = "/images/services/amazing-race/gallery-5.jpg";
 
 export const VideoSection = () => {

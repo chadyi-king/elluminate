@@ -10,8 +10,11 @@ export const CTASection = () => {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/images/about/about-3.jpg"
+          src="/images/about/about-3.webp"
           alt="Company group gathered together after an Elluminate experience"
+          loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/[0.85] to-sky-500/90" />

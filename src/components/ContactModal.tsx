@@ -209,7 +209,7 @@ export const ContactModal = () => {
       return;
     }
 
-    // Honeypot — bots fill hidden fields. Silently drop and behave as success.
+    // Honeypot: bots fill hidden fields. Silently drop and behave as success.
     if (honeypotRef.current?.value) {
       closeContactModal();
       navigate("/thank-you-contact");
@@ -325,6 +325,9 @@ export const ContactModal = () => {
             className="fixed inset-0 z-50 flex h-[100dvh] w-full max-w-4xl flex-row overflow-hidden bg-background-card outline-none sm:inset-auto sm:left-1/2 sm:top-1/2 sm:h-auto sm:max-h-[90vh] sm:w-[calc(100%-2rem)] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl sm:border sm:border-primary/20"
             aria-describedby="contact-modal-description"
           >
+            <DialogPrimitive.Title className="sr-only">
+              Plan My Event enquiry form
+            </DialogPrimitive.Title>
           {/* Left Branding Panel */}
           <div className="hidden md:flex min-h-0 w-[40%] flex-shrink-0 flex-col overflow-hidden bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800 p-5 relative lg:p-6">
             <div className="absolute top-0 right-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl pointer-events-none" style={{ transform: "translate(50%,-50%)" }} />
@@ -404,7 +407,7 @@ export const ContactModal = () => {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="flex-1 space-y-4 overflow-y-auto overscroll-contain p-4 scrollbar-gold sm:space-y-5 sm:p-6">
-              {/* Honeypot — hidden from real users, bots fill it. Do not remove. */}
+              {/* Honeypot: hidden from real users, bots fill it. Do not remove. */}
               <input
                 ref={honeypotRef}
                 type="text"

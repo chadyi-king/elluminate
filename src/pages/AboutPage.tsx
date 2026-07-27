@@ -147,7 +147,13 @@ const AboutPage = () => {
                   />
                 </div>
                 <div className="min-h-[188px] overflow-hidden rounded-[1.6rem] sm:min-h-[252px]">
-                  <img src="/images/about/about-1.jpg" alt="A large company group celebrating together after an event" className="h-full w-full object-cover" />
+                  <img
+                    src="/images/about/about-1.webp"
+                    alt="A large company group celebrating together after an event"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
               </motion.div>
             </div>

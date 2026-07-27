@@ -66,7 +66,7 @@ export const HeroSection = () => {
               {sparkLetters.map((item, index) => (
                 <motion.span
                   key={item.letter}
-                  className="inline-block cursor-default font-horizon text-[clamp(4.2rem,10.4vw,8rem)] tracking-[-0.055em]"
+                  className="inline-block cursor-default font-horizon text-[clamp(4.2rem,10.4vw,8rem)] tracking-[-0.055em] lg:text-[clamp(6.3rem,15.6vw,12rem)]"
                   style={{ color: item.color }}
                   initial={reduceMotion ? false : { opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -169,7 +169,7 @@ export const HeroSection = () => {
         <svg viewBox="0 0 1920 120" preserveAspectRatio="none" className="h-full w-full" focusable="false">
           <path
             fill="#07151f"
-            d="M0 76 C270 18 520 106 820 62 C1125 16 1440 96 1920 28 V120 H0 Z"
+            d="M0 44 C270 10 520 88 820 52 C1125 12 1440 82 1920 56 V120 H0 Z"
           />
         </svg>
       </div>

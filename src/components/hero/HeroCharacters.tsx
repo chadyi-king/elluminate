@@ -60,7 +60,7 @@ const CharacterFigure = ({
           className="h-full w-full object-contain object-bottom"
           {...(isLCP
             ? { loading: "eager" as const, decoding: "sync" as const }
-            : { loading: "eager" as const, decoding: "async" as const })}
+            : { loading: "lazy" as const, decoding: "async" as const })}
         />
       </motion.div>
     </motion.div>
