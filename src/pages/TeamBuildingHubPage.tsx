@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   Award,
@@ -373,7 +374,28 @@ const pushLandingEvent = (payload: Record<string, unknown> = {}) => {
 const TeamBuildingHubPage = () => {
   const heroHeadline = "Team Building Your People Won't Quietly Dread";
   const { openContactModal } = useContactModal();
+  const reduceMotion = useReducedMotion();
   const [activityFilter, setActivityFilter] = useState<ActivityFilter>("All");
+
+  const revealWord = (delay: number, direction: -1 | 1) => ({
+    initial: reduceMotion ? false : { opacity: 0, x: direction * 64 },
+    animate: { opacity: 1, x: 0 },
+    transition: {
+      duration: reduceMotion ? 0 : 0.48,
+      delay: reduceMotion ? 0 : delay,
+      ease: "easeOut" as const,
+    },
+  });
+
+  const revealPhoto = (delay: number, x: number, rotate: number) => ({
+    initial: reduceMotion ? false : { opacity: 0, x, y: 54, rotate: rotate + Math.sign(x) * 5 },
+    animate: { opacity: 1, x: 0, y: 0, rotate },
+    transition: {
+      duration: reduceMotion ? 0 : 0.58,
+      delay: reduceMotion ? 0 : delay,
+      ease: "easeOut" as const,
+    },
+  });
 
   const filteredActivities = useMemo(() => {
     if (activityFilter === "All") return activityCards;
@@ -440,23 +462,34 @@ const TeamBuildingHubPage = () => {
               aria-label={heroHeadline}
               className="relative z-20 mx-auto mt-5 max-w-3xl text-center font-display font-black uppercase leading-[0.68] tracking-[-0.055em] text-[#0b1f3a] lg:absolute lg:inset-0 lg:mt-0 lg:max-w-none lg:tracking-[-0.08em]"
             >
-              <span className="block text-[clamp(3rem,13vw,4.4rem)] lg:absolute lg:bottom-[725px] lg:left-[2.5%] lg:top-auto lg:w-[40%] lg:text-right lg:text-[clamp(5.6rem,7vw,7.2rem)] xl:bottom-[705px] xl:text-[clamp(7rem,8.25vw,8.8rem)]">
-                Team
-                <br />
-                Building
+              <span className="flex flex-col items-center gap-[2px] text-[clamp(3rem,13vw,4.4rem)] lg:absolute lg:bottom-[725px] lg:left-[2.5%] lg:top-auto lg:w-[40%] lg:items-start lg:text-left lg:text-[clamp(5.6rem,7vw,7.2rem)] xl:bottom-[705px] xl:text-[clamp(7rem,8.25vw,8.8rem)]">
+                <motion.span {...revealWord(0.06, -1)} className="block">
+                  Team
+                </motion.span>
+                <motion.span {...revealWord(0.13, -1)} className="block">
+                  Building
+                </motion.span>
               </span>
-              <span className="mt-3 block text-[clamp(2.5rem,11vw,3.8rem)] text-[#348fbe] lg:absolute lg:left-[2.5%] lg:top-[215px] lg:mt-0 lg:w-[40%] lg:text-right lg:text-[clamp(4.8rem,6.2vw,6.5rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)] xl:top-[235px] xl:text-[clamp(6.2rem,7.5vw,8rem)]">
-                Your
-                <br />
-                People
+              <span className="mt-3 flex flex-col items-center gap-[2px] text-[clamp(2.5rem,11vw,3.8rem)] text-[#348fbe] lg:absolute lg:left-[2.5%] lg:top-[215px] lg:mt-0 lg:w-[40%] lg:items-start lg:text-left lg:text-[clamp(4.8rem,6.2vw,6.5rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)] xl:top-[235px] xl:text-[clamp(6.2rem,7.5vw,8rem)]">
+                <motion.span {...revealWord(0.2, -1)} className="block">
+                  Your
+                </motion.span>
+                <motion.span {...revealWord(0.27, -1)} className="block">
+                  People
+                </motion.span>
               </span>
-              <span className="mt-3 block text-[clamp(2.5rem,11vw,3.8rem)] lg:absolute lg:bottom-[725px] lg:right-[2.5%] lg:top-auto lg:mt-0 lg:w-[40%] lg:text-left lg:text-[clamp(5rem,6.5vw,6.7rem)] xl:bottom-[705px] xl:text-[clamp(6.5rem,7.7vw,8.3rem)]">
-                Won&apos;t
-                <br />
-                Quietly
+              <span className="mt-3 flex flex-col items-center gap-[2px] text-[clamp(2.5rem,11vw,3.8rem)] lg:absolute lg:bottom-[725px] lg:right-[2.5%] lg:top-auto lg:mt-0 lg:w-[40%] lg:items-end lg:text-right lg:text-[clamp(5rem,6.5vw,6.7rem)] xl:bottom-[705px] xl:text-[clamp(6.5rem,7.7vw,8.3rem)]">
+                <motion.span {...revealWord(0.34, 1)} className="block">
+                  Won&apos;t
+                </motion.span>
+                <motion.span {...revealWord(0.41, 1)} className="block">
+                  Quietly
+                </motion.span>
               </span>
-              <span className="mt-1 block text-[clamp(3.5rem,15vw,5rem)] text-[#348fbe] lg:absolute lg:right-[2.5%] lg:top-[215px] lg:mt-0 lg:w-[40%] lg:text-left lg:text-[clamp(6.6rem,8.7vw,8.8rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)] xl:top-[235px] xl:text-[clamp(8.2rem,10.2vw,10.4rem)]">
-                Dread
+              <span className="mt-1 block text-[clamp(3.5rem,15vw,5rem)] text-[#348fbe] lg:absolute lg:right-[2.5%] lg:top-[215px] lg:mt-0 lg:w-[40%] lg:text-right lg:text-[clamp(6.6rem,8.7vw,8.8rem)] lg:text-white lg:[text-shadow:0_2px_0_rgba(11,31,58,0.14)] xl:top-[235px] xl:text-[clamp(8.2rem,10.2vw,10.4rem)]">
+                <motion.span {...revealWord(0.48, 1)} className="block">
+                  Dread
+                </motion.span>
               </span>
             </h1>
 
@@ -470,26 +503,44 @@ const TeamBuildingHubPage = () => {
                 <span className="absolute -top-8 right-8 h-20 w-20 rounded-full bg-white" />
               </div>
 
-              <figure className="relative z-40 order-1 mx-auto mt-2 h-[520px] w-full max-w-[390px] sm:h-[620px] sm:max-w-[470px] lg:absolute lg:-bottom-2 lg:left-1/2 lg:mt-0 lg:h-[1000px] lg:w-[585px] lg:max-w-none lg:-translate-x-1/2">
-                <img
-                  src="/images/campaigns/team-building/hero-campaign-woman-v7.webp"
-                  alt="Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler"
-                  width={971}
-                  height={1619}
-                  decoding="async"
-                  className="h-full w-full object-cover object-top drop-shadow-[0_30px_34px_rgba(11,31,58,0.2)] lg:object-contain lg:object-bottom"
-                />
-                <figcaption className="sr-only">
-                  A fictional campaign model appears with a sparkler. The surrounding photographs show real Elluminate
-                  team-building events.
-                </figcaption>
-              </figure>
+              <div className="relative z-40 order-1 mx-auto mt-2 h-[520px] w-full max-w-[390px] sm:h-[620px] sm:max-w-[470px] lg:absolute lg:-bottom-2 lg:left-1/2 lg:mt-0 lg:h-[1000px] lg:w-[585px] lg:max-w-none lg:-translate-x-1/2">
+                <motion.figure
+                  initial={reduceMotion ? false : { opacity: 0, y: 72 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: reduceMotion ? 0 : 0.64,
+                    delay: reduceMotion ? 0 : 0.36,
+                    ease: "easeOut",
+                  }}
+                  className="h-full w-full"
+                  style={{
+                    WebkitMaskImage: "linear-gradient(to bottom, #000 0%, #000 87%, transparent 100%)",
+                    maskImage: "linear-gradient(to bottom, #000 0%, #000 87%, transparent 100%)",
+                  }}
+                >
+                  <img
+                    src="/images/campaigns/team-building/hero-campaign-woman-v7.webp"
+                    alt="Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler"
+                    width={971}
+                    height={1619}
+                    decoding="async"
+                    className="h-full w-full object-cover object-top drop-shadow-[0_30px_34px_rgba(11,31,58,0.2)] lg:object-contain lg:object-bottom"
+                  />
+                  <figcaption className="sr-only">
+                    A fictional campaign model appears with a sparkler. The surrounding photographs show real
+                    Elluminate team-building events.
+                  </figcaption>
+                </motion.figure>
+              </div>
 
               <div
-                className="relative z-30 order-2 -mt-20 grid grid-cols-2 gap-3 sm:-mt-24 lg:pointer-events-none lg:absolute lg:inset-0 lg:mt-0 lg:block"
+                className="relative z-50 order-2 -mt-20 grid grid-cols-2 gap-3 sm:-mt-24 lg:pointer-events-none lg:absolute lg:inset-0 lg:z-30 lg:mt-0 lg:block"
                 aria-label="Real Elluminate team-building moments"
               >
-                <figure className="-rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[3.5%] lg:top-[48%] lg:w-[18%]">
+                <motion.figure
+                  {...revealPhoto(0.66, -84, -3)}
+                  className="overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[3.5%] lg:top-[48%] lg:w-[18%]"
+                >
                   <img
                     src={cloudinaryImage("/images/services/amazing-race/cta.jpg", { width: 700 })}
                     alt="Team members coordinating a hands-on string challenge"
@@ -498,8 +549,11 @@ const TeamBuildingHubPage = () => {
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover object-[50%_48%]"
                   />
-                </figure>
-                <figure className="rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[22.5%] lg:top-[53%] lg:w-[16.8%]">
+                </motion.figure>
+                <motion.figure
+                  {...revealPhoto(0.74, -54, 3)}
+                  className="overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[22.5%] lg:top-[53%] lg:w-[16.8%]"
+                >
                   <img
                     src={cloudinaryImage("/images/services/battle-of-the-olympians/gallery-6.jpg", { width: 700 })}
                     alt="Colleagues reaching for a flying disc during a beach team challenge"
@@ -508,8 +562,11 @@ const TeamBuildingHubPage = () => {
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover object-[52%_48%]"
                   />
-                </figure>
-                <figure className="-rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[26%] lg:top-[51%] lg:w-[21%]">
+                </motion.figure>
+                <motion.figure
+                  {...revealPhoto(0.82, 54, -3)}
+                  className="overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[26%] lg:top-[51%] lg:w-[21%]"
+                >
                   <img
                     src={cloudinaryImage("/images/services/cultural-race/gallery-7.jpg", { width: 700 })}
                     alt="Company group celebrating together after a team challenge"
@@ -518,8 +575,11 @@ const TeamBuildingHubPage = () => {
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover object-[52%_50%]"
                   />
-                </figure>
-                <figure className="rotate-3 overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[3.5%] lg:top-[45%] lg:w-[22.5%]">
+                </motion.figure>
+                <motion.figure
+                  {...revealPhoto(0.9, 84, 3)}
+                  className="overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:right-[3.5%] lg:top-[45%] lg:w-[22.5%]"
+                >
                   <img
                     src={cloudinaryImage("/images/services/builder-cross/gallery-5.jpg", { width: 700 })}
                     alt="Corporate team smiling beside the structure they built together"
@@ -528,10 +588,19 @@ const TeamBuildingHubPage = () => {
                     loading="lazy"
                     className="aspect-[3/4] w-full object-cover object-[50%_38%]"
                   />
-                </figure>
+                </motion.figure>
               </div>
 
-              <blockquote className="relative z-50 order-3 mt-5 rounded-[2rem] border border-white bg-[#fffdf8] px-6 py-6 shadow-[0_24px_70px_rgba(11,31,58,0.2)] sm:px-8 sm:py-7 lg:absolute lg:bottom-[50px] lg:left-[4.5%] lg:mt-0 lg:w-[31%] lg:px-7 lg:py-6">
+              <motion.blockquote
+                initial={reduceMotion ? false : { opacity: 0, x: -36, y: 28 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{
+                  duration: reduceMotion ? 0 : 0.55,
+                  delay: reduceMotion ? 0 : 0.96,
+                  ease: "easeOut",
+                }}
+                className="relative z-[60] order-3 mt-5 rounded-[2rem] border border-white bg-[#fffdf8] px-6 py-6 shadow-[0_24px_70px_rgba(11,31,58,0.2)] sm:px-8 sm:py-7 lg:absolute lg:bottom-[50px] lg:left-[4.5%] lg:mt-0 lg:w-[31%] lg:px-7 lg:py-6"
+              >
                 <span aria-hidden="true" className="font-display text-5xl font-black leading-none text-primary">
                   “
                 </span>
@@ -548,7 +617,7 @@ const TeamBuildingHubPage = () => {
                 >
                   Build My Team Experience <ArrowRight />
                 </Button>
-              </blockquote>
+              </motion.blockquote>
             </div>
           </div>
         </section>
