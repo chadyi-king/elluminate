@@ -1067,7 +1067,11 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
             style={{ backgroundColor: config.theme.accent }}
           />
           <div className="container relative mx-auto px-6 lg:px-12">
-            <div className="grid gap-6 lg:grid-cols-[1fr_0.48fr] lg:items-end">
+            <div
+              className={`grid gap-6 lg:grid-cols-[1fr_0.48fr] ${
+                kind === "training" ? "lg:items-center" : "lg:items-end"
+              }`}
+            >
               <div className="max-w-3xl">
                 <p
                   className="text-sm font-black uppercase tracking-[0.2em]"
@@ -1079,7 +1083,11 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
                   {config.process.headline}
                 </h2>
               </div>
-              <div className="relative mx-auto h-[20rem] w-full max-w-md overflow-hidden lg:-ml-28 lg:h-[25rem] lg:w-[calc(100%+7rem)] lg:max-w-none">
+              <div
+                className={`relative mx-auto h-[20rem] w-full max-w-md overflow-hidden lg:-ml-28 lg:w-[calc(100%+7rem)] lg:max-w-none ${
+                  kind === "training" ? "lg:h-[22rem]" : "lg:h-[25rem]"
+                }`}
+              >
                 <div
                   aria-hidden="true"
                   className="absolute bottom-0 right-0 h-56 w-56 rounded-full opacity-30 lg:h-72 lg:w-72"
@@ -1093,7 +1101,11 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
                   loading="lazy"
                   decoding="async"
                   aria-hidden="true"
-                  className="pointer-events-none absolute bottom-[-2rem] left-1/2 h-[21rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:bottom-[-3.5rem] lg:left-auto lg:right-[-3.5rem] lg:h-[28rem] lg:translate-x-0"
+                  className={
+                    kind === "training"
+                      ? "pointer-events-none absolute left-1/2 top-0 h-[38rem] w-auto max-w-none -translate-x-1/2 object-contain object-top drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:left-auto lg:right-[-2.5rem] lg:h-[44rem] lg:translate-x-0"
+                      : "pointer-events-none absolute bottom-[-2rem] left-1/2 h-[21rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:bottom-[-3.5rem] lg:left-auto lg:right-[-3.5rem] lg:h-[28rem] lg:translate-x-0"
+                  }
                 />
               </div>
             </div>
