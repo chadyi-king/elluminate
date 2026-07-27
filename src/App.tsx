@@ -11,7 +11,7 @@ import { captureAttribution } from "@/lib/attribution";
 const Index = lazy(() => import("./pages/Index"));
 const ServicePage = lazy(() => import("./pages/ServicePage"));
 const TeamBuildingHubPage = lazy(() => import("./pages/TeamBuildingHubPage"));
-const CategoryHubPage = lazy(() => import("./pages/CategoryHubPage"));
+const ServiceCampaignHubPage = lazy(() => import("./pages/ServiceCampaignHubPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
@@ -75,9 +75,9 @@ const App = () => (
               <Route path="/teambuilding" element={<Navigate to="/services/team-building" replace />} />
               <Route path="/team-building" element={<Navigate to="/services/team-building" replace />} />
               <Route path="/corporate-team-building" element={<Navigate to="/services/team-building" replace />} />
-              <Route path="/services/retreats" element={<CategoryHubPage kind="retreats" />} />
+              <Route path="/services/retreats" element={<ServiceCampaignHubPage kind="retreats" />} />
               <Route path="/retreats" element={<Navigate to="/services/retreats" replace />} />
-              <Route path="/services/training" element={<CategoryHubPage kind="training" />} />
+              <Route path="/services/training" element={<ServiceCampaignHubPage kind="training" />} />
               <Route path="/training" element={<Navigate to="/services/training" replace />} />
               {quarantinedServiceSlugs.map((slug) => (
                 <Route key={slug} path={`/services/${slug}`} element={<QuarantinedServiceRedirect />} />
