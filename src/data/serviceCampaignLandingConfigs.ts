@@ -252,7 +252,7 @@ const retreatConfig: ServiceCampaignLandingConfig = {
     testimonialSource: "Verified organiser feedback on whole-group fit, facilitation and professional delivery",
     metricsSource: "Figures reflect the shared Team Elevate and Elluminate operating history under EXSTATIC PTE. LTD.",
     metrics: [
-      { value: "1,000+", label: "events across our operating history", icon: CalendarCheck2, accent: "#15967C" },
+      { value: "5,000+", label: "events across our operating history", icon: CalendarCheck2, accent: "#15967C" },
       { value: "100,000+", label: "participants across shared experiences", icon: UsersRound, accent: "#2A8DFF" },
       { value: "8+ years", label: "planning and delivering events together", icon: Award, accent: "#D99B00" },
       { value: "Local + overseas", label: "retreat directions to compare", icon: MapPinned, accent: "#8B5CF6" },
@@ -629,7 +629,7 @@ const trainingConfig: ServiceCampaignLandingConfig = {
     testimonialSource: "Verified organiser feedback on adaptation, curation and useful facilitation",
     metricsSource: "Figures reflect the shared Team Elevate and Elluminate operating history under EXSTATIC PTE. LTD.",
     metrics: [
-      { value: "1,000+", label: "events across our operating history", icon: CalendarCheck2, accent: "#E2585B" },
+      { value: "5,000+", label: "events across our operating history", icon: CalendarCheck2, accent: "#E2585B" },
       { value: "100,000+", label: "participants across shared experiences", icon: UsersRound, accent: "#2A8DFF" },
       { value: "8+ years", label: "planning and delivering experiences together", icon: Award, accent: "#D99B00" },
       { value: "9", label: "training and development directions to explore", icon: GraduationCap, accent: "#8B5CF6" },

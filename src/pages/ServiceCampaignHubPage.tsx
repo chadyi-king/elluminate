@@ -1062,7 +1062,7 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
 
         <section
           id="how-it-works"
-          className="relative scroll-mt-24 overflow-hidden py-20 sm:py-28"
+          className="relative scroll-mt-24 overflow-hidden py-16 sm:py-20"
           style={{ backgroundColor: config.theme.pale }}
         >
           <div
@@ -1070,11 +1070,7 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
             style={{ backgroundColor: config.theme.accent }}
           />
           <div className="container relative mx-auto px-6 lg:px-12">
-            <div
-              className={`grid gap-6 lg:grid-cols-[1fr_0.48fr] ${
-                kind === "training" ? "lg:items-center" : "lg:items-end"
-              }`}
-            >
+            <div className="grid gap-6 lg:grid-cols-[1fr_0.48fr] lg:items-center">
               <div className="max-w-3xl">
                 <p
                   className="text-sm font-black uppercase tracking-[0.2em]"
@@ -1087,13 +1083,11 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
                 </h2>
               </div>
               <div
-                className={`relative mx-auto h-[20rem] w-full max-w-md overflow-hidden lg:-ml-28 lg:w-[calc(100%+7rem)] lg:max-w-none ${
-                  kind === "training" ? "lg:h-[22rem]" : "lg:h-[25rem]"
-                }`}
+                className="relative mx-auto h-[18rem] w-full max-w-md overflow-hidden lg:-ml-24 lg:h-[20rem] lg:w-[calc(100%+6rem)] lg:max-w-none"
               >
                 <div
                   aria-hidden="true"
-                  className="absolute bottom-0 right-0 h-56 w-56 rounded-full opacity-30 lg:h-72 lg:w-72"
+                  className="absolute bottom-0 right-0 h-52 w-52 rounded-full opacity-30 lg:h-64 lg:w-64"
                   style={{ backgroundColor: config.theme.stage }}
                 />
                 <img
@@ -1106,8 +1100,8 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
                   aria-hidden="true"
                   className={
                     kind === "training"
-                      ? "pointer-events-none absolute left-1/2 top-0 h-[38rem] w-auto max-w-none -translate-x-1/2 object-contain object-top drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:left-auto lg:right-[-2.5rem] lg:h-[44rem] lg:translate-x-0"
-                      : "pointer-events-none absolute bottom-0 left-1/2 h-[19rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:bottom-0 lg:left-auto lg:right-[1.5rem] lg:h-[22rem] lg:translate-x-0"
+                      ? "pointer-events-none absolute left-1/2 -top-8 h-[54rem] w-auto max-w-none -translate-x-1/2 object-contain object-top drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:-top-14 lg:left-auto lg:right-[-1.5rem] lg:h-[64rem] lg:translate-x-0"
+                      : "pointer-events-none absolute left-1/2 top-0 h-[40rem] w-auto max-w-none -translate-x-1/2 object-contain object-top drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:left-auto lg:right-[0.5rem] lg:h-[48rem] lg:translate-x-0"
                   }
                 />
               </div>

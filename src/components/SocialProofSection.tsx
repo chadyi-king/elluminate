@@ -2,8 +2,7 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, useState } from "react";
 import { Star, Calendar, Users, Award } from "lucide-react";
 
-// TODO(content): Keep a permission/evidence checklist for client logo usage before adding or restoring brand proof.
-// Repository logo archive. Rendering below is restricted to the approved public set.
+// Client logo archive carried forward from Team Elevate's public "Elevated Clients" wall.
 const defaultClientLogos = [
   // Page 1 — Financial & Tech
   {
@@ -348,22 +347,7 @@ const defaultClientLogos = [
   },
 ];
 
-const approvedClientLogoNames = new Set([
-  "DBS",
-  "Singtel",
-  "GovTech",
-  "CapitaLand",
-  "Singapore Airlines",
-  "Changi Airport",
-  "Google",
-  "Microsoft",
-  "Deloitte",
-  "NUS",
-  "DHL",
-  "Mediacorp",
-]);
-
-const approvedClientLogos = defaultClientLogos.filter((logo) => approvedClientLogoNames.has(logo.name));
+const clientLogos = defaultClientLogos;
 
 const stats = [
   {
@@ -394,9 +378,7 @@ export const SocialProofSection = () => {
   const [logoWallPaused, setLogoWallPaused] = useState(false);
   const logoWallInView = useInView(logoWallRef, { margin: "-120px 0px" });
   const logoRows = Array.from({ length: 3 }, (_, rowIndex) =>
-    approvedClientLogos.map(
-      (_, logoIndex) => approvedClientLogos[(logoIndex + rowIndex * 4) % approvedClientLogos.length],
-    ),
+    clientLogos.filter((_, logoIndex) => logoIndex % 3 === rowIndex),
   );
 
   const syncLogoWallState = () => {
@@ -477,7 +459,7 @@ export const SocialProofSection = () => {
 
         {reduceMotion ? (
           <div id="client-logo-wall" className="relative left-1/2 grid w-screen -translate-x-1/2 grid-cols-2 gap-3 px-4 sm:grid-cols-4 sm:px-6 lg:grid-cols-8">
-            {approvedClientLogos.map((logo) => (
+            {clientLogos.map((logo) => (
               <div
                 key={logo.id}
                 className="flex h-16 min-w-0 items-center justify-center rounded-xl border border-slate-200 bg-white px-3 shadow-sm sm:h-20"

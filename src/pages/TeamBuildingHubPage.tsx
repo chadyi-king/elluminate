@@ -116,7 +116,7 @@ const catalogueGroups = [
 ];
 
 const proofMetrics = [
-  { value: "1,000+", label: "events across our operating history", icon: CalendarCheck2, accent: "#2A8DFF" },
+  { value: "5,000+", label: "events across our operating history", icon: CalendarCheck2, accent: "#2A8DFF" },
   { value: "100,000+", label: "participants", icon: UsersRound, accent: "#26B982" },
   { value: "8+ years", label: "planning and delivering events together", icon: Award, accent: "#F4B400" },
   { value: "24", label: "physical, equipment-led and virtual experiences", icon: LayoutGrid, accent: "#8B5CF6" },
@@ -1216,20 +1216,20 @@ const TeamBuildingHubPage = () => {
           </div>
         </section>
 
-        <section id="how-it-works" className="relative scroll-mt-24 overflow-hidden bg-[#f7faff] py-20 sm:py-28">
+        <section id="how-it-works" className="relative scroll-mt-24 overflow-hidden bg-[#f7faff] py-16 sm:py-20">
           <div className="absolute -right-40 top-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
           <div className="container relative mx-auto px-6 lg:px-12">
-            <div className="grid gap-6 lg:grid-cols-[1fr_0.48fr] lg:items-end">
+            <div className="grid gap-6 lg:grid-cols-[1fr_0.48fr] lg:items-center">
               <div className="max-w-3xl">
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">How it works</p>
                 <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] text-[#0b1f3a] sm:text-6xl">
                   From rough brief to a team-building event you can confirm
                 </h2>
               </div>
-              <div className="relative mx-auto h-[20rem] w-full max-w-md overflow-hidden lg:-ml-28 lg:h-[25rem] lg:w-[calc(100%+7rem)] lg:max-w-none">
+              <div className="relative mx-auto h-[18rem] w-full max-w-md overflow-hidden lg:-ml-24 lg:h-[20rem] lg:w-[calc(100%+6rem)] lg:max-w-none">
                 <div
                   aria-hidden="true"
-                  className="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-[#dcecff] lg:h-72 lg:w-72"
+                  className="absolute bottom-0 right-0 h-52 w-52 rounded-full bg-[#dcecff] lg:h-64 lg:w-64"
                 />
                 <img
                   src="/images/campaigns/team-building/planning-facilitator-cutout-v1.webp"
@@ -1239,7 +1239,7 @@ const TeamBuildingHubPage = () => {
                   loading="lazy"
                   decoding="async"
                   aria-hidden="true"
-                  className="pointer-events-none absolute bottom-[-2rem] left-1/2 h-[21rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:bottom-[-3.5rem] lg:left-auto lg:right-[-3.5rem] lg:h-[28rem] lg:translate-x-0"
+                  className="pointer-events-none absolute bottom-[-1.5rem] left-1/2 h-[18.5rem] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_26px_rgba(11,31,58,0.16)] lg:bottom-[-2rem] lg:left-auto lg:right-[-1rem] lg:h-[22rem] lg:translate-x-0"
                 />
               </div>
             </div>

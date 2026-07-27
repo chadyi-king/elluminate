@@ -32,7 +32,7 @@ const CharacterFigure = ({
 
   return (
     <motion.div
-      className={`pointer-events-auto absolute hidden xl:block ${sizeClass} ${posClass}`}
+      className={`pointer-events-auto absolute hidden lg:block ${sizeClass} ${posClass}`}
       initial={reduceMotion ? false : { opacity: 0, y: 42 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: reduceMotion ? 0 : 0.8, delay: reduceMotion ? 0 : delay, ease: "easeOut" }}
@@ -76,11 +76,11 @@ export const HeroCharacters = () => (
     */}
     <CharacterFigure
       image={charBlueMan}
-      posClass="left-[-1.5%] top-[1%] 2xl:left-[1%]"
+      posClass="bottom-[8.5rem] left-[-4rem] xl:left-[-2rem] 2xl:left-[0.5rem]"
       delay={0.1}
       width={500}
       height={500}
-      sizeClass="h-[clamp(28rem,35vw,40rem)] w-[clamp(28rem,35vw,40rem)]"
+      sizeClass="h-[28rem] w-[28rem] xl:h-[34rem] xl:w-[34rem] 2xl:h-[38rem] 2xl:w-[38rem]"
       zIndex={16}
       softenLowerEdge
       isLCP
@@ -88,32 +88,32 @@ export const HeroCharacters = () => (
 
     <CharacterFigure
       image={charRedWoman}
-      posClass="bottom-[7.625rem] left-[-2%] 2xl:left-[0.5%]"
+      posClass="bottom-[6.25rem] left-[-4.5rem] xl:left-[-2.5rem] 2xl:left-[0.5rem]"
       delay={0.2}
       width={480}
       height={500}
-      sizeClass="h-[clamp(27rem,34vw,39rem)] w-[clamp(26rem,33vw,38rem)]"
+      sizeClass="h-[27rem] w-[26rem] xl:h-[32rem] xl:w-[31rem] 2xl:h-[36rem] 2xl:w-[35rem]"
       zIndex={22}
     />
 
     <CharacterFigure
       image={charGreenWoman}
-      posClass="right-[-1.5%] top-[1%] 2xl:right-[0.75%]"
+      posClass="bottom-[8.5rem] right-[-4rem] xl:right-[-2rem] 2xl:right-[0.75rem]"
       delay={0.15}
       width={480}
       height={500}
-      sizeClass="h-[clamp(25rem,31vw,35rem)] w-[clamp(24rem,30vw,34rem)]"
+      sizeClass="h-[26rem] w-[25rem] xl:h-[30rem] xl:w-[29rem] 2xl:h-[33rem] 2xl:w-[32rem]"
       zIndex={15}
       softenLowerEdge
     />
 
     <CharacterFigure
       image={charYellowBoy}
-      posClass="bottom-[7.625rem] right-[-1%] 2xl:right-[2%]"
+      posClass="bottom-[6.25rem] right-[-4rem] xl:right-[-2rem] 2xl:right-[1.5rem]"
       delay={0.25}
       width={440}
       height={480}
-      sizeClass="h-[clamp(24rem,31vw,35rem)] w-[clamp(23rem,30vw,34rem)]"
+      sizeClass="h-[25rem] w-[24rem] xl:h-[29rem] xl:w-[28rem] 2xl:h-[32rem] 2xl:w-[31rem]"
       zIndex={23}
     />
   </div>
