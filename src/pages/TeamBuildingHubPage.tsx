@@ -11,7 +11,6 @@ import {
   Compass,
   HeartHandshake,
   LayoutGrid,
-  MessageCircle,
   MonitorPlay,
   Quote,
   Route,
@@ -54,9 +53,6 @@ const campaignConfig = getCampaignPageConfig("team-building");
 const pageUrl = `https://elluminate.sg${campaignConfig.path}`;
 const teamBuildingSeo = getRouteSeo("/services/team-building");
 const seoDescription = teamBuildingSeo?.description ?? campaignConfig.description;
-const whatsappUrl =
-  "https://wa.me/6588352482?text=Hi%20Elluminate%2C%20I%27d%20like%20to%20plan%20a%20team-building%20event.";
-
 const filters: ActivityFilter[] = ["All", "Outdoor", "Indoor", "High energy", "Lower intensity", "Virtual"];
 
 const activityCards: ActivityCard[] = [
@@ -503,7 +499,7 @@ const TeamBuildingHubPage = () => {
                 <span className="absolute -top-8 right-8 h-20 w-20 rounded-full bg-white" />
               </div>
 
-              <div className="relative z-40 order-1 mx-auto mt-2 h-[520px] w-full max-w-[390px] sm:h-[620px] sm:max-w-[470px] lg:absolute lg:-bottom-2 lg:left-1/2 lg:mt-0 lg:h-[1000px] lg:w-[585px] lg:max-w-none lg:-translate-x-1/2">
+              <div className="relative z-40 order-1 mx-auto mt-2 h-[520px] w-full max-w-[390px] sm:h-[620px] sm:max-w-[470px] lg:absolute lg:bottom-0 lg:left-1/2 lg:mt-0 lg:h-[1000px] lg:w-[585px] lg:max-w-none lg:-translate-x-1/2">
                 <motion.figure
                   initial={reduceMotion ? false : { opacity: 0, y: 72 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -513,10 +509,6 @@ const TeamBuildingHubPage = () => {
                     ease: "easeOut",
                   }}
                   className="h-full w-full"
-                  style={{
-                    WebkitMaskImage: "linear-gradient(to bottom, #000 0%, #000 87%, transparent 100%)",
-                    maskImage: "linear-gradient(to bottom, #000 0%, #000 87%, transparent 100%)",
-                  }}
                 >
                   <img
                     src="/images/campaigns/team-building/hero-campaign-woman-v7.webp"
@@ -1349,17 +1341,6 @@ const TeamBuildingHubPage = () => {
           </div>
         </section>
       </main>
-
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="WhatsApp Elluminate about team building"
-        onClick={() => trackCtaClick("floating_whatsapp", "WhatsApp Elluminate")}
-        className="fixed bottom-5 right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25d366] text-white shadow-xl transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-      >
-        <MessageCircle className="h-7 w-7" />
-      </a>
 
       <Footer
         topActivityLinks={teamBuildingFooterLinks}
