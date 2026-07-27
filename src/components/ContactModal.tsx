@@ -62,6 +62,20 @@ const addOnServices = [
 
 const STORAGE_KEY = "contact_form_draft";
 
+const SERVICE_PREFILL_DETAILS = [
+  "I would like help choosing the right team-building experience for my group.",
+  "I would like help shaping the right training, workshop or profiling direction for my group.",
+  "I would like help planning a local or overseas company retreat.",
+];
+
+const clearServicePrefillDetails = (details: string) =>
+  details
+    .split(/\r?\n/)
+    .filter((line) => !SERVICE_PREFILL_DETAILS.includes(line.trim()))
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+
 const categoryByFamily: Record<ServiceFamily, string> = {
   physical: "Physical Team Building",
   equipment: "Physical Team Building",
@@ -173,6 +187,7 @@ export const ContactModal = () => {
         .replace(/^Selected package:.*(?:\r?\n)?/gim, "")
         .replace(injectedSelectionRef.current, "")
         .trim();
+      existingDetails = clearServicePrefillDetails(existingDetails);
       const shouldReplaceBrief =
         modalContext.additionalDetails?.startsWith("Team Activity Brief") &&
         existingDetails.includes("Team Activity Brief");
