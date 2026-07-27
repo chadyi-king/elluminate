@@ -209,15 +209,15 @@ const retreatConfig: ServiceCampaignLandingConfig = {
     storyBody:
       "places are only the beginning. A retreat can still move work somewhere nicer without bringing the team closer. We connect the stay, schedule and shared moments so the whole trip feels worth taking.",
     cta: "Plan My Company Retreat",
-    actor: "/images/campaigns/retreats/hero-retreat-man-v3.png",
+    actor: "/images/campaigns/retreats/hero-retreat-man-v4.webp",
     actorAlt: "Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler",
-    actorWidth: 871,
-    actorHeight: 1805,
+    actorWidth: 863,
+    actorHeight: 1823,
     photos: [
       {
-        src: "/images/services/local-retreats/gallery-5.jpg",
-        alt: "Colleagues sharing an energetic beach retreat activity",
-        position: "50% 50%",
+        src: "/images/services/local-retreats/hero.jpg",
+        alt: "Large company retreat group gathered together at Bird Paradise",
+        position: "50% 52%",
       },
       {
         src: "/images/services/local-retreats/addons.jpg",
@@ -259,9 +259,9 @@ const retreatConfig: ServiceCampaignLandingConfig = {
     ],
     testimonialIds: [
       "team-elevate-client-jurgen-carlson-ams-ag",
-      "team-elevate-google-joshua",
-      "team-elevate-client-farzanah-begum-simtech",
-      "team-elevate-google-jk",
+      "team-elevate-google-jnlynn",
+      "team-elevate-google-wp",
+      "team-elevate-client-darren-tey-lonza",
     ],
   },
   stakes: {
@@ -586,10 +586,10 @@ const trainingConfig: ServiceCampaignLandingConfig = {
     storyBody:
       "is the real test. You can fill a room, finish a deck and still watch everyone return to the same habits. We shape the format, facilitation and application around the work waiting outside the room.",
     cta: "Build My Training Programme",
-    actor: "/images/campaigns/training/hero-training-woman-v3.png",
+    actor: "/images/campaigns/training/hero-training-woman-v4.webp",
     actorAlt: "Illustrative campaign visual of a fictional adult Southeast Asian professional holding a lit sparkler and folder",
-    actorWidth: 870,
-    actorHeight: 1808,
+    actorWidth: 873,
+    actorHeight: 1802,
     photos: [
       {
         src: "/images/services/workshops/addons.jpg",
@@ -636,9 +636,9 @@ const trainingConfig: ServiceCampaignLandingConfig = {
     ],
     testimonialIds: [
       "team-elevate-google-joshua",
-      "team-elevate-google-jenniiloh",
-      "team-elevate-client-farzanah-begum-simtech",
+      "team-elevate-google-shahrul",
       "team-elevate-google-jk",
+      "team-elevate-client-arianti-amalina-madame-tussauds",
     ],
   },
   stakes: {

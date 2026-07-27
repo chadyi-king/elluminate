@@ -282,8 +282,8 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
               >
                 {config.hero.photos.map((photo, index) => {
                   const positions = [
-                    "lg:left-[3.5%] lg:top-[48%] lg:w-[18%]",
-                    "lg:left-[22.5%] lg:top-[53%] lg:w-[16.8%]",
+                    "lg:left-[1.5%] lg:top-[38%] lg:w-[15.5%]",
+                    "lg:left-[20%] lg:top-[40%] lg:w-[14%]",
                     "lg:right-[26%] lg:top-[51%] lg:w-[21%]",
                     "lg:right-[3.5%] lg:top-[45%] lg:w-[22.5%]",
                   ];

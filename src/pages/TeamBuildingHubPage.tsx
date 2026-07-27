@@ -116,7 +116,7 @@ const catalogueGroups = [
 ];
 
 const proofMetrics = [
-  { value: "5,000+", label: "events delivered", icon: CalendarCheck2, accent: "#2A8DFF" },
+  { value: "1,000+", label: "events across our operating history", icon: CalendarCheck2, accent: "#2A8DFF" },
   { value: "100,000+", label: "participants", icon: UsersRound, accent: "#26B982" },
   { value: "8+ years", label: "planning and delivering events together", icon: Award, accent: "#F4B400" },
   { value: "24", label: "physical, equipment-led and virtual experiences", icon: LayoutGrid, accent: "#8B5CF6" },
@@ -125,8 +125,8 @@ const proofMetrics = [
 const proofTestimonialIds = [
   "team-elevate-client-farzanah-begum-simtech",
   "team-elevate-google-jenniiloh",
-  "team-elevate-google-joshua",
-  "team-elevate-client-arianti-amalina-madame-tussauds",
+  "team-elevate-google-pwincezz",
+  "team-elevate-google-lkw",
 ];
 
 const proofTestimonials = proofTestimonialIds
@@ -531,7 +531,7 @@ const TeamBuildingHubPage = () => {
               >
                 <motion.figure
                   {...revealPhoto(0.66, -84, -3)}
-                  className="overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[3.5%] lg:top-[48%] lg:w-[18%]"
+                  className="overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[1.5%] lg:top-[38%] lg:w-[15.5%]"
                 >
                   <img
                     src={cloudinaryImage("/images/services/amazing-race/cta.jpg", { width: 700 })}
@@ -544,7 +544,7 @@ const TeamBuildingHubPage = () => {
                 </motion.figure>
                 <motion.figure
                   {...revealPhoto(0.74, -54, 3)}
-                  className="overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[22.5%] lg:top-[53%] lg:w-[16.8%]"
+                  className="overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-2xl lg:absolute lg:left-[20%] lg:top-[40%] lg:w-[14%]"
                 >
                   <img
                     src={cloudinaryImage("/images/services/battle-of-the-olympians/gallery-6.jpg", { width: 700 })}
