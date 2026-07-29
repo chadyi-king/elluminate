@@ -7469,8 +7469,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Aim, Shoot, Win!",
       subtitle:
         "Watch teams compete in this thrilling mix of archery and tag, where precision and strategy are key. Dodge, shoot, and outsmart your opponents to claim victory in this action-packed battle!",
-      videoUrl: "/videos/elluminate-showreel.mp4",
-      thumbnailImage: "/images/services/archery-tag/gallery-3.jpg",
+      videoUrl: "/__l5e/assets-v1/c275fb6b-b772-4eee-8ae9-1725f63a0899/archery-tag.mp4",
+      thumbnailImage: "/__l5e/assets-v1/d958a146-ff6a-4005-9f5c-f39d4bd3d3c9/archery-tag-tn.png",
     },
     cta: {
       headline: "Ready to Battle?",
@@ -10247,8 +10247,8 @@ export const servicesData: Record<string, ServiceData> = {
       title: "The Ultimate Battle of Strategy",
       subtitle:
         "Watch teams compete in fast-paced laser tag challenges, testing their strategy and teamwork across dynamic arenas.",
-      videoUrl: "/videos/elluminate-showreel.mp4",
-      thumbnailImage: "/images/services/tag-tical-laser-teambuilding/gallery-2.jpg",
+      videoUrl: "/__l5e/assets-v1/34cef1c4-0513-490b-aacf-59c4a4351c9d/laser-tag.mp4",
+      thumbnailImage: "/__l5e/assets-v1/2107b048-6511-40e3-a98a-fa5c8c8072a2/laser-tag-tn.png",
     },
     clientLogos: ["Thales", "BAE Systems", "ST Aerospace", "Dassault", "Bosch", "Sembcorp"],
     recentEvents: [
