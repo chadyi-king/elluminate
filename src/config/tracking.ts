@@ -13,7 +13,7 @@
 export const GTM_ID = ""; // e.g. "GTM-XXXXXXX"
 
 // Google Analytics 4 — fallback when GTM is not yet set
-export const GA4_ID = "G-R4S0RLKQ67";
+export const GA4_ID = "G-DW7WKD7NFX";
 
 // Google Ads conversion tracking
 export const GOOGLE_ADS_ID = ""; // e.g. "AW-1234567890"

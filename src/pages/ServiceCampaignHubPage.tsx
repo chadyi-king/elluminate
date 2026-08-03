@@ -32,19 +32,6 @@ type ServiceCampaignHubPageProps = {
   kind: ServiceCampaignKind;
 };
 
-const pushLandingEvent = (pagePath: string, payload: Record<string, unknown> = {}) => {
-  if (typeof window === "undefined") return;
-
-  const trackingWindow = window as Window & { dataLayer?: Array<Record<string, unknown>> };
-  trackingWindow.dataLayer = trackingWindow.dataLayer || [];
-  trackingWindow.dataLayer.push({
-    event: "cta_click",
-    page_path: pagePath,
-    form_name: "plan_my_event",
-    ...payload,
-  });
-};
-
 const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
   const config = serviceCampaignLandingConfigs[kind];
   const seo = getRouteSeo(config.path);
@@ -111,10 +98,11 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
   });
 
   const openPlanMyEvent = (location: string) => {
-    pushLandingEvent(config.path, { cta_location: location, cta_text: config.hero.cta });
     openContactModal({
       eventCategory: config.eventCategory,
       serviceSlug: config.kind,
+      ctaLocation: location,
+      ctaText: config.hero.cta,
       additionalDetails: config.additionalDetails,
     });
   };

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { trackAnalyticsEvent } from "@/lib/tracking";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import elluminateLogo from "@/assets/logos/elluminate-logo.png";
 
@@ -95,6 +96,10 @@ export const Footer = ({
               <li>
                 <a
                   href="tel:+6588352482"
+                  onClick={() => trackAnalyticsEvent("contact_channel_click", {
+                    contact_channel: "phone",
+                    link_location: "footer",
+                  })}
                   className="flex items-center gap-3 text-background/70 hover:text-primary text-sm transition-colors duration-300"
                 >
                   <Phone className="w-5 h-5 text-primary" />
@@ -104,6 +109,10 @@ export const Footer = ({
               <li>
                 <a
                   href="mailto:info@elluminate.sg"
+                  onClick={() => trackAnalyticsEvent("contact_channel_click", {
+                    contact_channel: "email",
+                    link_location: "footer",
+                  })}
                   className="flex items-center gap-3 text-background/70 hover:text-primary text-sm transition-colors duration-300"
                 >
                   <Mail className="w-5 h-5 text-primary" />
@@ -113,6 +122,10 @@ export const Footer = ({
               <li>
                 <a
                   href="https://api.whatsapp.com/send?phone=6588352482"
+                  onClick={() => trackAnalyticsEvent("contact_channel_click", {
+                    contact_channel: "whatsapp",
+                    link_location: "footer",
+                  })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-background/70 hover:text-primary text-sm transition-colors duration-300"

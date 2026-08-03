@@ -1,4 +1,4 @@
-export const DEFAULT_GA4_MEASUREMENT_ID = "G-R4S0RLKQ67";
+export const DEFAULT_GA4_MEASUREMENT_ID = "G-DW7WKD7NFX";
 export const DEFAULT_GOOGLE_ADS_SEND_TO = "AW-704277198/24mXCJ2Q_s8cEM7V6c8C";
 
 export const getGa4MeasurementId = () =>

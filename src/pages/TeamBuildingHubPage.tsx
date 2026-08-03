@@ -354,19 +354,6 @@ const faqs = [
   },
 ];
 
-const pushLandingEvent = (payload: Record<string, unknown> = {}) => {
-  if (typeof window === "undefined") return;
-
-  const trackingWindow = window as Window & { dataLayer?: Array<Record<string, unknown>> };
-  trackingWindow.dataLayer = trackingWindow.dataLayer || [];
-  trackingWindow.dataLayer.push({
-    event: "cta_click",
-    page_path: "/services/team-building",
-    form_name: "plan_my_event",
-    ...payload,
-  });
-};
-
 const TeamBuildingHubPage = () => {
   const heroHeadline = "Team Building Your People Won't Quietly Dread";
   const { openContactModal } = useContactModal();
@@ -398,15 +385,12 @@ const TeamBuildingHubPage = () => {
     return activityCards.filter((activity) => activity.filters.includes(activityFilter));
   }, [activityFilter]);
 
-  const trackCtaClick = (location: string, ctaText: string) => {
-    pushLandingEvent({ cta_location: location, cta_text: ctaText });
-  };
-
   const openPlanMyEvent = (location: string, ctaText = "Build My Team Experience", additionalDetails?: string) => {
-    trackCtaClick(location, ctaText);
     openContactModal({
       eventCategory: "Physical Team Building",
       serviceSlug: "team-building",
+      ctaLocation: location,
+      ctaText,
       additionalDetails:
         additionalDetails ?? "I would like help choosing the right team-building experience for my group.",
     });

@@ -1,4 +1,5 @@
 import { createContext, useContext, useRef, useState, ReactNode } from "react";
+import { trackAnalyticsEvent } from "@/lib/tracking";
 
 export interface ContactModalOpenContext {
   eventCategory?: string;
@@ -6,6 +7,8 @@ export interface ContactModalOpenContext {
   additionalDetails?: string;
   serviceSlug?: string;
   packageId?: string;
+  ctaLocation?: string;
+  ctaText?: string;
 }
 
 interface ContactModalContextType {
@@ -27,8 +30,16 @@ export const ContactModalProvider = ({ children }: { children: ReactNode }) => {
   const returnFocusRef = useRef<HTMLElement | null>(null);
 
   const openContactModal = (context?: ContactModalOpenContext | unknown) => {
+    const modalContext = isContactContext(context) ? context : {};
     returnFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    setModalContext(isContactContext(context) ? context : {});
+    trackAnalyticsEvent("service_cta_click", {
+      form_name: "plan_my_event",
+      service: modalContext.serviceSlug,
+      event_category: modalContext.eventCategory,
+      cta_location: modalContext.ctaLocation,
+      cta_text: modalContext.ctaText,
+    });
+    setModalContext(modalContext);
     setIsOpen(true);
   };
   const closeContactModal = () => {

@@ -192,11 +192,9 @@ test("visible comparison, value, fit, and testimonial sections stay aligned to t
   assert.doesNotMatch(page, /\{group\.items\.length\} experiences/);
 });
 
-test("WhatsApp and CTA diagnostics are not lead conversions", () => {
-  assert.match(page, /wa\.me\/6588352482/);
-  assert.match(page, /WhatsApp Elluminate/);
-  assert.match(page, /event: "cta_click"/);
-  assert.match(page, /trackCtaClick\("floating_whatsapp", "WhatsApp Elluminate"\)/);
+test("CTA diagnostics are not lead conversions", () => {
+  assert.match(page, /ctaLocation: location/);
+  assert.match(page, /ctaText/);
   assert.doesNotMatch(page, /form_submit/);
   assert.doesNotMatch(page, /trackLeadConversion/);
 });

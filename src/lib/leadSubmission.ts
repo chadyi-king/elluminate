@@ -33,6 +33,7 @@ export interface SubmitLeadInput {
   submissionPage?: string | null;
   attribution?: Attribution;
   emailKeyPrefix?: string;
+  formSessionId?: string;
 }
 
 export interface SubmitLeadResult {
@@ -60,7 +61,12 @@ const attributionColumns = (attribution: Attribution) => ({
   attribution_captured_at: attribution.captured_at || null,
 });
 
-const recordEmailQueueFailure = (submissionId: string, formName: string, failedTemplates: string[]) => {
+const recordEmailQueueFailure = (
+  submissionId: string,
+  formName: string,
+  failedTemplates: string[],
+  formSessionId?: string,
+) => {
   console.error("Lead saved but one or more email notifications could not be queued", {
     submissionId,
     formName,
@@ -73,6 +79,7 @@ const recordEmailQueueFailure = (submissionId: string, formName: string, failedT
   trackingWindow.dataLayer.push({
     event: "elluminate_email_queue_failed",
     lead_id: submissionId,
+    form_session_id: formSessionId,
     form_name: formName,
     failed_templates: failedTemplates,
   });
@@ -96,6 +103,7 @@ export async function submitLead(input: SubmitLeadInput): Promise<SubmitLeadResu
 
   const tracking = {
     lead_id: submissionId,
+    form_session_id: input.formSessionId,
     form_name: input.formName,
     brand: "elluminate",
     service: input.service,
@@ -119,7 +127,7 @@ export async function submitLead(input: SubmitLeadInput): Promise<SubmitLeadResu
           },
         }),
       onEmailFailure: (_leadId: string, failedTemplates: string[]) =>
-        recordEmailQueueFailure(submissionId, input.formName, failedTemplates),
+        recordEmailQueueFailure(submissionId, input.formName, failedTemplates, input.formSessionId),
     },
   );
 }

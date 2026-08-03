@@ -6,6 +6,9 @@ const read = (path) => (existsSync(path) ? readFileSync(path, "utf8") : "");
 
 const indexHtml = read("index.html");
 const contactModal = read("src/components/ContactModal.tsx");
+const contactModalContext = read("src/contexts/ContactModalContext.tsx");
+const routeTracker = read("src/components/AnalyticsRouteTracker.tsx");
+const app = read("src/App.tsx");
 const googleTag = read("src/lib/googleTag.ts");
 const leadSubmission = read("src/lib/leadSubmission.ts");
 const main = read("src/main.tsx");
@@ -19,13 +22,44 @@ const thankYou = read("src/pages/ThankYouPage.tsx");
 test("site bootstraps the environment-driven Google tag and correct Ads destination", () => {
   assert.match(main, /bootstrapGoogleTags\(\)/);
   assert.match(trackingConfig, /VITE_GA4_MEASUREMENT_ID/);
-  assert.match(trackingConfig, /G-R4S0RLKQ67/);
+  assert.match(trackingConfig, /G-DW7WKD7NFX/);
+  assert.doesNotMatch(trackingConfig, /G-R4S0RLKQ67/);
   assert.match(trackingConfig, /AW-704277198\/24mXCJ2Q_s8cEM7V6c8C/);
   assert.doesNotMatch(trackingConfig, /AW-18084927892/);
   assert.match(googleTag, /googletagmanager\.com\/gtag\/js\?id=/);
   assert.match(googleTag, /getGoogleAdsConversionId/);
+  assert.match(googleTag, /send_page_view: false/);
   assert.match(googleTag, /gtag\("config", googleAdsConversionId\)/);
-  assert.doesNotMatch(indexHtml, /gtag\('config', 'G-R4S0RLKQ67'\)/);
+  assert.doesNotMatch(indexHtml, /G-R4S0RLKQ67/);
+});
+
+test("SPA navigation and lead-form funnel events are sent to Elluminate GA4 without PII", () => {
+  assert.match(app, /<AnalyticsRouteTracker \/>/);
+  assert.match(routeTracker, /trackAnalyticsEvent\("page_view"/);
+  assert.match(routeTracker, /trackAnalyticsEvent\("scroll_depth"/);
+  assert.match(contactModalContext, /trackAnalyticsEvent\("service_cta_click"/);
+
+  for (const eventName of [
+    "lead_form_open",
+    "lead_form_start",
+    "lead_form_validation_error",
+    "lead_form_submit_attempt",
+    "lead_form_submit_error",
+    "contact_channel_click",
+  ]) {
+    assert.match(contactModal, new RegExp(eventName));
+  }
+
+  assert.match(tracking, /send_to: ga4MeasurementId/);
+  assert.match(contactModal, /form_session_id/);
+  assert.match(leadSubmission, /const tracking = \{[\s\S]*form_session_id: input\.formSessionId/);
+  assert.doesNotMatch(routeTracker, /\b(?:email|phone|customer_name)\s*:/);
+});
+
+test("physical team-building enquiries keep their campaign-specific service key", () => {
+  assert.match(contactModal, /"Physical Team Building": "corporate_physical_team_building"/);
+  assert.match(contactModal, /service: activeService/);
+  assert.doesNotMatch(contactModal, /service: formData\.eventCategory[\s\S]*company_experiences/);
 });
 
 test("lead conversion helper sends GA4 and Ads once with one transaction ID", () => {

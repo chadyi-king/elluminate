@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useCallback, useState, useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
@@ -15,6 +15,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { format, startOfDay } from "date-fns";
 import { cn } from "@/lib/utils";
 import { submitLead } from "@/lib/leadSubmission";
+import { trackAnalyticsEvent } from "@/lib/tracking";
 import { getServicePageBlueprint, type ServiceFamily } from "@/data/servicePageBlueprints";
 
 const eventCategories = [
@@ -61,6 +62,15 @@ const addOnServices = [
 ];
 
 const STORAGE_KEY = "contact_form_draft";
+
+const serviceByEventCategory: Record<string, string> = {
+  "Physical Team Building": "corporate_physical_team_building",
+  "Virtual Team Building": "virtual_team_building",
+  "Corporate Retreat": "corporate_retreats",
+  "Training Workshop": "corporate_training",
+  "School Programme": "school_programmes",
+  "Camp / Cohort Day": "school_camp_activities",
+};
 
 const SERVICE_PREFILL_DETAILS = [
   "I would like help choosing the right team-building experience for my group.",
@@ -144,6 +154,10 @@ export const ContactModal = () => {
   const navigate = useNavigate();
   const honeypotRef = useRef<HTMLInputElement>(null);
   const injectedSelectionRef = useRef("");
+  const wasOpenRef = useRef(false);
+  const formStartedRef = useRef(false);
+  const submitInFlightRef = useRef(false);
+  const formSessionIdRef = useRef<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(getInitialDate);
   const [formData, setFormData] = useState(getInitialFormData);
@@ -159,6 +173,31 @@ export const ContactModal = () => {
   const activeEventCategory = modalContext?.eventCategory || routeEventCategory || formData.eventCategory;
   const isTeamBuildingInquiry =
     activeEventCategory === "Physical Team Building" || activeEventCategory === "Virtual Team Building";
+  const activeService = serviceByEventCategory[activeEventCategory] ?? "company_experiences";
+
+  const funnelPayload = useCallback((payload: Record<string, unknown> = {}) => ({
+    form_name: "plan_my_event",
+    form_session_id: formSessionIdRef.current,
+    service: activeService,
+    event_category: activeEventCategory,
+    ...payload,
+  }), [activeEventCategory, activeService]);
+
+  useEffect(() => {
+    if (isOpen && !wasOpenRef.current) {
+      formSessionIdRef.current = crypto.randomUUID();
+      formStartedRef.current = false;
+      trackAnalyticsEvent("lead_form_open", funnelPayload());
+    }
+
+    if (!isOpen && wasOpenRef.current) {
+      formSessionIdRef.current = null;
+      formStartedRef.current = false;
+      submitInFlightRef.current = false;
+    }
+
+    wasOpenRef.current = isOpen;
+  }, [funnelPayload, isOpen]);
 
   // Save to localStorage whenever form data changes
   useEffect(() => {
@@ -211,11 +250,17 @@ export const ContactModal = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (isSubmitting) {
+    if (isSubmitting || submitInFlightRef.current) {
       return;
     }
 
+    trackAnalyticsEvent("lead_form_submit_attempt", funnelPayload());
+
     if (!formData.privacyConsent) {
+      trackAnalyticsEvent("lead_form_validation_error", funnelPayload({
+        field_name: "privacyConsent",
+        validation_reason: "value_missing",
+      }));
       toast({
         title: "Consent Required",
         description: "Please confirm that we may use these details to respond to your enquiry.",
@@ -232,6 +277,7 @@ export const ContactModal = () => {
     }
 
     setIsSubmitting(true);
+    submitInFlightRef.current = true;
 
     const submissionPage =
       typeof window !== "undefined" ? window.location.pathname + window.location.search : null;
@@ -239,13 +285,10 @@ export const ContactModal = () => {
     try {
       await submitLead({
         formName: "plan_my_event",
-        service: formData.eventCategory === "Corporate Retreat"
-          ? "corporate_retreats"
-          : formData.eventCategory === "Training Workshop"
-            ? "corporate_training"
-            : "company_experiences",
+        service: activeService,
         submissionPage,
         emailKeyPrefix: "plan-my-event",
+        formSessionId: formSessionIdRef.current ?? undefined,
         fields: {
           name: formData.name.trim(),
           email: formData.email.trim(),
@@ -283,6 +326,11 @@ export const ContactModal = () => {
       navigate("/thank-you-contact");
     } catch (err) {
       console.error("Form submission error:", err);
+      const errorCode = typeof err === "object" && err && "code" in err ? String(err.code) : "unknown";
+      trackAnalyticsEvent("lead_form_submit_error", funnelPayload({
+        error_stage: "save_or_queue",
+        error_code: errorCode,
+      }));
       toast({
         title: "Something went wrong",
         description: "Please try again, or email us at info@elluminate.sg.",
@@ -290,7 +338,30 @@ export const ContactModal = () => {
       });
     } finally {
       setIsSubmitting(false);
+      submitInFlightRef.current = false;
     }
+  };
+
+  const handleFormChange = () => {
+    if (formStartedRef.current) return;
+    formStartedRef.current = true;
+    trackAnalyticsEvent("lead_form_start", funnelPayload());
+  };
+
+  const handleInvalidField = (event: React.InvalidEvent<HTMLFormElement>) => {
+    const field = event.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    const validationReason = field.validity.valueMissing
+      ? "value_missing"
+      : field.validity.typeMismatch
+        ? "type_mismatch"
+        : field.validity.rangeUnderflow
+          ? "range_underflow"
+          : "invalid";
+
+    trackAnalyticsEvent("lead_form_validation_error", funnelPayload({
+      field_name: field.name || field.id || "unknown",
+      validation_reason: validationReason,
+    }));
   };
 
   const toggleAddOnService = (service: string) => {
@@ -390,6 +461,10 @@ export const ContactModal = () => {
                 </div>
                 <a
                   href="mailto:info@elluminate.sg"
+                  onClick={() => trackAnalyticsEvent("contact_channel_click", funnelPayload({
+                    contact_channel: "email",
+                    link_location: "form_sidebar",
+                  }))}
                   className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors text-sm"
                 >
                   <Mail className="w-4 h-4" />
@@ -421,7 +496,12 @@ export const ContactModal = () => {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="flex-1 space-y-4 overflow-y-auto overscroll-contain p-4 scrollbar-gold sm:space-y-5 sm:p-6">
+            <form
+              onSubmit={handleSubmit}
+              onChangeCapture={handleFormChange}
+              onInvalidCapture={handleInvalidField}
+              className="flex-1 space-y-4 overflow-y-auto overscroll-contain p-4 scrollbar-gold sm:space-y-5 sm:p-6"
+            >
               {/* Honeypot: hidden from real users, bots fill it. Do not remove. */}
               <input
                 ref={honeypotRef}
@@ -688,6 +768,10 @@ export const ContactModal = () => {
               </Button>
               <a
                 href="mailto:info@elluminate.sg"
+                onClick={() => trackAnalyticsEvent("contact_channel_click", funnelPayload({
+                  contact_channel: "email",
+                  link_location: "form_mobile_footer",
+                }))}
                 className="flex items-center justify-center gap-2 text-sm text-gray-500 transition-colors hover:text-primary md:hidden"
               >
                 <Mail className="h-4 w-4" />

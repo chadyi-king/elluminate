@@ -1,5 +1,5 @@
 import type { Attribution } from "@/lib/attribution";
-import { getGoogleAdsSendTo } from "@/lib/trackingConfig";
+import { getGa4MeasurementId, getGoogleAdsSendTo } from "@/lib/trackingConfig";
 
 const DEFAULT_FORM_NAME = "plan_my_event";
 const DEFAULT_BRAND = "elluminate";
@@ -14,6 +14,7 @@ type TrackingWindow = Window & {
 
 export interface LeadConversionInput {
   lead_id: string;
+  form_session_id?: string;
   form_name?: string;
   brand?: string;
   service?: string;
@@ -23,6 +24,19 @@ export interface LeadConversionInput {
   page_path?: string | null;
   attribution?: Attribution;
 }
+
+export type AnalyticsEventName =
+  | "page_view"
+  | "scroll_depth"
+  | "service_cta_click"
+  | "lead_form_open"
+  | "lead_form_start"
+  | "lead_form_validation_error"
+  | "lead_form_submit_attempt"
+  | "lead_form_submit_error"
+  | "contact_channel_click";
+
+export type AnalyticsEventPayload = Record<string, unknown>;
 
 const cleanPayload = (payload: Record<string, unknown>) =>
   Object.fromEntries(
@@ -44,6 +58,38 @@ const attributionPayload = (attribution?: Attribution) => ({
   attribution_captured_at: attribution?.captured_at,
 });
 
+const currentPagePath = () => {
+  if (typeof window === "undefined") return undefined;
+  return `${window.location.pathname}${window.location.search}`;
+};
+
+export function trackAnalyticsEvent(eventName: AnalyticsEventName, payload: AnalyticsEventPayload = {}) {
+  if (typeof window === "undefined") return;
+
+  const w = window as TrackingWindow;
+  const ga4MeasurementId = getGa4MeasurementId();
+  const eventPayload = cleanPayload({
+    brand: DEFAULT_BRAND,
+    page_path: currentPagePath(),
+    ...payload,
+  });
+
+  w.dataLayer = w.dataLayer || [];
+
+  if (typeof w.gtag === "function" && ga4MeasurementId) {
+    w.gtag("event", eventName, {
+      ...eventPayload,
+      send_to: ga4MeasurementId,
+    });
+    return;
+  }
+
+  w.dataLayer.push({
+    event: eventName,
+    ...eventPayload,
+  });
+}
+
 export function buildLeadConversionPayload(input: LeadConversionInput) {
   const lead_id = input.lead_id;
   return cleanPayload({
@@ -54,6 +100,7 @@ export function buildLeadConversionPayload(input: LeadConversionInput) {
     currency: input.value !== undefined ? input.currency : undefined,
     lead_id,
     transaction_id: lead_id,
+    form_session_id: input.form_session_id,
     event_category: input.event_category,
     page_path: input.page_path,
     ...attributionPayload(input.attribution),

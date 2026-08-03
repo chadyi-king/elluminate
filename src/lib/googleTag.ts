@@ -42,7 +42,7 @@ export function bootstrapGoogleTags() {
   if (ga4MeasurementId) {
     loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(ga4MeasurementId)}`);
     w.gtag("js", new Date());
-    w.gtag("config", ga4MeasurementId);
+    w.gtag("config", ga4MeasurementId, { send_page_view: false });
   }
 
   if (googleAdsConversionId) {

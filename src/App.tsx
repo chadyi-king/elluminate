@@ -7,6 +7,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { ContactModalProvider } from "@/contexts/ContactModalContext";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { captureAttribution } from "@/lib/attribution";
+import { AnalyticsRouteTracker } from "@/components/AnalyticsRouteTracker";
 
 const Index = lazy(() => import("./pages/Index"));
 const ServicePage = lazy(() => import("./pages/ServicePage"));
@@ -66,6 +67,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AttributionInit />
+          <AnalyticsRouteTracker />
           <Suspense fallback={<RouteLoadingFallback />}>
             <Routes>
               <Route path="/" element={<Index />} />
