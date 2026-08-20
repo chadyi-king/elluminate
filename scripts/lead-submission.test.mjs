@@ -69,3 +69,34 @@ test("email queue failure is reported without losing the saved lead", async () =
   assert.deepEqual(result.emailQueueFailures, ["contact-confirmation"]);
   assert.deepEqual(reported, [["lead-123", ["contact-confirmation"]]]);
 });
+
+test("email queue and redirect path wait for conversion dispatch to settle", async () => {
+  const events = [];
+  let finishTracking;
+  const trackingSettled = new Promise((resolve) => {
+    finishTracking = resolve;
+  });
+
+  const flow = runLeadSubmissionFlow(input, {
+    insert: async () => {
+      events.push("insert");
+      return { error: null };
+    },
+    track: async () => {
+      events.push("track-start");
+      await trackingSettled;
+      events.push("track-finished");
+    },
+    sendEmail: async () => {
+      events.push("email");
+      return { error: null };
+    },
+  });
+
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  assert.deepEqual(events, ["insert", "track-start"]);
+
+  finishTracking();
+  await flow;
+  assert.deepEqual(events, ["insert", "track-start", "track-finished", "email", "email"]);
+});

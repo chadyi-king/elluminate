@@ -1,4 +1,5 @@
 import type { Attribution } from "@/lib/attribution";
+import { dispatchGoogleAdsConversion } from "@/lib/conversionDispatch.js";
 import { getGa4MeasurementId, getGoogleAdsSendTo } from "@/lib/trackingConfig";
 
 const DEFAULT_FORM_NAME = "plan_my_event";
@@ -107,10 +108,11 @@ export function buildLeadConversionPayload(input: LeadConversionInput) {
   });
 }
 
-export function trackLeadConversion(input: LeadConversionInput) {
-  if (typeof window === "undefined") return;
+export async function trackLeadConversion(input: LeadConversionInput) {
+  if (typeof window === "undefined") return { status: "browser_unavailable" };
 
   const lead_id = input.lead_id;
+  const ga4MeasurementId = getGa4MeasurementId();
   const googleAdsSendTo = getGoogleAdsSendTo();
   const w = window as TrackingWindow;
   const leadPayload = buildLeadConversionPayload(input);
@@ -123,7 +125,10 @@ export function trackLeadConversion(input: LeadConversionInput) {
   });
 
   if (typeof w.gtag === "function") {
-    w.gtag("event", "generate_lead", leadPayload);
+    w.gtag("event", "generate_lead", {
+      ...leadPayload,
+      send_to: ga4MeasurementId,
+    });
   } else {
     w.dataLayer.push({
       event: "elluminate_gtag_missing",
@@ -134,12 +139,33 @@ export function trackLeadConversion(input: LeadConversionInput) {
     });
   }
 
-  if (googleAdsSendTo && typeof w.gtag === "function") {
-    w.gtag("event", "conversion", {
-      send_to: googleAdsSendTo,
-      transaction_id: lead_id,
+  const dispatchResult = await dispatchGoogleAdsConversion({
+    gtag: w.gtag,
+    sendTo: googleAdsSendTo,
+    leadId: lead_id,
+  });
+
+  const hasGoogleClickId = Boolean(
+    input.attribution?.gclid || input.attribution?.gbraid || input.attribution?.wbraid,
+  );
+  const diagnosticPayload = {
+    lead_id,
+    form_name: leadPayload.form_name,
+    brand: leadPayload.brand,
+    service: leadPayload.service,
+    dispatch_status: dispatchResult.status,
+    has_google_click_id: hasGoogleClickId,
+  };
+  w.dataLayer.push({
+    event: "elluminate_ads_conversion_dispatch",
+    ...diagnosticPayload,
+  });
+
+  if (typeof w.gtag === "function" && ga4MeasurementId) {
+    w.gtag("event", "ads_conversion_dispatch", {
+      ...diagnosticPayload,
+      send_to: ga4MeasurementId,
     });
-    return;
   }
 
   if (!googleAdsSendTo) {
@@ -151,4 +177,6 @@ export function trackLeadConversion(input: LeadConversionInput) {
       service: leadPayload.service,
     });
   }
+
+  return dispatchResult;
 }

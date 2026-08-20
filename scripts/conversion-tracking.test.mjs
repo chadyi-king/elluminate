@@ -10,6 +10,7 @@ const contactModalContext = read("src/contexts/ContactModalContext.tsx");
 const routeTracker = read("src/components/AnalyticsRouteTracker.tsx");
 const app = read("src/App.tsx");
 const googleTag = read("src/lib/googleTag.ts");
+const conversionDispatch = read("src/lib/conversionDispatch.js");
 const leadSubmission = read("src/lib/leadSubmission.ts");
 const main = read("src/main.tsx");
 const tracking = read("src/lib/tracking.ts");
@@ -63,14 +64,25 @@ test("physical team-building enquiries keep their campaign-specific service key"
 });
 
 test("lead conversion helper sends GA4 and Ads once with one transaction ID", () => {
-  assert.match(tracking, /export function trackLeadConversion/);
+  assert.match(tracking, /export async function trackLeadConversion/);
   assert.match(tracking, /gtag\("event", "generate_lead"/);
-  assert.match(tracking, /gtag\("event", "conversion"/);
-  assert.match(tracking, /send_to: googleAdsSendTo/);
-  assert.match(tracking, /transaction_id: lead_id/);
+  assert.match(tracking, /dispatchGoogleAdsConversion/);
+  assert.match(conversionDispatch, /gtag\("event", "conversion"/);
+  assert.match(conversionDispatch, /send_to: sendTo/);
+  assert.match(conversionDispatch, /transaction_id: leadId/);
+  assert.match(conversionDispatch, /event_callback/);
+  assert.match(conversionDispatch, /event_timeout/);
   assert.equal((tracking.match(/gtag\("event", "generate_lead"/g) ?? []).length, 1);
-  assert.equal((tracking.match(/gtag\("event", "conversion"/g) ?? []).length, 1);
+  assert.equal((conversionDispatch.match(/gtag\("event", "conversion"/g) ?? []).length, 1);
   assert.doesNotMatch(tracking, /DEFAULT_VALUE|value:\s*150/);
+});
+
+test("lead completion records Ads callback status and whether click attribution exists", () => {
+  assert.match(tracking, /elluminate_ads_conversion_dispatch/);
+  assert.match(tracking, /ads_conversion_dispatch/);
+  assert.match(tracking, /dispatch_status/);
+  assert.match(tracking, /has_google_click_id/);
+  assert.match(tracking, /send_to: ga4MeasurementId/);
 });
 
 test("all enquiry entry points use the shared Plan My Event post-insert flow", () => {

@@ -2,7 +2,7 @@ export async function runLeadSubmissionFlow(input, dependencies) {
   const insertResult = await dependencies.insert(input.payload);
   if (insertResult?.error) throw insertResult.error;
 
-  dependencies.track(input.tracking);
+  await dependencies.track(input.tracking);
 
   const templates = ["contact-inquiry", "contact-confirmation"];
   const emailResults = await Promise.allSettled(
