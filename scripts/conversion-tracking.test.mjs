@@ -29,6 +29,8 @@ test("site bootstraps the environment-driven Google tag and correct Ads destinat
   assert.doesNotMatch(trackingConfig, /AW-18084927892/);
   assert.match(googleTag, /googletagmanager\.com\/gtag\/js\?id=/);
   assert.match(googleTag, /getGoogleAdsConversionId/);
+  assert.match(googleTag, /const googleTagBootstrapId = googleAdsConversionId \|\| ga4MeasurementId/);
+  assert.match(googleTag, /encodeURIComponent\(googleTagBootstrapId\)/);
   assert.match(googleTag, /send_page_view: false/);
   assert.match(googleTag, /gtag\("config", googleAdsConversionId\)/);
   assert.doesNotMatch(indexHtml, /G-R4S0RLKQ67/);

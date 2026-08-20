@@ -24,6 +24,7 @@ export function bootstrapGoogleTags() {
 
   const ga4MeasurementId = getGa4MeasurementId();
   const googleAdsConversionId = getGoogleAdsConversionId();
+  const googleTagBootstrapId = googleAdsConversionId || ga4MeasurementId;
   const gtmContainerId = getGtmContainerId();
   const w = window as GoogleTagWindow;
 
@@ -39,9 +40,12 @@ export function bootstrapGoogleTags() {
     loadScript(`https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmContainerId)}`);
   }
 
-  if (ga4MeasurementId) {
-    loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(ga4MeasurementId)}`);
+  if (googleTagBootstrapId) {
+    loadScript(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(googleTagBootstrapId)}`);
     w.gtag("js", new Date());
+  }
+
+  if (ga4MeasurementId) {
     w.gtag("config", ga4MeasurementId, { send_page_view: false });
   }
 
