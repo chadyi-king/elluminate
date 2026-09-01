@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           "react-vendor": ["react", "react-dom", "react-router-dom"],
           "forms-vendor": ["react-hook-form", "zod", "@hookform/resolvers"],
-          "motion-vendor": ["framer-motion", "embla-carousel-react"],
+          "motion-runtime": ["framer-motion", "embla-carousel-react"],
           "supabase-vendor": ["@supabase/supabase-js"],
         },
       },
