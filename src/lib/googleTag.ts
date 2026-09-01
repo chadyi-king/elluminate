@@ -1,6 +1,6 @@
 import { getGa4MeasurementId, getGoogleAdsConversionId, getGtmContainerId } from "@/lib/trackingConfig";
 
-type DataLayerItem = Record<string, unknown> | unknown[];
+type DataLayerItem = Record<string, unknown> | IArguments;
 
 type GoogleTagWindow = Window & {
   dataLayer?: DataLayerItem[];
@@ -29,7 +29,9 @@ export function bootstrapGoogleTags() {
   const w = window as GoogleTagWindow;
 
   w.dataLayer = w.dataLayer || [];
-  w.gtag = w.gtag || ((...args: unknown[]) => { w.dataLayer?.push(args); });
+  w.gtag = w.gtag || function googleTagCommand(..._args: unknown[]) {
+    w.dataLayer?.push(arguments);
+  };
   w.elluminateTrackingConfig = {
     ga4MeasurementId,
     gtmContainerId,
