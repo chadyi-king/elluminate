@@ -185,7 +185,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
       { question: "Can CSI Bones be held indoors?", answer: "Yes. It is primarily designed for indoor venues but can also be adapted for outdoor locations." },
       { question: "Can the storyline be customised?", answer: "Yes. We can customise scenarios, company themes, and learning objectives." },
     ],
-    ["treasure-heist", "amongst-us", "monopoly-dash", "team-building"],
+    ["treasure-heist", "amongst-us", "alice-in-motherland", "team-building"],
     proofTodos,
     {
       heroTitle: "CSI-Bones Team Building",
@@ -264,7 +264,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
       { question: "Is it suitable for leadership teams?", answer: "Yes. It is commonly used for leadership development, project management, and cross-functional collaboration." },
       { question: "Can the building materials be customised?", answer: "Yes. Different materials and challenge themes can be incorporated depending on your objectives." },
     ],
-    ["minute-to-win-it", "monopoly-dash", "workshops", "team-building"],
+    ["minute-to-win-it", "battle-of-the-olympians", "workshops", "team-building"],
   ),
   "minute-to-win-it": item(
     "One minute. One challenge. Bring the energy, beat the clock and climb the scoreboard together.",
@@ -276,7 +276,7 @@ export const serviceContentQuality: Record<string, ServiceContentQuality> = {
       { question: "Can we choose the games?", answer: "Yes. We can customise the selection of games based on your event objectives and participants." },
       { question: "How long does the programme last?", answer: "Programmes typically run between one and three hours depending on your schedule." },
     ],
-    ["monopoly-dash", "battle-of-the-olympians", "corporate-days", "team-building"],
+    ["amazing-race", "battle-of-the-olympians", "corporate-days", "team-building"],
     proofTodos,
     {
       heroTitle: "Minute To Win It Team Building",

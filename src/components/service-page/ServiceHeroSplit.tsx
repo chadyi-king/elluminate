@@ -6,7 +6,6 @@ import amazingRaceLogo from "../../../public/images/service-page-logos/amazing-r
 import culturalRaceLogo from "../../../public/images/service-page-logos/cultural-race.svg.asset.json";
 import buildersCrossLogo from "../../../public/images/service-page-logos/builders-cross.svg.asset.json";
 import csiBonesLogo from "../../../public/images/service-page-logos/csi-bones.svg.asset.json";
-import monopolyDashLogo from "../../../public/images/service-page-logos/monopoly-dash.svg.asset.json";
 import mtwiLogo from "../../../public/images/service-page-logos/mtwi.svg.asset.json";
 import aliceInMotherlandLogo from "../../../public/images/service-page-logos/alice-in-motherland.svg.asset.json";
 import amongstUsLogo from "../../../public/images/service-page-logos/amongst-us.svg.asset.json";
@@ -47,7 +46,6 @@ import fitInYourTeamVirtualHeroProp from "@/assets/service-props/fit-in-your-tea
 import gelBlitzHeroProp from "@/assets/service-props/gel-blitz-hero-prop.webp";
 import grandChristmasDeliveryHeroProp from "@/assets/service-props/grand-christmas-delivery-hero-prop.webp";
 import minuteToWinItHeroProp from "@/assets/service-props/minute-to-win-it-hero-prop.webp";
-import monopolyDashHeroProp from "@/assets/service-props/monopoly-dash-hero-prop.webp";
 import nerfwarHeroProp from "@/assets/service-props/nerfwar-hero-prop.webp";
 import runningManHeroProp from "@/assets/service-props/running-man-hero-prop.webp";
 import sotongGameHeroProp from "@/assets/service-props/sotong-game-hero-prop.webp";
@@ -86,7 +84,6 @@ const teamBuildingHeroProps: Record<string, string> = {
   "gel-blitz": gelBlitzHeroProp,
   "grand-christmas-delivery": grandChristmasDeliveryHeroProp,
   "minute-to-win-it": minuteToWinItHeroProp,
-  "monopoly-dash": monopolyDashHeroProp,
   nerfwar: nerfwarHeroProp,
   "running-man": runningManHeroProp,
   "sotong-game": sotongGameHeroProp,
@@ -157,10 +154,6 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
     /* ─── CSI Bones: chalk body outline ─── */
     case "csi-bones":
       return renderLogo(csiBonesLogo.url, "CSI Bones", size);
-
-    /* ─── Monopoly Dash: money bag ─── */
-    case "monopoly-dash":
-      return renderLogo(monopolyDashLogo.url, "Monopoly Dash", size);
 
     /* ─── Gel Blitz: gel blaster + splat ─── */
     case "gel-blitz":

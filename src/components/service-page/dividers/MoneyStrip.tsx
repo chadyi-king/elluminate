@@ -8,7 +8,7 @@ interface MoneyStripProps {
   className?: string;
 }
 
-/** Monopoly-themed divider: green tinted with dollar signs and banknote patterns. */
+/** Money-themed divider: green tinted with dollar signs and banknote patterns. */
 export const MoneyStrip = ({ direction = "downRight", accentColor, className }: MoneyStripProps) => {
   const rotation = direction === "downRight" ? "rotate(-2deg)" : "rotate(2deg)";
 

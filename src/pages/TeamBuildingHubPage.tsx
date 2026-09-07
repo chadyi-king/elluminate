@@ -77,11 +77,6 @@ const activityCards: ActivityCard[] = [
     filters: ["All", "Indoor", "High energy"],
   },
   {
-    slug: "monopoly-dash",
-    title: "Monopoly Dash",
-    filters: ["All", "Outdoor", "High energy"],
-  },
-  {
     slug: "amazing-race-virtual",
     title: "Virtual Amazing Race",
     filters: ["All", "Virtual", "Lower intensity"],
@@ -296,7 +291,6 @@ const teamBuildingFooterLinks = [
   { name: "Cultural Race", path: "/services/cultural-race" },
   { name: "CSI-Bones", path: "/services/csi-bones" },
   { name: "Minute To Win It", path: "/services/minute-to-win-it" },
-  { name: "Monopoly Dash", path: "/services/monopoly-dash" },
   { name: "Virtual Amazing Race", path: "/services/amazing-race-virtual" },
   { name: "Corporate Retreats", path: "/services/corporate-retreats" },
   { name: "Workshops", path: "/services/workshops" },
@@ -318,11 +312,6 @@ const gallery = [
     src: "/images/services/minute-to-win-it/gallery-6.jpg",
     alt: "Company group taking part in an indoor station challenge",
     caption: "Rotating through stations: indoor format",
-  },
-  {
-    src: "/images/services/monopoly-dash/gallery-5.jpg",
-    alt: "Team members completing a facilitated outdoor challenge",
-    caption: "Sharing the same finish: facilitated outdoor format",
   },
 ];
 
@@ -920,7 +909,7 @@ const TeamBuildingHubPage = () => {
               <div className="max-w-3xl">
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-primary">Find the right direction</p>
                 <h2 className="mt-4 font-display text-4xl font-black leading-[0.98] tracking-[-0.035em] text-[#0b1f3a] sm:text-6xl">
-                  You do not have to choose from 24 activities alone.
+                  You do not have to choose from 23 activities alone.
                 </h2>
                 <p className="mt-5 text-lg leading-8 text-[#4c5e76]">
                   Start with the kind of participation your team needs. These formats are useful starting points;
@@ -964,7 +953,7 @@ const TeamBuildingHubPage = () => {
                     24 team-building experiences. One brief to narrow them down.
                   </h3>
                   <p className="mx-auto mt-4 max-w-3xl leading-7 text-[#4c5e76]">
-                    Explore 12 story-led physical experiences, 4 equipment activities and 8 virtual experiences. You
+                    Explore 11 story-led physical experiences, 4 equipment activities and 8 virtual experiences. You
                     can browse every format, or send the brief without choosing one first.
                   </p>
                 </div>
