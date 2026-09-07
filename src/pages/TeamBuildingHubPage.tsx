@@ -114,7 +114,7 @@ const proofMetrics = [
   { value: "5,000+", label: "events across our operating history", icon: CalendarCheck2, accent: "#2A8DFF" },
   { value: "100,000+", label: "participants", icon: UsersRound, accent: "#26B982" },
   { value: "8+ years", label: "planning and delivering events together", icon: Award, accent: "#F4B400" },
-  { value: "24", label: "physical, equipment-led and virtual experiences", icon: LayoutGrid, accent: "#8B5CF6" },
+  { value: "23", label: "physical, equipment-led and virtual experiences", icon: LayoutGrid, accent: "#8B5CF6" },
 ];
 
 const proofTestimonialIds = [
@@ -950,7 +950,7 @@ const TeamBuildingHubPage = () => {
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">The full collection</p>
                   <h3 className="mt-3 font-display text-3xl font-black text-[#0b1f3a] sm:text-5xl">
-                    24 team-building experiences. One brief to narrow them down.
+                    23 team-building experiences. One brief to narrow them down.
                   </h3>
                   <p className="mx-auto mt-4 max-w-3xl leading-7 text-[#4c5e76]">
                     Explore 11 story-led physical experiences, 4 equipment activities and 8 virtual experiences. You

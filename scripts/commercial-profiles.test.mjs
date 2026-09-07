@@ -42,9 +42,9 @@ const expectedPrices = {
   "incentive-travel": 800,
 };
 
-test("all 36 live child routes have one commercial profile", () => {
-  assert.equal(serviceCommercialSlugs.length, 36);
-  assert.equal(new Set(serviceCommercialSlugs).size, 36);
+test("all 35 live child routes have one commercial profile", () => {
+  assert.equal(serviceCommercialSlugs.length, 35);
+  assert.equal(new Set(serviceCommercialSlugs).size, 35);
 });
 
 test("approved public prices and custom quote rules are exact", () => {
