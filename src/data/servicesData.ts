@@ -1944,7 +1944,8 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "Brain",
         title: "Executive Coaching",
-        description: "Optional one-to-one or small-group coaching, with the facilitator and scope confirmed in the proposal.",
+        description:
+          "Optional one-to-one or small-group coaching, with the facilitator and scope confirmed in the proposal.",
       },
       {
         icon: "Dumbbell",
@@ -3188,7 +3189,8 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "Brain",
         title: "1-on-1 Coaching",
-        description: "Optional private wellness coaching, with the practitioner and session format confirmed in the proposal.",
+        description:
+          "Optional private wellness coaching, with the practitioner and session format confirmed in the proposal.",
       },
       {
         icon: "CalendarDays",
@@ -5324,8 +5326,7 @@ export const servicesData: Record<string, ServiceData> = {
     hero: {
       title: "THE AMAZING RACE",
       subtitle: "Team Building Adventure",
-      tagline:
-        "Clues are waiting. The clock is running. Your mission: move, solve and race for the win together.",
+      tagline: "Clues are waiting. The clock is running. Your mission: move, solve and race for the win together.",
       backgroundImage: "/images/services/amazing-race/gallery-7.jpg",
     },
     howItWorksImage: "/images/services/amazing-race/gallery-6.jpg",
@@ -8806,7 +8807,7 @@ export const servicesData: Record<string, ServiceData> = {
       title: "Race to the Finish Line!",
       subtitle:
         "Watch teams race through fast-paced challenges inspired by the classic board game. Complete tasks, collect points, and outsmart your opponents in this exciting and competitive game of strategy and speed!",
-      videoUrl: "/__l5e/assets-v1/0199ba31-5e1b-4891-b4af-d271f59a62dc/monopoly-dash.mp4",
+      videoUrl: "",
       thumbnailImage: "/images/service-thumbnails/monopoly-dash-tn.jpg",
     },
     cta: {
@@ -12774,7 +12775,8 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "FileText",
         title: "Digital DiSC Profiles",
-        description: "Individual profile and report requirements can be added where they are not already included in the selected proposal.",
+        description:
+          "Individual profile and report requirements can be added where they are not already included in the selected proposal.",
       },
       {
         icon: "BarChart3",
@@ -12990,7 +12992,8 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "FileText",
         title: "Digital OCEAN Profiles",
-        description: "Individual profile and report requirements can be added where they are not already included in the selected proposal.",
+        description:
+          "Individual profile and report requirements can be added where they are not already included in the selected proposal.",
       },
       {
         icon: "BarChart3",
@@ -13255,7 +13258,8 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "ClipboardList",
         title: "Post-Event Content Package",
-        description: "Speaker slides, a key takeaways summary, and optional highlight content scoped to the agreed delivery timeline.",
+        description:
+          "Speaker slides, a key takeaways summary, and optional highlight content scoped to the agreed delivery timeline.",
       },
       {
         icon: "GraduationCap",
@@ -13467,7 +13471,8 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "Award",
         title: "Certification",
-        description: "Participation certificates can be added where appropriate, with wording and delivery details confirmed during planning.",
+        description:
+          "Participation certificates can be added where appropriate, with wording and delivery details confirmed during planning.",
       },
       {
         icon: "Palette",
@@ -13680,7 +13685,8 @@ export const servicesData: Record<string, ServiceData> = {
       {
         icon: "Moon",
         title: "Overnight Stay",
-        description: "Multi-day programmes can include supervised accommodation when the selected site and school requirements allow.",
+        description:
+          "Multi-day programmes can include supervised accommodation when the selected site and school requirements allow.",
       },
       {
         icon: "Utensils",
