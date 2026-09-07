@@ -99,13 +99,12 @@ test("landing narrative follows the revised nine-section sequence", () => {
   assert.match(page, /<OrganizationSchema type="LocalBusiness"/);
 });
 
-test("six curated physical and virtual formats are present without price mechanics", () => {
+test("five curated physical and virtual formats are present without price mechanics", () => {
   for (const title of [
     "Amazing Race",
     "Cultural Race",
     "CSI-Bones",
     "Minute To Win It",
-    "Monopoly Dash",
     "Virtual Amazing Race",
   ]) {
     assert.match(page, new RegExp(title));

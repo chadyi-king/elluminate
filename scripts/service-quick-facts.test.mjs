@@ -70,7 +70,6 @@ test("owner-approved prices and source-backed operating facts stay consistent", 
   const expectedPrices = {
     "amazing-race": "From $45/pax",
     "csi-bones": "From $55/pax",
-    "monopoly-dash": "From $55/pax",
     "sotong-game": "From $55/pax",
   };
 
