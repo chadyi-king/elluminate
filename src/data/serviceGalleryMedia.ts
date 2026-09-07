@@ -17,7 +17,6 @@ const standardLocalGallerySlugs = [
   "local-retreats",
   "mbti",
   "minute-to-win-it",
-  "monopoly-dash",
   "nerfwar",
   "ocean",
   "overseas-retreats",

@@ -223,20 +223,6 @@ const curatedServiceQuickFacts: Record<string, ServiceQuickFactsInput> = {
       { label: "Customisable", value: "Storyline and company themes" },
     ],
   },
-  "monopoly-dash": {
-    theme: "strategy",
-    eyebrow: "Board setup",
-    heading: "Read the board before the first move",
-    intro: "The essentials behind the route, game economy and live team competition.",
-    facts: [
-      { label: "Starting price", value: "From $55/pax" },
-      { label: "Group size", value: "10+ players" },
-      { label: "Setting", value: "Indoor or city route" },
-      { label: "Format", value: "Live strategy race" },
-      { label: "Core play", value: "Missions, trades and points" },
-      { label: "Customisable", value: "Currency, challenges and branding" },
-    ],
-  },
   "sotong-game": {
     theme: "strategy",
     eyebrow: "Arena rules",

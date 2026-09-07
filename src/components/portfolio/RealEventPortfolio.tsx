@@ -4,7 +4,6 @@ const eventMedia = [
   { title: "Amazing Race", type: "Outdoor team building", image: "/images/services/amazing-race/gallery-1.jpg", href: "/services/amazing-race" },
   { title: "CSI-Bones", type: "Indoor mystery challenge", image: "/images/services/csi-bones/gallery-2.jpg", href: "/services/csi-bones" },
   { title: "Minute To Win It", type: "Facilitated station games", image: "/images/services/minute-to-win-it/gallery-3.jpg", href: "/services/minute-to-win-it" },
-  { title: "Monopoly Dash", type: "Strategy and race format", image: "/images/services/monopoly-dash/gallery-4.jpg", href: "/services/monopoly-dash" },
   { title: "Company Workshop", type: "Indoor collaborative format", image: "/images/services/workshops/gallery-1.jpg", href: "/services/workshops" },
   { title: "Overseas Retreat", type: "Company retreat experience", image: "/images/services/overseas-retreats/gallery-1.jpg", href: "/services/overseas-retreats" },
 ];

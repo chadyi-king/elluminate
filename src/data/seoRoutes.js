@@ -23,7 +23,6 @@ const routeSeoBase = [
   service("battle-of-the-olympians", "Battle of the Olympians Team Building Singapore | Elluminate", "Plan a tournament-style team activity with facilitated challenge rounds, scoring and adjustable activity intensity."),
   service("builder-cross", "Builder Cross Team Building Singapore | Elluminate", "Plan a hands-on construction challenge around collaboration, communication, venue space and group size."),
   service("minute-to-win-it", "Minute To Win It Team Building Singapore | Elluminate", "Plan quick-rotation team games around your pax, venue layout, timing and preferred energy level."),
-  service("monopoly-dash", "Monopoly Dash Team Building Singapore | Elluminate", "Plan a Monopoly Dash strategy race around your location, group profile, timing and preferred level of movement."),
   service("running-man", "Running Man Adventure Team Building Singapore | Elluminate", "Plan a facilitated Running Man-style activity with team missions and a pace suited to your group and venue."),
   service("sotong-game", "Sotong Game Team Building Challenge Singapore | Elluminate", "Explore a facilitated challenge format with team rounds, scoring and activity intensity planned around your group."),
   service("treasure-heist", "Treasure Heist Team Building Singapore | Elluminate", "Plan a heist-themed team challenge with missions, strategy and facilitation shaped around your venue and group."),
