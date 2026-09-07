@@ -126,13 +126,6 @@ export const serviceCardCatalog: Record<string, ServiceCardCopy> = {
     energy: "Fast-paced",
     icon: Timer,
   },
-  "monopoly-dash": {
-    shortTitle: "Monopoly Dash",
-    hook: "Race for properties, make your moves and build the winning empire before time runs out.",
-    setting: "Outdoor",
-    energy: "Competitive",
-    icon: ShoppingBag,
-  },
   "running-man": {
     shortTitle: "Running Man",
     hook: "Bring the variety-show chaos with chase missions, surprise games and plenty of team banter.",

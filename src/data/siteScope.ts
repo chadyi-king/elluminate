@@ -14,7 +14,6 @@ export const physicalTeamBuildingServices: ServiceLink[] = [
   { name: "Battle of the Olympians", slug: "battle-of-the-olympians" },
   { name: "Builder Cross", slug: "builder-cross" },
   { name: "Minute To Win It", slug: "minute-to-win-it" },
-  { name: "Monopoly Dash", slug: "monopoly-dash" },
   { name: "Running Man Adventure", slug: "running-man" },
   { name: "Sotong Game", slug: "sotong-game" },
   { name: "Treasure Heist", slug: "treasure-heist" },
@@ -34,7 +33,6 @@ export const activityPageBatchOneSlugs = [
   "battle-of-the-olympians",
   "builder-cross",
   "minute-to-win-it",
-  "monopoly-dash",
   "running-man",
 ] as const;
 

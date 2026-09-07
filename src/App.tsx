@@ -84,6 +84,7 @@ const App = () => (
               {quarantinedServiceSlugs.map((slug) => (
                 <Route key={slug} path={`/services/${slug}`} element={<QuarantinedServiceRedirect />} />
               ))}
+              <Route path="/services/monopoly-dash" element={<Navigate to="/services/team-building" replace />} />
               <Route path="/services/corporate-retreats" element={<Navigate to="/services/overseas-retreats" replace />} />
               <Route path="/services/:slug" element={<ServicePage />} />
               <Route path="/blog" element={<BlogPage />} />

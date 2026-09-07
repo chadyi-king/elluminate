@@ -18,7 +18,6 @@
 - [Cultural Race](/services/cultural-race): Singapore discovery race with local routes and challenges.
 - [CSI-Bones](/services/csi-bones): Indoor forensic mystery challenge.
 - [Minute To Win It](/services/minute-to-win-it): Quick-rotation team games.
-- [Monopoly Dash](/services/monopoly-dash): Strategy race and facilitated team challenge.
 - [Running Man](/services/running-man): Active mission-based team format.
 - [Builder Cross](/services/builder-cross): Hands-on team construction challenge.
 - [Treasure Heist](/services/treasure-heist): Strategy and puzzle team activity.

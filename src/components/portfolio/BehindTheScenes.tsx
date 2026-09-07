@@ -4,7 +4,6 @@ const behindScenes = [
   { id: 1, title: "Amazing Race briefing", image: "/images/services/amazing-race/gallery-2.jpg" },
   { id: 2, title: "CSI-Bones investigation", image: "/images/services/csi-bones/gallery-2.jpg" },
   { id: 3, title: "Minute To Win It station", image: "/images/services/minute-to-win-it/gallery-3.jpg" },
-  { id: 4, title: "Monopoly Dash challenge", image: "/images/services/monopoly-dash/gallery-4.jpg" },
   { id: 5, title: "Workshop team challenge", image: "/images/services/workshops/gallery-1.jpg" },
   { id: 6, title: "Cultural Race checkpoint", image: "/images/services/cultural-race/gallery-4.jpg" },
   { id: 7, title: "Local retreat activity", image: "/images/services/local-retreats/gallery-3.jpg" },
