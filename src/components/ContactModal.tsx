@@ -349,7 +349,7 @@ export const ContactModal = () => {
   };
 
   const handleInvalidField = (event: React.InvalidEvent<HTMLFormElement>) => {
-    const field = event.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    const field = event.target as unknown as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
     const validationReason = field.validity.valueMissing
       ? "value_missing"
       : field.validity.typeMismatch
