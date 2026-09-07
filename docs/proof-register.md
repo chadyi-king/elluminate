@@ -42,7 +42,7 @@ Testimonials must remain attributed to Team Elevate. Do not transfer them into E
 | `public/images/services/csi-bones/gallery-*.jpg` | Existing repository event-media library | Team Elevate + Elluminate operating history | July 2026 | Indoor investigation evidence and gallery |
 | `public/images/services/cultural-race/gallery-*.jpg` | Existing repository event-media library | Team Elevate + Elluminate operating history | July 2026 | Cultural Race activity and gallery |
 | `public/images/services/minute-to-win-it/gallery-*.jpg` | Existing repository event-media library | Team Elevate + Elluminate operating history | July 2026 | Indoor station evidence and gallery |
-| `public/images/services/monopoly-dash/gallery-*.jpg` | Existing repository event-media library | Team Elevate + Elluminate operating history | July 2026 | Outdoor activity evidence and gallery |
+| `public/images/services/team-building-gallery/gallery-*.jpg` | Existing repository event-media library | Team Elevate + Elluminate operating history | July 2026 | Outdoor activity evidence and gallery |
 | `public/images/services/amazing-race-virtual/gallery-*.jpg` | Existing repository event-media library | Team Elevate + Elluminate operating history | July 2026 | Virtual-format evidence |
 | `public/images/services/overseas-retreats/gallery-*.jpg` | Existing repository event-media library | Team Elevate + Elluminate operating history | July 2026 | Retreat evidence |
 

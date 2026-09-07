@@ -79,7 +79,6 @@ const eventTemplates: Record<string, string[]> = {
   "builder-cross": ["Build & Create Challenge", "Construction Team Day", "Engineering Challenge", "Blueprint Build Day", "Master Builder Tournament", "Structure Challenge", "Creative Build Off", "Design & Build Day"],
   "gel-blitz": ["Gel Blaster Battle", "Tactical Gel Combat", "Splatter Zone Challenge", "Gel Tag Team Day", "Blaster Showdown", "Gel Warfare Team Day", "Tactical Strike Day", "Combat Zone Challenge"],
   "minute-to-win-it": ["60-Second Challenge Showdown", "Minute Madness Day", "Rapid Fire Games Day", "Speed Challenge Tournament", "Quick-Fire Team Games", "One Minute Showdown", "Timed Challenge Day", "Beat the Clock Day"],
-  "monopoly-dash": ["Property Race Challenge", "Monopoly City Dash", "Real Estate Race Day", "Property Trading Adventure", "City Mogul Challenge", "Business Empire Race", "Trade & Run Day", "Boardwalk Dash"],
   "nerfwar": ["Foam Dart Battle", "Nerf Combat Day", "Blaster Tag Wars", "Dart Strike Challenge", "Nerf Team Showdown", "Tactical Foam Fight", "Nerf Arena Battle", "Dart Storm Day"],
   "running-man": ["Name Tag Ripping Challenge", "Running Man Games Day", "Ultimate Chase Challenge", "Name Tag Battle", "Team Chase Day", "R-M Team Challenge", "Running Man Showdown", "Tag & Run Challenge"],
   "sotong-game": ["Red Light Green Light Day", "Squid-Inspired Games", "Dalgona Challenge Day", "Glass Bridge Challenge", "Tug of War Showdown", "Elimination Games Day", "Survival Game Day", "Final Round Challenge"],

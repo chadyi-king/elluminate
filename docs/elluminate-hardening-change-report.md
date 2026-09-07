@@ -58,7 +58,7 @@
 - Hero subline: An indoor mystery format for teams that prefer deduction, evidence review, and quieter collaboration.
 - What's Inside: CSI-Bones is a forensic-style team activity built around clues, evidence, and group reasoning. It suits teams that want problem solving without heavy physical exertion. Share pax, venue, timing, and desired intensity so the investigation can be scoped for your group.
 - FAQs: Is CSI-Bones suitable for mixed fitness levels? | How many people can join CSI-Bones? | Can CSI-Bones be customised for our company? | What should organisers prepare for CSI-Bones?
-- Related links: /services/treasure-heist, /services/amongst-us, /services/monopoly-dash, /services/team-building
+- Related links: /services/treasure-heist, /services/amongst-us, /services/team-building
 - Content TODOs: TODO(content): Verify client logos, named-company references, and recent-event pax counts before using them as public proof. | TODO(content): Replace initials-only testimonials with permissioned full-name reviews where available.
 
 ### cultural-race
@@ -108,7 +108,7 @@
 - Hero subline: A construction-style challenge for teams that want hands-on collaboration and practical problem solving.
 - What's Inside: Builder Cross asks participants to plan, build, test, and improve together under a facilitated challenge structure. It works for teams that want creativity and communication in a controlled setting. Share pax, venue, timing, and space constraints so materials and flow can be planned.
 - FAQs: Is Builder Cross suitable for mixed fitness levels? | How many people can join Builder Cross? | Can Builder Cross be customised for our company? | What should organisers prepare for Builder Cross?
-- Related links: /services/minute-to-win-it, /services/monopoly-dash, /services/workshops, /services/team-building
+- Related links: /services/minute-to-win-it, /services/workshops, /services/team-building
 - Content TODOs: TODO(content): Verify client logos, named-company references, and recent-event pax counts before using them as public proof. | TODO(content): Replace initials-only testimonials with permissioned full-name reviews where available.
 
 ### minute-to-win-it
@@ -118,17 +118,7 @@
 - Hero subline: A quick-rotation game format for teams that want easy participation, fast laughs, and room-wide energy.
 - What's Inside: Minute To Win It uses short station challenges that are easy to understand and quick to rotate. It suits ballrooms, offices, and indoor venues where organisers need energy without complex briefing. Share pax, timing, and venue size so the station flow can be planned.
 - FAQs: Is Minute To Win It suitable for mixed fitness levels? | How many people can join Minute To Win It? | Can Minute To Win It be customised for our company? | What should organisers prepare for Minute To Win It?
-- Related links: /services/monopoly-dash, /services/battle-of-the-olympians, /services/corporate-days, /services/team-building
-- Content TODOs: TODO(content): Verify client logos, named-company references, and recent-event pax counts before using them as public proof. | TODO(content): Replace initials-only testimonials with permissioned full-name reviews where available.
-
-### monopoly-dash
-- Title: Monopoly Dash Team Building Singapore | Elluminate
-- Description: A live Monopoly-inspired team building experience in Singapore. Strategic, competitive, and perfect for corporate groups of all sizes. Book now.
-- Canonical: https://elluminate.sg/services/monopoly-dash
-- Hero subline: An indoor strategy game for teams that want points, movement, negotiation, and friendly competition.
-- What's Inside: Monopoly Dash translates board-game energy into a live facilitated team activity. Participants move through missions, make decisions, and compete for points without needing a long setup. Share pax, room layout, and timing so the game economy and rotations fit the event.
-- FAQs: Is Monopoly Dash suitable for mixed fitness levels? | How many people can join Monopoly Dash? | Can Monopoly Dash be customised for our company? | What should organisers prepare for Monopoly Dash?
-- Related links: /services/minute-to-win-it, /services/builder-cross, /services/csi-bones, /services/team-building
+- Related links: /services/battle-of-the-olympians, /services/corporate-days, /services/team-building
 - Content TODOs: TODO(content): Verify client logos, named-company references, and recent-event pax counts before using them as public proof. | TODO(content): Replace initials-only testimonials with permissioned full-name reviews where available.
 
 ### running-man

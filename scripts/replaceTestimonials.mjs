@@ -269,14 +269,6 @@ const newTestimonials = {
     { quote: "The facilitators kept the audience as engaged as the players with running commentary and live reactions. Even the people waiting for their turn were having the time of their lives.", author: "Ying Ling T.", company: "Healthcare" },
     { quote: "Minute to Win It requires zero preparation from participants and that is part of its brilliance. People arrive, get briefed in minutes, and within the first challenge are fully committed.", author: "Nicholas W.", company: "Insurance" },
   ],
-  "monopoly-dash": [
-    { quote: "Monopoly Dash combined the strategy our finance team loves with the physical energy of a field day. The blend of the two kept both the competitive and the casual players equally hooked.", author: "Clarence T.", company: "Financial Services" },
-    { quote: "Watching teams negotiate, barter, and strategise in real life was far more entertaining than any board game version. The live format made the stakes feel entirely genuine.", author: "Winnie H.", company: "Technology" },
-    { quote: "Our team were shocked by how quickly they had to adapt their strategy as the board changed around them. The pressure created exactly the kind of agile thinking we value at work.", author: "Philip C.", company: "Consulting" },
-    { quote: "The physical challenges to unlock properties added a dimension that pure strategy games miss. It rewarded both brains and hustle, which made the team varied in their contributions throughout.", author: "Bernice L.", company: "FMCG" },
-    { quote: "Monopoly Dash triggered a debrief conversation about negotiation and resource allocation that our HR team said was the most organic learning moment they had seen in a team building format.", author: "Trevor W.", company: "Banking & Finance" },
-    { quote: "The facilitators managed the scoring and challenge stations so smoothly that teams never felt held up. The pace was exactly right for keeping competitive energy alive across the two hours.", author: "Joyce K.", company: "Consumer Goods" },
-  ],
   "nerfwar": [
     { quote: "Nerf War was the most fun our team has had at a company event in years. The moment the first foam dart flew, all professional distance disappeared and genuine teamwork took over.", author: "Chester T.", company: "Technology" },
     { quote: "The tactical element surprised people who came in expecting pure chaos. By round two our team was moving in coordinated patterns and communicating under fire with real intent.", author: "Lydia H.", company: "Banking & Finance" },

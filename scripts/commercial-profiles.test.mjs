@@ -16,7 +16,6 @@ const expectedPrices = {
   "sotong-game": 50,
   "amongst-us": 50,
   "csi-bones": 55,
-  "monopoly-dash": 55,
   "treasure-heist": 55,
   "archery-tag": 50,
   "gel-blitz": 50,

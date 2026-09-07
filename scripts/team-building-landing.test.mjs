@@ -105,7 +105,7 @@ test("six curated physical and virtual formats are present without price mechani
     "Cultural Race",
     "CSI-Bones",
     "Minute To Win It",
-    "Monopoly Dash",
+    "Running Man",
     "Virtual Amazing Race",
   ]) {
     assert.match(page, new RegExp(title));
