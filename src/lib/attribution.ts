@@ -49,10 +49,11 @@ function getCookie(name: string): string | null {
 
 /** Read existing attribution from cookie (if any). */
 export function getAttribution(): Attribution {
-  const raw = getCookie(COOKIE_NAME);
-  if (!raw) return {};
   try {
-    return JSON.parse(raw) as Attribution;
+    const raw = getCookie(COOKIE_NAME);
+    if (!raw) return {};
+    const value = JSON.parse(raw);
+    return value && typeof value === "object" && !Array.isArray(value) ? value as Attribution : {};
   } catch {
     return {};
   }
@@ -92,7 +93,7 @@ export function captureAttribution() {
   }
 
   // Landing page persisted in localStorage (sticky for whole user history)
-  if (typeof localStorage !== "undefined") {
+  try {
     const landing = localStorage.getItem(LANDING_KEY);
     if (!landing) {
       const url = window.location.pathname + window.location.search;
@@ -102,10 +103,16 @@ export function captureAttribution() {
     } else if (!next.landing_page) {
       next.landing_page = landing;
     }
+  } catch {
+    // Cookie-based click attribution can still work when localStorage is unavailable.
+    if (!next.landing_page) {
+      next.landing_page = window.location.pathname + window.location.search;
+      changed = true;
+    }
   }
 
   if (changed) {
     next.captured_at = new Date().toISOString();
-    setCookie(COOKIE_NAME, JSON.stringify(next), COOKIE_DAYS);
+    try { setCookie(COOKIE_NAME, JSON.stringify(next), COOKIE_DAYS); } catch { /* Storage may be disabled. */ }
   }
 }

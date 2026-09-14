@@ -39,6 +39,7 @@ export interface SubmitLeadInput {
 export interface SubmitLeadResult {
   submissionId: string;
   emailQueueFailures: string[];
+  trackingFailed?: boolean;
 }
 
 const currentSubmissionPage = () => {
@@ -119,6 +120,9 @@ export async function submitLead(input: SubmitLeadInput): Promise<SubmitLeadResu
       insert: (leadPayload: ContactSubmissionInsert) =>
         supabase.from("contact_submissions").insert(leadPayload),
       track: trackLeadConversion,
+      onTrackingFailure: (leadId: string) => {
+        console.error("Enquiry saved; browser tracking failed", { leadId, formName: input.formName });
+      },
       sendEmail: (templateName: "contact-inquiry" | "contact-confirmation") =>
         supabase.functions.invoke("send-transactional-email", {
           body: {

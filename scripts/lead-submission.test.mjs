@@ -100,3 +100,29 @@ test("email queue and redirect path wait for conversion dispatch to settle", asy
   await flow;
   assert.deepEqual(events, ["insert", "track-start", "track-finished", "email", "email"]);
 });
+
+test("tracking failure cannot turn a saved lead into a failed submission or skip emails", async () => {
+  const sent = [];
+  const reported = [];
+  const result = await runLeadSubmissionFlow(input, {
+    insert: async () => ({ error: null }),
+    track: async () => { throw new Error("analytics unavailable"); },
+    sendEmail: async (template) => { sent.push(template); return { error: null }; },
+    onTrackingFailure: (leadId) => { reported.push(leadId); throw new Error("diagnostic unavailable"); },
+  });
+  assert.equal(result.submissionId, input.submissionId);
+  assert.equal(result.trackingFailed, true);
+  assert.deepEqual(sent, ["contact-inquiry", "contact-confirmation"]);
+  assert.deepEqual(reported, [input.submissionId]);
+});
+
+test("a failing email diagnostic cannot turn a saved enquiry into a failed submission", async () => {
+  const result = await runLeadSubmissionFlow(input, {
+    insert: async () => ({ error: null }),
+    track: async () => undefined,
+    sendEmail: async () => { throw new Error("email unavailable"); },
+    onEmailFailure: () => { throw new Error("diagnostic unavailable"); },
+  });
+  assert.equal(result.submissionId, input.submissionId);
+  assert.equal(result.emailQueueFailures.length, 2);
+});

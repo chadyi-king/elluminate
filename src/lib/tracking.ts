@@ -13,6 +13,13 @@ type TrackingWindow = Window & {
   gtag?: (command: "event", eventName: string, params: Record<string, unknown>) => void;
 };
 
+function pushDiagnostic(w: TrackingWindow, payload: Record<string, unknown>) {
+  try {
+    w.dataLayer = w.dataLayer || [];
+    w.dataLayer.push(payload);
+  } catch { /* Diagnostics must never interrupt an enquiry. */ }
+}
+
 export interface LeadConversionInput {
   lead_id: string;
   form_session_id?: string;
@@ -75,17 +82,19 @@ export function trackAnalyticsEvent(eventName: AnalyticsEventName, payload: Anal
     ...payload,
   });
 
-  w.dataLayer = w.dataLayer || [];
-
   if (typeof w.gtag === "function" && ga4MeasurementId) {
-    w.gtag("event", eventName, {
-      ...eventPayload,
-      send_to: ga4MeasurementId,
-    });
+    try {
+      w.gtag("event", eventName, {
+        ...eventPayload,
+        send_to: ga4MeasurementId,
+      });
+    } catch {
+      pushDiagnostic(w, { event: "elluminate_analytics_dispatch_failed", event_name: eventName });
+    }
     return;
   }
 
-  w.dataLayer.push({
+  pushDiagnostic(w, {
     event: eventName,
     ...eventPayload,
   });
@@ -117,20 +126,27 @@ export async function trackLeadConversion(input: LeadConversionInput) {
   const w = window as TrackingWindow;
   const leadPayload = buildLeadConversionPayload(input);
 
-  w.dataLayer = w.dataLayer || [];
-  w.dataLayer.push({
+  pushDiagnostic(w, {
     event: "elluminate_lead_submitted",
     google_ads_send_to_configured: Boolean(googleAdsSendTo),
     ...leadPayload,
   });
 
-  if (typeof w.gtag === "function") {
-    w.gtag("event", "generate_lead", {
-      ...leadPayload,
-      send_to: ga4MeasurementId,
-    });
+  let ga4DispatchStatus = "not_configured";
+  if (typeof w.gtag === "function" && ga4MeasurementId) {
+    try {
+      w.gtag("event", "generate_lead", {
+        ...leadPayload,
+        send_to: ga4MeasurementId,
+      });
+      ga4DispatchStatus = "queued";
+    } catch {
+      ga4DispatchStatus = "dispatch_failed";
+      pushDiagnostic(w, { event: "elluminate_analytics_dispatch_failed", event_name: "generate_lead", lead_id });
+    }
   } else {
-    w.dataLayer.push({
+    ga4DispatchStatus = typeof w.gtag === "function" ? "not_configured" : "gtag_missing";
+    pushDiagnostic(w, {
       event: "elluminate_gtag_missing",
       lead_id,
       form_name: leadPayload.form_name,
@@ -154,22 +170,25 @@ export async function trackLeadConversion(input: LeadConversionInput) {
     brand: leadPayload.brand,
     service: leadPayload.service,
     dispatch_status: dispatchResult.status,
+    ga4_dispatch_status: ga4DispatchStatus,
     has_google_click_id: hasGoogleClickId,
   };
-  w.dataLayer.push({
+  pushDiagnostic(w, {
     event: "elluminate_ads_conversion_dispatch",
     ...diagnosticPayload,
   });
 
   if (typeof w.gtag === "function" && ga4MeasurementId) {
-    w.gtag("event", "ads_conversion_dispatch", {
-      ...diagnosticPayload,
-      send_to: ga4MeasurementId,
-    });
+    try {
+      w.gtag("event", "ads_conversion_dispatch", {
+        ...diagnosticPayload,
+        send_to: ga4MeasurementId,
+      });
+    } catch { /* This is not a second lead or a delivery acknowledgement. */ }
   }
 
   if (!googleAdsSendTo) {
-    w.dataLayer.push({
+    pushDiagnostic(w, {
       event: "elluminate_ads_conversion_not_configured",
       lead_id,
       form_name: leadPayload.form_name,

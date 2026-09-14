@@ -2,7 +2,14 @@ export async function runLeadSubmissionFlow(input, dependencies) {
   const insertResult = await dependencies.insert(input.payload);
   if (insertResult?.error) throw insertResult.error;
 
-  await dependencies.track(input.tracking);
+  let trackingFailed = false;
+  try {
+    await dependencies.track(input.tracking);
+  } catch {
+    trackingFailed = true;
+    // The enquiry is already saved. Optional telemetry cannot invalidate it.
+    try { await dependencies.onTrackingFailure?.(input.submissionId); } catch { /* diagnostic only */ }
+  }
 
   const templates = ["contact-inquiry", "contact-confirmation"];
   const emailResults = await Promise.allSettled(
@@ -15,8 +22,8 @@ export async function runLeadSubmissionFlow(input, dependencies) {
   });
 
   if (emailQueueFailures.length > 0) {
-    dependencies.onEmailFailure?.(input.submissionId, emailQueueFailures);
+    try { await dependencies.onEmailFailure?.(input.submissionId, emailQueueFailures); } catch { /* diagnostic only */ }
   }
 
-  return { submissionId: input.submissionId, emailQueueFailures };
+  return { submissionId: input.submissionId, emailQueueFailures, ...(trackingFailed ? { trackingFailed } : {}) };
 }
