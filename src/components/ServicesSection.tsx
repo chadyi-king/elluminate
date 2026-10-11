@@ -30,6 +30,7 @@ const experienceWorlds = [
     eyebrow: "Physical · Equipment · Virtual",
     description: "Races, mysteries, games and challenges built to get people moving, thinking and laughing together.",
     image: "/images/about/about-6.jpg",
+    imageAlt: "A facilitator guiding teams through a tug-of-war challenge on the beach",
     accent: "#2A8DFF",
     icon: Users,
     count: physicalTeamBuildingServices.length + equipmentActivityServices.length + virtualTeamBuildingServices.length,
@@ -41,6 +42,7 @@ const experienceWorlds = [
     eyebrow: "Local · Overseas · Incentive",
     description: "A change of scene with the itinerary, shared moments and breathing room planned as one experience.",
     image: "/images/services/overseas-retreats/gallery-4.jpg",
+    imageAlt: "A company retreat group in conical hats holding their Da Nang retreat banner",
     accent: "#FF8A3D",
     icon: Plane,
     count: retreatServices.length,
@@ -52,6 +54,7 @@ const experienceWorlds = [
     eyebrow: "Profiling · Workshops · Offsites",
     description: "Interactive workshops that turn ideas into conversations, practice and useful team takeaways.",
     image: "/images/services/workshops/gallery-4.jpg",
+    imageAlt: "Workshop participants smiling beside the structure their team built together",
     accent: "#8B5CF6",
     icon: Brain,
     count: trainingServices.length,
@@ -134,7 +137,7 @@ export const ServicesSection = () => {
                 >
                   <img
                     src={world.image}
-                    alt=""
+                    alt={world.imageAlt}
                     loading="lazy"
                     decoding="async"
                     className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
