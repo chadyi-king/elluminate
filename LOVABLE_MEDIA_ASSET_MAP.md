@@ -65,7 +65,6 @@ Use local videos from:
 
 ```text
 /videos/elluminate-showreel.mp4
-/videos/amazing-race-decathlon.mp4
 /videos/overseas-retreat-batam.mp4
 /videos/overseas-retreat-bintan.mp4
 /videos/overseas-retreat-edrington.mp4
