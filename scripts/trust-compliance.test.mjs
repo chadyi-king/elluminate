@@ -14,7 +14,6 @@ const testimonialData = read("src/data/clientTestimonials.ts");
 const hardeningReport = read("docs/elluminate-hardening-change-report.md");
 const clientProofChecklist = read("docs/client-proof-review-checklist.md");
 const servicesData = read("src/data/servicesData.ts");
-const featuredCaseStudies = read("src/components/portfolio/FeaturedCaseStudies.tsx");
 const servicePage = read("src/pages/ServicePage.tsx");
 
 test("team section does not show joke or placeholder titles", () => {
@@ -32,7 +31,6 @@ test("public surfaces keep the founder acronym private", () => {
 test("marketing copy does not ship unsourced percentage claims", () => {
   for (const [path, source] of [
     ["src/data/servicesData.ts", servicesData],
-    ["src/components/portfolio/FeaturedCaseStudies.tsx", featuredCaseStudies],
   ]) {
     assert.doesNotMatch(
       source,
@@ -42,7 +40,21 @@ test("marketing copy does not ship unsourced percentage claims", () => {
   }
 
   assert.doesNotMatch(servicesData, /Teams report 40% better collaboration after our events/);
-  assert.doesNotMatch(featuredCaseStudies, /Team collaboration scores increased by 40%/);
+});
+
+test("disabled placeholder portfolio proof sources are removed from the codebase", () => {
+  for (const path of [
+    "src/components/portfolio/FeaturedCaseStudies.tsx",
+    "src/components/portfolio/MiniCaseStudies.tsx",
+    "src/components/portfolio/TestimonialWall.tsx",
+    "src/components/portfolio/ClientLogosGrid.tsx",
+    "src/components/portfolio/VideoHighlights.tsx",
+    "src/components/portfolio/PhotoGallery.tsx",
+    "src/components/portfolio/PortfolioFilters.tsx",
+    "src/components/portfolio/ContactModal.tsx",
+  ]) {
+    assert.equal(existsSync(path), false, `${path} should stay removed`);
+  }
 });
 
 test("legacy recent-events proof is removed from canonical service pages", () => {
