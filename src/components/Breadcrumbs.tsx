@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -18,10 +18,15 @@ interface BreadcrumbsProps {
   items: BreadcrumbEntry[];
 }
 
+const SITE_URL = "https://elluminate.sg";
+
 export const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
-  const schemaItems = items.map((item) => ({
+  const { pathname } = useLocation();
+  const currentPageUrl = `${SITE_URL}${pathname === "/" ? "" : pathname.replace(/\/+$/, "")}`;
+  const schemaItems = items.map((item, index) => ({
     name: item.label,
-    url: item.href ? `https://elluminate.sg${item.href}` : "https://elluminate.sg",
+    // The final crumb is the page itself, so it must point at the current URL rather than the homepage.
+    url: item.href ? `${SITE_URL}${item.href}` : index === items.length - 1 ? currentPageUrl : SITE_URL,
   }));
 
   return (

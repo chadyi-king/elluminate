@@ -35,11 +35,14 @@ export const OrganizationSchema = ({ type = "Organization" }: OrganizationSchema
   };
 
   if (type === "LocalBusiness") {
+    // Matches the Elluminate Singapore Google Maps listing pin for 165 Bukit Merah Central.
     schema.geo = {
       "@type": "GeoCoordinates",
-      latitude: 1.2834,
-      longitude: 103.8277,
+      latitude: 1.2831187,
+      longitude: 103.8167431,
     };
+    schema.hasMap =
+      "https://www.google.com/maps/place/Elluminate+Singapore/data=!4m7!3m6!1s0x31da1b985fa7e40b:0x4aa6c01c0f8a8399!8m2!3d1.2831187!4d103.8167431!16s%2Fg%2F11njqq0x_c";
     schema.openingHoursSpecification = {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

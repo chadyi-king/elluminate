@@ -122,13 +122,13 @@ const AboutPage = () => {
           <div className="container relative z-10 mx-auto px-5 sm:px-6">
             <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
               <motion.div {...reveal()}>
-                <span className="mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.26em] text-primary">
-                  <Sparkles className="h-4 w-4" aria-hidden="true" />
-                  About Elluminate
-                </span>
-                <h1 className="font-display text-5xl font-black leading-[0.92] tracking-[-0.04em] text-foreground sm:text-6xl lg:text-7xl">
-                  Where Teams <span className="text-primary">Come Alive</span>
+                <h1 className="mb-5 inline-flex items-center gap-2 font-sans text-xs font-bold uppercase tracking-[0.26em] text-primary">
+                  <Sparkles className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  About Elluminate: Team Building in Singapore
                 </h1>
+                <p className="font-display text-5xl font-black leading-[0.92] tracking-[-0.04em] text-foreground sm:text-6xl lg:text-7xl">
+                  Where Teams <span className="text-primary">Come Alive</span>
+                </p>
                 <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">
                   We create team experiences with enough energy to pull people in, enough thought to bring them together, and enough personality to stay with them after the day ends.
                 </p>

@@ -98,6 +98,8 @@ const teamBuildingHeroProps: Record<string, string> = {
 
 interface ServiceHeroSplitProps {
   title: string;
+  /** Short keyword line (e.g. "Team Building in Singapore") rendered inside the H1, under the title. */
+  keywordLine?: string;
   subtitle: string;
   tagline: string;
   backgroundImage: string;
@@ -380,6 +382,7 @@ const ServiceProp = ({ slug, accentColor }: { slug?: string; accentColor: string
 
 export const ServiceHeroSplit = ({ 
   title, 
+  keywordLine,
   subtitle, 
   tagline, 
   backgroundImage,
@@ -507,6 +510,12 @@ export const ServiceHeroSplit = ({
             {/* Main title - white */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white mb-6 leading-tight">
               {title}
+              {keywordLine ? (
+                <span className="mt-3 block text-sm font-semibold uppercase leading-snug tracking-[0.22em] text-white/80 md:text-base">
+                  {" "}
+                  {keywordLine}
+                </span>
+              ) : null}
             </h1>
             
             {/* Tagline with accent color */}

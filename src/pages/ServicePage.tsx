@@ -38,6 +38,12 @@ const ServicePage = () => {
   if (!service || !slug || !blueprint || !allInScopeServiceSlugs.has(slug)) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
+        <SEO
+          title="Service Not Found | Elluminate"
+          description="This service page is not available. Explore Elluminate team building, company retreats and corporate training in Singapore."
+          canonical={`https://elluminate.sg/services/${slug ?? ""}`}
+          robots="noindex, follow"
+        />
         <div className="text-center">
           <h1 className="text-4xl font-display font-bold text-primary mb-4">Service Not Found</h1>
           <Link to="/" className="text-primary hover:underline">
@@ -145,6 +151,7 @@ const ServicePage = () => {
       {/* 1. Hero Section */}
       <ServiceHeroSplit
         title={displayHeroTitle}
+        keywordLine={seoData?.heroKeywordLine}
         subtitle={displayHeroSubtitle}
         tagline={displayHeroTagline}
         backgroundImage={blueprint.assets.hero}

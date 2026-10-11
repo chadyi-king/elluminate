@@ -153,15 +153,15 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
               </div>
             </div>
 
-            <p
-              className="relative z-50 inline-flex rounded-full border bg-white px-4 py-2 text-[0.68rem] font-black uppercase tracking-[0.2em] shadow-sm sm:text-xs lg:absolute lg:left-1/2 lg:top-5 lg:-translate-x-1/2"
+            <h1
+              className="relative z-50 inline-flex rounded-full border bg-white px-4 py-2 font-sans text-[0.68rem] font-black uppercase tracking-[0.2em] shadow-sm sm:text-xs lg:absolute lg:left-1/2 lg:top-5 lg:-translate-x-1/2"
               style={{ borderColor: `${config.theme.accent}35`, color: config.theme.deep }}
             >
               {config.label}
-            </p>
+            </h1>
 
-            <h1
-              aria-label={config.hero.semanticHeadline}
+            {/* Campaign slogan word art. The keyword H1 is the label above; the slogan supports it. */}
+            <p
               className="relative z-20 mx-auto mt-5 max-w-3xl text-center font-display font-black uppercase leading-[0.68] tracking-[-0.055em] text-[#0b1f3a] lg:absolute lg:inset-0 lg:mt-0 lg:max-w-none lg:tracking-[-0.08em]"
             >
               <span
@@ -220,7 +220,7 @@ const ServiceCampaignHubPage = ({ kind }: ServiceCampaignHubPageProps) => {
                   </motion.span>
                 ))}
               </span>
-            </h1>
+            </p>
 
             <div
               className="relative mt-6 flex flex-col overflow-hidden rounded-[2.5rem] px-4 pb-5 pt-5 shadow-[0_30px_90px_rgba(11,31,58,0.18)] sm:px-6 sm:pb-6 lg:static lg:mt-0 lg:block lg:overflow-visible lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none"
