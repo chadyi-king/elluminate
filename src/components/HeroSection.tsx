@@ -90,15 +90,15 @@ export const HeroSection = () => {
             {...reveal(0.74)}
             className="relative z-10 mb-2 max-w-[720px] font-display text-2xl font-black leading-[1.08] text-foreground md:text-[28px]"
           >
-            Fun, Creative Company Experiences Planned Around Your People
+            Team Building, Company Retreats &amp; Training in Singapore
           </motion.h1>
 
           <motion.p
             {...reveal(0.8)}
             className="relative z-10 mb-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base"
           >
-            From high-energy team challenges to retreats and facilitated workshops, we shape the experience around
-            your people, purpose, place and timing.
+            Fun, creative company experiences planned around your people. From high-energy team challenges to
+            retreats and facilitated workshops, we shape each one to your purpose, place and timing.
           </motion.p>
 
           <motion.div

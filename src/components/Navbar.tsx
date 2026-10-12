@@ -251,7 +251,7 @@ const MobileFamilyAccordion = ({
   );
 };
 
-type ComingSoonTopic = "large-scale" | "school";
+type ComingSoonTopic = "large-scale";
 
 const comingSoonContent: Record<ComingSoonTopic, { label: string; title: string; body: string }> = {
   "large-scale": {
@@ -259,12 +259,9 @@ const comingSoonContent: Record<ComingSoonTopic, { label: string; title: string;
     title: "Large Scale Experiences",
     body: "This section is coming soon. For now, tell us what you are planning and the Elluminate team will recommend the right format.",
   },
-  school: {
-    label: "School",
-    title: "School Programmes",
-    body: "This section is coming soon. For school or cohort enquiries, send us the basic details and we will follow up.",
-  },
 };
+
+const schoolProgrammesPath = "/services/youth-camps";
 
 interface ComingSoonNavButtonProps {
   topic: ComingSoonTopic;
@@ -439,7 +436,9 @@ export const Navbar = () => {
               parentPath="/services/training"
             />
             <ComingSoonNavButton topic="large-scale" onSelect={handleComingSoonSelect} />
-            <ComingSoonNavButton topic="school" onSelect={handleComingSoonSelect} />
+            <Link to={schoolProgrammesPath} className={navLinkClass(schoolProgrammesPath)}>
+              School
+            </Link>
             <Button variant="primary" size="sm" onClick={openContactModal} className="h-10 whitespace-nowrap">
               PLAN MY EVENT
             </Button>
@@ -541,11 +540,13 @@ export const Navbar = () => {
                     variant="mobile"
                     onSelect={(topic) => handleComingSoonSelect(topic, true)}
                   />
-                  <ComingSoonNavButton
-                    topic="school"
-                    variant="mobile"
-                    onSelect={(topic) => handleComingSoonSelect(topic, true)}
-                  />
+                  <Link
+                    to={schoolProgrammesPath}
+                    onClick={closeMobileMenu}
+                    className="block w-full py-3 text-left font-medium text-foreground transition-colors hover:text-primary"
+                  >
+                    School
+                  </Link>
                 </div>
 
                 <Button

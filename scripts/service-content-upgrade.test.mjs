@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 import { createServer } from "vite";
 
@@ -28,8 +28,6 @@ try {
 
 const servicePage = read("src/pages/ServicePage.tsx");
 const serviceHeroSplit = read("src/components/service-page/ServiceHeroSplit.tsx");
-const policeTapeStrip = read("src/components/service-page/dividers/PoliceTapeStrip.tsx");
-const arrowStrip = read("src/components/service-page/dividers/ArrowStrip.tsx");
 
 test("all 36 child routes retain buyer-facing copy coverage", () => {
   assert.equal(serviceExperienceSlugs.length, 36);
@@ -143,7 +141,7 @@ test("shared child template renders the canonical journey once and keeps FAQ dat
   assert.doesNotMatch(serviceHeroSplit, /"\{tagline\}"/);
 });
 
-test("decorative repeated divider text remains hidden from assistive reading", () => {
-  assert.match(policeTapeStrip, /aria-hidden[\s\S]*CAUTION DO NOT CROSS/);
-  assert.match(arrowStrip, /aria-hidden[\s\S]*›››/);
+test("unused decorative divider strips are not shipped", () => {
+  assert.equal(existsSync("src/components/service-page/dividers"), false);
+  assert.doesNotMatch(servicePage, /ServiceDividerStrip/);
 });

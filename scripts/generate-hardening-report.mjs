@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import vm from "node:vm";
 import ts from "typescript";
 
@@ -101,6 +101,8 @@ for (const [path, sourceLabel] of [
   ["src/components/portfolio/ClientLogosGrid.tsx", "disabled portfolio client-grid source"],
   ["src/components/portfolio/TestimonialWall.tsx", "disabled portfolio testimonial source"],
 ]) {
+  // These disabled sources have since been deleted; skip any that no longer exist.
+  if (!existsSync(path)) continue;
   const source = read(path);
   for (const match of source.matchAll(/(?:client|company|name):\s*"([^"]+)"/g)) {
     addProof(match[1], sourceLabel);

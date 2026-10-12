@@ -68,7 +68,8 @@ export const PhotoWall = () => {
               <div key={`${columnIndex}-${photoIndex}`} className="relative aspect-[3/4] w-full overflow-hidden rounded-xl">
                 <img
                   src={photo.src}
-                  alt=""
+                  // Describe each photo once; the looped copies (and the repeated fifth column) stay decorative.
+                  alt={photoIndex < column.length && columnIndex < 4 ? photo.alt : ""}
                   className="h-full w-full object-cover"
                   loading="lazy"
                   decoding="async"

@@ -194,7 +194,7 @@ export type ServiceCampaignLandingConfig = {
 const retreatConfig: ServiceCampaignLandingConfig = {
   kind: "retreats",
   path: "/services/retreats",
-  label: "Company Retreat Planning Singapore",
+  label: "Company Retreats in Singapore",
   breadcrumb: "Retreats",
   schemaName: "Company Retreat Planning Singapore",
   eventCategory: "Corporate Retreat",
@@ -571,7 +571,7 @@ const retreatConfig: ServiceCampaignLandingConfig = {
 const trainingConfig: ServiceCampaignLandingConfig = {
   kind: "training",
   path: "/services/training",
-  label: "Corporate Training Singapore",
+  label: "Corporate Training in Singapore",
   breadcrumb: "Training",
   schemaName: "Corporate Training and Workshops Singapore",
   eventCategory: "Training Workshop",

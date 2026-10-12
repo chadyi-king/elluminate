@@ -1,5 +1,5 @@
 import { useCallback, useState, useEffect, useMemo, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X, Send, Mail, CalendarIcon, Zap, Monitor, GraduationCap, Clock } from "lucide-react";
@@ -16,7 +16,28 @@ import { format, startOfDay } from "date-fns";
 import { cn } from "@/lib/utils";
 import { submitLead } from "@/lib/leadSubmission";
 import { trackAnalyticsEvent } from "@/lib/tracking";
-import { getServicePageBlueprint, type ServiceFamily } from "@/data/servicePageBlueprints";
+import type { ServiceFamily } from "@/data/servicePageBlueprints";
+
+// The service blueprints pull in the full service catalogue, which is only needed when
+// the form is opened from a service page. Load it on demand instead of on every page.
+type ServiceBlueprintModule = typeof import("@/data/servicePageBlueprints");
+let serviceBlueprintModule: ServiceBlueprintModule | null = null;
+let serviceBlueprintModulePromise: Promise<ServiceBlueprintModule> | null = null;
+
+const loadServiceBlueprintModule = () => {
+  serviceBlueprintModulePromise ??= import("@/data/servicePageBlueprints").then((module) => {
+    serviceBlueprintModule = module;
+    return module;
+  });
+  return serviceBlueprintModulePromise;
+};
+
+// Campaign hubs are not individual services, so they do not need the blueprint catalogue.
+const SERVICE_HUB_SLUGS = new Set(["team-building", "retreats", "training"]);
+const isServiceDetailPath = (pathname: string) => {
+  const match = /^\/services\/([^/]+)\/?$/.exec(pathname);
+  return Boolean(match && !SERVICE_HUB_SLUGS.has(match[1]));
+};
 
 const eventCategories = [
   "Physical Team Building",
@@ -152,6 +173,28 @@ export const ContactModal = () => {
   const { isOpen, modalContext, closeContactModal, restoreContactModalFocus } = useContactModal();
   const { toast } = useToast();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const [blueprintModuleReady, setBlueprintModuleReady] = useState(() => serviceBlueprintModule !== null);
+  const needsServiceBlueprints =
+    Boolean(modalContext?.serviceSlug && !SERVICE_HUB_SLUGS.has(modalContext.serviceSlug)) ||
+    isServiceDetailPath(pathname);
+
+  useEffect(() => {
+    if (!needsServiceBlueprints || blueprintModuleReady) return;
+    let cancelled = false;
+    loadServiceBlueprintModule()
+      .then(() => {
+        if (!cancelled) setBlueprintModuleReady(true);
+      })
+      .catch(() => {
+        // Prefill is a convenience; the form still works without it.
+        serviceBlueprintModulePromise = null;
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [blueprintModuleReady, needsServiceBlueprints]);
+
   const honeypotRef = useRef<HTMLInputElement>(null);
   const injectedSelectionRef = useRef("");
   const wasOpenRef = useRef(false);
@@ -162,8 +205,11 @@ export const ContactModal = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(getInitialDate);
   const [formData, setFormData] = useState(getInitialFormData);
   const selectedBlueprint = useMemo(
-    () => (modalContext?.serviceSlug ? getServicePageBlueprint(modalContext.serviceSlug) : null),
-    [modalContext?.serviceSlug],
+    () =>
+      blueprintModuleReady && serviceBlueprintModule && modalContext?.serviceSlug
+        ? serviceBlueprintModule.getServicePageBlueprint(modalContext.serviceSlug)
+        : null,
+    [blueprintModuleReady, modalContext?.serviceSlug],
   );
   const selectedPackage = useMemo(
     () => selectedBlueprint?.packages.find((option) => option.id === modalContext?.packageId),
