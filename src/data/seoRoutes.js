@@ -57,6 +57,11 @@ const routeSeoBase = [
   { path: "/services/retreats", family: "retreats", searchIntent: "Company retreats and corporate retreats", h1: "Company Retreats in Singapore", title: "Company Retreats and Offsites Singapore | Elluminate", description: "Local and overseas company retreats from Singapore, 2D1N to 5D4N. Local stays from $550/pax, overseas from $400/pax (flights excluded)." },
   { path: "/services/training", family: "training", searchIntent: "Corporate training, workshops and team profiling", h1: "Corporate Training in Singapore", title: "Corporate Training and Workshops Singapore | Elluminate", description: "Corporate training in Singapore: MBTI, DiSC and OCEAN profiling, workshops, talks, wellness events and leadership offsites. Profiling from $150/pax." },
 
+  // Keyword landing pages (see src/data/keywordLandingPages.ts).
+  { path: "/services/virtual-team-building", lastmod: "2026-10-13", family: "virtual", parentPath: "/services/team-building", searchIntent: "Virtual team building Singapore", h1: "Virtual Team Building in Singapore", title: "Virtual Team Building Singapore: Live-Hosted | Elluminate", description: "Live-hosted virtual team building for remote and hybrid teams in Singapore. 8 online games on Zoom, Teams or Meet, 1.5–2 hours, from $25/pax for 10+.", relatedPaths: ["/services/amazing-race-virtual", "/services/the-nuclear-fallout-escape-room-virtual", "/services/the-gameshow-experience-virtual", "/services/tomb-raider-king-treasure-hunt-virtual", "/services/the-great-zodiac-hunt-virtual", "/services/the-patriot-act-virtual", "/services/fit-in-your-team-virtual", "/services/grand-christmas-delivery"] },
+  { path: "/services/bintan-batam-retreats", lastmod: "2026-10-13", family: "retreat", parentPath: "/services/retreats", searchIntent: "Bintan and Batam corporate retreats", h1: "Bintan & Batam Corporate Retreats from Singapore", title: "Bintan & Batam Corporate Retreat Packages | Elluminate", description: "Bintan and Batam company retreats from Singapore: ferry, resort, transfers, team building and dinner in one plan. 2D1N to 3D2N, from $400/pax.", relatedPaths: ["/services/overseas-retreats", "/services/local-retreats", "/services/incentive-travel", "/services/amazing-race", "/services/battle-of-the-olympians"] },
+  { path: "/services/indoor-team-building", lastmod: "2026-10-13", family: "physical", parentPath: "/services/team-building", searchIntent: "Indoor team building Singapore", h1: "Indoor Team Building in Singapore", title: "Indoor Team Building Activities Singapore | Elluminate", description: "Indoor team building in Singapore: mysteries, heists, build challenges and arena games for offices or venues. 3–4 hours, from $45/pax for groups of 10+.", relatedPaths: ["/services/csi-bones", "/services/amongst-us", "/services/treasure-heist", "/services/builder-cross", "/services/minute-to-win-it", "/services/alice-in-motherland", "/services/tag-tical-laser-teambuilding", "/services/nerfwar"] },
+
   { path: "/blog/top-10-team-building-activities-singapore-2026", type: "article", title: "10 Team Building Activities in Singapore | Elluminate", description: "A practical guide to comparing indoor, outdoor and virtual team-building formats by venue, energy level and team objective." },
   { path: "/blog/how-to-plan-amazing-race-company", type: "article", title: "How to Plan an Amazing Race for Your Company | Elluminate", description: "A practical guide to planning a corporate Amazing Race in Singapore, including routes, group flow and wet-weather considerations." },
   { path: "/blog/indoor-vs-outdoor-team-building", type: "article", title: "Indoor vs Outdoor Team Building in Singapore | Elluminate", description: "Compare indoor and outdoor corporate team-building formats by venue, weather, energy level and event objective." },
@@ -117,6 +122,7 @@ const familyParentPath = {
 };
 
 const stableLastmod = (route) => {
+  if (route.lastmod) return route.lastmod;
   if (route.type === "article") return "2026-03-05";
   if (route.redirectTo) return undefined;
   if (route.path === "/" || route.path.startsWith("/services/")) return "2026-07-24";
@@ -126,7 +132,7 @@ const stableLastmod = (route) => {
 export const routeSeo = routeSeoBase.map((route) => {
   const commercial = route.slug ? getServiceCommercialProfile(route.slug) : undefined;
   const canonicalPath = route.redirectTo || route.path;
-  const parentPath = commercial ? familyParentPath[commercial.family] : undefined;
+  const parentPath = route.parentPath || (commercial ? familyParentPath[commercial.family] : undefined);
   return {
     ...route,
     canonicalPath,

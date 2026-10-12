@@ -303,10 +303,24 @@ export const Navbar = () => {
   const location = useLocation();
   const { openContactModal } = useContactModal();
 
-  const teamBuildingItems = [
+  // Keyword hub pages sit at the top of their menu groups.
+  const physicalNavItems: ServiceLink[] = [
+    { name: "All indoor options", slug: "indoor-team-building" },
     ...physicalTeamBuildingServices,
-    ...equipmentActivityServices,
+  ];
+  const virtualNavItems: ServiceLink[] = [
+    { name: "All virtual games", slug: "virtual-team-building" },
     ...virtualTeamBuildingServices,
+  ];
+  const retreatNavItems: ServiceLink[] = [
+    ...retreatServices,
+    { name: "Bintan & Batam", slug: "bintan-batam-retreats" },
+  ];
+
+  const teamBuildingItems = [
+    ...physicalNavItems,
+    ...equipmentActivityServices,
+    ...virtualNavItems,
   ];
 
   const handleDropdownToggle = (dropdown: string) => {
@@ -385,7 +399,7 @@ export const Navbar = () => {
               subGroups={[
                 {
                   title: "Physical",
-                  items: physicalTeamBuildingServices,
+                  items: physicalNavItems,
                   accentClassName: "text-primary",
                   columns: 2,
                 },
@@ -396,7 +410,7 @@ export const Navbar = () => {
                 },
                 {
                   title: "Virtual",
-                  items: virtualTeamBuildingServices,
+                  items: virtualNavItems,
                   accentClassName: "text-purple-600",
                   columns: 2,
                 },
@@ -404,9 +418,9 @@ export const Navbar = () => {
             />
             <NavDropdown
               label="Retreats"
-              items={retreatServices}
+              items={retreatNavItems}
               isOpen={openDropdown === "retreats"}
-              isActive={isFamilyActive("/services/retreats", retreatServices)}
+              isActive={isFamilyActive("/services/retreats", retreatNavItems)}
               onToggle={() => handleDropdownToggle("retreats")}
               onClose={handleDropdownClose}
               parentPath="/services/retreats"
@@ -499,7 +513,7 @@ export const Navbar = () => {
                   groups={[
                     {
                       title: "Physical",
-                      items: physicalTeamBuildingServices,
+                      items: physicalNavItems,
                       accentClassName: "text-primary",
                     },
                     {
@@ -509,7 +523,7 @@ export const Navbar = () => {
                     },
                     {
                       title: "Virtual",
-                      items: virtualTeamBuildingServices,
+                      items: virtualNavItems,
                       accentClassName: "text-purple-600",
                     },
                   ]}
@@ -520,7 +534,7 @@ export const Navbar = () => {
                 <MobileFamilyAccordion
                   label="Retreats"
                   parentPath="/services/retreats"
-                  groups={[{ items: retreatServices }]}
+                  groups={[{ items: retreatNavItems }]}
                   isOpen={mobileOpenFamily === "retreats"}
                   onToggle={() => handleMobileFamilyToggle("retreats")}
                   onNavigate={closeMobileMenu}

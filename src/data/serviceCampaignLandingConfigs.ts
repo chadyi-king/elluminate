@@ -562,6 +562,7 @@ const retreatConfig: ServiceCampaignLandingConfig = {
     { name: "Retreats", path: "/services/retreats" },
     { name: "Local Retreats", path: "/services/local-retreats" },
     { name: "Overseas Retreats", path: "/services/overseas-retreats" },
+    { name: "Bintan & Batam Retreats", path: "/services/bintan-batam-retreats" },
     { name: "Incentive Travel", path: "/services/incentive-travel" },
     { name: "Team Building", path: "/services/team-building" },
     { name: "Training", path: "/services/training" },

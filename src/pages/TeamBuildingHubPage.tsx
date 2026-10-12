@@ -291,8 +291,9 @@ const teamBuildingFooterLinks = [
   { name: "Cultural Race", path: "/services/cultural-race" },
   { name: "CSI-Bones", path: "/services/csi-bones" },
   { name: "Minute To Win It", path: "/services/minute-to-win-it" },
-  { name: "Virtual Amazing Race", path: "/services/amazing-race-virtual" },
-  { name: "Corporate Retreats", path: "/services/corporate-retreats" },
+  { name: "Indoor Team Building", path: "/services/indoor-team-building" },
+  { name: "Virtual Team Building", path: "/services/virtual-team-building" },
+  { name: "Company Retreats", path: "/services/retreats" },
   { name: "Workshops", path: "/services/workshops" },
   { name: "MBTI", path: "/services/mbti" },
 ];

@@ -52,6 +52,12 @@ function parentLinks(route) {
     const parent = routeSeo.find((candidate) => candidate.path === route.parentPath);
     if (parent) links.push(parent);
   }
+  if (route.relatedPaths?.length) {
+    links.push(...route.relatedPaths
+      .map((path) => routeSeo.find((candidate) => candidate.path === path && candidate.indexable))
+      .filter(Boolean));
+    return links;
+  }
   if (route.family && !route.slug) {
     links.push(...routeSeo.filter((candidate) => candidate.parentPath === route.path && candidate.indexable));
   }
