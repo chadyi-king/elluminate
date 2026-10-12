@@ -257,7 +257,7 @@ const comingSoonContent: Record<ComingSoonTopic, { label: string; title: string;
   "large-scale": {
     label: "Large Scale",
     title: "Large Scale Experiences",
-    body: "This section is coming soon. For now, tell us what you are planning and the Elluminate team will recommend the right format.",
+    body: "Planning for a large group? Tell us the occasion, headcount and timing, and the Elluminate team will recommend the right large-scale format.",
   },
 };
 

@@ -23,9 +23,12 @@ const resolvePreviewAsset = (src?: string) =>
 export const ServiceVideoCarousel = ({
   title,
   subtitle,
-  videos,
+  videos: allVideos,
   accentColor,
 }: ServiceVideoCarouselProps) => {
+  // Only films that exist are shown; entries without a video stay in the data
+  // until their film is ready.
+  const videos = allVideos.filter((video) => Boolean(video.videoUrl));
   const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
   const [scrollIndex, setScrollIndex] = useState(0);
 
@@ -146,9 +149,6 @@ export const ServiceVideoCarousel = ({
                       <p className="text-white text-sm font-medium leading-tight">
                         {video.title}
                       </p>
-                      {!video.videoUrl && (
-                        <span className="text-white/60 text-xs">Coming soon</span>
-                      )}
                     </div>
                   </button>
                 </motion.div>
@@ -216,7 +216,7 @@ export const ServiceVideoCarousel = ({
                 )
               ) : (
                 <div className="w-full h-full bg-muted flex items-center justify-center">
-                  <p className="text-muted-foreground">Video coming soon</p>
+                  <p className="text-muted-foreground">This video is unavailable right now.</p>
                 </div>
               )}
             </motion.div>
