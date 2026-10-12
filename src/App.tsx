@@ -13,6 +13,7 @@ const Index = lazy(() => import("./pages/Index"));
 const ServicePage = lazy(() => import("./pages/ServicePage"));
 const TeamBuildingHubPage = lazy(() => import("./pages/TeamBuildingHubPage"));
 const ServiceCampaignHubPage = lazy(() => import("./pages/ServiceCampaignHubPage"));
+const KeywordLandingPage = lazy(() => import("./pages/KeywordLandingPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
@@ -86,6 +87,13 @@ const App = () => (
               ))}
               <Route path="/services/monopoly-dash" element={<Navigate to="/services/team-building" replace />} />
               <Route path="/services/corporate-retreats" element={<Navigate to="/services/overseas-retreats" replace />} />
+              <Route path="/services/virtual-team-building" element={<KeywordLandingPage pageKey="virtual-team-building" />} />
+              <Route path="/virtual-team-building" element={<Navigate to="/services/virtual-team-building" replace />} />
+              <Route path="/services/indoor-team-building" element={<KeywordLandingPage pageKey="indoor-team-building" />} />
+              <Route path="/indoor-team-building" element={<Navigate to="/services/indoor-team-building" replace />} />
+              <Route path="/services/bintan-batam-retreats" element={<KeywordLandingPage pageKey="bintan-batam-retreats" />} />
+              <Route path="/bintan-retreat" element={<Navigate to="/services/bintan-batam-retreats" replace />} />
+              <Route path="/batam-retreat" element={<Navigate to="/services/bintan-batam-retreats" replace />} />
               <Route path="/services/:slug" element={<ServicePage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogPostPage />} />

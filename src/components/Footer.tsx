@@ -11,18 +11,18 @@ type FooterActivityLink = {
 const topActivities: FooterActivityLink[] = [
   { name: "Amazing Race", path: "/services/amazing-race" },
   { name: "CSI-Bones", path: "/services/csi-bones" },
-  { name: "Cultural Race", path: "/services/cultural-race" },
+  { name: "Indoor Team Building", path: "/services/indoor-team-building" },
   { name: "Treasure Heist", path: "/services/treasure-heist" },
   { name: "Sotong Game", path: "/services/sotong-game" },
   { name: "Nerfwar", path: "/services/nerfwar" },
   { name: "Archery Tag", path: "/services/archery-tag" },
   { name: "Running Man", path: "/services/running-man" },
-  { name: "Amazing Race Virtual", path: "/services/amazing-race-virtual" },
+  { name: "Virtual Team Building", path: "/services/virtual-team-building" },
   { name: "Overseas Retreats", path: "/services/overseas-retreats" },
   { name: "MBTI Profiling", path: "/services/mbti" },
   { name: "DISC Assessment", path: "/services/disc" },
   { name: "Workshops", path: "/services/workshops" },
-  { name: "Youth Camps", path: "/services/youth-camps" },
+  { name: "Bintan & Batam Retreats", path: "/services/bintan-batam-retreats" },
 ];
 
 // Social links removed - no active accounts for Elluminate yet
