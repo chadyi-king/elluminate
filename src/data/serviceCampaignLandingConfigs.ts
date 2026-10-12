@@ -210,7 +210,7 @@ const retreatConfig: ServiceCampaignLandingConfig = {
       "places are only the beginning. A retreat can still move work somewhere nicer without bringing the team closer. We connect the stay, schedule and shared moments so the whole trip feels worth taking.",
     cta: "Plan My Company Retreat",
     actor: "/images/campaigns/retreats/hero-retreat-man-v4.webp",
-    actorAlt: "Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler",
+    actorAlt: "Adult Asian professional holding a lit sparkler",
     actorWidth: 863,
     actorHeight: 1823,
     photos: [
@@ -587,7 +587,7 @@ const trainingConfig: ServiceCampaignLandingConfig = {
       "is the real test. You can fill a room, finish a deck and still watch everyone return to the same habits. We shape the format, facilitation and application around the work waiting outside the room.",
     cta: "Build My Training Programme",
     actor: "/images/campaigns/training/hero-training-woman-v4.webp",
-    actorAlt: "Illustrative campaign visual of a fictional adult Southeast Asian professional holding a lit sparkler and folder",
+    actorAlt: "Adult Southeast Asian professional holding a lit sparkler and folder",
     actorWidth: 873,
     actorHeight: 1802,
     photos: [

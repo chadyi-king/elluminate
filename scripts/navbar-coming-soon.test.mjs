@@ -5,9 +5,10 @@ import test from "node:test";
 const navbar = readFileSync("src/components/Navbar.tsx", "utf8");
 const app = readFileSync("src/App.tsx", "utf8");
 
-test("large scale nav item opens an on-site coming soon dialog", () => {
+test("large scale nav item opens an on-site planning dialog", () => {
   assert.match(navbar, /Large Scale/);
-  assert.match(navbar, /This section is coming soon/);
+  assert.match(navbar, /recommend the right large-scale format/);
+  assert.doesNotMatch(navbar, /coming soon/i);
   assert.match(navbar, /DialogContent/);
   assert.match(navbar, /DialogTitle/);
   assert.match(navbar, /ComingSoonNavButton topic="large-scale"/);

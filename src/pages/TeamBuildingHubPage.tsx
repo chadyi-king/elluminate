@@ -485,14 +485,14 @@ const TeamBuildingHubPage = () => {
                 >
                   <img
                     src="/images/campaigns/team-building/hero-campaign-woman-v7.webp"
-                    alt="Illustrative campaign visual of a fictional adult Asian professional holding a lit sparkler"
+                    alt="Adult Asian professional holding a lit sparkler"
                     width={971}
                     height={1619}
                     decoding="async"
                     className="h-full w-full object-cover object-top drop-shadow-[0_30px_34px_rgba(11,31,58,0.2)] lg:object-contain lg:object-bottom"
                   />
                   <figcaption className="sr-only">
-                    A fictional campaign model appears with a sparkler. The surrounding photographs show real
+                    A campaign model appears with a sparkler, surrounded by photographs from
                     Elluminate team-building events.
                   </figcaption>
                 </motion.figure>

@@ -56,7 +56,8 @@ test("hero stays simple and opens the shared Plan My Event form", () => {
   assert.doesNotMatch(heroSource, /<form\b/);
   assert.doesNotMatch(heroSource, /No payment at enquiry/);
   assert.match(heroSource, /\/images\/campaigns\/team-building\/hero-campaign-woman-v3\.webp/);
-  assert.match(heroSource, /fictional adult Asian professional holding a lit sparkler/);
+  assert.match(heroSource, /alt="Adult Asian professional holding a lit sparkler"/);
+  assert.doesNotMatch(heroSource, /Illustrative|fictional/);
   assert.match(heroSource, /aria-label="Real Elluminate team-building moments"/);
 });
 
